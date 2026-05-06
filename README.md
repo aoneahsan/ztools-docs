@@ -105,6 +105,13 @@ Documentation content reuses the ZTools app's tool content — see the [main app
 
 ## Author
 
-**Ahsan Mahmood** — [aoneahsan.com](https://aoneahsan.com) · [LinkedIn](https://linkedin.com/in/aoneahsan) · [GitHub](https://github.com/aoneahsan)
+**Ahsan Mahmood** — solo developer, Pakistan-based.
+
+- 📧 [aoneahsan@gmail.com](mailto:aoneahsan@gmail.com)
+- 📱 [WhatsApp / call: +92 304 6619706](https://wa.me/923046619706)
+- 🌐 [aoneahsan.com](https://aoneahsan.com)
+- 💼 [LinkedIn](https://linkedin.com/in/aoneahsan)
+- 🐙 [GitHub](https://github.com/aoneahsan)
+- 📦 [NPM](https://npmjs.com/~aoneahsan)
 
 [Support the project](https://aoneahsan.com/payment?project-id=ztools&project-identifier=com.zaions.ztools) if ZTools saved you time.

@@ -30,9 +30,11 @@
 
 Ahsan Mahmood — solo developer, Pakistan-based.
 - Email: aoneahsan@gmail.com
+- Phone / WhatsApp: +923046619706
 - LinkedIn: https://linkedin.com/in/aoneahsan
 - GitHub: https://github.com/aoneahsan
 - NPM: https://npmjs.com/~aoneahsan
+- Portfolio: https://aoneahsan.com
 
 ## License
 

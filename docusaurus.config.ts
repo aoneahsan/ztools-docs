@@ -115,10 +115,12 @@ const config: Config = {
         {
           title: 'Author',
           items: [
-            {label: 'aoneahsan.com', href: 'https://aoneahsan.com'},
+            {label: 'Ahsan Mahmood', href: 'https://aoneahsan.com'},
+            {label: 'aoneahsan@gmail.com', href: 'mailto:aoneahsan@gmail.com'},
+            {label: 'WhatsApp +923046619706', href: 'https://wa.me/923046619706'},
             {label: 'LinkedIn', href: 'https://linkedin.com/in/aoneahsan'},
-            {label: 'NPM', href: 'https://npmjs.com/~aoneahsan'},
             {label: 'GitHub', href: 'https://github.com/aoneahsan'},
+            {label: 'NPM', href: 'https://npmjs.com/~aoneahsan'},
           ],
         },
       ],
