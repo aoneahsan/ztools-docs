@@ -1,0 +1,106 @@
+---
+id: pdf-form-filler
+title: "PDF Form Filler — Fill, Save, Free, Browser-Only"
+description: "Fill PDF forms (text fields, checkboxes, dropdowns) in the browser. Save as filled PDF. No upload."
+sidebar_label: "pdf-form-filler"
+keywords:
+  - "pdf form filler online"
+  - "fill pdf form free"
+  - "edit pdf form browser"
+  - "acroform filler"
+  - "free pdf form editor"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-form-filler
+
+Filling a PDF form means typing into the form's fillable fields — text inputs, checkboxes, radio buttons, dropdowns — and saving the result with the values embedded. Most modern PDFs use AcroForm or XFA forms; both are supported by the ZTools PDF Form Filler. Runs in the browser via pdf-lib, supports keyboard navigation between fields, and outputs a filled PDF you can email, print, or sign. Form remains editable unless you flatten it afterwards.
+
+<ToolCTA toolId="pdf-form-filler" toolName="pdf-form-filler" />
+
+## Use cases
+
+### Fill a tax / government form
+
+Form W-9, EU GDPR consent, government applications. Fill in browser, save, submit.
+
+### Fill an insurance / medical form
+
+Submit electronically. Browser-only filling means sensitive data never uploads.
+
+### Bulk-fill a recurring form
+
+Same form weekly with mostly-static data. Save a template (default values) and only edit changed fields.
+
+### Pre-fill before printing
+
+Print is harder to correct than digital. Pre-fill and review before printing.
+
+## How it works
+
+1. **Drop PDF form** — Tool detects form fields, lists them in a side panel.
+2. **Fill fields** — Click any field in the rendered PDF or in the side panel; type or select. Tab moves to next field.
+3. **Save** — Filled PDF retains form fields (still editable) or is flattened (locked).
+
+## Examples
+
+**Input:** IRS W-9 form (PDF)
+
+**Output:** All fields editable; tool walks you through Name, Tax ID, etc. Save as filled. Optionally flatten.
+
+---
+
+**Input:** Form with required fields
+
+**Output:** Tool flags any unfilled required fields before save.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it support digital signatures?**</summary>
+
+Form-field "signature" placeholders can be drawn / typed / image-stamped. For cryptographic signatures (DocuSign-style), use a dedicated signing tool.
+
+</details>
+
+<details>
+<summary>**XFA vs AcroForm?**</summary>
+
+AcroForm fully supported. XFA partially — most XFA forms render and fill correctly, but very complex XFA layouts (with scripting / dynamic forms) may not behave perfectly.
+
+</details>
+
+<details>
+<summary>**Will my values save?**</summary>
+
+Yes — embedded into the PDF's form-data. Re-opening shows the values. Flatten to lock.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Filling happens in the browser. Form values never leave your device unless you upload the filled PDF somewhere.
+
+</details>
+
+## Tips
+
+- For repeated forms, save a "filled template" with common fields pre-populated.
+- For final / submitted forms, flatten after filling — prevents accidental edits.
+- For fields requiring specific formats (date, currency), tool warns on mismatch.
+- For large forms (50+ fields), use Tab navigation — much faster than mouse.
+
+## Try it now
+
+The full pdf-form-filler runs in your browser at **[https://ztools.zaions.com/pdf-form-filler](https://ztools.zaions.com/pdf-form-filler)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-form-filler)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-form-filler.mdx)*

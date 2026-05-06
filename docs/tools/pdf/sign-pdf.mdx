@@ -1,0 +1,124 @@
+---
+id: sign-pdf
+title: "Sign PDF — Add Signatures, Initials, Dates to PDF Forms (Free)"
+description: "Add typed, drawn, or uploaded signatures to PDFs. Place initials, dates, and text fields. 100% in-browser — your signature never leaves your device."
+sidebar_label: "sign-pdf"
+keywords:
+  - "sign pdf"
+  - "pdf signature"
+  - "electronic signature pdf"
+  - "add signature to pdf"
+  - "sign pdf online"
+  - "free pdf signing"
+  - "esign pdf"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sign-pdf
+
+A PDF signature tool lets you add a signature, initials, date, and text annotations to a PDF — typed in a script font, hand-drawn with mouse or touch, or uploaded as a PNG image of your real signature. The ZTools Sign PDF tool runs entirely in your browser using `pdf-lib`: your signature image and the source PDF never leave your device. Useful for signing contracts, NDAs, school permission slips, and any everyday document that doesn't need full eIDAS-grade qualified signing.
+
+<ToolCTA toolId="sign-pdf" toolName="sign-pdf" />
+
+## Use cases
+
+### Signing a contract or NDA without printing
+
+The traditional "print, sign, scan, email" loop is slow and resource-wasteful. Open the PDF, drop your signature on the signature line, fill in the date, download, send. Five minutes instead of half an hour.
+
+### Filling and signing a school or government form
+
+PDF forms with signature blocks, school permission slips, and tax forms can all be completed in one tool. No printer needed.
+
+### Initialing every page of a long contract
+
+Some contracts require initials on every page. Configure the tool to place your initial graphic in the same position on each page, in one operation.
+
+### Adding a date stamp to a printed-style document
+
+Even when no signature is needed, dropping a date in the corner ("Received 2026-05-05") provides a useful audit trail.
+
+## How it works
+
+1. **Drag-drop your PDF** — Loads into browser memory.
+2. **Create or upload your signature** — Type (choose a script font), draw (mouse or touch), or upload a PNG of your real signature on white background.
+3. **Place the signature on the page** — Drag onto the signature line, resize, rotate. Add multiple signatures, initials, dates, or text fields.
+4. **Repeat across pages if needed** — Copy a placed signature to other pages with one click — useful for multi-page initialing.
+5. **Click Save and download** — `pdf-lib` flattens the signature images into the PDF page content (so they're not removable as separate annotations) and emits the signed PDF.
+
+## Examples
+
+**Input:** 3-page contract + drawn signature + date "2026-05-05"
+
+**Output:** 3-page PDF with signature on page 3 signature line and date next to it
+
+---
+
+**Input:** NDA + uploaded signature PNG
+
+**Output:** PDF with the photographed real signature placed at the signature block
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this signature legally binding?**</summary>
+
+For most everyday contracts in most jurisdictions, a typed or drawn signature is legally binding (electronic signatures are recognized under ESIGN in the US, eIDAS in the EU). For high-stakes contracts requiring "qualified electronic signatures" (eIDAS QES), use a dedicated provider like DocuSign with identity verification.
+
+</details>
+
+<details>
+<summary>**Will my signature be uploaded?**</summary>
+
+No. Your signature image and the PDF stay in your browser. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**Can the signature be removed from the saved PDF?**</summary>
+
+After saving, the signature is flattened into the page content (not stored as a separate annotation), so it's not trivially removable. Determined attackers with image-editing tools can still alter PDFs — for tamper-evidence, use a digital signature with a certificate.
+
+</details>
+
+<details>
+<summary>**Should I type or draw my signature?**</summary>
+
+Drawn or uploaded image of your real signature is most personal and most accepted. Typed (in a script font) is acceptable for low-stakes documents but lacks the unique-handwriting characteristic.
+
+</details>
+
+<details>
+<summary>**Can I add my signature to a password-protected PDF?**</summary>
+
+Unlock first with our PDF Unlock tool (you must know the password), then sign, then re-protect if needed.
+
+</details>
+
+<details>
+<summary>**Is there a way to apply the same signature across many PDFs?**</summary>
+
+Sign each PDF individually with the same uploaded signature image. For batch signing of many similar contracts, consider a dedicated e-signature service.
+
+</details>
+
+## Tips
+
+- Upload a PNG of your real signature on a white background for the most authentic result.
+- For better visual integration, use a transparent-background PNG (signature on transparent) — looks like ink directly on the page.
+- Add a date next to your signature — common contract convention and an audit trail.
+- For high-stakes contracts (real estate, financial), use a dedicated e-signature service with identity verification.
+
+## Try it now
+
+The full sign-pdf runs in your browser at **[https://ztools.zaions.com/sign-pdf](https://ztools.zaions.com/sign-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sign-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/sign-pdf.mdx)*

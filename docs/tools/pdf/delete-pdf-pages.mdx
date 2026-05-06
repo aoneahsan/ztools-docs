@@ -1,0 +1,123 @@
+---
+id: delete-pdf-pages
+title: "Delete PDF Pages — Remove Pages from a PDF (Free, In-Browser)"
+description: "Delete one or more pages from a PDF. Visual page picker. Preserves quality. 100% in-browser — no upload, no watermark, no email."
+sidebar_label: "delete-pdf-pages"
+keywords:
+  - "delete pdf pages"
+  - "remove pdf pages"
+  - "pdf page remover"
+  - "delete pages from pdf"
+  - "free pdf page deleter"
+  - "trim pdf"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# delete-pdf-pages
+
+A delete-PDF-pages tool removes selected pages from a PDF and saves the result as a new file (the original on disk stays untouched). The ZTools Delete PDF Pages tool offers a thumbnail grid where you click to mark pages for deletion, plus a range-string input for power users (`5, 8-10, 15`). Built on `pdf-lib`, it preserves text quality, images, fonts, and form fields on the remaining pages exactly. Useful for trimming blank pages, removing confidential appendices, or excising scanned photos that snuck into a document scan.
+
+<ToolCTA toolId="delete-pdf-pages" toolName="delete-pdf-pages" />
+
+## Use cases
+
+### Removing blank pages produced by a scanner
+
+Auto-feeders sometimes capture blank backsides of single-sided originals. Click the blank thumbnails, hit Delete, save the cleaner file.
+
+### Removing confidential pages before external sharing
+
+A board pack has internal salary data on pages 28-35. Delete those pages, save as the "external" version, send. Keep the original intact for board records.
+
+### Trimming a draft to its final length
+
+You drafted 30 pages but the final report should be 20. Delete the cut sections in one operation; faster than recreating the file.
+
+### Removing unwanted cover or appendix pages
+
+A downloaded PDF has marketing covers, table-of-contents, and bibliographies you don't need. Delete pages 1-3 and 45-50 to keep just the body.
+
+## How it works
+
+1. **Drag-drop your PDF** — Loads into browser memory.
+2. **Mark pages to delete** — Click thumbnails to mark, or type a range string (`5, 8-10, 15`). Marked pages are visually crossed out.
+3. **Preview the result** — A "remaining pages" count shows how many will be in the output. Verify before saving.
+4. **Click Delete and Save** — `pdf-lib` builds a new PDF containing only the unmarked pages, preserving all original content.
+5. **Download** — Save the trimmed file. The original on your disk is untouched — this tool produces a new file.
+
+## Examples
+
+**Input:** 30-page PDF, delete pages 5, 12, and 28-30
+
+**Output:** 26-page PDF with the remaining pages in original order
+
+---
+
+**Input:** 50-page scan with 10 blank backsides interspersed
+
+**Output:** 40-page PDF, blanks removed, ready for archival
+
+## Frequently asked questions
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Page deletion happens entirely in your browser via `pdf-lib`. No file leaves your device.
+
+</details>
+
+<details>
+<summary>**Is the original file modified?**</summary>
+
+No. The tool builds a new file from the source; your original on disk stays exactly as it was.
+
+</details>
+
+<details>
+<summary>**Are bookmarks preserved?**</summary>
+
+Yes for bookmarks pointing to surviving pages (re-indexed to new page numbers). Bookmarks targeting deleted pages are removed.
+
+</details>
+
+<details>
+<summary>**Can I undo a delete after saving?**</summary>
+
+No — the saved file omits the deleted pages. Always keep your original until you've verified the trimmed version is correct.
+
+</details>
+
+<details>
+<summary>**Can I delete pages from a password-protected PDF?**</summary>
+
+Unlock first with our PDF Unlock tool (you must know the password).
+
+</details>
+
+<details>
+<summary>**Is there a fast way to delete every blank page?**</summary>
+
+Manually clicking is fast for a few; for hundreds, use a desktop tool with auto blank-detection (e.g., `qpdf` or `pdfcrop`).
+
+</details>
+
+## Tips
+
+- Always preview "remaining pages" before saving — easy to delete more than intended.
+- Pair with our Rotate PDF tool when scanned pages need fixing AND trimming.
+- For frequent blank-removal at scale, a desktop tool with automatic detection is faster.
+- Keep the original file until the trimmed version is verified.
+
+## Try it now
+
+The full delete-pdf-pages runs in your browser at **[https://ztools.zaions.com/delete-pdf-pages](https://ztools.zaions.com/delete-pdf-pages)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/delete-pdf-pages)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/delete-pdf-pages.mdx)*

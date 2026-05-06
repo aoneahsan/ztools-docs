@@ -1,0 +1,123 @@
+---
+id: extract-pdf-pages
+title: "Extract PDF Pages — Pull Specific Pages into a New PDF (Free)"
+description: "Extract one or more pages from a PDF into a new file. Specify ranges (1-5, 8, 10-12). Preserves quality. No upload, no watermark."
+sidebar_label: "extract-pdf-pages"
+keywords:
+  - "extract pdf pages"
+  - "pull pages from pdf"
+  - "pdf page extractor"
+  - "extract specific pages pdf"
+  - "free pdf extract"
+  - "pdf page selector"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# extract-pdf-pages
+
+An extract-PDF-pages tool pulls selected pages from a source PDF and saves them as a new, smaller PDF — leaving the original untouched. The ZTools Extract PDF Pages tool accepts page ranges (`1-5, 8, 10-12`), individual pages, or a click-to-select grid view. Built on `pdf-lib`, it preserves text quality, embedded images, fonts, hyperlinks, and form fields exactly. Faster than splitting the whole document when you only need a handful of pages.
+
+<ToolCTA toolId="extract-pdf-pages" toolName="extract-pdf-pages" />
+
+## Use cases
+
+### Sharing only the executive summary from a long report
+
+Your 80-page report has the summary on pages 2-4. Extract those three pages, send a 200-KB file to the executive instead of an 8 MB attachment they'll never fully open.
+
+### Pulling a single appendix from a contract pack
+
+A 50-page contract bundle has the SLA on pages 35-42. Extract those pages for a quick reference card or to send to the operations team.
+
+### Building a custom briefing from multiple long documents
+
+Extract relevant pages from each source PDF, then merge with our PDF Merge tool to build a custom briefing pack for a meeting.
+
+### Saving evidence pages from a research report
+
+You're writing a paper and want to cite specific pages from a 200-page government report. Extract those pages as a standalone PDF for your reference folder.
+
+## How it works
+
+1. **Drag-drop your source PDF** — Loads into browser memory.
+2. **Specify pages to extract** — Type a range string (`1-5, 8, 10-12`), select from a thumbnail grid, or both — they combine.
+3. **Choose output mode** — Single combined PDF (default — all selected pages in one file) or one PDF per selected page (for batch extraction).
+4. **Click Extract** — `pdf-lib` copies the selected pages into a new document, preserving all original content and resources.
+5. **Download** — Single combined output: direct download. Multiple outputs: bundled as a ZIP via JSZip.
+
+## Examples
+
+**Input:** 80-page report, extract pages 2-4 and page 35
+
+**Output:** 4-page PDF containing the requested pages in original order
+
+---
+
+**Input:** 50-page invoice batch, extract pages 1, 5, 10 as separate files
+
+**Output:** ZIP with 3 single-page PDFs
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from Split PDF?**</summary>
+
+Extract pulls specific pages into one or more new files; Split divides the whole document into chunks (e.g., every N pages). Use Extract for surgical "just these pages"; Split for whole-document partitioning.
+
+</details>
+
+<details>
+<summary>**Will the extracted PDF be smaller?**</summary>
+
+Yes — only the requested pages and their resources are included. If 3 of 80 pages are extracted, output is roughly 3/80 of the original size (sometimes slightly more because shared resources like fonts are duplicated minimally).
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Extraction runs entirely in your browser via `pdf-lib`. No file leaves your device.
+
+</details>
+
+<details>
+<summary>**Are bookmarks, form fields, and annotations preserved?**</summary>
+
+Annotations and form fields on extracted pages: yes. Bookmarks: only those pointing to extracted pages survive (re-indexed to new page numbers).
+
+</details>
+
+<details>
+<summary>**Can I extract from a password-protected PDF?**</summary>
+
+Unlock it first with our PDF Unlock tool (you must know the password). Extracting from an encrypted PDF will fail.
+
+</details>
+
+<details>
+<summary>**Can I reorder extracted pages?**</summary>
+
+The tool preserves original document order by default. To reorder, use our PDF Page Reorder tool after extraction.
+
+</details>
+
+## Tips
+
+- Use range syntax (`1-5, 8, 10-12`) for fast multi-page selection.
+- For batch jobs, "one PDF per page" mode pairs well with renaming and filing workflows.
+- For complex reorganization, extract → reorder with PDF Page Reorder → merge as needed.
+- Always check page numbers in the source first — off-by-one is the most common extraction error.
+
+## Try it now
+
+The full extract-pdf-pages runs in your browser at **[https://ztools.zaions.com/extract-pdf-pages](https://ztools.zaions.com/extract-pdf-pages)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/extract-pdf-pages)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/extract-pdf-pages.mdx)*

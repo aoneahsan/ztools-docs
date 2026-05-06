@@ -1,0 +1,125 @@
+---
+id: protect-pdf
+title: "Protect PDF — Add Password Protection to PDF Files (Free, In-Browser)"
+description: "Add a password to a PDF. AES-256 encryption, restrict printing/copying/editing. 100% in-browser — your password and file never leave your device."
+sidebar_label: "protect-pdf"
+keywords:
+  - "protect pdf"
+  - "password protect pdf"
+  - "encrypt pdf"
+  - "pdf password"
+  - "pdf security"
+  - "pdf encryption"
+  - "aes 256 pdf"
+  - "free pdf protector"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# protect-pdf
+
+A PDF protector adds password-based AES-256 encryption to a PDF, requiring the password before any reader can open the file. The ZTools Protect PDF tool can also set permission flags (block printing, block copying text, block editing/annotations) which most modern readers honor. Encryption happens entirely in your browser; the password and file never leave your device. Use it before emailing sensitive documents, archiving regulated records, or sharing via insecure channels (Slack, USB drives, public file links).
+
+<ToolCTA toolId="protect-pdf" toolName="protect-pdf" />
+
+## Use cases
+
+### Emailing a contract that contains sensitive terms
+
+Email is not secure transport. Encrypting the PDF with a password (shared via a separate channel — phone, Signal) protects against accidental forwarding and email-server breaches.
+
+### Archiving HR or medical records
+
+Compliance frameworks (HIPAA, GDPR) often require encryption at rest for sensitive personal data. AES-256 password encryption satisfies most "encrypted file" requirements when paired with key management.
+
+### Distributing a paid ebook or report
+
+Combine password protection with restrict-copying and restrict-printing flags to make casual redistribution harder. (Determined attackers can still bypass; this is a deterrent, not a DRM system.)
+
+### Sharing draft documents that should not be edited or printed
+
+Set the permission flags to block editing, annotation, and printing. Recipients can read on screen but can't accidentally save a modified version or hand a printed draft around.
+
+## How it works
+
+1. **Drag-drop your PDF** — File loads into browser memory.
+2. **Set the open password** — The user must enter this password to open the file. Strong passwords (16+ characters) are mandatory for sensitive content; the tool integrates with our Password Generator.
+3. **Optionally set an owner password** — A second password unlocks the permission restrictions. If you set only an open password, anyone who opens the file can also override permissions.
+4. **Choose permission flags** — Block printing, block copying text, block editing/annotations, block form filling. Most readers honor these flags but a determined attacker with the open password can bypass.
+5. **Click Encrypt and download** — AES-256 encryption is applied via `pdf-lib`. Save the encrypted file; share the password through a separate channel.
+
+## Examples
+
+**Input:** 5-page contract, open password "fH#7Lm2!Qn5RtVx9", restrict printing + copying
+
+**Output:** Encrypted PDF requiring the password to open; printing and text copy disabled in compliant readers
+
+---
+
+**Input:** 50-page report, open password only (no permission flags)
+
+**Output:** Encrypted PDF; full read/print/copy after password entry
+
+## Frequently asked questions
+
+<details>
+<summary>**How strong is the encryption?**</summary>
+
+AES-256 with PBKDF2 key derivation — the same encryption used by AWS, banks, and government archives. Strength depends entirely on the password: a 16+ character random password makes brute force infeasible; a weak password like `1234` is broken in seconds.
+
+</details>
+
+<details>
+<summary>**Will my password or file be uploaded?**</summary>
+
+No. Encryption happens entirely in your browser. Disconnect from the internet after page load and the tool still works. Verify with DevTools → Network.
+
+</details>
+
+<details>
+<summary>**What happens if I forget the password?**</summary>
+
+There is no recovery. AES-256 with a strong password is computationally infeasible to brute force. Always store the password in a password manager when you encrypt; without it, the file is permanently inaccessible.
+
+</details>
+
+<details>
+<summary>**Are the permission flags (no-print, no-copy) bulletproof?**</summary>
+
+No — they're an honor system. Most consumer readers (Adobe, Preview, Chrome) honor them; specialized tools can bypass. Treat permissions as a deterrent against casual misuse, not as DRM.
+
+</details>
+
+<details>
+<summary>**Can I encrypt a PDF that already has a password?**</summary>
+
+Unlock first with our PDF Unlock tool (you must know the existing password), then re-encrypt with the new password and permissions.
+
+</details>
+
+<details>
+<summary>**Is encrypted PDF readable on all platforms?**</summary>
+
+Yes — AES-256 PDF encryption is supported in Adobe Reader, Apple Preview, all major browsers, and most mobile readers. Older readers (pre-2010) may not support AES-256.
+
+</details>
+
+## Tips
+
+- Generate the password with our Password Generator — 16+ characters with all character classes.
+- Store the password in a password manager the moment you encrypt — losing the password loses the file.
+- Share the password via a separate channel (phone, Signal) — never in the same email as the file.
+- For long-term archival, document the password in your secrets manager AND a sealed envelope in a fireproof safe.
+
+## Try it now
+
+The full protect-pdf runs in your browser at **[https://ztools.zaions.com/protect-pdf](https://ztools.zaions.com/protect-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/protect-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/protect-pdf.mdx)*

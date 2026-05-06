@@ -1,0 +1,124 @@
+---
+id: image-to-pdf
+title: "Image to PDF — Combine JPG, PNG, WebP into One PDF (Free)"
+description: "Combine multiple images into a single PDF. Reorder, rotate, set page size and orientation. 100% in-browser — no upload, no watermark."
+sidebar_label: "image-to-pdf"
+keywords:
+  - "image to pdf"
+  - "jpg to pdf"
+  - "png to pdf"
+  - "combine images to pdf"
+  - "photos to pdf"
+  - "merge images pdf"
+  - "free image to pdf converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-to-pdf
+
+An image-to-PDF converter takes one or more images (JPG, PNG, WebP, GIF, BMP) and assembles them into a single PDF file with one image per page. The ZTools Image to PDF tool offers full control: drag to reorder, rotate per page, choose page size (A4, Letter, Legal, custom), orientation (portrait/landscape), margin, and image fit (contain, cover, or original size). Built on `pdf-lib` and runs entirely in the browser — no upload, no watermark, no file count limit beyond browser memory.
+
+<ToolCTA toolId="image-to-pdf" toolName="image-to-pdf" />
+
+## Use cases
+
+### Submitting scanned documents (passport, IDs, certificates) as a single PDF
+
+Most government forms and visa portals require all supporting documents combined into one PDF. Drop the photos of passport, ID front/back, and certificates; reorder; export. One file, ready for upload.
+
+### Bundling phone photos of a paper document into a sharable file
+
+You photograph a 4-page contract with your phone. Combine the four images into a single PDF, send via email — looks like a proper scan, faster than running CamScanner end-to-end.
+
+### Creating a portfolio PDF from individual JPGs
+
+Designers and photographers often need a PDF deliverable. Drop your portfolio images, set Letter landscape, choose "contain" fit, and export — ready to email or print.
+
+### Compiling receipts from multiple photos into one expense PDF
+
+Snap each receipt as a photo, combine into a single PDF, upload to your expense system. One file per trip beats 12 separate attachments.
+
+## How it works
+
+1. **Drag-drop or select images** — JPG, PNG, WebP, GIF, BMP supported. Add more later — the file list is editable until export.
+2. **Reorder by drag-drop** — Each image becomes a page; rearrange the list to control the page order.
+3. **Choose page settings** — Page size (A4, Letter, Legal, A3, custom mm/inches). Orientation (portrait/landscape/auto-per-image). Margin (0 / small / medium / custom). Image fit (contain — keep ratio, fit inside; cover — fill, may crop; original — no scaling).
+4. **Per-image rotation if needed** — Rotate any image 90°/180°/270° before composition — useful for sideways phone shots.
+5. **Click Export and download** — `pdf-lib` builds the PDF in browser memory and offers download. No server roundtrip.
+
+## Examples
+
+**Input:** 4 JPG scans of a contract → A4 portrait, "contain" fit, 10mm margin
+
+**Output:** Single 4-page A4 PDF, each image scaled to fit the page with margin
+
+---
+
+**Input:** 20 portfolio JPGs at varying ratios → Letter landscape, "contain" fit
+
+**Output:** 20-page PDF, each image centered with white borders to fill the page
+
+## Frequently asked questions
+
+<details>
+<summary>**Is there a limit on number of images?**</summary>
+
+Practical limit is browser memory. 50-100 images compose comfortably; mobile devices may struggle above 50 large images.
+
+</details>
+
+<details>
+<summary>**Will the output PDF be huge?**</summary>
+
+PDF size ≈ sum of input image sizes (no extra compression by default). For smaller output, compress images first with our Image Compressor, or run the result through PDF Compressor.
+
+</details>
+
+<details>
+<summary>**What's the difference between contain, cover, and original fit modes?**</summary>
+
+Contain: scale image to fit inside the page, preserving aspect ratio (may add white borders). Cover: scale to fill the page, preserving aspect ratio (may crop). Original: no scaling, image placed at natural size (may overflow).
+
+</details>
+
+<details>
+<summary>**Will my images be uploaded?**</summary>
+
+No. Composition runs entirely in your browser. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**Are EXIF metadata (location, camera info) preserved?**</summary>
+
+No — the PDF embeds the image pixel data only, not the EXIF. This is a privacy feature: PDFs of scanned receipts won't accidentally leak GPS coordinates.
+
+</details>
+
+<details>
+<summary>**Can I add page numbers or headers?**</summary>
+
+Not directly — for that, use a dedicated PDF editor after export. The tool focuses on the image-to-PDF assembly step.
+
+</details>
+
+## Tips
+
+- Set orientation to "auto-per-image" for mixed portrait/landscape photo sets.
+- For document scans, choose A4 portrait with a 10-15mm margin — looks like a proper scan.
+- For portfolios, use Letter landscape with "contain" fit for maximum image area.
+- If the output is too large, run Image Compressor on inputs first.
+
+## Try it now
+
+The full image-to-pdf runs in your browser at **[https://ztools.zaions.com/image-to-pdf](https://ztools.zaions.com/image-to-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-to-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/image-to-pdf.mdx)*

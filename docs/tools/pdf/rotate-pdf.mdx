@@ -1,0 +1,124 @@
+---
+id: rotate-pdf
+title: "Rotate PDF — Fix Sideways or Upside-Down Pages (Free, In-Browser)"
+description: "Rotate PDF pages 90°, 180°, or 270° — all pages or just selected pages. Permanent rotation saved in the file. No upload, no watermark."
+sidebar_label: "rotate-pdf"
+keywords:
+  - "rotate pdf"
+  - "pdf rotator"
+  - "turn pdf pages"
+  - "fix sideways pdf"
+  - "rotate pdf online"
+  - "free pdf rotator"
+  - "pdf orientation fix"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# rotate-pdf
+
+A PDF rotator turns pages 90°, 180°, or 270° clockwise and saves the rotation permanently in the file (as opposed to a temporary view rotation in a PDF reader). The ZTools Rotate PDF tool lets you rotate every page at once, or pick specific pages — useful when only the cover or a single landscape table is sideways. Built on `pdf-lib` and runs entirely in your browser; no upload, no watermark.
+
+<ToolCTA toolId="rotate-pdf" toolName="rotate-pdf" />
+
+## Use cases
+
+### Fixing sideways scans from a flatbed scanner
+
+Scanners frequently produce sideways pages when the original was placed wrong. Rotate 90° clockwise (or counter-clockwise), save once, and never have to tilt your head reading the file again.
+
+### Rotating only a single landscape page in a portrait document
+
+A landscape table buried in a portrait report appears sideways when printed back-to-back. Rotate just that page 90° so it prints right-side-up when bound.
+
+### Correcting upside-down photos in a phone-scanned document
+
+CamScanner sometimes captures pages upside-down depending on phone orientation. Rotate 180° to fix without reshooting.
+
+### Re-orienting OCR-friendly scans
+
+OCR engines work much better when text is right-side-up. Rotate before running our PDF OCR tool to dramatically improve text-extraction accuracy.
+
+## How it works
+
+1. **Drag-drop your PDF** — File loads into browser memory; nothing uploaded.
+2. **Preview thumbnails of every page** — A grid view shows each page; click any thumbnail to select it for rotation.
+3. **Choose rotation angle** — 90° clockwise, 180°, or 270° (90° counter-clockwise). The thumbnail updates instantly so you can verify orientation.
+4. **Apply to selected pages or all pages** — Rotate just the pages you selected, or apply to every page in one click.
+5. **Click Save and download** — `pdf-lib` rewrites the page rotation entries in the PDF and emits the modified file. Rotation is permanent — no temporary "view rotation" hack.
+
+## Examples
+
+**Input:** 20-page scanned report with pages 5 and 12 sideways
+
+**Output:** Same 20-page PDF with pages 5 and 12 rotated 90° clockwise; all other pages untouched
+
+---
+
+**Input:** Entire 50-page document scanned upside-down
+
+**Output:** 50-page PDF rotated 180°, ready for normal reading or further OCR
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the rotation permanent or just a view setting?**</summary>
+
+Permanent. The tool rewrites the PDF's page-rotation metadata so every viewer (Adobe Reader, Preview, Chrome) shows the page rotated. Compare to the "Rotate View" command in some readers, which doesn't save.
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Rotation runs entirely in your browser via `pdf-lib`. No file leaves your device.
+
+</details>
+
+<details>
+<summary>**Are form fields, annotations, and bookmarks preserved?**</summary>
+
+Yes — only the page-rotation entry changes; everything else stays intact.
+
+</details>
+
+<details>
+<summary>**Why does my rotated PDF look correct in some readers but not others?**</summary>
+
+A small minority of readers ignore the page-rotation metadata. The tool also offers a "rasterize and re-orient" mode that bakes the rotation into the page content for maximum compatibility (slightly larger output).
+
+</details>
+
+<details>
+<summary>**Can I rotate different pages by different angles?**</summary>
+
+Yes — select page A, rotate 90°; select page B, rotate 180°. Rotations are tracked per-page until you save.
+
+</details>
+
+<details>
+<summary>**Is text searchability preserved after rotation?**</summary>
+
+Yes — rotation only changes display orientation, not the underlying text content. PDF search and OCR text layers continue to work.
+
+</details>
+
+## Tips
+
+- Always preview before saving — easy to rotate the wrong direction the first time.
+- For OCR pre-processing, rotate first; OCR accuracy depends on text being right-side-up.
+- For mixed-orientation reports, rotate per-page rather than applying a global rotation.
+- If a viewer shows the wrong orientation, try the "rasterize" mode for maximum compatibility.
+
+## Try it now
+
+The full rotate-pdf runs in your browser at **[https://ztools.zaions.com/rotate-pdf](https://ztools.zaions.com/rotate-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/rotate-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/rotate-pdf.mdx)*

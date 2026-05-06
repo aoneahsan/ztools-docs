@@ -1,0 +1,113 @@
+---
+id: pdf-to-text-extractor
+title: "PDF to Text Extractor — Free, Browser-Only"
+description: "Extract plain text from any PDF. Preserves paragraph structure where possible. Browser-only — no upload."
+sidebar_label: "pdf-to-text-extractor"
+keywords:
+  - "pdf to text extractor"
+  - "extract text from pdf"
+  - "pdf text extraction online"
+  - "pdf to plain text"
+  - "free pdf text extractor"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-to-text-extractor
+
+Extracting text from a PDF gives you the document's words as plain text — usable in editors, search indexes, ChatGPT prompts, or anywhere you need the content without the PDF wrapper. The ZTools PDF to Text Extractor uses PDF.js to parse the document and pull out text streams in reading order (with best-effort paragraph reconstruction). Works only on PDFs with embedded text — scanned PDFs need OCR (use the PDF OCR tool). Runs entirely in the browser; documents never upload.
+
+<ToolCTA toolId="pdf-to-text-extractor" toolName="pdf-to-text-extractor" />
+
+## Use cases
+
+### Copy text from a PDF for re-use
+
+A long article in PDF form. Extract → paste into a notes app, blog, or summary tool.
+
+### Feed PDF content to an LLM
+
+ChatGPT / Claude have file-upload limits. Extract text first, paste only the relevant section.
+
+### Index PDFs for search
+
+Build a personal search index across your downloaded PDFs. Extract text, store, search.
+
+### Translate a PDF
+
+Many translation tools accept text but not PDF. Extract → translate → re-format.
+
+## How it works
+
+1. **Drop PDF** — Loaded into PDF.js.
+2. **Walk page-by-page** — For each page, extract text streams. Each stream has positional info; tool reconstructs reading order.
+3. **Reconstruct paragraphs** — Heuristic: blank lines indicate paragraph breaks. Hyphenated words at line ends rejoined.
+4. **Output** — Plain text. Optional: per-page separator, page numbers, retain layout vs flowed text.
+
+## Examples
+
+**Input:** 50-page report PDF
+
+**Output:** Extracted text in reading order, ~10,000-30,000 words depending on density.
+
+---
+
+**Input:** Two-column academic paper
+
+**Output:** Reading order may zig-zag if columns aren't detected. Toggle "two-column mode" for better order.
+
+---
+
+**Input:** Scanned PDF (image-only)
+
+**Output:** No text extracted (no embedded text). Use the OCR tool instead.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is my output garbled?**</summary>
+
+PDF text extraction is heuristic. Multi-column layouts, complex typography, custom fonts can confuse the order. Try toggling "preserve layout" or use OCR for scanned PDFs.
+
+</details>
+
+<details>
+<summary>**Are headers / footers included?**</summary>
+
+By default yes. Toggle "skip repeated content" to drop running headers and page footers.
+
+</details>
+
+<details>
+<summary>**Can it extract tables?**</summary>
+
+Tables come out as text rows but lose column alignment. For structured tables, use a dedicated PDF-to-CSV tool.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For text-only PDFs, this works well. For scanned PDFs, use OCR.
+- For LLM ingestion, extract text first then trim to relevant sections — saves tokens and improves answers.
+- For two-column layouts, toggle the column-aware mode for better order.
+- For structured data extraction (tables, forms), dedicated tools (Tabula, Adobe Acrobat's export) work better.
+
+## Try it now
+
+The full pdf-to-text-extractor runs in your browser at **[https://ztools.zaions.com/pdf-to-text-extractor](https://ztools.zaions.com/pdf-to-text-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-to-text-extractor)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-to-text-extractor.mdx)*

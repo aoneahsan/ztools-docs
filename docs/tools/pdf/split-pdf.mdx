@@ -1,0 +1,126 @@
+---
+id: split-pdf
+title: "Split PDF — Extract Pages or Break Files into Multiple PDFs (Free)"
+description: "Split a PDF into multiple files by page range, every Nth page, or one PDF per page. 100% in-browser — no upload, no watermark, no email required."
+sidebar_label: "split-pdf"
+keywords:
+  - "split pdf"
+  - "pdf splitter"
+  - "split pdf into multiple files"
+  - "extract pdf pages"
+  - "break pdf"
+  - "divide pdf"
+  - "separate pdf pages"
+  - "free pdf splitter"
+  - "pdf splitter no upload"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# split-pdf
+
+A PDF splitter is a tool that breaks a single PDF into two or more smaller PDFs by page range, fixed page count, or per-document boundary detection. The ZTools Split PDF tool runs entirely in your browser using `pdf-lib` — no upload, no watermark, no file-size cap beyond your browser memory. Splits can be defined as page ranges (e.g. "1-5, 7, 10-12"), every-N-pages (great for chapter-per-PDF books), or "one PDF per page" mode for archiving multi-page scans into individual files.
+
+<ToolCTA toolId="split-pdf" toolName="split-pdf" />
+
+## Use cases
+
+### Sharing only the relevant chapter of a long report
+
+A 200-page board report has one chapter for each board member. Split the file into individual chapters and send each member only their relevant section. Faster review, less email weight, fewer "scroll to page 87" instructions.
+
+### Archiving multi-page scans as one-page documents
+
+A scanner often produces a single PDF for a stack of 30 receipts. Split into 30 individual files so each receipt can be filed against its own ledger entry, expense report, or supplier folder.
+
+### Removing confidential sections before external sharing
+
+Your contract has appendices with internal pricing on pages 28-35. Split into "pages 1-27" (the version you send to the counterparty) and "pages 28-35" (the version you keep internal). Faster than redacting and safer than hand-copying.
+
+### Preparing exam papers or invoice batches
+
+Print a class set of 30 different exam papers as one combined PDF, then split per-page so each student gets their own file for emailing or LMS upload. Same workflow for invoice runs.
+
+## How it works
+
+1. **Drag-drop or select your PDF** — The file is loaded into memory in your browser via the File API. Nothing is uploaded.
+2. **Choose split mode** — By page ranges (e.g. "1-5, 7, 10-12"), every N pages (great for chaptered docs), or one PDF per page.
+3. **Preview the resulting files** — A list shows each output file with its page count and approximate size before generation. Reorder if needed.
+4. **Click Split** — `pdf-lib` walks the PDF, copies the requested page ranges into new documents, and re-emits each as an independent PDF — preserving fonts, images, and form fields.
+5. **Download individually or as a ZIP** — Single output: direct download. Multiple outputs: bundled as a ZIP via JSZip in the browser.
+
+## Examples
+
+**Input:** 120-page user manual, split mode "Every 30 pages"
+
+**Output:** 4 PDFs: pages 1-30, 31-60, 61-90, 91-120 (renamed `manual-part-1.pdf` … `manual-part-4.pdf`)
+
+---
+
+**Input:** 50-page invoice batch, split mode "One PDF per page"
+
+**Output:** 50 single-page PDFs in a ZIP — ready to file or email individually
+
+## Frequently asked questions
+
+<details>
+<summary>**Will my PDF be uploaded to your server?**</summary>
+
+No. Splitting happens entirely in your browser via `pdf-lib`. Open DevTools → Network and you will see zero upload requests during the operation. Disconnect from the internet after the page loads — splitting still works.
+
+</details>
+
+<details>
+<summary>**Is there a file-size limit?**</summary>
+
+Practical limit is your browser memory. Files up to ~200 MB split comfortably on a desktop browser; mobile devices may struggle above ~50 MB.
+
+</details>
+
+<details>
+<summary>**Will the split files be smaller than the original?**</summary>
+
+Each output contains only its assigned pages, so total combined size is roughly equal to the original (sometimes slightly smaller because shared resources are deduplicated). For per-page size reduction, run our PDF Compressor on the outputs.
+
+</details>
+
+<details>
+<summary>**Are form fields, bookmarks, and annotations preserved?**</summary>
+
+Form fields and annotations on extracted pages are preserved. Bookmarks pointing to pages outside the split range are removed; bookmarks within the range are kept and re-indexed.
+
+</details>
+
+<details>
+<summary>**Can I split a password-protected PDF?**</summary>
+
+You must unlock it first using our PDF Unlock tool (you need to know the password). Splitting a still-encrypted PDF will fail with a clear error.
+
+</details>
+
+<details>
+<summary>**How are output files named?**</summary>
+
+By default: `\{originalName\}-part-1.pdf`, `\{originalName\}-part-2.pdf`, etc. Editable before download.
+
+</details>
+
+## Tips
+
+- Use page-range mode (e.g. "1-5, 7, 10") for surgical extraction — easier than running Extract Pages multiple times.
+- Use "one PDF per page" for batches of single-page documents (receipts, invoices, exam papers).
+- Pair with PDF Compressor afterwards if you need each output as small as possible for email.
+- For repetitive splits (every quarter, every meeting), save your page-range pattern in a snippet — same input every time.
+
+## Try it now
+
+The full split-pdf runs in your browser at **[https://ztools.zaions.com/split-pdf](https://ztools.zaions.com/split-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/split-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/split-pdf.mdx)*

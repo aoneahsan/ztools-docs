@@ -1,0 +1,124 @@
+---
+id: watermark-pdf
+title: "Watermark PDF — Add Text or Image Watermarks to PDFs (Free)"
+description: "Add text or image watermarks to every PDF page — opacity, rotation, position, repeat. \"DRAFT\", \"CONFIDENTIAL\", logos. In-browser, no upload."
+sidebar_label: "watermark-pdf"
+keywords:
+  - "watermark pdf"
+  - "add watermark to pdf"
+  - "pdf watermark tool"
+  - "draft watermark pdf"
+  - "confidential watermark"
+  - "free pdf watermarker"
+  - "logo watermark pdf"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# watermark-pdf
+
+A PDF watermarker overlays a text or image mark (semi-transparent, repeated, rotated) on every page of a PDF — a low-cost deterrent against unauthorized reuse and a fast way to label drafts, confidential documents, or copy-protected content. The ZTools Watermark PDF tool supports text watermarks (font, size, color, opacity, rotation) and image watermarks (PNG with transparency, scaled), positioned at center, corner, or tiled across each page. Built on `pdf-lib` and runs in your browser; no upload, no watermark on the watermark tool.
+
+<ToolCTA toolId="watermark-pdf" toolName="watermark-pdf" />
+
+## Use cases
+
+### Marking drafts so they're never confused with finals
+
+A diagonal "DRAFT" watermark in light gray makes it impossible to mistake a working version for the signed-off final. Add to every draft circulation; remove when finalized.
+
+### Adding "CONFIDENTIAL" to internal-only documents
+
+A red "CONFIDENTIAL" stamp tells anyone who finds a forwarded or printed copy that the document was not meant for them. Combined with PDF protection (password + restrict-print), forms a layered deterrent.
+
+### Branding distributed reports with a company logo
+
+A semi-transparent logo in the corner of every page subtly brands deliverables sent to clients — a marketing touch without overwhelming the content.
+
+### Adding "PAID" or "VOID" stamps to invoices
+
+Mark processed invoices with a status stamp before archival, so anyone reviewing later sees the lifecycle status at a glance.
+
+## How it works
+
+1. **Drag-drop your PDF** — Loads into browser memory.
+2. **Choose watermark type** — Text (custom string with font/size/color) or Image (PNG with transparency).
+3. **Configure appearance** — Opacity (10-100%), rotation (-90° to +90°), position (center, corners, tiled), per-page or per-page-range.
+4. **Preview on the first page** — A live preview shows exactly how the watermark will appear before applying to every page.
+5. **Click Apply and download** — `pdf-lib` overlays the watermark on every page (or selected range) and emits the new PDF. Original on disk untouched.
+
+## Examples
+
+**Input:** Text "DRAFT", 72pt, gray, 30% opacity, rotated 45°, centered on every page
+
+**Output:** PDF with diagonal gray "DRAFT" mark across each page
+
+---
+
+**Input:** Logo PNG, 20% opacity, bottom-right corner, scaled to 100px wide
+
+**Output:** PDF with subtle logo on every page
+
+## Frequently asked questions
+
+<details>
+<summary>**Can the watermark be removed?**</summary>
+
+A watermark is overlaid on the page content; with effort and dedicated tools, it can be removed (especially text watermarks). Treat watermarks as a deterrent and a labeling tool, not as DRM.
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Watermarking runs entirely in your browser via `pdf-lib`. No file leaves your device.
+
+</details>
+
+<details>
+<summary>**Are existing fonts and content preserved?**</summary>
+
+Yes — the watermark is layered on top of the existing page content; nothing underneath is modified.
+
+</details>
+
+<details>
+<summary>**Can I apply different watermarks to different pages?**</summary>
+
+Yes — watermark page ranges separately (e.g. "DRAFT" on pages 1-30, no watermark on pages 31-end). Run the tool multiple times with different ranges.
+
+</details>
+
+<details>
+<summary>**What size should my watermark image be?**</summary>
+
+PNGs with transparent backgrounds work best. 200-500 px wide is plenty; the tool scales to fit. Use higher resolution for prominent placements.
+
+</details>
+
+<details>
+<summary>**Will the watermark print?**</summary>
+
+Yes — watermarks are part of the PDF page content and print exactly as displayed.
+
+</details>
+
+## Tips
+
+- For drafts: large diagonal "DRAFT" text at low opacity, centered.
+- For branding: small logo in the corner at 15-25% opacity.
+- For confidential markings: bold red "CONFIDENTIAL" diagonal, 30% opacity.
+- Test on the first page before applying to a long document — adjust opacity or position if too prominent or too subtle.
+
+## Try it now
+
+The full watermark-pdf runs in your browser at **[https://ztools.zaions.com/watermark-pdf](https://ztools.zaions.com/watermark-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/watermark-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/watermark-pdf.mdx)*

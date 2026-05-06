@@ -1,0 +1,123 @@
+---
+id: excel-to-pdf
+title: "Excel to PDF Converter — XLSX to PDF Preserving Layout (Free)"
+description: "Convert Excel (.xlsx) workbooks to PDF preserving cell formatting, borders, charts, and page layout. No upload, no watermark, in-browser."
+sidebar_label: "excel-to-pdf"
+keywords:
+  - "excel to pdf"
+  - "xlsx to pdf"
+  - "convert excel to pdf"
+  - "excel pdf converter"
+  - "free excel to pdf"
+  - "spreadsheet to pdf"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# excel-to-pdf
+
+An Excel-to-PDF converter renders a Microsoft Excel `.xlsx` workbook as a PDF — preserving cell values, formatting, borders, fonts, charts, and page layout. The ZTools Excel to PDF tool reads the XLSX (internally a ZIP of XML files), renders each visible worksheet to a PDF page using `pdf-lib`, and applies print-area, scaling, and orientation settings from the workbook itself. Useful for sharing financial reports, schedules, and any spreadsheet where editability isn't needed and consistent rendering across viewers is.
+
+<ToolCTA toolId="excel-to-pdf" toolName="excel-to-pdf" />
+
+## Use cases
+
+### Sharing a financial report without recipients editing the numbers
+
+PDF locks the values; XLSX invites accidental edits. Convert before sending so the numbers everyone sees are the numbers you signed off on.
+
+### Printing complex Excel layouts with consistent page breaks
+
+Browser-based or OS-based "Print to PDF" varies in how it handles Excel print areas. A dedicated converter respects the workbook's print settings exactly.
+
+### Submitting spreadsheet outputs to systems that only accept PDF
+
+Government portals, audit submissions, and many archival systems require PDF. Convert each report once, save the PDF as the official record alongside the XLSX source.
+
+### Generating PDF invoices from an Excel template
+
+Fill in the invoice template each month, convert to PDF, email. Recipients can't accidentally change the totals; you keep the editable XLSX as your source of truth.
+
+## How it works
+
+1. **Drag-drop your XLSX file** — File loads into browser memory.
+2. **Choose worksheet scope** — All visible sheets, only the active sheet, or a custom selection. Hidden sheets are excluded by default.
+3. **Configure page settings** — Honor workbook print settings (recommended) or override: page size, orientation, scaling (fit-to-page, actual size, or custom percentage).
+4. **Click Convert** — The tool renders each cell to PDF text with the workbook's font, color, and border styles; charts are rendered as embedded images at sufficient DPI.
+5. **Preview and download** — Side-by-side preview shows the workbook and the resulting PDF; verify page breaks and chart placement before download.
+
+## Examples
+
+**Input:** 3-sheet financial workbook (Income, Balance Sheet, Cash Flow)
+
+**Output:** Multi-page PDF: 3 sheets, fonts and borders preserved, charts as crisp embedded images
+
+---
+
+**Input:** Monthly invoice from Excel template
+
+**Output:** Single-page PDF matching the print preview exactly
+
+## Frequently asked questions
+
+<details>
+<summary>**Are charts preserved?**</summary>
+
+Yes — charts are rendered as embedded images at 300 DPI for print quality. Chart styling (colors, legends, axes) is preserved.
+
+</details>
+
+<details>
+<summary>**Will my XLSX be uploaded?**</summary>
+
+No. Conversion happens entirely in your browser. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**Will all sheets be in the PDF?**</summary>
+
+By default: all visible sheets. Hidden sheets are skipped. You can override to include only the active sheet or a custom selection.
+
+</details>
+
+<details>
+<summary>**Are formulas preserved?**</summary>
+
+PDFs hold values, not formulas. The PDF shows the calculated output of every formula at the moment of conversion.
+
+</details>
+
+<details>
+<summary>**Are conditional-formatting colors preserved?**</summary>
+
+Yes — the rendered cell colors at conversion time are baked into the PDF.
+
+</details>
+
+<details>
+<summary>**Can I convert `.xls` (old Excel format)?**</summary>
+
+Convert to `.xlsx` first (Excel: File → Save As → Excel Workbook), then convert. The `.xls` binary format isn't supported directly.
+
+</details>
+
+## Tips
+
+- Set your print area in Excel before converting — the PDF will respect it.
+- For multi-sheet workbooks, use the print-preview pane in Excel first to verify each sheet's layout.
+- For very wide sheets, set scaling to "fit all columns on one page" before converting.
+- After conversion, run PDF Compressor if the output is large (charts produce big PDFs at high DPI).
+
+## Try it now
+
+The full excel-to-pdf runs in your browser at **[https://ztools.zaions.com/excel-to-pdf](https://ztools.zaions.com/excel-to-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/excel-to-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/excel-to-pdf.mdx)*

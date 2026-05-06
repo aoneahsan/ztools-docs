@@ -1,0 +1,105 @@
+---
+id: pdf-bookmark-manager
+title: "PDF Bookmark Manager — Add, Remove, Edit, Free"
+description: "Manage PDF bookmarks (table of contents). Add, remove, rearrange. Browser-only — no upload."
+sidebar_label: "pdf-bookmark-manager"
+keywords:
+  - "pdf bookmark manager"
+  - "pdf toc editor"
+  - "add bookmarks to pdf"
+  - "pdf navigation tree"
+  - "edit pdf bookmarks online"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-bookmark-manager
+
+PDF bookmarks (the table-of-contents tree in a PDF reader's sidebar) help users navigate long documents. Most PDFs are missing bookmarks or have stale ones from old versions. The ZTools PDF Bookmark Manager lets you view, add, remove, edit, and rearrange bookmarks for any PDF — running entirely in the browser via pdf-lib. Useful for legal documents, technical manuals, and any long-form PDF where readers benefit from structure.
+
+<ToolCTA toolId="pdf-bookmark-manager" toolName="pdf-bookmark-manager" />
+
+## Use cases
+
+### Add a TOC to a PDF without one
+
+Scanned 200-page document. Add 10-15 bookmarks pointing at key sections. Reader can now navigate.
+
+### Fix stale bookmarks after edits
+
+Document was edited; bookmarks point to wrong pages. Re-aim them.
+
+### Build a structured legal document
+
+Multi-section contract or brief; bookmarks at each section help readers scan.
+
+### Add bookmarks before signing
+
+Long agreement; bookmark each major section before sending for signature.
+
+## How it works
+
+1. **Drop PDF** — Loaded into pdf-lib. Existing bookmarks shown in tree view.
+2. **Edit tree** — Add bookmark (set name + target page), remove, rename, drag-drop to reorder, nest to create hierarchy.
+3. **Save** — New PDF with updated bookmarks. Pages and content unchanged.
+
+## Examples
+
+**Input:** 300-page manual without bookmarks
+
+**Output:** Add 20 bookmarks (chapter level + section level). Saved PDF has navigable sidebar.
+
+---
+
+**Input:** Existing TOC with wrong page numbers
+
+**Output:** Re-aim each at correct page. Saved PDF has working TOC.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will all PDF readers show the bookmarks?**</summary>
+
+Yes — bookmarks are part of the PDF spec. Adobe, Preview, PDF.js, all major readers display them.
+
+</details>
+
+<details>
+<summary>**Hierarchical bookmarks?**</summary>
+
+Yes — drag to nest. Common pattern: chapter → section → subsection.
+
+</details>
+
+<details>
+<summary>**Maximum bookmarks?**</summary>
+
+No spec limit; practical limit is dozens for usability.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For long docs, aim for 1 bookmark per ~10 pages. Too many = noise; too few = useless.
+- Mirror the visible heading structure — H1 chapters as top-level, H2 sections nested.
+- For legal docs, every numbered section gets a bookmark.
+
+## Try it now
+
+The full pdf-bookmark-manager runs in your browser at **[https://ztools.zaions.com/pdf-bookmark-manager](https://ztools.zaions.com/pdf-bookmark-manager)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-bookmark-manager)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-bookmark-manager.mdx)*

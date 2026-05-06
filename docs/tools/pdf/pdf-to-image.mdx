@@ -1,0 +1,125 @@
+---
+id: pdf-to-image
+title: "PDF to Image — Convert PDF Pages to JPG, PNG, WebP (Free, In-Browser)"
+description: "Render every PDF page as a high-quality JPG, PNG, or WebP image. Choose DPI (72-600). Outputs a ZIP. No upload, no watermark."
+sidebar_label: "pdf-to-image"
+keywords:
+  - "pdf to image"
+  - "pdf to jpg"
+  - "pdf to png"
+  - "convert pdf to image"
+  - "pdf to webp"
+  - "pdf page to image"
+  - "pdf renderer"
+  - "free pdf to image converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-to-image
+
+A PDF-to-image converter renders each page of a PDF as a standalone raster image (JPG, PNG, or WebP), preserving exact visual layout including fonts, images, and vector graphics. The ZTools PDF to Image tool uses `pdf.js` (the same engine Firefox uses) to render at any DPI from 72 (web) to 600 (print-quality), encodes via the Canvas API, and bundles the output as a ZIP for download. Useful for creating thumbnails, sharing PDF previews on platforms that don't render PDFs inline, or extracting figure-by-figure for slide decks.
+
+<ToolCTA toolId="pdf-to-image" toolName="pdf-to-image" />
+
+## Use cases
+
+### Generating thumbnails for a PDF library or download page
+
+Most websites need a preview thumbnail of each PDF in a downloads listing. Render the first page at 150 DPI, save as JPG, and drop into your `/thumbnails/` folder. Page 1 covers most preview needs.
+
+### Sharing a PDF preview on social media or chat apps
+
+WhatsApp, Slack, and Twitter render images inline but treat PDFs as attachments. Convert your PDF to a single tall PNG (one image per page concatenated) for an instantly visible preview that doesn't require a download.
+
+### Embedding a PDF excerpt in a blog post or documentation
+
+Render the relevant pages as PNG and embed via `&lt;img&gt;` — avoids the extra page-load cost of a PDF.js viewer and works in every browser, every email client, every CMS.
+
+### Extracting individual figures or charts from a research paper
+
+Render every page at 300 DPI, then crop the figures you need in our Image Cropper. Faster than copy-pasting from the PDF (which loses quality) or screenshotting (which is timezone- and OS-dependent).
+
+## How it works
+
+1. **Drag-drop your PDF** — File loads into browser memory; nothing leaves your device.
+2. **Choose output format and DPI** — JPG (smallest, lossy), PNG (lossless, best for text/graphics), WebP (smallest at quality). DPI: 72 (web small), 96 (web standard), 150 (good print), 300 (high-quality print), 600 (archival).
+3. **Optionally select page range** — Convert all pages, only the first N, or a custom list (e.g. "1, 3-5, 8"). Useful when you only need a cover image or a single figure.
+4. **Click Convert** — `pdf.js` renders each page to a canvas at the chosen DPI; the canvas is encoded to your chosen format and added to a ZIP via JSZip.
+5. **Download the ZIP** — Single output: direct image download. Multi-page output: ZIP with sequentially-numbered files (`page-1.png`, `page-2.png`, …).
+
+## Examples
+
+**Input:** 20-page report at 300 DPI, PNG output
+
+**Output:** ZIP with 20 PNG files (`report-page-1.png` … `report-page-20.png`), each ~600 KB
+
+---
+
+**Input:** Single-page contract at 150 DPI, JPG output
+
+**Output:** One JPG (~120 KB), suitable for thumbnail or social-share preview
+
+## Frequently asked questions
+
+<details>
+<summary>**What DPI should I choose?**</summary>
+
+For web display: 96 DPI is standard, 150 if you'll show large. For print: 300 DPI minimum, 600 for archival quality. Higher DPI means larger files and slower rendering — pick the lowest that meets your need.
+
+</details>
+
+<details>
+<summary>**Is text rendered crisply or as a blurry image?**</summary>
+
+Crisply, because `pdf.js` renders text as actual font glyphs at the requested DPI — not by capturing a screenshot of an existing render. At 300 DPI, text is print-publication quality.
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Rendering happens in your browser. Open DevTools → Network and verify there are no requests during conversion.
+
+</details>
+
+<details>
+<summary>**Can I extract just one page?**</summary>
+
+Yes — use the page-range field to specify a single page (e.g. "5") or a list ("1, 3, 7").
+
+</details>
+
+<details>
+<summary>**Why is my output huge?**</summary>
+
+High DPI + PNG output produces large files. Switch to JPG @ 85% quality for ~10× smaller files with little visible loss for photographic content.
+
+</details>
+
+<details>
+<summary>**Are vector elements (charts, line drawings) preserved as crisp lines?**</summary>
+
+They're rasterized at the chosen DPI — crisp at 300+ DPI, slightly soft at 96 DPI. For vector preservation, export to SVG via dedicated PDF-to-SVG tooling instead.
+
+</details>
+
+## Tips
+
+- For thumbnails: 150 DPI JPG is the sweet spot — small file, sharp preview.
+- For print-publication figures: 300 DPI PNG.
+- For social-media previews: render the cover page as JPG and post directly.
+- Pair with our Image Compressor if file size is critical after rendering.
+
+## Try it now
+
+The full pdf-to-image runs in your browser at **[https://ztools.zaions.com/pdf-to-image](https://ztools.zaions.com/pdf-to-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-to-image)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-to-image.mdx)*

@@ -1,0 +1,125 @@
+---
+id: compress-pdf-advanced
+title: "Compress PDF — Reduce File Size 50-90% with Quality Control (Free)"
+description: "Shrink PDF files for email, web, or storage. Choose quality preset (web, print, ebook). Recompresses images, drops metadata. In-browser, no upload."
+sidebar_label: "compress-pdf-advanced"
+keywords:
+  - "compress pdf"
+  - "pdf compressor"
+  - "reduce pdf size"
+  - "shrink pdf"
+  - "pdf size reducer"
+  - "compress pdf for email"
+  - "free pdf compressor"
+  - "pdf optimizer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# compress-pdf-advanced
+
+A PDF compressor reduces a PDF's file size by re-encoding embedded images at lower quality, downsampling oversized images to a sensible DPI, removing redundant resources (duplicate fonts, unused objects), and stripping editor metadata. The ZTools Compress PDF tool offers four quality presets — Email (smallest), Web (balanced), Print (high quality), and Custom — and typically achieves 50-90% size reduction on image-heavy documents (scanned reports, brochures, presentations) while keeping text crisp and readable.
+
+<ToolCTA toolId="compress-pdf-advanced" toolName="compress-pdf-advanced" />
+
+## Use cases
+
+### Squeezing a 25 MB report under a 10 MB email attachment limit
+
+Outlook, Gmail, and most corporate mail servers cap attachments around 10-25 MB. A typical scanned report compresses to 30-40% of its original size with no visible quality loss for screen reading. Saves the awkward "I had to use WeTransfer" follow-up.
+
+### Preparing PDFs for download from a website
+
+A 5 MB whitepaper feels like 30 seconds of dead time on a slow mobile connection. Compress to ~1 MB and the same downloader feels the page is fast. Major Core Web Vitals win for content-heavy sites.
+
+### Archiving years of PDF invoices or contracts cheaply
+
+A folder of 10,000 PDFs at 5 MB each is 50 GB. Compressed to 1 MB each, it's 10 GB — a meaningful saving on cloud storage bills (S3, Drive, OneDrive). Run as a one-shot batch.
+
+### Uploading PDFs to forms with strict size limits
+
+Government portals, school applications, and visa systems often cap uploads at 1-2 MB per file. Compress to fit and submit on the first try.
+
+## How it works
+
+1. **Drag-drop your PDF** — File loads into browser memory; no upload to a remote server.
+2. **Choose a quality preset** — Email (72 DPI, 60% JPEG quality — smallest), Web (96 DPI, 75% — balanced), Print (200 DPI, 90% — sharp), Custom (full control over DPI, image quality, and metadata removal).
+3. **Click Compress** — The tool walks every embedded image, downsamples to the target DPI, re-encodes JPEGs at the target quality, drops duplicate fonts and unused objects, and strips editor metadata.
+4. **Compare original vs compressed** — A side-by-side preview shows the size reduction and lets you spot any visual quality issues at the chosen preset.
+5. **Download and verify** — Save the compressed PDF; open in your preferred reader to confirm legibility before sharing or archiving.
+
+## Examples
+
+**Input:** 25 MB scanned annual report (40 pages, full-color scans)
+
+**Output:** ~3.5 MB at "Email" preset (86% reduction); ~7 MB at "Web" preset (72% reduction)
+
+---
+
+**Input:** 5 MB text-heavy contract (20 pages, mostly text + 2 small logos)
+
+**Output:** ~4.2 MB at "Web" preset (16% reduction)
+
+## Frequently asked questions
+
+<details>
+<summary>**How small can a PDF get?**</summary>
+
+Image-heavy PDFs (scans, brochures) often compress 70-90%. Text-heavy PDFs compress less (10-30%) because text is already compact. The actual ratio depends on what's inside the file.
+
+</details>
+
+<details>
+<summary>**Will compression hurt my PDF's quality?**</summary>
+
+It depends on the preset. Email preset is fine for on-screen reading but may look soft when printed. Web preset is the sweet spot. Print preset keeps near-original sharpness. Always preview before sharing.
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Compression runs entirely in your browser using `pdf-lib` and a Canvas-based image re-encoder. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**Does the tool work on text-only PDFs?**</summary>
+
+Yes, but savings are modest because text is already compactly stored. The biggest savings come from PDFs containing embedded images, especially high-resolution scans.
+
+</details>
+
+<details>
+<summary>**Is OCR (text extraction from scans) preserved?**</summary>
+
+Yes — the OCR text layer is not affected by compression of the underlying image. Searchability is preserved.
+
+</details>
+
+<details>
+<summary>**Can I compress an encrypted/password-protected PDF?**</summary>
+
+Unlock it first using our PDF Unlock tool (you must know the password). Compressing an encrypted PDF directly will fail.
+
+</details>
+
+## Tips
+
+- Try Web preset first — it's the best balance for most use cases.
+- For archival storage, Email preset is fine because the source is "good enough for screen reading".
+- For documents that will be printed, never go below Print preset.
+- Combine with PDF Splitter when each part needs to fit a separate size limit.
+
+## Try it now
+
+The full compress-pdf-advanced runs in your browser at **[https://ztools.zaions.com/compress-pdf-advanced](https://ztools.zaions.com/compress-pdf-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/compress-pdf-advanced)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/compress-pdf-advanced.mdx)*

@@ -1,0 +1,120 @@
+---
+id: flatten-pdf
+title: "Flatten PDF — Merge Annotations, Forms, Layers, Free"
+description: "Flatten PDF annotations, form fields, and layers into static content. Browser-only — no upload."
+sidebar_label: "flatten-pdf"
+keywords:
+  - "flatten pdf online"
+  - "lock pdf form"
+  - "merge pdf annotations"
+  - "flatten pdf form fields"
+  - "pdf flattener"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# flatten-pdf
+
+Flattening a PDF merges interactive elements — annotations, form fields, comments, layers — into the static page content, producing a "frozen" PDF where the elements can no longer be edited. Useful for finalising contracts (preventing further form edits), reducing file size (annotations carry overhead), and ensuring consistent rendering across PDF readers (some readers misrender annotations). The ZTools Flatten PDF tool runs in the browser via pdf-lib, preserves visual appearance, and outputs a reduced, non-interactive PDF.
+
+<ToolCTA toolId="flatten-pdf" toolName="flatten-pdf" />
+
+## Use cases
+
+### Finalise a signed contract
+
+Form fields are filled, signature added. Flatten to lock the values — no one can edit them later.
+
+### Submit a form via email
+
+Recipient may not have the same form-aware reader. Flattened version renders identically everywhere.
+
+### Reduce annotation clutter
+
+A heavily-commented PDF; you want a clean version for distribution. Flatten merges comments into the page.
+
+### Archive long-term
+
+Future PDF readers may not support today's annotation format. Flattening guarantees the visual record persists.
+
+## How it works
+
+1. **Drop PDF** — Loaded into pdf-lib.
+2. **Identify interactive elements** — Annotations, AcroForm fields, layers (OCG). All counted.
+3. **Flatten** — Each interactive element rendered onto its page as static content; original interactive object removed.
+4. **Save** — New PDF with locked content. Smaller file, identical visual output.
+
+## Examples
+
+**Input:** Filled-out tax form
+
+**Output:** Form fields flattened — fields disappear; values remain as page text. Form is no longer editable.
+
+---
+
+**Input:** PDF with sticky-note comments
+
+**Output:** Comments rendered as visible text overlays at their anchor positions; comment objects removed.
+
+---
+
+**Input:** Layered architectural drawing
+
+**Output:** Visible layers merged into the page; hidden layers discarded.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does flattening reduce file size?**</summary>
+
+Usually yes — annotations carry XObject overhead. Flattening typically saves 10-30% on filled forms.
+
+</details>
+
+<details>
+<summary>**Will it preserve fonts?**</summary>
+
+Yes — text in flattened annotations uses the same font subsets. Visual output is identical.
+
+</details>
+
+<details>
+<summary>**Can I unflatten?**</summary>
+
+No — flattening is destructive. Always keep a backup of the original.
+
+</details>
+
+<details>
+<summary>**What about hidden layers?**</summary>
+
+Default: discarded. Toggle "preserve all layers" to flatten the visible state but keep layer structure (rare requirement).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Always save a backup before flattening — once flattened, you can't unflatten.
+- For signed contracts, flatten after signing — prevents accidental edits.
+- For redaction, flattening alone doesn't redact — sensitive content in flattened form is still readable. Use a dedicated redaction tool first.
+- For long-term archival, flatten + save as PDF/A for maximum future compatibility.
+
+## Try it now
+
+The full flatten-pdf runs in your browser at **[https://ztools.zaions.com/flatten-pdf](https://ztools.zaions.com/flatten-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/flatten-pdf)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/flatten-pdf.mdx)*

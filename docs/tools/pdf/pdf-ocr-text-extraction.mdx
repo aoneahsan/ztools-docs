@@ -1,0 +1,113 @@
+---
+id: pdf-ocr-text-extraction
+title: "PDF OCR Text Extraction — Free, Browser, Tesseract"
+description: "Extract text from scanned PDFs using OCR (Tesseract.js). Multilingual. Browser-only — no upload."
+sidebar_label: "pdf-ocr-text-extraction"
+keywords:
+  - "pdf ocr online"
+  - "scanned pdf to text"
+  - "tesseract pdf extraction"
+  - "free pdf ocr"
+  - "image pdf to text"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-ocr-text-extraction
+
+OCR (Optical Character Recognition) extracts text from images of text — scanned PDFs, photographed documents, screenshots. The ZTools PDF OCR tool runs Tesseract.js (the JavaScript port of Google's Tesseract OCR engine) entirely in the browser: no upload, no signup, supports 100+ languages. Quality depends on the source image — clean print scans give 98%+ accuracy; handwriting and noisy scans struggle. Slower than non-OCR text extraction (each page takes 2-10 seconds) but the only option for scanned / image-based PDFs.
+
+<ToolCTA toolId="pdf-ocr-text-extraction" toolName="pdf-ocr-text-extraction" />
+
+## Use cases
+
+### Digitise a scanned book / magazine
+
+No embedded text in the PDF; OCR reads the page images. Output as searchable text.
+
+### Process a fax-scanned contract
+
+Faxes are image-only. OCR makes the text usable for downstream search / copy.
+
+### Extract text from screenshots embedded in PDFs
+
+A report with screenshots of code. OCR reads the code text.
+
+### Multilingual document processing
+
+Tesseract supports 100+ languages — Arabic, Chinese, Russian, Spanish, French, etc.
+
+## How it works
+
+1. **Drop scanned PDF** — PDF rendered to image at high DPI (300+).
+2. **Run OCR per page** — Tesseract.js processes each page image. Models loaded lazily based on chosen languages.
+3. **Reconstruct text** — Per-line text emitted in reading order with confidence scores.
+4. **Output** — Plain text. Optional: confidence highlighting (low-confidence words flagged).
+
+## Examples
+
+**Input:** 10-page scanned contract, English
+
+**Output:** ~3000 words extracted. Tesseract takes ~20-30 seconds total. Accuracy 95-98% on clean scans.
+
+---
+
+**Input:** Multilingual scan (English + French)
+
+**Output:** Toggle "eng+fra" model. Tesseract handles both. Slower load time on first use.
+
+---
+
+**Input:** Handwritten notes
+
+**Output:** Tesseract struggles with handwriting (typically 60-80% accuracy). For handwriting, use Google Cloud Vision or Azure Form Recognizer.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is it?**</summary>
+
+Clean print: 95-99%. Slightly noisy: 85-95%. Handwriting / poor scans: 60-80%. Always proofread important documents.
+
+</details>
+
+<details>
+<summary>**Why is the first run slow?**</summary>
+
+Tesseract.js downloads language models (~10 MB per language) the first time. Subsequent runs are cached.
+
+</details>
+
+<details>
+<summary>**Maximum PDF size?**</summary>
+
+Browser memory is the limit. 50-100 page scans work; beyond that, split the PDF first.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in the browser. PDF never uploaded.
+
+</details>
+
+## Tips
+
+- For best accuracy, use the highest-resolution scan available. 300 DPI minimum.
+- For multilingual docs, only enable the actual languages — extra models slow processing.
+- For long documents, split into 10-page chunks — easier to recover from a tab crash.
+- For handwriting, use a cloud OCR service. Tesseract is print-optimised.
+
+## Try it now
+
+The full pdf-ocr-text-extraction runs in your browser at **[https://ztools.zaions.com/pdf-ocr-text-extraction](https://ztools.zaions.com/pdf-ocr-text-extraction)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-ocr-text-extraction)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-ocr-text-extraction.mdx)*

@@ -1,0 +1,124 @@
+---
+id: pdf-to-excel
+title: "PDF to Excel Converter — Extract Tables to XLSX (Free, In-Browser)"
+description: "Extract tables from PDF into editable Excel (.xlsx) spreadsheets. Detects rows, columns, headers automatically. No upload, no watermark."
+sidebar_label: "pdf-to-excel"
+keywords:
+  - "pdf to excel"
+  - "pdf to xlsx"
+  - "extract pdf tables"
+  - "pdf table converter"
+  - "pdf to spreadsheet"
+  - "free pdf to excel"
+  - "pdf data extractor"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-to-excel
+
+A PDF-to-Excel converter extracts tabular data from a PDF and rebuilds it as an editable Microsoft Excel `.xlsx` workbook. The ZTools PDF to Excel tool uses `pdf.js` to extract text with positional coordinates, then runs a table-detection algorithm that clusters cells into rows and columns based on alignment patterns. Each detected table becomes a worksheet; tables spanning multiple pages are merged. Designed for financial reports, invoices, scientific datasets, and any PDF where the value is in the numbers, not the prose.
+
+<ToolCTA toolId="pdf-to-excel" toolName="pdf-to-excel" />
+
+## Use cases
+
+### Extracting financial data from quarterly reports
+
+Public company reports embed dozens of tables (income statement, balance sheet, segment breakdowns). Convert to Excel, run formulas, build trend charts — instead of retyping hundreds of numbers.
+
+### Processing supplier invoices into a master spreadsheet
+
+Each supplier sends invoices as PDF. Convert each to Excel, then concatenate into your accounts-payable master sheet. Saves hours per month vs manual entry.
+
+### Working with research datasets published as PDF
+
+Academic papers often hide their data in PDF tables. Convert to XLSX, run analysis in Python or R after exporting as CSV.
+
+### Migrating legacy reports to a new BI tool
+
+Years of old PDF reports → tables in Excel → ingest into a BI tool for trend analysis. The converter is the bridge from PDF archives to live analytics.
+
+## How it works
+
+1. **Drag-drop your PDF** — File loads into browser memory.
+2. **Optionally select page range** — Convert only specific pages if you know where the tables are. Saves time on long reports.
+3. **Click Convert** — The tool extracts text with x/y coordinates, identifies horizontal rows and vertical columns from alignment, and assigns text to cells in the resulting grid.
+4. **Preview detected tables** — Each table is shown with its row/column count and a small preview. Reject false positives or merge fragments.
+5. **Download as XLSX** — Each table becomes a worksheet in the output workbook. Open in Excel, Google Sheets, or Numbers.
+
+## Examples
+
+**Input:** 10-page financial report with 8 tables across 6 pages
+
+**Output:** XLSX with 8 worksheets, one per table; cross-page tables merged into a single sheet
+
+---
+
+**Input:** 20-page invoice batch (one table per page)
+
+**Output:** XLSX with 20 worksheets, named by page number — ready for batch concatenation
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is table detection?**</summary>
+
+Accuracy is highest for tables with clear column alignment and visible borders or consistent spacing. Borderless tables with merged cells or nested structures may need manual cleanup.
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Extraction runs entirely in your browser via `pdf.js`. No data leaves your device.
+
+</details>
+
+<details>
+<summary>**Can it convert scanned (image-based) PDFs?**</summary>
+
+Not directly — this tool extracts the existing text layer. For scanned PDFs, run our PDF OCR tool first to create a text layer, then convert.
+
+</details>
+
+<details>
+<summary>**What if a table spans multiple pages?**</summary>
+
+The tool detects continuation tables (same column structure across consecutive pages) and merges them into a single worksheet. If detection fails, the tables appear as separate sheets you can merge in Excel.
+
+</details>
+
+<details>
+<summary>**Are formulas preserved?**</summary>
+
+PDFs don't contain formulas — only the calculated text values. The output XLSX has values only; you'll need to re-add any formulas you want.
+
+</details>
+
+<details>
+<summary>**Can I export as CSV instead?**</summary>
+
+After converting to XLSX, open in Excel or Sheets and save the active worksheet as CSV. Or use our JSON to CSV / CSV converters for batch transformations.
+
+</details>
+
+## Tips
+
+- For large reports, convert one page-range at a time to verify quality before processing the whole file.
+- Tables with visible borders convert most accurately — borderless tables may need manual cleanup.
+- For scanned PDFs, OCR first; the converter only extracts text that already exists in the PDF.
+- After conversion, use Excel's "Get & Transform" (Power Query) to clean up any layout artifacts.
+
+## Try it now
+
+The full pdf-to-excel runs in your browser at **[https://ztools.zaions.com/pdf-to-excel](https://ztools.zaions.com/pdf-to-excel)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-to-excel)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-to-excel.mdx)*

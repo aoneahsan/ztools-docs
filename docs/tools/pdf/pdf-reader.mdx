@@ -1,0 +1,113 @@
+---
+id: pdf-reader
+title: "PDF Reader Online — View PDFs in Browser, Free"
+description: "Open and read any PDF in the browser. Search, annotate, navigate, fullscreen. Browser-only — no upload."
+sidebar_label: "pdf-reader"
+keywords:
+  - "pdf reader online"
+  - "view pdf in browser"
+  - "free pdf viewer"
+  - "pdf.js viewer"
+  - "browser pdf reader"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-reader
+
+A PDF reader displays PDF documents in the browser without requiring Acrobat / Preview. Built on PDF.js (Mozilla's open-source renderer used by Firefox's built-in PDF viewer), it parses the PDF, renders pages to canvas, and provides navigation / search / zoom / fullscreen / page-thumbnail UI. The ZTools PDF Reader runs entirely in the browser — no upload, no signup, no quota — useful when you need a quick preview, when the system PDF reader is missing or slow, or for privacy-sensitive documents that shouldn't leave your device.
+
+<ToolCTA toolId="pdf-reader" toolName="pdf-reader" />
+
+## Use cases
+
+### Quick preview without installing software
+
+On a fresh laptop / borrowed computer. Browser-based reader works without admin rights.
+
+### Privacy-sensitive document review
+
+Cloud PDF readers upload your file. Browser-only reader keeps everything local.
+
+### Read on a low-resource device
+
+PDF.js renders pages on demand — uses less memory than full Acrobat for large PDFs.
+
+### Embed a PDF in a web app
+
+Same engine that powers this reader can embed PDF viewing in your own apps.
+
+## How it works
+
+1. **Drop PDF** — File loaded into ArrayBuffer. PDF.js parses structure.
+2. **Render pages** — Each page rendered to canvas at the chosen zoom. Lazy-loaded — only visible pages render at a time.
+3. **Navigate** — Page-list sidebar, keyboard arrows, page-number jump, fullscreen toggle.
+4. **Search** — Full-text search across all pages. Match highlighting on hit pages.
+
+## Examples
+
+**Input:** 50-page report PDF
+
+**Output:** Sidebar with thumbnails. First page renders in &lt;1 sec on a modern laptop. Pages render lazily as you scroll.
+
+---
+
+**Input:** 500-page legal document
+
+**Output:** Renders fine — PDF.js only renders visible pages. Search is fast (full-text index).
+
+---
+
+**Input:** Encrypted PDF with password
+
+**Output:** Tool prompts for password. Decrypts in browser via PDF.js.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it work for all PDFs?**</summary>
+
+PDF.js handles most. Edge cases: forms with JavaScript, very-large embedded fonts, exotic encodings — these can render slowly or imperfectly.
+
+</details>
+
+<details>
+<summary>**Can I edit / annotate?**</summary>
+
+Reader is read-only. For annotations, use a dedicated PDF editor (PDF-XChange, Adobe Acrobat, or our PDF Form Filler tool).
+
+</details>
+
+<details>
+<summary>**Maximum file size?**</summary>
+
+Limited by browser memory. Up to ~200 MB usually fine. Beyond, the browser tab gets sluggish.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side. PDF never uploaded.
+
+</details>
+
+## Tips
+
+- For very large PDFs, the page-thumbnails sidebar helps — jump to a specific page instead of scrolling.
+- Fullscreen mode is best for reading long documents — F11 in most browsers.
+- For password-protected PDFs, the prompt is in-browser; password never sent anywhere.
+- For frequent PDF viewing, install Firefox or Chrome — both ship PDF.js as built-in viewer.
+
+## Try it now
+
+The full pdf-reader runs in your browser at **[https://ztools.zaions.com/pdf-reader](https://ztools.zaions.com/pdf-reader)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-reader)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-reader.mdx)*

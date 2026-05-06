@@ -117,6 +117,12 @@ const TOOLS_TO_PUBLISH = [
   'caesar-cipher','hex-to-utf8','html-encoder','jwt-encoder-decoder','md5-hash-generator','morse-code',
   'punycode','quoted-printable-encoder','rot13','sql-encoder','string-encoder','string-escaper',
   'unicode-to-utf8','utf8-to-binary','utf8-to-hex','utf8-validator','vigenere-cipher','xml-encoder',
+
+  // Batch 10: pdf category — 23 tools
+  'compress-pdf-advanced','delete-pdf-pages','excel-to-pdf','extract-pdf-pages','flatten-pdf','image-to-pdf',
+  'organize-pdf','pdf-bookmark-manager','pdf-form-filler','pdf-ocr-text-extraction','pdf-page-reorder',
+  'pdf-reader','pdf-to-excel','pdf-to-image','pdf-to-text-extractor','pdf-to-word','protect-pdf','rotate-pdf',
+  'sign-pdf','split-pdf','unlock-pdf','watermark-pdf','word-to-pdf',
 ];
 
 // ---------------------------------------------------------------------------

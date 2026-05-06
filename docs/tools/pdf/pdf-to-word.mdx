@@ -1,0 +1,124 @@
+---
+id: pdf-to-word
+title: "PDF to Word Converter — Editable DOCX from PDF (Free, In-Browser)"
+description: "Convert PDF to editable Microsoft Word (.docx) preserving text, headings, lists, and basic layout. No upload, no email required, no watermark."
+sidebar_label: "pdf-to-word"
+keywords:
+  - "pdf to word"
+  - "pdf to docx"
+  - "convert pdf to word"
+  - "pdf to editable word"
+  - "pdf word converter"
+  - "free pdf to word"
+  - "pdf to docx no upload"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pdf-to-word
+
+A PDF-to-Word converter extracts text and structure from a PDF and rebuilds it as an editable Microsoft Word `.docx` file. The ZTools PDF to Word tool uses `pdf.js` to extract text with positional metadata, then assembles a DOCX file via the Open XML format — preserving paragraph breaks, headings (when detectable from font size), bulleted lists, basic tables, and images. Designed for text-heavy PDFs (reports, contracts, articles) where you need to edit the content without retyping it. For complex multi-column or design-heavy PDFs, expect to re-touch the layout in Word.
+
+<ToolCTA toolId="pdf-to-word" toolName="pdf-to-word" />
+
+## Use cases
+
+### Editing a contract you only have as a PDF
+
+A counterparty sends a contract as PDF; you need to mark up changes or update specific clauses. Convert to DOCX, edit in Word with track-changes, send back. Saves hours vs retyping the contract from scratch.
+
+### Repurposing report content for a new format
+
+You wrote a 30-page PDF report last quarter; now you need the same content as a Word draft for the brand team to restyle. Convert, hand off the DOCX, skip the manual transcription.
+
+### Translating a PDF document
+
+Most translation tools work on DOCX, not PDF. Convert first, then run through DeepL or your translator of choice, then export back to PDF for delivery.
+
+### Recovering text from an old PDF whose source file is lost
+
+You wrote it 5 years ago, the original `.docx` is long gone, but the published PDF is still on the website. Convert back to DOCX to update or rewrite without retyping.
+
+## How it works
+
+1. **Drag-drop your PDF** — File loads into browser memory; nothing leaves your device.
+2. **Choose extraction options** — Preserve images (yes/no), detect headings from font size (recommended), preserve hyperlinks, attempt table reconstruction.
+3. **Click Convert** — `pdf.js` extracts text runs with their positions; the tool clusters runs into paragraphs, infers headings/lists, and emits an Open XML DOCX.
+4. **Review the output preview** — A side-by-side compares the rendered PDF and the converted DOCX — spot-check structural fidelity before download.
+5. **Download the DOCX** — Open in Microsoft Word, Google Docs, or LibreOffice. Edit as if it were the original source.
+
+## Examples
+
+**Input:** 20-page text-heavy PDF report (mostly headings + paragraphs)
+
+**Output:** Editable DOCX with headings preserved, paragraphs intact, lists detected, ready to edit
+
+---
+
+**Input:** 5-page PDF brochure (heavy graphic design, multi-column)
+
+**Output:** DOCX with the text extracted but layout simplified — re-style needed in Word
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the conversion?**</summary>
+
+For text-heavy PDFs (reports, contracts, articles), accuracy is very high — you may not need to touch anything. For design-heavy PDFs (brochures, multi-column layouts, mixed fonts), expect to re-style in Word; the text will be there, but the layout may be flatter.
+
+</details>
+
+<details>
+<summary>**Will my PDF be uploaded?**</summary>
+
+No. Conversion happens in your browser via `pdf.js` and an Open XML writer. No file leaves your device.
+
+</details>
+
+<details>
+<summary>**Are images preserved?**</summary>
+
+Yes when "Preserve images" is enabled — they're embedded in the DOCX at their original resolution. Disable for text-only output (smaller file).
+
+</details>
+
+<details>
+<summary>**Can it convert a scanned (image-based) PDF?**</summary>
+
+Not directly — this tool extracts the existing text layer. For scanned PDFs without text, run our PDF OCR tool first to add a text layer, then convert.
+
+</details>
+
+<details>
+<summary>**Are tables preserved?**</summary>
+
+Simple tables (regular grids with text cells) are reconstructed. Complex tables (merged cells, nested tables, embedded images) may render as plain text — check after conversion.
+
+</details>
+
+<details>
+<summary>**Why are some fonts substituted?**</summary>
+
+DOCX requires fonts to be installed on the reader's system or embedded. The converter maps PDF fonts to common DOCX-safe equivalents (Arial, Calibri, Times New Roman). For exact-font fidelity, embed the original font in Word manually.
+
+</details>
+
+## Tips
+
+- Best results come from text-heavy PDFs (reports, contracts, articles).
+- For scanned PDFs, run OCR first; otherwise the converter has no text to extract.
+- After conversion, run Word's Style Inspector to clean up any inconsistent formatting.
+- If layout matters more than editability, consider exporting individual pages as images and embedding instead.
+
+## Try it now
+
+The full pdf-to-word runs in your browser at **[https://ztools.zaions.com/pdf-to-word](https://ztools.zaions.com/pdf-to-word)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pdf-to-word)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/pdf-to-word.mdx)*
