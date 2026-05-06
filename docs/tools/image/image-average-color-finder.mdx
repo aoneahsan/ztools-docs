@@ -1,0 +1,119 @@
+---
+id: image-average-color-finder
+title: "Image Average Color Finder — Hex, RGB, HSL, Free"
+description: "Find the average color of any image. Hex, RGB, HSL output. Useful for placeholder colors, theming. Browser-only."
+sidebar_label: "image-average-color-finder"
+keywords:
+  - "image average color"
+  - "find dominant color image"
+  - "average rgb of image"
+  - "image color extractor"
+  - "placeholder color from image"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-average-color-finder
+
+The average colour of an image is the mean of all its pixel colours — useful as a low-resolution placeholder while the full image loads (LQIP / BlurHash style), as a brand-derived palette starting point, or for quick mood matching across an image set. The ZTools Image Average Color Finder loads any image, computes the average across all pixels, and outputs the result in hex / RGB / HSL. Optional weighted averaging gives more weight to brighter or larger areas.
+
+<ToolCTA toolId="image-average-color-finder" toolName="image-average-color-finder" />
+
+## Use cases
+
+### Generate placeholder background colours
+
+Before a hero image loads, show its average colour as the background. Avoids the white-flash effect on slow connections.
+
+### Derive a brand palette
+
+A logo image's average colour is often a good starting point for the brand's primary colour. Pair with a complementary-colour generator for a full palette.
+
+### Match images to a layout
+
+Pick the image whose average colour best fits a section's background. Useful for editorial layouts with mood consistency.
+
+### Generate dominant-colour metadata
+
+For a media library, store each asset's average colour as metadata. Drives "view by mood" / "view by colour" UIs.
+
+## How it works
+
+1. **Drop image** — Any format the browser decodes (PNG, JPG, WebP, GIF, SVG with explicit dimensions).
+2. **Compute average** — Walk every pixel, sum R / G / B, divide by pixel count. Optional weighting: brightness-weighted, saturation-weighted, edge-aware.
+3. **Display result** — Hex (#3B82F6), RGB (59, 130, 246), HSL (217, 91%, 60%). Plus a swatch preview.
+
+## Examples
+
+**Input:** Sunset photo (orange-pink-purple)
+
+**Output:** Average might be a muted purple-grey (#7B5C7E) — the mean of all the warm and cool tones cancels out into a neutral.
+
+---
+
+**Input:** Mostly blue photo
+
+**Output:** Average lands clearly in the blue family. Useful when one colour dominates the composition.
+
+---
+
+**Input:** High-contrast graphic (pure black + pure white)
+
+**Output:** Average is grey ~ #808080. Demonstrates why "average" can be misleading for high-contrast content.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is the average always greyish?**</summary>
+
+Averaging cancels complementary colours. A photo with reds and greens averages to grey because R and G channels balance. For a more meaningful "dominant colour", use a clustering tool (k-means) instead.
+
+</details>
+
+<details>
+<summary>**Average colour vs dominant colour?**</summary>
+
+Average is the arithmetic mean. Dominant is the most-frequent (or largest cluster). Different concepts; use whichever fits.
+
+</details>
+
+<details>
+<summary>**What about transparency?**</summary>
+
+Transparent pixels are skipped (or weighted by alpha). Toggle the behaviour.
+
+</details>
+
+<details>
+<summary>**How accurate is the result?**</summary>
+
+Mathematically exact for the pixel set. Whether it's "useful" depends on the image — see "average vs dominant" above.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For LQIP placeholders, average colour is great. For "matches the photo's mood", dominant colour (k-means) is better.
+- Skip transparent pixels — including them biases the average toward the canvas colour, which is meaningless.
+- For brand palettes, take averages of multiple brand assets and look for the convergent colour — single-image average can mislead.
+- Combine with a colour-quantize tool for an N-colour palette extraction (most photos reduce well to 5-7 colours).
+
+## Try it now
+
+The full image-average-color-finder runs in your browser at **[https://ztools.zaions.com/image-average-color-finder](https://ztools.zaions.com/image-average-color-finder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-average-color-finder)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-average-color-finder.mdx)*

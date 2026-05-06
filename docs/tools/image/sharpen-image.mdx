@@ -1,0 +1,130 @@
+---
+id: sharpen-image
+title: "Sharpen Image — Unsharp Mask and Smart Sharpen Online (Free)"
+description: "Sharpen photos with unsharp mask or smart sharpen. Adjustable amount, radius, threshold. Edge-aware. Free, in-browser, no signup."
+sidebar_label: "sharpen-image"
+keywords:
+  - "sharpen image"
+  - "unsharp mask online"
+  - "smart sharpen online"
+  - "photo sharpener"
+  - "free image sharpener"
+  - "crispen photo"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sharpen-image
+
+A sharpen image tool enhances perceived edge contrast in a photograph — making fine detail (eyelashes, fabric texture, product seams, architectural lines) appear crisper without changing actual resolution — using either the classic unsharp mask algorithm or a smart edge-aware mode that focuses sharpening on real edges and avoids amplifying noise in flat areas. The ZTools Sharpen Image tool runs in the browser, exposes amount / radius / threshold controls so you can match Photoshop's familiar workflow, supports a noise-aware mode for high-ISO photos, and previews the result against the original side-by-side before export.
+
+<ToolCTA toolId="sharpen-image" toolName="sharpen-image" />
+
+## Use cases
+
+### Recovering soft phone photos
+
+Indoor low-light phone shots are often slightly soft. A light unsharp-mask pass restores the perceived detail without touching colour.
+
+### Pre-print sharpening
+
+Inkjet prints look softer than the on-screen original. Apply a stronger sharpen pass before export to compensate for ink dot gain.
+
+### Web image sharpening after downscale
+
+After resizing down to 800 px wide, photos look soft. A small smart-sharpen restores apparent detail without enlarging the file much.
+
+### Product photo crispness for e-commerce
+
+Marketplace photos look more "premium" with a controlled sharpen — lift fine seam, weave, and edge detail.
+
+## How it works
+
+1. **Upload image** — JPG, PNG, WebP, HEIC. Original resolution preserved.
+2. **Pick mode** — Unsharp mask (classic, predictable). Smart sharpen (edge-aware, less noise amplification).
+3. **Set amount, radius, threshold** — Amount = strength (0–500%). Radius = how thick the sharpened edge is (0.3–10 px). Threshold = pixels below this contrast difference are skipped (0–255), useful to avoid sharpening sky / skin noise.
+4. **Preview against original** — Split-view shows before/after at 100% zoom. Adjust until edges feel crisp without halo artefacts.
+5. **Export** — PNG (lossless) or JPG (lossy, smaller). EXIF preserved.
+
+## Examples
+
+**Input:** Slightly soft phone photo, amount 80, radius 1.0
+
+**Output:** Crisper detail, no visible halo
+
+---
+
+**Input:** Print-prep sharpen, amount 150, radius 1.5, threshold 4
+
+**Output:** Stronger sharpen suitable for inkjet output
+
+---
+
+**Input:** Downscaled web photo, amount 60, radius 0.8
+
+**Output:** Cleaner edges after the downsize
+
+## Frequently asked questions
+
+<details>
+<summary>**What is unsharp mask?**</summary>
+
+Despite the misleading name, it sharpens — it subtracts a blurred copy of the image from itself, exaggerating differences (edges). Standard tool in every photo editor since the 1990s.
+
+</details>
+
+<details>
+<summary>**Why does my sharpened image look halo-y?**</summary>
+
+Radius is too high or amount is too strong. Reduce both. Halos are bright outlines around dark edges; once visible, the sharpen has overshot.
+
+</details>
+
+<details>
+<summary>**Should I sharpen before or after resizing?**</summary>
+
+Sharpen as the last step. Pre-sharpen + downscale loses detail twice; post-resize sharpen gives the cleanest result.
+
+</details>
+
+<details>
+<summary>**Will sharpening amplify noise?**</summary>
+
+Unsharp mask, yes. Use threshold (skip low-contrast pixels) or smart-sharpen to avoid making flat areas grainy.
+
+</details>
+
+<details>
+<summary>**What settings does Photoshop use as defaults?**</summary>
+
+Photoshop's default unsharp mask is amount 50, radius 1.0, threshold 0. Most photographers tune up to amount 80–150.
+
+</details>
+
+<details>
+<summary>**Does it work on PNGs with transparency?**</summary>
+
+Yes. The alpha channel is preserved; sharpening applies to RGB only.
+
+</details>
+
+## Tips
+
+- Start with low amount (60–80) and small radius (0.8–1.2) — you can always re-run the sharpen.
+- Use the threshold to protect smooth areas (skin, sky) from grain.
+- Sharpen as the final step in your edit, after downscaling and colour grading.
+- For printed output, sharpen slightly more than for screen — print softens the result.
+- Compare 100% zoom before/after; sharpening looks great at 50% zoom and ugly at 100% if overdone.
+
+## Try it now
+
+The full sharpen-image runs in your browser at **[https://ztools.zaions.com/sharpen-image](https://ztools.zaions.com/sharpen-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sharpen-image)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/sharpen-image.mdx)*

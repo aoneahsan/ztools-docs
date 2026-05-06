@@ -1,0 +1,120 @@
+---
+id: change-gif-speed
+title: "Change GIF Speed — Faster, Slower, Frame Delay, Free"
+description: "Speed up or slow down any GIF by adjusting frame delays. Preview live. Browser-only — no upload, no signup."
+sidebar_label: "change-gif-speed"
+keywords:
+  - "change gif speed online"
+  - "speed up gif"
+  - "slow down gif"
+  - "gif frame delay"
+  - "gif fps changer"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# change-gif-speed
+
+GIF playback speed is controlled by per-frame delays measured in centiseconds (1/100 s). Setting a uniform delay or scaling all delays changes the playback speed. The ZTools Change GIF Speed tool decodes the GIF, lets you scale all delays by a factor (0.25× = 4× faster, 4× = 4× slower) or set a fixed delay across all frames, and re-encodes. No quality loss — same frames, different timing. Useful for fixing too-fast tutorials, slowing down reaction GIFs, or matching multiple GIFs to a target frame rate.
+
+<ToolCTA toolId="change-gif-speed" toolName="change-gif-speed" />
+
+## Use cases
+
+### Slow down a too-fast tutorial GIF
+
+A how-to GIF flies by too quickly to read. Slow to 0.5× — readable, file size unchanged.
+
+### Speed up a long reaction GIF
+
+A 6-second eye-roll feels long. 2× speed = 3 seconds — punchier.
+
+### Match GIFs to a target frame rate
+
+Two GIFs side by side; one is 10 fps, one is 30 fps. Set both to 60 ms delay (≈ 16 fps) for visual coherence.
+
+### Generate a slowmo from a fast GIF
+
+Source GIF was captured at 100 fps. Set delay to 100 ms (10 fps) — dramatic slow-motion effect.
+
+## How it works
+
+1. **Drop GIF** — Tool decodes via gif.js library, extracts frames + delays.
+2. **Pick mode** — Scale delays (0.25× to 4×) or set uniform delay (10 ms to 1000 ms).
+3. **Live preview** — See the result before saving. Toggle 1× to compare.
+4. **Re-encode + download** — New GIF with adjusted delays. Same frames, same dimensions.
+
+## Examples
+
+**Input:** GIF with 50 ms delay per frame, scale ×2
+
+**Output:** New delay 100 ms per frame — half speed. File size unchanged.
+
+---
+
+**Input:** Same GIF, set uniform 30 ms
+
+**Output:** All frames now 30 ms — slightly faster than the original 50 ms. Useful for normalising mismatched delays.
+
+---
+
+**Input:** 10-frame GIF at 100 ms = 1 sec total. Scale ×0.5
+
+**Output:** 50 ms per frame, 0.5 sec total — twice as fast.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does the file size stay the same?**</summary>
+
+Frame data didn't change — only timing. GIF compresses each frame against the previous; that hasn't changed.
+
+</details>
+
+<details>
+<summary>**How do I get smoother slowmo?**</summary>
+
+Scaling delays just shows each frame longer — looks choppy on heavy slowdowns. For true smoothness, interpolate frames (a separate AI tool); GIF speed-change alone can't add new frames.
+
+</details>
+
+<details>
+<summary>**Browser GIF speed limits?**</summary>
+
+Most browsers cap minimum delay at 20 ms (50 fps). Setting 5 ms doesn't play faster — the cap silently kicks in.
+
+</details>
+
+<details>
+<summary>**What about loops?**</summary>
+
+Loop count is preserved. Toggle "play once" or "infinite loop" if you want to change.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in browser.
+
+</details>
+
+## Tips
+
+- For tutorials, default to 0.5× — gives readers time to read inline text.
+- For reaction GIFs / memes, 1.5× to 2× makes them punchier without feeling rushed.
+- Most browsers ignore delays under 20 ms — don't set delays below that.
+- When matching multiple GIFs, set a uniform delay rather than scaling — gives consistent playback regardless of source frame rates.
+
+## Try it now
+
+The full change-gif-speed runs in your browser at **[https://ztools.zaions.com/change-gif-speed](https://ztools.zaions.com/change-gif-speed)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/change-gif-speed)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/change-gif-speed.mdx)*

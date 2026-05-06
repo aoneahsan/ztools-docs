@@ -1,0 +1,127 @@
+---
+id: convert-png-to-webp
+title: "Convert PNG to WebP — Free Online, Browser-Only"
+description: "Convert PNG images to WebP for ~30% smaller files at the same visual quality. Browser-only — no upload, no signup."
+sidebar_label: "convert-png-to-webp"
+keywords:
+  - "png to webp converter"
+  - "convert png webp online"
+  - "optimize png webp"
+  - "webp encoder browser"
+  - "reduce image size webp"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# convert-png-to-webp
+
+Converting PNG to WebP shrinks a file by 25-35% on average at visually identical quality, because WebP combines better predictors and entropy coding than PNG's DEFLATE. Lossless WebP supports the same alpha transparency as PNG; lossy WebP shrinks further at the cost of some quality. The ZTools PNG-to-WebP tool encodes via the browser's Canvas API and the native WebP encoder shipped in Chromium / Firefox / Safari 14+. No upload, no server roundtrip, no quality cap — your image never leaves your device.
+
+<ToolCTA toolId="convert-png-to-webp" toolName="convert-png-to-webp" />
+
+## Use cases
+
+### Reduce site weight without re-cutting assets
+
+Existing PNG hero image is 800 KB. WebP version comes out at ~520 KB with no visible quality difference. Bigger savings on illustrations and screenshots.
+
+### Replace image-heavy PNG sprites
+
+WebP preserves alpha; lossless mode is byte-for-byte equivalent visually. Drop-in replacement for any PNG asset.
+
+### Improve PageSpeed score
+
+Google PageSpeed flags PNGs that could be WebP. Conversion plus serving WebP via &lt;picture&gt; with PNG fallback is the canonical fix.
+
+### Cut email attachment sizes
+
+Most modern email clients render WebP inline. Switching attachments saves bandwidth on slow connections.
+
+## How it works
+
+1. **Drop or select PNG** — Single file or batch up to 50. Each loaded into a Canvas element.
+2. **Pick mode** — Lossless (visually identical, ~25% smaller) or lossy (configurable quality 1-100, much smaller).
+3. **Encode** — canvas.toBlob with image/webp MIME. Browser native encoder produces the bytes.
+4. **Download** — Single .webp file or zip of converted batch. Original PNG is untouched.
+
+## Examples
+
+**Input:** 1024×1024 illustration PNG, 480 KB
+
+**Output:** Lossless WebP: ~340 KB (29% smaller). Lossy at quality 85: ~95 KB (80% smaller, near-indistinguishable).
+
+---
+
+**Input:** Screenshot PNG with text
+
+**Output:** Lossless WebP preferred — lossy compression smears anti-aliased text edges.
+
+---
+
+**Input:** Photo-style PNG
+
+**Output:** Lossy WebP at quality 80 typically wins — photos tolerate compression, savings reach 60-70%.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will WebP work in all browsers?**</summary>
+
+Yes since 2020 — Chrome, Edge, Firefox, Safari 14+, Opera all decode WebP. Older Safari (≤13) and Internet Explorer don't. Use &lt;picture&gt; with a PNG fallback for those rare cases.
+
+</details>
+
+<details>
+<summary>**Lossless vs lossy — which?**</summary>
+
+Lossless for screenshots, illustrations, UI assets, anything with text or sharp edges. Lossy for photographs and paintings — eyes don't see the difference, files are 4-8x smaller.
+
+</details>
+
+<details>
+<summary>**Does it preserve transparency?**</summary>
+
+Yes. Lossless WebP supports alpha just like PNG. Lossy WebP also supports alpha (since libwebp 0.5).
+
+</details>
+
+<details>
+<summary>**Does conversion lose colour profile?**</summary>
+
+sRGB is preserved. Embedded ICC profiles can be stripped on encode — check via colour-managed tools if profile fidelity matters.
+
+</details>
+
+<details>
+<summary>**Can it convert animated PNGs (APNG)?**</summary>
+
+Most browsers ignore APNG animation when encoding via canvas — output is a single frame. For animated PNG → animated WebP, use libwebp's `img2webp` CLI.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All conversion in the browser. PNG never uploaded.
+
+</details>
+
+## Tips
+
+- Default to lossless for any asset under 200 KB — savings are still ~25% and quality is guaranteed.
+- For photos, lossy quality 80-85 is the sweet spot — eye-imperceptible loss, large savings.
+- Serve WebP via &lt;picture&gt;&lt;source srcset="img.webp" type="image/webp"&gt;&lt;img src="img.png"&gt;&lt;/picture&gt; — browsers pick the right format automatically.
+- Test the WebP in Lighthouse — confirms PageSpeed improvement from the swap.
+
+## Try it now
+
+The full convert-png-to-webp runs in your browser at **[https://ztools.zaions.com/convert-png-to-webp](https://ztools.zaions.com/convert-png-to-webp)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/convert-png-to-webp)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/convert-png-to-webp.mdx)*

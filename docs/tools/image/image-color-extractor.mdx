@@ -1,0 +1,130 @@
+---
+id: image-color-extractor
+title: "Image Color Extractor — Pull a Palette from Any Photo"
+description: "Extract the dominant colour palette from any image. 5–20 swatches with hex, RGB, HSL. Free, in-browser, designer-friendly."
+sidebar_label: "image-color-extractor"
+keywords:
+  - "image color extractor"
+  - "photo palette extractor"
+  - "dominant colour extractor"
+  - "image to palette"
+  - "css palette from image"
+  - "tailwind palette generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-color-extractor
+
+An image colour extractor analyses a photograph and returns its dominant colour palette — a small set of representative swatches with hex, RGB, and HSL values — so designers, brand managers, and front-end developers can build interfaces, posters, and brand systems that match a reference image without eyeballing colour values. The ZTools Image Colour Extractor uses k-means clustering on a sampled pixel set to produce 5, 10, 15, or 20 swatches, lets you click any swatch to copy the value, exports the palette as JSON / CSS variables / Tailwind config / Adobe ASE, and runs entirely in the browser so even brand-confidential photos stay on your device.
+
+<ToolCTA toolId="image-color-extractor" toolName="image-color-extractor" />
+
+## Use cases
+
+### Building a brand palette from a hero photo
+
+Marketing wants the site to "feel like" a chosen lifestyle photo. Extract the palette, lock the top 3 swatches as primary/secondary/accent, and theme the site.
+
+### Designing posters that match a product
+
+A poster for a sneaker drop should pull its accent colour from the sneaker. Extract, pick the cleanest swatch, apply.
+
+### Generating Tailwind / CSS variables
+
+Front-end devs export the palette as Tailwind colour config or CSS variables — instant theme tokens for the build.
+
+### Data visualisation matching imagery
+
+Charts and dashboards built on top of marketing pages look cohesive when the chart palette comes from the page hero. Extract, paste into the chart config.
+
+## How it works
+
+1. **Upload image** — JPG, PNG, WebP, HEIC. Drag-and-drop or paste.
+2. **Pick palette size** — 5 swatches for hero accents; 10–20 for richer ranges. Larger palettes capture subtler tones.
+3. **Choose algorithm** — K-means (most representative), median cut (faster, fewer noisy swatches), dominant-only (returns the single most common colour).
+4. **Inspect swatches** — Hex, RGB, HSL, CIELAB, plus the percentage of the image each colour occupies.
+5. **Export** — JSON, CSS variables, Tailwind colour fragment, Adobe ASE, or copy individual swatches to clipboard.
+
+## Examples
+
+**Input:** Coffee shop hero photo, 5 swatches
+
+**Output:** #3B2A22 (espresso brown), #C9A98A (latte beige), #F1E7DA (foam), #1A120E (deep coffee), #DA7D45 (accent orange)
+
+---
+
+**Input:** Beach sunset, 10 swatches
+
+**Output:** Pinks, oranges, purples, teals — dominant by warmth
+
+---
+
+**Input:** Product on white sweep, 5 swatches
+
+**Output:** White, near-white, plus 3 product colours; ignore-near-white toggle helpful
+
+## Frequently asked questions
+
+<details>
+<summary>**How many colours should I extract?**</summary>
+
+5 for tight brand palettes, 10 for editorial layouts, 20 for data-viz palettes that need range. More than 20 usually over-fits to image noise.
+
+</details>
+
+<details>
+<summary>**K-means vs median-cut — which is better?**</summary>
+
+K-means produces colours that visually summarise the image; median-cut is faster and gives a cleaner, less noisy result. Try both on the same image — visual difference is often subtle.
+
+</details>
+
+<details>
+<summary>**Why are my swatches mostly grey?**</summary>
+
+The image is desaturated or low-contrast. Extracting from a flat photo gives flat colours. Pick a more vibrant source if you need a punchy palette.
+
+</details>
+
+<details>
+<summary>**Can I exclude near-white or near-black backgrounds?**</summary>
+
+Yes — the "ignore near-white / near-black" toggle skips pixels close to those extremes, leaving room for genuine product colours to surface.
+
+</details>
+
+<details>
+<summary>**Does it return WCAG-accessible pairs?**</summary>
+
+Not directly — but the palette includes lightness so you can pick contrast pairs manually. Check pairs in the Contrast Checker tool.
+
+</details>
+
+<details>
+<summary>**Will the photo be uploaded?**</summary>
+
+No. K-means runs in your browser. Brand photos stay on-device.
+
+</details>
+
+## Tips
+
+- Crop to the area of interest before extracting — otherwise dominant background colours dominate the palette.
+- Pick a 5-swatch palette for site theming; rebuild every 6 months as imagery evolves.
+- Export to Tailwind config to land the palette directly in the design system.
+- Run extraction on multiple representative photos and merge the top swatches for a brand-wide palette.
+- Store the original photo + the JSON palette together so future designers know the provenance.
+
+## Try it now
+
+The full image-color-extractor runs in your browser at **[https://ztools.zaions.com/image-color-extractor](https://ztools.zaions.com/image-color-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-color-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-color-extractor.mdx)*

@@ -1,0 +1,131 @@
+---
+id: smart-image-optimizer
+title: "Smart Image Optimizer — Auto Format + Size for Web (Free)"
+description: "Auto-pick best format (AVIF/WebP/JPG), dimensions, and quality for web use. Drop image, get optimized output. Browser-only, free."
+sidebar_label: "smart-image-optimizer"
+keywords:
+  - "smart image optimizer"
+  - "auto image optimizer"
+  - "web image optimizer"
+  - "avif optimizer"
+  - "webp optimizer"
+  - "image performance optimizer"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# smart-image-optimizer
+
+A smart image optimizer applies a one-click "best practice" recipe — auto-pick output format (AVIF for max compression, WebP for fallback, JPG for legacy), auto-resize to sensible web dimensions (1920px max for retina), auto-strip EXIF, auto-balance quality (75–85% range giving 90%+ size reduction with imperceptible quality loss). The ZTools Smart Image Optimizer wraps these decisions into a single drop-zone interface. Beneath the simple UX are explicit rules you can override; defaults are tuned for typical SaaS / blog / e-commerce use cases.
+
+<ToolCTA toolId="smart-image-optimizer" toolName="smart-image-optimizer" />
+
+## Use cases
+
+### Day-one-launch image cleanup
+
+Designer hands you 50 photos at 4K from Figma. Drop them all in, get optimized versions ready for web upload — no per-file decisions.
+
+### CMS upload preprocessing
+
+Before uploading to WordPress / Webflow / Sanity, run images through the optimizer. Saves CDN bandwidth, improves Core Web Vitals.
+
+### CDN cost reduction
+
+Existing site has 10 GB of unoptimized images. Batch through optimizer → ~1–2 GB. CDN bill drops 80%+.
+
+### Performance audit fixes
+
+Lighthouse / PageSpeed flags large images. Optimizer applies the fix recipe in one pass.
+
+## How it works
+
+1. **Drop images** — Single or batch (50+ files). JPG, PNG, WebP, AVIF, GIF accepted.
+2. **Auto-resize** — Max width 1920 px (configurable). Photos beyond resize down; photos under are preserved.
+3. **Auto-format** — AVIF for browsers that support; WebP for older. Output as `&lt;picture&gt;` HTML snippet with format fallbacks.
+4. **Auto-quality** — AVIF q70, WebP q80, JPG q82. Tuned to give imperceptible quality drop.
+5. **Strip EXIF** — Default ON for privacy + smaller files. Toggle OFF to preserve.
+6. **Export ZIP** — Optimized files + auto-generated `&lt;picture&gt;` HTML snippets.
+
+## Examples
+
+**Input:** 4032×3024 iPhone JPG (3.2 MB)
+
+**Output:** 1920×1440 AVIF q70 (~190 KB) + WebP q80 (~280 KB) + JPG q82 fallback (~340 KB). 88% reduction worst-case.
+
+---
+
+**Input:** 20-photo product gallery
+
+**Output:** Total weight 60 MB → 7 MB. ZIP with HTML `&lt;picture&gt;` snippets for each.
+
+---
+
+**Input:** Logo PNG (512×512, 50 KB)
+
+**Output:** Optimizer detects illustration content, keeps PNG-8 / SVG, no lossy re-encoding. ~30 KB.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it pick format?**</summary>
+
+Photos with continuous gradients → AVIF + WebP + JPG. Logos / icons / illustrations with sharp edges → PNG-8 (or SVG if available, but SVG isn't generated from raster). Screenshots with text → WebP-lossless or PNG-24.
+
+</details>
+
+<details>
+<summary>**Can I override the auto decisions?**</summary>
+
+Yes — every default is tunable. Lock format, force specific quality, disable resize, preserve EXIF.
+
+</details>
+
+<details>
+<summary>**Why are my screenshots quality-reduced?**</summary>
+
+Screenshots with text suffer most from lossy compression. Toggle "treat as graphic" or "lossless mode" for screenshots — produces larger file but readable text.
+
+</details>
+
+<details>
+<summary>**What's the output `&lt;picture&gt;` snippet?**</summary>
+
+`&lt;picture&gt;&lt;source srcset="image.avif" type="image/avif"&gt;&lt;source srcset="image.webp" type="image/webp"&gt;&lt;img src="image.jpg" alt=""&gt;&lt;/picture&gt;` — browsers pick the first format they support.
+
+</details>
+
+<details>
+<summary>**Does it preserve aspect ratio?**</summary>
+
+Yes — resize maintains original aspect ratio. Crop is a separate tool.
+
+</details>
+
+<details>
+<summary>**Is anything uploaded?**</summary>
+
+No — Canvas + WebP/AVIF encoders run client-side. Your photos stay on your device.
+
+</details>
+
+## Tips
+
+- Default settings are tuned for typical SaaS / blog use — override only when you have a reason.
+- Use `&lt;picture&gt;` HTML snippet (provided in output) — browsers serve the smallest format they support.
+- For above-the-fold hero images, AVIF saves the most LCP time.
+- Strip EXIF for public sharing (privacy + smaller). Preserve for personal archives.
+- Run optimizer on every image before CMS upload — automating the recipe beats per-image decisions.
+
+## Try it now
+
+The full smart-image-optimizer runs in your browser at **[https://ztools.zaions.com/smart-image-optimizer](https://ztools.zaions.com/smart-image-optimizer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/smart-image-optimizer)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/smart-image-optimizer.mdx)*

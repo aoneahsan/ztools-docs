@@ -1,0 +1,121 @@
+---
+id: change-png-colors
+title: "Change PNG Colors Online — Replace, Recolor, Free"
+description: "Replace a color in a PNG with another. Pick by eyedropper, set tolerance. Preserves transparency. Browser-only."
+sidebar_label: "change-png-colors"
+keywords:
+  - "change png colors"
+  - "replace png color online"
+  - "recolor png logo"
+  - "png color swap"
+  - "edit png hex color"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# change-png-colors
+
+Changing PNG colours means replacing one colour with another while preserving transparency and the rest of the image. Useful for re-tinting a logo, swapping a brand colour across icon sets, or correcting a colour mistake without re-exporting. The ZTools Change PNG Colors tool lets you click any pixel to pick the source colour, set a tolerance (so near-matches also swap), and pick the replacement. All processing on the browser canvas; nothing leaves your device.
+
+<ToolCTA toolId="change-png-colors" toolName="change-png-colors" />
+
+## Use cases
+
+### Recolour a logo without source files
+
+You have a PNG of a logo in red; need it in blue for a partner deck. No source file, no Adobe. Pick red, replace with blue.
+
+### Brand-colour migration across icons
+
+Old brand was teal; new brand is navy. Run all icons through the recolouriser; saves re-exporting from Figma.
+
+### Correct an off-brand colour mistake
+
+Designer used #2563EB instead of #1D4ED8. Fix the PNG without re-rendering the asset.
+
+### Make a watermark less obtrusive
+
+Replace a black watermark with a 30%-opacity grey. One pass, no Photoshop.
+
+## How it works
+
+1. **Open PNG** — Loaded into canvas. Eyedropper enabled on hover.
+2. **Pick source colour** — Click any pixel to set the source. Or paste a hex value.
+3. **Set tolerance** — Slider 0-100. Higher tolerance catches anti-aliased edges; too high catches unrelated colours.
+4. **Pick replacement** — Hex picker or pick another pixel in the image.
+5. **Replace + download** — Walks every pixel, swaps matches (within tolerance), preserves alpha. New PNG ready.
+
+## Examples
+
+**Input:** Red logo (#FF0000) → blue (#0000FF), tolerance 0
+
+**Output:** Only pure red pixels swap. Anti-aliased edges (e.g. #FF1A1A) stay red — visible halo.
+
+---
+
+**Input:** Same swap, tolerance 30
+
+**Output:** Anti-aliased edges also catch — clean swap. But unrelated reddish pixels might also swap.
+
+---
+
+**Input:** Black watermark → 50%-grey
+
+**Output:** All pure-black pixels become grey at 50% alpha. Watermark is much subtler.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why do the edges look bad after a swap?**</summary>
+
+Anti-aliasing — edges are not pure source colour. Use higher tolerance (15-30) to catch them, or feather your replacement.
+
+</details>
+
+<details>
+<summary>**Does it preserve transparency?**</summary>
+
+Yes — alpha is unchanged. Only RGB channels swap when a pixel matches.
+
+</details>
+
+<details>
+<summary>**Can I swap multiple colours?**</summary>
+
+Run multiple passes. Each pass picks one source / replacement pair.
+
+</details>
+
+<details>
+<summary>**What about gradients?**</summary>
+
+Gradient pixels span many colours. Tolerance can help but won't recolour a full gradient cleanly. For gradients, re-export from source or use a hue-shift tool.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All recolouring in browser.
+
+</details>
+
+## Tips
+
+- Start tolerance at 10-20; bump up if edges look pixelated, down if unrelated colours swap.
+- For brand-colour swaps across many icons, save the source/target hex pair and re-use across sessions.
+- For complex swaps (gradients, photographic content), use a hue-rotation filter instead — colour replacement is best for flat-colour graphics.
+- Always keep the original PNG — recolouring is destructive in the saved output.
+
+## Try it now
+
+The full change-png-colors runs in your browser at **[https://ztools.zaions.com/change-png-colors](https://ztools.zaions.com/change-png-colors)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/change-png-colors)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/change-png-colors.mdx)*

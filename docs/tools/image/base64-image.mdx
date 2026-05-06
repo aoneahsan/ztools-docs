@@ -1,0 +1,130 @@
+---
+id: base64-image
+title: "Base64 to Image — Decode Data URLs and Base64 Strings to PNG/JPG"
+description: "Paste a Base64 string or a data: URL and download the decoded image. Detects PNG, JPG, GIF, WebP, SVG. Free, in-browser, instant."
+sidebar_label: "base64-image"
+keywords:
+  - "base64 to image"
+  - "decode base64 image"
+  - "data url to image"
+  - "base64 png decoder"
+  - "base64 jpg decoder"
+  - "free base64 decoder"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# base64-image
+
+A Base64 to image decoder parses a Base64-encoded string — typically copied out of a data: URL, an HTML attribute, a JSON field, an email source, or a developer console — and turns it back into a viewable image file (PNG, JPG, GIF, WebP, SVG, or BMP), so you can see what was embedded and save it locally for editing or testing. The ZTools Base64 Image decoder accepts both raw Base64 and full data: URLs, auto-detects the MIME type from the prefix or magic bytes, validates the input before decoding so you do not download a 0-byte broken file, and shows the decoded image with metadata (size, format, dimensions) before you confirm the download.
+
+<ToolCTA toolId="base64-image" toolName="base64-image" />
+
+## Use cases
+
+### Inspecting embedded images in HTML/CSS
+
+A site embeds a hero image as a data: URL to skip an HTTP request. Copy the string, decode it here, and save the underlying PNG for editing or replacement.
+
+### Recovering attachments from raw email source
+
+Email source view shows attachments as Base64 blocks. Paste the block to recover the original image when the mail client cannot.
+
+### Debugging API responses
+
+An API returns a generated chart or QR code as Base64. Decode locally to verify the image is correct before integrating downstream.
+
+### Extracting signatures and stamps from PDFs
+
+PDF parsers often expose embedded signatures as Base64. Decode to PNG, edit if needed, save for re-use.
+
+## How it works
+
+1. **Paste the Base64 string** — Either the raw string or the full data: URL prefix (data:image/png;base64,...). Both are accepted.
+2. **Auto-detect format** — MIME type from the data: prefix, or magic bytes from the decoded buffer. Supports PNG, JPG, GIF, WebP, SVG, BMP, ICO.
+3. **Validate** — Length check, padding check, charset check. Bad strings are flagged with the offending character/position rather than failing silently.
+4. **Render preview** — In-browser preview with dimensions, file size, and detected format.
+5. **Download decoded file** — One-click download as the detected format with the appropriate extension.
+
+## Examples
+
+**Input:** data:image/png;base64,iVBORw0KGgoAAA...
+
+**Output:** PNG file, 1.2 KB, 32x32 px
+
+---
+
+**Input:** Raw Base64 of a JPG without prefix
+
+**Output:** JPG file, format detected from magic bytes, downloadable
+
+---
+
+**Input:** Truncated Base64 missing padding
+
+**Output:** Validation error with hint: "Add 2 trailing = characters or check copy/paste truncation"
+
+## Frequently asked questions
+
+<details>
+<summary>**What is Base64?**</summary>
+
+A way to represent binary data as ASCII text using 64 printable characters. Used to embed images in JSON, HTML, CSS, and email — anywhere the transport is text-only.
+
+</details>
+
+<details>
+<summary>**Why is my decoded file corrupt?**</summary>
+
+Usually bad copy-paste — missing padding (= at the end), line breaks inside, or extra whitespace. The validator highlights the issue; clean and retry.
+
+</details>
+
+<details>
+<summary>**Does the data: prefix matter?**</summary>
+
+It carries the MIME type, which makes format detection reliable. Without it, the tool falls back to magic-byte sniffing — works for PNG/JPG/GIF/WebP but is less reliable for raw SVG.
+
+</details>
+
+<details>
+<summary>**Is the data uploaded to a server?**</summary>
+
+No. Decoding is pure JavaScript in your browser. The string never leaves your tab.
+
+</details>
+
+<details>
+<summary>**How big can the input be?**</summary>
+
+Browsers handle multi-megabyte Base64 strings comfortably. For very large embeds (10+ MB), expect a 1–2 second decode pause.
+
+</details>
+
+<details>
+<summary>**Can I encode an image to Base64 here too?**</summary>
+
+Yes — switch to the "Image to Base64" mode (or use the dedicated Image to Base64 tool) which performs the inverse.
+
+</details>
+
+## Tips
+
+- When pasting from JSON, strip surrounding quotes and any escaped backslashes.
+- Line-wrapped Base64 (every 76 chars) decodes fine — wrappers ignore newlines.
+- If a CSS data: URL is enormous, your build tool may benefit from extracting it to a real file — large data: URLs hurt cache and parse time.
+- For SVG Base64, after decoding open in a text editor — SVG is XML and remains readable.
+- Validate with a checksum (SHA-256 of decoded vs expected) when integrity matters; the decoder shows the size for a quick sanity check.
+
+## Try it now
+
+The full base64-image runs in your browser at **[https://ztools.zaions.com/base64-image](https://ztools.zaions.com/base64-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/base64-image)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/base64-image.mdx)*

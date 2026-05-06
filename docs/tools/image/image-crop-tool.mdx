@@ -1,0 +1,130 @@
+---
+id: image-crop-tool
+title: "Image Crop Tool — Free Aspect Ratio & Pixel-Perfect Cropping"
+description: "Crop images to exact pixel dimensions or aspect ratios (1:1, 4:5, 16:9, custom). Browser-only Canvas, no upload, batch-friendly."
+sidebar_label: "image-crop-tool"
+keywords:
+  - "image crop tool"
+  - "crop image online"
+  - "aspect ratio crop"
+  - "instagram crop"
+  - "photo cropper"
+  - "pixel-perfect crop"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-crop-tool
+
+An image crop tool selects a rectangular region of an image and discards the rest — used to focus the subject, remove distracting backgrounds, fit a specific aspect ratio for social platforms, or extract a thumbnail. The ZTools Image Crop Tool runs in the browser via HTML5 Canvas with a draggable / resizable selection rectangle, locked aspect-ratio presets (1:1 Instagram, 4:5 IG portrait, 16:9 video, 9:16 stories/reels, 3:2 print, custom), pixel-precise inputs, and live preview at the output size. Crop output exports as JPG/PNG/WebP at the exact pixel dimensions requested.
+
+<ToolCTA toolId="image-crop-tool" toolName="image-crop-tool" />
+
+## Use cases
+
+### Social-platform aspect ratios
+
+Instagram feed = 1:1 or 4:5. Stories/Reels = 9:16. YouTube thumbnail = 16:9. LinkedIn post = 1.91:1. Each platform has dimension expectations; cropping to match avoids letterboxing/cropping by the platform itself.
+
+### Subject focus
+
+Photo has too much sky / background. Crop tighter to put the subject at frame center; rule-of-thirds composition often improves automatically.
+
+### Thumbnail extraction
+
+Pull a 400×400 thumbnail from a larger photo for product galleries, blog hero crops, profile pictures.
+
+### Document scan cleanup
+
+Phone-camera scans of papers/receipts have margin clutter. Crop tightly for clean OCR or printable copies.
+
+## How it works
+
+1. **Upload image** — JPG / PNG / WebP. Original dimensions shown; selection starts at full image.
+2. **Pick aspect ratio (optional)** — Free, 1:1, 4:5, 16:9, 9:16, 3:2, 2:3, or custom W×H.
+3. **Drag selection** — Drag corners to resize, drag center to move. Locks to ratio when set.
+4. **Optional pixel input** — Type exact X / Y / W / H values for precision (e.g. 0,0,1080,1080).
+5. **Apply + export** — Crop + downscale (if requested) + encode in chosen format. Export at exact selected pixel size.
+
+## Examples
+
+**Input:** 4032×3024 photo cropped to 1080×1080 IG square
+
+**Output:** 1080×1080 JPG, ready for Instagram feed.
+
+---
+
+**Input:** Landscape 16:9 hero from 4032×3024 photo
+
+**Output:** 4032×2268, ready for YouTube thumbnail or website hero crop.
+
+---
+
+**Input:** Thumbnail extraction: 400×400 from product photo
+
+**Output:** Tight crop on product center; compressed to ~30 KB for product list page.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does cropping reduce quality?**</summary>
+
+Cropping itself is lossless — pixels are kept or discarded, not re-encoded. Quality loss only happens when re-encoding to JPG (use PNG for lossless export) or downscaling.
+
+</details>
+
+<details>
+<summary>**Can I rotate while cropping?**</summary>
+
+Some tools do; ZTools currently keeps rotation separate. Use the rotate-image tool first, then crop.
+
+</details>
+
+<details>
+<summary>**Why does my crop look soft?**</summary>
+
+You're likely upscaling — cropping then resizing UP magnifies pixels. Crop to a size ≤ original dimensions for sharpest output.
+
+</details>
+
+<details>
+<summary>**Can I batch-crop?**</summary>
+
+Multi-file upload + same aspect ratio = batch crop. Each file gets the same proportional crop (top-left aligned by default; configurable).
+
+</details>
+
+<details>
+<summary>**Can I crop into a circle / non-rectangular shape?**</summary>
+
+No — crop is rectangular by spec. For circular avatars, crop to a square then apply CSS `border-radius: 50%`. Or export as PNG with alpha-mask for true round.
+
+</details>
+
+<details>
+<summary>**Does it preserve EXIF?**</summary>
+
+Optional — strip for web sharing (privacy + smaller); preserve for archival.
+
+</details>
+
+## Tips
+
+- Use rule of thirds: place the subject's eyes at the upper-third gridlines for portraits.
+- Always crop to platform-target aspect ratio — letting Instagram crop your photo gives bad results.
+- Crop slightly larger than needed, then downscale separately — gives cleaner output than crop + downscale in one step.
+- For consistency across a series (album, product line), crop all images to the same aspect ratio.
+- PNG export for lossless; JPG for smaller files (acceptable on photos, bad on logos/text).
+
+## Try it now
+
+The full image-crop-tool runs in your browser at **[https://ztools.zaions.com/image-crop-tool](https://ztools.zaions.com/image-crop-tool)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-crop-tool)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-crop-tool.mdx)*

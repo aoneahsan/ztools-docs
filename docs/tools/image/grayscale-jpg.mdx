@@ -1,0 +1,120 @@
+---
+id: grayscale-jpg
+title: "Convert JPG to Grayscale — Black & White, Free"
+description: "Convert any JPG to grayscale using luminance, average, or desaturation. Browser-only — no upload, no signup."
+sidebar_label: "grayscale-jpg"
+keywords:
+  - "grayscale jpg online"
+  - "jpg to black white"
+  - "convert jpg grayscale"
+  - "photo b&w online"
+  - "desaturate jpg"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# grayscale-jpg
+
+Converting a JPG to grayscale strips colour information so each pixel becomes a shade of grey. There are several formulas: luminance (0.299R + 0.587G + 0.114B — matches human perception, recommended), average ((R+G+B)/3 — naive), desaturation (max+min/2 — like Photoshop's Desaturate). The ZTools Grayscale JPG tool offers all three with a side-by-side preview, plus an optional contrast boost since grayscale images often look flat without one.
+
+<ToolCTA toolId="grayscale-jpg" toolName="grayscale-jpg" />
+
+## Use cases
+
+### Black & white print version
+
+Newspaper / receipt / B&W laser printer can't reproduce colour. Pre-convert to grayscale to control exactly how the conversion looks.
+
+### Aesthetic monochrome mood
+
+Hero image in greyscale reads as serious / nostalgic. Better to convert deliberately than accept whatever the browser does in CSS.
+
+### Reduce visual noise in a layout
+
+A page with many colour images can feel chaotic. Convert auxiliary images to grey so the colour ones pop.
+
+### Test colour-blind accessibility
+
+View design as grayscale to confirm contrast still works without hue cues.
+
+## How it works
+
+1. **Load JPG** — Drag-drop. Decoded to canvas pixels.
+2. **Pick formula** — Luminance (recommended), average, or desaturation. Live preview updates.
+3. **Optional contrast boost** — Slider 0-100 to brighten / deepen blacks and whites. Greys without contrast often look flat.
+4. **Save as JPG** — Re-encoded with the chosen quality. Filename suffix `-grayscale`.
+
+## Examples
+
+**Input:** Colourful sunset photo, luminance grayscale
+
+**Output:** Bright sky stays bright; deep blues become medium-grey; reds become darker grey. Matches what your eye expects.
+
+---
+
+**Input:** Same photo, average grayscale
+
+**Output:** Reds appear too bright (R weighted equally with G and B). Less natural-looking but mathematically simpler.
+
+---
+
+**Input:** Desaturation
+
+**Output:** Faithful to Photoshop's default. Slightly less "perceptually correct" than luminance but more familiar to designers.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which formula should I use?**</summary>
+
+Luminance for photographic content (matches human perception, used by Rec.601/Rec.709). Average for diagrams. Desaturation when matching Photoshop's look.
+
+</details>
+
+<details>
+<summary>**Why does my grayscale image look flat?**</summary>
+
+Tonal range got compressed. Add 10-20 contrast boost to bring back the punch.
+
+</details>
+
+<details>
+<summary>**Will my JPG file size change?**</summary>
+
+Slightly smaller — JPEG's chroma channels carry less information after grayscale. Saving in JPEG's grayscale mode (one channel) saves more — toggle "true grayscale JPEG" for that.
+
+</details>
+
+<details>
+<summary>**Does it work on PNG / WebP?**</summary>
+
+This tool handles JPG. For PNG/WebP, the same algorithms apply — use the corresponding tool.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Browser-only.
+
+</details>
+
+## Tips
+
+- Default to luminance — closest match to how humans perceive brightness.
+- After converting, check the histogram (if your viewer shows one) — clipped highlights / shadows mean the formula is wrong for this image.
+- For B&W print prep, also pre-sharpen — photo paper accepts more detail than backlit screens.
+- For designers used to Photoshop, "desaturation" matches that workflow exactly.
+
+## Try it now
+
+The full grayscale-jpg runs in your browser at **[https://ztools.zaions.com/grayscale-jpg](https://ztools.zaions.com/grayscale-jpg)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/grayscale-jpg)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/grayscale-jpg.mdx)*

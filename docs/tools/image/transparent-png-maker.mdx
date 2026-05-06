@@ -1,0 +1,130 @@
+---
+id: transparent-png-maker
+title: "Transparent PNG Maker — Make Image Backgrounds Transparent (Free)"
+description: "Make any solid colour background transparent. Magic-wand colour key for logos and screenshots. Free, in-browser, no signup, no watermark."
+sidebar_label: "transparent-png-maker"
+keywords:
+  - "transparent png maker"
+  - "remove white background"
+  - "png transparent background"
+  - "colour key tool"
+  - "logo background remover"
+  - "free transparent png"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# transparent-png-maker
+
+A transparent PNG maker keys out a chosen colour (or near-colour range) from an image and replaces it with alpha transparency, producing a PNG you can drop onto any background — most useful for logos with white or solid-colour backdrops, screenshots from white pages, scanned line art, and product shots taken on a uniform sweep. The ZTools Transparent PNG Maker lets you click a pixel to set the key colour, adjust tolerance to expand or tighten the matched range, optionally feather the edge, and preview the alpha channel before exporting a clean PNG with no watermark.
+
+<ToolCTA toolId="transparent-png-maker" toolName="transparent-png-maker" />
+
+## Use cases
+
+### Logo cleanup for placement on dark backgrounds
+
+A logo PDF/JPG comes with a white box around it. Click the white pixel, set tolerance ~20, export — instant transparent logo for use on coloured site headers.
+
+### Screenshot UI mockups
+
+Take a screenshot of a UI on a white page, key out the white, and the UI floats on any deck slide background.
+
+### Scanned line art for digital colouring
+
+Pencil/pen drawing scanned on a white sheet. Key out the white to get transparent linework you can colour beneath in any image editor.
+
+### Product shots on white sweeps
+
+Studio photo of a product on a white sweep. Key the white for an e-commerce-ready transparent cutout when AI background removal is overkill.
+
+## How it works
+
+1. **Upload image** — JPG, PNG, WebP, HEIC. Drag-and-drop or paste.
+2. **Click the colour to remove** — Eyedropper picks the exact RGB. Or type a hex value if you know the target colour.
+3. **Set tolerance** — Slider 0–100. Low values match exact pixels; higher values include similar shades — useful for JPG compression artifacts around white.
+4. **Optional feather** — Soften the alpha edge to avoid jagged keying on photographic content.
+5. **Preview and export PNG** — Checker pattern shows transparency. Export as PNG (transparent), no watermark, original resolution.
+
+## Examples
+
+**Input:** JPG logo on white background, tolerance 25
+
+**Output:** Transparent PNG; minor white halo around anti-aliased edges
+
+---
+
+**Input:** Screenshot of white-page UI, tolerance 5
+
+**Output:** Crisp transparent UI cutout
+
+---
+
+**Input:** Photo with green-screen background, tolerance 35
+
+**Output:** Transparent cutout suitable for compositing
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my logo have a white halo around the edge?**</summary>
+
+JPG anti-aliasing blends the edge with the background, so even tolerance 30 leaves traces. Solutions: increase tolerance carefully, feather the edge, or re-export the logo from its vector source as a true transparent PNG.
+
+</details>
+
+<details>
+<summary>**When should I use Background Remover instead?**</summary>
+
+For photographs of people, products, or animals on cluttered backgrounds. The colour-key tool here is best for logos / screenshots / scans where the background is one solid colour.
+
+</details>
+
+<details>
+<summary>**Can I keep parts of the background and remove others?**</summary>
+
+Yes — use the eraser/brush tools after keying to restore or remove specific regions.
+
+</details>
+
+<details>
+<summary>**Does it work on JPG?**</summary>
+
+Input can be JPG; output is always PNG (JPG does not support transparency). If you save the JPG result, the transparency is lost.
+
+</details>
+
+<details>
+<summary>**Why is the output PNG so much bigger than the JPG input?**</summary>
+
+PNG is lossless and stores alpha per pixel. For complex photographic transparency, expect 3–10x size growth vs JPG.
+
+</details>
+
+<details>
+<summary>**Is the result watermarked?**</summary>
+
+No. Output PNG is clean, fully owned by you, free for commercial use.
+
+</details>
+
+## Tips
+
+- Pick the worst-offending background pixel — the keying expands from that exact RGB.
+- When fighting JPG compression halos, feather 1–2 px is usually enough; more makes logos look mushy.
+- For multi-colour backgrounds, key the dominant colour first, then run a second pass on the remainder.
+- Always re-export logos from their vector source if you have it — it gives the cleanest transparent PNG.
+- After keying, run the result through the Image Compressor to keep PNG size under control.
+
+## Try it now
+
+The full transparent-png-maker runs in your browser at **[https://ztools.zaions.com/transparent-png-maker](https://ztools.zaions.com/transparent-png-maker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/transparent-png-maker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/transparent-png-maker.mdx)*

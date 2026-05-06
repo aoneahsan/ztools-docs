@@ -1,0 +1,119 @@
+---
+id: convert-webp-to-png
+title: "Convert WebP to PNG — Free Online, Browser-Only"
+description: "Convert WebP images to PNG for compatibility with older tools, social platforms, and apps that reject WebP. Browser-only."
+sidebar_label: "convert-webp-to-png"
+keywords:
+  - "webp to png converter"
+  - "convert webp png online"
+  - "webp decoder"
+  - "open webp as png"
+  - "webp compatibility"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# convert-webp-to-png
+
+Converting WebP to PNG is the compatibility move — many tools (older Photoshop versions, some social platforms, certain print services, Slack/Discord uploads in some configs) still don't accept WebP. PNG is universally supported. The conversion is lossless: WebP's alpha and pixel data round-trip exactly to PNG. The ZTools WebP-to-PNG tool decodes via the browser's Canvas, then re-encodes as PNG. Single file or batch, no upload, no quota.
+
+<ToolCTA toolId="convert-webp-to-png" toolName="convert-webp-to-png" />
+
+## Use cases
+
+### Upload to a service that rejects WebP
+
+Saved an image as WebP from a website; need to attach to LinkedIn, an older CMS, a print service. Convert to PNG first.
+
+### Edit in legacy software
+
+Photoshop CS6 doesn't open WebP. Convert to PNG, edit, save back as WebP if needed.
+
+### Sharing on Slack / Discord (older clients)
+
+Some workspace setups silently drop WebP uploads. PNG always works.
+
+### Embedding in PDF / Word
+
+Microsoft Word inserts WebP only since recent versions. PNG is bulletproof for older Office installs.
+
+## How it works
+
+1. **Drop WebP file** — Drag-drop or pick. Loaded into &lt;img&gt;, drawn to canvas at native dimensions.
+2. **Encode as PNG** — canvas.toBlob("image/png") produces lossless PNG bytes.
+3. **Download** — Single .png file. Filename matches source (foo.webp → foo.png).
+
+## Examples
+
+**Input:** 512×512 WebP with transparency
+
+**Output:** Output: 512×512 PNG with the same alpha channel. Pixel-identical to the WebP's rendered output.
+
+---
+
+**Input:** Lossy WebP
+
+**Output:** Decoded to RGBA pixels (the WebP's lossy compression has already happened); PNG output preserves those pixels exactly. PNG file is typically 2-4x larger because PNG can't use lossy techniques.
+
+---
+
+**Input:** Animated WebP
+
+**Output:** Output is a single frame (the first one). Animated WebP → APNG conversion needs a dedicated tool.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is the PNG larger than the WebP?**</summary>
+
+PNG uses lossless DEFLATE compression; WebP can use lossy + better lossless codecs. Going from a small lossy WebP to PNG always grows the file 2-4x. Going from a lossless WebP to PNG grows it ~25-35%.
+
+</details>
+
+<details>
+<summary>**Does it preserve transparency?**</summary>
+
+Yes — PNG supports alpha exactly the same way WebP does. Round-trip is lossless visually.
+
+</details>
+
+<details>
+<summary>**Can it convert animated WebP?**</summary>
+
+Single frame only via canvas. For animated WebP → APNG, use a CLI tool like webpmux + apngasm.
+
+</details>
+
+<details>
+<summary>**What about colour profile?**</summary>
+
+sRGB is the default for both formats and is preserved. Embedded ICC profiles can be stripped on encode.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Browser-only conversion. WebP never uploaded.
+
+</details>
+
+## Tips
+
+- For batch conversion, pick "PNG" output and zip download — single click instead of 50 saves.
+- If the upstream service accepts WebP, don't convert — PNG is just bigger.
+- For animated WebP, convert frame-by-frame and reassemble in a GIF / APNG tool.
+- Filenames default to base.png — rename in batch if you need versioning.
+
+## Try it now
+
+The full convert-webp-to-png runs in your browser at **[https://ztools.zaions.com/convert-webp-to-png](https://ztools.zaions.com/convert-webp-to-png)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/convert-webp-to-png)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/convert-webp-to-png.mdx)*

@@ -1,0 +1,120 @@
+---
+id: add-text-to-gif
+title: "Add Text to GIF — Caption, Meme, Subtitle, Free"
+description: "Overlay text on any GIF — captions, memes, subtitles. Pick font, color, position. Browser-only — no upload."
+sidebar_label: "add-text-to-gif"
+keywords:
+  - "add text to gif online"
+  - "gif caption maker"
+  - "meme generator gif"
+  - "subtitle gif tool"
+  - "gif text overlay"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# add-text-to-gif
+
+Adding text to a GIF overlays a caption that appears on every frame (or a subset of frames). Common cases: meme captions in Impact white, subtitles, branding watermarks, callout text in tutorials. The ZTools Add Text to GIF tool decodes the GIF, lets you place text on a canvas, configure font / size / colour / stroke / position / per-frame timing, and re-encodes. Output is a new GIF with the text baked in.
+
+<ToolCTA toolId="add-text-to-gif" toolName="add-text-to-gif" />
+
+## Use cases
+
+### Make a classic-format meme
+
+Top text + bottom text in Impact white with black stroke. Generator handles it; output ready to share.
+
+### Subtitle a silent tutorial GIF
+
+A 30-frame screen recording without audio needs callouts. Add text frame-by-frame at appropriate timestamps.
+
+### Brand a GIF for distribution
+
+A small @yourhandle in the corner so re-shares credit you back.
+
+### Highlight a step in a how-to
+
+"Click here" arrow + label appears on the relevant frames only.
+
+## How it works
+
+1. **Drop GIF** — Frames extracted with gif.js.
+2. **Type text and place** — Drag the text box on the preview. Each text element has font, size, colour, stroke, alignment.
+3. **Set timing** — Text on all frames OR specific range (e.g. frames 10-25 only).
+4. **Encode** — Each frame redrawn with text overlaid; gif.js encodes the result.
+
+## Examples
+
+**Input:** Meme: "WHEN" top, "I FINALLY GET IT" bottom, Impact white + black stroke
+
+**Output:** GIF with text on every frame. Classic meme look.
+
+---
+
+**Input:** Subtitle on frames 30-60
+
+**Output:** Text appears for that range only — useful for tutorial walkthroughs where each step has its own caption.
+
+---
+
+**Input:** @yourhandle bottom-right corner, 12 px
+
+**Output:** Small persistent watermark. Survives recompression by sharing platforms.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the text increase file size?**</summary>
+
+Yes — overlay disrupts inter-frame compression because more pixels change. Expect 10-30% larger.
+
+</details>
+
+<details>
+<summary>**Can I use custom fonts?**</summary>
+
+Tool ships with Impact, Arial, Helvetica, Courier, Comic Sans. Custom fonts via "load TTF" — uploaded font is used in the browser only, never sent to a server.
+
+</details>
+
+<details>
+<summary>**How do I subtitle different text per frame?**</summary>
+
+Add multiple text tracks, each with a frame range. Track 1 frames 0-29, track 2 frames 30-59, etc.
+
+</details>
+
+<details>
+<summary>**Does the GIF lose quality?**</summary>
+
+Slight — re-encoding any GIF introduces small palette shifts. Use a high-quality GIF encoder option for minimal degradation.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For memes, white fill + 2-3 px black stroke is the canonical look. Without stroke, white text disappears against bright frames.
+- Keep text size relative to the GIF — ~8-12% of GIF height is readable across phone and desktop.
+- For tutorials, add a slight semi-transparent background behind the text — readability up, distraction down.
+- Test the result on the platform where it'll be shared — Slack, Twitter, Discord all recompress GIFs differently.
+
+## Try it now
+
+The full add-text-to-gif runs in your browser at **[https://ztools.zaions.com/add-text-to-gif](https://ztools.zaions.com/add-text-to-gif)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/add-text-to-gif)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/add-text-to-gif.mdx)*

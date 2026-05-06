@@ -1,0 +1,131 @@
+---
+id: blur-image
+title: "Blur Image — Free Online Tool for Gaussian, Box, and Selective Blur"
+description: "Blur a whole image or a specific region (face, plate, signature). Gaussian, box, motion, pixelate. Adjustable intensity. Free, in-browser."
+sidebar_label: "blur-image"
+keywords:
+  - "blur image"
+  - "blur photo"
+  - "redact image"
+  - "pixelate image"
+  - "gaussian blur online"
+  - "free blur tool"
+  - "face blur online"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# blur-image
+
+A blur image tool applies a softening filter to an image — uniformly across the whole picture or selectively across a chosen region — to obscure sensitive content (faces, license plates, signatures, screen contents), to create depth-of-field aesthetics in flat photos, or to produce backgrounds that do not distract from foreground subjects. The ZTools Blur Image tool offers Gaussian, box, motion, and pixelate algorithms with an intensity slider, supports rectangle / ellipse / freehand selection so you can blur only what you want, and runs entirely in the browser so the original photo never leaves your device.
+
+<ToolCTA toolId="blur-image" toolName="blur-image" />
+
+## Use cases
+
+### Privacy redaction in screenshots
+
+Sharing a screenshot that contains an email address, account number, or DM. Drag a rectangle over the sensitive line, apply heavy Gaussian blur, and post safely.
+
+### Face / license-plate anonymization
+
+Posting a street photo on a blog or in a school newsletter. Blur faces and plates so individuals are not identifiable — the rest of the photo remains crisp.
+
+### Aesthetic backgrounds for hero banners
+
+Take a busy stock photo, blur the background, leave the central subject sharp — instant Bokeh-style hero image without DSLR depth-of-field.
+
+### Teaser / spoiler protection
+
+Authors and reviewers blur key panels of a comic or screenshot before reveal day. Light blur teases without giving the moment away.
+
+## How it works
+
+1. **Upload an image** — JPG, PNG, WebP, HEIC, or paste from clipboard.
+2. **Pick the blur mode** — Gaussian (smooth), box (faster, slightly harder edges), motion (directional), or pixelate (mosaic for redaction).
+3. **Select the region (optional)** — Rectangle, ellipse, or freehand. Skip selection to blur the whole image. Combine multiple regions in the same image.
+4. **Set the intensity** — Radius slider 1–100 px. Higher = blurrier. Heavy blur on faces / plates ensures un-recoverable redaction.
+5. **Preview and download** — Live preview. Export as PNG (lossless), JPG (smaller), or WebP. Original resolution preserved.
+
+## Examples
+
+**Input:** Screenshot with email at line 3
+
+**Output:** Same screenshot with rectangle blur over the email — readable rest, unreadable email
+
+---
+
+**Input:** Group photo, blur all faces
+
+**Output:** Faces softened; clothing and scenery untouched
+
+---
+
+**Input:** Stock photo, blur background only
+
+**Output:** Subject sharp, background dreamy
+
+## Frequently asked questions
+
+<details>
+<summary>**Is Gaussian blur reversible?**</summary>
+
+Practically no, especially at radius ≥ 10 px. There is no AI un-blur that recovers original pixels reliably; the information is destroyed.
+
+</details>
+
+<details>
+<summary>**Should I use blur or pixelate for redaction?**</summary>
+
+Pixelate (mosaic) at large block size is the safest. Heavy Gaussian works too. Avoid light blur on text — adversaries can sometimes deconvolve it.
+
+</details>
+
+<details>
+<summary>**Will the blur radius look the same on a high-res vs low-res image?**</summary>
+
+No — radius is in pixels. A 10 px blur is huge on a 500 px wide image and subtle on a 4000 px image. Adjust based on viewing size.
+
+</details>
+
+<details>
+<summary>**Can I motion-blur in a specific direction?**</summary>
+
+Yes — pick "motion" and set the angle. Useful for simulating speed in product or sport shots.
+
+</details>
+
+<details>
+<summary>**Does it work on PNGs with transparency?**</summary>
+
+Yes. Transparent regions stay transparent; the alpha channel is blurred too, which softens edges.
+
+</details>
+
+<details>
+<summary>**Is there a batch mode for blurring many screenshots the same way?**</summary>
+
+Yes — apply the same blur preset and rectangle region across a folder, useful for doc-screenshot workflows.
+
+</details>
+
+## Tips
+
+- For privacy, prefer pixelate over light blur — heavy mosaic is forensically safer.
+- Match blur radius to expected viewing size — 5 px on a 4K image looks barely blurred; on a 600 px thumbnail it is strong.
+- For Bokeh-style backgrounds, mask the subject precisely first, then blur only outside the mask.
+- Always export the redacted version under a new filename — never overwrite the original in case you need to revisit the redaction.
+- When sharing screenshots with sensitive data, also crop to remove window chrome that may carry usernames or paths.
+
+## Try it now
+
+The full blur-image runs in your browser at **[https://ztools.zaions.com/blur-image](https://ztools.zaions.com/blur-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/blur-image)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/blur-image.mdx)*

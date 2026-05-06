@@ -1,0 +1,124 @@
+---
+id: image-format-batch-converter
+title: "Batch Image Format Converter — JPG, PNG, WebP, AVIF (Free)"
+description: "Convert multiple images at once between JPG, PNG, WebP, AVIF, GIF. Drop a folder, get a ZIP. Browser-only — no upload, no watermark."
+sidebar_label: "image-format-batch-converter"
+keywords:
+  - "batch image converter"
+  - "image format converter"
+  - "jpg to webp batch"
+  - "png to avif batch"
+  - "bulk image converter"
+  - "free image batch tool"
+  - "image format converter online"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-format-batch-converter
+
+A batch image format converter takes many images at once and converts them to a different format in a single operation, producing a downloadable ZIP. The ZTools Image Format Batch Converter supports JPG, PNG, WebP, AVIF, GIF, and BMP both as input and output, with per-format quality settings and optional resize-to-max-dimension. Drop in dozens of files (or a whole folder via drag-drop), choose the target format, click Convert, and download a ZIP with everything renamed and re-encoded. All in the browser; nothing uploaded.
+
+<ToolCTA toolId="image-format-batch-converter" toolName="image-format-batch-converter" />
+
+## Use cases
+
+### Converting an entire photo album from JPG to WebP for the web
+
+Drop your `vacation-2026/` folder, choose WebP at quality 85, get a ZIP back with every photo at ~30% smaller file size. Drop the ZIP into your blog's `/images/` folder and update the `&lt;img&gt;` tags. Substantially improves Largest Contentful Paint at no visual quality cost.
+
+### Migrating PNG screenshots to WebP for a docs site
+
+Documentation sites often have hundreds of PNG screenshots. Batch-convert to WebP for 50-70% size savings and faster page loads. Maintain a PNG fallback for old browsers via `&lt;picture&gt;` markup.
+
+### Converting heritage TIFF or BMP archives to modern formats
+
+Old archive formats (TIFF, BMP) are massive and poorly supported. Batch-convert to JPG or PNG for everyday use; keep the originals for archival.
+
+### Standardizing user-uploaded images on a single format server-side
+
+Front-end pre-processing: when a user uploads any image, batch-convert to a standard format (typically WebP) before sending to the server. Reduces server-side complexity and bandwidth.
+
+## How it works
+
+1. **Drag-drop multiple images or a folder** — Up to ~100 files at once on a desktop browser. The file list shows each input with a small thumbnail.
+2. **Choose target format and quality** — JPG, PNG, WebP, AVIF, GIF, BMP. JPG/WebP/AVIF have a quality slider (0-100); PNG/GIF/BMP are lossless.
+3. **Optionally enable resize-to-max** — Cap output dimension (e.g., max 1920px on the longest edge). Source images smaller than the cap are left untouched.
+4. **Click Convert** — Each image is loaded into a canvas, re-encoded in the target format, and added to an in-memory ZIP using JSZip. Progress bar shows completion.
+5. **Download the ZIP** — Single download contains every converted file with the original filename + new extension. Originals on disk untouched.
+
+## Examples
+
+**Input:** 50 JPG photos averaging 3 MB each → WebP @ quality 85
+
+**Output:** 50 WebP files averaging 1.1 MB each (≈63% size reduction)
+
+---
+
+**Input:** 100 PNG screenshots → AVIF @ quality 80
+
+**Output:** 100 AVIF files (≈40% the size of WebP, ≈25% the size of PNG)
+
+## Frequently asked questions
+
+<details>
+<summary>**How many files can I batch-convert at once?**</summary>
+
+Up to ~100 files comfortably on a modern desktop browser, limited by available memory. For thousands of files, split into chunks or use a desktop tool like ImageMagick.
+
+</details>
+
+<details>
+<summary>**Will my images be uploaded?**</summary>
+
+No. All conversion happens in your browser via the Canvas API; the ZIP is built in memory by JSZip. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**What's the best format for the web in 2026?**</summary>
+
+AVIF for the smallest size; WebP as a fallback for browsers without AVIF support; JPG/PNG as final fallbacks for very old browsers. Use `&lt;picture&gt;` to serve all three from a single tag.
+
+</details>
+
+<details>
+<summary>**What quality setting should I use?**</summary>
+
+JPG: 85 is a strong default (visually lossless for most photos). WebP: 80-85. AVIF: 75-80 (AVIF is more efficient than WebP at the same quality number).
+
+</details>
+
+<details>
+<summary>**Does conversion preserve transparency?**</summary>
+
+PNG → WebP/AVIF: transparency preserved. PNG → JPG: transparency replaced with white (JPG has no alpha channel). The tool warns when this would happen.
+
+</details>
+
+<details>
+<summary>**Are EXIF metadata preserved?**</summary>
+
+No — Canvas-based conversion strips EXIF. For EXIF preservation use a desktop tool. (Privacy benefit on the web: stripping EXIF removes embedded GPS coordinates from photos.)
+
+</details>
+
+## Tips
+
+- Default to WebP for web images — best compatibility/size tradeoff in 2026.
+- Use AVIF for the cutting edge — pair with `&lt;picture&gt;` for fallbacks.
+- For batch-resizing along with conversion, enable the max-dimension cap to avoid uploading 4000px photos.
+- Run a small batch first (5 files) to verify quality before committing to a 100-file batch.
+
+## Try it now
+
+The full image-format-batch-converter runs in your browser at **[https://ztools.zaions.com/image-format-batch-converter](https://ztools.zaions.com/image-format-batch-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-format-batch-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-format-batch-converter.mdx)*

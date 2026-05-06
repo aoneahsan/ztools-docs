@@ -1,0 +1,114 @@
+---
+id: change-jpg-quality
+title: "Change JPG Quality Online — Free Browser Compressor"
+description: "Re-save JPG with custom quality (1-100) to shrink file size. Visual preview before download. Browser-only — no upload."
+sidebar_label: "change-jpg-quality"
+keywords:
+  - "change jpg quality"
+  - "jpg compressor online"
+  - "reduce jpg file size"
+  - "jpg quality slider"
+  - "compress photos web"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# change-jpg-quality
+
+JPG (JPEG) is a lossy format with a quality slider — 100 is near-original, 1 is heavily compressed. Most cameras shoot at 90-100, which is bigger than needed for web. Re-saving at quality 75-85 typically halves the file with no perceptible loss. The ZTools Change JPG Quality tool decodes the JPG, re-encodes via the browser's native JPEG encoder at your chosen quality, and shows before/after side by side so you can pick the smallest acceptable level.
+
+<ToolCTA toolId="change-jpg-quality" toolName="change-jpg-quality" />
+
+## Use cases
+
+### Compress photos for the web
+
+A 4 MB camera JPG is too big for a hero image. Re-save at quality 80 → ~600 KB; quality 70 → ~400 KB. Loss is negligible at typical screen sizes.
+
+### Email attachment under quota
+
+A 25 MB email limit; original photos exceed it. Quality slider lets you fit under the limit without external services.
+
+### Reduce screenshot bloat
+
+iPhone screenshots default to PNG (large). Re-save as JPG quality 85 — 5x smaller, visually identical.
+
+### Iterate on quality vs size
+
+Side-by-side preview makes the tradeoff visible. Pick the lowest quality where the artefacts are still acceptable.
+
+## How it works
+
+1. **Pick JPG file** — Drag-drop or select. Decoded into a canvas.
+2. **Move quality slider** — 1 (extreme compression) to 100 (max retention). Default 80.
+3. **Preview** — Original and re-encoded side by side. Tool shows new file size in KB.
+4. **Download** — One-click save as new .jpg. Original file untouched.
+
+## Examples
+
+**Input:** 4000×3000 photo at quality 95, 4.2 MB
+
+**Output:** Quality 80: 1.1 MB. Quality 70: 720 KB. Quality 50: 380 KB (some artefacts visible).
+
+---
+
+**Input:** Same photo at quality 90 (default many cameras)
+
+**Output:** Most users can't spot the difference between 90 and 80; difference between 80 and 60 is noticeable on flat colour areas.
+
+## Frequently asked questions
+
+<details>
+<summary>**How low should I go?**</summary>
+
+85 for editorial photography, 75-80 for general web use, 60-70 for thumbnails. Below 50, blocking artefacts become visible especially in skies and skin.
+
+</details>
+
+<details>
+<summary>**Is the loss cumulative?**</summary>
+
+Yes — every re-save loses more. Always work from the highest-quality source you have. Going from 95 → 80 → 65 is worse than going directly from 95 → 65.
+
+</details>
+
+<details>
+<summary>**Why is JPG always lossy?**</summary>
+
+JPEG's discrete cosine transform discards high-frequency information. Even quality 100 isn't pixel-identical to the original. For lossless, use PNG or WebP lossless.
+
+</details>
+
+<details>
+<summary>**Does the EXIF survive?**</summary>
+
+Browser-native canvas encoders typically strip EXIF on re-encode. Toggle "preserve EXIF" if you need camera metadata kept.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All compression in the browser. Photos never uploaded.
+
+</details>
+
+## Tips
+
+- Quality 80-85 is the universal sweet spot. Going higher rarely helps; going lower starts showing artefacts.
+- For images with text or sharp edges, prefer PNG or WebP lossless — JPG smears edges.
+- Re-save once from your master — don't compound losses by saving at 70 then dropping to 50.
+- Before publishing, view at 100% zoom on a large monitor — artefacts that hide on a phone show up on desktop.
+
+## Try it now
+
+The full change-jpg-quality runs in your browser at **[https://ztools.zaions.com/change-jpg-quality](https://ztools.zaions.com/change-jpg-quality)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/change-jpg-quality)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/change-jpg-quality.mdx)*

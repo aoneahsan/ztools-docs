@@ -1,0 +1,120 @@
+---
+id: pixelate-jpg
+title: "Pixelate JPG — Censor Faces, Mosaic Effect, Free"
+description: "Pixelate any region or whole image. Censor faces, license plates, sensitive info. Browser-only — no upload."
+sidebar_label: "pixelate-jpg"
+keywords:
+  - "pixelate jpg online"
+  - "censor face online"
+  - "mosaic effect photo"
+  - "blur license plate"
+  - "pixelate sensitive info"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pixelate-jpg
+
+Pixelation reduces an image to a grid of large squares — each square is the average colour of the original pixels it covers. It's used to censor faces / license plates / sensitive info, and as an aesthetic effect in retro-game art. The ZTools Pixelate JPG tool offers two modes: full-image pixelation (the whole image becomes mosaic) and region pixelation (drag a box; only that region pixelates). Block size is configurable (4 px to 64 px).
+
+<ToolCTA toolId="pixelate-jpg" toolName="pixelate-jpg" />
+
+## Use cases
+
+### Censor faces in a screenshot
+
+Sharing a UI screenshot publicly — colleagues' faces visible. Drag a box, pixelate, save.
+
+### Hide license plates / addresses
+
+For a real-estate / car listing where the plate / number shouldn't be public. Region pixelation with block size 16-24 px.
+
+### Retro-game art aesthetic
+
+Convert a modern photo to 8-bit-style art. Whole-image pixelation at block size 12-20 px gives the chunky pixel look.
+
+### Privacy in a generic stock photo
+
+Even stock-photo people sometimes deserve privacy. Light pixelation on faces preserves composition without identifying anyone.
+
+## How it works
+
+1. **Pick JPG** — Loaded into canvas.
+2. **Pick mode** — Whole image OR drag a region. Multiple regions can be pixelated independently.
+3. **Block size** — 4 px (subtle) to 64 px (extreme). 16 px is a good censor default.
+4. **Save** — New JPG with pixelation baked in.
+
+## Examples
+
+**Input:** Selfie, region around face, block size 16
+
+**Output:** Face becomes a 6×6-grid mosaic. Identity not recoverable; surrounding image untouched.
+
+---
+
+**Input:** Whole 800×600 photo, block size 20
+
+**Output:** 40×30 grid of coloured squares. Strong retro-game aesthetic; original details lost.
+
+---
+
+**Input:** License plate, block size 24
+
+**Output:** Plate text unreadable. Surrounding car still visible.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is pixelation reversible?**</summary>
+
+No — averaging is lossy. Even ML "depixelation" only invents plausible content; it can't recover the original. Heavy pixelation (block size ≥ 16) is considered safe censorship.
+
+</details>
+
+<details>
+<summary>**How big should the block be for censoring faces?**</summary>
+
+16-24 px on a typical web-resolution image. The face must lose recognisable features (eyes, mouth shape, hairline detail).
+
+</details>
+
+<details>
+<summary>**Is pixelation as good as a black bar?**</summary>
+
+Black bar / solid fill is provably destructive. Pixelation can leak some info if the block size is too small. For high-stakes content (legal, witness protection), use a black bar.
+
+</details>
+
+<details>
+<summary>**Can it pixelate inside a shape (e.g. circle around a face)?**</summary>
+
+Rectangle regions only in this tool. For more precise shapes, mask with another image-editor first.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in browser. Sensitive images never leave the device — the entire point.
+
+</details>
+
+## Tips
+
+- For censorship, block size 16+ px on faces and 24+ px on text. Test by zooming — if you can read it, increase block size.
+- Combine pixelation with a slight blur for extra security — pixelation alone can sometimes be partially reversed by ML models.
+- For retro aesthetic, also reduce the colour palette — pixelation alone with full 24-bit colour looks plastic, not retro.
+- Always pixelate a copy — censorship is irreversible and you might need the original.
+
+## Try it now
+
+The full pixelate-jpg runs in your browser at **[https://ztools.zaions.com/pixelate-jpg](https://ztools.zaions.com/pixelate-jpg)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pixelate-jpg)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/pixelate-jpg.mdx)*

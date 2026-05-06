@@ -1,0 +1,130 @@
+---
+id: image-rotate-flip
+title: "Image Rotate and Flip — Rotate 90°/180°, Flip Horizontal/Vertical"
+description: "Rotate images by 90°, 180°, 270°, or any custom angle. Flip horizontal and vertical. Lossless for 90° steps. Free, in-browser."
+sidebar_label: "image-rotate-flip"
+keywords:
+  - "rotate image"
+  - "flip image"
+  - "rotate photo 90"
+  - "mirror photo"
+  - "image flip horizontal"
+  - "image rotate online free"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-rotate-flip
+
+An image rotate and flip tool reorients a photograph by rotating it (in 90° increments or any custom angle) or mirroring it (horizontal or vertical) — fixing camera-orientation mistakes, mirroring portraits for social-media composition, correcting scanner output, or producing reflected versions for design assets. The ZTools Image Rotate and Flip tool is fully in-browser, supports lossless rotation at 90° / 180° / 270° on JPG via metadata-aware re-encoding, allows arbitrary-angle rotation with optional auto-crop or transparent fill, and processes batches of photos with the same operation in one click.
+
+<ToolCTA toolId="image-rotate-flip" toolName="image-rotate-flip" />
+
+## Use cases
+
+### Fixing sideways camera photos
+
+Photos shot in portrait orientation sometimes display sideways on Windows or web because EXIF orientation was ignored. Rotate 90° clockwise/counter-clockwise to bake the correct orientation.
+
+### Scanner output correction
+
+Documents scanned upside down. One 180° rotation fixes the entire batch.
+
+### Social-media composition
+
+Mirror a portrait so the subject faces the caption side of an Instagram post. Or flip a graphic for a layout test.
+
+### Design symmetry and patterns
+
+Designers flip and combine two copies of an image to create symmetric posters, kaleidoscope patterns, or test mirror-symmetry before final composition.
+
+## How it works
+
+1. **Upload image(s)** — Single or batch. JPG, PNG, WebP, HEIC accepted.
+2. **Pick the operation** — Rotate 90° CW / 90° CCW / 180°. Flip horizontal or vertical. Free rotation 0–360° for arbitrary angles.
+3. **Set fill / crop behaviour** — Free rotation leaves corners blank — fill with transparent (PNG), white, black, or auto-crop to remove the empty corners.
+4. **Preview** — Live preview before export. Toggle between operations to compare.
+5. **Export** — PNG or JPG. 90° / 180° / 270° rotations on JPG can be lossless if no other edits are applied.
+
+## Examples
+
+**Input:** Sideways iPhone photo → rotate 90° CW
+
+**Output:** Upright photo; EXIF orientation reset to 1
+
+---
+
+**Input:** Selfie → flip horizontal
+
+**Output:** Mirrored selfie; matches how the photographer saw themself in the camera preview
+
+---
+
+**Input:** Graphic → free rotate 15°
+
+**Output:** Slightly tilted graphic with transparent corners (PNG) or white corners (JPG)
+
+## Frequently asked questions
+
+<details>
+<summary>**Is rotation lossless?**</summary>
+
+90° / 180° / 270° on JPG can be lossless via metadata-aware re-encoding (no full decode/re-encode). Arbitrary angles always re-render and incur a tiny quality dip on JPG; PNG stays lossless.
+
+</details>
+
+<details>
+<summary>**Why does the rotated photo show transparent or black corners?**</summary>
+
+Rotating by a non-90° angle leaves empty triangles at the corners. PNG fills them with transparency; JPG fills with a colour (default white). Auto-crop removes them at the cost of cropping some content.
+
+</details>
+
+<details>
+<summary>**How do I rotate based on EXIF orientation only?**</summary>
+
+Some photos store the correct orientation in EXIF but are physically sideways. The tool reads EXIF and offers a "bake EXIF orientation" option that flattens the orientation tag into pixels.
+
+</details>
+
+<details>
+<summary>**Will my GPS / camera data survive?**</summary>
+
+Yes — EXIF metadata copies through. Only the orientation field is updated.
+
+</details>
+
+<details>
+<summary>**Does flipping change file size much?**</summary>
+
+No — flips are nearly free. Rotations at 90° are also size-stable; arbitrary angles can grow slightly because of new pixels at corners.
+
+</details>
+
+<details>
+<summary>**Can I batch-fix orientation across a whole folder?**</summary>
+
+Yes — apply "rotate 90° CW" or "bake EXIF orientation" to the whole batch in one operation.
+
+</details>
+
+## Tips
+
+- Prefer 90° / 180° / 270° rotations on JPGs to keep the operation lossless.
+- After rotating, run through the Image Compressor if the file size grew unexpectedly.
+- For social-media posts where text reads left-to-right, never flip horizontally if your photo contains visible text — it becomes unreadable.
+- Use the bake-EXIF option once before sharing, so older Windows viewers display correctly.
+- Keep the original — flipping or free-rotation is reversible only by reapplying the inverse operation.
+
+## Try it now
+
+The full image-rotate-flip runs in your browser at **[https://ztools.zaions.com/image-rotate-flip](https://ztools.zaions.com/image-rotate-flip)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-rotate-flip)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-rotate-flip.mdx)*

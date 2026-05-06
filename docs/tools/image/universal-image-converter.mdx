@@ -1,0 +1,132 @@
+---
+id: universal-image-converter
+title: "Universal Image Converter — JPG, PNG, WebP, AVIF, GIF, BMP, TIFF"
+description: "Convert any image to any image format. JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO, HEIC and more. Batch-friendly, in-browser, free."
+sidebar_label: "universal-image-converter"
+keywords:
+  - "image converter"
+  - "convert image format"
+  - "jpg to png"
+  - "png to webp"
+  - "webp to jpg"
+  - "avif converter"
+  - "tiff to jpg"
+  - "free image converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# universal-image-converter
+
+A universal image converter transcodes images between any pair of common formats — JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO, HEIC, SVG raster, and more — without forcing you to find a separate tool for each combination. The ZTools Universal Image Converter accepts drag-and-drop batches of mixed formats, runs entirely client-side on a WebAssembly pipeline, exposes per-format quality and compression knobs, and packages multi-file conversions as a single ZIP so you do not babysit ten downloads.
+
+<ToolCTA toolId="universal-image-converter" toolName="universal-image-converter" />
+
+## Use cases
+
+### Web performance migration
+
+Modern sites prefer WebP or AVIF for 25–50% smaller files at the same quality. Convert a folder of legacy JPG/PNG hero images to WebP (or both) for serving via &lt;picture&gt; with fallback.
+
+### Cross-platform compatibility
+
+A designer ships TIFFs from a stock library; the CMS only accepts JPG. Convert in seconds, no Photoshop install required.
+
+### Print to web and back
+
+Print designers work in TIFF or BMP at 300 DPI; web teams need PNG/JPG at 72 DPI. Quick conversion plus optional downscaling unblocks the handoff.
+
+### Game and app assets
+
+Most engines prefer PNG for UI and texture sources. Convert a mixed pile of WebP/JPG/HEIC into PNG so the asset pipeline is uniform.
+
+## How it works
+
+1. **Drop your images** — Mixed formats fine. JPG + PNG + WebP + HEIC + TIFF + BMP + GIF + AVIF all decode in the same session.
+2. **Pick the target format** — JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO, etc. The output format is global to the batch but per-format settings apply.
+3. **Set format-specific options** — Quality (lossy formats), compression level (PNG), animation (GIF/WebP), bit depth (TIFF), favicon sizes (ICO).
+4. **Convert in browser** — WebAssembly decoders + encoders run locally. No uploads. Multi-core via Web Workers when supported.
+5. **Download** — Single file → direct. Multiple → ZIP. Filenames preserved with the new extension.
+
+## Examples
+
+**Input:** 20 PNGs (1.2 MB each) → WebP quality 80
+
+**Output:** ~400 KB each, indistinguishable visually
+
+---
+
+**Input:** TIFF 20 MB → JPG quality 90
+
+**Output:** ~3 MB JPG, suitable for web
+
+---
+
+**Input:** GIF animated → WebP animated
+
+**Output:** Smaller animated WebP, all frames preserved
+
+## Frequently asked questions
+
+<details>
+<summary>**Which format should I pick for the web?**</summary>
+
+AVIF if your audience is on modern browsers; otherwise WebP with a JPG fallback. Both beat plain JPG by 25–50% at the same visual quality.
+
+</details>
+
+<details>
+<summary>**Will conversion lose quality?**</summary>
+
+Lossless to lossless (PNG ↔ TIFF ↔ BMP) is exact. Anything to JPG/WebP/AVIF at &lt; 100 quality is lossy. Keep originals if you might re-edit.
+
+</details>
+
+<details>
+<summary>**Does it handle animated formats?**</summary>
+
+Yes — GIF and animated WebP retain all frames during conversion. Animated AVIF support depends on browser.
+
+</details>
+
+<details>
+<summary>**Why is my converted PNG larger than the original JPG?**</summary>
+
+PNG is lossless; JPG is lossy. Going JPG → PNG gives you the JPG quality but the PNG file size. Stay in JPG (or pick WebP) for compression.
+
+</details>
+
+<details>
+<summary>**Is there a size limit?**</summary>
+
+Practical limit is your device memory. Most modern phones handle ~50 MB images; laptops push 500 MB+. Very large TIFFs may need to be processed one at a time.
+
+</details>
+
+<details>
+<summary>**Are colour profiles preserved?**</summary>
+
+sRGB is preserved end-to-end. Embedded ICC profiles are copied where the target format supports them (JPG, TIFF, PNG).
+
+</details>
+
+## Tips
+
+- For the web, prefer WebP or AVIF — same quality at half the size of JPG.
+- For archival, convert to PNG or TIFF — lossless, future-proof, no generational quality loss.
+- Always keep the originals. Converters are one-way for lossy formats.
+- Batch with the same target format and quality first — only override per file when needed.
+- For favicons, use the ICO output with sizes 16, 32, 48, 64 packed into one file.
+
+## Try it now
+
+The full universal-image-converter runs in your browser at **[https://ztools.zaions.com/universal-image-converter](https://ztools.zaions.com/universal-image-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/universal-image-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/universal-image-converter.mdx)*

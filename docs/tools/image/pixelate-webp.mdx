@@ -1,0 +1,113 @@
+---
+id: pixelate-webp
+title: "Pixelate WebP — Censor, Mosaic Effect, Free"
+description: "Pixelate WebP images. Censor faces, license plates, sensitive info. Browser-only — no upload."
+sidebar_label: "pixelate-webp"
+keywords:
+  - "pixelate webp"
+  - "censor webp"
+  - "mosaic webp"
+  - "pixelate image online"
+  - "webp privacy filter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pixelate-webp
+
+Pixelating a WebP reduces a region (or the whole image) to a grid of large squares — each square is the average colour of the original pixels it covers. Used to censor faces / license plates / sensitive info, and as a retro-game aesthetic effect. The ZTools Pixelate WebP tool offers full-image and region pixelation with configurable block size (4 px subtle to 64 px extreme). 16+ px is safe for face censoring; below that, ML upscaling can sometimes recover detail.
+
+<ToolCTA toolId="pixelate-webp" toolName="pixelate-webp" />
+
+## Use cases
+
+### Censor faces in screenshots
+
+Sharing publicly; co-workers' faces visible. Drag a region, pixelate, save.
+
+### Hide license plates / addresses
+
+For real-estate / car listings. Block size 16-24.
+
+### Retro-game aesthetic
+
+Whole-image pixelation at block size 12-20 gives 8-bit look.
+
+### Privacy in stock photos
+
+Even stock-photo people sometimes deserve privacy.
+
+## How it works
+
+1. **Pick WebP** — Loaded into canvas.
+2. **Pick mode** — Whole image OR drag a region.
+3. **Block size** — 4 px (subtle) to 64 px (extreme).
+4. **Save** — Output WebP with pixelation baked in.
+
+## Examples
+
+**Input:** Selfie, region around face, block 16
+
+**Output:** Face becomes 6×6 grid of squares. Identity not recoverable.
+
+---
+
+**Input:** Whole 800×600 image, block 20
+
+**Output:** 40×30 grid — 8-bit aesthetic.
+
+---
+
+**Input:** License plate, block 24
+
+**Output:** Plate text unreadable; surrounding car visible.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is pixelation reversible?**</summary>
+
+No — averaging is lossy. ML "depixelation" only invents plausible content, never recovers original. Heavy pixelation (≥16 px) is safe censorship.
+
+</details>
+
+<details>
+<summary>**How big a block for face censoring?**</summary>
+
+16-24 px on web-resolution. Test by zooming — if recognizable, increase block size.
+
+</details>
+
+<details>
+<summary>**Pixelation vs black bar?**</summary>
+
+Black bar fully destructive — preferable for high-stakes content. Pixelation can leak some info if block size too small.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For censorship, block ≥16 px on faces and ≥24 on text.
+- Combine pixelation with slight blur for extra security.
+- Always pixelate a copy — irreversible.
+- For retro aesthetic, also reduce color palette — pixelation alone with full color looks plastic, not retro.
+
+## Try it now
+
+The full pixelate-webp runs in your browser at **[https://ztools.zaions.com/pixelate-webp](https://ztools.zaions.com/pixelate-webp)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pixelate-webp)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/pixelate-webp.mdx)*

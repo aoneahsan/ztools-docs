@@ -1,0 +1,130 @@
+---
+id: image-filters-effect
+title: "Image Filters & Effects — Free Browser Photo Editor"
+description: "Apply 30+ filters and effects to photos: brightness, contrast, saturation, sepia, blur, vignette, grain. Browser-only Canvas. Free, no upload."
+sidebar_label: "image-filters-effect"
+keywords:
+  - "image filters"
+  - "photo filters online"
+  - "browser image filters"
+  - "free photo editor"
+  - "photo effects online"
+  - "instagram filter alternative"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-filters-effect
+
+An image filters/effects tool applies non-destructive visual treatments — brightness, contrast, saturation, hue rotation, sepia, grayscale, invert, blur, sharpen, vignette, grain, duotone — using HTML5 Canvas filters and pixel-level manipulation. The ZTools Image Filters tool runs entirely in the browser via the CanvasRenderingContext2D `filter` API plus pixel-level shaders for effects beyond the spec (vignette, grain, duotone). No upload, no quota, no signup — your photos stay on your device.
+
+<ToolCTA toolId="image-filters-effect" toolName="image-filters-effect" />
+
+## Use cases
+
+### Quick photo polish before sharing
+
+Boost saturation +10, contrast +5, slight vignette → instant Instagram-feed quality from a flat phone shot. Faster than opening a full editor for a one-off.
+
+### Brand-consistent imagery
+
+Apply the same filter recipe (e.g. "warm + low contrast + slight grain") to every photo on a marketing site for a cohesive look. Save the recipe as a preset.
+
+### Mood treatments
+
+Sepia for vintage. Cool-blue + low saturation for somber. Warm + grain for cinematic. Filters carry mood faster than caption text.
+
+### A/B testing visual variants
+
+Generate 3–5 filter variants of the same hero photo, ship the strongest. Treats visual choice as testable, not "designer's preference".
+
+## How it works
+
+1. **Upload image** — JPG, PNG, WebP. Up to 8000×8000 px tested; larger images may slow down on low-end devices.
+2. **Apply filters** — Sliders for brightness, contrast, saturation, hue rotation, sepia, grayscale, invert, blur, vignette, grain.
+3. **Stack effects** — Multiple filters combine; order matters (sepia after saturation reads differently than before).
+4. **Preview live** — Canvas re-renders on every slider change with debouncing for performance.
+5. **Export** — PNG (lossless) or JPG (smaller, with quality slider). Original file untouched.
+
+## Examples
+
+**Input:** Phone photo + brightness +10, saturation +15, vignette 30%
+
+**Output:** Instagram-ready polish; ~5s editing time.
+
+---
+
+**Input:** Portrait + grayscale + slight grain + vignette
+
+**Output:** Editorial black-and-white look; matches print magazine aesthetic.
+
+---
+
+**Input:** Landscape + warm filter (+15 hue, +10 sat) + film grain
+
+**Output:** Cinematic teal-and-orange treatment popular in 2010s film grading.
+
+## Frequently asked questions
+
+<details>
+<summary>**Can I save my filter as a preset?**</summary>
+
+Yes — settings persist in browser storage. Reload the tool, the last config is restored. Named presets coming.
+
+</details>
+
+<details>
+<summary>**Does it modify EXIF data?**</summary>
+
+EXIF (camera, GPS, timestamp) is preserved on export when possible. Some filters that change pixel data trigger EXIF stripping in JPEG re-encoding — acceptable for sharing, undesirable for archival.
+
+</details>
+
+<details>
+<summary>**Why does my image look washed out after filtering?**</summary>
+
+Canvas re-encodes from RGBA. Repeated filter applications compound rounding errors. For best quality, apply all filters in one pass on the original.
+
+</details>
+
+<details>
+<summary>**How is this different from Instagram filters?**</summary>
+
+Instagram filters are curated recipes (Clarendon, Gingham, etc.). ZTools gives you the underlying primitives — recreate any preset with the right slider combination.
+
+</details>
+
+<details>
+<summary>**Are AI filters supported?**</summary>
+
+No — AI-style filters (cartoon, oil paint, anime) require neural-net models too large for browser-only delivery. Use the dedicated cartoon-effect-generator for those.
+
+</details>
+
+<details>
+<summary>**What about RAW files?**</summary>
+
+Browsers can't decode camera RAW (CR2, NEF, ARW). Convert to JPG/TIFF first using your camera's software or a desktop tool.
+
+</details>
+
+## Tips
+
+- Apply filters subtly — over-filtered looks dated within months as aesthetic trends shift.
+- For brand consistency, document your filter recipe as a "preset" (e.g. "+10 brightness, +15 sat, vignette 25%") and reuse.
+- Order matters: brightness → contrast → saturation → hue → tone-mapping (vignette / grain) is a sane default order.
+- Export at full source resolution; downscale only at the very end for the target platform.
+- Test on AMOLED + LCD + print — colors look different across mediums.
+
+## Try it now
+
+The full image-filters-effect runs in your browser at **[https://ztools.zaions.com/image-filters-effect](https://ztools.zaions.com/image-filters-effect)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-filters-effect)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-filters-effect.mdx)*

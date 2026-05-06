@@ -1,0 +1,120 @@
+---
+id: extract-gif-frames
+title: "Extract GIF Frames — Save as PNG / JPG, Free"
+description: "Extract every frame of a GIF as separate PNG or JPG images. Download as ZIP. Browser-only — no upload."
+sidebar_label: "extract-gif-frames"
+keywords:
+  - "extract gif frames online"
+  - "gif to png frames"
+  - "gif frame extractor"
+  - "split gif into images"
+  - "gif decompose"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# extract-gif-frames
+
+Extracting GIF frames decomposes an animated GIF into its individual still images — typically dozens to hundreds of PNGs or JPGs. Useful for editing one frame in Photoshop, picking the perfect thumbnail, building a frame-by-frame analysis, or repurposing a GIF's content as a static image. The ZTools Extract GIF Frames tool decodes via gif.js, dumps each frame at its native dimensions, and packages the result as a downloadable ZIP.
+
+<ToolCTA toolId="extract-gif-frames" toolName="extract-gif-frames" />
+
+## Use cases
+
+### Pick a perfect thumbnail
+
+Generating a still preview for a video / GIF gallery. Extract all frames, pick the best, save.
+
+### Edit one frame and reassemble
+
+A typo in one frame of a tutorial GIF. Extract all → fix the bad frame → reassemble.
+
+### Convert a GIF to a video
+
+Many video tools accept frame sequences but not GIFs. Extract → import as image sequence into ffmpeg / Premiere.
+
+### Frame-by-frame analysis
+
+Sports, animation timing, scientific footage — review frame transitions individually.
+
+## How it works
+
+1. **Drop GIF** — Decoded with gif.js (browser-side).
+2. **Pick output format** — PNG (lossless, larger files) or JPG (lossy, smaller).
+3. **Optional: filter by index** — Extract every frame, every Nth frame, or a specific range.
+4. **Download ZIP** — Filenames frame_001.png, frame_002.png, ... — sortable.
+
+## Examples
+
+**Input:** 50-frame GIF
+
+**Output:** ZIP with 50 PNG files (frame_001.png through frame_050.png). Opening in any image viewer plays the sequence.
+
+---
+
+**Input:** Every 5th frame from a 100-frame GIF
+
+**Output:** ZIP with 20 PNGs. Useful when full extraction is overkill.
+
+---
+
+**Input:** Frames 10-20 only
+
+**Output:** ZIP with 11 PNGs (10, 11, ..., 20). Surgical extraction.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will frames have transparency?**</summary>
+
+PNG output: yes, GIF's 1-bit transparency preserved. JPG output: no — JPG has no alpha; transparent pixels become white (or your chosen background).
+
+</details>
+
+<details>
+<summary>**How are filenames numbered?**</summary>
+
+Zero-padded so they sort correctly: frame_001 not frame_1. Important when feeding to ffmpeg or sorted-listing tools.
+
+</details>
+
+<details>
+<summary>**Can it handle huge GIFs?**</summary>
+
+A few thousand frames work. Million-frame GIFs aren't common — if you hit one, use a CLI tool.
+
+</details>
+
+<details>
+<summary>**What about GIF's "disposal method"?**</summary>
+
+Tool respects disposal — frames are composited correctly so each output is the full visible frame, not just the changed pixels.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Browser-only extraction.
+
+</details>
+
+## Tips
+
+- Use PNG for editing — preserves transparency and exact pixel values.
+- Use JPG for thumbnail / preview generation — smaller files, no transparency need.
+- Number-pad filenames matter if you're feeding to ffmpeg: `ffmpeg -i frame_%03d.png ...` requires zero-padding.
+- For frame-rate analysis, also note the per-frame delays from GIF metadata — a static frame export loses the timing.
+
+## Try it now
+
+The full extract-gif-frames runs in your browser at **[https://ztools.zaions.com/extract-gif-frames](https://ztools.zaions.com/extract-gif-frames)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/extract-gif-frames)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/extract-gif-frames.mdx)*

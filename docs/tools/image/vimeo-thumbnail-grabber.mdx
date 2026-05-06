@@ -1,0 +1,102 @@
+---
+id: vimeo-thumbnail-grabber
+title: "Vimeo Thumbnail Grabber — Free Online, Browser"
+description: "Get the thumbnail image from any public Vimeo video. Multiple resolutions. Browser-only — no signup."
+sidebar_label: "vimeo-thumbnail-grabber"
+keywords:
+  - "vimeo thumbnail grabber"
+  - "get vimeo thumbnail"
+  - "vimeo image extractor"
+  - "vimeo preview image"
+  - "vimeo poster image"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# vimeo-thumbnail-grabber
+
+Vimeo videos have associated thumbnail images at multiple resolutions, accessible via Vimeo's public oEmbed API. The ZTools Vimeo Thumbnail Grabber takes any Vimeo URL or ID, fetches the thumbnail metadata, and provides direct links / downloads at small / medium / large / XL resolutions. Useful for embedding video previews, building galleries, link-preview cards, and content management.
+
+<ToolCTA toolId="vimeo-thumbnail-grabber" toolName="vimeo-thumbnail-grabber" />
+
+## Use cases
+
+### Build a video gallery
+
+List of Vimeo videos; need thumbnail per video. Tool grabs each.
+
+### Email newsletter video preview
+
+Email clients can't embed video; use a clickable thumbnail linking to Vimeo.
+
+### Custom Open Graph image
+
+Default Vimeo OG image is generic. Use the actual thumbnail for richer link previews.
+
+## How it works
+
+1. **Paste Vimeo URL or ID** — vimeo.com/123456789 or just 123456789.
+2. **Fetch via oEmbed** — Tool calls Vimeo's public oEmbed endpoint. Returns thumbnail URLs for multiple sizes.
+3. **Display options** — Small (~100×75), medium (~295×166), large (~640×360), XL (~1280×720).
+4. **Download or copy URL** — Direct image URL or save the file.
+
+## Examples
+
+**Input:** vimeo.com/123456789
+
+**Output:** Thumbnails at 100, 295, 640, 1280px wide. JPG format.
+
+---
+
+**Input:** Private / unlisted video
+
+**Output:** oEmbed may not return data. Tool warns; thumbnails for private videos require API key authentication.
+
+## Frequently asked questions
+
+<details>
+<summary>**Public videos only?**</summary>
+
+Yes — Vimeo's public oEmbed only returns data for videos with public visibility settings.
+
+</details>
+
+<details>
+<summary>**Will it work for unlisted videos?**</summary>
+
+Sometimes — depends on the unlisted privacy level. Always test.
+
+</details>
+
+<details>
+<summary>**Resolution highest available?**</summary>
+
+Vimeo serves up to 1280×720 typically; some videos have larger sources.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Tool calls Vimeo's API from the browser — no upload to ZTools.
+
+</details>
+
+## Tips
+
+- For OG / Twitter Card preview images, use the largest available thumbnail.
+- For galleries, medium (295×166) is usually plenty — saves bandwidth.
+- For private videos, you need Vimeo API access (paid tier) — this tool only handles public.
+
+## Try it now
+
+The full vimeo-thumbnail-grabber runs in your browser at **[https://ztools.zaions.com/vimeo-thumbnail-grabber](https://ztools.zaions.com/vimeo-thumbnail-grabber)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/vimeo-thumbnail-grabber)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/vimeo-thumbnail-grabber.mdx)*

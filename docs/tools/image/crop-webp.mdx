@@ -1,0 +1,120 @@
+---
+id: crop-webp
+title: "Crop WebP Online — Free, Pixel-Perfect, Browser-Only"
+description: "Crop any WebP image to a custom rectangle, aspect ratio, or fixed size. Preserves transparency. Browser-only."
+sidebar_label: "crop-webp"
+keywords:
+  - "crop webp online"
+  - "webp cropper"
+  - "crop image online webp"
+  - "webp aspect ratio crop"
+  - "free webp crop tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# crop-webp
+
+Cropping a WebP keeps a rectangular region and discards everything outside it. Useful for tightening composition, fitting an image to a layout (16:9, 1:1, 4:5), or removing an unwanted edge. The ZTools Crop WebP tool decodes via canvas, lets you drag a rectangle (free or aspect-ratio-locked), and re-encodes the cropped result. Lossless WebP preserves alpha; lossy mode can shrink output further.
+
+<ToolCTA toolId="crop-webp" toolName="crop-webp" />
+
+## Use cases
+
+### Tighten a hero image's composition
+
+A photo with too much sky / floor. Crop to a 16:9 rectangle that focuses on the subject.
+
+### Square crop for a profile picture
+
+Service requires 1:1. Drag-locked-square crop, save.
+
+### Remove a watermark on the edge
+
+Source image has a logo overlaid bottom-right. Crop that region away — assuming the watermark isn't on critical content.
+
+### Match a layout slot
+
+A CMS shows hero images at 1920×600. Crop the source to those exact dimensions; no client-side cropping needed.
+
+## How it works
+
+1. **Drop WebP** — Loaded into canvas at native dimensions.
+2. **Set crop region** — Drag a rectangle. Optional aspect-ratio lock (free, 1:1, 4:3, 3:2, 16:9, 9:16, custom).
+3. **Pick output mode** — Lossless (preserves alpha exactly) or lossy at quality 1-100.
+4. **Save** — New WebP with cropped pixels. Original untouched.
+
+## Examples
+
+**Input:** 4000×3000 photo, 16:9 crop centred
+
+**Output:** 4000×2250 region — 16:9 aspect, centred horizontally and vertically.
+
+---
+
+**Input:** 1024×1024 illustration, 1:1 crop top-left 768×768
+
+**Output:** Output 768×768 PNG-equivalent WebP. Bottom-right portion gone.
+
+---
+
+**Input:** Aspect-locked 9:16 from a 1920×1080 image
+
+**Output:** 608×1080 portrait crop. Useful for TikTok / Instagram Reels.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does cropping reduce quality?**</summary>
+
+No — same pixels, just fewer of them. The output WebP is freshly encoded; lossless mode preserves the cropped pixels exactly.
+
+</details>
+
+<details>
+<summary>**Does it preserve transparency?**</summary>
+
+Yes — alpha is part of the pixel data and is cropped along with RGB.
+
+</details>
+
+<details>
+<summary>**Can I crop to a fixed pixel size?**</summary>
+
+Yes — toggle "fixed size" and enter exact width × height. The rectangle locks to those dimensions; you only position it.
+
+</details>
+
+<details>
+<summary>**What happens if I crop to a region larger than the image?**</summary>
+
+Tool clamps to image bounds. To extend the canvas with padding, use a separate "extend canvas" tool.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For social media, lock to the platform's aspect ratio (1:1 Instagram square, 9:16 Reels, 1.91:1 Twitter card) to avoid auto-cropping later.
+- For maximum control, crop in a single pass — chained crops can introduce alignment drift.
+- Lossless WebP preserves the pixels exactly. Use lossy only when file size matters more than fidelity.
+- Save a backup of the original — cropping is destructive in the saved output.
+
+## Try it now
+
+The full crop-webp runs in your browser at **[https://ztools.zaions.com/crop-webp](https://ztools.zaions.com/crop-webp)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/crop-webp)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/crop-webp.mdx)*

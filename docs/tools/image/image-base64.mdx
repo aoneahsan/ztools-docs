@@ -1,0 +1,126 @@
+---
+id: image-base64
+title: "Image to Base64 Encoder — Embed Images in CSS, HTML, JSON"
+description: "Convert images to base64 data URIs for inline embedding in CSS, HTML, JSON, or markdown. Bidirectional — also decodes base64 back to image."
+sidebar_label: "image-base64"
+keywords:
+  - "image to base64"
+  - "base64 image encoder"
+  - "data uri converter"
+  - "image base64 decoder"
+  - "inline image css"
+  - "png to base64"
+  - "jpg to base64"
+  - "svg to base64"
+  - "free base64 image tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-base64
+
+A base64 image encoder converts a binary image (JPG, PNG, WebP, GIF, SVG) into a base64-encoded data URI string of the form `data:image/png;base64,iVBORw0KG...`. The ZTools Image Base64 tool encodes any image up to ~10 MB into a copy-pasteable data URI suitable for inline CSS `background: url(data:...)`, HTML `&lt;img src="data:..."&gt;`, JSON payloads, markdown documents, or anywhere else you need an image without a separate file. Bidirectional: also decodes a data URI back into a previewable, downloadable image.
+
+<ToolCTA toolId="image-base64" toolName="image-base64" />
+
+## Use cases
+
+### Inlining a small icon or logo in CSS
+
+Embedding a 1-2 KB icon as a base64 background URL eliminates a separate HTTP request. For icons used on the critical render path (hero logo, hamburger button), this can shave 50-100 ms off the first meaningful paint on slow connections.
+
+### Sending an image inside a JSON API payload
+
+Some APIs (especially older ones or those without multipart support) require image data inside a JSON string field. Convert the image to base64 here, paste into the JSON, and send. The receiving server decodes back to bytes server-side.
+
+### Embedding images in self-contained HTML emails or reports
+
+Email clients block external image references by default. Inline base64 images render immediately without the "Download images" prompt. Useful for reports, signatures, and transactional emails.
+
+### Including images in markdown documentation that renders without external assets
+
+For README files distributed standalone or rendered in environments without internet access, base64-embedded images keep the document self-contained. Adds size but eliminates broken-link risk.
+
+## How it works
+
+1. **Drag-drop or select an image** — JPG, PNG, WebP, GIF, SVG, BMP, ICO supported. Files up to ~10 MB encode comfortably; larger files produce data URIs too long for most practical uses.
+2. **The browser reads the file as binary** — A `FileReader.readAsArrayBuffer()` loads the image into memory; never sent to a server.
+3. **Bytes are base64-encoded** — The native `btoa()` (with binary-safe wrapping) produces the encoded string. The MIME type is auto-detected from the file extension and prepended.
+4. **Output as a complete data URI** — Format: `data:image/png;base64,iVBORw0KG...`. Ready to paste into CSS, HTML, JSON, or markdown.
+5. **Copy with one click** — For decoding, paste a data URI; the tool reverses the operation and shows a preview plus download.
+
+## Examples
+
+**Input:** 64×64 PNG logo (3.2 KB)
+
+**Output:** data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAAC...
+
+---
+
+**Input:** data:image/svg+xml;base64,PHN2Zy...
+
+**Output:** &lt;previewable, downloadable SVG image&gt;
+
+## Frequently asked questions
+
+<details>
+<summary>**When should I inline an image as base64 vs. link to a file?**</summary>
+
+Inline only for images under ~5 KB or those on the critical render path. Above ~5 KB, the bandwidth and parse cost outweighs the saved HTTP request — especially with HTTP/2 multiplexing.
+
+</details>
+
+<details>
+<summary>**How much larger does an image get when base64-encoded?**</summary>
+
+Approximately 33% larger (every 3 bytes of binary become 4 base64 characters), plus the `data:image/PNG;base64,` prefix. After gzip, the inflation drops to ~5-10%.
+
+</details>
+
+<details>
+<summary>**Will inlining hurt browser caching?**</summary>
+
+Yes — inlined images cannot be cached separately from the document. For images reused across pages, prefer a real file with strong cache headers.
+
+</details>
+
+<details>
+<summary>**Can I decode a base64 string back to a downloadable image?**</summary>
+
+Yes — paste a complete data URI (with the `data:image/...;base64,` prefix or just the base64 payload), and the tool decodes and previews it. One-click download.
+
+</details>
+
+<details>
+<summary>**Is the base64 encoding the same as encryption?**</summary>
+
+No — base64 is encoding, not encryption. Anyone can decode it back to the original bytes trivially. Never use base64 to "hide" sensitive image content.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Yes. Once the page loads, encoding and decoding work without internet. Test by disconnecting and converting an image.
+
+</details>
+
+## Tips
+
+- Use base64 inlining only for images under 5 KB; above that, file-based references with caching win.
+- For SVG images, prefer inlining the SVG markup directly (smaller and CSS-styleable) rather than base64-encoding it.
+- When inlining in CSS, prefer external font-icons or SVG sprites for icon sets — better caching and theming.
+- Combine with our Image Compressor to minimize the source file before encoding.
+
+## Try it now
+
+The full image-base64 runs in your browser at **[https://ztools.zaions.com/image-base64](https://ztools.zaions.com/image-base64)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-base64)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-base64.mdx)*

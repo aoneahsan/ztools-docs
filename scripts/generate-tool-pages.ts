@@ -51,6 +51,19 @@ const TOOLS_TO_PUBLISH = [
   'safe-folder-name-generator','schema-markup-generator','sierpinski-triangle','sitemap-generator',
   'sql-query-generator','string-generator','svg-blob-generator','svg-pattern-generator','table-generator',
   'twitter-card-generator','url-slug-generator',
+
+  // Batch 3: image category — 56 tools
+  'add-border-jpg','add-text-to-gif','background-remover','base64-image','blur-image','cartoon-effect-generator',
+  'change-gif-speed','change-jpg-quality','change-png-colors','convert-png-to-webp','convert-webp-to-png',
+  'crop-webp','duplicate-image-finder','extract-gif-frames','grayscale-jpg','heic-converter',
+  'image-average-color-finder','image-base64','image-border-tool','image-color-extractor','image-compress-tool',
+  'image-crop-tool','image-cropper','image-filters','image-filters-effect','image-format-batch-converter',
+  'image-rotate-flip','image-upscaler','image-watermark','instagram-filters-advanced','instagram-post-generator',
+  'passport-photo-maker','photo-censor','photo-collage-maker-advanced','pixelate-image','pixelate-jpg',
+  'pixelate-webp','remove-gif-background','remove-webp-background','replace-webp-colors','reverse-gif',
+  'reverse-image-search','rotate-png','sharpen-image','smart-image-optimizer','social-media-image-resizer',
+  'svg-optimizer','svg-png','transparent-jpg','transparent-png-maker','transparent-webp','tweet-generator',
+  'tweet-to-image-converter','universal-image-converter','vimeo-thumbnail-grabber','youtube-thumbnail-grabber',
 ];
 
 // ---------------------------------------------------------------------------

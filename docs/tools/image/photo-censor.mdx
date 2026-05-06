@@ -1,0 +1,113 @@
+---
+id: photo-censor
+title: "Photo Censor Tool — Blur or Pixelate Faces, Free"
+description: "Censor sensitive parts of photos with blur, pixelation, or solid blocks. Drag-rectangle UI. Browser-only."
+sidebar_label: "photo-censor"
+keywords:
+  - "photo censor online"
+  - "blur faces in photo"
+  - "pixelate sensitive info"
+  - "redact image online"
+  - "free photo redaction"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# photo-censor
+
+Censoring a photo hides sensitive content — faces, license plates, account numbers, addresses — using one of three styles: blur (soft, retains shape outline), pixelation (mosaic, retains color regions), or solid block (fully destructive, most secure). The ZTools Photo Censor tool runs in the browser, supports any image format (PNG, JPG, WebP, GIF), drag-rectangle for region selection, and applies the chosen censor at configurable strength. For high-stakes content, use solid block; for casual privacy, blur or pixelate suffice.
+
+<ToolCTA toolId="photo-censor" toolName="photo-censor" />
+
+## Use cases
+
+### Censor faces before sharing
+
+A group photo with one person who didn't consent. Drag a rectangle on their face, blur or pixelate.
+
+### Hide account numbers in screenshots
+
+Bug-report screenshot has a balance / account number. Solid block is bulletproof — no leak.
+
+### Pre-publish privacy review
+
+Before posting a photo publicly, review for plates / addresses / faces of bystanders. Censor what shouldn't be public.
+
+### Legal / compliance redaction
+
+For publicly-shared documents, redaction must be irreversible. Solid block, then export — no recovery possible.
+
+## How it works
+
+1. **Drop image** — Loaded into canvas.
+2. **Drag rectangle(s)** — Multiple regions OK. Each can have its own censor style and strength.
+3. **Pick censor type** — Blur (Gaussian, configurable radius), pixelation (block size), or solid color (any color, full destruction).
+4. **Save** — New image with censoring baked in. Original untouched.
+
+## Examples
+
+**Input:** Group photo, rectangle on bystander's face, blur radius 20
+
+**Output:** Face blurred. Recognizable shape preserved, identity hidden.
+
+---
+
+**Input:** Receipt screenshot, rectangle on account number, solid black
+
+**Output:** Account number completely invisible. Most secure option.
+
+---
+
+**Input:** License plate, pixelate block 24
+
+**Output:** Pixelated. Plate unreadable.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which method is most secure?**</summary>
+
+Solid block — provably destructive. Pixelation can sometimes leak info to ML upscalers; blur can leak to deconvolution. For high-stakes content (legal, witness protection), use solid.
+
+</details>
+
+<details>
+<summary>**Can I undo after saving?**</summary>
+
+No. Censoring is irreversible in the saved output. Always keep a copy of the original.
+
+</details>
+
+<details>
+<summary>**Does it work with EXIF?**</summary>
+
+Most metadata is preserved unless you toggle "strip metadata". Strip it for sensitive content — EXIF can leak GPS coordinates.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in browser. Sensitive images never leave the device.
+
+</details>
+
+## Tips
+
+- For legal / compliance redaction, use solid block + strip metadata. Anything less can leak.
+- For casual social privacy, blur or pixelate — looks softer, still effective.
+- Always save a backup of the original — censoring is irreversible.
+- For documents, also flatten the file — annotations can sometimes preserve the underlying redacted content.
+
+## Try it now
+
+The full photo-censor runs in your browser at **[https://ztools.zaions.com/photo-censor](https://ztools.zaions.com/photo-censor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/photo-censor)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/photo-censor.mdx)*

@@ -1,0 +1,130 @@
+---
+id: pixelate-image
+title: "Pixelate Image — Free Online Pixelator (Privacy + 8-Bit)"
+description: "Pixelate any image to redact faces, sensitive data, or create 8-bit retro art. Adjustable block size. Browser-only, free, no upload."
+sidebar_label: "pixelate-image"
+keywords:
+  - "pixelate image"
+  - "pixelator online"
+  - "image pixelator"
+  - "pixelate face"
+  - "redact image"
+  - "8-bit image generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pixelate-image
+
+A pixelator reduces image detail by averaging colour within blocks of N×N pixels — used either to redact sensitive content (faces, license plates, text on whiteboards) or to create retro 8-bit/16-bit visual aesthetics for game art and album covers. The ZTools Pixelate Image tool runs in the browser using Canvas, supports targeted region pixelation (drag a rectangle to redact only a face) or full-image pixelation, and exports without watermark. Block size from 2px (subtle) to 64px (heavy redaction or chunky pixel art).
+
+<ToolCTA toolId="pixelate-image" toolName="pixelate-image" />
+
+## Use cases
+
+### Redact faces / license plates / IDs
+
+For screenshots shared publicly (bug reports, social proof, demos), pixelate identifiable info before posting. Standard privacy practice.
+
+### Hide screen content in screenshots
+
+Tutorial screenshots showing real customer data, unreleased features, or sensitive Slack messages need targeted pixelation.
+
+### 8-bit / 16-bit retro art
+
+Convert photos to chunky pixel art for game UI mockups, album covers, profile pictures, or just nostalgic aesthetic.
+
+### Mosaic / tile-effect art
+
+Heavy pixelation creates large color blocks that can be printed as mosaic tile art or used as low-fi backgrounds.
+
+## How it works
+
+1. **Upload image** — JPG / PNG / WebP. Any size.
+2. **Pick mode** — Full-image pixelation or region-only (drag a selection rectangle).
+3. **Set block size** — 2–64 px. 4–8 px = subtle / blur-like; 12–24 px = clear redaction; 32–64 px = chunky retro art.
+4. **Apply** — Each block fills with the average color of pixels under it.
+5. **Export** — PNG (lossless, preserves pixel block edges) or JPG.
+
+## Examples
+
+**Input:** Group photo + face region pixelated at 16px blocks
+
+**Output:** Faces redacted, rest of image untouched; safe for public sharing.
+
+---
+
+**Input:** Photo + full-image pixelation at 8px
+
+**Output:** Subtle pixelation; recognizable but stylized.
+
+---
+
+**Input:** Photo + 32px blocks + 8-color quantization
+
+**Output:** Chunky 8-bit retro art; game-art aesthetic.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is pixelation reversible?**</summary>
+
+No — averaging color into blocks discards detail permanently. Once exported, no algorithm recovers the original. (Exception: extremely subtle 2-3px pixelation on a deterministic source can be partially reversed; for redaction, use 12+ px.)
+
+</details>
+
+<details>
+<summary>**Is pixelation safe enough to redact sensitive data?**</summary>
+
+For most use cases yes, but use BLACK BOXES for high-stakes redaction (legal docs, PII, passwords). Pixelation can be partially reversed with adversarial AI for small block sizes — use ≥16 px and prefer black-box redaction for anything truly sensitive.
+
+</details>
+
+<details>
+<summary>**Why does my pixelated face still look recognizable?**</summary>
+
+Block size too small. For face redaction, blocks should be ≥1/10 of the face's shorter dimension (e.g. 100px face → 12+ px blocks). Larger is safer.
+
+</details>
+
+<details>
+<summary>**How is pixelation different from blurring?**</summary>
+
+Pixelation: blocks of solid color (visible grid). Blur: smooth gradient transition. Pixelation looks more "edited"; blur is subtler. Both reduce detail.
+
+</details>
+
+<details>
+<summary>**Can I pixelate only part of a video?**</summary>
+
+Not in this tool — video editors (CapCut, Premiere) handle frame-by-frame video pixelation.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Yes — pure Canvas, no network needed.
+
+</details>
+
+## Tips
+
+- For redaction: ≥16 px blocks, AND prefer a black box for truly sensitive content (PII, passwords, credit cards).
+- For 8-bit aesthetic: pair with palette quantization (8–32 colors) for authentic retro look.
+- Pixelate at full source resolution; downscale only at the very end.
+- Region-only pixelation preserves the rest of the image — better than full-image when you only need to hide a face.
+- Test redaction by zooming in — if you can still recognize something, increase block size.
+
+## Try it now
+
+The full pixelate-image runs in your browser at **[https://ztools.zaions.com/pixelate-image](https://ztools.zaions.com/pixelate-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pixelate-image)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/pixelate-image.mdx)*

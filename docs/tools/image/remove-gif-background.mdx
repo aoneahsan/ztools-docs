@@ -1,0 +1,95 @@
+---
+id: remove-gif-background
+title: "Remove GIF Background — Free Online, Browser-Only"
+description: "Remove the background from animated GIFs frame by frame. Color-key based. Browser-only — no upload."
+sidebar_label: "remove-gif-background"
+keywords:
+  - "remove gif background"
+  - "transparent gif maker"
+  - "gif background remover"
+  - "animated gif transparency"
+  - "free gif cutout"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# remove-gif-background
+
+Removing the background from a GIF makes the chosen color transparent across all frames — turning a GIF on a solid background into a transparent overlay usable on any site. GIF's 1-bit transparency is limiting (one color = fully transparent, no alpha gradients) but works for solid-background subjects. The ZTools Remove GIF Background tool decodes the GIF, applies color-key removal frame-by-frame, and re-encodes with transparency.
+
+<ToolCTA toolId="remove-gif-background" toolName="remove-gif-background" />
+
+## Use cases
+
+### Sticker-style GIF for chat apps
+
+Animated reaction GIF on white background. Remove background; use as overlay.
+
+### Web overlay animations
+
+Animated decoration on page; transparent GIF stacks over any background.
+
+### Email animation
+
+Some email clients support GIF (not video). Transparent GIF works on coloured email backgrounds.
+
+## How it works
+
+1. **Drop GIF** — Decoded into frames.
+2. **Pick background color** — Eyedropper or hex value. Tolerance slider for anti-aliased edges.
+3. **Apply per frame** — Each frame: matching pixels → transparent. Re-encoded as GIF.
+4. **Save** — Output GIF with 1-bit transparency.
+
+## Examples
+
+**Input:** GIF on white background
+
+**Output:** Background → transparent across all frames. Subject preserved.
+
+---
+
+**Input:** GIF on green-screen
+
+**Output:** Pick green color; all greens become transparent. Cleaner cutout than off-white removal.
+
+## Frequently asked questions
+
+<details>
+<summary>**GIF vs WebP for transparency?**</summary>
+
+GIF: 1-bit transparency only — visible halos on anti-aliased edges. WebP: full alpha — smoother edges. Convert to WebP if your platform supports it.
+
+</details>
+
+<details>
+<summary>**Why halos around the subject?**</summary>
+
+GIF's 1-bit transparency means no partial transparency. Anti-aliased edges either become fully transparent (cutting subject) or fully visible (showing background). Tolerance helps but can't eliminate halos completely.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For best results, start with a high-contrast background (pure green / blue / white).
+- For modern web, convert GIF to animated WebP after — much smaller, cleaner alpha.
+- For complex backgrounds, GIF's 1-bit transparency limit is brutal. Use a video format or Lottie animation instead.
+
+## Try it now
+
+The full remove-gif-background runs in your browser at **[https://ztools.zaions.com/remove-gif-background](https://ztools.zaions.com/remove-gif-background)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/remove-gif-background)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/remove-gif-background.mdx)*

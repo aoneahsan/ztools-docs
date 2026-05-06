@@ -1,0 +1,114 @@
+---
+id: reverse-gif
+title: "Reverse GIF Online — Play Backwards, Free"
+description: "Reverse any GIF so it plays end-to-start. Optional ping-pong (forward then backward). Browser-only."
+sidebar_label: "reverse-gif"
+keywords:
+  - "reverse gif online"
+  - "gif backwards"
+  - "ping pong gif maker"
+  - "reverse animation"
+  - "gif loop creator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# reverse-gif
+
+Reversing a GIF plays it backwards — last frame first, first frame last. Combined with the original (ping-pong mode), it produces a forward-then-backward loop that's especially smooth for cinemagraphs and certain reaction GIFs. The ZTools Reverse GIF tool decodes frames, reverses the order, and re-encodes. Optionally appends the original sequence after the reversed sequence to create a ping-pong loop.
+
+<ToolCTA toolId="reverse-gif" toolName="reverse-gif" />
+
+## Use cases
+
+### Reverse a "before / after" reveal
+
+A GIF showing a transformation — reverse it to show the inverse process. Same content, different story.
+
+### Create a seamless ping-pong loop
+
+Forward + reverse plays in a loop with no visible jump. Essential for cinemagraphs.
+
+### Comedic timing — make a fall a recovery
+
+A reaction GIF of someone falling, reversed, becomes them standing up — gold for memes.
+
+### Match a forward/backward cut in a video edit
+
+Need reversed footage and only have a forward GIF? Reverse it.
+
+## How it works
+
+1. **Drop GIF** — Decoded into frame array.
+2. **Pick mode** — Reverse only (last frame first), or ping-pong (forward then reversed appended).
+3. **Optional: drop duplicate end frame** — For ping-pong, dropping the last forward frame avoids a single-frame stutter at the loop point.
+4. **Re-encode** — Same frames, different order. Delays preserved per frame.
+
+## Examples
+
+**Input:** 10-frame GIF (1,2,3,...,10)
+
+**Output:** Reverse: (10,9,8,...,1). Ping-pong: (1,2,...,10,9,8,...,1) = 19 frames if dropping duplicate, 20 if not.
+
+---
+
+**Input:** Cinemagraph of leaves blowing
+
+**Output:** Ping-pong creates a hypnotic seamless loop — the wind reverses, then forward, repeat.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does ping-pong double the file size?**</summary>
+
+Roughly yes — frames roughly double. Slight saving from inter-frame compression.
+
+</details>
+
+<details>
+<summary>**How do I avoid a "stutter" in ping-pong?**</summary>
+
+Drop the last frame of the forward sequence before appending the reverse — otherwise frame N appears twice in a row at the turnaround.
+
+</details>
+
+<details>
+<summary>**Does it work for cinemagraphs?**</summary>
+
+Yes — cinemagraphs are usually short loops; ping-pong reverse is perfect.
+
+</details>
+
+<details>
+<summary>**Will the timing be identical to the original?**</summary>
+
+Yes — per-frame delays are preserved. The reversed GIF takes exactly the same total time as the original.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All browser.
+
+</details>
+
+## Tips
+
+- For ping-pong loops, always drop the last frame of the forward to avoid the stutter at the turnaround point.
+- Reverse + speed change combine naturally — reverse first, then adjust speed in a separate step.
+- For motion that has a "start state", reversing produces a return-to-start narrative; for true loops, ping-pong is smoother.
+- Cinemagraphs benefit most from ping-pong — leaves swaying, water flowing, wind in hair.
+
+## Try it now
+
+The full reverse-gif runs in your browser at **[https://ztools.zaions.com/reverse-gif](https://ztools.zaions.com/reverse-gif)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/reverse-gif)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/reverse-gif.mdx)*

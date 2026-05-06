@@ -1,0 +1,116 @@
+---
+id: rotate-png
+title: "Rotate PNG Online — 90, 180, 270, Custom, Free"
+description: "Rotate PNG images 90, 180, 270, or any custom angle. Preserves transparency. Browser-only — no upload, no signup."
+sidebar_label: "rotate-png"
+keywords:
+  - "rotate png online"
+  - "rotate png 90 degrees"
+  - "rotate transparent png"
+  - "free png rotator"
+  - "png rotation tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# rotate-png
+
+Rotating a PNG turns it by an angle while preserving transparency. The 90/180/270 cases are exact pixel rearrangements. Arbitrary angles (e.g. 30°) require resampling — pixels get bilinearly interpolated and the canvas grows to fit the rotated bounding box. The ZTools Rotate PNG tool handles both: instant fixed-angle rotations with no quality loss, and free-angle rotations using the browser's canvas with high-quality resampling. Transparency preserved throughout.
+
+<ToolCTA toolId="rotate-png" toolName="rotate-png" />
+
+## Use cases
+
+### Fix a sideways scanned PNG
+
+Document scanned in landscape; needs portrait. 90° rotation does it without quality loss.
+
+### Tilt a logo for a hero design
+
+Slight 5° tilt for design accent. Free-angle rotation handles this; transparent background means no white triangles in the corners.
+
+### Match orientation to a layout
+
+A 1080×1920 portrait image needs to fit a 1920×1080 landscape slot. Rotate 90° and crop or letterbox.
+
+## How it works
+
+1. **Pick PNG** — Single file or batch.
+2. **Choose angle** — Quick buttons for 90 / 180 / 270, or slider for custom (-180 to +180).
+3. **Set background** — Transparent (default) or pick a colour for the corners exposed when rotating at non-90° angles.
+4. **Download** — New .png. Canvas grows to fit the rotated bounding box.
+
+## Examples
+
+**Input:** 500×800 portrait PNG, rotate 90°
+
+**Output:** 800×500 landscape PNG. Pixels are exactly the same, just rearranged.
+
+---
+
+**Input:** Same image rotated 30°
+
+**Output:** Output: ~770×867 PNG (bounding box of rotated content). Corners outside the original are transparent.
+
+---
+
+**Input:** Rotate -90° (counterclockwise 90°)
+
+**Output:** Equivalent to 270° clockwise. Same dimensions as +90° but flipped.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it lose quality?**</summary>
+
+90/180/270: zero loss — pixel rearrangement only. Other angles: minor blur from bilinear interpolation. Compounding rotations (90 then 30 then 60) accumulates resampling — rotate once from the master if possible.
+
+</details>
+
+<details>
+<summary>**Does it preserve transparency?**</summary>
+
+Yes — alpha channel rotates with the colour channels.
+
+</details>
+
+<details>
+<summary>**What about the corners on a 30° rotation?**</summary>
+
+They're empty → transparent (default) or filled with your chosen background colour.
+
+</details>
+
+<details>
+<summary>**Can it rotate around a custom centre?**</summary>
+
+Default centre is the image centre. For off-centre rotation, crop first to position the rotation pivot, then rotate.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Pure browser rotation.
+
+</details>
+
+## Tips
+
+- For 90/180/270, prefer the exact-rotation buttons — guaranteed zero loss.
+- For arbitrary angles, rotate once from the source. Re-rotating compounds resampling blur.
+- When the rotation crops important content, expand the canvas first, rotate, then crop.
+- For batch rotation (e.g. all images 90° clockwise), drop multiple files and use the batch button.
+
+## Try it now
+
+The full rotate-png runs in your browser at **[https://ztools.zaions.com/rotate-png](https://ztools.zaions.com/rotate-png)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/rotate-png)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/rotate-png.mdx)*

@@ -1,0 +1,131 @@
+---
+id: heic-converter
+title: "HEIC Converter — Convert iPhone HEIC Photos to JPG/PNG/WebP"
+description: "Convert HEIC and HEIF photos from iPhone or iPad to JPG, PNG, or WebP. Batch-friendly. 100% in-browser. No upload, no signup."
+sidebar_label: "heic-converter"
+keywords:
+  - "heic converter"
+  - "heic to jpg"
+  - "heic to png"
+  - "iphone photo converter"
+  - "heif to jpg"
+  - "free heic converter"
+  - "open heic on windows"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# heic-converter
+
+A HEIC converter transcodes Apple's High Efficiency Image Container (HEIC/HEIF) photos — the default format on iPhone since iOS 11 — into a universally compatible format such as JPG, PNG, or WebP, so the images open on Windows, older Macs, Android phones, websites, and most apps that do not yet support HEIC. The ZTools HEIC Converter runs entirely in the browser, supports drag-and-drop batch conversion of dozens of files at once, preserves EXIF metadata when possible, and offers a quality slider so you can balance file size against visual fidelity exactly the way you need.
+
+<ToolCTA toolId="heic-converter" toolName="heic-converter" />
+
+## Use cases
+
+### Sharing iPhone photos on Windows or Android
+
+You AirDrop a photo to a friend on Windows and they cannot open the .heic file. Convert to JPG once and the file opens in every viewer, every chat app, and every email client.
+
+### Uploading to websites that reject HEIC
+
+Many CMSes, job-application portals, government forms, and older WordPress installs reject .heic uploads. Convert to JPG before upload to avoid the silent rejection.
+
+### Bulk-converting an iPhone camera roll export
+
+After exporting a year of photos from iCloud, half are HEIC and the rest JPG. Drop the whole folder in, get a uniform set of JPGs, and your photo workflow stops complaining.
+
+### Editing in apps that lack HEIC support
+
+Some older Photoshop versions, Lightroom plug-ins, and free editors still treat HEIC as foreign. Convert to PNG (lossless) before editing to keep maximum quality.
+
+## How it works
+
+1. **Drop one or more HEIC files** — Up to ~50 files at once. Both .heic and .heif extensions are accepted; the underlying HEIF container is the same.
+2. **Pick the target format** — JPG (smallest, universal), PNG (lossless), or WebP (smaller than JPG at similar quality, supported in modern browsers).
+3. **Set quality and resize (optional)** — Quality 1–100 for JPG/WebP. Optional max-dimension downsize for sending over chat or attaching to email.
+4. **Convert in-browser** — A WebAssembly HEIC decoder runs locally — your photo never uploads. Conversion is parallelised across files.
+5. **Download individually or as a ZIP** — Single file → direct download. Multiple files → one ZIP with the originals' filenames preserved.
+
+## Examples
+
+**Input:** 4 MB HEIC iPhone photo → JPG quality 85
+
+**Output:** ~1.6 MB JPG, visually identical
+
+---
+
+**Input:** 12 MB HEIC → PNG
+
+**Output:** ~18 MB PNG, lossless
+
+---
+
+**Input:** 50 HEIC files → WebP quality 80
+
+**Output:** 50 WebP files, ~30% smaller than equivalent JPG, packaged as a single ZIP.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does iPhone use HEIC instead of JPG?**</summary>
+
+HEIC at the same visual quality is roughly half the file size of JPG. Apple defaults to it to save storage, but the wider ecosystem still leans on JPG, so conversion is often needed for sharing.
+
+</details>
+
+<details>
+<summary>**Will I lose quality converting HEIC to JPG?**</summary>
+
+Some, yes. JPG is lossy. At quality 85+ the visual difference is invisible to most viewers. For zero loss, convert to PNG.
+
+</details>
+
+<details>
+<summary>**Does it preserve EXIF (date, GPS, camera)?**</summary>
+
+Yes for JPG and WebP — EXIF is copied across. PNG stores limited metadata so some fields drop.
+
+</details>
+
+<details>
+<summary>**Are Live Photos handled?**</summary>
+
+The still frame converts. The motion (.mov) component is separate; iCloud exports usually deliver them as a sibling file.
+
+</details>
+
+<details>
+<summary>**My iPhone photos are HEIC but the file extension says JPG — what is going on?**</summary>
+
+iOS sometimes wraps a HEIC inside a .jpg extension when sharing via certain apps. The converter detects the actual format and handles either case.
+
+</details>
+
+<details>
+<summary>**Is it free for commercial use?**</summary>
+
+Yes. The tool is free, output files are yours; no watermarking, no usage limit beyond what fits in your browser memory.
+
+</details>
+
+## Tips
+
+- For social media, JPG quality 80–85 hits the best size/quality trade-off — anything higher is wasted bandwidth.
+- For archival, convert to PNG and keep the originals — PNG is lossless so future re-edits stay sharp.
+- Disable HEIC at the source: iPhone → Settings → Camera → Formats → "Most Compatible" forces JPG capture.
+- Big folder? Use batch mode and walk away — the WASM decoder handles dozens in parallel and packages them as a ZIP.
+- If a file refuses to decode, it is usually because Apple wrapped extra metadata; re-export from Photos using "Unmodified Original" and try again.
+
+## Try it now
+
+The full heic-converter runs in your browser at **[https://ztools.zaions.com/heic-converter](https://ztools.zaions.com/heic-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/heic-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/heic-converter.mdx)*

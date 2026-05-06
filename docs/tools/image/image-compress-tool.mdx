@@ -1,0 +1,135 @@
+---
+id: image-compress-tool
+title: "Image Compressor Tool — Free, Privacy-First, No Upload"
+description: "Compress JPG, PNG, WebP, and AVIF images by 50–90% with quality control. Batch processing, browser-only, no upload, no signup."
+sidebar_label: "image-compress-tool"
+keywords:
+  - "image compressor"
+  - "compress images online"
+  - "image optimizer"
+  - "jpg compressor"
+  - "webp compressor"
+  - "avif compressor"
+  - "reduce image size"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-compress-tool
+
+An image compression tool reduces file size with minimal perceptible quality loss — typically 50–90% reduction for web photos using lossy JPEG quality reduction, PNG palette optimisation, or WebP/AVIF re-encoding. Smaller files mean faster page loads, lower CDN bills, and better Core Web Vitals (LCP scores). The ZTools Image Compressor runs entirely in the browser using Canvas + the WebP/AVIF encoders shipped natively in modern Chromium browsers. No upload to a server, no privacy risk, no quota.
+
+<ToolCTA toolId="image-compress-tool" toolName="image-compress-tool" />
+
+## Use cases
+
+### Web performance / Core Web Vitals
+
+Hero images often weigh 1–3 MB straight from camera/Figma. Compressing to 200–400 KB cuts LCP by 1–3 seconds and pushes Core Web Vitals into the green.
+
+### Email attachments
+
+Mail providers cap attachments (Gmail 25 MB, Outlook 20 MB). Batch-compress photos before attaching to fit within limits.
+
+### CDN bandwidth cost reduction
+
+For sites with millions of image views, 50% compression = 50% CDN bill. Compounds across the year.
+
+### Mobile-friendly listings
+
+E-commerce listings on slow-mobile-network markets (3G/4G common globally). Smaller images = faster pages = higher conversion.
+
+### Offline / PWA caching
+
+PWAs cache images for offline use. Smaller images = faster install + smaller cache footprint.
+
+## How it works
+
+1. **Drop or select images** — Single or batch (up to 50 files at once). JPG, PNG, WebP, AVIF, GIF input.
+2. **Pick output format** — JPG (broadest support), WebP (~30% smaller), AVIF (~50% smaller, modern browsers only).
+3. **Set quality** — 0–100. JPG: 80 = sweet spot (good quality, big size win). WebP/AVIF: 75 = often visually identical to source.
+4. **Set max dimensions (optional)** — Resize during compression. 1920px max width is enough for retina displays.
+5. **Batch download ZIP** — Each file processed in a Web Worker; full source resolution preserved unless resized.
+
+## Examples
+
+**Input:** iPhone photo (4032×3024, 3.2 MB JPG) → 1920px max + JPG 80%
+
+**Output:** ~280 KB, visually identical at typical display sizes.
+
+---
+
+**Input:** PNG screenshot (1.5 MB) → WebP 80%
+
+**Output:** ~180 KB, 88% reduction; works in 95%+ of browsers in 2026.
+
+---
+
+**Input:** 20-photo batch from camera → AVIF 70%
+
+**Output:** Total payload drops from ~60 MB to ~6 MB; downloaded as ZIP.
+
+## Frequently asked questions
+
+<details>
+<summary>**JPG vs WebP vs AVIF — which should I use?**</summary>
+
+AVIF: best compression (~50% smaller than JPG at same quality), supported in Chrome 85+, Firefox 93+, Safari 16.4+. WebP: ~30% smaller, supported everywhere modern. JPG: universal fallback. For new sites, ship AVIF + WebP fallback + JPG legacy.
+
+</details>
+
+<details>
+<summary>**Will compression hurt SEO?**</summary>
+
+No — Google explicitly recommends image compression. Faster pages rank better. Quality drop only matters if it's visible at typical viewing sizes, which JPG 80% never is.
+
+</details>
+
+<details>
+<summary>**Lossless vs lossy?**</summary>
+
+Lossy (JPG/WebP/AVIF) gives 50–90% reduction with imperceptible quality loss. Lossless (PNG, WebP-lossless) is for screenshots, logos, illustrations where exactness matters. Photos = lossy.
+
+</details>
+
+<details>
+<summary>**Why does my compressed PNG still look bad?**</summary>
+
+PNG compression depends on color count. PNG-8 (256 colors) is great for icons; PNG-24 photos compress poorly. For photos, switch to JPG or WebP.
+
+</details>
+
+<details>
+<summary>**Are EXIF / metadata preserved?**</summary>
+
+Toggle in settings. Strip EXIF for web/social sharing (privacy + smaller files). Preserve EXIF for archival.
+
+</details>
+
+<details>
+<summary>**Does this work offline?**</summary>
+
+Yes — Canvas + WebP/AVIF encoders are bundled with the browser. No network needed once the page is loaded.
+
+</details>
+
+## Tips
+
+- JPG quality 80 is the universal sweet spot for photos — 95% size reduction with imperceptible quality drop.
+- For above-the-fold hero images, ship AVIF + WebP fallback + JPG legacy via `&lt;picture&gt;` element — best of all worlds.
+- Resize before compression: 1920px max width is enough for any device including retina; 4000px+ is wasted bytes.
+- Strip EXIF for public web (privacy + size). Preserve for personal archives.
+- Run lossy compression once, not multiple times — re-encoding compounds quality loss.
+
+## Try it now
+
+The full image-compress-tool runs in your browser at **[https://ztools.zaions.com/image-compress-tool](https://ztools.zaions.com/image-compress-tool)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-compress-tool)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-compress-tool.mdx)*

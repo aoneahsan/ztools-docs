@@ -1,0 +1,126 @@
+---
+id: image-cropper
+title: "Image Cropper — Crop JPG, PNG, WebP to Any Aspect Ratio (Free)"
+description: "Crop images to exact dimensions or preset aspect ratios (1:1, 4:3, 16:9, custom). Pixel-perfect, in-browser, no upload, no watermark."
+sidebar_label: "image-cropper"
+keywords:
+  - "image cropper"
+  - "crop image online"
+  - "photo cropper"
+  - "aspect ratio cropper"
+  - "free image cropper"
+  - "crop jpg"
+  - "crop png"
+  - "instagram crop"
+  - "avatar cropper"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-cropper
+
+An image cropper is a tool that extracts a rectangular region from a source image, producing a new image of the cropped size. The ZTools Image Cropper supports free-form crop, fixed aspect ratios (1:1 for avatars, 4:5 for Instagram portrait, 9:16 for TikTok / Reels, 16:9 for video thumbnails, 3:2 for traditional photography), and pixel-perfect manual coordinates. Everything happens in your browser via the Canvas API; no upload, no watermark, no file count limit.
+
+<ToolCTA toolId="image-cropper" toolName="image-cropper" />
+
+## Use cases
+
+### Cropping a photo to a square avatar
+
+Most platforms expect square avatars (1:1 ratio). Drag a square region over the focal point of your image, click Crop, download. No more uploading a wide photo and hoping the platform centers it correctly.
+
+### Preparing images for social media at the right aspect ratio
+
+Instagram feed: 1:1 or 4:5. Stories/Reels: 9:16. Twitter cards: 16:9 or 2:1. LinkedIn: 1.91:1. The preset ratio buttons match every major platform; pick one and your crop is platform-ready.
+
+### Removing distracting backgrounds from product photos
+
+When a product shot has too much empty background, crop tighter to focus attention on the product. Combined with our Image Resizer, produces tightly-framed, web-optimized product images.
+
+### Extracting a region of a screenshot for a tutorial
+
+Take a full-page screenshot, then crop to the relevant 800×400 region for a help-doc illustration. Pixel-perfect coordinates ensure consistent crop sizes across a series of related screenshots.
+
+## How it works
+
+1. **Drag-drop or select an image** — JPG, PNG, WebP, GIF supported. The original file stays on your disk; only an in-memory copy is loaded into the canvas.
+2. **Choose aspect ratio or free-form** — Presets: 1:1, 4:3, 16:9, 9:16, 4:5, 3:2, custom. The crop rectangle snaps to your chosen ratio and resizes proportionally.
+3. **Drag and resize the crop rectangle** — Drag corners to resize, drag center to move. Live size readout shows current crop dimensions in pixels.
+4. **Optionally enter exact coordinates** — For pixel-perfect crops, type X, Y, width, height directly — useful for batch consistency or precise UI mockup work.
+5. **Click Crop and download** — The Canvas API extracts the region, encodes to your chosen format (JPG, PNG, WebP), and offers download.
+
+## Examples
+
+**Input:** 4032×3024 photo, 1:1 crop centered on subject
+
+**Output:** 3024×3024 PNG (square avatar)
+
+---
+
+**Input:** 1920×1080 screenshot, free-form crop of (200, 100) to (1000, 600)
+
+**Output:** 800×500 PNG (tightly framed UI region)
+
+## Frequently asked questions
+
+<details>
+<summary>**Will my image be uploaded?**</summary>
+
+No. Cropping happens entirely in your browser via the Canvas API. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**What's the maximum image size?**</summary>
+
+Up to ~50 MB on desktop browsers, limited by available memory. For very large images (high-res panoramas, 100+ MP cameras), pre-resize before cropping.
+
+</details>
+
+<details>
+<summary>**Does the cropper preserve EXIF metadata?**</summary>
+
+No — Canvas-based operations strip EXIF (a privacy benefit and a quality concern depending on context). For EXIF preservation, use a desktop tool like ImageMagick.
+
+</details>
+
+<details>
+<summary>**Can I crop to a non-rectangular shape (circle, rounded)?**</summary>
+
+The tool produces rectangular crops only. For circular avatars, crop to a square first, then apply CSS `border-radius: 50%` at display time. For true round PNGs with transparency, use a graphics editor.
+
+</details>
+
+<details>
+<summary>**What format should I save my crop in?**</summary>
+
+JPG for photographs (smaller file, lossy). PNG for screenshots and graphics with text or sharp edges (lossless). WebP for the best size/quality tradeoff in modern browsers.
+
+</details>
+
+<details>
+<summary>**Why does the cropped image look slightly different?**</summary>
+
+JPG is lossy; saving as JPG always introduces some quantization. To minimize loss, use PNG output, or set JPG quality to 90+.
+
+</details>
+
+## Tips
+
+- Always crop to the exact aspect ratio your destination platform expects — avoids automatic letterboxing or focus-cropping.
+- For social media, batch-crop the same source image to multiple aspect ratios in successive runs.
+- Use exact-coordinate mode for consistency across a series of screenshots.
+- Combine with our Image Resizer afterward if you also need to scale down the cropped output.
+
+## Try it now
+
+The full image-cropper runs in your browser at **[https://ztools.zaions.com/image-cropper](https://ztools.zaions.com/image-cropper)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-cropper)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-cropper.mdx)*

@@ -1,0 +1,116 @@
+---
+id: transparent-jpg
+title: "Make JPG Transparent — Replace White with Alpha, Free"
+description: "JPG can't hold transparency natively — convert to PNG with the white background made transparent. Free, browser-only."
+sidebar_label: "transparent-jpg"
+keywords:
+  - "make jpg transparent"
+  - "jpg to transparent png"
+  - "remove white background jpg"
+  - "jpg alpha online"
+  - "transparent background converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# transparent-jpg
+
+JPG cannot store transparency — the format has no alpha channel. "Making a JPG transparent" really means converting it to PNG (or WebP) and replacing one background colour (typically white) with alpha. The ZTools Make JPG Transparent tool decodes the JPG, lets you eyedropper-pick the colour to remove, applies a tolerance for anti-aliased edges, and outputs PNG with the chosen colour swapped to alpha. Original JPG is untouched.
+
+<ToolCTA toolId="transparent-jpg" toolName="transparent-jpg" />
+
+## Use cases
+
+### Logo on white needs to overlay coloured backgrounds
+
+A vendor sent the logo as a white-background JPG. Convert to transparent PNG so it works on coloured slides.
+
+### Product photo for an e-commerce site
+
+Shot against a white seamless backdrop. Transparent PNG looks better in product grids than JPG with hard white edges.
+
+### Sticker / cutout for print
+
+Print services need transparent PNG / EPS for cutout effects. JPG with white background prints with a visible white square.
+
+## How it works
+
+1. **Drop JPG** — Decoded into canvas.
+2. **Pick the colour to remove** — Eyedropper on the canvas (typically pick a corner pixel = background) or paste a hex value.
+3. **Set tolerance** — How much variation to also remove. Default 15. Higher catches anti-aliased edges; too high eats foreground.
+4. **Save as PNG (or WebP)** — Output is RGBA: pixels matching source colour have alpha 0; others keep their RGB unchanged.
+
+## Examples
+
+**Input:** Logo on pure white (#FFFFFF), tolerance 0
+
+**Output:** Pure white → transparent. Anti-aliased edges (#F0F0F0 etc.) still white. Result has visible white halo.
+
+---
+
+**Input:** Same image, tolerance 25
+
+**Output:** Anti-aliased edges also catch. Clean cutout. Slight feathering around the logo edges.
+
+---
+
+**Input:** Photo with not-quite-white background (#F5F4F2)
+
+**Output:** Pick the off-white directly with the eyedropper rather than typing #FFFFFF — gives a much cleaner cutout.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why can't JPG hold transparency natively?**</summary>
+
+JPEG's spec has no alpha channel — it was designed for photographs, where transparency is irrelevant. PNG (1996) and WebP (2010) added alpha; JPEG didn't.
+
+</details>
+
+<details>
+<summary>**How do I get a cleaner cutout?**</summary>
+
+Three things: (1) start with a high-contrast background, (2) use an eyedropper to pick the actual background colour, (3) tolerance 15-30 catches anti-aliased edges without eating the subject.
+
+</details>
+
+<details>
+<summary>**Does it handle complex backgrounds?**</summary>
+
+No — single-colour backgrounds work best. For complex backgrounds, use a dedicated background-remover (AI-based) tool. Colour-key removal is a 1990s technique with known limits.
+
+</details>
+
+<details>
+<summary>**Output format?**</summary>
+
+PNG by default (universal alpha support). WebP option for smaller files when modern browsers are the target.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Browser-only conversion.
+
+</details>
+
+## Tips
+
+- Always pick the background colour with the eyedropper — typing #FFFFFF often misses by 5-10 RGB points because of JPEG compression.
+- Tolerance 15-30 handles most anti-aliased edges. Below 5 leaves a halo; above 50 starts eating subject.
+- For complex backgrounds (people, products against scenes), use an AI-based background-remover instead — colour-key fails.
+- After cutout, view on a black background to spot remaining halo or missed pixels.
+
+## Try it now
+
+The full transparent-jpg runs in your browser at **[https://ztools.zaions.com/transparent-jpg](https://ztools.zaions.com/transparent-jpg)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/transparent-jpg)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/transparent-jpg.mdx)*

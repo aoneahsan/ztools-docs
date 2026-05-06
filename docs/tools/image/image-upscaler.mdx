@@ -1,0 +1,130 @@
+---
+id: image-upscaler
+title: "Image Upscaler — Enlarge Photos 2x/4x with AI-style Smoothing"
+description: "Upscale low-resolution images 2x or 4x with smart smoothing. Bicubic, Lanczos, plus AI-style detail recovery. Free, in-browser."
+sidebar_label: "image-upscaler"
+keywords:
+  - "image upscaler"
+  - "enlarge image"
+  - "upscale photo"
+  - "ai image upscaler"
+  - "image enlarge 2x 4x"
+  - "free image upscaler"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-upscaler
+
+An image upscaler enlarges a small image to a larger pixel size while attempting to preserve or recover detail — useful when an old photo, a thumbnail, or a downscaled asset is the only source you have but the destination needs a higher resolution (a print, a large web banner, an upscaled video, a presentation slide). The ZTools Image Upscaler offers classical algorithms (bicubic, Lanczos) plus an AI-style detail-aware mode that runs a small neural network in the browser, allowing 2x and 4x upscale, edge-preserving smoothing, and noise / artifact suppression on the way up — all without uploading the original photo to any server.
+
+<ToolCTA toolId="image-upscaler" toolName="image-upscaler" />
+
+## Use cases
+
+### Restoring old family photos
+
+A 600 px scan from a printed photo album. Upscale 4x for printing or framing without the muddy interpolation that classical bicubic produces.
+
+### Recovering low-res screenshots
+
+A screenshot taken on an old monitor needs to land on a 4K display. Upscale 2x with edge-aware mode to keep text crisp.
+
+### Stock photo enlargement
+
+A licensed image at 1500 px wide needs to fill a 3000 px banner. Upscale 2x; check for artifacts; touch up if needed.
+
+### E-commerce product photo standardisation
+
+Some product shots arrive at 800 px; the marketplace wants 2000 px. Batch-upscale the small ones to meet the catalogue standard.
+
+## How it works
+
+1. **Upload image** — JPG, PNG, WebP. Recommended source resolution at least 200 px on the short side; below that, results soften noticeably.
+2. **Pick scale** — 2x (most common, fastest) or 4x (slower, biggest jump). Custom percentage also supported.
+3. **Choose algorithm** — Bicubic (fast, smoother), Lanczos (sharper, slight ringing on edges), AI-style (best detail, slowest).
+4. **Optional cleanup** — Pre-clean noise / JPG artifacts before upscale to avoid magnifying them. Optional post-sharpen for crisp output.
+5. **Export** — PNG (lossless, larger) or JPG (smaller, lossy). Original aspect ratio preserved.
+
+## Examples
+
+**Input:** 500x500 thumbnail → 2000x2000 (4x, AI-style)
+
+**Output:** Detail-aware 2000x2000 with cleaner edges than bicubic
+
+---
+
+**Input:** 1200x800 photo → 2400x1600 (2x, Lanczos)
+
+**Output:** Sharp 2x upscale, slight ringing on high-contrast edges
+
+---
+
+**Input:** 800x600 screenshot of UI → 1600x1200 (2x)
+
+**Output:** Upscaled UI with edge-preserved text
+
+## Frequently asked questions
+
+<details>
+<summary>**Will upscaling restore real detail?**</summary>
+
+No — it cannot invent information that was never captured. AI-style upscalers infer plausible detail based on training data; they look better but are guesses, not truth. Treat upscaling as visual smoothing, not forensic restoration.
+
+</details>
+
+<details>
+<summary>**Which algorithm should I pick?**</summary>
+
+For photographs, AI-style usually wins. For UI screenshots and line art, Lanczos with light sharpen often beats AI. Bicubic is the safe default — fast and predictable.
+
+</details>
+
+<details>
+<summary>**Why does the upscaled image look muddy?**</summary>
+
+Source was already noisy or heavily JPG-compressed. Pre-clean before upscaling, or accept that low-quality input cannot be magic-fixed.
+
+</details>
+
+<details>
+<summary>**What is the maximum size?**</summary>
+
+Limited by your device memory. A modern laptop comfortably upscales 4 MP images to 4x; phones may stop at 2x for large inputs.
+
+</details>
+
+<details>
+<summary>**Does it remove watermarks?**</summary>
+
+No — and please respect copyright. The tool magnifies what is there; if a watermark is present, the upscale shows the same watermark.
+
+</details>
+
+<details>
+<summary>**Is the model uploaded to a server?**</summary>
+
+No — the AI mode uses a small ONNX model that runs in your browser via WebAssembly. Source image never leaves your device.
+
+</details>
+
+## Tips
+
+- Always start by cleaning JPG artifacts and noise — upscaling magnifies them otherwise.
+- For prints, upscale to 300 DPI of the printed size, not just "bigger".
+- Compare 2x AI vs 2x Lanczos with a quick A/B preview — different photos prefer different algorithms.
+- Keep the original. You may want to re-upscale later with a better model.
+- After upscaling, run a small unsharp-mask pass for crisper output before export.
+
+## Try it now
+
+The full image-upscaler runs in your browser at **[https://ztools.zaions.com/image-upscaler](https://ztools.zaions.com/image-upscaler)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-upscaler)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-upscaler.mdx)*

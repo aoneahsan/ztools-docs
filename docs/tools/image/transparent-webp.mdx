@@ -1,0 +1,109 @@
+---
+id: transparent-webp
+title: "Make WebP Transparent — Replace Color with Alpha, Free"
+description: "Replace a solid color in a WebP with transparency. Eyedropper, tolerance. Browser-only."
+sidebar_label: "transparent-webp"
+keywords:
+  - "transparent webp online"
+  - "remove webp background"
+  - "webp alpha converter"
+  - "webp white to transparent"
+  - "webp transparency"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# transparent-webp
+
+Making a WebP transparent replaces a chosen color (typically white or a solid background) with alpha. WebP supports lossless alpha channels — same flexibility as PNG. The ZTools Transparent WebP tool decodes the WebP, lets you eyedropper-pick the colour to remove, applies a tolerance for anti-aliased edges, and outputs a new WebP with the colour swapped to alpha. Original file untouched.
+
+<ToolCTA toolId="transparent-webp" toolName="transparent-webp" />
+
+## Use cases
+
+### Remove white background from a logo
+
+Logo on white WebP needs to overlay coloured backgrounds. Convert background to alpha.
+
+### Product photo cutout
+
+Shot on white seamless. Transparent WebP looks better in product grids than visible white square.
+
+### Sticker / cutout for design
+
+Print or web design needs transparent edges. Removing background is the first step.
+
+## How it works
+
+1. **Drop WebP** — Decoded into canvas.
+2. **Pick color to remove** — Eyedropper on canvas (typically pick a corner pixel = background) or paste a hex value.
+3. **Set tolerance** — How much variation to also remove. Default 15.
+4. **Save as WebP** — Output: lossless WebP with alpha.
+
+## Examples
+
+**Input:** Logo on white #FFFFFF, tolerance 0
+
+**Output:** Pure white → transparent. Anti-aliased edges remain white (visible halo).
+
+---
+
+**Input:** Same with tolerance 25
+
+**Output:** Anti-aliased edges also removed. Cleaner cutout.
+
+---
+
+**Input:** Off-white background (#F5F5F5)
+
+**Output:** Eyedropper pick gives the actual color; tolerance 10 catches the variations.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is WebP transparency different from PNG?**</summary>
+
+Both support lossless alpha. WebP files are typically 25-35% smaller for the same image with alpha.
+
+</details>
+
+<details>
+<summary>**Tolerance for clean cutout?**</summary>
+
+15-30 catches most anti-aliased edges without eating subject. Below 5 leaves halo; above 50 starts eating subject.
+
+</details>
+
+<details>
+<summary>**Complex backgrounds?**</summary>
+
+Single-color backgrounds work best. For complex backgrounds, use AI-based background-remover.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Browser-only.
+
+</details>
+
+## Tips
+
+- Always pick the background color with eyedropper — typed values often miss by 5-10 RGB points.
+- View on a black background to spot remaining halo.
+- For complex backgrounds, use a dedicated AI background remover.
+- Lossless WebP preserves the alpha exactly — use lossy only for size-critical content.
+
+## Try it now
+
+The full transparent-webp runs in your browser at **[https://ztools.zaions.com/transparent-webp](https://ztools.zaions.com/transparent-webp)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/transparent-webp)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/transparent-webp.mdx)*

@@ -1,0 +1,130 @@
+---
+id: duplicate-image-finder
+title: "Duplicate Image Finder — Find Exact and Similar Photos in a Folder"
+description: "Find exact and visually similar duplicate images in a folder. Perceptual hashing detects rotated, resized, recompressed copies. Free, in-browser."
+sidebar_label: "duplicate-image-finder"
+keywords:
+  - "duplicate image finder"
+  - "find duplicate photos"
+  - "similar image finder"
+  - "phash photo deduplicator"
+  - "free duplicate finder"
+  - "photo library cleanup"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# duplicate-image-finder
+
+A duplicate image finder scans a set of images and groups exact and visually similar duplicates together — using both byte-level hashing (catches identical files copied to multiple folders) and perceptual hashing (catches resized, recompressed, slightly cropped, or rotated copies) — so you can reclaim disk space, deduplicate a photo library, or audit a content folder before uploading it to a CMS or marketplace. The ZTools Duplicate Image Finder runs entirely in the browser using a fast perceptual hash (pHash / dHash) over a sampled grid of every image, surfaces clusters of near-duplicates with a similarity score, and lets you preview side-by-side before deciding which copies to keep.
+
+<ToolCTA toolId="duplicate-image-finder" toolName="duplicate-image-finder" />
+
+## Use cases
+
+### Cleaning a phone photo backup
+
+Years of phone backups accumulate burst-shots and forwarded WhatsApp copies of the same picture. Find the clusters and keep one master per group.
+
+### Catalogue audit before marketplace upload
+
+Sellers sometimes accidentally upload the same product photo twice or a slightly cropped variant. Run the duplicate finder before the catalogue goes live.
+
+### Reclaiming disk space
+
+Designers keep multiple versions of the same hero image. Find duplicates, delete redundant copies, save 50%+ of folder size.
+
+### Plagiarism / re-use audits
+
+Compare a folder of submissions against a reference library to spot copied or lightly-edited reuse.
+
+## How it works
+
+1. **Drop a folder of images** — JPG, PNG, WebP, HEIC. The browser reads files locally — nothing uploads.
+2. **Compute hashes** — Byte-level SHA-256 for exact-match detection. pHash / dHash on a 32x32 greyscale sample for perceptual similarity.
+3. **Cluster by similarity** — Hamming distance between perceptual hashes groups near-duplicates. Threshold slider chooses how strict similarity must be.
+4. **Review clusters** — Each group shows thumbnails side-by-side with file size, dimensions, and similarity %.
+5. **Mark and act** — Tick which copies to keep / delete. Export a CSV of decisions; or download a ZIP of survivors.
+
+## Examples
+
+**Input:** 500 phone photos including 80 burst-shots
+
+**Output:** ~30 clusters; e.g. one cluster of 7 near-duplicate burst-shots of the same scene
+
+---
+
+**Input:** Marketplace catalogue, 200 product photos
+
+**Output:** 5 clusters of accidentally re-uploaded products
+
+---
+
+**Input:** Original + resized + recompressed copy
+
+**Output:** All three flagged as the same cluster at &gt;95% similarity
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it detect resized or rotated duplicates?**</summary>
+
+Perceptual hashing reduces each image to a small grayscale grid and hashes the pattern. Resize, recompression, and small rotations preserve the pattern, so the hashes stay close.
+
+</details>
+
+<details>
+<summary>**What similarity threshold should I use?**</summary>
+
+Hamming distance ≤ 5 (about 95% similar) is safe for "almost certainly the same". 6–10 catches more aggressive crops; &gt; 10 starts including merely "thematically similar" photos.
+
+</details>
+
+<details>
+<summary>**Will it detect mirrored copies?**</summary>
+
+Optional — a "check flips" toggle hashes mirrored variants too. Slows the scan.
+
+</details>
+
+<details>
+<summary>**Does it actually delete files?**</summary>
+
+No — the tool only flags duplicates and lets you mark decisions. You delete locally on your file system. Safer that way.
+
+</details>
+
+<details>
+<summary>**How big a folder can it handle?**</summary>
+
+Tested up to ~5,000 images on a modern laptop. Larger libraries should be batched per folder.
+
+</details>
+
+<details>
+<summary>**Are RAW files supported?**</summary>
+
+JPG previews extracted from RAW are usually compared. Pure RAW (CR2, NEF, ARW) decoding is limited; convert to JPG first for best results.
+
+</details>
+
+## Tips
+
+- Run on a copy of the folder until you trust the tool — then run on the master once.
+- Keep the highest-resolution / most-recent copy; delete the rest.
+- Tighten the threshold to ≤ 5 for safety; loosen only when you actively want to find re-edits.
+- For catalogue audits, export the CSV and review before deleting — accidental deletes are painful.
+- Re-run periodically — duplicates accumulate quietly over time.
+
+## Try it now
+
+The full duplicate-image-finder runs in your browser at **[https://ztools.zaions.com/duplicate-image-finder](https://ztools.zaions.com/duplicate-image-finder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/duplicate-image-finder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/duplicate-image-finder.mdx)*

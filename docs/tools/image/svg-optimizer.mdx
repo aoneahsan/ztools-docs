@@ -1,0 +1,125 @@
+---
+id: svg-optimizer
+title: "SVG Optimizer — Minify, Clean, Shrink SVG Files (SVGO-Powered)"
+description: "Optimize SVG files — strip metadata, collapse paths, remove hidden elements. Typically 40-70% size reduction with no visual change. Free."
+sidebar_label: "svg-optimizer"
+keywords:
+  - "svg optimizer"
+  - "svg minifier"
+  - "svgo online"
+  - "optimize svg"
+  - "svg compressor"
+  - "shrink svg"
+  - "svg cleaner"
+  - "free svg tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# svg-optimizer
+
+An SVG optimizer parses an SVG file and re-emits it with every safe size-saving transformation applied: stripping editor-specific metadata (Adobe Illustrator and Sketch leave a lot of cruft), removing hidden elements, collapsing nested groups, rounding numeric precision, removing default attribute values, and minifying whitespace. The ZTools SVG Optimizer uses an SVGO-equivalent ruleset to typically achieve 40-70% size reduction with zero visual change. Output is production-ready: smaller payloads, faster page loads, and cleaner markup that's easier to inline or animate.
+
+<ToolCTA toolId="svg-optimizer" toolName="svg-optimizer" />
+
+## Use cases
+
+### Cleaning up icon-set SVGs exported from Figma or Illustrator
+
+Designer hands you 30 icons exported from Figma — each is 2-5 KB with embedded metadata, default attributes, and unused styles. Optimize the batch to ~600 bytes each, often 70% smaller. Faster icon-font replacement, better caching.
+
+### Preparing SVGs for inline use in React or HTML
+
+Inline SVG (instead of `&lt;img src&gt;`) lets CSS style the SVG (color, hover effects). Optimization removes all the noise that makes inline SVG bloat your HTML, while preserving the styleable structure.
+
+### Reducing the size of an SVG-heavy hero illustration
+
+Decorative SVG illustrations can balloon to 50+ KB unoptimized. Optimization typically cuts that to 15-20 KB — meaningful for above-the-fold content where every KB delays LCP.
+
+### Validating that exported SVGs are well-formed
+
+Optimization includes a parse step that fails on malformed SVG. A successful optimization is a strong signal that your SVG is valid and renderable across browsers.
+
+## How it works
+
+1. **Paste SVG markup or drag-drop a `.svg` file** — Multiple files can be queued for batch optimization.
+2. **Choose an optimization preset** — Default (safe, no visual changes), Aggressive (drops more metadata, may affect rendering of edge cases), Custom (toggle individual rules).
+3. **Optionally enable specific transformations** — Round numeric precision (3 decimals → 2 decimals saves ~10%); remove `viewBox` (not recommended); convert shapes to path; merge paths.
+4. **Click Optimize** — The tool runs each enabled rule in sequence and shows the byte count before/after with a percentage saved.
+5. **Copy or download the optimized SVG** — Side-by-side preview confirms no visual change. Download as `.svg` or copy as inline markup.
+
+## Examples
+
+**Input:** Figma-exported icon: 2,400 bytes with metadata, default attributes
+
+**Output:** Optimized: 720 bytes (70% reduction), pixel-identical render
+
+---
+
+**Input:** Hand-coded SVG with floating-point precision 6 decimals
+
+**Output:** Optimized to 2-decimal precision, 30% size reduction, no visible change
+
+## Frequently asked questions
+
+<details>
+<summary>**Will optimization change how my SVG looks?**</summary>
+
+With the default preset, no — every transformation is "safe" and visually invariant. Aggressive mode may affect edge cases (very thin strokes at sub-pixel positions, complex filters); always preview before deploying.
+
+</details>
+
+<details>
+<summary>**What does the optimizer actually remove?**</summary>
+
+Editor metadata (XML namespaces from Illustrator/Sketch), `&lt;title&gt;` and `&lt;desc&gt;` (unless you opt to preserve for accessibility), default attribute values, hidden elements, empty groups, comments, and excess whitespace.
+
+</details>
+
+<details>
+<summary>**Should I keep `&lt;title&gt;` for accessibility?**</summary>
+
+Yes when the SVG conveys meaning. The optimizer preserves `&lt;title&gt;` by default; only remove for purely decorative SVGs (icons that are described by adjacent text).
+
+</details>
+
+<details>
+<summary>**Why is `viewBox` important?**</summary>
+
+`viewBox` defines the SVG's coordinate system and aspect ratio. Removing it breaks scaling. The optimizer never removes `viewBox` by default.
+
+</details>
+
+<details>
+<summary>**Can I optimize SVG with embedded raster images?**</summary>
+
+Yes — embedded `&lt;image&gt;` references stay intact. To compress the embedded raster itself, use our Image Compressor before embedding.
+
+</details>
+
+<details>
+<summary>**Does the tool work offline?**</summary>
+
+Yes — once loaded, optimization runs entirely in your browser.
+
+</details>
+
+## Tips
+
+- For icon sets, batch-optimize all icons in one run — saves significant total size for the set.
+- Always preview the optimized SVG before deploying — catches the rare visual regression.
+- For inline SVG, optimization is even more impactful because every byte ships in HTML.
+- Keep `&lt;title&gt;` for accessibility on meaningful SVGs; remove for purely decorative icons.
+
+## Try it now
+
+The full svg-optimizer runs in your browser at **[https://ztools.zaions.com/svg-optimizer](https://ztools.zaions.com/svg-optimizer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/svg-optimizer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/svg-optimizer.mdx)*

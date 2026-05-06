@@ -1,0 +1,130 @@
+---
+id: svg-png
+title: "SVG to PNG Converter — Render Vector to Raster at Any Size"
+description: "Convert SVG to PNG at any resolution. 1x, 2x, 4x exports. Transparent or coloured background. Free, in-browser, batch-friendly."
+sidebar_label: "svg-png"
+keywords:
+  - "svg to png"
+  - "convert svg to png"
+  - "svg rasterize"
+  - "vector to raster"
+  - "svg png free"
+  - "app icon generator from svg"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# svg-png
+
+An SVG to PNG converter rasterizes a scalable vector graphic into a fixed-pixel PNG — required whenever a destination cannot consume SVG natively (older email clients, social-media uploads, app icon pipelines, OS notification surfaces, marketplaces that reject SVG for security reasons). The ZTools SVG to PNG converter renders entirely in the browser using the canvas API, lets you specify the exact output width/height plus a DPI multiplier (1x, 2x, 3x, 4x for retina), preserves transparency or composites onto a chosen background, and batches dozens of SVGs into a single ZIP without touching a server.
+
+<ToolCTA toolId="svg-png" toolName="svg-png" />
+
+## Use cases
+
+### App icon generation
+
+iOS and Android app icons must be PNG. Author once in SVG, export at every required size (16, 32, 48, 72, 96, 144, 192, 512, 1024) in one batch.
+
+### Social media uploads
+
+Twitter, LinkedIn, and Facebook reject SVG. Export a 1200x630 PNG of your branded SVG poster for share previews.
+
+### Email marketing
+
+Outlook and many corporate email clients block SVG. Convert to PNG before embedding in your campaign template.
+
+### Game and slide assets
+
+PowerPoint, Keynote, and most game engines prefer PNG. Convert your SVG illustrations once at high resolution and embed.
+
+## How it works
+
+1. **Upload or paste SVG** — Drag-and-drop a .svg file, paste raw SVG markup, or paste from clipboard.
+2. **Choose dimensions** — Pick a width and height in pixels, or use the DPI multiplier (1x = base size, 2x = retina, 4x = print).
+3. **Pick background** — Transparent (default) preserves alpha. Solid colour or image composites under the vector.
+4. **Render to canvas** — Browser rasterizes the SVG at the requested resolution. Smoothing on. CSS in the SVG honoured.
+5. **Download PNG** — Single file or ZIP if you converted multiple SVGs in one go. PNG-8 or PNG-24 selectable.
+
+## Examples
+
+**Input:** logo.svg → PNG 512x512 transparent
+
+**Output:** logo-512.png, ~50 KB, transparent background
+
+---
+
+**Input:** logo.svg at 1x, 2x, 3x
+
+**Output:** Three PNGs (e.g. 256, 512, 768) for retina-aware app icons
+
+---
+
+**Input:** icon.svg + #FFFFFF background
+
+**Output:** Flat white-background PNG suitable for email clients that strip transparency
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the PNG look pixelated?**</summary>
+
+Only if you export below the natural detail of the SVG. Vector → raster at high resolution stays crisp; lower resolution is sampled and may show aliasing on thin lines.
+
+</details>
+
+<details>
+<summary>**Why is the output blurry compared to my screen?**</summary>
+
+Your screen may be retina (2x). Export at 2x or 3x the on-screen size for sharp display on high-DPI devices.
+
+</details>
+
+<details>
+<summary>**Are external fonts or images embedded?**</summary>
+
+Web-safe fonts and base64-embedded images render correctly. External font URLs and external &lt;image href&gt; may not load offline; embed before converting.
+
+</details>
+
+<details>
+<summary>**Does it support animated SVG (SMIL or CSS)?**</summary>
+
+No — PNG is a still format. Render a single frame; for animation, export a sequence of PNGs and assemble in a video tool.
+
+</details>
+
+<details>
+<summary>**Can I convert PNG back to SVG?**</summary>
+
+Not perfectly. Vectorization (raster → vector) is a separate problem and only works well on flat / line art. Lossless PNG → SVG of a photograph is impossible.
+
+</details>
+
+<details>
+<summary>**Is there a size limit?**</summary>
+
+Browser canvas limits apply (around 16384 x 16384 px on most). Practical limit is far below; 8K is fine.
+
+</details>
+
+## Tips
+
+- Always export at 2x and 3x for retina screens — 1x looks soft on modern devices.
+- Embed any used fonts inside the SVG (`&lt;style&gt;@font-face`) so the converter renders text reliably even offline.
+- For app icons, generate a single batch with all required sizes — Apple and Google list specific dimensions in their dev guides.
+- Use PNG-8 (palette) for simple flat icons — file size drops by 50–70%.
+- Keep the original SVG as the source of truth and re-export PNGs whenever the vector changes.
+
+## Try it now
+
+The full svg-png runs in your browser at **[https://ztools.zaions.com/svg-png](https://ztools.zaions.com/svg-png)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/svg-png)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/svg-png.mdx)*
