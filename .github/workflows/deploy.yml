@@ -33,6 +33,12 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          # GA4 Measurement ID. Set as a GitHub Actions repo secret named
+          # GA_MEASUREMENT_ID (Settings → Secrets and variables → Actions
+          # → New repository secret). Build skips analytics injection when
+          # unset (e.g. forks without the secret).
+          GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         # Note: yarn generate:tools is NOT run in CI because it depends on the
         # sibling ztools repo (private). Generated MDX is committed to this repo.
 

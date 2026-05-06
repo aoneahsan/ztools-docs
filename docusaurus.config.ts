@@ -6,6 +6,12 @@ const SITE_URL = 'https://ztools-docs.zaions.com';
 const APP_URL = 'https://ztools.zaions.com';
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 
+// Google Analytics 4 — Measurement ID is read from GA_MEASUREMENT_ID env var
+// at build time. Set it as a GitHub Actions repo secret named
+// GA_MEASUREMENT_ID. When unset (e.g. local dev), the plugin is skipped
+// entirely and no tracking script ships.
+const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID || '';
+
 const config: Config = {
   title: 'ZTools Documentation',
   tagline: '520+ free, browser-only developer & creator tools — every page documented.',
@@ -84,6 +90,16 @@ const config: Config = {
           ignorePatterns: ['/tags/**'],
           filename: 'sitemap.xml',
         },
+        // GA4 via the official preset's gtag option. Only ships the script
+        // when GA_MEASUREMENT_ID is set at build time.
+        ...(GA_MEASUREMENT_ID
+          ? {
+              gtag: {
+                trackingID: GA_MEASUREMENT_ID,
+                anonymizeIP: true,
+              },
+            }
+          : {}),
         theme: {customCss: './src/css/custom.css'},
       } satisfies Preset.Options,
     ],
@@ -125,6 +141,7 @@ const config: Config = {
             {label: 'Get started', to: '/docs/intro'},
             {label: 'All tools', to: '/docs/tools'},
             {label: 'Guides', to: '/docs/guides'},
+            {label: 'Privacy', to: '/docs/privacy'},
           ],
         },
         {

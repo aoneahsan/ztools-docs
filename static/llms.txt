@@ -36,6 +36,12 @@ Ahsan Mahmood — solo developer, Pakistan-based.
 - NPM: https://npmjs.com/~aoneahsan
 - Portfolio: https://aoneahsan.com
 
+## Analytics & privacy
+
+This documentation site uses Google Analytics 4 with IP anonymization on. Page traffic only — no input tracking, no PII, no email gates. Full disclosure at https://ztools-docs.zaions.com/docs/privacy.
+
+The main app at ztools.zaions.com processes everything browser-side; tool inputs never reach a server.
+
 ## License
 
 ZTools documentation: MIT (the docs site source)

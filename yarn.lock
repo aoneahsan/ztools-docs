@@ -1813,7 +1813,7 @@
     "@docusaurus/utils-validation" "3.10.1"
     tslib "^2.6.0"
 
-"@docusaurus/plugin-google-gtag@3.10.1":
+"@docusaurus/plugin-google-gtag@3.10.1", "@docusaurus/plugin-google-gtag@^3.10.1":
   version "3.10.1"
   resolved "https://registry.npmjs.org/@docusaurus/plugin-google-gtag/-/plugin-google-gtag-3.10.1.tgz#0482b83b9bc411aa99a432be2b39d2e53a00e2e0"
   integrity sha512-pu3xIUo5o/zCMLfUY9BO5KOwSH0zIsAGyFRPvXHayFSA5XIhCU/SFuB0g0ZNjFn9niZLCaNvoeAuOGFJZq0fdw==
