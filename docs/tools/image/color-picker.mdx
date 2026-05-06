@@ -1,0 +1,126 @@
+---
+id: color-picker
+title: "Color Picker — HEX, RGB, HSL, OKLCH (Visual & Eyedropper)"
+description: "Pick colors visually, get HEX, RGB, HSL, OKLCH, CMYK values. Eyedropper, palette saving, contrast checker. Designer-grade, free."
+sidebar_label: "color-picker"
+keywords:
+  - "color picker"
+  - "hex color picker"
+  - "rgb color picker"
+  - "hsl picker"
+  - "oklch picker"
+  - "color converter"
+  - "eyedropper online"
+  - "wcag contrast checker"
+  - "color palette tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-picker
+
+A color picker lets you select a color visually and read its values in any standard color space — HEX (`#3B82F6`), RGB (`rgb(59, 130, 246)`), HSL (`hsl(217, 91%, 60%)`), OKLCH (the perceptually uniform space CSS introduced in 2023), and CMYK (for print). The ZTools Color Picker uses a 2D HSL canvas plus a hue strip, supports the browser's native `EyeDropper` API on Chrome/Edge for picking colors anywhere on screen, and shows simultaneous output in all formats so you can copy whichever your codebase uses. Includes a WCAG 2.1 contrast checker against any background you provide.
+
+<ToolCTA toolId="color-picker" toolName="color-picker" />
+
+## Use cases
+
+### Matching a brand color from a screenshot
+
+Open the screenshot in any image viewer. Click the eyedropper button in our color picker (Chrome/Edge), hover over the brand color, click. The HEX, RGB, HSL, and OKLCH values populate instantly. Copy the format your CSS uses and paste into your stylesheet.
+
+### Building an accessible color palette
+
+Start from your primary color, adjust HSL Lightness in 10% increments to produce a 50/100/200/.../900 scale (the Tailwind / Material Design pattern). Run each step through the contrast checker against white and black backgrounds to confirm WCAG AA (4.5:1 for body text, 3:1 for UI).
+
+### Converting between color spaces for print
+
+Designers handing off to print need CMYK values. Pick the screen color, copy the CMYK output. Note that CMYK is a print-only space — the conversion is approximate (it depends on the printer's ink profile) but our values use the standard SWOP/FOGRA39 mapping that print shops recognize.
+
+### Generating CSS color tokens for a design system
+
+OKLCH is the modern way to define color tokens because lightness changes are perceptually uniform across hues — `oklch(60% 0.15 250)` and `oklch(60% 0.15 30)` look equally bright, which HSL does not guarantee. Pick your base color, copy the OKLCH output, and use it directly in your CSS custom properties.
+
+## How it works
+
+1. **Choose a color visually** — Click anywhere on the 2D saturation/lightness canvas, drag the hue slider. The selected color shows large in the preview pane with all formats updating live.
+2. **Or use the EyeDropper API** — In Chrome/Edge, click the eyedropper icon. The browser permits a pixel-perfect pick from anywhere on screen — including videos, other apps via screen-share, and other tabs.
+3. **Read values in any format** — HEX, HEX with alpha, rgb()/rgba(), hsl()/hsla(), hwb(), lab(), lch(), oklch(), CMYK. Each has a copy button.
+4. **Check contrast** — Enter a background color (default white). The tool computes WCAG 2.1 contrast ratio and labels the result Pass AA / Pass AAA / Fail for both normal and large text.
+5. **Save to palette** — Click Save to add the color to your local palette (stored in browser, persists across visits). Export the palette as JSON, CSS variables, or SCSS map when you're done.
+
+## Examples
+
+**Input:** Visual pick at Hue 217°, Saturation 91%, Lightness 60%
+
+**Output:** HEX: #3B82F6 — RGB: 59, 130, 246 — HSL: 217°, 91%, 60% — OKLCH: 64.5% 0.18 250
+
+---
+
+**Input:** EyeDropper pick from a logo
+
+**Output:** HEX: #FF6B35
+
+## Frequently asked questions
+
+<details>
+<summary>**What color format should I use in CSS?**</summary>
+
+For new projects, prefer OKLCH — it produces perceptually uniform palettes and ships in every modern browser since 2023. For existing projects, match what is already there: most use HEX or HSL. RGB is fine but more verbose.
+
+</details>
+
+<details>
+<summary>**Why does the EyeDropper button not work?**</summary>
+
+The Window EyeDropper API is currently Chromium-only (Chrome, Edge, Brave, Opera). Firefox and Safari do not implement it. As a fallback, take a screenshot and pick from the image, or enter the hex value manually if you can read it.
+
+</details>
+
+<details>
+<summary>**How do I know if a color combination passes WCAG?**</summary>
+
+Our contrast checker computes the ratio. WCAG 2.1 AA requires 4.5:1 for body text, 3:1 for large text (18pt+ or 14pt+ bold). AAA requires 7:1 and 4.5:1 respectively. Pass values are highlighted green; failures red.
+
+</details>
+
+<details>
+<summary>**What is the difference between HSL and OKLCH?**</summary>
+
+HSL's "lightness" is a math construct that does not match perceived brightness — yellow at 50% lightness looks much brighter than blue at 50% lightness. OKLCH uses the OKLab perceptual model, so equal lightness values look equally bright across hues. This makes OKLCH the right choice for color systems with consistent steps.
+
+</details>
+
+<details>
+<summary>**Can I import a color palette?**</summary>
+
+Yes — paste any list of hex codes (one per line, or comma-separated) into the import box. The palette manager deduplicates and adds them. Exports support JSON, CSS variables, SCSS, and the Adobe ASE format.
+
+</details>
+
+<details>
+<summary>**Are colors stored on a server?**</summary>
+
+No. Your saved palette lives in your browser's localStorage. To sync across devices, export to JSON, save in your password manager or notes app, and import on the other device.
+
+</details>
+
+## Tips
+
+- Always check contrast against the actual background you will use, not assumed white.
+- Build palettes in OKLCH for predictable lightness steps; convert to HEX only at output time.
+- For brand-color matching from photos, take a high-res screenshot first — image compression destroys color fidelity.
+- Save 5–8 brand colors to your palette and export as CSS variables — paste into your `:root \{\}` and you have a typed token system in 30 seconds.
+
+## Try it now
+
+The full color-picker runs in your browser at **[https://ztools.zaions.com/color-picker](https://ztools.zaions.com/color-picker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-picker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/color-picker.mdx)*

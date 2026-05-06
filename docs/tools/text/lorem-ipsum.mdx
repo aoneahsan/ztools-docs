@@ -1,0 +1,126 @@
+---
+id: lorem-ipsum
+title: "Lorem Ipsum Generator — Custom Length, Words, Paragraphs"
+description: "Generate placeholder Lorem Ipsum text. Custom paragraphs, sentences, words. Includes start with \"Lorem ipsum\" or randomized variants. Free."
+sidebar_label: "lorem-ipsum"
+keywords:
+  - "lorem ipsum generator"
+  - "placeholder text generator"
+  - "dummy text generator"
+  - "lorem ipsum text"
+  - "random latin text"
+  - "filler text"
+  - "mockup text generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# lorem-ipsum
+
+Lorem Ipsum is scrambled Latin placeholder text used by designers since the 1500s to fill mockups before real content is ready. Its irregular word lengths and natural rhythm produce a more realistic typographic preview than repeating "the quick brown fox" or filler like "asdf asdf". The ZTools Lorem Ipsum Generator produces classic Lorem Ipsum (starting with the canonical "Lorem ipsum dolor sit amet") or fully randomized variants, with control over output unit (paragraphs, sentences, words, bytes), exact count, and HTML wrapping (raw, `&lt;p&gt;`, `&lt;li&gt;`).
+
+<ToolCTA toolId="lorem-ipsum" toolName="lorem-ipsum" />
+
+## Use cases
+
+### Filling design mockups before copy is finalized
+
+Pick "5 paragraphs" and paste the result into your Figma, Sketch, or HTML mockup. The varying paragraph lengths simulate real article copy and give a truer sense of how the layout will breathe — much more useful than the same sentence pasted five times, which makes everything look uniformly square.
+
+### Stress-testing layouts with very short or very long content
+
+Generate "3 words" to see how a card looks with almost no copy, then "200 words" to see overflow behavior. Catching overflow bugs at design time is much cheaper than catching them after a real long-form post is published.
+
+### Pre-seeding a database with realistic-looking content
+
+When demoing a CMS or e-commerce admin, blank tables look wrong. Generate 50 product descriptions of 80 words each and bulk-insert. Reviewers can focus on the workflow instead of being distracted by "TODO" placeholders.
+
+### Testing email templates and SMS character limits
+
+Generate "160 characters" to see exactly how an SMS template renders at the spec limit, or "500 words" to test how an email template handles long marketing copy. Length-based generation means you don't have to count by hand.
+
+## How it works
+
+1. **Choose unit and count** — Paragraphs, sentences, words, characters, or bytes. Sliders for the count with sensible defaults (5 paragraphs, 50 words).
+2. **Pick a variant** — Classic Lorem Ipsum (starts with the iconic phrase) or Random (drawn freshly from the Latin word pool each time so two outputs are always different).
+3. **Optionally wrap in HTML** — `&lt;p&gt;` for paragraphs, `&lt;li&gt;` for list items, raw text for code/JSON. Saves manual wrapping when pasting into a template.
+4. **Click Generate** — A weighted random sentence builder picks word lengths from the historical Latin distribution so the output has natural-looking rhythm and shape.
+5. **Copy or download** — One-click copy to clipboard. Download as `.txt` for offline use or pasting into design tools that don't accept HTML paste.
+
+## Examples
+
+**Input:** 2 paragraphs, classic, raw text
+
+**Output:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...
+
+---
+
+**Input:** 50 words, random, wrapped in &lt;p&gt;
+
+**Output:** &lt;p&gt;Tempor consectetur ut adipiscing dolore amet sit veniam ...&lt;/p&gt;
+
+## Frequently asked questions
+
+<details>
+<summary>**Where does "Lorem ipsum" come from?**</summary>
+
+It is corrupted Latin from Cicero's De Finibus Bonorum et Malorum, written 45 BCE. A 16th-century printer scrambled it to make a type specimen. The classic opening "Lorem ipsum dolor sit amet" has no coherent meaning — that is the point.
+
+</details>
+
+<details>
+<summary>**Why use Latin instead of English filler?**</summary>
+
+English placeholder text distracts readers, who start reading instead of evaluating the design. Latin is unfamiliar enough that the eye sees shape and rhythm instead of meaning. That is why it has survived 500 years as the designer's default.
+
+</details>
+
+<details>
+<summary>**Can I get the placeholder in another language?**</summary>
+
+We have separate generators for Cyrillic, Greek, Arabic, and CJK placeholder text. Each uses script-appropriate filler so you can preview RTL layouts, vertical scripts, and non-Latin typography correctly.
+
+</details>
+
+<details>
+<summary>**Is the output the same every time?**</summary>
+
+Classic mode always starts with "Lorem ipsum dolor sit amet..." but the rest is randomized. Random mode is fully different on each generate. Click Regenerate as often as you like — every output is fresh.
+
+</details>
+
+<details>
+<summary>**What length should I use for design previews?**</summary>
+
+5–8 paragraphs of 4–7 sentences each is a good default for article layouts. For headlines and CTAs, generate "3 words" or "5 words". Match your generated count to what real content will look like.
+
+</details>
+
+<details>
+<summary>**Can I use Lorem Ipsum in production code?**</summary>
+
+No — placeholder text in production looks unprofessional and confuses users. Always replace with real copy before launch. A good practice: search the codebase for "lorem ipsum" before every release.
+
+</details>
+
+## Tips
+
+- For testing typography, generate at least 3 different counts (short, medium, long) and view side-by-side.
+- Wrap in `&lt;p&gt;` mode if you are pasting into HTML — saves a manual wrapping step.
+- Random variant is better when you need to demo the layout to clients, who often question "why does it always start with Lorem ipsum?".
+- Pair with our Word Counter to hit an exact character count when filling fixed-length templates.
+
+## Try it now
+
+The full lorem-ipsum runs in your browser at **[https://ztools.zaions.com/lorem-ipsum](https://ztools.zaions.com/lorem-ipsum)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/lorem-ipsum)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/lorem-ipsum.mdx)*

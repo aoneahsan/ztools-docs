@@ -1,0 +1,127 @@
+---
+id: cron-expression
+title: "Cron Expression Generator & Tester — Build, Decode, Preview Schedules"
+description: "Build cron expressions visually or decode existing ones to plain English. Previews next 10 run times. Supports standard 5-field and 6-field formats."
+sidebar_label: "cron-expression"
+keywords:
+  - "cron expression"
+  - "cron generator"
+  - "cron builder"
+  - "cron decoder"
+  - "cron tester"
+  - "crontab generator"
+  - "kubernetes cron"
+  - "github actions cron"
+  - "aws cron expression"
+  - "free cron tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# cron-expression
+
+A cron expression is a 5-field string that defines a recurring schedule for unix `cron`, Kubernetes CronJobs, GitHub Actions, AWS EventBridge, or any other cron-compatible scheduler. The ZTools Cron Expression tool generates expressions from a visual builder (minute, hour, day-of-month, month, day-of-week pickers), parses existing expressions to plain-English ("Every weekday at 9:00 AM"), and previews the next 10 firing times in your local timezone. Supports standard 5-field syntax (Linux cron, Kubernetes), 6-field syntax with seconds (Quartz, Spring), and special predefined strings (@daily, @hourly, @reboot).
+
+<ToolCTA toolId="cron-expression" toolName="cron-expression" />
+
+## Use cases
+
+### Scheduling a Kubernetes CronJob
+
+Need a job that runs every Sunday at 03:00 UTC? Use the visual builder to pick the schedule, copy the resulting `0 3 * * 0`, and paste it into your CronJob `schedule:` field. The preview confirms the next run times match your intent before you deploy.
+
+### Setting up a GitHub Actions scheduled workflow
+
+GitHub Actions uses standard 5-field cron in `schedule.cron`. Build your expression, verify the next 10 run times, and paste into the workflow file — no risk of typo-induced silent misfires.
+
+### Decoding an inherited cron expression
+
+You inherit a server with `*/15 9-17 * * 1-5` in crontab. Paste it into the decoder; the tool renders "Every 15 minutes, between 09:00 and 17:00, Monday through Friday" — instant comprehension without manual field decomposition.
+
+### Validating an AWS EventBridge schedule
+
+AWS EventBridge uses a 6-field cron with optional year. Switch the tool to 6-field mode, build the expression, and use the preview to ensure your daily backup actually fires at midnight UTC and not noon.
+
+## How it works
+
+1. **Choose the cron flavor** — Standard 5-field (Linux, Kubernetes, GitHub Actions) or 6-field (Quartz, AWS EventBridge with seconds).
+2. **Use the visual builder OR paste an existing expression** — Builder: dropdowns for minute, hour, day, month, day-of-week. Decoder: paste any valid cron string.
+3. **See the plain-English description update live** — Every change to the expression updates the description: "At 09:00 AM, Monday through Friday".
+4. **Preview the next 10 firing times** — The tool computes upcoming run times in your local timezone (auto-detected) and your chosen timezone. Spot edge cases like missed midnight crossings or DST shifts.
+5. **Copy the expression** — One-click copy. Paste into your scheduler's configuration and deploy with confidence.
+
+## Examples
+
+**Input:** Build: every weekday at 9:00 AM
+
+**Output:** 0 9 * * 1-5
+
+---
+
+**Input:** Decode: */15 9-17 * * 1-5
+
+**Output:** Every 15 minutes, between 09:00 and 17:00, Monday through Friday
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between 5-field and 6-field cron?**</summary>
+
+5-field is the classic Linux/POSIX format: minute, hour, day-of-month, month, day-of-week. 6-field prepends a seconds field (Quartz, Spring, AWS EventBridge). Some flavors append a year field for a 7th field.
+
+</details>
+
+<details>
+<summary>**How do I run a job every 15 minutes?**</summary>
+
+Use `*/15 * * * *`. The `*/N` syntax means "every N units" of that field. Equivalent to `0,15,30,45 * * * *`.
+
+</details>
+
+<details>
+<summary>**What does "@daily" mean?**</summary>
+
+Shorthand for "0 0 * * *" — runs once per day at midnight. Other shorthands: @hourly, @weekly, @monthly, @yearly, @reboot.
+
+</details>
+
+<details>
+<summary>**Why might my cron job not run when I expect?**</summary>
+
+Common causes: the cron daemon timezone differs from your assumed timezone (set `CRON_TZ` or use UTC); the user's shell environment is not loaded (use full paths); the expression has a typo. Use this tool's preview to verify.
+
+</details>
+
+<details>
+<summary>**How do I run a job only on the last day of the month?**</summary>
+
+Standard cron does not support "last day". Use `0 0 28-31 * *` combined with a guard `[ "$(date +\\%d -d tomorrow)" = "01" ]` in the script. Quartz supports `L` for last day natively.
+
+</details>
+
+<details>
+<summary>**What's the difference between day-of-month and day-of-week?**</summary>
+
+Day-of-month is 1-31; day-of-week is 0-6 (Sunday=0) or 1-7 depending on flavor. When both are specified, classic cron treats them as OR (either condition fires the job).
+
+</details>
+
+## Tips
+
+- Always preview the next 10 firing times — catches typos before they cost you a missed nightly job.
+- Use UTC in production to avoid DST surprises; document the timezone in a comment alongside the cron line.
+- Avoid scheduling many jobs at exactly minute 0 — spread the load across the hour to reduce thundering-herd CPU spikes.
+- For complex schedules (every 2nd Tuesday of the month), use a real scheduler like Airflow or Temporal — cron is for simple cases.
+
+## Try it now
+
+The full cron-expression runs in your browser at **[https://ztools.zaions.com/cron-expression](https://ztools.zaions.com/cron-expression)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/cron-expression)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/cron-expression.mdx)*

@@ -1,0 +1,136 @@
+---
+id: markdown-html
+title: "Markdown to HTML Converter — GFM, Tables, Code Highlighting"
+description: "Convert Markdown to clean HTML. GitHub-Flavored Markdown, tables, code blocks, syntax highlighting. Live preview. 100% client-side."
+sidebar_label: "markdown-html"
+keywords:
+  - "markdown to html"
+  - "md to html converter"
+  - "markdown converter"
+  - "markdown parser"
+  - "gfm to html"
+  - "github markdown converter"
+  - "markdown preview online"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# markdown-html
+
+Markdown is a lightweight text formatting language designed to be readable as plain text and trivial to convert to HTML. The ZTools Markdown to HTML converter parses CommonMark + GitHub-Flavored Markdown (GFM) — including tables, fenced code blocks, task lists, autolinks, and strikethrough — and emits clean, semantic HTML5. The output is sanitized to strip dangerous tags (`&lt;script&gt;`, `&lt;iframe&gt;`, etc.) so you can paste user-submitted Markdown safely. A live preview pane mirrors the converted HTML as you type, with a "View HTML source" toggle for copy-paste into your CMS or static site generator.
+
+<ToolCTA toolId="markdown-html" toolName="markdown-html" />
+
+## Use cases
+
+### Drafting blog posts in Markdown for paste into a CMS
+
+Write the post in Markdown (faster than rich-text editors, version-controllable in Git), convert to HTML once, paste into the WordPress / Ghost / Notion editor. Saves you from the CMS's broken auto-formatting and produces consistent output across posts.
+
+### Generating email HTML from Markdown sources
+
+Maintain newsletter content as Markdown files in a Git repo. Convert each issue to HTML, pipe into your email service's "raw HTML" mode. Reviews happen on the readable Markdown source; the HTML is build output, not the artifact you edit.
+
+### Previewing README files before commit
+
+Paste your in-progress README.md to see exactly how GitHub will render it — including tricky cases like nested lists, code blocks with language hints, and task lists. Faster than push-and-check on GitHub.
+
+### Building documentation pages programmatically
+
+Write docs in Markdown, run them through this converter as part of a build script (call the underlying library directly), embed the HTML into your docs template. This is exactly how Docusaurus, MkDocs, and most static-site doc generators work under the hood.
+
+## How it works
+
+1. **Paste Markdown into the input pane** — Up to ~5 MB. Live preview updates within ~50ms of each keystroke.
+2. **Parser tokenizes the Markdown** — A standards-compliant CommonMark parser (with GFM extensions) builds an AST representing headings, paragraphs, lists, code blocks, etc.
+3. **AST is rendered to HTML** — Each AST node maps to its semantic HTML equivalent: `#` → `&lt;h1&gt;`, list items → `&lt;li&gt;` inside `&lt;ul&gt;`/`&lt;ol&gt;`, fenced code → `&lt;pre&gt;&lt;code class="language-X"&gt;`, etc.
+4. **HTML is sanitized** — Inline `&lt;script&gt;`, `&lt;iframe&gt;`, `&lt;object&gt;`, and inline event handlers (`onclick=`, etc.) are stripped via DOMPurify. Safe to render user-submitted Markdown to other users.
+5. **Toggle preview vs source** — Preview shows the rendered HTML inline. Source shows the HTML text for copy-paste. A "Copy as HTML" button copies the source in one click.
+
+## Examples
+
+**Input:** # Title
+
+A paragraph with **bold** and `code`.
+
+- item 1
+- item 2
+
+**Output:** &lt;h1&gt;Title&lt;/h1&gt;
+&lt;p&gt;A paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;code&gt;code&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;item 1&lt;/li&gt;
+&lt;li&gt;item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+**Input:** | col1 | col2 |
+|---|---|
+| a | b |
+
+**Output:** &lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;col1&lt;/th&gt;&lt;th&gt;col2&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;a&lt;/td&gt;&lt;td&gt;b&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+## Frequently asked questions
+
+<details>
+<summary>**Which Markdown flavor does this support?**</summary>
+
+CommonMark (the strict standard) plus GitHub-Flavored Markdown extensions: tables, fenced code blocks with language hints, task lists (`- [x]`), strikethrough (`~~`), autolinks. Compatible with what GitHub, GitLab, and most modern Markdown engines render.
+
+</details>
+
+<details>
+<summary>**Is my Markdown sent anywhere?**</summary>
+
+No. The parser, renderer, and sanitizer all run in your browser. Open DevTools → Network and confirm zero requests on input. Important for confidential drafts or internal documentation.
+
+</details>
+
+<details>
+<summary>**Why is my HTML output missing some tags I expected?**</summary>
+
+The sanitizer strips potentially-dangerous tags (`&lt;script&gt;`, `&lt;iframe&gt;`, `&lt;embed&gt;`, `&lt;object&gt;`) and inline event handlers. If you genuinely need an `&lt;iframe&gt;` (embed a YouTube video, etc.), insert it after conversion in your CMS.
+
+</details>
+
+<details>
+<summary>**Does it support footnotes?**</summary>
+
+Yes — footnote syntax (`[^1]` reference, `[^1]: definition` later in the doc) is supported as a GFM extension. The renderer produces semantic `&lt;sup&gt;` references and a `&lt;section role="doc-endnotes"&gt;` at the end.
+
+</details>
+
+<details>
+<summary>**Can it highlight code blocks?**</summary>
+
+Yes. Fenced code blocks with a language hint (` ```javascript`) are rendered as `&lt;pre&gt;&lt;code class="language-javascript"&gt;`. Pair the output with Prism.js or Highlight.js in your destination page for actual color highlighting (the converter just adds the class hooks).
+
+</details>
+
+<details>
+<summary>**Will it render LaTeX or math?**</summary>
+
+Not by default — math rendering is a separate pipeline. Wrap math in MathJax or KaTeX classes (`$..$`, `$$..$$`) and configure your destination page to load the math renderer. The converter passes the syntax through unchanged when math extensions are enabled.
+
+</details>
+
+## Tips
+
+- Use fenced code blocks (` ``` `) with a language hint, not indented code blocks — they're more readable and support syntax highlighting.
+- For images, prefer the `![alt](url)` syntax over raw `&lt;img&gt;` tags. Easier to maintain and the alt text doubles as accessibility.
+- Front-matter (YAML at the top of the file `--- ... ---`) is preserved as raw text — strip it before converting if you don't want it in the output.
+- For complex tables, write them in Markdown-table format then run through this converter; pasting raw HTML tables into Markdown source breaks future edits.
+
+## Try it now
+
+The full markdown-html runs in your browser at **[https://ztools.zaions.com/markdown-html](https://ztools.zaions.com/markdown-html)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/markdown-html)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/markdown-html.mdx)*

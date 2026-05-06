@@ -1,0 +1,125 @@
+---
+id: merge-pdf
+title: "Merge PDF — Combine Multiple PDFs Into One (Client-side)"
+description: "Merge unlimited PDF files into one. Drag to reorder, preview pages. 100% in your browser via pdf-lib — no upload to any server."
+sidebar_label: "merge-pdf"
+keywords:
+  - "merge pdf"
+  - "combine pdf"
+  - "pdf merger"
+  - "pdf joiner"
+  - "merge pdf online"
+  - "combine pdf files"
+  - "pdf merge no upload"
+  - "merge multiple pdfs"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# merge-pdf
+
+PDF merging combines multiple PDF documents into a single file, preserving page order, bookmarks (where present), and document metadata. The ZTools PDF Merger uses pdf-lib, a battle-tested JavaScript PDF library, to read, reorder, and re-emit PDF files entirely in your browser. Drag-and-drop multiple files, reorder them visually, optionally select a subset of pages from each, and download the merged result. There is no upload — your documents never leave your device, which is critical for contracts, medical records, financial statements, and any other PDF whose content you wouldn't want sitting on a third-party server.
+
+<ToolCTA toolId="merge-pdf" toolName="merge-pdf" />
+
+## Use cases
+
+### Combining a multi-page scanned contract into one PDF
+
+You scanned a 30-page contract and ended up with 30 separate one-page PDFs. Drag them all in, drag-sort to fix order, click Merge. Output is a single 30-page PDF ready to email or sign. Faster than re-scanning into a single document.
+
+### Bundling a tax return from multiple sources
+
+Your accountant sends 1099s as separate PDFs, your investment broker another, your business returns another. Merge into one master file for filing or archival. Privacy-critical: tax docs contain SSNs, account numbers, addresses — never upload these to free online "PDF tools" with unclear data policies.
+
+### Creating a single application packet from cover letter + resume + portfolio
+
+Recruiters prefer one PDF over five. Stack your cover letter, resume, references, and writing samples in our merger, drag to your preferred order, and submit one combined PDF. Looks more professional and ensures the recruiter actually sees all the docs.
+
+### Assembling chapters of an e-book or report
+
+Each chapter authored separately gets merged into the final deliverable. Bookmarks (PDF outlines) carry over from each input — useful for long documents where readers need to jump between sections.
+
+## How it works
+
+1. **Drop PDFs into the upload area** — Multi-select or drag-drop. No file size limit beyond browser memory; ~500 MB total of PDFs is a practical ceiling on a typical laptop.
+2. **Reorder visually** — Each PDF appears as a card showing filename and page count. Drag to reorder. Optionally click a card to select a page subset (e.g., "pages 3-7 of contract.pdf").
+3. **Click Merge** — pdf-lib reads each input PDF, copies pages into a fresh output document, preserves bookmarks where possible, and re-emits the merged binary. Streaming-style processing keeps memory bounded.
+4. **Preview the result** — A page-by-page preview opens in the browser using PDF.js. Verify the order is correct before downloading.
+5. **Download** — One click produces the merged PDF. Filename defaults to `merged.pdf`; rename in your OS's file dialog as needed.
+
+## Examples
+
+**Input:** 3 PDFs: cover-letter.pdf (1 page), resume.pdf (2 pages), portfolio.pdf (10 pages)
+
+**Output:** application-packet.pdf (13 pages, ~equal to the sum of inputs in size)
+
+---
+
+**Input:** 12 single-page scan PDFs, dragged in alphabetical order, reordered to match the scan sequence
+
+**Output:** contract-final.pdf (12 pages in correct order)
+
+## Frequently asked questions
+
+<details>
+<summary>**Are my PDFs uploaded to your server?**</summary>
+
+No. pdf-lib runs entirely in your browser. Open DevTools → Network and confirm zero requests during merging. This is the critical privacy guarantee — most "merge PDF online" sites upload your files, often with vague data retention policies.
+
+</details>
+
+<details>
+<summary>**Is there a file size or count limit?**</summary>
+
+No hard limit. Browser memory is the practical bound — combining ~500 MB of PDFs works on most laptops; multi-gigabyte merges may need a desktop client like PDFsam.
+
+</details>
+
+<details>
+<summary>**Are bookmarks and form fields preserved?**</summary>
+
+Bookmarks (PDF outlines) yes, in most cases — pdf-lib copies them over. Form fields yes, but field names must be unique across input documents (otherwise later fields silently overwrite earlier ones). Digital signatures are NOT preserved — merging invalidates them by design.
+
+</details>
+
+<details>
+<summary>**Can I extract a subset of pages from one input?**</summary>
+
+Yes. Click the input card and a page picker opens — toggle individual pages or specify a range like "3-7,10". Only the selected pages get included in the merged output.
+
+</details>
+
+<details>
+<summary>**Does it work with password-protected PDFs?**</summary>
+
+Encrypted PDFs need to be unlocked first — use our PDF Unlock tool with the password, then merge the unlocked output. We don't prompt for passwords during merge to avoid leaking them.
+
+</details>
+
+<details>
+<summary>**Will it preserve fonts and images at full quality?**</summary>
+
+Yes, exactly. pdf-lib copies the byte streams of pages, fonts, and images verbatim. No re-rendering, no quality loss. The merged file is essentially a re-stitched binary, not a re-rendered document.
+
+</details>
+
+## Tips
+
+- Drag-reorder before merging — once merged, reordering means re-merging.
+- For very large merges (gigabyte-scale), use a native client like PDFsam — browser memory limits will eventually bite.
+- If you need to merge AND compress, merge first, then run the result through our PDF Compressor.
+- For form-heavy PDFs with overlapping field names, rename the fields in each input before merging (use our PDF Form Editor).
+
+## Try it now
+
+The full merge-pdf runs in your browser at **[https://ztools.zaions.com/merge-pdf](https://ztools.zaions.com/merge-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/merge-pdf)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/merge-pdf.mdx)*

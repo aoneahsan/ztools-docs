@@ -1,0 +1,126 @@
+---
+id: qr-generator
+title: "QR Code Generator — Free, High-resolution, No Tracking"
+description: "Generate QR codes for URLs, Wi-Fi, vCards, plain text. Custom size, error correction, color. PNG/SVG download. Runs in your browser."
+sidebar_label: "qr-generator"
+keywords:
+  - "qr code generator"
+  - "qr code maker"
+  - "free qr code"
+  - "wifi qr code"
+  - "vcard qr code"
+  - "qr code with logo"
+  - "qr svg"
+  - "qr png download"
+  - "qr no signup"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# qr-generator
+
+A QR code is a two-dimensional barcode that encodes text in a square grid of black and white modules, readable by any smartphone camera. The ZTools QR Code Generator produces standards-compliant QR codes (ISO/IEC 18004) for URLs, Wi-Fi credentials, vCards, SMS, email, and plain text — with adjustable size (up to 4096×4096 px), four error-correction levels (L/M/Q/H), and customizable foreground and background colors. Output is offered as both PNG (for raster use) and SVG (for infinite-scale print). The whole encoding runs in your browser via a battle-tested QR library; nothing about the encoded payload is ever transmitted.
+
+<ToolCTA toolId="qr-generator" toolName="qr-generator" />
+
+## Use cases
+
+### Sharing a Wi-Fi password without typing
+
+Pick the Wi-Fi template, fill in SSID + password + WPA2/WPA3, and download the QR. Print it and stick it on the fridge — guests scan it with their phone camera and get connected automatically (Android and iOS both support the wifi: URI scheme natively). Saves you reading "uppercase B, lowercase nine, dash..." for every visitor.
+
+### Adding a contact card to a business card
+
+The vCard template generates a QR encoding name, phone, email, company, and website. Print it on the back of your business card. Recipients scan and get a one-tap "Add to contacts" prompt — no manual typing, no typos, no lost cards.
+
+### Restaurant menus, museum exhibits, event flyers
+
+A QR pointing to a long URL is far more usable than asking visitors to type `museum.example.com/exhibit/42?lang=en&utm=qr`. Generate at high error-correction (Q or H) so the code still scans even if 25–30% is occluded — important for printed materials that get scuffed.
+
+### Embedding payment URLs (UPI, PayPal.me, Stripe Payment Links)
+
+Generate a QR code for a payment URL and print it at the point of sale. Customers scan, the payment app opens with the amount pre-filled, and they confirm with biometrics. Use error-correction H so the code keeps working even if a logo is overlaid in the center.
+
+## How it works
+
+1. **Pick a content type** — URL, Plain text, Wi-Fi, vCard, SMS, Email, or Geo coordinate. Each type formats the input into the standard URI scheme that scanners recognize.
+2. **Choose error-correction level** — L (~7% recovery), M (~15%), Q (~25%), H (~30%). Higher levels mean more dense QR but better damage tolerance. Use H for printed/outdoor codes.
+3. **Adjust size and colors** — Size 100–4096 px. Foreground and background colors with WCAG contrast warnings — low contrast (e.g. light gray on white) makes the code unscannable.
+4. **Click Generate** — The QR library encodes the payload into a 2D bit matrix using Reed-Solomon error correction, then renders as PNG (canvas) and SVG (vector) simultaneously.
+5. **Download or copy** — PNG for emails, slides, and screen use. SVG for print, signage, and any context where scaling matters. Both work with every QR scanner ever made.
+
+## Examples
+
+**Input:** https://ztools.zaions.com
+
+**Output:** 512×512 PNG QR code, error correction M, ~21×21 module grid
+
+---
+
+**Input:** WIFI:T:WPA;S:MyNetwork;P:s3cretP@ss;;
+
+**Output:** Wi-Fi QR code that auto-connects on scan
+
+## Frequently asked questions
+
+<details>
+<summary>**How much data fits in a QR code?**</summary>
+
+Up to ~4,296 alphanumeric characters or 2,953 bytes at the largest size (Version 40, error correction L). Practically, keep URLs under ~300 characters or the QR becomes too dense to scan reliably with phone cameras.
+
+</details>
+
+<details>
+<summary>**Why does my QR code look more complex than other ones?**</summary>
+
+Density is determined by content length and error-correction level. A 30-character URL at level L produces a sparse code; a 200-character URL at level H produces a much denser one. For shorter codes, use a URL shortener first.
+
+</details>
+
+<details>
+<summary>**Can I add a logo to the center?**</summary>
+
+You can overlay a logo on any QR code as long as you use error correction H — the Reed-Solomon recovery handles up to ~30% obstruction. With levels L or M, an overlaid logo will likely break the code.
+
+</details>
+
+<details>
+<summary>**Do QR codes expire?**</summary>
+
+No, the QR itself never expires — it is a static image. But if it encodes a URL and you delete that URL, the QR becomes useless. For dynamic QR (where the destination can change), you need a redirect service; ours generates static codes only.
+
+</details>
+
+<details>
+<summary>**Is the QR code stored anywhere?**</summary>
+
+No. The QR is generated by JavaScript in your browser and rendered to a `&lt;canvas&gt;` element. The encoded payload (URL, password, contact info) never leaves your device — important for Wi-Fi passwords and vCards.
+
+</details>
+
+<details>
+<summary>**PNG or SVG — which should I download?**</summary>
+
+PNG for digital use (email, slides, web). SVG for print (business cards, posters, packaging) because it scales without pixelation. Most printers accept SVG directly; if not, open the SVG in any vector editor and export at high DPI.
+
+</details>
+
+## Tips
+
+- Always test-scan your QR with at least two different phones before printing. Some camera apps are pickier than others.
+- For outdoor or worn signage, use error correction H and minimum 3 cm × 3 cm physical size.
+- Keep QR foreground darker than background — inverted (light on dark) codes work in theory but fail with many older scanners.
+- For long URLs, use a shortener first. A 1,000-char URL produces an unscannable forest of pixels.
+
+## Try it now
+
+The full qr-generator runs in your browser at **[https://ztools.zaions.com/qr-generator](https://ztools.zaions.com/qr-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/qr-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/qr-generator.mdx)*

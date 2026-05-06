@@ -1,0 +1,126 @@
+---
+id: base64
+title: "Base64 Encoder & Decoder — Text, Files, Images (Client-side)"
+description: "Encode any text or file to Base64, decode back to original. Supports UTF-8, binary files, data URLs. Runs entirely in your browser — no upload."
+sidebar_label: "base64"
+keywords:
+  - "base64 encoder"
+  - "base64 decoder"
+  - "base64 to text"
+  - "text to base64"
+  - "base64 image"
+  - "data url generator"
+  - "base64 file"
+  - "base64url"
+  - "mime base64"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# base64
+
+Base64 is an encoding that represents arbitrary binary data using only 64 printable ASCII characters (A–Z, a–z, 0–9, +, /). It is the standard way to embed images in HTML/CSS as `data:` URLs, transmit binary payloads in JSON or email (MIME), and pass file contents through APIs that only accept text. The ZTools Base64 tool encodes UTF-8 strings, raw binary files (drag-drop), and decodes Base64 back to either text or a downloadable file — all in the browser using the standard `btoa`/`atob` plus a UTF-8-safe wrapper for non-ASCII input.
+
+<ToolCTA toolId="base64" toolName="base64" />
+
+## Use cases
+
+### Embedding small images in CSS as data URLs
+
+Drag a small icon (under ~4 KB) into the encoder, copy the Base64 output, and paste it into your CSS as `background-image: url("data:image/png;base64, ...")`. This eliminates one HTTP request per icon — meaningful on landing pages with many tiny assets. Above ~4 KB, the encoded size penalty (33% bloat) outweighs the request savings.
+
+### Generating Authorization: Basic headers for HTTP testing
+
+HTTP Basic Auth requires `Authorization: Basic &lt;base64(user:password)&gt;`. Paste `myuser:mypass` into the encoder, copy the result, and prepend `Basic `. Use this for quick API testing with curl or Postman; never use HTTP Basic Auth over plain HTTP in production (it is trivially decodable).
+
+### Decoding JWT payloads
+
+JWTs are three Base64URL-encoded sections separated by dots. To inspect a JWT, paste the middle section into the decoder and you get the JSON claims. (Our dedicated JWT Decoder does this in one step, but the Base64 tool works for ad-hoc inspection.)
+
+### Storing binary data in JSON or YAML
+
+When an API requires binary data (a PDF, a private key, an image) but only accepts JSON, Base64-encode the bytes and ship the encoded string. The receiver decodes back to the original file. Common in Kubernetes Secrets, AWS Lambda payloads, and webhook attachments.
+
+## How it works
+
+1. **Choose mode** — Encode (text → Base64) or Decode (Base64 → text/file). The tool auto-detects when you paste, but you can lock it manually.
+2. **Paste text or drop a file** — Text mode handles UTF-8 (emoji, CJK, accented characters) via a TextEncoder wrapper. File mode reads the raw bytes via the FileReader API and encodes them losslessly.
+3. **Click Encode (or Decode)** — For text → Base64, the tool runs `btoa(unescape(encodeURIComponent(input)))`. For Base64 → text, the inverse. For files, `FileReader.readAsArrayBuffer` + a custom byte-to-Base64 loop.
+4. **Copy the result** — Encoded output is text — one click to copy. Decoded output is either text (rendered in the right pane) or a file (Download button appears with the original MIME type detected from the bytes).
+5. **Optionally use URL-safe variant** — Toggle "Base64URL" to swap `+/=` for `-_` (no padding). Required for JWTs, OAuth state parameters, and anything passed in URLs without escaping.
+
+## Examples
+
+**Input:** Hello, world!
+
+**Output:** SGVsbG8sIHdvcmxkIQ==
+
+---
+
+**Input:** A 4KB PNG icon (binary)
+
+**Output:** iVBORw0KGgoAAAANSUhEUgAA... (5.4 KB Base64)
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is the encoded version longer than the original?**</summary>
+
+Base64 represents 3 input bytes (24 bits) as 4 output characters (32 bits = 4 × 8). That is a fixed 33% size increase, plus 1–2 padding `=` characters to align. There is no way to make it smaller without compressing the input first.
+
+</details>
+
+<details>
+<summary>**What is the difference between Base64 and Base64URL?**</summary>
+
+Standard Base64 uses `+`, `/`, and `=` characters. Those have special meanings in URLs (path separator, padding) so Base64URL replaces them with `-`, `_`, and drops `=` padding. Use Base64URL anywhere the encoded string ends up in a URL or HTTP header (JWTs, OAuth flows).
+
+</details>
+
+<details>
+<summary>**Is Base64 encryption?**</summary>
+
+No. Base64 is encoding, not encryption. The transformation is fully reversible without a key. Anything Base64-encoded is trivially decoded back to plaintext. For confidentiality, use AES (our AES Tool) or PGP.
+
+</details>
+
+<details>
+<summary>**Can I encode a 100 MB file?**</summary>
+
+In theory yes, but browsers struggle with single strings over ~256 MB. For files larger than ~50 MB, use a CLI tool (`base64 &lt; input &gt; output.b64` on Linux/Mac, `certutil -encode` on Windows) or stream-encode chunks.
+
+</details>
+
+<details>
+<summary>**Why does my UTF-8 text get garbled when I decode someone else's Base64?**</summary>
+
+Some Base64 generators encode raw UTF-8 bytes, others first treat the input as Latin-1. Our tool always uses UTF-8. If the source used Latin-1, decode here, then re-encode in your target encoding to fix.
+
+</details>
+
+<details>
+<summary>**What is a data URL?**</summary>
+
+A URL of the form `data:[mime];base64,[data]` that embeds the file inline instead of pointing to it. Browsers render data URLs natively in `&lt;img&gt;`, CSS `background-image`, etc. Our encoder offers a "wrap as data URL" toggle to produce one in a single step.
+
+</details>
+
+## Tips
+
+- Use the URL-safe variant for any encoded value that ends up in a URL or query string.
+- Don't Base64-encode large images for production — `&lt;img src&gt;` with a separate request is usually faster (browser cache + parallel download).
+- Verify decoded files by checking magic bytes — a real PNG starts with `89 50 4E 47`.
+- If you need JWT inspection, use our JWT Decoder instead — it splits the three parts and parses the JSON claims for you.
+
+## Try it now
+
+The full base64 runs in your browser at **[https://ztools.zaions.com/base64](https://ztools.zaions.com/base64)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/base64)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/base64.mdx)*

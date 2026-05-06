@@ -1,0 +1,318 @@
+/* ----------------------------------------------------------------------------
+ * Homepage layout — refined, monospace-display, warm-amber accent.
+ * Matches the docs aesthetic without converging on generic "AI" templates.
+ * --------------------------------------------------------------------------*/
+
+.shell {
+  --hero-fg: var(--ifm-color-content);
+  --accent: #ffa840;
+  --accent-soft: rgba(255, 168, 64, 0.18);
+}
+
+/* HERO ---------------------------------------------------------------------*/
+
+.hero {
+  position: relative;
+  padding: clamp(3rem, 10vw, 7rem) clamp(1.5rem, 5vw, 4rem) clamp(4rem, 12vw, 8rem);
+  overflow: hidden;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroInner {
+  max-width: 880px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-family: var(--ztools-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+}
+
+.title {
+  font-family: var(--ztools-font-display);
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  color: var(--hero-fg);
+}
+
+.titleAccent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  max-width: 680px;
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 2.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.15s ease;
+}
+
+.btnPrimary {
+  background: var(--hero-fg);
+  color: var(--ifm-background-color);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.4);
+  color: var(--ifm-background-color);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--hero-fg);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.btnGhost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Decorative dot grid behind the hero */
+.heroGrid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 1fr;
+  padding: 3rem;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.heroDot {
+  display: block;
+  background: var(--accent);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  align-self: center;
+  justify-self: center;
+  animation: dotFade 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes dotFade {
+  to {
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 996px) {
+  .heroGrid {
+    display: none;
+  }
+}
+
+/* PILLARS ------------------------------------------------------------------*/
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.pillar {
+  background: var(--ifm-background-color);
+  padding: 2rem 1.75rem;
+}
+
+.pillarLabel {
+  font-family: var(--ztools-font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.pillarText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* SECTIONS -----------------------------------------------------------------*/
+
+.featured,
+.philosophy,
+.author {
+  padding: clamp(3rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.sectionHeader {
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+
+.sectionEyebrow {
+  font-family: var(--ztools-font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+
+.sectionTitle {
+  font-family: var(--ztools-font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.sectionTitle em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.sectionLead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* TOOL GRID ----------------------------------------------------------------*/
+
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.toolCard {
+  display: block;
+  padding: 1.5rem 1.25rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  text-decoration: none !important;
+  color: var(--ifm-color-content);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.toolCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 32px -16px rgba(0, 0, 0, 0.3);
+  color: var(--ifm-color-content);
+}
+
+.toolTag {
+  display: inline-block;
+  font-family: var(--ztools-font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.toolName {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-family: var(--ztools-font-display);
+}
+
+.toolMeta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* PHILOSOPHY ---------------------------------------------------------------*/
+
+.philosophy {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  background: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+@media (max-width: 996px) {
+  .philosophy {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.philosophyText p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+  color: var(--ifm-color-content);
+}
+
+/* AUTHOR -------------------------------------------------------------------*/
+
+.author {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.authorName {
+  font-family: var(--ztools-font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.authorBio {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content-secondary);
+}
+
+.authorBio a {
+  color: var(--accent);
+  font-weight: 500;
+}

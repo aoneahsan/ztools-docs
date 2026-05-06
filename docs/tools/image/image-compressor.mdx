@@ -1,0 +1,125 @@
+---
+id: image-compressor
+title: "Image Compressor — Reduce JPG, PNG, WebP Size (Lossless & Lossy)"
+description: "Compress JPG, PNG, WebP images in your browser. Lossless or quality-controlled lossy. Reduce 60–90%. No upload, no signup."
+sidebar_label: "image-compressor"
+keywords:
+  - "image compressor"
+  - "jpg compressor"
+  - "png compressor"
+  - "webp compressor"
+  - "reduce image size"
+  - "compress image online"
+  - "image optimizer"
+  - "lossless compression"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-compressor
+
+Image compression reduces file size without (or with minimally noticeable) loss in visual quality, by stripping metadata, re-encoding with better compression parameters, or downsampling pixel data. The ZTools Image Compressor does all three on JPG, PNG, and WebP files — entirely in your browser using `&lt;canvas&gt;` re-encoding plus the browser's native PNG/WebP encoders. Typical results: JPGs shrink 40–70% at quality 80 (visually lossless for most photos), PNGs shrink 15–40% lossless via metadata stripping, WebP often beats both at the same quality. No upload, no queue, no file size limit beyond browser memory.
+
+<ToolCTA toolId="image-compressor" toolName="image-compressor" />
+
+## Use cases
+
+### Optimizing images for web performance
+
+Hero images, product photos, blog post images — these are typically the biggest contributors to slow page loads. Drop a 4 MB camera JPG in here, compress to quality 80, get a 600 KB output that looks identical to the human eye. Multiply across a site and the LCP improvement is dramatic.
+
+### Fitting images into email or upload size limits
+
+Gmail caps attachments at 25 MB; many forms cap at 5 MB. A camera JPG often exceeds these. Compress before attaching to keep recipients happy and avoid the "your file is too large" form rejection.
+
+### Preparing images for mobile apps with strict bundle sizes
+
+iOS and Android bundle size affects download speed and store ranking. Convert in-app graphics to WebP (smaller than PNG) and compress aggressively. Our tool handles transparency correctly — alpha channel preserved on WebP output.
+
+### Stripping EXIF metadata before sharing publicly
+
+Camera photos contain EXIF data that may include GPS coordinates of where the photo was taken. Re-encoding through our tool strips all EXIF by default, preserving only the pixel data — important when posting photos publicly or sending to people you don't fully trust.
+
+## How it works
+
+1. **Drop or select images** — Single file or batch up to 50 at once. Supported: JPG, PNG, WebP, BMP, GIF (first frame only). Max single-file size depends on browser memory; roughly ~50 MP works on most desktops.
+2. **Pick output format and quality** — Same format (recompress with new params), or convert (e.g., JPG→WebP for smaller output). Quality slider 0–100; 75–85 is the visually-lossless sweet spot for JPG.
+3. **Optional resize** — Specify max width or height in pixels. Aspect ratio preserved. Common targets: 1920px for web, 1080px for mobile, 800px for thumbnails.
+4. **Click Compress** — For each image: decode pixels via `&lt;canvas&gt;`, optionally resize via canvas drawing, re-encode with `canvas.toBlob(quality)` for JPG/WebP or via PNG encoder for PNG. EXIF is dropped because canvas doesn't carry it.
+5. **Preview and download** — Side-by-side before/after with file size comparison. Download single or as a ZIP for the batch.
+
+## Examples
+
+**Input:** Camera JPG, 4032×3024, 4.2 MB
+
+**Output:** Quality 80 JPG, 4032×3024, 1.1 MB (74% reduction)
+
+---
+
+**Input:** PNG screenshot, 2560×1440, 1.8 MB
+
+**Output:** WebP quality 85, 2560×1440, 220 KB (88% reduction)
+
+## Frequently asked questions
+
+<details>
+<summary>**Does compression lose quality?**</summary>
+
+JPG and WebP at quality &lt; 100 lose information (lossy). At quality 80–85 the loss is invisible to nearly everyone except in smooth gradients. PNG can be re-encoded losslessly (no quality loss, only metadata removal and encoder optimization), typically saving 15–40%.
+
+</details>
+
+<details>
+<summary>**What is the best format for photos?**</summary>
+
+WebP if you can use it (~95% browser support since 2020). JPG if you need universal compatibility. PNG only when you need transparency or pixel-perfect lossless. Avoid GIF unless animation is required.
+
+</details>
+
+<details>
+<summary>**Are my images uploaded to a server?**</summary>
+
+No. The entire pipeline runs in your browser via Canvas + Blob APIs. Open DevTools → Network and confirm zero requests during compression. Critical for sensitive images (screenshots of dashboards, photos of documents).
+
+</details>
+
+<details>
+<summary>**Why is my compressed PNG barely smaller?**</summary>
+
+PNG is already losslessly compressed by its encoder. Our tool re-encodes with optimal settings and strips metadata, but if your input is already well-optimized (e.g., a previously-compressed PNG), additional savings are small. Convert to WebP for major savings.
+
+</details>
+
+<details>
+<summary>**Can I batch-compress 100 images?**</summary>
+
+Yes, up to 50 simultaneous. For more, run in batches — browser memory becomes the bottleneck. Each image is processed sequentially, so 50 images take roughly 50× one image's time.
+
+</details>
+
+<details>
+<summary>**Does it preserve transparency?**</summary>
+
+Yes when output format supports it (PNG, WebP). JPG does not support transparency, so JPG output of a transparent PNG fills with white (or your specified background color).
+
+</details>
+
+## Tips
+
+- For web use, default to WebP at quality 80 — typically 60–80% smaller than equivalent JPG with no visible quality loss.
+- Always preview the compressed image at 100% zoom before deploying. Quality artifacts hide at thumbnail size.
+- Resize before compressing when possible — a 4032×3024 image scaled to 1920×1440 saves more than any quality reduction would.
+- Strip EXIF before posting any photo publicly. Even Instagram doesn't fully strip GPS data.
+
+## Try it now
+
+The full image-compressor runs in your browser at **[https://ztools.zaions.com/image-compressor](https://ztools.zaions.com/image-compressor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-compressor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-compressor.mdx)*

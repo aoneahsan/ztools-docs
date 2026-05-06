@@ -1,0 +1,127 @@
+---
+id: diff-checker
+title: "Diff Checker — Compare Text, Code, JSON Side-by-Side (Online)"
+description: "Compare two pieces of text or code side-by-side. Highlights additions, deletions, and changes line-by-line. Free, fast, runs in your browser."
+sidebar_label: "diff-checker"
+keywords:
+  - "diff checker"
+  - "text diff"
+  - "compare text online"
+  - "diff tool"
+  - "side by side diff"
+  - "code diff online"
+  - "json diff"
+  - "free diff checker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# diff-checker
+
+A diff checker is a tool that compares two pieces of text and highlights every line that differs — additions in green, deletions in red, modifications in yellow. The ZTools Diff Checker uses a Myers-style longest-common-subsequence algorithm (the same algorithm `git diff` uses) to produce minimal, accurate diffs for files up to ~10 MB. The tool runs entirely in your browser; no text is uploaded. Use it for code reviews when you do not have git, contract redline comparisons, JSON or YAML config diffs, or any side-by-side text comparison.
+
+<ToolCTA toolId="diff-checker" toolName="diff-checker" />
+
+## Use cases
+
+### Reviewing changes in a piece of code outside git
+
+A colleague sends you "before" and "after" snippets in Slack. Paste both, see the diff at a glance, and make review comments without setting up a git repo. Especially useful when the code lives in a CMS, a no-code tool, or a configuration UI without version control.
+
+### Comparing two versions of a contract, policy, or legal document
+
+Lawyers, contract managers, and compliance teams often need to "redline" two versions of a document. Paste version A and version B, see every word change highlighted, and export the diff for a clean record of negotiated changes.
+
+### Diffing two JSON or YAML configuration files
+
+Two environments, two config files. Paste both side by side, spot the missing key or changed value instantly, and avoid the "works on my machine" debugging cycle. Combined with our JSON Formatter (to normalize first), this catches structural drift quickly.
+
+### Verifying a copy-paste was complete
+
+When pasting a long block of text from one app to another (e.g. moving a SQL query between editors), paste both into the diff checker to confirm zero characters were lost in the transfer.
+
+## How it works
+
+1. **Paste original text on the left** — Drag-drop a file works too. Empty lines, trailing whitespace, and tabs are all preserved.
+2. **Paste new text on the right** — Both panes accept arbitrarily long input — files up to ~10 MB diff in under a second on modern hardware.
+3. **Click Compare** — A Myers diff algorithm computes the minimal edit script and renders each line as added (green), removed (red), unchanged (gray), or modified (split-pane highlighting).
+4. **Toggle view modes** — Switch between side-by-side (best for code review) and inline (best for prose) views. Word-level diffing within changed lines makes prose changes easier to read.
+5. **Adjust whitespace handling** — Toggle "Ignore whitespace" or "Ignore case" to filter out cosmetic differences and focus on substantive changes.
+
+## Examples
+
+**Input:** Left: "Hello world"
+Right: "Hello there"
+
+**Output:** Line 1: "Hello [-world-][+there+]" — one word changed
+
+---
+
+**Input:** Left: \{ "version": 1, "features": ["a", "b"] \}
+Right: \{ "version": 2, "features": ["a", "b", "c"] \}
+
+**Output:** Line 1: version changed 1 → 2; features array gained "c"
+
+## Frequently asked questions
+
+<details>
+<summary>**Does the diff checker upload my text?**</summary>
+
+No. The comparison runs entirely in your browser using a JavaScript implementation of the Myers algorithm. Open DevTools → Network and confirm there are no requests during comparison.
+
+</details>
+
+<details>
+<summary>**How large a file can I diff?**</summary>
+
+Up to ~10 MB per side on a modern desktop browser without UI lag. For larger files, prefer `git diff` or `delta` from the command line.
+
+</details>
+
+<details>
+<summary>**Why does the tool show character-level changes within a line?**</summary>
+
+Within each modified line, a secondary word-level diff highlights the exact tokens that changed. Helps for prose where a single word differs in a paragraph.
+
+</details>
+
+<details>
+<summary>**Can I ignore whitespace differences?**</summary>
+
+Yes — toggle "Ignore whitespace" to treat lines that differ only in indentation or trailing spaces as identical. Toggle "Ignore case" for case-insensitive comparison.
+
+</details>
+
+<details>
+<summary>**Is this the same algorithm git uses?**</summary>
+
+Conceptually yes — both use Myers diff (or a fast variant like patience or histogram). For exact reproduction of git's output, use `git diff` directly.
+
+</details>
+
+<details>
+<summary>**Can I diff binary files?**</summary>
+
+No — this tool is text-only. For binary diffs use `xxd | diff` or specialized tools like `vbindiff`.
+
+</details>
+
+## Tips
+
+- Format JSON or YAML before diffing to keep structural changes on separate lines.
+- Use the "Ignore whitespace" toggle when comparing code reformatted by a linter.
+- For prose comparison, the inline view is easier to read than side-by-side.
+- Save the diff output as HTML if you need to share a redline with a non-developer.
+
+## Try it now
+
+The full diff-checker runs in your browser at **[https://ztools.zaions.com/diff-checker](https://ztools.zaions.com/diff-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/diff-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/diff-checker.mdx)*

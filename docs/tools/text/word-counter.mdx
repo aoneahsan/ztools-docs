@@ -1,0 +1,125 @@
+---
+id: word-counter
+title: "Word Counter — Words, Characters, Sentences, Reading Time"
+description: "Count words, characters (with/without spaces), sentences, paragraphs, reading time. Live as you type. Supports CJK, RTL, emoji."
+sidebar_label: "word-counter"
+keywords:
+  - "word counter"
+  - "character counter"
+  - "reading time calculator"
+  - "twitter character counter"
+  - "sentence counter"
+  - "paragraph counter"
+  - "wc online"
+  - "count words online"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# word-counter
+
+A word counter measures the length of a piece of writing along multiple axes — word count, character count (with and without spaces), sentence count, paragraph count, and estimated reading time. The ZTools Word Counter does all of this live as you type, with proper Unicode handling for CJK languages (where words aren't space-separated), RTL scripts, and emoji (which often count as multiple bytes but one visual character). Reading time is computed at the standard 250 words per minute (English silent reading); CJK uses 400 characters per minute. Useful for SEO copy, social-media post limits, academic essays, and anywhere a precise length matters.
+
+<ToolCTA toolId="word-counter" toolName="word-counter" />
+
+## Use cases
+
+### Hitting a word count for an essay or article
+
+Type or paste the draft, watch the count update live. Far less distracting than your word processor's status bar, especially when collaborating in a plain-text editor or markdown source. Set the target (e.g., 1500 words) and the meter shows progress as a bar.
+
+### Fitting a tweet, LinkedIn post, or SMS within character limits
+
+Twitter is 280 chars, LinkedIn 3,000, SMS 160. Each platform counts differently — Twitter uses Unicode "weighted character count" where emoji are 2, URLs are 23. Our tool offers a "Twitter mode" that mirrors this exactly so you don't over-shoot at publish time.
+
+### Calculating reading time for blog posts
+
+Reading time is the polite "12 min read" badge at the top of articles. Our calculator uses the empirically standard 250 wpm; toggle to 200 wpm for technical content (denser, slower) or 300 wpm for casual blogs.
+
+### Auditing meta descriptions and SEO copy
+
+Google truncates meta descriptions at ~155 characters, page titles at ~60. Paste your draft; the counter shows you exactly where the cut will be and renders a Google-style preview so you can see how it will look in search results.
+
+## How it works
+
+1. **Type or paste your text** — No size limit on modern desktops; up to ~10 MB before performance degrades. The textarea handles RTL languages with correct visual direction.
+2. **Counts update live** — A `useEffect` debounced at 50ms recomputes all metrics on input change. For most documents this is imperceptible.
+3. **Word count uses regex `\S+` (non-whitespace runs)** — Matches the GNU `wc -w` definition — sequences of non-whitespace characters separated by whitespace. CJK falls back to character count because there are no spaces.
+4. **Sentence count uses sentence-ending punctuation** — Matches `[.!?]+` followed by space or end-of-text. Won't over-count abbreviations like "Dr." in most cases (uses a small heuristic blacklist).
+5. **Reading time is `(wordCount / wpm)` minutes** — Default 250 wpm (English silent reading). Adjustable. For CJK text the formula is `(charCount / 400)` minutes, the empirically observed Chinese reading rate.
+
+## Examples
+
+**Input:** "The quick brown fox jumps over the lazy dog."
+
+**Output:** Words: 9, Chars: 44, Chars no spaces: 36, Sentences: 1, Reading time: &lt;1 min.
+
+---
+
+**Input:** "今天的天气真好" (Chinese)
+
+**Output:** Chars: 7 (CJK), Reading time: &lt;1 min at 400 cpm.
+
+## Frequently asked questions
+
+<details>
+<summary>**How are words counted?**</summary>
+
+Sequences of non-whitespace characters (`\\S+`). "It's" is one word, "state-of-the-art" is one word, "U.S.A." is one word. This matches the GNU `wc -w` and Microsoft Word definitions, which is what most editors and grading systems use.
+
+</details>
+
+<details>
+<summary>**Why does my emoji count as multiple characters?**</summary>
+
+In default mode, we count Unicode code points — so most emoji are 1 char, but compound emoji (👨‍👩‍👧 — 5 code points joined with ZWJ) count as 5. Toggle "grapheme mode" to count user-perceived characters; that compound family becomes 1.
+
+</details>
+
+<details>
+<summary>**How accurate is the reading time?**</summary>
+
+For English prose at 250 wpm, accurate within ±20% for most readers. Technical content reads slower (180 wpm), light fiction faster (300+ wpm). Our toggle lets you pick the rate.
+
+</details>
+
+<details>
+<summary>**Does this work for non-English text?**</summary>
+
+Yes. RTL (Arabic, Hebrew) renders correctly. CJK falls back to character count for words because spaces don't exist. Mixed-script text counts proportionally.
+
+</details>
+
+<details>
+<summary>**How does Twitter count characters?**</summary>
+
+Twitter uses a "weighted character count" where most emoji = 2 chars, URLs = always 23 chars (regardless of length, due to t.co shortening). Toggle Twitter mode to count this way.
+
+</details>
+
+<details>
+<summary>**Is my text saved?**</summary>
+
+No. Counting is real-time JavaScript on your local device. Refresh the page and your text is gone — that is intentional. For drafts, copy to a notes app.
+
+</details>
+
+## Tips
+
+- For SEO, target 1,500–2,500 words for most blog posts (the median first-page Google result is around 1,800).
+- Twitter mode is essential for compose tools — the default character counter undercounts emoji-heavy posts.
+- Use the "Reading time at 200 wpm" mode for technical or academic content; 250 wpm overestimates for dense material.
+- Pair with our Lorem Ipsum generator: generate exactly N words of placeholder, paste here to verify.
+
+## Try it now
+
+The full word-counter runs in your browser at **[https://ztools.zaions.com/word-counter](https://ztools.zaions.com/word-counter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/word-counter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/word-counter.mdx)*

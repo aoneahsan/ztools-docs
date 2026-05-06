@@ -1,0 +1,125 @@
+---
+id: hash-generator
+title: "Hash Generator — MD5, SHA-1, SHA-256, SHA-512 Online"
+description: "Generate MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashes from text or files. Verify file integrity. WebCrypto API — runs in your browser."
+sidebar_label: "hash-generator"
+keywords:
+  - "hash generator"
+  - "sha256 generator"
+  - "md5 generator"
+  - "sha1 generator"
+  - "sha512 hash"
+  - "file checksum online"
+  - "hash calculator"
+  - "webcrypto hash"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# hash-generator
+
+A hash function maps arbitrary input data to a fixed-size string of bytes such that the same input always produces the same output, but the input cannot be recovered from the output. The ZTools Hash Generator computes MD5, SHA-1, SHA-256, SHA-384, and SHA-512 digests using the browser's WebCrypto API (the SHA family) and a pure-JS implementation for MD5 (which WebCrypto omits because it is cryptographically broken). Output is hex-lowercase by default with toggles for hex-uppercase, Base64, and Base64URL. Useful for file integrity checks, lookup-table prevention, password storage analysis, and content addressing.
+
+<ToolCTA toolId="hash-generator" toolName="hash-generator" />
+
+## Use cases
+
+### Verifying a downloaded file matches its published checksum
+
+Most software downloads (Linux ISOs, npm packages, container images) publish a SHA-256 checksum. Download the file, drop it into the hasher, set algorithm to SHA-256, and compare the output with the published value. If they match byte-for-byte, the file is intact and not tampered with.
+
+### Generating ETags for HTTP caching
+
+A SHA-256 of a response body makes a strong ETag — clients can cache and `If-None-Match` to skip re-downloads when content is unchanged. Use SHA-256 (or its 16-char prefix for shorter ETags) for static assets in your build pipeline.
+
+### Content-addressing in databases or filesystems
+
+Rather than storing duplicate files, hash each file with SHA-256 and use the digest as the storage key. Identical files share storage. This is how Git, IPFS, and Docker layers all work internally.
+
+### Detecting changes in large blobs of text
+
+Hashing two big config files and comparing digests is faster than diffing them when you only care whether they differ. Useful in CI pipelines where "did anything change?" is the question.
+
+## How it works
+
+1. **Pick algorithm** — MD5 (128-bit, BROKEN — use only for integrity, never for security). SHA-1 (160-bit, deprecated). SHA-256/SHA-384/SHA-512 (current standards, recommended).
+2. **Paste text or drop a file** — Text mode encodes UTF-8 bytes before hashing. File mode reads the raw bytes via FileReader. Files up to ~2 GB work on modern desktops.
+3. **Click Hash** — For SHA family, the tool calls `crypto.subtle.digest()` — the W3C-standard SubtleCrypto API. For MD5, a pure-JS implementation is used because WebCrypto refuses to ship MD5.
+4. **Copy in your preferred format** — Hex-lowercase (most common in checksums), hex-uppercase, Base64 (common in headers), or Base64URL (URL-safe).
+5. **Optionally compare against expected value** — Paste an expected hash; the tool highlights a match in green or mismatch in red, sparing you a manual byte-by-byte check.
+
+## Examples
+
+**Input:** Algorithm: SHA-256. Input: "hello"
+
+**Output:** 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+
+---
+
+**Input:** Algorithm: MD5. Input: file "ubuntu-24.04.iso" (4.7 GB)
+
+**Output:** b6c73ee0...8d4 (32 hex chars)
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I use MD5?**</summary>
+
+Only for non-security integrity checks (file checksums, deduplication keys). MD5 has been cryptographically broken since 2004 — collisions can be generated in seconds. Never use it for password hashing, signatures, or anything an attacker could exploit a collision against.
+
+</details>
+
+<details>
+<summary>**Is SHA-256 secure for password hashing?**</summary>
+
+No. Plain SHA-256 is too fast — attackers can compute billions per second on a GPU. For password hashing, use bcrypt, scrypt, or argon2, all of which are deliberately slow and salt-based. SHA-256 is correct for file integrity, not password storage.
+
+</details>
+
+<details>
+<summary>**What is the difference between SHA-256 and SHA-512?**</summary>
+
+Both are SHA-2 family. SHA-256 produces 256-bit (32-byte) output, SHA-512 produces 512-bit (64-byte) output. SHA-512 is faster on 64-bit hardware (it operates on 64-bit words natively). For most uses, SHA-256 is sufficient and more widely supported.
+
+</details>
+
+<details>
+<summary>**Can I reverse a hash to get the original input?**</summary>
+
+No, by design. Hashes are one-way functions. The only way to "reverse" is brute-force or rainbow-table lookup — feasible only when the input space is small and unsalted (which is why password salting matters).
+
+</details>
+
+<details>
+<summary>**Why are my hashes different from another tool's?**</summary>
+
+Almost always a text encoding mismatch. We always UTF-8-encode text before hashing. Some tools default to UTF-16 or Latin-1 on Windows. If you need to match Windows-tool output, paste the bytes directly (file mode) or set the encoding explicitly.
+
+</details>
+
+<details>
+<summary>**Does the file hashing send my file anywhere?**</summary>
+
+No. The file is read via the FileReader API and hashed by `crypto.subtle.digest()` entirely in your browser. Open DevTools → Network and confirm zero requests during hashing — important when verifying confidential files.
+
+</details>
+
+## Tips
+
+- Default to SHA-256 for any new use case. It is fast, secure, and universally supported.
+- For checksum publication, also publish a GPG signature of the checksum file — the hash alone proves nothing if the page itself was tampered with.
+- Use MD5 hex output as a deterministic ID generator (low security, but high collision-rarity for typical use).
+- For passwords, never use this tool. Use bcrypt/argon2 in your application code.
+
+## Try it now
+
+The full hash-generator runs in your browser at **[https://ztools.zaions.com/hash-generator](https://ztools.zaions.com/hash-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hash-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/hash-generator.mdx)*

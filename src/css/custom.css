@@ -1,0 +1,146 @@
+/* ----------------------------------------------------------------------------
+ * ZTools Docs — global theme.
+ *
+ * Aesthetic: refined-minimal docs with monospace display headings.
+ * Brand: warm amber accent (#ffa840) on neutral charcoal/cream.
+ * Typography: JetBrains Mono for display, Inter for body, IBM Plex Mono
+ *             for code. Loaded from Google Fonts via @import for now;
+ *             move to self-hosted later if perf needs.
+ * --------------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Brand */
+  --ztools-amber: #ffa840;
+  --ztools-amber-dark: #d97706;
+  --ztools-amber-soft: rgba(255, 168, 64, 0.18);
+
+  --ztools-font-display: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --ztools-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --ztools-font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Map Infima to brand */
+  --ifm-color-primary: #c2410c;
+  --ifm-color-primary-dark: #9a3412;
+  --ifm-color-primary-darker: #7c2d12;
+  --ifm-color-primary-darkest: #602010;
+  --ifm-color-primary-light: #ea580c;
+  --ifm-color-primary-lighter: #fb923c;
+  --ifm-color-primary-lightest: #fdba74;
+
+  --ifm-font-family-base: var(--ztools-font-body);
+  --ifm-font-family-monospace: var(--ztools-font-mono);
+  --ifm-heading-font-family: var(--ztools-font-display);
+  --ifm-heading-font-weight: 700;
+  --ifm-heading-line-height: 1.15;
+
+  --ifm-code-font-size: 92%;
+  --ifm-code-padding-vertical: 0.15rem;
+  --ifm-code-padding-horizontal: 0.4rem;
+  --ifm-code-border-radius: 4px;
+
+  --ifm-card-border-radius: 12px;
+  --ifm-button-border-radius: 999px;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 168, 64, 0.12);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #ffa840;
+  --ifm-color-primary-dark: #f59e0b;
+  --ifm-color-primary-darker: #d97706;
+  --ifm-color-primary-darkest: #b45309;
+  --ifm-color-primary-light: #fbbf24;
+  --ifm-color-primary-lighter: #fcd34d;
+  --ifm-color-primary-lightest: #fde68a;
+
+  --ifm-background-color: #0a0a0a;
+  --ifm-background-surface-color: #141414;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 168, 64, 0.18);
+}
+
+/* Tighten heading letter-spacing for the display font */
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  letter-spacing: -0.035em;
+}
+
+/* Better default link hover */
+a {
+  transition: color 0.15s ease;
+}
+
+/* Code inline */
+code {
+  font-family: var(--ztools-font-mono);
+  font-feature-settings: 'liga' 0, 'calt' 0;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Tables in docs */
+table {
+  font-size: 0.95rem;
+}
+
+th {
+  font-family: var(--ztools-font-display);
+  font-weight: 600;
+}
+
+/* FAQ <details> styling */
+details {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+}
+
+details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--ztools-amber);
+  font-family: var(--ztools-font-display);
+  font-weight: 700;
+}
+
+details[open] > summary::after {
+  content: '−';
+}
+
+details[open] > summary {
+  margin-bottom: 0.5rem;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+  }
+}

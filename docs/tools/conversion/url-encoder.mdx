@@ -1,0 +1,125 @@
+---
+id: url-encoder
+title: "URL Encoder & Decoder — Percent-encode Query Strings Online"
+description: "Encode special characters in URLs, decode percent-encoded query strings. Handles spaces, Unicode, reserved chars per RFC 3986. Free, no sign-up."
+sidebar_label: "url-encoder"
+keywords:
+  - "url encoder"
+  - "url decoder"
+  - "percent encoding"
+  - "urlencode online"
+  - "urldecode online"
+  - "query string encoder"
+  - "percent encode unicode"
+  - "encodeuricomponent online"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# url-encoder
+
+URL encoding (percent-encoding) is the process of replacing characters that have special meaning in URLs — spaces, `&`, `=`, `?`, `#`, non-ASCII characters — with `%XX` sequences where XX is the byte's hex value. The ZTools URL Encoder uses the browser's native `encodeURIComponent` (RFC 3986 compliant) for encoding and `decodeURIComponent` for the reverse. It handles full URLs, individual query parameter values, and fragments, with a "component vs full URL" toggle so you don't accidentally encode the `://` in a URL when you only meant to encode the query string.
+
+<ToolCTA toolId="url-encoder" toolName="url-encoder" />
+
+## Use cases
+
+### Constructing safe query strings programmatically
+
+When you build a URL like `?q=hello world&filter=size&gt;10`, the spaces and `&gt;` need encoding. Paste each value into the encoder, get back `hello%20world` and `size%3E10`, and assemble the URL safely. Forgetting this is the #1 cause of "weird API errors" when special characters appear in user input.
+
+### Decoding logs that contain encoded URLs
+
+Server logs and analytics platforms often store request URLs in their fully-encoded form. Paste a log line like `?q=caf%C3%A9` into the decoder and get the original `?q=café`. Useful for understanding what users actually searched for.
+
+### Handling Unicode in legacy systems
+
+Older systems and many APIs require ASCII-only URLs. UTF-8-encode then percent-encode any non-ASCII character: `→` becomes `%E2%86%92`. Our encoder does this transparently — paste any Unicode character and get the correct percent-encoding.
+
+### Building OAuth and SSO redirect URLs
+
+OAuth `state` parameters, `redirect_uri`, and `scope` values must be precisely encoded — a missing percent-encode breaks the entire flow with a cryptic "invalid_request" error. Paste each value separately, encode, then assemble the final authorization URL.
+
+## How it works
+
+1. **Choose Encode or Decode** — Encode replaces reserved characters with %XX. Decode reverses it. The tool auto-detects when input contains `%XX` sequences but you can override.
+2. **Pick scope: Component or Full URL** — Component mode encodes everything (use for query parameter values). Full URL mode preserves `://`, `/`, `?`, `#` boundaries (use for whole URLs).
+3. **Paste and click** — For Encode: `encodeURIComponent` (component) or `encodeURI` (full URL). For Decode: the matching inverse. UTF-8 is handled by the underlying browser API.
+4. **Copy the output** — Encoded output is paste-safe in any URL position. Decoded output may contain characters that need re-encoding if you put it back in a URL.
+5. **Optionally use Form-encoding (+ for spaces)** — application/x-www-form-urlencoded uses `+` for spaces instead of `%20`. Toggle this when generating values for HTML form submissions.
+
+## Examples
+
+**Input:** hello world & friends
+
+**Output:** hello%20world%20%26%20friends
+
+---
+
+**Input:** https://example.com/search?q=café & friends
+
+**Output:** https://example.com/search?q=caf%C3%A9%20%26%20friends
+
+## Frequently asked questions
+
+<details>
+<summary>**When should I use encodeURIComponent vs encodeURI?**</summary>
+
+Use encodeURIComponent for individual query parameter values (it encodes `&`, `=`, `?` which are safe inside a value but separators outside). Use encodeURI for an entire URL where you want to preserve the structure.
+
+</details>
+
+<details>
+<summary>**Why are some characters not encoded?**</summary>
+
+RFC 3986 defines "unreserved" characters (`A-Z a-z 0-9 - _ . ~`) that never need encoding. The browser API correctly leaves these alone. Everything else gets percent-encoded.
+
+</details>
+
+<details>
+<summary>**What is double-encoding and how do I avoid it?**</summary>
+
+Double-encoding happens when you encode an already-encoded string: `%20` becomes `%2520`. Decode first, verify, then re-encode if needed. Our tool does NOT auto-detect double encoding — that is intentional, because sometimes %25 is a legitimate value.
+
+</details>
+
+<details>
+<summary>**Why are spaces sometimes %20 and sometimes +?**</summary>
+
+In standard URL encoding (RFC 3986), spaces are %20. In application/x-www-form-urlencoded (HTML form submission), spaces are `+`. Both are valid in their respective contexts. Our Form-encoding toggle switches between them.
+
+</details>
+
+<details>
+<summary>**Does the tool support Unicode?**</summary>
+
+Yes. Non-ASCII characters are first UTF-8-encoded into bytes, then each byte is percent-encoded. `é` (U+00E9) → UTF-8 bytes C3 A9 → `%C3%A9`. This is the only modern-correct behavior; older Latin-1-based encodings are obsolete.
+
+</details>
+
+<details>
+<summary>**Can I encode a URL fragment (after #)?**</summary>
+
+Yes. Fragments follow the same encoding rules as query strings. Encode the fragment value with Component mode, then assemble: `https://example.com/page#section%20one`.
+
+</details>
+
+## Tips
+
+- For query string values, always use Component mode. For full URLs, Full URL mode.
+- When debugging weird API errors, decode the URL first to see what the server actually received.
+- Form-encoding (+) is for HTML &lt;form&gt; submissions only. APIs almost always want %20.
+- Encode user input BEFORE concatenating into URLs — this is also the simplest XSS defense for URL contexts.
+
+## Try it now
+
+The full url-encoder runs in your browser at **[https://ztools.zaions.com/url-encoder](https://ztools.zaions.com/url-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/url-encoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/url-encoder.mdx)*

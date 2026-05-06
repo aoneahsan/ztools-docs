@@ -1,0 +1,130 @@
+---
+id: json-formatter
+title: "JSON Formatter & Validator — Pretty-print, Minify, Lint Online"
+description: "Paste JSON, get instant pretty-printing, validation, and minification. Detects syntax errors with line numbers. 100% client-side — no upload."
+sidebar_label: "json-formatter"
+keywords:
+  - "json formatter"
+  - "json validator"
+  - "json beautifier"
+  - "json pretty printer"
+  - "json minifier"
+  - "json lint"
+  - "json parser online"
+  - "format json online"
+  - "json syntax checker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-formatter
+
+A JSON formatter parses raw JSON text and re-emits it with consistent indentation, sorted keys (optionally), and a syntax-error report when the input is malformed. The ZTools JSON Formatter uses the browser's native `JSON.parse` for validation and a custom indenter for output, handling files up to ~50 MB without freezing the UI. It validates against the strict JSON spec (RFC 8259) — no trailing commas, no comments, no JS-style unquoted keys — and surfaces syntax errors with line and column numbers so you can fix the source immediately. Useful for API debugging, log analysis, config-file cleanup, and prepping payloads for Postman or curl.
+
+<ToolCTA toolId="json-formatter" toolName="json-formatter" />
+
+## Use cases
+
+### Debugging an API response that "looks wrong"
+
+Copy the response body from your browser DevTools → Network → Response tab and paste it here. The formatter pretty-prints nested objects, surfaces missing commas or trailing-comma errors, and shows the structure at a glance — usually faster than scrolling a single-line minified blob in DevTools.
+
+### Cleaning up a hand-edited config file
+
+Manual edits to `package.json`, `tsconfig.json`, or `.eslintrc.json` often introduce stray trailing commas or missing closing brackets. Paste the file, hit Format, and either get a clean re-emission or a precise error message ("Unexpected token \} at line 43, column 5") that points you to the bug.
+
+### Minifying JSON for production payloads
+
+Switch the mode to Minify and the formatter strips all whitespace, producing the smallest possible JSON suitable for embedding in URLs, query strings, or wire payloads. A 4 KB pretty-printed object often shrinks to 2.4 KB minified — meaningful when sending many requests over a slow mobile connection.
+
+### Comparing two JSON blobs structurally
+
+Paste blob A, format it, copy the output. Paste blob B, format it, copy the output. Diff the two formatted outputs in any text editor or our Diff Tool. Because formatting is deterministic, structural differences become trivial to spot — semantic equality without manual key-walking.
+
+## How it works
+
+1. **Paste JSON into the input pane** — Drag-drop a `.json` file works too. The textarea handles up to ~50 MB on a modern desktop browser without dropping frames.
+2. **Choose indent size** — 2 spaces is the npm default; 4 is the Python `json.dumps` default. Tab indentation is also available. Pick whichever matches your project's linter.
+3. **Click Format** — `JSON.parse` validates the input. If parsing succeeds, the formatter walks the resulting object tree and emits a pretty-printed string. If parsing fails, the exact error position is highlighted.
+4. **Review the output** — Syntax-highlighted output appears in the right pane. Copy with one click; the original input stays untouched in the left pane so you can re-format with different settings.
+5. **Optionally toggle Minify or Sort Keys** — Minify produces single-line output. Sort Keys recursively alphabetizes object keys — useful for diffs and reproducible builds.
+
+## Examples
+
+**Input:** \{"name":"Ahsan","tools":519,"categories":["text","image","data"]\}
+
+**Output:** \{
+  "name": "Ahsan",
+  "tools": 519,
+  "categories": ["text", "image", "data"]
+\}
+
+---
+
+**Input:** \{ "a": 1, "b": 2, \}
+
+**Output:** Error: Unexpected token \} at line 1, column 19
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between JSON and JSON5?**</summary>
+
+JSON5 allows trailing commas, comments, unquoted keys, and single quotes. The formatter validates strict RFC 8259 JSON; if your input is JSON5, it will fail validation. Convert with our JSON5-to-JSON tool first if needed.
+
+</details>
+
+<details>
+<summary>**Will it handle very large JSON files?**</summary>
+
+Up to ~50 MB on desktop. Above that, browser memory becomes the bottleneck. For multi-gigabyte logs, stream-process them with `jq` on the command line instead of pasting into a browser.
+
+</details>
+
+<details>
+<summary>**Does the tool send my JSON anywhere?**</summary>
+
+No. The entire formatter is JavaScript running in your browser. Open DevTools → Network and confirm zero requests when you click Format. This is critical for sensitive payloads (API responses with PII, internal config files).
+
+</details>
+
+<details>
+<summary>**Can it handle JSON with comments (JSONC)?**</summary>
+
+Strict JSON does not allow comments. We have a separate JSONC stripper tool that removes `//` and `/* */` comments before formatting. For VS Code-style settings files, run the stripper first.
+
+</details>
+
+<details>
+<summary>**Why does sorted-key output look different from my source?**</summary>
+
+Sort Keys recursively alphabetizes every object's keys. This makes diffs reproducible (two semantically-equal blobs produce byte-identical formatted output) but changes the original ordering. Disable Sort Keys if order matters (e.g. OpenAPI specs where order is conventional).
+
+</details>
+
+<details>
+<summary>**How does it report errors?**</summary>
+
+JSON.parse throws a SyntaxError with a message like "Unexpected token \} in JSON at position 156". The formatter computes the line and column from that position so you get "line 8, column 14" — much faster to fix than counting characters.
+
+</details>
+
+## Tips
+
+- Bookmark this page (Ctrl+D / Cmd+D) — you will use it more often than you think.
+- For frequent CLI use, install `jq` and pipe API responses: `curl ... | jq .`
+- When debugging Postman responses, paste them here for a structural view rather than scrolling.
+- Use Sort Keys before committing JSON config files — it eliminates "key reordering" diffs in code review.
+
+## Try it now
+
+The full json-formatter runs in your browser at **[https://ztools.zaions.com/json-formatter](https://ztools.zaions.com/json-formatter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-formatter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/json-formatter.mdx)*

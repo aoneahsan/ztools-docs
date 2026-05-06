@@ -1,0 +1,40 @@
+# ZTools
+
+> ZTools is a free, browser-only collection of 520+ developer & creator tools — JSON formatters, password generators, image compressors, regex testers, QR generators, PDF tools, and more. All processing happens in the user's browser. No signup, no upload, no data leaves the device.
+
+## Key URLs
+
+- App: https://ztools.zaions.com
+- Documentation: https://ztools-docs.zaions.com
+- GitHub (docs): https://github.com/aoneahsan/ztools-docs
+- Author: https://aoneahsan.com
+
+## Highlights
+
+- 520+ tools across 19 categories (Text, PDF, Image, Data, Generator, Encoding, Conversion, SEO, Math, Health, Education, Finance, Productivity, Media, Design, Developer, Extractor, Legal, Utility)
+- Browser-only processing — Canvas, Web Audio, SubtleCrypto, Web Speech, IndexedDB
+- Free, no signup, no email gate, no paywall
+- Open-source documentation
+- Mobile apps (Android shipped, iOS pending)
+- Privacy-first by design
+
+## Documentation structure
+
+- `/docs/intro` — overview
+- `/docs/getting-started` — usage walkthrough
+- `/docs/tools` — full tool catalog (organized by category)
+- `/docs/guides` — long-form how-to tutorials
+- `/blog` — release notes and dev journal
+
+## Author
+
+Ahsan Mahmood — solo developer, Pakistan-based.
+- Email: aoneahsan@gmail.com
+- LinkedIn: https://linkedin.com/in/aoneahsan
+- GitHub: https://github.com/aoneahsan
+- NPM: https://npmjs.com/~aoneahsan
+
+## License
+
+ZTools documentation: MIT (the docs site source)
+ZTools application: proprietary, free to use

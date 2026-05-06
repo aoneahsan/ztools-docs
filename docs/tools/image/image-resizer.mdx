@@ -1,0 +1,126 @@
+---
+id: image-resizer
+title: "Image Resizer — Resize JPG, PNG, WebP Online (Pixel-Perfect, Free)"
+description: "Resize images to exact dimensions or by percentage. Maintains aspect ratio, supports JPG, PNG, WebP. 100% client-side — no upload, no watermark."
+sidebar_label: "image-resizer"
+keywords:
+  - "image resizer"
+  - "resize image online"
+  - "photo resizer"
+  - "image scaler"
+  - "resize jpg"
+  - "resize png"
+  - "resize webp"
+  - "free image resizer"
+  - "image dimension changer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-resizer
+
+An image resizer is a tool that scales an image to a target width and height, with optional aspect-ratio preservation. The ZTools Image Resizer uses the browser's `Canvas` API and the high-quality Lanczos-style downsampling baked into modern browsers to produce sharp output for both downscaling (large photo → web thumbnail) and upscaling (small icon → high-DPI). Supports JPG, PNG, WebP, and GIF (first frame). Files never leave your device. There is no upload, no watermark, no file-count limit, and no sign-up.
+
+<ToolCTA toolId="image-resizer" toolName="image-resizer" />
+
+## Use cases
+
+### Preparing photos for a website to improve LCP
+
+Largest Contentful Paint penalizes images served at 2× or 3× the displayed dimensions. Resize a 4000×3000 camera photo to 1200×900 (or 800×600 for mobile-only galleries) before upload — file size drops 5-10× and LCP improves by hundreds of milliseconds on slow connections.
+
+### Generating multiple thumbnail sizes for responsive `<picture>` markup
+
+Modern responsive images need 320w, 640w, 1024w, and 1920w variants. Resize one source image to each width here, save with descriptive filenames, and reference them in your `srcset`. Free alternative to ImageMagick or paid CDN transformation services for one-shot tasks.
+
+### Shrinking images to fit upload limits
+
+Many forms (job applications, government portals, school enrollment) cap uploads at 1 MB or 2 MB. Resize a too-large photo down to 1024×768 — usually drops below 500 KB while staying readable. Pair with our Image Compressor for further savings.
+
+### Creating profile pictures and avatars
+
+Most platforms expect square avatars at 200×200, 400×400, or 512×512. Resize and crop your source image to the target square here, then upload directly. No round-trip through Photoshop.
+
+## How it works
+
+1. **Drag-drop or select an image** — JPG, PNG, WebP, and GIF supported. The original file stays on your disk; only an in-memory copy is loaded into the canvas.
+2. **Choose target dimensions** — Enter exact pixel dimensions or a percentage of the original. Toggle "Maintain aspect ratio" to lock proportions and prevent distortion.
+3. **Pick the output format** — Same as source by default. Switch to WebP for smaller files (typically 25-40% smaller than JPG at the same visual quality).
+4. **Click Resize** — The browser draws the source image onto a canvas at the target size, applying high-quality bicubic/Lanczos downsampling. Output is encoded with your chosen format.
+5. **Download or copy** — Save the resized file to disk, or use the share button on mobile to send directly to another app.
+
+## Examples
+
+**Input:** 4032×3024 JPG (smartphone photo, 4.2 MB)
+
+**Output:** 1200×900 JPG (web-ready, 280 KB)
+
+---
+
+**Input:** 512×512 PNG logo
+
+**Output:** 256×256 PNG (icon-ready, smaller)
+
+## Frequently asked questions
+
+<details>
+<summary>**Does resizing reduce image quality?**</summary>
+
+Downscaling (making smaller) typically preserves quality very well thanks to Lanczos-style filtering. Upscaling (making larger) cannot create detail that was not in the source — for upscaling, use our Image Upscaler tool, which uses a smarter algorithm.
+
+</details>
+
+<details>
+<summary>**Will my image be uploaded to your server?**</summary>
+
+No. Resizing happens in your browser via the Canvas API. Disconnect from the internet after page load and the tool still works. No file ever leaves your device.
+
+</details>
+
+<details>
+<summary>**What's the maximum file size?**</summary>
+
+Up to ~50 MB on most desktop browsers, limited by available memory. Mobile browsers may struggle above ~20 MB. For huge files, resize on desktop.
+
+</details>
+
+<details>
+<summary>**Does the resizer preserve EXIF metadata?**</summary>
+
+No — Canvas-based resizing strips EXIF (a privacy benefit and quality concern depending on context). If you need EXIF preserved, use a desktop tool like ImageMagick with `-strip` disabled.
+
+</details>
+
+<details>
+<summary>**Why does my resized JPG look slightly different?**</summary>
+
+JPG is lossy; re-encoding always introduces some quantization. To minimize loss, set output quality to 90+ or switch to WebP/PNG.
+
+</details>
+
+<details>
+<summary>**Can I batch-resize many images?**</summary>
+
+This single-image tool handles one at a time. For batches of 50+, use our Image Format Batch Converter or a desktop tool.
+
+</details>
+
+## Tips
+
+- Always resize images to their actual display size before uploading — saves bandwidth and improves Core Web Vitals.
+- Use WebP output for web; falls back to JPG via `&lt;picture&gt;` for older browsers.
+- When resizing for high-DPI screens, target 2× the CSS dimensions (e.g., 800px wide for a 400px display slot on retina).
+- Pair with the Image Compressor for further size savings without additional resizing.
+
+## Try it now
+
+The full image-resizer runs in your browser at **[https://ztools.zaions.com/image-resizer](https://ztools.zaions.com/image-resizer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-resizer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-resizer.mdx)*

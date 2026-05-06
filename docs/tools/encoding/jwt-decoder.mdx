@@ -1,0 +1,126 @@
+---
+id: jwt-decoder
+title: "JWT Decoder — Inspect Header, Payload, Signature (Client-side)"
+description: "Paste a JSON Web Token, get human-readable header and payload claims. Highlights expiration, algorithm, audience. 100% client-side — never sent."
+sidebar_label: "jwt-decoder"
+keywords:
+  - "jwt decoder"
+  - "jwt parser"
+  - "jwt inspector"
+  - "json web token decoder"
+  - "oidc decoder"
+  - "oauth jwt decoder"
+  - "jwt online"
+  - "jwt claims viewer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# jwt-decoder
+
+A JSON Web Token (JWT) is a compact, URL-safe credential containing a JSON object signed by the issuer. It is the dominant token format for OAuth 2.0, OpenID Connect, and most modern API authentication. The ZTools JWT Decoder splits a token at its two dots, Base64URL-decodes the header and payload, and pretty-prints the JSON claims with a human-readable interpretation of standard fields (`exp`, `iat`, `nbf` shown as local timestamps, `aud` highlighted, algorithm flagged if `none`). Decoding is purely structural — verifying the signature requires the issuer's public key and is intentionally NOT done in this tool because pasting your secret into a web page is bad practice.
+
+<ToolCTA toolId="jwt-decoder" toolName="jwt-decoder" />
+
+## Use cases
+
+### Debugging "401 unauthorized" responses
+
+Copy the JWT from your Authorization header (Postman, browser DevTools, Charles Proxy), paste it here, and instantly see whether `exp` is past, the audience is wrong, or the issuer mismatches. 80% of "why is my API rejecting this token?" mysteries resolve in 5 seconds with a decode.
+
+### Inspecting OIDC ID tokens
+
+OIDC ID tokens carry user identity claims — `sub`, `email`, `email_verified`, `name`, `picture`, custom claims your IdP injected. Decode to see exactly what your application receives. Useful when an IdP claim mapping is misconfigured and your app sees a missing field.
+
+### Auditing token sizes for header limits
+
+Some servers cap headers at 8 KB; tokens larger than that get truncated and silently fail. Decode + check the size to confirm the token fits — particularly important when Cognito or Auth0 add many groups to a token.
+
+### Verifying token contents in security review
+
+During a security review, you want to confirm tokens don't leak sensitive PII in claims (passwords, full SSN, etc.). Decode a representative token and read the claim names against the application's data classification policy.
+
+## How it works
+
+1. **Paste the JWT** — A JWT is three Base64URL-encoded segments separated by dots: `header.payload.signature`. Most JWTs are 200–800 chars; a few thousand for OIDC tokens.
+2. **Tool splits at the dots** — Validates that there are exactly two dots and three non-empty segments. Surfaces structural errors like "missing payload" or "invalid Base64URL".
+3. **Base64URL-decodes header and payload** — The standard Base64URL → bytes → UTF-8 string → JSON.parse pipeline. Errors at any stage are flagged.
+4. **Pretty-prints both as JSON** — Standard claims (`exp`, `iat`, `nbf`) are highlighted; expiration timestamps converted to local time and flagged red if past.
+5. **Optionally toggle "show signature bytes"** — The signature segment is opaque without the verifying key, but the raw bytes (and length) are shown so you can confirm the algorithm matches header `alg`.
+
+## Examples
+
+**Input:** eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJleHAiOjE3MDAwMDAwMDB9.signature
+
+**Output:** Header: \{ "alg": "HS256", "typ": "JWT" \}
+Payload: \{ "sub": "123", "exp": 1700000000 (2023-11-14, EXPIRED) \}
+
+---
+
+**Input:** A token with `"alg": "none"`
+
+**Output:** Header: \{ "alg": "none" \} ⚠️ WARNING: unsigned token
+
+## Frequently asked questions
+
+<details>
+<summary>**Does this tool verify the signature?**</summary>
+
+No, intentionally. Verification requires the issuer's public key (RS256/ES256) or shared secret (HS256). Pasting a secret into a web page is unsafe. Use your IdP's introspection endpoint or your library's `jwt.verify` for actual verification.
+
+</details>
+
+<details>
+<summary>**Can someone modify a JWT after I decode it?**</summary>
+
+Yes, anyone can alter the header and payload — that is why JWTs are SIGNED. Modifying the JSON without re-signing produces an invalid signature, which the receiver should reject. The decoder shows you what is in the token, not whether it is trusted.
+
+</details>
+
+<details>
+<summary>**What does "exp" mean?**</summary>
+
+The expiration timestamp (Unix seconds since 1970). Tokens past their `exp` should be rejected. Our decoder converts to local time and flags expired tokens. Other time claims: `iat` (issued at), `nbf` (not before), `auth_time` (in OIDC).
+
+</details>
+
+<details>
+<summary>**Is the JWT sent anywhere when I paste it?**</summary>
+
+No. Decoding is JavaScript Base64URL + JSON.parse, all in your browser. Open DevTools → Network and confirm zero requests on paste. Critical because tokens often grant API access — never paste them into untrusted online tools.
+
+</details>
+
+<details>
+<summary>**What is the difference between a JWS and a JWE?**</summary>
+
+JWS (JSON Web Signature) is what most people mean by "JWT" — three segments, payload visible. JWE (JSON Web Encryption) has five segments and the payload is encrypted. Our decoder handles JWS; JWE requires the recipient's private key to decrypt.
+
+</details>
+
+<details>
+<summary>**Can I use this for opaque tokens (not JWTs)?**</summary>
+
+No. Opaque tokens (sometimes called "reference tokens") have no internal structure — they are random strings the IdP looks up server-side via introspection. If your token has fewer than 2 dots, it is opaque, not a JWT.
+
+</details>
+
+## Tips
+
+- Decode every JWT you receive at least once during integration — the claims your IdP sends often differ from the docs.
+- Watch for `alg: "none"` in production. It indicates a misconfigured server.
+- For OIDC, `sub` is the stable user ID. `email` can change; never use email as the primary user key.
+- Tokens are short-lived for a reason. If your token is valid for hours, audit the issuing server's `expires_in` setting.
+
+## Try it now
+
+The full jwt-decoder runs in your browser at **[https://ztools.zaions.com/jwt-decoder](https://ztools.zaions.com/jwt-decoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/jwt-decoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/jwt-decoder.mdx)*

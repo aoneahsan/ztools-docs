@@ -1,0 +1,125 @@
+---
+id: favicon-generator
+title: "Favicon Generator — Create Multi-Size Favicons (ICO, PNG, Apple Touch)"
+description: "Generate favicons in every size browsers and platforms need: 16x16, 32x32, 192x192, 512x512, apple-touch-icon, and ICO. From any image, free."
+sidebar_label: "favicon-generator"
+keywords:
+  - "favicon generator"
+  - "create favicon"
+  - "favicon maker"
+  - "ico generator"
+  - "apple touch icon generator"
+  - "pwa icon generator"
+  - "favicon converter"
+  - "free favicon tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# favicon-generator
+
+A favicon generator is a tool that produces the small icon shown in browser tabs, bookmarks, and home-screen shortcuts in every size and format modern platforms expect. The ZTools Favicon Generator takes a single source image (PNG, JPG, or SVG) and emits a complete favicon package: 16×16, 32×32, 48×48, 64×64, 96×96, 128×128, 192×192, 512×512 PNGs, a multi-size ICO, an Apple Touch Icon (180×180), and the matching `&lt;link&gt;` tags ready to paste into your HTML `&lt;head&gt;`. Everything generated client-side; the source image is never uploaded.
+
+<ToolCTA toolId="favicon-generator" toolName="favicon-generator" />
+
+## Use cases
+
+### Adding a favicon to a brand-new website
+
+Upload your logo, get a complete package in 5 seconds, drop the files in your `public/` folder, and paste the generated `&lt;link&gt;` tags into your `&lt;head&gt;`. Saves an hour of resizing in Photoshop and figuring out which formats each browser wants.
+
+### Updating an existing favicon for a brand refresh
+
+Re-run the generator with your new logo. Replace the old files in your repo and ship — every browser sees the new icon on the next cache miss.
+
+### Creating a high-resolution Apple Touch Icon for iOS home-screen pinning
+
+iOS Safari's "Add to Home Screen" uses a 180×180 PNG with no transparency. The generator emits exactly this format alongside the standard favicon set, so iOS bookmarks show your full-resolution logo instead of a cropped screenshot.
+
+### Producing PWA icons for `manifest.json`
+
+Progressive Web Apps need 192×192 and 512×512 icons referenced in the web app manifest. The generator outputs both at the right pixel densities; copy the file paths into your `manifest.json` `icons` array.
+
+## How it works
+
+1. **Upload your source image** — PNG, JPG, or SVG. Square images work best (non-square images are letterboxed). Recommended source size: at least 512×512 to avoid upscaling artifacts on the largest output.
+2. **Optional: choose background color and padding** — For SVG sources, pick a background fill if your icon needs a filled rounded square (iOS style). Padding controls the safe area inside the canvas.
+3. **Click Generate** — The tool draws your image onto a series of canvases at every target resolution and encodes each as PNG. The ICO file is built by stitching the 16/32/48 PNGs together per the ICO spec.
+4. **Download the ZIP package** — Contains every PNG, the ICO file, and a `favicon-tags.html` snippet with the recommended `&lt;link&gt;` tags.
+5. **Drop files into your project** — Place all files in your site root (or `/public/`). Paste the `&lt;link&gt;` tags into your `&lt;head&gt;`. Hard-refresh (Ctrl+Shift+R) to see the new favicon.
+
+## Examples
+
+**Input:** 1024×1024 PNG logo
+
+**Output:** favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png (180×180), android-chrome-192x192.png, android-chrome-512x512.png
+
+---
+
+**Input:** 512×512 SVG with transparent background
+
+**Output:** Same as above plus an Apple Touch Icon with white background (iOS does not render transparency).
+
+## Frequently asked questions
+
+<details>
+<summary>**Why do I need so many favicon sizes?**</summary>
+
+Each platform picks the closest match: 16×16 for browser tabs, 32×32 for retina tabs, 192×192 for Android home screens, 512×512 for splash screens, 180×180 for iOS home screens. Providing every size avoids ugly browser-side scaling.
+
+</details>
+
+<details>
+<summary>**Is favicon.ico still necessary?**</summary>
+
+Yes — older browsers and many crawlers (including Google) still request `/favicon.ico` from the site root. The multi-size ICO contains 16×16, 32×32, and 48×48 in one file for backward compatibility.
+
+</details>
+
+<details>
+<summary>**What's the recommended source image size?**</summary>
+
+512×512 minimum. Larger sources (1024×1024 or vector SVG) produce sharper results across all output sizes because no upscaling is needed.
+
+</details>
+
+<details>
+<summary>**Will my source image be uploaded?**</summary>
+
+No. All resizing and encoding happen in your browser via the Canvas API. The source image stays on your device.
+
+</details>
+
+<details>
+<summary>**How do I update the favicon if browsers cached the old one?**</summary>
+
+Browsers cache favicons aggressively (often forever). Force a refresh by appending a query string to the link tag (`href="/favicon.ico?v=2"`) or renaming the file.
+
+</details>
+
+<details>
+<summary>**Should I use a transparent or solid background?**</summary>
+
+Transparent for browser tabs (looks cleaner). Solid for iOS Apple Touch Icon (iOS adds its own rounded mask and ignores alpha). The generator handles both automatically.
+
+</details>
+
+## Tips
+
+- Start with at least a 512×512 source image to avoid upscaling artifacts.
+- Use a square logo without text — text becomes unreadable at 16×16.
+- After deploying, validate with realfavicongenerator.net or https://your-site.com/favicon.ico in incognito.
+- Hard-refresh after deploying a new favicon to clear browser cache.
+
+## Try it now
+
+The full favicon-generator runs in your browser at **[https://ztools.zaions.com/favicon-generator](https://ztools.zaions.com/favicon-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/favicon-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/favicon-generator.mdx)*

@@ -1,0 +1,127 @@
+---
+id: uuid-generator
+title: "UUID Generator — v1, v4, v7, NIL (RFC 9562 Compliant)"
+description: "Generate UUIDs (v1, v4, v7) in bulk. Cryptographically random, RFC 9562 compliant. Copy single or batch up to 10,000. Free, client-side."
+sidebar_label: "uuid-generator"
+keywords:
+  - "uuid generator"
+  - "guid generator"
+  - "uuid v4"
+  - "uuid v7"
+  - "uuid online"
+  - "random uuid"
+  - "bulk uuid generator"
+  - "rfc 9562 uuid"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# uuid-generator
+
+A UUID (Universally Unique Identifier) is a 128-bit value designed to be globally unique without coordination — anyone, anywhere can generate one and the chance of collision is effectively zero. The ZTools UUID Generator produces RFC 9562-compliant UUIDs in versions 1 (timestamp + MAC), 4 (random — most common), and 7 (timestamp-prefixed sortable, the modern preferred version), with bulk generation up to 10,000 at once for database seeding. Version 4 uses `crypto.getRandomValues()`, the same CSPRNG that the password generator uses, so the UUIDs are not just unique but unpredictable.
+
+<ToolCTA toolId="uuid-generator" toolName="uuid-generator" />
+
+## Use cases
+
+### Generating primary keys for new database rows
+
+Use UUID v7 if your database supports it — the timestamp prefix means rows are inserted in approximate insertion order, preserving B-tree locality and cutting index bloat. For older databases, v4 is fine; just accept random insert order.
+
+### Idempotency keys for HTTP requests
+
+Stripe, Square, and most payment APIs accept an `Idempotency-Key` header so retried requests don't double-charge. Generate a UUID v4 client-side, attach it to the request, and reuse it on retries within a 24-hour window.
+
+### Correlation IDs for distributed tracing
+
+Mint a UUID at the API gateway, propagate via `X-Request-Id` header to every microservice. When debugging, grep all logs for that ID to reconstruct the entire request flow. Pairs perfectly with structured logging.
+
+### Anonymous user IDs for analytics
+
+Generate a UUID v4 once, store in localStorage, and use as the user identifier for product analytics. No PII, no email; just a stable random ID that lets you measure retention without cookies.
+
+## How it works
+
+1. **Choose version** — v4 (random — most common, default). v7 (timestamp-prefixed, sortable). v1 (legacy, MAC-based). NIL (the all-zero UUID, used as a sentinel).
+2. **Set quantity** — 1 (default) up to 10,000. Each is generated independently — collisions are mathematically impossible at this scale (you would need ~2^61 v4 UUIDs to have a 50% chance of any collision).
+3. **Pick format** — Hyphenated (`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`) is standard. No-hyphens, uppercase, braces (`\{...\}`), and Base64 are also offered for systems with non-standard expectations.
+4. **Click Generate** — For v4, the tool calls `crypto.randomUUID()` (browsers since 2022) or falls back to `crypto.getRandomValues()` + bit-twiddling for the version/variant fields. For v7, timestamp + random bytes per the RFC 9562 layout.
+5. **Copy or download** — Single UUID copies on click. Bulk generates as one-per-line text, optionally with comma or JSON-array separators. Download as `.txt` or `.json` for batch use.
+
+## Examples
+
+**Input:** Version: v4, quantity: 1
+
+**Output:** a8f5f167-7a8c-4b9e-8f1a-3e7d2c9b4f8a
+
+---
+
+**Input:** Version: v7, quantity: 3
+
+**Output:** 018d4a3a-5f00-7b6f-9c4d-...
+018d4a3a-5f01-7c2d-8a3e-...
+018d4a3a-5f02-7e1a-bf67-...
+
+## Frequently asked questions
+
+<details>
+<summary>**Which UUID version should I use?**</summary>
+
+For most cases, v7 if your stack supports it (better DB index locality, naturally sortable), otherwise v4. Avoid v1 (leaks the MAC address of the generator) and v3/v5 (name-based, only useful when you need deterministic UUIDs from a namespace).
+
+</details>
+
+<details>
+<summary>**Can two UUIDs ever be the same?**</summary>
+
+In theory yes, in practice no. The probability of collision among 1 billion v4 UUIDs is roughly 1 in 10^18. You're more likely to win the lottery 10 times than to generate a duplicate.
+
+</details>
+
+<details>
+<summary>**Is a UUID a secret?**</summary>
+
+It depends on context. v4 UUIDs are 122 bits of randomness, which is unguessable enough to use as a session token IF the rest of your security model assumes that. But v1, v3, v5, and v7 are partially predictable, so don't treat them as secrets.
+
+</details>
+
+<details>
+<summary>**Why is v7 better for database keys than v4?**</summary>
+
+v7 is timestamp-prefixed, so rows insert in roughly chronological order. This matches B-tree page layout, dramatically reducing index fragmentation in PostgreSQL/MySQL. v4 inserts at random positions, causing constant page splits.
+
+</details>
+
+<details>
+<summary>**How do I generate UUIDs in bulk?**</summary>
+
+Set the quantity slider up to 10,000. The tool generates each independently (no shared state) and outputs as newline-separated text or a JSON array. For more than 10,000, use a CLI tool — paste the output is the bottleneck, not generation.
+
+</details>
+
+<details>
+<summary>**Can I generate UUIDs offline?**</summary>
+
+Yes. Once the page loads, generation runs entirely in your browser. Disconnect from the network and generate as many as you want. Useful for isolated development environments.
+
+</details>
+
+## Tips
+
+- Default to v7 unless you have a specific reason to use v4. Better DB performance, no downside.
+- For session tokens, prefer a longer crypto-random token (32+ bytes) over a UUID — UUIDs have only 122 bits of entropy due to fixed version/variant bits.
+- When seeding test data, generate UUIDs once and check them into the test fixtures. Random-per-run UUIDs make tests non-reproducible.
+- Format your UUIDs consistently across the codebase (always lowercase, always hyphenated). Mixed formats break case-sensitive comparisons.
+
+## Try it now
+
+The full uuid-generator runs in your browser at **[https://ztools.zaions.com/uuid-generator](https://ztools.zaions.com/uuid-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/uuid-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/uuid-generator.mdx)*

@@ -1,0 +1,125 @@
+---
+id: regex-tester
+title: "Regex Tester — Live Match, Group Capture, Cheat Sheet"
+description: "Test JavaScript regular expressions live. Highlights matches, shows capture groups, supports flags (gimsuy). Built-in cheat sheet. Free, client-side."
+sidebar_label: "regex-tester"
+keywords:
+  - "regex tester"
+  - "regular expression tester"
+  - "regex builder"
+  - "javascript regex"
+  - "regex online"
+  - "regex match"
+  - "regex replace"
+  - "regex cheatsheet"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# regex-tester
+
+A regex tester evaluates a regular expression against sample text and shows matches, capture groups, and named groups in real time so you can iterate on the pattern without bouncing between editor and runtime. The ZTools Regex Tester runs the JavaScript flavor (the same engine your `String.match` calls use), supports all six flags (`g`, `i`, `m`, `s`, `u`, `y`), and visualizes captured groups with color-coded highlights. Includes a built-in cheat sheet for character classes, quantifiers, anchors, lookarounds, and Unicode property escapes — handy when you forget whether `\\b` works inside a character class (it does not).
+
+<ToolCTA toolId="regex-tester" toolName="regex-tester" />
+
+## Use cases
+
+### Validating user input format (email, phone, postal code)
+
+Write your pattern, paste 20 example inputs (good and bad), and watch the highlights confirm exactly what matches. This iterative loop catches edge cases — like the email `+plus@aliases` your first pattern rejected — before you ship the regex into a form validator.
+
+### Extracting data from log files or unstructured text
+
+Paste a 1000-line log, write a pattern with capture groups for timestamp, severity, and message, and the tester lists every match in a table. Copy the table to spreadsheet for analysis. Faster than writing a one-off Python script for occasional log digging.
+
+### Building find-and-replace patterns for refactoring
+
+Test your pattern + replacement against representative source code before running it across the whole codebase. The Replace pane previews the result. Catches the `\\1` vs `$1` confusion (JS uses `$1`) before it mangles 500 files.
+
+### Learning regex by inspecting cheat sheet examples
+
+The built-in cheat sheet has clickable examples — click any pattern to load it into the editor and see it match against pre-filled sample text. Best way to learn the difference between greedy `*` and lazy `*?` is to watch them match the same input differently.
+
+## How it works
+
+1. **Type your regex into the pattern field** — No need to escape outer slashes — the tool already wraps the pattern. Errors show inline if the regex is invalid.
+2. **Toggle flags** — g (global), i (case-insensitive), m (multiline), s (dotall), u (unicode), y (sticky). Most patterns use g + i.
+3. **Paste sample text** — Up to ~5 MB. Matches highlight live as you type.
+4. **Inspect matches and groups** — A panel below the input lists every match with its position, full text, and captured groups (numbered or named). Click any match to scroll the input to its location.
+5. **Try the Replace pane** — Switch to Replace mode, type the replacement string with `$1`, `$2`, etc. for back-references, and the result appears with both original and replaced text shown for comparison.
+
+## Examples
+
+**Input:** Pattern: `(\\w+)@(\\w+\\.\\w+)` flags: gi  Text: "alice@example.com bob@test.org"
+
+**Output:** 2 matches. Match 1: "alice@example.com" — Groups: alice / example.com. Match 2: "bob@test.org" — Groups: bob / test.org.
+
+---
+
+**Input:** Pattern: `\\d\{3\}-\\d\{4\}` Text: "Call 555-1234 or 800-9999."
+
+**Output:** 2 matches: "555-1234", "800-9999".
+
+## Frequently asked questions
+
+<details>
+<summary>**Which regex flavor does this use?**</summary>
+
+JavaScript (ECMAScript 2024). This matches what runs in browsers and Node.js. For Python (re module), Java, .NET, or PCRE-specific syntax, use a flavor-specific tester — most patterns are portable but lookbehind, named groups, and Unicode property escapes differ.
+
+</details>
+
+<details>
+<summary>**Why does my regex with backreferences not work?**</summary>
+
+JavaScript uses `\\1`, `\\2` for backreferences inside the pattern (matching previously captured text) and `$1`, `$2` in the replacement string. Mixing them up — `$1` in the pattern or `\\1` in the replacement — is the most common regex bug.
+
+</details>
+
+<details>
+<summary>**How do I match line breaks?**</summary>
+
+By default, `.` does not match `\\n`. Add the `s` (dotall) flag and `.` matches everything including newlines. Or use `[\\s\\S]` which always matches any character regardless of flags.
+
+</details>
+
+<details>
+<summary>**What is the difference between greedy and lazy quantifiers?**</summary>
+
+`*` and `+` are greedy — they match as much as possible, then backtrack. `*?` and `+?` are lazy — they match as little as possible, then expand. For `&lt;.*&gt;` against `&lt;a&gt;&lt;b&gt;`, greedy matches the whole string; `&lt;.*?&gt;` matches just `&lt;a&gt;`.
+
+</details>
+
+<details>
+<summary>**Can I use this for non-Latin scripts?**</summary>
+
+Yes, with the `u` flag. Then `\\p\{L\}` matches any letter, `\\p\{N\}` any number, `\\p\{Script=Arabic\}` Arabic letters, etc. Without `u`, `\\w` is ASCII-only and breaks on Cyrillic/CJK input.
+
+</details>
+
+<details>
+<summary>**Is regex the right tool for parsing HTML?**</summary>
+
+Almost never — HTML is not regular and corner cases will eat you alive. Use a DOM parser (`DOMParser` in browsers, `cheerio` or `jsdom` in Node). Regex is fine for extracting simple stable patterns from clean HTML, but full parsing is a different problem.
+
+</details>
+
+## Tips
+
+- Start specific, generalize as needed. `\\d\{3\}-\\d\{4\}` is easier to debug than `\\d+\\W\\d+` even if both match.
+- Use named groups `(?&lt;year&gt;\\d\{4\})` once your pattern has more than 2 captures — your future self will thank you.
+- When a regex feels long, it probably is. Two simpler regexes chained beat one monster pattern for maintainability.
+- Always test with at least 5 negative examples (inputs that should NOT match) — most regex bugs are over-matches, not under-matches.
+
+## Try it now
+
+The full regex-tester runs in your browser at **[https://ztools.zaions.com/regex-tester](https://ztools.zaions.com/regex-tester)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/regex-tester)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/regex-tester.mdx)*
