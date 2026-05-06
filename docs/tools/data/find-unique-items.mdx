@@ -1,0 +1,120 @@
+---
+id: find-unique-items
+title: "Find Unique Items in List — Online Free Tool"
+description: "Extract items that appear exactly once in your list. Find one-offs, anomalies, singletons. Browser-only — no signup."
+sidebar_label: "find-unique-items"
+keywords:
+  - "find unique items online"
+  - "list singletons tool"
+  - "unique values list"
+  - "extract unique entries"
+  - "one-time items finder"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# find-unique-items
+
+Finding unique items means returning the items that appear exactly once in the input — the opposite of finding duplicates. If a list has 1000 entries and 950 are duplicates of something, "unique items" returns the 50 singletons. This is different from deduplication, which keeps one of every distinct value. Use cases: spotting one-time events in a log, isolating outliers in a dataset, finding rare values for analysis. The ZTools Find Unique Items tool counts occurrences in O(n) using a hash map and returns only items with count = 1.
+
+<ToolCTA toolId="find-unique-items" toolName="find-unique-items" />
+
+## Use cases
+
+### Identify rare events in logs
+
+Most error codes repeat thousands of times. The unique ones — codes that fired exactly once — are often the most interesting (one-off bugs, edge cases).
+
+### Find one-time customers
+
+In a transaction list, customers appearing only once might churn. Surface them for re-engagement campaigns.
+
+### Spot outliers in survey responses
+
+Most write-ins repeat common answers. The unique write-ins are the ones to read — they're where insight lives.
+
+### Audit a migration
+
+After a CSV import, the IDs that appear in the source but not the destination (and vice versa) tell you what failed.
+
+## How it works
+
+1. **Paste list** — One item per line. Tool counts occurrences in a hash map (Map in JS).
+2. **Filter to count = 1** — Walk the map, keep only items with frequency = 1. Output the keys preserving original order.
+3. **Configure matching** — Case-sensitive / insensitive, whitespace trim, numeric coercion. Same options as dedupe.
+4. **Copy result** — Output uniques + count summary: \{input: 1000, distinct: 425, unique once: 50\}.
+
+## Examples
+
+**Input:** [apple, banana, apple, cherry, banana, date]
+
+**Output:** Unique items: [cherry, date]. Each appears exactly once.
+
+---
+
+**Input:** Logs with 10,000 lines and 9,800 duplicates
+
+**Output:** Unique items: 200 lines that fired only once. Often the most informative.
+
+---
+
+**Input:** Case-insensitive: ["Alice","alice","Bob"]
+
+**Output:** With case-insensitive: alice appears 2x, Bob 1x → unique: [Bob]. Without: all three are distinct strings, all appear once → unique: all three.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from dedupe?**</summary>
+
+Dedupe returns one of each distinct value (apple appears 3x → output keeps one apple). Unique returns only items with frequency 1 (apple appears 3x → output drops apple entirely).
+
+</details>
+
+<details>
+<summary>**What does "find unique" mean exactly?**</summary>
+
+Items with count exactly 1. Items with count 0 don't exist; items with count ≥ 2 are duplicates and excluded.
+
+</details>
+
+<details>
+<summary>**Can I see the full frequency table?**</summary>
+
+Toggle "show frequencies" — output becomes a table of (item, count) pairs sorted by count. Useful for triage.
+
+</details>
+
+<details>
+<summary>**How big a list?**</summary>
+
+O(n) hash-map walk. Million-line inputs work in seconds.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side. No upload.
+
+</details>
+
+## Tips
+
+- Combine with sort to produce a sorted list of uniques — easier scanning.
+- Toggle case-insensitive when working with names or emails — "Alice" and "alice" should usually be one entity.
+- For the inverse (only items that repeat), use the Find Duplicate Items tool.
+- Frequency view is the secret weapon — a table of (item, count) sorted descending tells you both the most-common and the rarest items at a glance.
+
+## Try it now
+
+The full find-unique-items runs in your browser at **[https://ztools.zaions.com/find-unique-items](https://ztools.zaions.com/find-unique-items)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/find-unique-items)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/find-unique-items.mdx)*

@@ -1,0 +1,123 @@
+---
+id: json-path-finder
+title: "JSON Path Finder — Find JSONPath Expressions for Any Value (Free)"
+description: "Click any value in a JSON document to get its JSONPath expression. Supports both JSONPath and JSON Pointer syntax. Free."
+sidebar_label: "json-path-finder"
+keywords:
+  - "json path finder"
+  - "jsonpath generator"
+  - "json pointer"
+  - "jsonpath query"
+  - "json path online"
+  - "free json path tool"
+  - "rfc 6901"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-path-finder
+
+A JSON path finder makes it trivial to extract the path expression for any value in a complex JSON document — click the value in the rendered tree, copy the resulting JSONPath ($.users[0].name) or JSON Pointer (/users/0/name) — instead of mentally counting array indices and tracing nested keys. The ZTools JSON Path Finder renders any JSON as an interactive tree, generates path expressions in both common syntaxes (JSONPath for jq/jsonpath libraries, JSON Pointer for RFC 6901 use cases like JSON Patch), supports search to find values matching a string, and tests path expressions live against the current document.
+
+<ToolCTA toolId="json-path-finder" toolName="json-path-finder" />
+
+## Use cases
+
+### Building a JSONPath query for a parsing tool
+
+Need the path to extract "user.profile.email" from a deeply nested API response. Click the value; the path is on your clipboard. Saves five minutes of mental traversal.
+
+### Finding the path of every occurrence of a value
+
+Search for "ERROR" across a 10k-line JSON log. The finder shows every path where that value appears — useful for debugging and audit trails.
+
+### Constructing JSON Patch operations
+
+JSON Patch (RFC 6902) needs JSON Pointer paths. The finder generates RFC 6901 pointer syntax with one click — exactly what JSON Patch tools require.
+
+### Documentation for nested API responses
+
+Document an API response by listing the path to each meaningful value. Authors paste the JSON, click around, copy paths into the docs.
+
+## How it works
+
+1. **Paste your JSON** — Any size, any depth. Validates first; malformed JSON gets an error before tree rendering.
+2. **Tree-view renders the structure** — Each node shows key + value. Arrays show indices [0], [1]. Objects show keys. Click triangles to expand/collapse subtrees.
+3. **Click any value to get its path** — Path renders in both JSONPath ($.users[0].name) and JSON Pointer (/users/0/name) syntaxes. Toggle between them; copy whichever you need.
+4. **Optional: search for values** — Type a search term; the finder lists every path whose value matches. Useful for "where does this string appear?" investigations.
+5. **Test path expressions live** — Type or paste a JSONPath; the finder evaluates it against the current document and highlights every match.
+
+## Examples
+
+**Input:** \{"users":[\{"name":"Alice"\}]\}
+
+**Output:** Click "Alice" → JSONPath: $.users[0].name | JSON Pointer: /users/0/name
+
+---
+
+**Input:** Click [3] on a 100-element array
+
+**Output:** $.items[3] | /items/3
+
+---
+
+**Input:** Search "ERROR" in a log JSON
+
+**Output:** Lists 24 paths matching $.logs[*].entries[*].level where the value equals "ERROR".
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between JSONPath and JSON Pointer?**</summary>
+
+JSONPath ($.foo.bar[0]) is a query language with wildcards, filters, and recursion — used by jq and similar tools. JSON Pointer (/foo/bar/0) is RFC 6901, a simpler addressing scheme used by JSON Patch. Pick whichever your downstream tool expects.
+
+</details>
+
+<details>
+<summary>**Can JSONPath express things JSON Pointer can't?**</summary>
+
+Yes — JSONPath supports wildcards ($.users[*].name), filters ($.items[?(@.price &gt; 10)]), and recursive descent ($..name). JSON Pointer is exact-path only.
+
+</details>
+
+<details>
+<summary>**How does it handle keys with dots or special characters?**</summary>
+
+JSONPath bracket notation handles them: $["my.key"]. JSON Pointer escapes them: /my.key (dot in key) — RFC 6901 only escapes / (~1) and ~ (~0). The finder generates the correct escaping automatically.
+
+</details>
+
+<details>
+<summary>**Does it support nested arrays?**</summary>
+
+Yes — the path includes every index. $.matrix[0][2] for the element at row 0, column 2 of a 2D array.
+
+</details>
+
+<details>
+<summary>**Will it generate paths for nonexistent or null values?**</summary>
+
+It only shows paths for values that exist in the document. To express "the path I would use if this were here", build the path manually following the JSONPath/JSON Pointer rules.
+
+</details>
+
+## Tips
+
+- For jq queries, you usually want JSONPath syntax ($.foo.bar[0]).
+- For JSON Patch operations, you need JSON Pointer syntax (/foo/bar/0).
+- When exploring an unfamiliar API response, expand the tree fully and click around — fastest way to learn the shape.
+- For document-driven tests (like contract tests), grab paths to assertion targets via this tool rather than typing them manually.
+
+## Try it now
+
+The full json-path-finder runs in your browser at **[https://ztools.zaions.com/json-path-finder](https://ztools.zaions.com/json-path-finder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-path-finder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/json-path-finder.mdx)*

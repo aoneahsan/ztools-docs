@@ -74,6 +74,16 @@ const TOOLS_TO_PUBLISH = [
   'notepad-online','password-strength-checker','phone-number-validator','pomodoro','random-name-generator',
   'receipt-generator','scientific-calculator','stopwatch-timer','subnet-calculator','timer','timezone',
   'twitter-ad-revenue-generator','url-validator','user-agent','vin-decoder','whois-lookup','world-clock-converter',
+
+  // Batch 5: data category — 41 tools
+  'analyze-json','array-operations','change-csv-delimiter','column-extractor','count-binary-ones',
+  'count-binary-zeros','css-specificity','csv-column-mapper','csv-parser','csv-to-text-columns','csv-viewer',
+  'data-cleaner','diff-merger','find-duplicate-items','find-list-length','find-unique-items','grep-tool',
+  'hex-to-image','html-entity-counter','invert-binary-bits','js-object-to-json','json-path-finder',
+  'json-schema-generator','json-to-single-line-string','json-tree-viewer','json-viewer','list-dedup',
+  'list-randomizer','list-shuffler','list-sorter','obfuscate-json','reverse-hex','shuffle-binary-bits',
+  'sort-csv-data','sql-formatter','sql-to-json','xml-formatter','xml-minifier','xml-validator',
+  'yaml-to-json','yaml-validator',
 ];
 
 // ---------------------------------------------------------------------------

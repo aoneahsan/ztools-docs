@@ -1,0 +1,112 @@
+---
+id: count-binary-ones
+title: "Count Binary Ones — Hamming Weight Calculator, Free"
+description: "Count 1-bits (population count, Hamming weight) in any binary, hex, or decimal number. Browser-only."
+sidebar_label: "count-binary-ones"
+keywords:
+  - "count binary ones online"
+  - "hamming weight calculator"
+  - "popcount tool"
+  - "count set bits"
+  - "binary 1s counter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# count-binary-ones
+
+Counting 1-bits in a number — also called popcount, population count, or Hamming weight — is a common operation in cryptography (key entropy), error-correcting codes (Hamming distance), low-level optimisation, and bitmap-heavy data structures. The ZTools Count Binary Ones tool accepts numbers in binary (10110001), hex (0xB1), or decimal (177) and returns the number of 1-bits. Bulk mode counts across a list. Useful for quick verification of bit-twiddling code, learning bit operations, and Hamming-distance calculations.
+
+<ToolCTA toolId="count-binary-ones" toolName="count-binary-ones" />
+
+## Use cases
+
+### Verify bit-twiddling code
+
+A C function uses Brian Kernighan's algorithm or __builtin_popcount. Use the tool to verify expected outputs against the implementation.
+
+### Compute Hamming distance
+
+XOR two numbers, count the 1-bits in the result — that's the Hamming distance (number of differing bit positions).
+
+### Audit key entropy
+
+A truly random 64-bit key should have ~32 ones on average. Heavy skew suggests a weak RNG.
+
+### Teach binary representations
+
+Convert decimal numbers to binary visually + count 1s — concrete intuition for binary-place values.
+
+## How it works
+
+1. **Paste number(s)** — Binary, hex (with 0x prefix), or decimal. Tool auto-detects.
+2. **Pick width** — Default: minimum bits needed. Override to a fixed width (8, 16, 32, 64) for context-specific counts.
+3. **Compute** — Walks the bits with bitwise AND + shift, or via Brian Kernighan's algorithm (n & (n-1) clears the lowest set bit).
+4. **Output** — Count of 1-bits + binary representation + count of 0-bits (within the chosen width).
+
+## Examples
+
+**Input:** Decimal 177
+
+**Output:** Binary 10110001. 1-bits: 4. 0-bits (in 8): 4.
+
+---
+
+**Input:** Hex 0xFF
+
+**Output:** Binary 11111111. 1-bits: 8 (all set).
+
+---
+
+**Input:** Hamming distance: 0b1010 ^ 0b1100 = 0b0110
+
+**Output:** XOR result has 2 ones → Hamming distance is 2.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does popcount matter?**</summary>
+
+It's O(1) in modern CPUs (POPCNT instruction since Nehalem 2008). Used in chess engines, bloom filters, error correction, and cryptography. Knowing popcount fluently signals low-level fluency.
+
+</details>
+
+<details>
+<summary>**How big a number?**</summary>
+
+JavaScript handles 32-bit bit operations natively. For 64-bit and BigInt, the tool toggles to BigInt mode — slower but supports arbitrary widths.
+
+</details>
+
+<details>
+<summary>**What's Brian Kernighan's trick?**</summary>
+
+n & (n-1) clears the lowest set bit. Repeat until n is 0; the count of iterations is the popcount. Faster than checking every bit.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For Hamming distance, XOR first, then popcount. Two-step procedure beats trying to do both at once.
+- For random-key audits, expect popcount within ~32 ± 8 of half the bit width — significant deviation suggests weak RNG.
+- For competitive programming / bitmask DP, popcount is ubiquitous — practice here before contests.
+
+## Try it now
+
+The full count-binary-ones runs in your browser at **[https://ztools.zaions.com/count-binary-ones](https://ztools.zaions.com/count-binary-ones)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/count-binary-ones)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/count-binary-ones.mdx)*

@@ -1,0 +1,122 @@
+---
+id: analyze-json
+title: "JSON Analyzer — Structure Stats, Key Counts & Type Distribution (Free)"
+description: "Analyze JSON for structure stats: depth, key count, array sizes, type distribution, longest paths, common patterns. Free."
+sidebar_label: "analyze-json"
+keywords:
+  - "analyze json"
+  - "json structure analyzer"
+  - "json profiler"
+  - "json statistics"
+  - "json type analyzer"
+  - "free json analyzer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# analyze-json
+
+A JSON analyzer profiles the shape of a JSON document — total nodes, max depth, key frequency, array sizes, type distribution per key, and longest paths — giving developers a quantitative summary of unfamiliar JSON before they write parsing code or design a schema. The ZTools JSON Analyzer runs entirely in your browser, handles megabytes of JSON, lists every distinct path with the type(s) of value found at it, flags inconsistencies (e.g., a key sometimes string, sometimes number), and shows histograms for array sizes — useful when ingesting third-party data of unknown shape.
+
+<ToolCTA toolId="analyze-json" toolName="analyze-json" />
+
+## Use cases
+
+### Profiling an unfamiliar API response
+
+You're integrating with a new vendor's API. Before writing parsers, get the shape: how deep does it go, what are the keys, are types consistent? Saves writing fragile code that breaks on the third payload.
+
+### Debugging type inconsistency in data
+
+Sometimes a field is a string, sometimes a number. The analyzer flags every key with mixed types — a common cause of "this works most of the time" parser bugs.
+
+### Writing a schema (JSON Schema, TypeScript types)
+
+The analyzer's key-list and type-distribution drives schema generation. Don't guess at types; let the data tell you what they are.
+
+### Capacity planning and sizing estimates
+
+Need to know how much storage 1M of these documents will use? The analyzer reports per-document size and pattern, helping size the database.
+
+## How it works
+
+1. **Paste your JSON document** — Single document or array of documents. The analyzer profiles each and aggregates results.
+2. **Walks every node** — Recursively visits every key/value pair, recording path, type, and (for primitives) value sample.
+3. **Aggregates per-path statistics** — For each unique path: count of occurrences, types observed, sample values, presence ratio (always-present vs sometimes).
+4. **Detects patterns and anomalies** — Mixed types per key, high-cardinality enumerations, very long arrays or deeply nested objects, common idioms (timestamps, UUIDs, emails).
+5. **Read the report** — Summary stats up top (depth, total keys, most common types). Detailed per-path table below. Histograms for array sizes and string lengths.
+
+## Examples
+
+**Input:** Single small JSON
+
+**Output:** 12 nodes | depth 3 | 8 unique paths | 5 strings, 3 numbers, 1 array, 1 object.
+
+---
+
+**Input:** Array of 1,000 user objects
+
+**Output:** All objects have keys [id, name, email, created_at]. id always number, email always string. 12% of objects also have an "phone" key (sometimes string, sometimes null).
+
+---
+
+**Input:** Inconsistent nested data
+
+**Output:** WARNING: $.user.age is sometimes number (87% of cases), sometimes string ("30"), sometimes null (2%). Likely a data-quality issue.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does this matter — JSON is just JSON?**</summary>
+
+Real-world JSON is messy. APIs return null when they mean missing, change types between versions, omit keys conditionally. Profiling first lets you write robust parsers and accurate schemas instead of discovering issues at runtime.
+
+</details>
+
+<details>
+<summary>**How does it handle deeply nested or recursive structures?**</summary>
+
+Recursive descent works for any depth. The analyzer caps at 1,000 levels deep to prevent stack overflow on pathological inputs; that's deeper than any practical JSON.
+
+</details>
+
+<details>
+<summary>**Can it generate a JSON Schema or TypeScript types?**</summary>
+
+Not directly — for that, use a dedicated JSON-to-Schema or JSON-to-TypeScript tool. The analyzer's output is the data those tools need: per-path types and presence ratios.
+
+</details>
+
+<details>
+<summary>**How does it detect "common idioms" like timestamps?**</summary>
+
+Pattern matching on string values: ISO dates, UUIDs, emails, URLs. These are noted but not treated as separate types — useful as documentation hints.
+
+</details>
+
+<details>
+<summary>**Does it work on huge JSON?**</summary>
+
+Up to ~50MB in modern browsers. Beyond that, browser memory limits hit. For huge data, sample (analyze a representative subset) instead of trying to load the whole thing.
+
+</details>
+
+## Tips
+
+- Always profile JSON before writing a parser — saves rewriting when the data has surprises.
+- Mixed-type keys almost always indicate a data quality problem; dig into them before treating them as normal.
+- Use the analyzer's output as the spec for downstream schema generation — empirical types beat speculative ones.
+- For arrays of objects, profile the array as a whole to see which keys are universal vs optional.
+
+## Try it now
+
+The full analyze-json runs in your browser at **[https://ztools.zaions.com/analyze-json](https://ztools.zaions.com/analyze-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/analyze-json)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/analyze-json.mdx)*

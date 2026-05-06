@@ -1,0 +1,124 @@
+---
+id: xml-minifier
+title: "XML Minifier — Remove Whitespace, Compress XML Documents (Free)"
+description: "Minify XML by removing unnecessary whitespace, comments, and line breaks. Optional comment preservation. Reduces size 20-60%. Free."
+sidebar_label: "xml-minifier"
+keywords:
+  - "xml minifier"
+  - "compress xml"
+  - "xml minify online"
+  - "xml compression"
+  - "remove xml whitespace"
+  - "free xml minifier"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# xml-minifier
+
+An XML minifier removes the whitespace and comments that aid human readability but waste bandwidth and storage in production XML — emitting a single compact line that parsers consume identically while shrinking documents by 20-60%. The ZTools XML Minifier preserves the meaningful whitespace inside &lt;pre&gt;-style elements (or any element with xml:space="preserve"), optionally retains comments for legal/copyright headers, never breaks well-formedness, handles documents up to several megabytes, and reports the before/after size difference so users can quantify the gain.
+
+<ToolCTA toolId="xml-minifier" toolName="xml-minifier" />
+
+## Use cases
+
+### Reducing payload size for SOAP/REST APIs
+
+A formatted 100KB SOAP request shrinks to 60KB minified. Faster transfer, less bandwidth cost. The receiving service parses the same data either way.
+
+### Production deployment of XML configuration
+
+Authoring uses pretty-printed XML for review; production embeds the minified version to save startup parse time and disk space.
+
+### Storing XML in databases or log fields
+
+A VARCHAR(2048) DB column won't fit a verbose XML payload. Minify first; pretty-print on read for inspection.
+
+### Embedding XML inside JSON or CDATA
+
+When XML needs to be a value in another format, minified is much friendlier — no embedded newlines requiring escapes.
+
+## How it works
+
+1. **Paste your XML** — Any well-formed XML, formatted or not. The minifier validates first; malformed XML produces an error.
+2. **Choose what to remove** — Whitespace between tags (default on), line breaks (on), comments (off — keep legal headers), unnecessary self-closing-tag spaces (on).
+3. **Preserve significant whitespace** — Elements with xml:space="preserve" keep their internal whitespace. Common in &lt;pre&gt;, &lt;code&gt;, and certain mixed-content elements.
+4. **Read minified output and savings** — Single-line compact XML alongside a size-saving stat ("85KB → 47KB, saved 45%").
+
+## Examples
+
+**Input:** &lt;root&gt;
+  &lt;a&gt;x&lt;/a&gt;
+  &lt;b&gt;y&lt;/b&gt;
+&lt;/root&gt;
+
+**Output:** &lt;root&gt;&lt;a&gt;x&lt;/a&gt;&lt;b&gt;y&lt;/b&gt;&lt;/root&gt;
+
+---
+
+**Input:** Verbose SOAP envelope (1,200 bytes)
+
+**Output:** Minified envelope (480 bytes), saving 60% bandwidth.
+
+---
+
+**Input:** Document with xml:space="preserve"
+
+**Output:** Whitespace inside the preserved element is left alone; everything else is minified.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will minification change the meaning of my XML?**</summary>
+
+No, as long as the document doesn't depend on whitespace between elements. Documents with significant whitespace need xml:space="preserve" on the relevant elements; without that, parsers may treat removed whitespace as significant in mixed content.
+
+</details>
+
+<details>
+<summary>**Why are comments preserved by default?**</summary>
+
+Many XML files contain copyright or license comments at the top that legal/compliance requires you keep. The minifier defaults to preserving comments so accidental stripping doesn't cause compliance issues. Toggle off for full minification.
+
+</details>
+
+<details>
+<summary>**Is minified XML faster to parse?**</summary>
+
+Slightly — less data to scan. But the bigger win is bandwidth/storage. For parser performance, schema-driven parsing matters far more than whitespace removal.
+
+</details>
+
+<details>
+<summary>**How does this differ from XML compression?**</summary>
+
+Minification removes whitespace, leaving plain text. Compression (gzip, EXI) wraps the bytes into a smaller binary format. They're complementary — minify, then compress, for maximum savings.
+
+</details>
+
+<details>
+<summary>**Can I round-trip — minify and then re-format?**</summary>
+
+Yes — the data is identical. Use the XML Formatter to re-pretty-print minified XML for inspection or editing.
+
+</details>
+
+## Tips
+
+- For truly maximum savings, gzip the minified XML — combined, you often get 80-90% size reduction.
+- If your data has mixed content (text inside elements that contain other elements), test minified output carefully — whitespace there can be semantically significant.
+- Keep human-readable XML in source control; minify at build time. Don't commit minified files.
+- For very large documents, EXI binary XML compresses better than gzipped text XML — but tooling support is narrower.
+
+## Try it now
+
+The full xml-minifier runs in your browser at **[https://ztools.zaions.com/xml-minifier](https://ztools.zaions.com/xml-minifier)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/xml-minifier)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/xml-minifier.mdx)*

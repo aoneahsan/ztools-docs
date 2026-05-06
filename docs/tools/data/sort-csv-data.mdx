@@ -1,0 +1,122 @@
+---
+id: sort-csv-data
+title: "Sort CSV Data — Order Rows by Column, Multi-Sort, Numeric/Date (Free)"
+description: "Sort CSV rows by any column ascending or descending. Multi-column sort, numeric, date, and natural sorting. Free."
+sidebar_label: "sort-csv-data"
+keywords:
+  - "sort csv"
+  - "csv sorter"
+  - "order csv rows"
+  - "multi column sort"
+  - "csv sort online"
+  - "free csv sort tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sort-csv-data
+
+A CSV sorter reorders the rows of a CSV file by one or more columns — supporting alphabetical, numeric, date, and natural-sort modes — so users can produce ordered output for reports, imports, and audits without opening Excel or writing a one-off script. The ZTools CSV Sorter handles tens of thousands of rows in your browser, supports multi-column sort (sort by status ascending, then by date descending), auto-detects column types, recognizes ISO dates and common formats, preserves the header row, and works on CSVs of any size that fits in browser memory.
+
+<ToolCTA toolId="sort-csv-data" toolName="sort-csv-data" />
+
+## Use cases
+
+### Sorting a sales export by date for a quarterly report
+
+A 5,000-row CSV of orders. Sort by order_date descending, take the top 50 — no formulas, no spreadsheet round-trip.
+
+### Multi-column sort for hierarchical data
+
+Sort by department asc, then by salary desc. Top earners per department surface in order — a common report shape.
+
+### Pre-sorting before importing into a database
+
+Some databases benefit from inserting in primary-key order. Pre-sort the CSV before the import to speed it up.
+
+### Producing reproducible diff-friendly CSV exports
+
+Two CSV exports of the same data may differ only in row order. Sort both by the same key; diff to find actual content changes.
+
+## How it works
+
+1. **Paste or upload the CSV** — Auto-detects delimiter and header row.
+2. **Pick sort columns** — Click a column header to sort ascending; click again for descending. Shift-click adds a secondary sort key (then tertiary, etc.).
+3. **Choose sort mode per column** — Auto (best guess), alphabetical, numeric, date (ISO/MM-DD-YYYY/etc), natural (handles embedded numbers correctly: "file2" before "file10").
+4. **Preview sorted rows** — Live preview shows the sorted output. Header row stays at top; sort indicators show direction.
+5. **Export sorted CSV** — Download or copy. Original CSV is preserved in case you want to re-sort with different keys.
+
+## Examples
+
+**Input:** Sort employees CSV by salary desc
+
+**Output:** Highest-paid employees at top.
+
+---
+
+**Input:** Multi-sort: department asc, then salary desc
+
+**Output:** Departments grouped alphabetically, with each group's top earners first.
+
+---
+
+**Input:** Sort filenames CSV (file1.txt, file10.txt, file2.txt)
+
+**Output:** Natural sort: file1, file2, file10. Default lexicographic gives the wrong answer here.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from sorting in Excel?**</summary>
+
+Faster for very large CSVs (Excel struggles past 100k rows), no install, no server, browser-only. Excel has more features (formulas, pivot tables) but for a pure sort, this is quicker.
+
+</details>
+
+<details>
+<summary>**How does it handle dates in different formats?**</summary>
+
+Auto-detection recognizes ISO 8601 ("2026-05-05"), US format ("05/05/2026"), and common variants. For ambiguous cases (is "01/02/2026" Jan 2 or Feb 1?), pick the explicit date format from the menu.
+
+</details>
+
+<details>
+<summary>**Will sorting by multiple columns slow things down?**</summary>
+
+No — multi-column sort is essentially the same speed as single-column for typical CSVs. The algorithm uses tuple comparison, which is O(n log n) regardless of key count.
+
+</details>
+
+<details>
+<summary>**Does it preserve the header row?**</summary>
+
+Yes — the first row is always preserved as headers (unless you toggle "no header"). Only data rows are sorted.
+
+</details>
+
+<details>
+<summary>**Can it handle very large CSVs?**</summary>
+
+Up to ~500k rows in modern browsers. Beyond that, browser memory limits kick in. For larger files, use sort(1), csvkit, or a database.
+
+</details>
+
+## Tips
+
+- For multi-column sorts, plan the order: outermost key (most significant) first, then secondary keys.
+- Numeric columns: switch sort mode to "numeric" so 100 doesn't sort before 20.
+- For natural sort, "file10" goes after "file2" — not what alphabetical does.
+- Sort, then export, then diff: a great workflow for finding actual content changes between CSV versions.
+
+## Try it now
+
+The full sort-csv-data runs in your browser at **[https://ztools.zaions.com/sort-csv-data](https://ztools.zaions.com/sort-csv-data)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sort-csv-data)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/sort-csv-data.mdx)*

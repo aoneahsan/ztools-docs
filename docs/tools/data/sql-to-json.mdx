@@ -1,0 +1,123 @@
+---
+id: sql-to-json
+title: "SQL to JSON Converter — INSERT Statements & Result Sets (Free)"
+description: "Convert SQL INSERT statements or result sets to JSON arrays. Supports MySQL, Postgres, SQL Server, SQLite. Free, instant."
+sidebar_label: "sql-to-json"
+keywords:
+  - "sql to json"
+  - "sql insert to json"
+  - "mysql to json"
+  - "postgres to json"
+  - "sql result to json"
+  - "free sql json converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sql-to-json
+
+A SQL to JSON converter parses SQL INSERT statements or query result sets and emits a JSON array of objects with column names as keys, making it straightforward to migrate sample data, build test fixtures from a database snapshot, and feed SQL output into JSON-based tools without re-querying. The ZTools SQL to JSON Converter handles INSERT statements (single-row and multi-row), CREATE TABLE statements (to extract column names), pipe-delimited query result tables, and copy-pasted result sets from MySQL, Postgres, SQL Server, and SQLite — handling NULL, dates, numeric and string types, and quoted identifiers.
+
+<ToolCTA toolId="sql-to-json" toolName="sql-to-json" />
+
+## Use cases
+
+### Building a JSON test fixture from existing SQL data
+
+You have INSERT statements seeding a test DB. Convert to JSON, save as a fixture file, use in JS/TS tests without spinning up the DB.
+
+### Migrating sample data into a NoSQL store
+
+Take a relational seed, convert to a JSON array, import into MongoDB or Firestore as documents. Quick prototyping without a heavy ETL pipeline.
+
+### Sharing query results as structured data
+
+Copy result rows from your SQL client, paste as a delimited table, get a JSON array. Easy to attach to a Slack message or paste into a notebook.
+
+### Generating mock-API responses from SQL data
+
+For frontend prototyping, take a few rows of SQL, convert to JSON, save as `mock.json`. Frontend can fetch it without a real backend.
+
+## How it works
+
+1. **Pick the input format** — INSERT statements, CREATE TABLE + INSERT, or pipe/tab-delimited result set.
+2. **Paste the SQL** — Multiple statements OK. Different dialects (MySQL, Postgres, SQL Server, SQLite) auto-detected from quoting and keywords.
+3. **Parser extracts columns and rows** — For INSERT: column list from `INSERT INTO table (col1, col2)` or implicit position. For results: header row provides column names.
+4. **Type inference per column** — Numeric columns become numbers, NULL becomes null, dates stay strings (ISO format if recognizable). Quoted strings stay strings.
+5. **Read the JSON output** — An array of objects, one per row. Pretty-printed (2-space indent) by default; toggle for minified.
+
+## Examples
+
+**Input:** INSERT INTO users (id, name) VALUES (1, 'Alice'), (2, 'Bob');
+
+**Output:** [\{"id":1,"name":"Alice"\},\{"id":2,"name":"Bob"\}]
+
+---
+
+**Input:** | id | name | age |
+| 1 | Alice | 30 |
+
+**Output:** [\{"id":1,"name":"Alice","age":30\}]
+
+---
+
+**Input:** INSERT INTO logs VALUES (1, NULL, '2026-05-05');
+
+**Output:** [\{"col_1":1,"col_2":null,"col_3":"2026-05-05"\}]
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it handle different SQL dialects?**</summary>
+
+Yes — the parser is dialect-tolerant. Backticks (MySQL), double-quotes (Postgres/SQLite), and brackets (SQL Server) for identifiers all work. Some advanced syntax (CTE, lateral joins, dialect-specific functions) is best simplified before pasting.
+
+</details>
+
+<details>
+<summary>**How does it handle NULL?**</summary>
+
+SQL NULL becomes JSON null. Empty strings stay as "". Be careful: some SQL dialects treat empty string and NULL identically; the converter keeps them distinct.
+
+</details>
+
+<details>
+<summary>**What about DATE and TIMESTAMP columns?**</summary>
+
+Dates are kept as strings in their source format. ISO 8601 format ("2026-05-05") is recommended for downstream tools. The converter doesn't reformat them.
+
+</details>
+
+<details>
+<summary>**Can it handle multi-row INSERT statements?**</summary>
+
+Yes — `INSERT INTO ... VALUES (...), (...), (...);` is parsed as multiple rows producing one JSON object per row.
+
+</details>
+
+<details>
+<summary>**Will it run any SQL or just parse it?**</summary>
+
+It only parses. No database connection, no execution. The tool is for converting already-known data, not running queries.
+
+</details>
+
+## Tips
+
+- For best results, include a CREATE TABLE statement above your INSERTs — column types help the converter infer JSON types correctly.
+- For NULL handling, prefer JSON null over the string "NULL" — semantically meaningful and easier to query.
+- After conversion, validate the JSON in a separate parser to catch any edge cases the converter missed.
+- For very large result sets, export to CSV from the SQL client first, then use the CSV-to-JSON tool — better suited for bulk data.
+
+## Try it now
+
+The full sql-to-json runs in your browser at **[https://ztools.zaions.com/sql-to-json](https://ztools.zaions.com/sql-to-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sql-to-json)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/sql-to-json.mdx)*

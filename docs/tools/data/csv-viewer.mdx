@@ -1,0 +1,123 @@
+---
+id: csv-viewer
+title: "CSV Viewer — Browse, Sort & Filter CSV in Browser (Free)"
+description: "View CSV files in a clean sortable table. Filter columns, paginate large files, search any cell. Free, no upload required."
+sidebar_label: "csv-viewer"
+keywords:
+  - "csv viewer"
+  - "csv browser"
+  - "view csv online"
+  - "csv table viewer"
+  - "csv inspector"
+  - "csv reader online"
+  - "free csv viewer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# csv-viewer
+
+A CSV viewer renders a CSV file as an interactive sortable, filterable, paginated table directly in your browser without uploading the file to any server — letting users browse, search, and inspect tabular data on a wider variety of files than spreadsheets handle gracefully. The ZTools CSV Viewer paginates rows for instant scrolling on huge files, supports column sorting and per-column filters, full-text search across all cells, and column hiding so you can focus on the columns that matter.
+
+<ToolCTA toolId="csv-viewer" toolName="csv-viewer" />
+
+## Use cases
+
+### Inspecting a vendor export quickly
+
+Got a 50k-row CSV from a partner? Paste, scroll, sort by date, filter by status. Faster than opening Excel, which freezes for big files.
+
+### Browsing a database export without spinning up a DB
+
+A SQL export dumped to CSV. Browse it as if it were a query result. No need to reload it into Postgres just to look at a few rows.
+
+### Sharing a sortable view with a non-technical colleague
+
+Send a link with the CSV pasted in (encoded in URL or shared via doc). They can sort and filter without needing Excel installed.
+
+### Cross-checking two related CSVs
+
+Open one tab per file, set similar filters in each. Compare side-by-side without merging into a spreadsheet.
+
+## How it works
+
+1. **Paste CSV or upload a file** — Files stay local — no server upload. Auto-detects the delimiter (comma, tab, semicolon, pipe).
+2. **Renders as a paginated table** — Default 50 rows per page; configurable up to 1,000. Pagination keeps scrolling responsive even for million-row files.
+3. **Sort, filter, search** — Click column headers to sort. Per-column filters narrow rows. Top-level search box matches any cell across all columns.
+4. **Show / hide columns** — A column-visibility menu lets you hide noise (internal IDs, audit columns) and focus on the data you actually need.
+5. **Export filtered view** — Save the visible (filtered, sorted, column-hidden) rows back to a new CSV — useful for sharing focused subsets.
+
+## Examples
+
+**Input:** 50,000-row sales export
+
+**Output:** Paginated table with sortable columns. Filter by region=NA reduces to 12,000 rows in milliseconds.
+
+---
+
+**Input:** CSV with 30 columns
+
+**Output:** Hide 20 columns to focus on the 10 that matter; export the focused view as a new CSV.
+
+---
+
+**Input:** CSV with mixed types
+
+**Output:** Sort numeric columns numerically (1, 2, 10), text columns alphabetically. Auto-detects column type.
+
+## Frequently asked questions
+
+<details>
+<summary>**Are my files uploaded to a server?**</summary>
+
+No — the entire CSV stays in your browser. Important for sensitive data (customer exports, PII, financial reports). The viewer works offline once loaded.
+
+</details>
+
+<details>
+<summary>**How is this different from Excel?**</summary>
+
+Faster for very large files, free, no install, and works on any device with a browser. Lacks formula support and pivot tables — for those, use Excel or Google Sheets. The viewer is for browsing, not authoring.
+
+</details>
+
+<details>
+<summary>**Can it handle files larger than 1GB?**</summary>
+
+Browser memory is the cap. Modern desktops handle ~500MB CSVs; phones top out earlier. For larger files, consider a streaming tool like csvkit or a database import.
+
+</details>
+
+<details>
+<summary>**Does column sorting modify the file?**</summary>
+
+No — sorting and filtering only affect the view. The original CSV is unchanged. Use "export filtered view" if you want to save a sorted/filtered copy.
+
+</details>
+
+<details>
+<summary>**How does it handle quoted fields with commas?**</summary>
+
+Per RFC 4180. Quoted fields can contain commas, newlines, and escaped quotes ("" → "). Non-standard quoting (backslash escapes) may parse incorrectly.
+
+</details>
+
+## Tips
+
+- Use column hiding to remove distracting noise — your eyes track 5 columns much better than 30.
+- For very large files, set pagination to 100 rows per page rather than 1,000 — your browser stays snappy.
+- Filter, then export — you get a focused CSV ready to send to a colleague or import into another tool.
+- When sharing analysis, share the filtered export rather than the full file — recipients open it faster.
+
+## Try it now
+
+The full csv-viewer runs in your browser at **[https://ztools.zaions.com/csv-viewer](https://ztools.zaions.com/csv-viewer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/csv-viewer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/csv-viewer.mdx)*

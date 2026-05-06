@@ -1,0 +1,119 @@
+---
+id: list-randomizer
+title: "List Randomizer Online — Random Order Generator, Free"
+description: "Randomize any list quickly. Pick winners, shuffle teams, randomize quiz questions. Browser-only, fair shuffle."
+sidebar_label: "list-randomizer"
+keywords:
+  - "list randomizer online"
+  - "random order generator"
+  - "pick random winner"
+  - "randomize names"
+  - "fair raffle picker"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# list-randomizer
+
+A list randomizer produces a random ordering of a list — equivalent to a fair shuffle. The use cases overlap with a shuffler, but "randomize" tends to be the term used for one-off draws (pick 3 winners, randomise team assignments) while "shuffle" is more often the term for music, decks, or repeated reorderings. The ZTools List Randomizer tool wraps Fisher-Yates with a "draw N" UI — paste the list, choose how many winners, get the result. Optional crypto-grade RNG for high-stakes draws.
+
+<ToolCTA toolId="list-randomizer" toolName="list-randomizer" />
+
+## Use cases
+
+### Pick raffle winners
+
+Paste 500 entrants, ask for 3 winners, copy the result. Fairness audit trail via the seed (if reproducibility is required) or crypto-RNG (if not).
+
+### Randomise team assignments
+
+Twelve people, three teams of four. Randomize, partition into chunks of four — fairer than ad-hoc captain picks.
+
+### Quiz question ordering
+
+Different students get questions in different orders. A randomised order per session reduces copying.
+
+### A/B testing — randomly assign treatment
+
+1,000 user IDs, half to A and half to B. Randomise then take the first 500 for A. Simple unbiased split.
+
+## How it works
+
+1. **Paste list** — One item per line. Tool counts entries.
+2. **Pick draw count** — Either output the full randomised list, or "draw N" to take the first N items as winners.
+3. **Pick RNG** — Standard or cryptographic. For raffles with prizes, prefer crypto.
+4. **Run and copy** — Output is the randomised list (or top N). Re-run for a new draw.
+
+## Examples
+
+**Input:** [Alice, Bob, Carol, Dave, Eve]; draw 2
+
+**Output:** One run: [Carol, Eve]. Another: [Alice, Dave]. Each 2-element subset equally likely.
+
+---
+
+**Input:** Randomise full list of 100
+
+**Output:** Output: 100 items, fully shuffled. Use as random ordering for a survey.
+
+---
+
+**Input:** A/B split of 1000 users
+
+**Output:** Randomise, take first 500 → group A; remaining 500 → group B. Each user equally likely to be in either group.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is "randomize" the same as "shuffle"?**</summary>
+
+Mathematically yes — both produce a uniformly random permutation. We use the names interchangeably; the tool with "randomize" in the name surfaces a "draw N" UI by default.
+
+</details>
+
+<details>
+<summary>**How fair is the draw?**</summary>
+
+Fisher-Yates is unbiased. The RNG matters — Math.random is fine for casual draws; crypto.getRandomValues is better when fairness might be challenged.
+
+</details>
+
+<details>
+<summary>**Can I exclude duplicates?**</summary>
+
+Run a deduplicate first — random draws on a list with duplicates can pick the same name twice (different positions).
+
+</details>
+
+<details>
+<summary>**How is "draw N" different from "pick one"?**</summary>
+
+"Draw N" returns N distinct items (sampling without replacement). "Pick one" repeated N times can return the same item. Use the right tool for your scenario.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in the browser. Names / IDs / sensitive data never leave the device.
+
+</details>
+
+## Tips
+
+- For raffles, screenshot the seed + the input list + the output. Reproducible audit trail without exposing names elsewhere.
+- When drawing more than ~30% of the list, shuffle the whole list and take the first N — same complexity, simpler audit.
+- Avoid drawing names visibly during a live event; pre-randomise in private then reveal — looks fairer to participants.
+
+## Try it now
+
+The full list-randomizer runs in your browser at **[https://ztools.zaions.com/list-randomizer](https://ztools.zaions.com/list-randomizer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/list-randomizer)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/list-randomizer.mdx)*

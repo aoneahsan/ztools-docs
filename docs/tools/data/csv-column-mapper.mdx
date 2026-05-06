@@ -1,0 +1,122 @@
+---
+id: csv-column-mapper
+title: "CSV Column Mapper — Rename, Reorder & Drop Columns (Free)"
+description: "Map CSV columns to a new schema. Rename, reorder, drop, and add columns. Useful for import preparation and ETL. Free."
+sidebar_label: "csv-column-mapper"
+keywords:
+  - "csv column mapper"
+  - "rename csv columns"
+  - "reorder csv columns"
+  - "drop csv columns"
+  - "csv schema mapper"
+  - "free csv mapping tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# csv-column-mapper
+
+A CSV column mapper lets you transform the column structure of a CSV — renaming columns, reordering them, dropping unused ones, and adding new constant-value columns — so you can prepare an export for a destination system that expects a specific schema without writing custom ETL code. The ZTools CSV Column Mapper offers a drag-and-drop UI for ordering, an inline rename for headers, dropdown filters for keeping/dropping columns, optional default values for added columns, and a live preview that shows how the mapped CSV will look.
+
+<ToolCTA toolId="csv-column-mapper" toolName="csv-column-mapper" />
+
+## Use cases
+
+### Adapting a vendor CSV to your import format
+
+Vendor sends columns [VendorID, ProductName, MSRP]. You import [sku, title, price]. Map columns and rename — done in seconds, no scripting.
+
+### Cleaning up a CSV before sharing externally
+
+Internal CSV has 30 columns; you only want to share 8 with a partner. Drop columns, rename remaining for clarity, send.
+
+### Adding required columns with default values
+
+Destination expects a "source" column on every row. Add it with default value "vendor_x" — every row gets it without touching the rest of the data.
+
+### Reordering for tools that depend on column position
+
+Some imports map by column position, not name. Drag columns into the right order before exporting — saves a "wrong column got mapped" debugging session.
+
+## How it works
+
+1. **Paste or upload the CSV** — Headers detected automatically. The mapper shows each column with its current name and a sample value.
+2. **Pick the destination schema** — Toggle each column: keep, drop, or rename. Drag rows to reorder columns.
+3. **Add new columns with defaults** — Click "Add column", give it a name and a default value. Optionally compute from existing columns (concat, default-if-empty).
+4. **Live preview the mapped CSV** — See the transformed first 10 rows in the preview pane. Catches mapping mistakes before exporting the full dataset.
+5. **Export the mapped CSV** — Download or copy. Original CSV is preserved in case you want to re-map differently.
+
+## Examples
+
+**Input:** Source: vendor_id,product,msrp
+
+**Output:** Mapped: sku,title,price (3 columns renamed, no changes to data).
+
+---
+
+**Input:** Source: 30 columns, want 8
+
+**Output:** Drop 22 columns; output has only the 8 chosen, in the order you specified.
+
+---
+
+**Input:** Add a constant "source"="acme" column
+
+**Output:** Every output row gets source=acme. New column added at the position you chose.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the mapper modify my source CSV?**</summary>
+
+No — the original is preserved. The mapper produces a new mapped CSV; you can re-map with different settings without losing the source.
+
+</details>
+
+<details>
+<summary>**Can it merge columns or compute new values?**</summary>
+
+Limited support: concat (combine two columns into one), default-if-empty (fill blanks with a literal). For complex transformations, use a spreadsheet or scripting tool.
+
+</details>
+
+<details>
+<summary>**What if my source CSV has duplicate column names?**</summary>
+
+Duplicates are flagged. The mapper auto-suffixes them (col, col_2) so each is uniquely addressable. Rename to your destination scheme before exporting.
+
+</details>
+
+<details>
+<summary>**Does it preserve the data type of values?**</summary>
+
+CSV is plain text; there are no native types. Values pass through unchanged. If your destination expects numeric values, ensure your source values look numeric (no thousands separators, decimal-separator consistent).
+
+</details>
+
+<details>
+<summary>**Can I save a mapping for re-use?**</summary>
+
+Save as a JSON template (export from the mapper, import next time). Useful when you receive vendor CSVs with consistent shapes monthly.
+
+</details>
+
+## Tips
+
+- Always preview before exporting — column-mapping mistakes silently produce wrong output.
+- Save a JSON mapping template for recurring imports; replays the same transformation in seconds.
+- For one-time complex transforms, a spreadsheet may be faster than fighting with column-mapping rules.
+- Drop unused columns to reduce file size and reviewer cognitive load — smaller CSVs are easier to review.
+
+## Try it now
+
+The full csv-column-mapper runs in your browser at **[https://ztools.zaions.com/csv-column-mapper](https://ztools.zaions.com/csv-column-mapper)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/csv-column-mapper)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/csv-column-mapper.mdx)*

@@ -1,0 +1,129 @@
+---
+id: json-to-single-line-string
+title: "JSON to Single Line String — Stringify, Escape, Free"
+description: "Collapse multi-line JSON into a single escaped string for env vars, CLI args, JS code, or curl bodies. Browser-only."
+sidebar_label: "json-to-single-line-string"
+keywords:
+  - "json to single line"
+  - "json stringify online"
+  - "minify json one line"
+  - "json escape string"
+  - "json to env var"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-to-single-line-string
+
+Converting JSON to a single-line string collapses whitespace and (optionally) escapes quotes so the result fits in a JavaScript string literal, an environment variable, a YAML scalar, a curl --data argument, or a single CSV cell. The ZTools JSON to Single Line String tool offers two modes: minified JSON (whitespace removed but quotes intact), and JSON-string-of-JSON (the whole thing wrapped in quotes with backslash escaping, suitable for embedding inside another JSON document or a JS string literal).
+
+<ToolCTA toolId="json-to-single-line-string" toolName="json-to-single-line-string" />
+
+## Use cases
+
+### Embed JSON in a .env file
+
+Twelve-factor apps put config in env vars. A multi-line JSON config has to collapse to one line — and quotes typically need escaping for the shell.
+
+### Build a curl command
+
+curl -d expects a single-line argument. Pretty-printed JSON breaks the command. Collapse first, then paste.
+
+### Inline JSON in a YAML scalar
+
+YAML allows multi-line scalars but inline single-line is simpler. "config: '\{...\}'" — the inner JSON must be one line.
+
+### Paste into a SQL TEXT column
+
+Storing JSON in a TEXT/VARCHAR column — single-line is friendlier to SQL clients that show one row per line.
+
+## How it works
+
+1. **Paste pretty-printed JSON** — Whitespace and indentation get stripped. The tool first JSON.parse to validate, then JSON.stringify with no spaces to re-emit.
+2. **Pick mode** — Minified (output is valid JSON) or escaped string (output is a JS / JSON string literal of the JSON).
+3. **Choose quote style** — Wrap in single quotes (shell-friendly), double quotes (JS-friendly), or no quotes (plain minified JSON).
+4. **Copy result** — One-click copy. The output is the full string, ready to paste into env / curl / code.
+
+## Examples
+
+**Input:** \{
+  "name": "Alice",
+  "tags": ["a", "b"]
+\}
+
+**Output:** Minified: \{"name":"Alice","tags":["a","b"]\}.
+
+---
+
+**Input:** Same input, escaped mode
+
+**Output:** "\{\\"name\\":\\"Alice\\",\\"tags\\":[\\"a\\",\\"b\\"]\}" — fits inside a JS string literal or a JSON string field.
+
+---
+
+**Input:** For curl: --data "\{...\}"
+
+**Output:** curl -X POST -d '\{"name":"Alice","tags":["a","b"]\}' https://api.example.com — single quotes survive the shell unescaped.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from JSON minifier?**</summary>
+
+A minifier removes whitespace. This tool also offers the "escape as string" mode — wrapping the result so it can be embedded inside another JSON or JS string. Minify alone isn't enough for nested embedding.
+
+</details>
+
+<details>
+<summary>**Does it preserve key order?**</summary>
+
+JSON.stringify follows the order of insertion in the parsed object — usually preserved by modern JS engines but not guaranteed by the JSON spec. If order matters, document your assumption.
+
+</details>
+
+<details>
+<summary>**What about Unicode characters?**</summary>
+
+Native UTF-8 in the output by default. Toggle "escape non-ASCII" if your downstream system mangles non-ASCII bytes (rare but happens with old logging pipelines).
+
+</details>
+
+<details>
+<summary>**Can it handle 10 MB JSON?**</summary>
+
+Yes — JavaScript handles large strings fine. Pasting 10 MB into a browser textarea is the slow part; uploading a file is quicker.
+
+</details>
+
+<details>
+<summary>**Is the output still valid JSON?**</summary>
+
+Minify mode: yes. Escape mode: the output is itself a string — pass it through JSON.parse once to recover the original JSON.
+
+</details>
+
+<details>
+<summary>**Does it strip comments?**</summary>
+
+Strict JSON has no comments, so input with comments fails to parse. Run a JSON5-aware preprocessor first if needed.
+
+</details>
+
+## Tips
+
+- For env vars, prefer base64-encoding very large JSON — line-noise but no escaping issues.
+- When embedding in a shell command, single quotes (') beat double quotes (") because nothing inside single quotes is interpreted by the shell.
+- For Postman / curl test scripts, paste the raw JSON object — most clients minify under the hood. Manual minification is only needed for env vars and command-line args.
+
+## Try it now
+
+The full json-to-single-line-string runs in your browser at **[https://ztools.zaions.com/json-to-single-line-string](https://ztools.zaions.com/json-to-single-line-string)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-to-single-line-string)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/json-to-single-line-string.mdx)*

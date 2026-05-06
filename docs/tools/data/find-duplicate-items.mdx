@@ -1,0 +1,119 @@
+---
+id: find-duplicate-items
+title: "Find Duplicate Items in List — Online Free Tool"
+description: "Return items that repeat in your list, with counts. Spot duplicates instantly. Browser-only — no signup."
+sidebar_label: "find-duplicate-items"
+keywords:
+  - "find duplicates list online"
+  - "duplicate items finder"
+  - "list duplicates tool"
+  - "count duplicates online"
+  - "find repeated values"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# find-duplicate-items
+
+Finding duplicates means returning items that appear more than once — opposite of finding uniques. If a list has 1000 entries and 950 are duplicates, this tool returns the 950 (or the distinct duplicate keys, depending on output mode) along with their counts. Useful for cleaning datasets, spotting double-imports, and triaging spam in lists. The ZTools Find Duplicate Items tool runs in O(n) via a frequency map, returns either "duplicate keys with counts" or "all duplicate occurrences", and supports case-insensitive matching plus whitespace trimming.
+
+<ToolCTA toolId="find-duplicate-items" toolName="find-duplicate-items" />
+
+## Use cases
+
+### Clean an email list
+
+After merging multiple imports, duplicates inflate the count. Find them, decide whether to keep one (dedupe) or discard the whole batch.
+
+### Detect double-charged customers
+
+Order ID list with duplicates means the same order processed twice. Find them, refund.
+
+### Find common log lines
+
+Frequently-firing log lines are usually the noisy ones. Surface them for filtering.
+
+### Spot accidental copy-paste
+
+A spreadsheet column accidentally got the same value pasted into multiple cells. Duplicates with high count point to the source.
+
+## How it works
+
+1. **Paste list** — One item per line.
+2. **Build frequency map** — Walk the list once, count occurrences. Map&lt;string, number&gt;.
+3. **Filter to count &gt; 1** — Keep entries with frequency ≥ 2. Output the keys plus counts.
+4. **Configure output mode** — "Distinct duplicates" (one row per duplicate key with count) or "all duplicate occurrences" (every duplicate line in original order).
+
+## Examples
+
+**Input:** [apple, banana, apple, cherry, banana, apple]
+
+**Output:** Distinct duplicates: apple (3), banana (2). All occurrences: [apple, apple, banana, banana, apple] — 5 lines.
+
+---
+
+**Input:** Email list with collision: alice@x.com appears twice
+
+**Output:** Output: alice@x.com (2). Decide whether to drop one or merge profiles.
+
+---
+
+**Input:** Case-insensitive matching
+
+**Output:** "Alice" and "alice" merge into a single duplicate group with count 2.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from dedupe?**</summary>
+
+Dedupe returns one of each distinct value across the whole list. Find Duplicates returns only the values that appear ≥ 2 times — the rest are dropped.
+
+</details>
+
+<details>
+<summary>**Output mode — distinct vs occurrences?**</summary>
+
+Distinct: one row per repeated value with count. Occurrences: every line that's a duplicate, preserving order. Pick by use case — distinct is for stats, occurrences is for line-by-line review.
+
+</details>
+
+<details>
+<summary>**Can I see the line numbers?**</summary>
+
+Toggle "show original line numbers" — useful when reviewing a CSV or log file and you need to navigate back to each occurrence.
+
+</details>
+
+<details>
+<summary>**How is this different from list-dedup?**</summary>
+
+List Dedup *removes* duplicates (output: one of each distinct value). Find Duplicates *finds* them (output: only the repeats). Inverse outputs.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side. No upload.
+
+</details>
+
+## Tips
+
+- For email lists, always use case-insensitive matching plus trim — those two settings catch ~95% of "duplicates that don't match" cases.
+- When duplicates exceed expected count by a lot, suspect a data import bug — investigate the source.
+- Pair with line-number mode when you need to fix duplicates in the original spreadsheet — gives you exact rows to delete.
+
+## Try it now
+
+The full find-duplicate-items runs in your browser at **[https://ztools.zaions.com/find-duplicate-items](https://ztools.zaions.com/find-duplicate-items)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/find-duplicate-items)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/find-duplicate-items.mdx)*

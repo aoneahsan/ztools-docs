@@ -1,0 +1,126 @@
+---
+id: grep-tool
+title: "Grep Online — Browser Pattern Search, Regex, Free"
+description: "Search any text for matching lines using regex or plain string. Like grep, in the browser. Highlights, counts, no install."
+sidebar_label: "grep-tool"
+keywords:
+  - "grep online"
+  - "browser grep tool"
+  - "regex search lines"
+  - "pattern match text online"
+  - "grep without terminal"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# grep-tool
+
+Grep is the classic Unix tool for searching plain text — given a pattern (literal or regex), it returns the lines that match. The ZTools Grep Tool brings the same capability to the browser: paste any text, pattern (literal substring or JavaScript regex), and get the matching lines highlighted plus a match count. Useful when you don't have a terminal, or when the input is in your clipboard rather than a file. Supports case-insensitive matching, inverse match (lines that DON'T contain the pattern), context lines (-A / -B / -C), whole-word match, and line-number prefix.
+
+<ToolCTA toolId="grep-tool" toolName="grep-tool" />
+
+## Use cases
+
+### Filter a paste of log lines
+
+Shell access not available; you have a 5,000-line log paste from a colleague. Grep for ERROR — see only the failures.
+
+### Find usages in pasted code
+
+Pasted a 1000-line file from a screen-share. Grep for "TODO" or a specific function name — instant locator.
+
+### Filter CSV rows by pattern
+
+Need rows where the email column contains "@gmail.com". Grep with regex — cleaner than loading into a spreadsheet.
+
+### Test a regex
+
+Paste sample text, enter the pattern, see what matches. Faster feedback loop than running grep in a shell repeatedly.
+
+## How it works
+
+1. **Paste input** — Up to several MB of text. Tool stores in memory only.
+2. **Enter pattern** — Literal substring (default) or JavaScript regex (toggle). Regex flags: i (case-insensitive), m (multiline), u (unicode).
+3. **Configure mode** — Inverse (-v: lines NOT matching), word boundary (-w), max results, context before / after / around matched lines.
+4. **Read output** — Matching lines with optional line-number prefix. Highlight on the matched span. Match count shown at the top.
+
+## Examples
+
+**Input:** Pattern: ERROR; input: 1000 log lines
+
+**Output:** Output: only lines containing "ERROR", line numbers prefixed, count e.g. 47 matches.
+
+---
+
+**Input:** Regex: ^\\\\d\{4\}-\\\\d\{2\}-\\\\d\{2\}
+
+**Output:** Returns only lines starting with a YYYY-MM-DD date — useful for filtering log entries by date format.
+
+---
+
+**Input:** Inverse match: pattern "DEBUG", flag -v
+
+**Output:** Returns all lines that DON'T contain DEBUG — drop the noisy debug lines.
+
+---
+
+**Input:** Context: -C 2 around match
+
+**Output:** Each match shows the 2 lines before and 2 lines after — better situational context for log triage.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this real grep or a JavaScript imitation?**</summary>
+
+JavaScript imitation. Most flags work the same way. Differences: JS regex syntax (no PCRE backreferences in some engines), no file I/O, no recursive directory grep.
+
+</details>
+
+<details>
+<summary>**PCRE vs JS regex?**</summary>
+
+JavaScript regex. Look-behind requires modern browsers; named groups supported. For PCRE-only features (recursive patterns, conditionals), use a desktop tool.
+
+</details>
+
+<details>
+<summary>**How big an input can it handle?**</summary>
+
+Several MB is fine. 100+ MB causes the browser to lag — use a CLI grep instead.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Input never leaves the browser. No upload, no logging.
+
+</details>
+
+<details>
+<summary>**Can it grep across multiple files?**</summary>
+
+Single input only. For multi-file search, use ripgrep or VS Code search.
+
+</details>
+
+## Tips
+
+- Use word-boundary mode (-w) when searching for short identifiers — avoids matches inside longer words.
+- Test regex against a few sample lines first — incremental feedback beats running on the full file with a wrong pattern.
+- Inverse match (-v) is the fastest way to drop noise (DEBUG lines) and focus on signal (WARN/ERROR).
+- For huge inputs (&gt;10 MB), prefer ripgrep CLI — designed for speed and handles GBs gracefully.
+
+## Try it now
+
+The full grep-tool runs in your browser at **[https://ztools.zaions.com/grep-tool](https://ztools.zaions.com/grep-tool)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/grep-tool)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/grep-tool.mdx)*

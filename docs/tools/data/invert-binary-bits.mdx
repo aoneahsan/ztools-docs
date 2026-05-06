@@ -1,0 +1,112 @@
+---
+id: invert-binary-bits
+title: "Invert Binary Bits — Bitwise NOT, One's Complement, Free"
+description: "Flip every bit (NOT operation) in a binary, hex, or decimal number. Configurable width. Browser-only."
+sidebar_label: "invert-binary-bits"
+keywords:
+  - "invert binary bits"
+  - "bitwise NOT online"
+  - "ones complement calculator"
+  - "flip bits tool"
+  - "binary inverter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# invert-binary-bits
+
+Inverting binary bits flips every 0 to 1 and every 1 to 0 — the bitwise NOT (~) operation, also called one's complement. Result depends on bit width: ~0 is 1 in 1-bit width, 11111111 (255) in 8-bit, etc. The ZTools Invert Binary Bits tool inverts numbers given in binary, hex, or decimal at a chosen width, and shows before / after / decimal interpretation. Useful for bitmask construction, two's-complement learning, and verifying bit-operation code.
+
+<ToolCTA toolId="invert-binary-bits" toolName="invert-binary-bits" />
+
+## Use cases
+
+### Build a bitmask for clearing bits
+
+Want to clear bits 2, 3, 5 of a value: build mask 0b00101100, NOT it (0b11010011), AND with the value.
+
+### Learn two's complement
+
+Two's complement of n = NOT(n) + 1 (in fixed width). Tool shows the NOT step.
+
+### Verify bitwise NOT in code
+
+C / Rust / Python bit-not vs JavaScript ~ operator differ subtly. Tool shows the unambiguous result.
+
+### Generate "all-bits-set" patterns
+
+NOT(0) = all 1s in chosen width. Useful for mask construction.
+
+## How it works
+
+1. **Paste number** — Binary / hex / decimal.
+2. **Pick width** — 8 / 16 / 32 / 64 bits. Width determines the result's magnitude.
+3. **Invert** — XOR with all-1s mask of chosen width. Display result in same notation.
+4. **Output** — Inverted number in binary / hex / decimal. Plus signed two's-complement interpretation.
+
+## Examples
+
+**Input:** Decimal 5, width 8
+
+**Output:** Binary 00000101 → 11111010. Decimal 250 (unsigned) or −6 (signed two's complement).
+
+---
+
+**Input:** Hex 0xF0, width 8
+
+**Output:** 0x0F. Easy to see.
+
+---
+
+**Input:** 0xFFFFFFFF, width 32
+
+**Output:** 0x00000000. NOT of all-1s is all-0s, regardless of width.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does the result depend on width?**</summary>
+
+NOT(5) is 1...11010 — but how many leading 1s depends on width. In 8-bit, 250 (or −6 signed). In 16-bit, 65530 (or −6 signed). In 32-bit, 4294967290 (or −6 signed). Always specify width.
+
+</details>
+
+<details>
+<summary>**JavaScript ~5 = -6 — why?**</summary>
+
+JavaScript uses 32-bit signed integers for bitwise operations. ~5 is 0xFFFFFFFA, interpreted as signed = −6. Tool clarifies which width is used.
+
+</details>
+
+<details>
+<summary>**One's vs two's complement?**</summary>
+
+One's complement = NOT (just flip all bits). Two's complement = NOT + 1 (gives a clean negate). Modern computers use two's complement for negative numbers.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Always pick the width matching your target system (Java int = 32-bit, long = 64-bit, etc.).
+- For mask construction, use NOT(small mask) to get an inverted-mask in chosen width.
+- For two's complement, NOT + 1 — the tool can show both steps.
+
+## Try it now
+
+The full invert-binary-bits runs in your browser at **[https://ztools.zaions.com/invert-binary-bits](https://ztools.zaions.com/invert-binary-bits)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/invert-binary-bits)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/invert-binary-bits.mdx)*

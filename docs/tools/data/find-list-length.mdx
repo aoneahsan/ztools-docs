@@ -1,0 +1,119 @@
+---
+id: find-list-length
+title: "Count Items in List — Find List Length Online, Free"
+description: "Count lines, items, or array elements. Includes empty-line and whitespace toggles. Browser-only — no signup."
+sidebar_label: "find-list-length"
+keywords:
+  - "count list items online"
+  - "find list length"
+  - "count lines tool"
+  - "item counter list"
+  - "json array length"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# find-list-length
+
+Finding list length sounds trivial — until the question becomes "how many items, ignoring blank lines?" or "how many distinct items?" or "how many words across all items?" The ZTools Find List Length tool counts lines, items in a CSV row, elements in a JSON array, words across the whole list, and characters total — with toggles for trimming whitespace, ignoring blank lines, and counting only non-empty entries. Faster than copy-pasting into Excel just to read the row count.
+
+<ToolCTA toolId="find-list-length" toolName="find-list-length" />
+
+## Use cases
+
+### Quick row count
+
+Pasted a CSV column to verify export size. Length tool gives the row count instantly without opening Excel.
+
+### Verify a list against an expected size
+
+API returned 1000 items? Paste, count, confirm. Mismatch points to truncation.
+
+### Count distinct items
+
+Toggle "distinct only" to deduplicate before counting — gives the unique count.
+
+### Count words across a vocabulary
+
+Sum word counts for a multi-word vocab list (e.g. "ice cream" counts as 2).
+
+## How it works
+
+1. **Paste the list** — One item per line, comma-separated, or JSON.
+2. **Pick what to count** — Lines, items (after split), distinct items, words, characters.
+3. **Configure filters** — Skip blanks, trim whitespace, ignore commented lines (starts with # or //).
+4. **Read result** — Stats panel: \{lines, non-blank lines, distinct items, total words, total characters\}.
+
+## Examples
+
+**Input:** 5 lines, 2 blank, 3 with content
+
+**Output:** Total lines: 5. Non-blank: 3. Distinct: depends on content (2 or 3).
+
+---
+
+**Input:** JSON array of 100 strings
+
+**Output:** Items: 100. Total characters: sum of string lengths.
+
+---
+
+**Input:** "a, b, c, a"
+
+**Output:** CSV items: 4. Distinct: 3 (a, b, c).
+
+## Frequently asked questions
+
+<details>
+<summary>**Why not just use Excel?**</summary>
+
+Excel works but takes 30 seconds. This tool takes 3. For one-off counts, the browser is faster.
+
+</details>
+
+<details>
+<summary>**How does it handle quoted CSV cells?**</summary>
+
+Toggle "respect quoted CSV" — handles commas inside quoted strings correctly. Default mode splits naively on commas.
+
+</details>
+
+<details>
+<summary>**Can it count words?**</summary>
+
+Yes — total words across all lines, plus per-line word stats if you toggle them.
+
+</details>
+
+<details>
+<summary>**Does it count emoji as one character or several?**</summary>
+
+JavaScript string length counts UTF-16 code units, so a flag emoji might count as 4. Toggle "Unicode grapheme count" for visible-character counting.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- When counts disagree across tools, check whitespace and blank-line policies — those are 90% of discrepancies.
+- For CSV with quoted values, always enable "respect quoted CSV" — naive split breaks on commas inside quotes.
+- Pair with Find Unique Items if you need the count of items that appear exactly once.
+
+## Try it now
+
+The full find-list-length runs in your browser at **[https://ztools.zaions.com/find-list-length](https://ztools.zaions.com/find-list-length)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/find-list-length)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/find-list-length.mdx)*

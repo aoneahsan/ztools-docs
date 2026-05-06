@@ -1,0 +1,121 @@
+---
+id: js-object-to-json
+title: "JavaScript Object to JSON Converter — Quote Keys & Strings (Free)"
+description: "Convert a JavaScript object literal to valid JSON. Quotes unquoted keys, replaces single quotes, removes trailing commas. Free."
+sidebar_label: "js-object-to-json"
+keywords:
+  - "javascript object to json"
+  - "js to json converter"
+  - "object to json online"
+  - "fix unquoted keys"
+  - "js literal to json"
+  - "free js json tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# js-object-to-json
+
+A JavaScript object to JSON converter takes a JavaScript object literal — the kind you'd type into a `.js` file with unquoted keys, single quotes, or trailing commas — and outputs strict JSON that parsers will accept by adding double quotes around keys, replacing single quotes with double quotes, removing trailing commas, and rejecting JS-only constructs like comments, undefined, functions, or NaN. The ZTools JS Object to JSON Converter handles arbitrarily nested objects, preserves number precision, supports template-literal-style multi-line strings (when valid as JSON strings), reports any JS-specific values that can't convert, and produces both compact and pretty-printed output.
+
+<ToolCTA toolId="js-object-to-json" toolName="js-object-to-json" />
+
+## Use cases
+
+### Pasting a JS object literal into a JSON config file
+
+You copied a `const config = \{ ... \}` from a JavaScript file. Convert it to valid JSON for a `.json` config — no manual quoting required.
+
+### Sharing JS data with non-JS tools
+
+Developer says "here's the data" and pastes a JS object. Convert to JSON to feed into Postman, jq, or any non-JS tool.
+
+### Building JSON test fixtures from JS examples
+
+Your test code uses inline objects for setup. To save them as separate `.json` fixtures, convert and dump to file.
+
+### Cleaning up "JSON" you pasted that isn't actually JSON
+
+A teammate sends you a config they wrote, calling it JSON. It has trailing commas and unquoted keys (i.e., JS). Convert and validate.
+
+## How it works
+
+1. **Paste the JS object literal** — Wrap in `\{ ... \}` or `[ ... ]`. Trailing commas, unquoted keys, single quotes, comments — all common JS-isms accepted.
+2. **Parser tokenizes the JS** — A small JS parser interprets the literal. Reports specific JS constructs that can't convert: undefined values, functions, NaN, Infinity, BigInt literals.
+3. **Conversion to strict JSON** — Keys quoted, single quotes → double quotes, trailing commas removed, comments stripped. Output validated against JSON.parse() before display.
+4. **Read both compact and pretty** — Two outputs: minified single-line JSON for storage, pretty-printed (2-space indent) for human reading.
+
+## Examples
+
+**Input:** \{name: 'Alice', age: 30,\}
+
+**Output:** \{"name":"Alice","age":30\}
+
+---
+
+**Input:** \{users:[\{id:1, role:'admin'\},\{id:2, role:'user'\}]\}
+
+**Output:** \{"users":[\{"id":1,"role":"admin"\},\{"id":2,"role":"user"\}]\}
+
+---
+
+**Input:** \{date: new Date(), fn: () =&gt; \{\}\}
+
+**Output:** ERROR: cannot convert "new Date()" or function values — they have no JSON representation. Convert dates to ISO strings, replace functions with serializable data.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why isn't my JavaScript object valid JSON?**</summary>
+
+Common reasons: 1) keys aren't quoted (`name:` instead of `"name":`). 2) Single quotes around strings (`'Alice'` instead of `"Alice"`). 3) Trailing commas (`\{a:1,\}`). 4) Comments. 5) JS-only values (undefined, NaN, functions). The converter handles 1-4 automatically; 5 needs manual replacement.
+
+</details>
+
+<details>
+<summary>**How does it handle dates?**</summary>
+
+JavaScript Date objects can't be serialized as JSON directly — they need to become ISO strings. The converter rejects `new Date(...)` and prompts you to replace with a literal string ISO date like "2026-05-05T00:00:00Z".
+
+</details>
+
+<details>
+<summary>**What if my object has methods or functions?**</summary>
+
+JSON has no function representation. The converter rejects function values; you need to remove them or replace with a placeholder string before converting.
+
+</details>
+
+<details>
+<summary>**Does it handle nested objects?**</summary>
+
+Yes — any depth. Each level is converted recursively, so nested JS object literals all become valid JSON.
+
+</details>
+
+<details>
+<summary>**How does it handle BigInt?**</summary>
+
+BigInt literals (123n) are not valid JSON — JSON only has Number. The converter flags BigInts; convert them to strings before serialization, or accept precision loss.
+
+</details>
+
+## Tips
+
+- For dates, use ISO strings like "2026-05-05T12:34:56Z" — universally parseable, JSON-friendly.
+- For BigInts (very large IDs), convert to strings before JSON serialization to preserve precision.
+- When pasting JS code, include the wrapping braces — paste `\{...\}`, not `name: 'Alice'` alone.
+- Always validate the output JSON in a separate parser to confirm round-trip safety.
+
+## Try it now
+
+The full js-object-to-json runs in your browser at **[https://ztools.zaions.com/js-object-to-json](https://ztools.zaions.com/js-object-to-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/js-object-to-json)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/js-object-to-json.mdx)*

@@ -1,0 +1,139 @@
+---
+id: sql-formatter
+title: "SQL Formatter — Pretty-print, Indent, Beautify SQL (PostgreSQL, MySQL, T-SQL)"
+description: "Format messy SQL into clean, indented, readable queries. Supports PostgreSQL, MySQL, T-SQL, SQLite, BigQuery dialects. Free, instant."
+sidebar_label: "sql-formatter"
+keywords:
+  - "sql formatter"
+  - "sql beautifier"
+  - "pretty print sql"
+  - "format sql online"
+  - "postgresql formatter"
+  - "mysql formatter"
+  - "tsql formatter"
+  - "sql indent"
+  - "free sql tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sql-formatter
+
+An SQL formatter parses SQL queries (DDL and DML) and re-emits them with consistent indentation, keyword casing, and clause alignment. The ZTools SQL Formatter supports multiple dialects — PostgreSQL, MySQL, T-SQL (SQL Server), SQLite, BigQuery, and ANSI SQL — handling each dialect's special syntax (CTEs, window functions, lateral joins, UPSERT variants). Useful for cleaning up queries copied from logs, formatting multi-line WHERE clauses for code review, and prepping queries before pasting into stored procedures or migrations.
+
+<ToolCTA toolId="sql-formatter" toolName="sql-formatter" />
+
+## Use cases
+
+### Cleaning up a query copied from application logs
+
+ORM-generated SQL is often a single 500-character line with no whitespace. Paste into the formatter, get an indented version where each clause and join is on its own line — instantly readable for debugging.
+
+### Preparing a query for code review or pull request
+
+Long queries embedded in code (Python, Java, Go) deserve the same care as the surrounding code. Format the query externally, then paste back as a multi-line string — reviewers can spot logic errors without horizontal scrolling.
+
+### Standardizing SQL style across a team
+
+Pick one dialect and one indent setting in the formatter, run every team member's queries through it before commit. The formatter is the team's style arbiter — no more "SELECT" vs "select" debates.
+
+### Formatting a generated migration file
+
+ORM migration generators (Alembic, Knex, Prisma migrate) often output unindented SQL. Format the migration before committing so the next reviewer can read it without effort.
+
+## How it works
+
+1. **Paste SQL into the input pane** — Single statement or multiple statements separated by semicolons. Files up to ~5 MB format comfortably.
+2. **Choose the SQL dialect** — Auto-detect or pick: PostgreSQL, MySQL, T-SQL, SQLite, BigQuery, Snowflake, ANSI SQL. Dialect-specific keywords (e.g., `LIMIT` vs `TOP`) are recognized correctly.
+3. **Configure indent size and keyword case** — 2 or 4 space indent. UPPERCASE keywords (most common), lowercase, or preserve original. Comma placement (leading or trailing) configurable.
+4. **Click Format** — A SQL parser tokenizes the query, builds an AST, and re-emits with consistent style. Syntax errors are flagged with line/column.
+5. **Review and copy** — Side-by-side view shows original and formatted output. Copy with one click; original stays available for re-formatting with different settings.
+
+## Examples
+
+**Input:** select id,name,email from users where active=true and created_at &gt; '2024-01-01' order by created_at desc limit 10;
+
+**Output:** SELECT id, name, email
+FROM users
+WHERE active = TRUE
+  AND created_at &gt; '2024-01-01'
+ORDER BY created_at DESC
+LIMIT 10;
+
+---
+
+**Input:** WITH active_users AS (SELECT id FROM users WHERE active=true) SELECT count(*) FROM orders o JOIN active_users a ON o.user_id=a.id;
+
+**Output:** WITH active_users AS (
+  SELECT id
+  FROM users
+  WHERE active = TRUE
+)
+SELECT COUNT(*)
+FROM orders o
+JOIN active_users a
+  ON o.user_id = a.id;
+
+## Frequently asked questions
+
+<details>
+<summary>**Does the formatter change the meaning of my SQL?**</summary>
+
+No. Formatting only affects whitespace, indentation, and keyword case. The semantic meaning of the query is preserved exactly. Identifier case (table and column names) is preserved as-is in case-sensitive dialects.
+
+</details>
+
+<details>
+<summary>**Which dialects are supported?**</summary>
+
+PostgreSQL, MySQL, T-SQL (SQL Server), SQLite, BigQuery, Snowflake, Redshift, Db2, MariaDB, and ANSI SQL. Choose the closest match if your dialect is not listed.
+
+</details>
+
+<details>
+<summary>**Can it format dynamic SQL with placeholders?**</summary>
+
+Yes — `?`, `$1`, `:name`, `@var`, and `?N` placeholders are recognized as scalar values and not reformatted.
+
+</details>
+
+<details>
+<summary>**How does it handle comments?**</summary>
+
+Both `-- single line` and `/* block */` comments are preserved at their original location.
+
+</details>
+
+<details>
+<summary>**Will my SQL be uploaded?**</summary>
+
+No. Formatting runs entirely in your browser via a JavaScript SQL parser. Disconnect from the internet and the tool still works.
+
+</details>
+
+<details>
+<summary>**Why does the formatter fail on my query?**</summary>
+
+Most often: wrong dialect selected, or unsupported vendor-specific syntax. Try ANSI SQL or another close dialect. For very dialect-specific features, format only the standard portions.
+
+</details>
+
+## Tips
+
+- Pick one dialect and one style for your team and stick to it — consistency beats individual preferences.
+- Format SQL before committing migrations so reviewers can read them in the diff.
+- For very long queries, break them into CTEs — easier to read, often easier to optimize.
+- Pair with a linter like sqlfluff for stricter style enforcement in CI.
+
+## Try it now
+
+The full sql-formatter runs in your browser at **[https://ztools.zaions.com/sql-formatter](https://ztools.zaions.com/sql-formatter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sql-formatter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/sql-formatter.mdx)*

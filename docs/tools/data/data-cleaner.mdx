@@ -1,0 +1,123 @@
+---
+id: data-cleaner
+title: "Data Cleaner — Trim, Normalize & De-duplicate Tabular Data (Free)"
+description: "Clean messy data: trim whitespace, normalize case, remove duplicates, fix encoding issues, validate emails. Free, browser-based."
+sidebar_label: "data-cleaner"
+keywords:
+  - "data cleaner"
+  - "clean csv data"
+  - "data normalization"
+  - "fix data quality"
+  - "remove duplicates"
+  - "data scrubbing"
+  - "free data cleaning tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# data-cleaner
+
+A data cleaner applies a set of common normalization rules to messy tabular or list data — trimming whitespace, fixing inconsistent capitalization, removing duplicates, normalizing line endings, repairing common encoding glitches (mojibake), and standardizing date and email formats — so the data is fit for import into a database, spreadsheet, or downstream tool. The ZTools Data Cleaner offers a configurable pipeline of cleanup steps, previews each transformation, runs entirely in your browser, and reports the count of changes per rule so you can audit what was cleaned.
+
+<ToolCTA toolId="data-cleaner" toolName="data-cleaner" />
+
+## Use cases
+
+### Cleaning a CSV export before import
+
+A vendor CSV with leading/trailing whitespace, mixed case names, and duplicate rows. Run the cleaner; the import succeeds first time instead of after three rounds of fix-and-retry.
+
+### Email list de-duplication and normalization
+
+"Alice@Example.com" and "alice@example.com " are the same person but two duplicate rows in your CRM. Lowercase + trim + dedupe collapses them.
+
+### Fixing copy-pasted text from PDFs or web pages
+
+PDF copy-paste leaves runs of weird whitespace, ligature glitches (ﬁ, ﬂ), and orphaned line breaks. The cleaner normalizes these in one pass.
+
+### Pre-processing form submissions for analysis
+
+User-typed data has typos, mixed case, weird unicode characters. The cleaner standardizes before you analyze patterns, count distinct values, or generate reports.
+
+## How it works
+
+1. **Paste your data** — CSV, list, or column from a spreadsheet. The cleaner detects format and shows row/column count.
+2. **Toggle cleanup rules** — Trim whitespace, normalize case (lower/upper/title), remove duplicates, normalize line endings, fix encoding glitches, replace tabs with spaces, validate emails, normalize phone numbers.
+3. **Preview the diff** — Side-by-side shows original vs cleaned. Each cell that changed is highlighted; the rule that triggered each change is annotated.
+4. **Apply and export** — Click apply to commit. Export as CSV, JSON, or copy to clipboard. Original is preserved in a separate panel for comparison.
+
+## Examples
+
+**Input:** "  Alice ",30
+"alice ",30
+
+**Output:** "Alice",30 (after trim, lowercase emails, dedupe — 1 row out of 2)
+
+---
+
+**Input:** Mojibake: "café" displayed as "cafÃ©"
+
+**Output:** Decoded back to "café" (UTF-8 misencoded as Latin-1 fix).
+
+---
+
+**Input:** Mixed line endings: "a\\r\\nb\\nc\\r"
+
+**Output:** Normalized to a single line ending: "a\\nb\\nc"
+
+## Frequently asked questions
+
+<details>
+<summary>**What does "normalize case" mean?**</summary>
+
+Apply a consistent case rule across all values in a column. Options: lowercase (good for emails), UPPERCASE (good for codes), Title Case (good for names). Choose per-column based on the meaning.
+
+</details>
+
+<details>
+<summary>**How do I detect mojibake (encoding glitches)?**</summary>
+
+Mojibake is recognizable: "Ã©" instead of "é", "â€™" instead of "'", "Ã" instead of "Ã©". The cleaner detects the most common UTF-8 → Latin-1 misinterpretations and offers to reverse them.
+
+</details>
+
+<details>
+<summary>**Can it preserve specific columns from cleaning?**</summary>
+
+Yes — toggle per-column rules. ID columns shouldn't be lowercased; description columns shouldn't have whitespace collapsed mid-content.
+
+</details>
+
+<details>
+<summary>**Does it dedupe across all columns or just one?**</summary>
+
+Configurable. By default, dedupe checks all columns (full row equality). For "dedupe by email", select only that column for the dedupe rule.
+
+</details>
+
+<details>
+<summary>**Will it modify my source file?**</summary>
+
+No — input stays unchanged. Cleaned output is a separate copy. Always preview before exporting; some rules have edge cases that need manual review.
+
+</details>
+
+## Tips
+
+- Always preview before applying — a clean rule applied to the wrong column can corrupt data.
+- For email lists, the standard cleanup is: trim → lowercase → dedupe → validate-email.
+- Mojibake detection is heuristic; double-check important values manually.
+- Run the cleaner before, not after, downstream analysis — clean inputs prevent compounding errors.
+
+## Try it now
+
+The full data-cleaner runs in your browser at **[https://ztools.zaions.com/data-cleaner](https://ztools.zaions.com/data-cleaner)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/data-cleaner)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/data-cleaner.mdx)*

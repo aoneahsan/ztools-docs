@@ -1,0 +1,126 @@
+---
+id: yaml-validator
+title: "YAML Validator — Check Indentation & Syntax Errors (Free)"
+description: "Validate YAML for syntax errors, indentation issues, and duplicate keys. Inline error highlighting with fix suggestions. Free."
+sidebar_label: "yaml-validator"
+keywords:
+  - "yaml validator"
+  - "yaml lint"
+  - "check yaml syntax"
+  - "yaml syntax checker"
+  - "kubernetes yaml validator"
+  - "free yaml tool"
+  - "yaml indentation checker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# yaml-validator
+
+A YAML validator parses a YAML document according to the YAML 1.2 specification and reports syntax errors — bad indentation, mixed tabs and spaces, duplicate map keys, malformed flow sequences, unclosed quotes — with precise line numbers so authors can fix issues before YAML-driven tooling (Kubernetes, CI configs, OpenAPI specs, Ansible playbooks) blows up at runtime. The ZTools YAML Validator runs entirely in your browser, supports YAML 1.2 (the modern flavor), explicitly flags indentation inconsistencies that some validators silently accept, and converts to JSON as an optional post-validation step for sanity checks against a known-good representation.
+
+<ToolCTA toolId="yaml-validator" toolName="yaml-validator" />
+
+## Use cases
+
+### Validating Kubernetes manifests before kubectl apply
+
+A bad indent in a Deployment manifest will be rejected silently or partially applied. Catching it locally beats discovering it in cluster errors.
+
+### CI / GitHub Actions YAML
+
+GitHub Actions workflows are YAML; one wrong indent breaks the entire workflow. Validate before committing and save a CI-burning round-trip.
+
+### OpenAPI / Swagger spec authoring
+
+OpenAPI specs are large nested YAML. The validator catches typos before the spec viewer fails to render or, worse, renders something subtly wrong.
+
+### Docker Compose and Ansible playbooks
+
+docker-compose.yml and ansible playbooks are YAML — indentation errors there cause silent misconfigurations. Validation prevents the "why isn't my container starting?" mystery.
+
+## How it works
+
+1. **Paste your YAML** — Any size. Tabs vs spaces are visualized so you can see hidden indentation issues.
+2. **Parser scans line-by-line** — Tracks indentation levels, sequence/mapping context, anchor/alias use, and quote balancing. Reports first-encountered error and continues to find more.
+3. **Read the error list** — Each issue: line, column, severity, message. Common errors include "found character that cannot start any token", "mapping values are not allowed here", and "duplicate key".
+4. **Optionally view as JSON** — Once well-formed, the document is converted to JSON for an alternative rendering. Useful when YAML's flexibility makes the structure ambiguous.
+
+## Examples
+
+**Input:** name: x
+ age: 5
+
+**Output:** ERROR line 2: bad indentation — expected 0 spaces, got 1.
+
+---
+
+**Input:** list:
+- a
+ -b
+
+**Output:** ERROR line 3: indentation must align with sequence items above.
+
+---
+
+**Input:** a: 1
+a: 2
+
+**Output:** WARNING: duplicate key "a" — second value will overwrite first in most parsers.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is YAML so picky about indentation?**</summary>
+
+Unlike JSON which uses braces, YAML uses indentation to signal nesting. So inconsistent or mixed indentation directly changes the structure. The strict validator catches issues that YAML parsers might silently misinterpret.
+
+</details>
+
+<details>
+<summary>**Should I use tabs or spaces?**</summary>
+
+YAML 1.2 disallows tabs for indentation entirely. Always use spaces — 2 is the de-facto convention in Kubernetes and CI configs.
+
+</details>
+
+<details>
+<summary>**What does "mapping values are not allowed here" mean?**</summary>
+
+A `:` appeared where the parser expected a list item or scalar. Usually caused by missing quotes around a value containing colons (e.g., "url: http://example.com" needs quotes).
+
+</details>
+
+<details>
+<summary>**How are duplicate keys handled?**</summary>
+
+YAML 1.2 says duplicate keys are an error, but most popular parsers silently keep the last value. The validator flags duplicates as warnings — they're almost always bugs.
+
+</details>
+
+<details>
+<summary>**Does it validate against a schema (e.g., Kubernetes API)?**</summary>
+
+No — this tool only checks YAML syntax. For schema validation against Kubernetes, OpenAPI, or JSON Schema, use a dedicated tool that loads the relevant schema definition.
+
+</details>
+
+## Tips
+
+- Configure your editor to show whitespace and tabs; many YAML errors are invisible without it.
+- Quote any value containing colons, pound signs, or starting with special characters (- ? : etc.).
+- For multi-line strings, use the | (literal) or &gt; (folded) operators rather than fighting quote escaping.
+- Always validate Kubernetes/CI YAML locally before committing — pipeline failures are slow and expensive.
+
+## Try it now
+
+The full yaml-validator runs in your browser at **[https://ztools.zaions.com/yaml-validator](https://ztools.zaions.com/yaml-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/yaml-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/yaml-validator.mdx)*

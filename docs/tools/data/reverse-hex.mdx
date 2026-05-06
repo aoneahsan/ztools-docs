@@ -1,0 +1,112 @@
+---
+id: reverse-hex
+title: "Reverse Hex String — Endianness Swap, Byte Order, Free"
+description: "Reverse hex strings: byte order, nibble order, or full string. Endianness conversion. Browser-only."
+sidebar_label: "reverse-hex"
+keywords:
+  - "reverse hex string"
+  - "endianness swap online"
+  - "byte order reverse"
+  - "little endian big endian converter"
+  - "hex byte swap"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# reverse-hex
+
+Reversing hex can mean three different things: reverse the entire string ("ABCD" → "DCBA"), swap byte order ("12 34 56 78" → "78 56 34 12" — endianness conversion), or swap nibbles within each byte ("AB" → "BA"). Each has different uses. The ZTools Reverse Hex tool offers all three modes. Most common use: byte-order swap, when converting between little-endian (Intel) and big-endian (network protocols) representations.
+
+<ToolCTA toolId="reverse-hex" toolName="reverse-hex" />
+
+## Use cases
+
+### Convert between little-endian and big-endian
+
+Network protocols use big-endian; x86/ARM use little-endian. A 32-bit value 0x12345678 is stored as 78 56 34 12 in memory but transmitted as 12 34 56 78. Tool swaps in either direction.
+
+### Match a checksum / hash
+
+Some tools display CRC / hash bytes in reverse order. Reverse to match the canonical representation.
+
+### Debug endian-confusion bugs
+
+A C struct serialised differently than expected — reverse the bytes to confirm endianness mismatch.
+
+### Generate test vectors with reversed input
+
+Test that your code handles both endiannesses correctly by feeding it both forms.
+
+## How it works
+
+1. **Paste hex** — With or without spaces / 0x prefixes. Whitespace stripped.
+2. **Pick mode** — Reverse string (full reversal char-by-char), swap bytes (reverse byte order), or swap nibbles (within each byte).
+3. **Compute** — String reversal is straight; byte swap chunks 2 chars at a time; nibble swap flips within each pair.
+4. **Output** — Result hex string in the same format (spaces preserved or removed per input).
+
+## Examples
+
+**Input:** "12 34 56 78", swap bytes
+
+**Output:** "78 56 34 12" — little-endian → big-endian (or vice versa).
+
+---
+
+**Input:** Same input, reverse string
+
+**Output:** "87 65 43 21" — full string reversal, also swaps nibbles within each byte.
+
+---
+
+**Input:** "AB CD", swap nibbles
+
+**Output:** "BA DC" — within each byte the high and low nibbles flip.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which mode for endianness?**</summary>
+
+Swap bytes. The byte order changes; the bits within each byte stay the same. This is the typical little-endian ↔ big-endian conversion.
+
+</details>
+
+<details>
+<summary>**When would I want full string reversal?**</summary>
+
+Rarely — full reversal is mathematically a different operation. Mostly useful for puzzle / curiosity work.
+
+</details>
+
+<details>
+<summary>**How big a hex string?**</summary>
+
+Megabytes work fine. The reversal is O(n).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For endianness, almost always pick "swap bytes" — preserves byte values, changes order.
+- For network-order (big-endian) data on x86 (little-endian), htonl / ntohl in C does this; tool does it in browser.
+- Don't confuse with reversing bit order — that's a separate operation (use Invert Binary Bits with caution).
+
+## Try it now
+
+The full reverse-hex runs in your browser at **[https://ztools.zaions.com/reverse-hex](https://ztools.zaions.com/reverse-hex)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/reverse-hex)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/reverse-hex.mdx)*

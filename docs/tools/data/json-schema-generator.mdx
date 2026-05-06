@@ -1,0 +1,124 @@
+---
+id: json-schema-generator
+title: "JSON Schema Generator — Infer Schema from Sample Data (Draft 2020-12)"
+description: "Generate a JSON Schema from any JSON sample. Infers types, required fields, formats. Supports Draft 2020-12, Draft 7, and Draft 4."
+sidebar_label: "json-schema-generator"
+keywords:
+  - "json schema generator"
+  - "infer json schema"
+  - "json to schema"
+  - "json schema draft 2020-12"
+  - "json schema from sample"
+  - "free json schema tool"
+  - "openapi schema generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-schema-generator
+
+A JSON Schema generator analyzes a JSON sample and emits a matching JSON Schema document — a formal specification of the data's shape, used for runtime validation, API documentation, and code generation. The ZTools JSON Schema Generator infers types, required vs optional fields (based on which keys appear across multiple samples), enum candidates (when a string field has a small fixed set of observed values), and format hints (`date-time`, `email`, `uri` detected from string content). Output supports JSON Schema Draft 2020-12 (latest), Draft 7 (most widely tooled), and Draft 4 (legacy).
+
+<ToolCTA toolId="json-schema-generator" toolName="json-schema-generator" />
+
+## Use cases
+
+### Generating a schema for runtime validation of API responses
+
+Paste a sample API response, get a JSON Schema, plug into Ajv or `zod`-from-schema for runtime validation. Catches API breaking changes the moment they hit production rather than at the next downstream consumer.
+
+### Building an OpenAPI specification for an existing API
+
+OpenAPI uses JSON Schema for request/response shapes. Generate schemas from sample payloads, paste into your `openapi.yaml`. Faster than authoring schemas by hand for every endpoint.
+
+### Documenting a complex JSON file format
+
+A well-named JSON Schema is the most precise documentation for a JSON file format. Generate from a real example, refine the descriptions, ship as your spec — readable both by humans and by tools.
+
+### Code generation: typed clients in any language
+
+JSON Schema is the input format for `quicktype` (TypeScript, Go, Java, C#, Python, Rust, ...). Generate the schema here, run quicktype to get typed clients in every language your team uses.
+
+## How it works
+
+1. **Paste JSON sample(s) into the input pane** — Single object, single array, or multiple objects (best — more samples means better required/optional inference).
+2. **Choose target draft** — Draft 2020-12 (latest), Draft 7 (broadest tooling), Draft 4 (legacy compatibility).
+3. **Configure inference options** — Detect formats (`date-time`, `email`, `uri` from string patterns), generate enum from low-cardinality strings, mark fields as required if present in all samples.
+4. **Click Generate** — The tool walks the JSON tree, infers a type for every leaf, builds an `object` definition for every node with `properties`, `required`, and `additionalProperties: false`.
+5. **Review and refine** — Generated schema appears in the right pane. Add `title`, `description`, and `examples` fields by hand to enrich the spec for documentation use.
+
+## Examples
+
+**Input:** \{ "id": 1, "name": "Ahsan", "email": "a@b.com" \}
+
+**Output:** \{ "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "properties": \{ "id": \{"type":"number"\}, "name": \{"type":"string"\}, "email": \{"type":"string", "format": "email"\} \}, "required": ["id","name","email"] \}
+
+---
+
+**Input:** [\{"x":1,"y":2\}, \{"x":3\}]
+
+**Output:** `x` required, `y` optional (only present in first element).
+
+## Frequently asked questions
+
+<details>
+<summary>**How does the tool decide what fields are required?**</summary>
+
+A field is marked required if it appears in every sample object. With a single sample, every field is required (provide multiple samples for accurate optionality detection).
+
+</details>
+
+<details>
+<summary>**What's the difference between JSON Schema drafts?**</summary>
+
+Draft 4 is legacy (2013); Draft 7 (2018) is the most widely supported by tools (Ajv, OpenAPI 3.0); Draft 2020-12 is current and adds `$dynamicRef`, `unevaluatedProperties`, etc. Pick the draft your downstream tool requires.
+
+</details>
+
+<details>
+<summary>**Can I use the generated schema for validation?**</summary>
+
+Yes — feed it to Ajv (Node.js / browser), Python `jsonschema`, Go `xeipuuv/gojsonschema`, or any other JSON Schema validator. The generated schema is valid against the spec.
+
+</details>
+
+<details>
+<summary>**Does it handle nested objects and arrays?**</summary>
+
+Yes — recursively. Nested objects produce nested `properties` blocks; arrays produce `items` definitions inferred from element samples.
+
+</details>
+
+<details>
+<summary>**How are union types handled?**</summary>
+
+Heterogeneous arrays (e.g., `[1, "a", true]`) produce `items: \{ anyOf: [...] \}`. Properties whose values vary in type across samples produce `anyOf` for that property.
+
+</details>
+
+<details>
+<summary>**Will the schema catch every runtime issue?**</summary>
+
+It catches shape and type issues but not semantic constraints (e.g., "this number must be positive", "this string must be ≤ 50 chars"). Add those manually after generation.
+
+</details>
+
+## Tips
+
+- Provide multiple samples for accurate required-vs-optional inference.
+- After generation, add `title` and `description` to each field — turns the schema into living documentation.
+- Pair with Ajv for runtime validation in JavaScript/TypeScript projects.
+- For the strongest contract, hand-write semantic constraints (min/max, pattern) — generation can't infer those.
+
+## Try it now
+
+The full json-schema-generator runs in your browser at **[https://ztools.zaions.com/json-schema-generator](https://ztools.zaions.com/json-schema-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-schema-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/json-schema-generator.mdx)*

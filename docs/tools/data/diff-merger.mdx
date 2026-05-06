@@ -1,0 +1,128 @@
+---
+id: diff-merger
+title: "Diff Merger Online — Merge Two Text Versions, Free"
+description: "Compare two text files and merge them line by line. Resolve conflicts visually. Works for code, config, JSON, prose. No upload."
+sidebar_label: "diff-merger"
+keywords:
+  - "diff merger online"
+  - "merge text files"
+  - "compare and merge"
+  - "three-way merge"
+  - "git mergetool browser"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# diff-merger
+
+A diff merger shows two text versions side by side, highlights the differences, and lets you pick which side wins line by line — producing a single merged result. It's what `git mergetool` opens (vim-diff, kdiff3, Beyond Compare), but in a browser without installing anything. The ZTools Diff Merger tool handles plain text, JSON, YAML, code, and prose; supports three-way comparison (base + left + right) when given a common ancestor; and exports the merged output as a download or copy-paste.
+
+<ToolCTA toolId="diff-merger" toolName="diff-merger" />
+
+## Use cases
+
+### Resolve a Git merge conflict
+
+Cloning a CLI mergetool is overkill for a one-off conflict. Paste both sides of the conflict, pick which lines to keep, copy the merged result back.
+
+### Merge two config files
+
+Two engineers edited the same .eslintrc independently. Combine their additions without losing either set.
+
+### Compare two API contracts
+
+OpenAPI v1 and v2 — see what's changed, what's removed, what's renamed. Useful before publishing a deprecation note.
+
+### Edit prose collaboratively
+
+Two reviewers edited the same doc. A merger lets you accept one reviewer's rewrite of paragraph 3 and the other's of paragraph 5.
+
+## How it works
+
+1. **Paste left and right text** — Two textareas, one per side. Optionally a third area for the common base (three-way merge).
+2. **Diff renders** — Line-by-line alignment using the Myers diff algorithm — same algorithm Git uses. Added / removed / changed lines colour-coded.
+3. **Pick a side per chunk** — For each diff chunk, click "use left", "use right", "use both", or "edit manually". The merged column updates live.
+4. **Export merged result** — Copy the final merged text or download as .txt. Original inputs are never modified.
+
+## Examples
+
+**Input:** Left: line A, line B, line C
+Right: line A, line B-edit, line C
+
+**Output:** Diff: line B vs line B-edit. Click "use right" to take the edit; merged: line A, line B-edit, line C.
+
+---
+
+**Input:** Left adds a new line; right adds a different new line
+
+**Output:** Two-way: pick one or both. Three-way (with base) detects this is "both added different things" and prompts for a manual merge.
+
+---
+
+**Input:** JSON merge: left adds key X, right adds key Y
+
+**Output:** Both sides accepted produces an object with X and Y. Conflicts on the same key require manual choice.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it understand JSON / YAML semantically?**</summary>
+
+No — it diffs as text. For semantic JSON merge (key-aware, type-aware), use a dedicated JSON merge tool. Text diff catches most cases but can produce surprising results when whitespace differs.
+
+</details>
+
+<details>
+<summary>**How is this different from a diff viewer?**</summary>
+
+A diff viewer shows differences but produces no output. A merger lets you build a third version line by line. Same UI, more interaction.
+
+</details>
+
+<details>
+<summary>**Does it support patches (unified diff format)?**</summary>
+
+Read-only — paste a unified diff to visualise. To apply patches, use git apply or patch CLI.
+
+</details>
+
+<details>
+<summary>**What if the two inputs are completely different?**</summary>
+
+The diff has no aligned chunks; you'd be doing a copy job, not a merge. The tool will still show side-by-side text but with everything flagged as changed.
+
+</details>
+
+<details>
+<summary>**Can it ignore whitespace?**</summary>
+
+Yes — toggle "ignore whitespace" or "ignore case" before diffing. Useful for prose where line wrapping changed.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All comparison happens in your browser. No upload, no tracking of pasted content.
+
+</details>
+
+## Tips
+
+- For Git conflicts, paste the part between &lt;&lt;&lt;&lt;&lt;&lt;&lt; and &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers — the markers themselves go away after merge.
+- Use three-way merge when you have a common ancestor — much cleaner conflict resolution.
+- For very large files (10k+ lines), prefer a desktop tool (kdiff3, Beyond Compare) — browser memory and rendering get slow.
+- When merging code, run formatter and tests after — a clean text merge can still introduce semantic errors.
+
+## Try it now
+
+The full diff-merger runs in your browser at **[https://ztools.zaions.com/diff-merger](https://ztools.zaions.com/diff-merger)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/diff-merger)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/diff-merger.mdx)*

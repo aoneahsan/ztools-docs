@@ -1,0 +1,127 @@
+---
+id: obfuscate-json
+title: "Obfuscate JSON Online — Hide PII, Mask Keys, Free"
+description: "Mask sensitive values in JSON (emails, phones, IDs) for sharing. Replace with hashes or fixed tokens. Browser-only — your data stays local."
+sidebar_label: "obfuscate-json"
+keywords:
+  - "obfuscate json"
+  - "mask json data"
+  - "redact json pii"
+  - "anonymise json"
+  - "json data masking"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# obfuscate-json
+
+Obfuscating JSON means replacing sensitive values — names, emails, phone numbers, account IDs — with placeholders so the structure stays inspectable but the data is no longer identifiable. Useful for sharing API responses with vendors, posting bug reports on GitHub, or scrubbing fixtures before checking them into a public repo. The ZTools Obfuscate JSON tool runs in the browser, supports per-key strategies (hash, mask, fixed value, regex replace), preserves data types (string stays string, number stays number), and skips structural keys (arrays, IDs you mark as safe).
+
+<ToolCTA toolId="obfuscate-json" toolName="obfuscate-json" />
+
+## Use cases
+
+### Share an API response in a bug report
+
+A production response triggers a vendor SDK bug. You need the vendor to see the structure, but customer emails and tokens must not leak. Obfuscate before pasting.
+
+### Post a debug payload on Stack Overflow
+
+Public help requires a reproducible example. Strip user IDs and tokens; keep the schema and the broken field intact.
+
+### Generate test fixtures from prod data
+
+Production data is the most realistic test data. Obfuscate names/emails/IDs before checking into a Git repo or sharing with QA.
+
+### Comply with data-sharing policies
+
+GDPR, HIPAA, and most enterprise policies forbid sharing raw PII. An obfuscation step turns "no" into "yes" for legitimate engineering needs.
+
+## How it works
+
+1. **Paste JSON** — Drag a file or paste text. Tool parses with JSON.parse and walks the tree.
+2. **Pick keys to obfuscate** — Default rules cover common PII fields (email, name, phone, ssn, token). Add or remove key names to match your schema.
+3. **Choose strategy** — Mask (***), hash (deterministic SHA-256 first 8 chars), fixed token ("REDACTED"), or regex replace (e.g. keep domain, strip user part of emails).
+4. **Preview and copy** — See before/after side by side. Copy the obfuscated JSON or download as .json.
+
+## Examples
+
+**Input:** \{"email":"alice@company.com","name":"Alice","phone":"+1-555-0100"\}
+
+**Output:** Mask: \{"email":"***","name":"***","phone":"***"\}. Hash: \{"email":"a3f9e2b1","name":"7c0d8d12","phone":"e4f1a022"\}. Same input always hashes the same way (deterministic).
+
+---
+
+**Input:** Email regex: keep domain
+
+**Output:** alice@company.com → REDACTED@company.com. Useful when downstream code checks domain but you don't want the username.
+
+---
+
+**Input:** Nested: \{"user":\{"id":42,"email":"x@y.com"\}\}
+
+**Output:** Walks recursively. Can target user.email specifically (path-aware) or all keys named "email" anywhere in the tree.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this true anonymisation?**</summary>
+
+It's pseudonymisation — same input produces same hash, so an attacker with the original could re-identify. For irreversible anonymisation, use random replacement and discard the mapping.
+
+</details>
+
+<details>
+<summary>**Does the hash leak the original?**</summary>
+
+SHA-256 is one-way. But if the value space is small (e.g. a US ZIP code), brute-force lookup is trivial. Hash is fine for free-text fields, weak for low-entropy values.
+
+</details>
+
+<details>
+<summary>**Will it break my schema validation?**</summary>
+
+Strings stay strings, numbers stay numbers — but masked emails fail email-format validators. Use regex-replace mode if you need format validity.
+
+</details>
+
+<details>
+<summary>**Can I obfuscate values inside arrays?**</summary>
+
+Yes — the walk descends into arrays and processes each element by its key path. Array indices are not key names so they're ignored.
+
+</details>
+
+<details>
+<summary>**Is the tool GDPR-compliant?**</summary>
+
+The tool itself never sends data anywhere — that part is GDPR-friendly. Whether the obfuscated output is "anonymised data" under GDPR depends on your re-identifiability risk; consult counsel for production workflows.
+
+</details>
+
+<details>
+<summary>**Can I save my key-list as a config?**</summary>
+
+Yes — export rules to JSON for re-use across files. Stored locally; never uploaded.
+
+</details>
+
+## Tips
+
+- Default rules cover ~80% of PII. Always review the output before sharing — schemas vary.
+- Use deterministic hashing if you need to JOIN obfuscated fixtures across files.
+- For free-text comments / user-generated content, replace the entire value with "***" — partial masking can leak content.
+- Add a final pass to scrub stack traces — they often embed paths with usernames or IDs.
+
+## Try it now
+
+The full obfuscate-json runs in your browser at **[https://ztools.zaions.com/obfuscate-json](https://ztools.zaions.com/obfuscate-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/obfuscate-json)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/obfuscate-json.mdx)*

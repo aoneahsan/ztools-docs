@@ -1,0 +1,112 @@
+---
+id: shuffle-binary-bits
+title: "Shuffle Binary Bits — Permute Bit Positions, Free"
+description: "Randomly shuffle the bit order of any binary number. Useful for cryptography demos and bit puzzles."
+sidebar_label: "shuffle-binary-bits"
+keywords:
+  - "shuffle binary bits"
+  - "permute binary positions"
+  - "bit randomizer online"
+  - "binary shuffle tool"
+  - "random bit order"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# shuffle-binary-bits
+
+Shuffling binary bits randomly permutes the bit positions of a number — for example, 10110100 might become 01101100, with the same count of 1s but in different positions. Useful for cryptography demos (showing how diffusion works), constructing test vectors, and bit-permutation puzzles. The ZTools Shuffle Binary Bits tool uses Fisher-Yates on the bit positions (not the bit values) and supports both Math.random and crypto.getRandomValues for the shuffle.
+
+<ToolCTA toolId="shuffle-binary-bits" toolName="shuffle-binary-bits" />
+
+## Use cases
+
+### Demonstrate diffusion in cryptography
+
+Many ciphers permute bits as part of confusion / diffusion. Random shuffle illustrates how a byte's positions can be rearranged.
+
+### Generate test vectors with same popcount
+
+Need 10 different 8-bit values each with exactly 4 ones. Shuffle a fixed pattern multiple times.
+
+### Bit-puzzle creation
+
+Show students a number, ask them to derive the shuffled version. Tests bit-position fluency.
+
+### Create scrambled-but-equal datasets
+
+For testing algorithms invariant to bit order (e.g. popcount-only algorithms), shuffled inputs verify the invariance.
+
+## How it works
+
+1. **Paste number** — Binary / hex / decimal.
+2. **Pick width** — Determines which positions can be permuted.
+3. **Pick RNG** — Math.random (deterministic if seeded) or crypto.getRandomValues (truly random).
+4. **Shuffle** — Fisher-Yates on the bit array. Output: same popcount, different bit pattern.
+
+## Examples
+
+**Input:** 0b10110100 (8-bit)
+
+**Output:** One shuffle: 0b01011010 (still 4 ones). Another: 0b11001010. Each permutation equally likely.
+
+---
+
+**Input:** 0xFF (8-bit)
+
+**Output:** Always 0xFF — all positions identical.
+
+---
+
+**Input:** 0xF0 (8-bit) shuffled 5 times
+
+**Output:** 5 different 8-bit values each with 4 ones — chosen uniformly from C(8,4) = 70 possible values.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the shuffle uniform?**</summary>
+
+Fisher-Yates produces uniform permutations of bit positions. Two values with the same popcount are equally likely as outputs.
+
+</details>
+
+<details>
+<summary>**Why preserve popcount?**</summary>
+
+Shuffling preserves bit-count by definition — only positions move. Useful invariant for crypto / coding-theory demos.
+
+</details>
+
+<details>
+<summary>**Reproducible?**</summary>
+
+Yes with Math.random + seed; no with crypto. Pick based on whether you need deterministic test cases.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For crypto demos, use crypto RNG. For tests / homework / reproducibility, seeded Math.random.
+- Generate multiple shuffles of the same input to populate a test set with constant popcount.
+- Pair with the count-binary-ones tool to verify shuffle preserves popcount (invariant check).
+
+## Try it now
+
+The full shuffle-binary-bits runs in your browser at **[https://ztools.zaions.com/shuffle-binary-bits](https://ztools.zaions.com/shuffle-binary-bits)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/shuffle-binary-bits)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/shuffle-binary-bits.mdx)*

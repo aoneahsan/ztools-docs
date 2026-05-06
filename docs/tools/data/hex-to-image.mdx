@@ -1,0 +1,112 @@
+---
+id: hex-to-image
+title: "Hex to Image Converter — Decode Hex to PNG / JPG, Free"
+description: "Convert hex-encoded image data back to a viewable PNG / JPG / GIF. Useful for forensics, debugging. Browser-only."
+sidebar_label: "hex-to-image"
+keywords:
+  - "hex to image online"
+  - "decode hex image"
+  - "hex to png converter"
+  - "binary image viewer"
+  - "hex dump to image"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# hex-to-image
+
+Image bytes can be encoded as hex strings — every two hex chars become one byte. The result is platform-independent text that round-trips back to the original binary. The ZTools Hex to Image converter takes a hex string (with or without 0x prefix, with or without spaces / line breaks), decodes the bytes, detects the image format from the magic bytes (PNG: 89 50 4E 47, JPG: FF D8 FF, GIF: 47 49 46 38), and renders the image. Useful for forensics, debugging email payloads, decoding base64-via-hex pipelines, and copying images out of hex dumps.
+
+<ToolCTA toolId="hex-to-image" toolName="hex-to-image" />
+
+## Use cases
+
+### Decode an image embedded in a log
+
+A debug log shows a hex blob; you suspect it's an image. Paste, see what it is.
+
+### Forensics — extract images from a dump
+
+A memory dump has a PNG at offset X. Cut the hex starting from 89 50 4E 47, end at IEND chunk; decode to view.
+
+### Verify a hex-encoded image API response
+
+Some APIs encode images as hex strings. Decode to confirm the bytes match expectations.
+
+### Round-trip an image through copy-paste-able text
+
+Need to send an image through a system that only supports text? Hex-encode → paste → decode at the destination.
+
+## How it works
+
+1. **Paste hex string** — Tool strips whitespace + 0x prefixes. Each pair of hex chars becomes one byte.
+2. **Detect format** — Magic bytes identify PNG / JPG / GIF / BMP / WebP. Unknown formats display as "data" with size info.
+3. **Render** — Decoded bytes turned into a Blob → object URL → &lt;img src&gt;. Image displays in the browser.
+4. **Download** — Save as the detected format. Filename auto-generated.
+
+## Examples
+
+**Input:** 89 50 4E 47 ... (PNG header) ... AE 42 60 82
+
+**Output:** Decoded as PNG, displayed in viewer. Save as .png.
+
+---
+
+**Input:** FF D8 FF E0 ... (JPG header)
+
+**Output:** Decoded as JPG.
+
+---
+
+**Input:** Random hex with no recognised header
+
+**Output:** Tool reports "unknown format" with byte count. Image won't render.
+
+## Frequently asked questions
+
+<details>
+<summary>**What if my hex has commas or extra chars?**</summary>
+
+Tool strips non-hex chars before decoding. Most common dump formats (Wireshark, hexdump, xxd) round-trip cleanly.
+
+</details>
+
+<details>
+<summary>**Maximum size?**</summary>
+
+A few MB hex (which decodes to 1-2 MB image) works fine. Larger ones strain the browser tab.
+
+</details>
+
+<details>
+<summary>**Doesn't recognise my format?**</summary>
+
+Toggle "raw mode" to download as .bin and open in a hex editor. The first 16 bytes usually identify the format manually.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Everything in browser.
+
+</details>
+
+## Tips
+
+- For partial hex dumps, ensure the magic-byte header is present. Without it, format detection fails.
+- For images embedded in larger data, find the IEND chunk (50 4E 47 ... 49 45 4E 44) for the PNG end marker, or FF D9 for JPG end.
+- For round-trip testing, also use the Image to Hex tool — verify the same bytes round-trip.
+
+## Try it now
+
+The full hex-to-image runs in your browser at **[https://ztools.zaions.com/hex-to-image](https://ztools.zaions.com/hex-to-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hex-to-image)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/hex-to-image.mdx)*

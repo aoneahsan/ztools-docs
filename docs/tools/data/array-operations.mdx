@@ -1,0 +1,120 @@
+---
+id: array-operations
+title: "Array Operations Online — Union, Intersect, Diff, Free"
+description: "Run set operations on lists: union, intersection, difference, symmetric difference. Works for emails, IDs, words. Browser-only."
+sidebar_label: "array-operations"
+keywords:
+  - "array operations online"
+  - "set union intersection"
+  - "list difference tool"
+  - "compare two lists online"
+  - "symmetric difference"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# array-operations
+
+Array operations — union, intersection, difference, symmetric difference — answer common data-cleanup questions. "What emails are in list A but not list B?" → difference. "What IDs appear in both?" → intersection. "All unique values across both lists?" → union. The ZTools Array Operations tool accepts two arrays (one item per line, or comma-separated, or JSON), runs the operation in the browser, and returns the result with counts. Case-sensitive or insensitive, trim-or-not, dedupe-or-keep-duplicates — all configurable.
+
+<ToolCTA toolId="array-operations" toolName="array-operations" />
+
+## Use cases
+
+### Cross-reference user lists
+
+Marketing wants emails on List A but NOT on the unsubscribe list. Difference operation gives the answer instantly.
+
+### Find shared customers
+
+Two products, two CSVs of user IDs. Intersection shows users of both — your cross-sell candidates.
+
+### Spot drift in two configs
+
+Two YAML files list allowed origins. Symmetric difference reveals which entries are in one but not the other.
+
+### Validate a migration
+
+Old DB had 10,234 records. New DB has 10,233. Difference points to the one record that didn't migrate.
+
+## How it works
+
+1. **Paste list A and list B** — One item per line, comma-separated, or JSON array. Tool auto-detects format.
+2. **Pick operation** — Union (A ∪ B), Intersection (A ∩ B), Difference (A − B), Symmetric Difference (A ⊕ B = items in exactly one).
+3. **Configure matching** — Case-sensitive (default), trim whitespace, treat numbers as numbers (so "1" matches 1).
+4. **Read result** — Output list plus counts: \{input A: 1024, input B: 998, result: 76\}. Copy as plain list or JSON.
+
+## Examples
+
+**Input:** A = [1,2,3,4]; B = [3,4,5,6]
+
+**Output:** Union: [1,2,3,4,5,6]. Intersect: [3,4]. A−B: [1,2]. B−A: [5,6]. Symmetric: [1,2,5,6].
+
+---
+
+**Input:** A = emails subscribed; B = emails bounced
+
+**Output:** A−B = clean recipients. Use this list for the next send.
+
+---
+
+**Input:** Case-insensitive intersection of "Alice" and "alice"
+
+**Output:** [Alice] (or [alice] — picks first occurrence). Without case-insensitive matching, the result would be empty.
+
+## Frequently asked questions
+
+<details>
+<summary>**How big can the lists be?**</summary>
+
+Browser memory is the limit — 1 million items per side works fine in modern browsers. The Set data structure makes operations O(n).
+
+</details>
+
+<details>
+<summary>**Does order of inputs matter?**</summary>
+
+Union and intersection: no. Difference: yes — A−B differs from B−A.
+
+</details>
+
+<details>
+<summary>**What about duplicates within a list?**</summary>
+
+By default, treated as a set (deduplicated). Toggle "preserve duplicates" if you need multiset semantics (e.g. counting).
+
+</details>
+
+<details>
+<summary>**Does it support objects?**</summary>
+
+Primitive comparison only — strings, numbers, booleans. For objects, key on a stable property (id) and operate on that array.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in the browser. Emails / IDs / customer data never leave your device.
+
+</details>
+
+## Tips
+
+- For very large lists, paste as JSON arrays — faster than line-splitting in the browser.
+- Trim whitespace by default — accidental trailing spaces are the #1 cause of "items don't match".
+- For approximate matching (fuzzy), use a fuzzy-search tool first to canonicalise, then array-op the cleaned lists.
+- Combine with the Find Duplicate Items tool when you need duplicates inside a single list, not across two.
+
+## Try it now
+
+The full array-operations runs in your browser at **[https://ztools.zaions.com/array-operations](https://ztools.zaions.com/array-operations)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/array-operations)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/array-operations.mdx)*

@@ -1,0 +1,137 @@
+---
+id: yaml-to-json
+title: "YAML to JSON Converter — Bidirectional, Spec-Compliant, Online"
+description: "Convert YAML to JSON or JSON to YAML in seconds. Handles anchors, multi-line strings, and nested structures. 100% client-side — no upload."
+sidebar_label: "yaml-to-json"
+keywords:
+  - "yaml to json"
+  - "json to yaml"
+  - "yaml json converter"
+  - "convert yaml to json"
+  - "yaml parser online"
+  - "yaml validator"
+  - "kubernetes yaml to json"
+  - "free yaml tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# yaml-to-json
+
+A YAML-to-JSON converter parses YAML 1.2 documents and re-emits them as equivalent JSON, preserving structure, type information, and string semantics. The ZTools YAML ↔ JSON tool uses a bundled YAML parser (js-yaml-style behavior) to handle anchors, aliases, multi-line scalars (literal `|` and folded `&gt;`), explicit type tags (`!!str`, `!!int`), and nested mappings/sequences. Common applications include converting Kubernetes manifests, GitHub Actions workflows, Docker Compose files, and Ansible playbooks between the two formats for tooling that only accepts one.
+
+<ToolCTA toolId="yaml-to-json" toolName="yaml-to-json" />
+
+## Use cases
+
+### Converting a Kubernetes manifest from YAML to JSON for kubectl --output
+
+Most Kubernetes resources are authored in YAML, but tools like Pulumi, CDK8s, or custom controllers often need JSON. Paste the YAML, convert to JSON, and feed the output to your tool of choice without rewriting the manifest by hand.
+
+### Inspecting a CI/CD workflow file
+
+GitHub Actions, GitLab CI, and CircleCI all use YAML. When debugging an "anchor not found" or "duplicate key" error, converting to JSON exposes the resolved structure with explicit types and no aliases — making the actual execution graph visible.
+
+### Migrating configuration from JSON to YAML for human editing
+
+A `config.json` with deep nesting becomes painful to edit. Convert to YAML for the human-friendly format, edit in your editor, and convert back to JSON before deployment if your runtime expects it.
+
+### Validating YAML by round-tripping through JSON
+
+A successful YAML → JSON conversion proves the YAML parses cleanly. If conversion fails, the error message points to the exact line and column. Round-tripping JSON → YAML → JSON should produce the same JSON tree.
+
+## How it works
+
+1. **Paste YAML or JSON into the input pane** — Drag-drop `.yaml`, `.yml`, or `.json` files. The tool auto-detects format from the input.
+2. **Choose the direction** — Click "YAML → JSON" or "JSON → YAML". Opposite-direction button is disabled when input doesn't match.
+3. **Parse and validate** — YAML 1.2 parser resolves anchors and aliases, applies tag-based type coercion, and produces an in-memory tree. Errors include line and column numbers.
+4. **Re-emit as the target format** — JSON output is pretty-printed with 2-space indent. YAML output uses block style with sensible defaults.
+5. **Copy or download** — One-click copy. Original input stays available for re-conversion with adjusted indentation.
+
+## Examples
+
+**Input:** name: ZTools
+tools: 519
+categories:
+  - text
+  - image
+  - data
+
+**Output:** \{
+  "name": "ZTools",
+  "tools": 519,
+  "categories": ["text", "image", "data"]
+\}
+
+---
+
+**Input:** \{ "version": 1, "services": \{ "web": \{ "port": 8080 \} \} \}
+
+**Output:** version: 1
+services:
+  web:
+    port: 8080
+
+## Frequently asked questions
+
+<details>
+<summary>**Which YAML version does the tool support?**</summary>
+
+YAML 1.2 with the most common YAML 1.1 quirks (boolean coercion of "yes"/"no") explicitly disabled to match modern parser defaults.
+
+</details>
+
+<details>
+<summary>**Are YAML anchors and aliases preserved?**</summary>
+
+They are resolved during parsing — the JSON output contains the fully expanded structure. On the reverse path, the YAML output does not auto-introduce anchors; if you need them, add them by hand after conversion.
+
+</details>
+
+<details>
+<summary>**How are multi-line strings handled?**</summary>
+
+Literal block scalars (`|`) preserve newlines; folded scalars (`&gt;`) join lines with spaces. Both convert to standard JSON strings with `\\n` escapes.
+
+</details>
+
+<details>
+<summary>**What happens to comments?**</summary>
+
+YAML comments are stripped during parsing — JSON does not support them. If you need to preserve comments, keep the original YAML alongside the converted JSON.
+
+</details>
+
+<details>
+<summary>**Does the tool support YAML's explicit type tags?**</summary>
+
+Yes — `!!str`, `!!int`, `!!float`, `!!bool`, `!!null`, `!!seq`, `!!map`, and `!!timestamp` are all recognized.
+
+</details>
+
+<details>
+<summary>**Can the tool handle multi-document YAML?**</summary>
+
+Single-document YAML is the common case and fully supported. Multi-document YAML (`---` separators) converts to a JSON array, one element per document.
+
+</details>
+
+## Tips
+
+- Validate YAML syntax by attempting conversion — a successful conversion is a strong correctness signal.
+- Avoid YAML 1.1 boolean traps ("yes"/"no" becoming `true`/`false`) by quoting strings that look like booleans.
+- For GitHub Actions debugging, convert workflow.yml to JSON to see the exact resolved job graph.
+- When converting back to YAML, prefer block style for readability and flow style only for short inline structures.
+
+## Try it now
+
+The full yaml-to-json runs in your browser at **[https://ztools.zaions.com/yaml-to-json](https://ztools.zaions.com/yaml-to-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/yaml-to-json)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/yaml-to-json.mdx)*

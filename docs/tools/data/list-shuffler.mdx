@@ -1,0 +1,126 @@
+---
+id: list-shuffler
+title: "List Shuffler Online — Randomize Order, Fair Shuffle, Free"
+description: "Randomly shuffle any list using Fisher-Yates. Fair, unbiased, cryptographically random optional. Browser-only."
+sidebar_label: "list-shuffler"
+keywords:
+  - "list shuffler online"
+  - "randomize list order"
+  - "fisher yates shuffle"
+  - "shuffle names raffle"
+  - "random list order"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# list-shuffler
+
+A list shuffler reorders items into a random sequence — every permutation equally likely if the algorithm is fair. The naive "sort by random number" trick is biased; the correct algorithm is Fisher-Yates (also called Knuth shuffle), which iterates from the end and swaps each element with a random earlier or current element. The ZTools List Shuffler tool implements Fisher-Yates with a configurable RNG: Math.random (fast, fine for games and casual use) or crypto.getRandomValues (cryptographically secure, for raffles and prize draws where fairness can be challenged).
+
+<ToolCTA toolId="list-shuffler" toolName="list-shuffler" />
+
+## Use cases
+
+### Run a fair raffle
+
+Paste participant names, shuffle, take the top N. Use the crypto-RNG mode so the draw is auditable as fair.
+
+### Randomise a quiz
+
+Question order shouldn't reveal patterns. Shuffle the answer list per session.
+
+### Distribute work randomly
+
+Pair-programming rotations: shuffle, then partition. Removes bias from "who works with whom".
+
+### Shuffle a playlist
+
+Spotify's shuffle is famously not uniform. A clean Fisher-Yates pass over your track list does what users expect.
+
+## How it works
+
+1. **Paste the list** — One item per line. Empty lines preserved or skipped per toggle.
+2. **Pick RNG** — Standard (Math.random — pseudo-random, deterministic if seeded) or Cryptographic (crypto.getRandomValues — true randomness from the OS).
+3. **Optionally seed** — For reproducible shuffles (debugging, replays), provide a seed. Same seed + same input = same output.
+4. **Shuffle and copy** — Output is the shuffled list. Re-shuffle for a new order. Original list available alongside.
+
+## Examples
+
+**Input:** [A, B, C, D, E]
+
+**Output:** One shuffle: [C, A, E, B, D]. Another shuffle: [B, D, A, C, E]. All 120 permutations equally likely.
+
+---
+
+**Input:** Seeded shuffle ("seed=42")
+
+**Output:** Deterministic — every run with seed 42 produces the same result. Useful for tests and reproducible demos.
+
+---
+
+**Input:** Cryptographic shuffle of a 1,000-item raffle
+
+**Output:** crypto.getRandomValues backs the RNG; an attacker can't predict the result without compromising the OS RNG.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why not sort by a random number?**</summary>
+
+It's biased. JavaScript's sort calls the comparator multiple times per pair — the resulting permutation is not uniform. Fisher-Yates is the correct algorithm.
+
+</details>
+
+<details>
+<summary>**Is Math.random good enough?**</summary>
+
+For games, raffles among friends, randomising tests — yes. For high-stakes (real money raffles, security), use crypto.getRandomValues.
+
+</details>
+
+<details>
+<summary>**Can someone reverse-engineer the result?**</summary>
+
+With Math.random and known timing, a determined attacker could narrow down the seed. With crypto.getRandomValues, no — values are sourced from /dev/urandom equivalent.
+
+</details>
+
+<details>
+<summary>**Does the tool log my list?**</summary>
+
+No — pure browser. Lists never leave the device.
+
+</details>
+
+<details>
+<summary>**What's the largest list it handles?**</summary>
+
+Fisher-Yates is O(n). A million items shuffles in ~100 ms. Browser memory is the only ceiling.
+
+</details>
+
+<details>
+<summary>**How is this different from the List Randomizer?**</summary>
+
+Same operation under the hood. We keep both for SEO — different users search for different terms. Internally one shuffle implementation backs both.
+
+</details>
+
+## Tips
+
+- For raffles, paste participant names, run cryptographic shuffle, screenshot the result. Reproducible audit trail without exposing names elsewhere.
+- Seeded shuffles are great for unit tests — the test always sees the same "random" order.
+- If you need to draw N winners (without replacement), shuffle and take the first N. Drawing-with-replacement is a different operation — use the Random Picker tool.
+
+## Try it now
+
+The full list-shuffler runs in your browser at **[https://ztools.zaions.com/list-shuffler](https://ztools.zaions.com/list-shuffler)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/list-shuffler)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/list-shuffler.mdx)*

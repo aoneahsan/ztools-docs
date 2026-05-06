@@ -1,0 +1,122 @@
+---
+id: change-csv-delimiter
+title: "Change CSV Delimiter — Convert Comma to Tab, Semicolon, Pipe (Free)"
+description: "Change the delimiter of a CSV file from comma to tab, semicolon, pipe, or any custom character. Re-quotes fields if needed. Free."
+sidebar_label: "change-csv-delimiter"
+keywords:
+  - "change csv delimiter"
+  - "csv to tsv"
+  - "csv delimiter converter"
+  - "comma to semicolon"
+  - "tsv to csv"
+  - "free delimiter changer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# change-csv-delimiter
+
+A delimiter changer takes a CSV (or TSV, or any character-separated file) and re-emits it with a different field separator — comma to semicolon for European software, comma to tab for tab-separated tooling, pipe-delimited for systems that use commas inside content — automatically re-quoting fields that newly contain the destination delimiter so the output stays parseable. The ZTools CSV Delimiter Changer handles any size CSV in your browser, supports auto-detection of the source delimiter, lets users pick or type any single-character destination, follows RFC 4180 quoting rules, and shows the count of fields requiring new quotes.
+
+<ToolCTA toolId="change-csv-delimiter" toolName="change-csv-delimiter" />
+
+## Use cases
+
+### Converting a US CSV to a European semicolon CSV
+
+European Excel often interprets comma-CSV incorrectly because the comma is the decimal separator. Convert to semicolon-delimited; Europe-friendly out of the box.
+
+### Switching CSV → TSV for tab-based tools
+
+Some pipelines prefer tab-separated values (no quoting needed for typical content). Quick conversion without manual editing.
+
+### Pipe delimiters for content with commas
+
+Survey responses or support tickets contain commas in nearly every row. Pipe-delimited (|) avoids the heavy quoting that makes comma-CSV unreadable.
+
+### Standardizing exports from multiple sources
+
+Sales tool exports CSV, support tool exports TSV, marketing exports semicolon. Convert all to one delimiter for a unified import process.
+
+## How it works
+
+1. **Paste or upload the CSV** — Source delimiter auto-detected from the first few lines (comma, tab, semicolon, pipe).
+2. **Choose the destination delimiter** — Comma, tab, semicolon, pipe, or "custom" with a single character of your choice.
+3. **Re-emit with quoting where needed** — Fields containing the new delimiter, newlines, or quotes get wrapped in double quotes per RFC 4180. Fields that no longer need quotes (because the old delimiter is gone) are unwrapped.
+4. **Read the converted output** — Side-by-side preview shows source and converted. Stats show how many fields needed new quotes.
+5. **Download or copy** — Save as a new file; the original is preserved.
+
+## Examples
+
+**Input:** Comma CSV: a,b,c\\n1,2,3
+
+**Output:** Tab TSV: a\\tb\\tc\\n1\\t2\\t3
+
+---
+
+**Input:** Comma CSV with embedded comma: a,"b,c",d
+
+**Output:** Semicolon CSV: a;b,c;d (quote no longer needed because b,c doesn't contain ;)
+
+---
+
+**Input:** Pipe → comma with content containing pipes
+
+**Output:** New quoting added around pipe-containing fields so the comma version stays parseable.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why would I want to change the delimiter?**</summary>
+
+Locale (European semicolons), tooling (some prefer TSV), content (avoid heavy quoting when commas appear in data), or downstream system requirements.
+
+</details>
+
+<details>
+<summary>**Will it break my data?**</summary>
+
+No, if both source and destination follow RFC 4180. The converter properly handles quoted fields containing the new delimiter. Non-standard CSVs may need manual cleanup.
+
+</details>
+
+<details>
+<summary>**What's the difference between TSV and CSV?**</summary>
+
+TSV uses tab separators; CSV uses comma. TSV is simpler — tabs rarely appear in content, so quoting is rarely needed. CSV is more universal but requires more careful quoting.
+
+</details>
+
+<details>
+<summary>**Can I use a multi-character delimiter?**</summary>
+
+Not directly — RFC 4180 assumes single-character delimiters. For multi-character separators (rare, often a sign of poor data design), use Find-and-Replace.
+
+</details>
+
+<details>
+<summary>**How does it handle Excel-saved CSVs?**</summary>
+
+Excel sometimes adds a UTF-8 BOM and uses CR-LF line endings. The converter detects and preserves these so the output opens cleanly back in Excel.
+
+</details>
+
+## Tips
+
+- For European Excel users, always send semicolon-delimited; comma versions get garbled in many locales.
+- For data with embedded commas, pipe (|) often produces cleaner output than comma + heavy quoting.
+- When converting, double-check: if the original uses unusual quoting, the output may need manual review.
+- TSV is great for clean datasets; for messy content (with embedded tabs), prefer CSV with quoting.
+
+## Try it now
+
+The full change-csv-delimiter runs in your browser at **[https://ztools.zaions.com/change-csv-delimiter](https://ztools.zaions.com/change-csv-delimiter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/change-csv-delimiter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/change-csv-delimiter.mdx)*

@@ -1,0 +1,120 @@
+---
+id: csv-to-text-columns
+title: "CSV to Text Columns Online — Aligned, Padded, Free"
+description: "Convert CSV to fixed-width text columns. Aligned, padded, readable in any monospace viewer. Browser-only."
+sidebar_label: "csv-to-text-columns"
+keywords:
+  - "csv to text columns"
+  - "csv to fixed width"
+  - "aligned table from csv"
+  - "monospace csv viewer"
+  - "csv pretty print"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# csv-to-text-columns
+
+Converting CSV to text columns produces a fixed-width, monospace-aligned output where each column has the same width regardless of value length. Useful for sending readable data over email, posting in chat, or putting into a markdown code block. Unlike a Markdown table (which renders only after rendering), text columns are readable as-is. The ZTools CSV to Text Columns tool computes per-column max width, pads each cell, supports left/right/centre alignment, and offers separator styles (spaces only, pipe + spaces, or full ASCII box).
+
+<ToolCTA toolId="csv-to-text-columns" toolName="csv-to-text-columns" />
+
+## Use cases
+
+### Share data over email or chat
+
+A CSV is hard to read inline. Text columns turn 5 rows of 4 columns into a clean aligned block any client renders correctly.
+
+### Embed in Slack / Discord
+
+Markdown tables render in some places, not others. Triple-backtick monospace with text columns renders everywhere.
+
+### Generate a quick console-style report
+
+CLI tools output aligned text. Reproduce that look from a CSV without writing format code.
+
+### Print-friendly output
+
+Tables in HTML print weirdly. Plain monospace text always prints predictably.
+
+## How it works
+
+1. **Paste CSV** — Tool parses (RFC 4180). First row optionally treated as header.
+2. **Compute widths** — For each column, max(value length across all rows). Header included if present.
+3. **Pick alignment + style** — Left, right, or centre per column. Separator: spaces, pipe (`|`), or ASCII box (`+--+`).
+4. **Render and copy** — Output is a monospace block. Copy and paste anywhere monospace renders.
+
+## Examples
+
+**Input:** name,age\\nAlice,30\\nBob,5
+
+**Output:** Spaces:\\nname  age\\nAlice 30\\nBob   5\\n\\nWith pipes:\\n| name  | age |\\n| Alice | 30  |\\n| Bob   | 5   |
+
+---
+
+**Input:** Right-align numbers
+
+**Output:** Numeric columns right-align so digits line up — easier to scan.
+
+---
+
+**Input:** ASCII box
+
+**Output:** +-------+-----+\\n| name  | age |\\n+-------+-----+\\n| Alice | 30  |\\n| Bob   | 5   |\\n+-------+-----+
+
+## Frequently asked questions
+
+<details>
+<summary>**Why not just use Markdown tables?**</summary>
+
+Markdown renders only in Markdown-aware contexts. Text columns render in any monospace block — email, chat, terminal, log files.
+
+</details>
+
+<details>
+<summary>**Does it handle multi-line cell values?**</summary>
+
+Limited — cells with newlines wrap awkwardly. Strip newlines from the source CSV first for cleanest output.
+
+</details>
+
+<details>
+<summary>**How does it handle Unicode width?**</summary>
+
+Wide-width characters (CJK, emoji) take 2 monospace cells. Toggle "wide-char aware width" to align them properly; otherwise the right edge looks ragged.
+
+</details>
+
+<details>
+<summary>**Max columns / rows?**</summary>
+
+No hard limit. Browser memory is the ceiling — 10,000 rows × 50 columns renders comfortably.
+
+</details>
+
+<details>
+<summary>**Can I export to PDF?**</summary>
+
+Copy the result, paste into any text or PDF tool. The monospace alignment survives as long as the destination uses a monospace font.
+
+</details>
+
+## Tips
+
+- Right-align numeric columns — digits line up at the units, much easier to read.
+- For Slack / Discord, wrap output in triple backticks (```) — forces monospace rendering.
+- When emailing the output, send as plain text — HTML email clients sometimes change the font and break alignment.
+- For very wide columns, truncate values first; otherwise the table wraps and loses alignment.
+
+## Try it now
+
+The full csv-to-text-columns runs in your browser at **[https://ztools.zaions.com/csv-to-text-columns](https://ztools.zaions.com/csv-to-text-columns)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/csv-to-text-columns)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/csv-to-text-columns.mdx)*

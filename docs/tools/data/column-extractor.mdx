@@ -1,0 +1,120 @@
+---
+id: column-extractor
+title: "Column Extractor Online — Pull One CSV Column, Free"
+description: "Extract a single column from CSV or TSV. Pick by index or header name. Output as a list. Browser-only — no upload."
+sidebar_label: "column-extractor"
+keywords:
+  - "column extractor online"
+  - "extract csv column"
+  - "pull single column csv"
+  - "csv field extractor"
+  - "csv to list"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# column-extractor
+
+Extracting a column from a CSV pulls a single field across all rows — turning a 2D grid into a 1D list. The use case: "I just need the email column from this 50-column CSV." Excel can do it; opening Excel for a one-off extraction is overkill. The ZTools Column Extractor tool parses the CSV in the browser, lets you pick the column by index (0-based or 1-based) or header name, and outputs the values as a plain list (one per line) or JSON array. Handles quoted fields, custom delimiters (CSV, TSV, semicolons, pipes), and optional dedup / trim.
+
+<ToolCTA toolId="column-extractor" toolName="column-extractor" />
+
+## Use cases
+
+### Pull emails from a contact CSV
+
+A 30-column export from CRM. You only need emails. Extract the column, paste into your mail tool.
+
+### Extract IDs for a SQL IN clause
+
+Need WHERE id IN (...). Extract the id column, comma-join, paste into the query.
+
+### Diff two columns from different files
+
+Extract column "name" from each, compare with array operations. Quick spot-check on data drift.
+
+### Build a lookup list
+
+Spreadsheet has 5000 rows; you need the first column as a Set membership test in code. Extract, paste as JSON array.
+
+## How it works
+
+1. **Paste CSV / TSV** — Tool parses with PapaParse-style logic. First row treated as header by default.
+2. **Pick column** — By index (0-based, e.g. 2) or by header name (e.g. "email"). Header names case-insensitive.
+3. **Configure output** — List (one per line), JSON array, comma-separated, semicolon-separated. Trim values, dedupe, drop blanks.
+4. **Copy or download** — Output text area with copy and download-as-txt buttons.
+
+## Examples
+
+**Input:** name,email,age\\nAlice,alice@x.com,30\\nBob,bob@y.com,25
+
+**Output:** Extract column "email": [alice@x.com, bob@y.com].
+
+---
+
+**Input:** TSV with tab delimiter
+
+**Output:** Toggle "delimiter: tab" — same flow.
+
+---
+
+**Input:** Quoted field: "Smith, John",jsmith@x.com,40
+
+**Output:** Extract name: [Smith, John] — quoted comma preserved as part of the value, not as a delimiter.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it handle quoted fields?**</summary>
+
+RFC 4180-compliant parsing — commas inside quotes don't split, doubled quotes inside quoted values escape to a literal quote.
+
+</details>
+
+<details>
+<summary>**Can I extract multiple columns?**</summary>
+
+Pick a single column at a time. For multiple columns, use the CSV-to-text-columns or CSV column mapper tools.
+
+</details>
+
+<details>
+<summary>**Header detection?**</summary>
+
+First row treated as header by default — toggle off if your CSV has no header.
+
+</details>
+
+<details>
+<summary>**What delimiters are supported?**</summary>
+
+Comma, tab, semicolon, pipe, and any single-character custom delimiter. Auto-detect tries to guess from the first line.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All parsing in the browser. CSV never uploaded.
+
+</details>
+
+## Tips
+
+- For very large CSVs (&gt;100k rows), use a CLI tool (csvkit, miller). Browser-based extraction works but renders all rows in memory.
+- Always trim — exported CSVs often have trailing spaces in cells.
+- Use "drop blanks" to remove empty cells from the output list — common when a column is sparsely filled.
+- When the header name has special characters (spaces, unicode), match case-insensitive plus use exact-match toggle.
+
+## Try it now
+
+The full column-extractor runs in your browser at **[https://ztools.zaions.com/column-extractor](https://ztools.zaions.com/column-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/column-extractor)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/column-extractor.mdx)*

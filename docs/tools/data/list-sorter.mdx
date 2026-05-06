@@ -1,0 +1,127 @@
+---
+id: list-sorter
+title: "List Sorter Online — Alphabetical, Numeric, Natural, Free"
+description: "Sort any list: A-Z, Z-A, numeric, natural (file2 before file10), reverse, by length. Browser-only — no signup."
+sidebar_label: "list-sorter"
+keywords:
+  - "list sorter online"
+  - "sort list alphabetically"
+  - "natural sort tool"
+  - "sort numbers online"
+  - "a to z sorter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# list-sorter
+
+A list sorter orders items alphabetically (A-Z or Z-A), numerically (1, 2, 10 not 1, 10, 2), naturally ("file2" before "file10"), by length, or by a custom key. The browser's default sort is lexicographic — that's why "10" comes before "2" — and natural sort is the fix. The ZTools List Sorter tool runs all five sort modes in the browser, handles up to a million lines, supports case-sensitive / insensitive comparison, and outputs the sorted list with original line numbers if you need to trace back.
+
+<ToolCTA toolId="list-sorter" toolName="list-sorter" />
+
+## Use cases
+
+### Sort a CSV column for review
+
+Pasted a column from a spreadsheet. Sort A-Z to scan for duplicates or anomalies.
+
+### Order filenames naturally
+
+"img1.jpg, img2.jpg, ..., img10.jpg" — lexicographic gives img1, img10, img2 ... Natural sort gives the human order.
+
+### Rank by string length
+
+Quickly see your shortest / longest entries. Useful for spotting outliers in an inventory.
+
+### Reverse a list
+
+Sort + reverse, or reverse without sorting. One click for either.
+
+## How it works
+
+1. **Paste the list** — One item per line. Or comma-separated — toggle the delimiter.
+2. **Pick the mode** — A-Z, Z-A, numeric ascending / descending, natural, by length, reverse-as-is.
+3. **Configure case** — Case-sensitive (default for code identifiers), case-insensitive (better for names).
+4. **Sort and copy** — Result appears below. Click copy. Original list is preserved for re-sorting differently.
+
+## Examples
+
+**Input:** ["banana","Apple","cherry"]
+
+**Output:** Case-insensitive A-Z: Apple, banana, cherry. Case-sensitive: Apple, banana, cherry (uppercase comes first in ASCII).
+
+---
+
+**Input:** ["file10","file2","file1"]
+
+**Output:** Natural: file1, file2, file10. Lexicographic: file1, file10, file2.
+
+---
+
+**Input:** ["abc","ab","abcd"]
+
+**Output:** By length: ab, abc, abcd. Useful for finding shortest passwords or longest names.
+
+## Frequently asked questions
+
+<details>
+<summary>**What sort algorithm is used?**</summary>
+
+JavaScript's native Array.prototype.sort — V8 uses TimSort, stable and O(n log n). For million-line inputs, sorting takes &lt;1 second.
+
+</details>
+
+<details>
+<summary>**Is the sort stable?**</summary>
+
+Yes — equal items keep their original order. Important when sorting by one key and expecting the secondary order to survive.
+
+</details>
+
+<details>
+<summary>**How does natural sort work?**</summary>
+
+It splits each string into runs of digits and non-digits, then compares run-by-run — digits compared as numbers. "file10" splits into ["file", 10]; "file2" into ["file", 2]; 2 &lt; 10 so file2 comes first.
+
+</details>
+
+<details>
+<summary>**Does it handle Unicode?**</summary>
+
+Uses Intl.Collator for locale-aware sorting — handles accents, German ß, Chinese characters reasonably for the user's locale.
+
+</details>
+
+<details>
+<summary>**What about CSV with multiple columns?**</summary>
+
+This tool sorts a single column. For multi-column sort, use the Sort CSV Data tool.
+
+</details>
+
+<details>
+<summary>**Can I sort by a different key inside each line?**</summary>
+
+Not in this tool — pre-process to put the sort key first, sort, then re-arrange. Or use the Sort CSV Data tool which supports column selection.
+
+</details>
+
+## Tips
+
+- Always trim whitespace before sorting — leading spaces sort before any letter.
+- Use case-insensitive for human names, case-sensitive for code identifiers.
+- Natural sort fixes filename ordering — your file manager already does this; sort tools usually don't.
+- For very long lists, prefer pasting as JSON — saves the line-split step.
+
+## Try it now
+
+The full list-sorter runs in your browser at **[https://ztools.zaions.com/list-sorter](https://ztools.zaions.com/list-sorter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/list-sorter)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/list-sorter.mdx)*

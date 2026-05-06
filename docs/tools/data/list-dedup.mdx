@@ -1,0 +1,127 @@
+---
+id: list-dedup
+title: "List Deduplicator Online — Remove Duplicate Lines, Free"
+description: "Strip duplicates from any list. Case-sensitive or insensitive, trim spaces, preserve order. Browser-only — no upload."
+sidebar_label: "list-dedup"
+keywords:
+  - "list deduplicator online"
+  - "remove duplicate lines"
+  - "unique items tool"
+  - "dedupe email list"
+  - "remove duplicates from list"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# list-dedup
+
+A list deduplicator removes duplicate items from a list while keeping one copy of each unique item. The simplest case is exact match — two identical lines collapse to one. Real-world dedupe is fuzzier: "Alice@gmail.com" and "alice@gmail.com" should usually count as duplicates, as should "  apple " and "apple". The ZTools List Deduplicator tool runs in the browser, supports case-sensitive / insensitive comparison, whitespace trim, blank-line removal, and "keep first / keep last" when items match.
+
+<ToolCTA toolId="list-dedup" toolName="list-dedup" />
+
+## Use cases
+
+### Clean an email list before sending
+
+A merged contact import has 5,000 rows but only 4,200 unique emails. Deduplicate first to avoid double-mailing the same person.
+
+### Remove duplicate log lines
+
+Same warning fires 1,000 times. Dedupe gives one copy plus a count — useful for triage.
+
+### Build a vocabulary from text
+
+Tokenise prose, dedupe, sort — instant unique-word list for analysis or anki cards.
+
+### Find ID conflicts in a migration
+
+After dedupe, compare original count vs unique count. The diff is the number of duplicates — investigate the source.
+
+## How it works
+
+1. **Paste the list** — One item per line. Tool counts input lines and shows the result count side by side.
+2. **Choose comparison rules** — Case-sensitive / case-insensitive, trim whitespace, ignore blank lines, treat number "1" as same as "01".
+3. **Pick keep policy** — Keep first occurrence (default — preserves original order) or keep last (overrides).
+4. **Copy result** — Output deduplicated list plus a stats panel: \{input: 5000, unique: 4200, duplicates removed: 800\}.
+
+## Examples
+
+**Input:** ["apple","Apple","apple "]
+
+**Output:** Default (case-sensitive, no trim): all three remain. Case-insensitive + trim: ["apple"] only.
+
+---
+
+**Input:** Duplicate count: ["a","b","a","c","b"]
+
+**Output:** Unique: ["a","b","c"]. Removed: 2.
+
+---
+
+**Input:** Blank-line policy
+
+**Output:** Input has 50 blank lines from copy-paste artifacts. Toggle "ignore blanks" — the result drops them all.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it preserve order?**</summary>
+
+Yes — the first occurrence stays where it was, subsequent duplicates are removed. Toggle "keep last" to invert.
+
+</details>
+
+<details>
+<summary>**Can I see WHICH lines were duplicates?**</summary>
+
+Yes — toggle "show duplicates" mode to output only the duplicates instead of the deduped list. Useful for finding sources of duplication.
+
+</details>
+
+<details>
+<summary>**How does it compare numbers vs strings?**</summary>
+
+By default, string comparison — so "1" ≠ 1. Toggle "numeric coercion" to canonicalise numeric forms before comparing.
+
+</details>
+
+<details>
+<summary>**Will it handle Unicode normalisation?**</summary>
+
+Optional — toggle NFC normalisation if your inputs come from mixed sources (one system uses combining accents, another uses precomposed forms).
+
+</details>
+
+<details>
+<summary>**How big a list can it handle?**</summary>
+
+Set-based dedupe is O(n) on average. Million-line inputs work fine in modern browsers.
+
+</details>
+
+<details>
+<summary>**Does it work with JSON arrays?**</summary>
+
+Paste a JSON array; toggle JSON mode. Output is a deduped JSON array — same elements, no duplicates.
+
+</details>
+
+## Tips
+
+- Always trim whitespace — the most common source of "duplicates that don't match" is invisible spaces.
+- Email lists: case-insensitive plus lowercase normalisation. Email addresses are case-insensitive in the local part by RFC, even though some servers behave otherwise.
+- Combine with sort to produce a sorted unique list in one step.
+- For "near-duplicates" (typos, partial matches), use a fuzzy-dedupe tool — exact dedup won't catch them.
+
+## Try it now
+
+The full list-dedup runs in your browser at **[https://ztools.zaions.com/list-dedup](https://ztools.zaions.com/list-dedup)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/list-dedup)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/list-dedup.mdx)*

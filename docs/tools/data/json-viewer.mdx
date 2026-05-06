@@ -1,0 +1,127 @@
+---
+id: json-viewer
+title: "JSON Viewer Online — Tree, Collapsible, Search, Free"
+description: "View, expand, collapse, and search any JSON in a tree UI. Handles huge files. Browser-only — no upload, no signup."
+sidebar_label: "json-viewer"
+keywords:
+  - "json viewer online"
+  - "json tree viewer"
+  - "view json file"
+  - "json explorer"
+  - "json browser"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-viewer
+
+A JSON viewer is a tree-based UI for inspecting JSON data — keys are collapsible, values are syntax-coloured, arrays show their length, and search highlights matching nodes. Unlike a plain code editor, a viewer hides irrelevant siblings so you can focus on one branch of a deep object. The ZTools JSON Viewer renders entirely in the browser, supports paste-or-upload, expand/collapse-all, path-aware search ("show me everything under data.users[3]"), and copy-as-path for any node. Useful for debugging API responses, browsing config dumps, and exploring third-party schemas without writing code.
+
+<ToolCTA toolId="json-viewer" toolName="json-viewer" />
+
+## Use cases
+
+### Debug API responses
+
+Postman or curl returns 200 KB of JSON. Pasting it into a tree viewer reveals which fields are missing or null in seconds — far faster than scrolling raw text.
+
+### Browse config files
+
+Webpack, ESLint, tsconfig — these grow into deeply nested trees. A viewer collapses sections you don't need and lets you focus on the rule you're editing.
+
+### Inspect third-party schemas
+
+OpenAPI / JSON-Schema / GraphQL introspection results are huge. A viewer with collapse-all + targeted expand turns 5 MB blobs into something a human can navigate.
+
+### Diff two responses visually
+
+Open two viewer tabs side by side, expand the same path in both, and spot the missing field instantly.
+
+## How it works
+
+1. **Paste or upload JSON** — Drag a .json file or paste text. The tool parses with native JSON.parse — invalid JSON shows the parser error with line/column.
+2. **Tree renders** — Objects show as \{ count \} collapsible nodes; arrays show [ length ]; primitives are colour-coded (string, number, boolean, null).
+3. **Expand or collapse** — Click any node to toggle. Buttons for "expand all" / "collapse all" / "expand to depth N".
+4. **Search and copy** — Search bar filters paths matching key or value. Right-click any node to copy its JSONPath, value, or sub-tree.
+
+## Examples
+
+**Input:** \{"users":[\{"id":1,"name":"Alice"\},\{"id":2,"name":"Bob"\}]\}
+
+**Output:** Tree: users [2] → 0 \{ id: 1, name: "Alice" \}, 1 \{ id: 2, name: "Bob" \}. Click users to collapse the whole array.
+
+---
+
+**Input:** Search "Alice"
+
+**Output:** Highlights users[0].name. Path copies as $.users[0].name for use in Postman tests or jq queries.
+
+---
+
+**Input:** Expand to depth 2
+
+**Output:** Shows top-level keys and their first level of children — anything deeper stays collapsed for quick scanning.
+
+## Frequently asked questions
+
+<details>
+<summary>**How big a file can it handle?**</summary>
+
+Browser memory is the limit — typically 50–100 MB before the tab struggles. For files larger than that, use jq from the command line.
+
+</details>
+
+<details>
+<summary>**Is my data uploaded anywhere?**</summary>
+
+No. Parsing and rendering happen in your browser. The data never leaves your device.
+
+</details>
+
+<details>
+<summary>**Does it support JSON5 / JSONC (with comments)?**</summary>
+
+Strict JSON only — comments and trailing commas fail to parse. Convert with a JSON5-aware tool first.
+
+</details>
+
+<details>
+<summary>**Can I edit the JSON?**</summary>
+
+Use ZTools JSON Formatter / Editor for editing. The viewer is read-only by design — focus on inspection.
+
+</details>
+
+<details>
+<summary>**How is this different from JSON formatter?**</summary>
+
+Formatter pretty-prints text. Viewer renders an interactive tree where you click to navigate. Same data, different UI for different jobs.
+
+</details>
+
+<details>
+<summary>**Can I share a tree URL?**</summary>
+
+No — pasted JSON is local. For sharing, use a Gist or your team's code-review tool.
+
+</details>
+
+## Tips
+
+- Collapse-all first, then drill down. Beats scrolling through 10,000 lines of raw text.
+- Use the path-copy feature when writing jq queries or Postman test scripts — eliminates typos.
+- Open two viewer tabs to compare two responses; align expanded paths to spot diffs.
+- For arrays of objects, expand depth 2 to scan all elements without expanding their children.
+
+## Try it now
+
+The full json-viewer runs in your browser at **[https://ztools.zaions.com/json-viewer](https://ztools.zaions.com/json-viewer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-viewer)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/json-viewer.mdx)*

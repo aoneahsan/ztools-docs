@@ -1,0 +1,127 @@
+---
+id: xml-formatter
+title: "XML Formatter — Pretty Print, Indent & Validate XML (Free)"
+description: "Format and pretty-print XML with proper indentation. Validates structure, highlights errors, expandable tree view. Free, browser-based."
+sidebar_label: "xml-formatter"
+keywords:
+  - "xml formatter"
+  - "xml pretty print"
+  - "format xml online"
+  - "xml indenter"
+  - "xml validator"
+  - "free xml tool"
+  - "xml beautifier"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# xml-formatter
+
+An XML formatter parses an XML document, validates that tags are well-formed and properly nested, then re-emits the document with consistent indentation, line breaks, and attribute alignment so the structure becomes visually scannable. The ZTools XML Formatter handles documents of any size, supports configurable indentation (2/4 spaces or tab), highlights syntax errors with line numbers, optionally collapses self-closing tags, and provides a tree-view alongside the formatted text so deeply nested structures stay navigable.
+
+<ToolCTA toolId="xml-formatter" toolName="xml-formatter" />
+
+## Use cases
+
+### Reading minified XML from a SOAP web service
+
+Paste a one-line SOAP response, get a properly indented document. Saves the squint-and-scroll routine when debugging API integrations or investigating bank/insurance feeds.
+
+### Comparing two XML config files
+
+Format both config files identically, then run a diff. Same structure but different content stands out instantly instead of being hidden in formatting noise.
+
+### Cleaning up exported XML data for documentation
+
+A vendor exports XML in compact form. Format it, paste into your README or wiki — readers can follow the structure without first having to mentally indent it.
+
+### Catching malformed XML before deploying
+
+Mismatched closing tag? Unescaped ampersand inside an attribute? The formatter shows the exact line and reason so you fix it before pushing to production.
+
+## How it works
+
+1. **Paste your XML** — Any size. Documents with or without an XML declaration both work.
+2. **Pick indentation style** — 2 spaces (default), 4 spaces, or tab. Self-closing tags can be preserved or expanded depending on preference.
+3. **Parser checks well-formedness** — Mismatched tags, unclosed elements, unescaped & &lt; &gt; inside text, malformed CDATA — each is flagged with the exact line and column.
+4. **Read the formatted output** — Side-by-side preview shows source vs formatted. The tree-view collapses deep nodes for navigation.
+5. **Copy or download** — One-click copy. Optional download as .xml. Original input is preserved in case you want to re-format with different settings.
+
+## Examples
+
+**Input:** &lt;root&gt;&lt;a&gt;&lt;b&gt;x&lt;/b&gt;&lt;/a&gt;&lt;/root&gt;
+
+**Output:** &lt;root&gt;
+  &lt;a&gt;
+    &lt;b&gt;x&lt;/b&gt;
+  &lt;/a&gt;
+&lt;/root&gt;
+
+---
+
+**Input:** &lt;note&gt;&lt;to&gt;Tom&lt;/to&gt;&lt;msg&gt;Hi&lt;/msg&gt;&lt;/note&gt;
+
+**Output:** Pretty-printed XML with each tag on its own line and indentation per level.
+
+---
+
+**Input:** &lt;bad&gt;&lt;tag&gt;&lt;/bad&gt;
+
+**Output:** ERROR at line 1 col 11: unexpected closing tag &lt;/bad&gt; — expected &lt;/tag&gt;.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does formatting change the XML's meaning?**</summary>
+
+No — pretty-printing only adds whitespace between tags. The semantic content (elements, attributes, text) is identical. Note: text nodes that contain meaningful whitespace (like &lt;pre&gt;-like content) need xml:space="preserve" to survive reformatting.
+
+</details>
+
+<details>
+<summary>**How is XML different from HTML?**</summary>
+
+XML is strict: every tag must close, attributes must be quoted, names are case-sensitive. HTML is forgiving — browsers auto-fix many errors. The formatter assumes XML rules; for HTML, use the HTML formatter.
+
+</details>
+
+<details>
+<summary>**Will it validate against a schema (DTD or XSD)?**</summary>
+
+No — this tool checks well-formedness only (syntax). For DTD or XSD validation, use an XML validator with schema support; that requires the schema file and is a separate operation.
+
+</details>
+
+<details>
+<summary>**How does it handle namespaces?**</summary>
+
+Namespace declarations and prefixes are preserved exactly. Element ordering and attribute ordering are not changed (just indented). Some formatters re-order attributes alphabetically; this one preserves source order.
+
+</details>
+
+<details>
+<summary>**Can it format very large XML files?**</summary>
+
+Yes — multi-megabyte documents work in modern browsers, though very deep nesting (10k+ levels) is slow. For massive files, consider a streaming XML parser instead.
+
+</details>
+
+## Tips
+
+- Always pretty-print before diffing — formatting differences hide content differences.
+- Use the tree-view for documents with deep nesting; the flat formatted text gets unwieldy past 5 levels.
+- Watch for unescaped ampersands inside attributes — XML rejects bare &, requires &amp;.
+- Element ordering matters in XML; don't assume A=B just because they have the same children.
+
+## Try it now
+
+The full xml-formatter runs in your browser at **[https://ztools.zaions.com/xml-formatter](https://ztools.zaions.com/xml-formatter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/xml-formatter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/xml-formatter.mdx)*

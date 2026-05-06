@@ -1,0 +1,113 @@
+---
+id: html-entity-counter
+title: "HTML Entity Counter — Count &amp;, &lt;, etc., Free"
+description: "Count HTML entities in any text. Lists every named/numeric entity with frequency. Browser-only."
+sidebar_label: "html-entity-counter"
+keywords:
+  - "html entity counter"
+  - "count html entities"
+  - "html escape audit"
+  - "entity frequency tool"
+  - "html sanitiser audit"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# html-entity-counter
+
+HTML entities are escape sequences for special characters: &amp; for &, &lt; for &lt;, &gt; for &gt;, &quot; for ", &#x2603; for ☃. Counting entities is useful for HTML migration audits ("did we escape everything?"), email-template inspection, and security review (are &lt;script&gt; tags being properly entity-escaped?). The ZTools HTML Entity Counter parses any text, lists every named and numeric entity it finds with frequency, and shows the resolved character for each.
+
+<ToolCTA toolId="html-entity-counter" toolName="html-entity-counter" />
+
+## Use cases
+
+### Audit a template for escape consistency
+
+A template uses &amp; in some places and & in others. Counter highlights the mismatch.
+
+### Check user-generated content for unescaped special chars
+
+After a sanitiser runs, count entities. Too few = sanitiser missed cases. Too many = over-escaping.
+
+### Migrate from HTML to Markdown
+
+Markdown rarely needs entities. Counter shows what to convert back to plain chars.
+
+### Decode hex / decimal numeric entities
+
+&#x2603; → ☃ (snowman). Counter shows the resolved char alongside the count.
+
+## How it works
+
+1. **Paste HTML / text** — Any text containing entities.
+2. **Scan** — Regex matches &name; (named), &#NNN; (decimal), &#xHHHH; (hex). Each match decoded.
+3. **Count** — Frequency table per unique entity. Top entities highlighted.
+4. **Display** — Table: entity, decoded char, count. Plus total entity count and total chars.
+
+## Examples
+
+**Input:** "This &amp; that &lt;tag&gt;"
+
+**Output:** Entities: &amp; (1, decodes to &), &lt; (1, &lt;), &gt; (1, &gt;). Total: 3.
+
+---
+
+**Input:** Mixed: "&copy; 2026 &mdash; &#x2603;"
+
+**Output:** &copy; → ©, &mdash; → —, &#x2603; → ☃. 3 entities.
+
+---
+
+**Input:** Entity-stuffed text
+
+**Output:** Counter helps spot if entities are being doubly-encoded (&amp;amp; means & got escaped twice).
+
+## Frequently asked questions
+
+<details>
+<summary>**Doubly-encoded entities?**</summary>
+
+When &amp;amp; appears, it means a sanitiser ran twice. Tool flags suspicious patterns like &amp;quot; (escape of &quot;).
+
+</details>
+
+<details>
+<summary>**Numeric vs named entities?**</summary>
+
+Named (&copy;, &mdash;) more readable; numeric (&#169;, &#8212;) more universal. Tool decodes both.
+
+</details>
+
+<details>
+<summary>**Maximum text size?**</summary>
+
+Several MB works fine. The regex scan is O(n).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For HTML output, use named entities for readability — &copy; beats &#169;.
+- For email HTML, more conservative — use entities for any non-ASCII char to avoid encoding mismatches.
+- For Markdown migration, decode all entities first — Markdown handles plain chars natively.
+- Doubly-encoded entities (&amp;amp;) are a security smell — investigate the sanitisation pipeline.
+
+## Try it now
+
+The full html-entity-counter runs in your browser at **[https://ztools.zaions.com/html-entity-counter](https://ztools.zaions.com/html-entity-counter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/html-entity-counter)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/html-entity-counter.mdx)*

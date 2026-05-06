@@ -1,0 +1,119 @@
+---
+id: css-specificity
+title: "CSS Specificity Calculator — Free Online, Browser"
+description: "Calculate CSS selector specificity (a, b, c). Compare which rule wins. Browser-only — no signup."
+sidebar_label: "css-specificity"
+keywords:
+  - "css specificity calculator"
+  - "compare css selectors specificity"
+  - "css cascade tool"
+  - "css selector weight"
+  - "css specificity tuple"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-specificity
+
+CSS specificity determines which rule wins when multiple selectors target the same element. The specificity is a 3-tuple (a, b, c) where a counts ID selectors, b counts class / attribute / pseudo-class selectors, and c counts element / pseudo-element selectors. Higher tuple wins; ties broken by source order. Inline styles count as (1, 0, 0, 0) and !important overrides everything except other !importants. The ZTools CSS Specificity Calculator parses any selector, computes the tuple, and compares two selectors side by side to determine the winner.
+
+<ToolCTA toolId="css-specificity" toolName="css-specificity" />
+
+## Use cases
+
+### Debug a CSS rule that's not applying
+
+"My color: red rule isn't working." Specificity calculator shows the conflicting rule has higher specificity and wins.
+
+### Refactor an over-specific selector
+
+#main .nav .item.active a — score (1, 3, 1). Refactor to .nav__link--active — score (0, 1, 0). Easier to override later.
+
+### Teach CSS cascade behaviour
+
+Show students concrete numbers behind "specificity wars". Concrete tuples beat hand-waving.
+
+### Audit a stylesheet for !important abuse
+
+!important is the nuclear option; using it everywhere creates chaos. Calculator helps identify when it's needed vs lazy.
+
+## How it works
+
+1. **Paste selector** — Any valid CSS selector: .foo, #bar, div, .a .b &gt; .c, [data-x], :hover, ::before.
+2. **Parse** — Tool tokenises selector. Counts IDs (a), classes/attrs/pseudo-classes (b), elements/pseudo-elements (c).
+3. **Display tuple** — Format (a, b, c). Higher beats lower.
+4. **Compare two selectors** — Side by side. Tool highlights which wins and why.
+
+## Examples
+
+**Input:** .button
+
+**Output:** Specificity: (0, 1, 0).
+
+---
+
+**Input:** #main .nav .item.active a
+
+**Output:** (1, 3, 1) — 1 ID, 3 classes, 1 element.
+
+---
+
+**Input:** a.link vs .button
+
+**Output:** a.link is (0, 1, 1). .button is (0, 1, 0). a.link wins (1+1 &gt; 1+0).
+
+---
+
+**Input:** inline style vs #id rule
+
+**Output:** Inline (1,0,0,0) wins. Even an ID rule (1,0,0) doesn't beat inline.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does !important fit in?**</summary>
+
+!important promotes a declaration to a higher cascade level. Within that level, specificity still applies. !important on multiple rules → highest-specificity wins.
+
+</details>
+
+<details>
+<summary>**What about :is() and :where()?**</summary>
+
+:is() takes the highest specificity from its arguments. :where() is always (0, 0, 0) — that's its design purpose.
+
+</details>
+
+<details>
+<summary>**Pseudo-elements vs pseudo-classes?**</summary>
+
+Pseudo-classes (:hover, :focus) count as classes (b). Pseudo-elements (::before, ::after) count as elements (c).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Aim for (0, 1, 0) — class selectors only. Reserve IDs for genuinely-unique elements.
+- When you can't lower specificity, raise the conflicting rule (don't use !important).
+- For utility-first CSS (Tailwind), specificity is uniformly (0, 1, 0) — order in stylesheet matters.
+- :where() is your friend for "no specificity" wrappers.
+
+## Try it now
+
+The full css-specificity runs in your browser at **[https://ztools.zaions.com/css-specificity](https://ztools.zaions.com/css-specificity)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-specificity)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/css-specificity.mdx)*

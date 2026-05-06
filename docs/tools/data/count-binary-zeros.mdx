@@ -1,0 +1,112 @@
+---
+id: count-binary-zeros
+title: "Count Binary Zeros Online — Free, Browser-Only"
+description: "Count 0-bits in any binary, hex, or decimal number. Configurable bit width. Browser-only — no signup."
+sidebar_label: "count-binary-zeros"
+keywords:
+  - "count binary zeros"
+  - "count 0 bits"
+  - "leading zeros counter"
+  - "trailing zeros tool"
+  - "bit count zeros"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# count-binary-zeros
+
+Counting 0-bits in a number is the inverse of popcount: total bits minus popcount. Whether the answer is meaningful depends on the chosen bit width — 5 (binary 101) has zero 0-bits in width 3, but five 0-bits in width 8 (00000101). The ZTools Count Binary Zeros tool accepts numbers in binary, hex, or decimal, requires a width selection (or auto-uses the smallest fitting width), and returns the count. Useful for trailing-zero analysis (alignment), leading-zero counts (CLZ instruction context), and bitmask audits.
+
+<ToolCTA toolId="count-binary-zeros" toolName="count-binary-zeros" />
+
+## Use cases
+
+### Check alignment / power-of-2
+
+Powers of 2 have one 1 and many trailing 0s. Counting trailing zeros tells you the alignment.
+
+### Audit a sparse bitmap
+
+10 ones in a 64-bit field = 54 zeros. Quick verification of bitmap density.
+
+### Verify bit operations
+
+After clearing certain bits, count zeros to confirm the right ones got cleared.
+
+### Hamming-distance complement
+
+Same-bit count = total − Hamming distance. Useful in some coding-theory contexts.
+
+## How it works
+
+1. **Paste number** — Binary / hex / decimal.
+2. **Set width** — Required — 8, 16, 32, 64, or custom. Without a width, "count zeros" is ambiguous (leading zeros depend on width).
+3. **Compute** — count_zeros = width − popcount(n).
+4. **Display** — Total zeros + binary representation + position of leading 0 + position of trailing 0.
+
+## Examples
+
+**Input:** Decimal 5, width 8
+
+**Output:** Binary 00000101. 0-bits: 6. 1-bits: 2.
+
+---
+
+**Input:** Decimal 5, width 16
+
+**Output:** Binary 0000000000000101. 0-bits: 14. Width matters.
+
+---
+
+**Input:** Hex 0xF0, width 8
+
+**Output:** Binary 11110000. 0-bits: 4. 1-bits: 4.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does width matter so much?**</summary>
+
+In a fixed-width field (8, 16, 32, 64), leading zeros are real bits. In an unbounded integer, leading zeros are implicit and not counted. Always pick the right width for context.
+
+</details>
+
+<details>
+<summary>**Trailing vs leading zeros?**</summary>
+
+Trailing: count of 0s after the lowest set bit (CTZ instruction). Leading: count of 0s before the highest set bit (CLZ instruction). Both available — toggle "include trailing" / "include leading".
+
+</details>
+
+<details>
+<summary>**Power-of-2 detection?**</summary>
+
+A number is a power of 2 iff it has exactly one 1-bit. Use Count Binary Ones, not zeros, for that check.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Always specify width — without it, "zero count" varies by interpretation.
+- For alignment checks, count trailing zeros — n is aligned to 2^k iff trailing zeros &gt;= k.
+- For sparse bitmap density, total bits / popcount gives sparsity ratio. Counting zeros directly is the same info.
+
+## Try it now
+
+The full count-binary-zeros runs in your browser at **[https://ztools.zaions.com/count-binary-zeros](https://ztools.zaions.com/count-binary-zeros)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/count-binary-zeros)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/count-binary-zeros.mdx)*

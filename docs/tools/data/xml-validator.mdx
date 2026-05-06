@@ -1,0 +1,122 @@
+---
+id: xml-validator
+title: "XML Validator — Check Well-Formedness & Syntax Errors (Free)"
+description: "Validate XML for well-formedness, mismatched tags, unescaped characters, and DTD compliance. Inline error reporting. Free."
+sidebar_label: "xml-validator"
+keywords:
+  - "xml validator"
+  - "check xml syntax"
+  - "validate xml online"
+  - "xml well-formed checker"
+  - "xml syntax error"
+  - "free xml validator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# xml-validator
+
+An XML validator checks whether a document conforms to XML well-formedness rules — every tag closes, attributes are quoted, names are valid, special characters are escaped — and reports each violation with line and column numbers so authors can fix issues before downstream parsers reject them. The ZTools XML Validator runs entirely in your browser, validates against the W3C XML 1.0 specification, supports inline DTD declarations for slightly stricter checks, surfaces every error rather than stopping at the first one, and offers a quick-fix suggestion (with a confidence note) for common mistakes like missing closing tags or unescaped ampersands.
+
+<ToolCTA toolId="xml-validator" toolName="xml-validator" />
+
+## Use cases
+
+### Pre-flight checks before submitting XML to a strict API
+
+Banking, government, and EDI APIs reject malformed XML outright. Validate locally first; one bad escape character could cost a re-submission cycle of hours or days.
+
+### Debugging "premature end of file" parser errors
+
+A parser stops mid-document. The validator pinpoints the exact missing closing tag or stray character causing the parse failure.
+
+### Verifying handwritten configuration files
+
+Spring, Maven, and old-style XML configs are easy to type wrong. The validator catches silly mistakes before you waste time on misleading runtime errors.
+
+### CI gate for XML-based content
+
+A team manually edits XML data files. Run the validator output through a script; reject pull requests with malformed XML before merging.
+
+## How it works
+
+1. **Paste your XML** — Any size. The validator reads the entire document and produces a complete list of issues, not just the first one.
+2. **Choose the validation level** — "Well-formed" (default): structure rules. "Well-formed + DTD": also checks declarations against an inline DTD if present.
+3. **Validator scans the document** — Tracks open/closed tags, attribute syntax, allowed characters, character escaping, processing instructions, comments, and CDATA sections.
+4. **Read the issue list** — Each issue: line, column, severity (error/warning), message, and a snippet of the offending text. Click any issue to jump to its location in the source.
+5. **Apply quick fixes** — For common issues, the validator suggests a fix you can preview and apply. Confidence is shown — auto-applying ambiguous fixes is up to you.
+
+## Examples
+
+**Input:** &lt;root&gt;&lt;a&gt;&lt;/b&gt;&lt;/root&gt;
+
+**Output:** ERROR line 1: closing tag &lt;/b&gt; does not match opening &lt;a&gt;.
+
+---
+
+**Input:** &lt;r attr="value with " inside"&gt;x&lt;/r&gt;
+
+**Output:** ERROR line 1 col 21: unescaped quote in attribute. Use &quot; or surround with single quotes.
+
+---
+
+**Input:** &lt;note&gt;Tom & Jerry&lt;/note&gt;
+
+**Output:** ERROR line 1: unescaped ampersand. Use &amp; instead.
+
+## Frequently asked questions
+
+<details>
+<summary>**What does "well-formed" mean in XML?**</summary>
+
+A well-formed XML document satisfies the structural rules: a single root element, all tags closed and properly nested, attributes always quoted, special characters escaped, and a valid character set. Well-formedness is the bare minimum; schema validation (DTD/XSD) is a stricter additional check.
+
+</details>
+
+<details>
+<summary>**How is well-formed different from valid?**</summary>
+
+"Well-formed" = follows XML syntax. "Valid" = also conforms to a specific schema (DTD or XSD) that defines required elements, attributes, and types. A well-formed document can still be invalid against a schema.
+
+</details>
+
+<details>
+<summary>**What are the most common XML errors?**</summary>
+
+1) Unescaped ampersand (& must be &amp;). 2) Mismatched closing tags. 3) Missing root element (XML requires exactly one). 4) Unquoted attributes. 5) Invalid characters in element names (must start with letter or _, no spaces).
+
+</details>
+
+<details>
+<summary>**Does it support XML Schema (XSD) validation?**</summary>
+
+Not in this lightweight tool — XSD validation requires the schema file and is a heavier operation. For full XSD validation, use a server-side validator like xmllint or a dedicated XML editor.
+
+</details>
+
+<details>
+<summary>**Will it autocorrect errors for me?**</summary>
+
+It suggests fixes for common issues with a confidence rating, but applying them is one-click manual. Auto-applying ambiguous fixes (especially in production XML) can introduce subtle bugs.
+
+</details>
+
+## Tips
+
+- Always validate before sending to a third-party API — vendor parsers are stricter than your dev environment usually is.
+- For XML containing user-generated content, write a wrapper that auto-escapes & &lt; &gt; " — manual escaping is error-prone.
+- Run a validator on every commit that touches XML data files — regressions are easy to introduce and miss.
+- For schema validation, prefer XSD over DTD — XSD is more expressive and is the modern standard.
+
+## Try it now
+
+The full xml-validator runs in your browser at **[https://ztools.zaions.com/xml-validator](https://ztools.zaions.com/xml-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/xml-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/xml-validator.mdx)*

@@ -1,0 +1,128 @@
+---
+id: csv-parser
+title: "CSV Parser — View, Validate & Browse Any CSV File (Free)"
+description: "Parse and view CSV files in a sortable table. Custom delimiters, header detection, quoted fields, error reporting. Free."
+sidebar_label: "csv-parser"
+keywords:
+  - "csv parser"
+  - "csv viewer"
+  - "parse csv online"
+  - "csv to table"
+  - "csv reader"
+  - "csv inspector"
+  - "free csv tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# csv-parser
+
+A CSV parser reads comma-separated values from a paste or file and renders the data as a sortable, scrollable table — handling the messy realities of real-world CSV: custom delimiters, quoted fields containing commas, escaped quotes, mismatched column counts per row, and header detection. The ZTools CSV Parser handles tens of thousands of rows in your browser, auto-detects the delimiter (comma, tab, semicolon, pipe), recognizes the header row, validates row width consistency, and lets you sort and filter columns interactively without re-parsing.
+
+<ToolCTA toolId="csv-parser" toolName="csv-parser" />
+
+## Use cases
+
+### Quick view of a CSV without opening Excel
+
+Drop a 10k-row export, scan for outliers, sort by column, find the rows you want. Faster than waiting for Excel to open and process the file.
+
+### Validating a CSV before importing into a database
+
+Confirm row count, column count consistency, and presence of expected headers. Catches "vendor sent us a CSV with one row missing a column" before the import partially-fails.
+
+### Inspecting CSV with weird delimiters or encodings
+
+European exports often use semicolons (since comma is the decimal separator). Tab-delimited files masquerading as CSV. The parser handles all of them.
+
+### Spot-checking a generated CSV from your own code
+
+You wrote a CSV-generation function. Paste a sample of the output, see if it parses cleanly. Catches subtle bugs (unescaped quotes, missing newlines) before users hit them.
+
+## How it works
+
+1. **Paste or drop a CSV file** — Auto-detects the delimiter from the first line. Override manually if detection guesses wrong.
+2. **Header detection** — First row treated as headers by default. Toggle if your CSV has no header row — synthetic column names (col_1, col_2) are generated.
+3. **Parser handles quoting and escaping** — Fields wrapped in double quotes can contain delimiters, newlines, and escaped quotes ("" inside a quoted field). Standards-compliant per RFC 4180.
+4. **Render as a sortable table** — Click a column header to sort ascending/descending. Filter by column. Pagination for large datasets keeps scrolling fast.
+5. **Report inconsistencies** — Rows with the wrong column count are highlighted. Empty cells, extra delimiters, and misquoted fields produce warnings.
+
+## Examples
+
+**Input:** name,age
+Alice,30
+Bob,25
+
+**Output:** Two rows | 2 columns | headers: name, age. Rendered as a sortable table.
+
+---
+
+**Input:** name;city
+"Smith, John";"Paris"
+
+**Output:** Semicolon-delimited, quoted fields containing commas handled correctly. Parsed as: name=Smith, John | city=Paris.
+
+---
+
+**Input:** a,b,c
+1,2
+3,4,5
+
+**Output:** WARNING row 2: 2 columns (expected 3 from header). Row 3 OK.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why are my fields being split incorrectly?**</summary>
+
+Most often: the field contains the delimiter but isn't quoted, or it contains a newline. RFC-4180 CSV requires fields with delimiter/newline/quote to be wrapped in double quotes; check whether the source file follows that rule.
+
+</details>
+
+<details>
+<summary>**How does the parser handle quotes inside quoted fields?**</summary>
+
+Per RFC 4180, a literal double quote inside a quoted field is encoded as two double quotes ("" → "). The parser handles this; if the source uses backslash escaping (\\") it's non-standard and may produce wrong parsing.
+
+</details>
+
+<details>
+<summary>**Can it handle files with millions of rows?**</summary>
+
+Browser memory is the limit. ~100k rows works smoothly; ~1M is slow but possible. For files larger than that, consider a streaming parser or a dedicated DB import tool.
+
+</details>
+
+<details>
+<summary>**What if my CSV uses a non-standard delimiter?**</summary>
+
+Override the auto-detection: pick comma, tab, semicolon, pipe, or "custom" and type the delimiter. The parser handles single-character delimiters cleanly; multi-character delimiters need pre-processing.
+
+</details>
+
+<details>
+<summary>**Does it support BOM (byte-order mark)?**</summary>
+
+Yes — UTF-8 BOM at file start is detected and stripped. Without that, BOM characters would appear inside the first column header value.
+
+</details>
+
+## Tips
+
+- Always quote fields that might contain the delimiter, a newline, or a double quote — generators that skip this produce parser-breaking output.
+- For European data, expect semicolons not commas; the parser auto-detects but worth confirming.
+- When generating CSV, use UTF-8 with no BOM unless your consumer specifically requires it (some Excel users do).
+- If the parsed table looks wrong, try pasting just the first 5 rows — the issue is usually visible in the small sample.
+
+## Try it now
+
+The full csv-parser runs in your browser at **[https://ztools.zaions.com/csv-parser](https://ztools.zaions.com/csv-parser)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/csv-parser)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/csv-parser.mdx)*
