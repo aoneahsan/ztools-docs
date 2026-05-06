@@ -1,0 +1,131 @@
+---
+id: countdown-timer
+title: "Countdown Timer — Set a Timer for Any Date or Duration (Free)"
+description: "Set a countdown to any date or duration. Audio + browser notification on finish. Sharable link. Free, in-browser, no signup."
+sidebar_label: "countdown-timer"
+keywords:
+  - "countdown timer"
+  - "online countdown"
+  - "date countdown"
+  - "launch countdown"
+  - "event countdown"
+  - "cooking timer"
+  - "kitchen timer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# countdown-timer
+
+A countdown timer counts down from a specified end date or duration to zero — used for product launches, exam preparation, baking, workouts, public events, and personal milestones — with audio and browser-notification alerts when zero is reached and visual feedback that updates every second. The ZTools Countdown Timer runs entirely in the browser, supports both target-date countdowns ("until 2027-01-01") and duration timers ("25 minutes"), generates a shareable link that anyone can open to see the same countdown live, plays a chosen audio alert when finished, and shows progress visually plus exact remaining seconds.
+
+<ToolCTA toolId="countdown-timer" toolName="countdown-timer" />
+
+## Use cases
+
+### Product launches
+
+"Launching in 14 days, 3 hours, 22 minutes" on the marketing site — a visible countdown adds urgency. Embed the shareable URL or replicate the time logic.
+
+### Exam day countdown
+
+Students keep a tab open with "Exam in X days" — concrete, motivating, ambient.
+
+### Cooking and baking
+
+Set a 22-minute timer for cookies. Audio alert when done; the browser tab title also flashes so you notice.
+
+### Public events and meetings
+
+"Webinar starts in 5 minutes" on the registration page — the countdown updates live and turns into the join link at zero.
+
+## How it works
+
+1. **Pick a mode** — Target date (counts down to a moment), or duration (counts down from now for N minutes/hours).
+2. **Set the target** — Calendar + time picker for date mode; numeric input for duration mode.
+3. **Choose alerts** — Audio chime, browser push notification, browser tab-title flash. Combinations supported.
+4. **Share or run** — Generate a shareable URL that anyone can open and see the same countdown. Or run only locally.
+5. **Finish** — At zero, alerts fire and the timer shows "Done!" with elapsed-since-zero time. Optional auto-restart for interval workflows.
+
+## Examples
+
+**Input:** Target 2027-01-01 00:00 UTC
+
+**Output:** Live countdown showing days/hours/minutes/seconds remaining
+
+---
+
+**Input:** Duration 25 minutes
+
+**Output:** 25:00 → 00:00 with chime + browser notification
+
+---
+
+**Input:** Shareable URL
+
+**Output:** A friend opens the link; sees the same target time in their local zone
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it run when the tab is in the background?**</summary>
+
+Yes — JavaScript timing keeps the countdown accurate even when minimised. Browser-tab throttling can reduce update frequency, but the final alert fires on time.
+
+</details>
+
+<details>
+<summary>**Will the alert play if the tab is muted?**</summary>
+
+No — muted tabs do not play audio. Use the browser-notification option as a fallback; notifications fire even when audio is muted.
+
+</details>
+
+<details>
+<summary>**How accurate is it?**</summary>
+
+Sub-second drift over hours; the timer compares to the system clock so it is self-correcting. Suitable for cooking, study, and event timing — not for atomic-clock work.
+
+</details>
+
+<details>
+<summary>**Can I share with someone in another timezone?**</summary>
+
+Yes — the URL encodes the target as UTC. Recipients see it in their local zone automatically.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Yes for duration timers. Date-target timers work offline once the page is loaded; only the initial page load needs network.
+
+</details>
+
+<details>
+<summary>**Can I customise the alert sound?**</summary>
+
+Yes — pick from the built-in chimes or upload a short MP3.
+
+</details>
+
+## Tips
+
+- For cooking, enable both audio and notification — kitchen noise often drowns out audio alone.
+- For public events, embed the shareable URL on the registration page so visitors see the live count.
+- For pomodoro-style work, use the duration mode plus the auto-restart toggle.
+- For long-range countdowns (months/years), bookmark the URL — it survives reloads and reopens with the original target.
+- Test the audio at least once before relying on it — browsers sometimes block audio on first interaction.
+
+## Try it now
+
+The full countdown-timer runs in your browser at **[https://ztools.zaions.com/countdown-timer](https://ztools.zaions.com/countdown-timer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/countdown-timer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/countdown-timer.mdx)*

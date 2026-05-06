@@ -1,0 +1,130 @@
+---
+id: code-minifier
+title: "Code Minifier — Compress HTML, CSS, JS, JSON Free"
+description: "Minify HTML, CSS, JavaScript, JSON by stripping whitespace, comments, optional renames. Reduce file size 30–80% for production."
+sidebar_label: "code-minifier"
+keywords:
+  - "code minifier"
+  - "js minifier"
+  - "css minifier"
+  - "html minifier"
+  - "json minifier"
+  - "compress code online"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# code-minifier
+
+A code minifier removes unnecessary characters from source code — whitespace, line breaks, comments, optionally short variable names — without changing functionality. Production sites ship minified JS/CSS/HTML to cut file size by 30–80%, reducing bandwidth + improving page-load speed. The ZTools Code Minifier supports HTML, CSS, JavaScript (with optional Terser-grade renames), and JSON. Browser-only — paste in, copy out, no server. For automated production builds, use Webpack / Vite / esbuild minification; this tool is for ad-hoc minification of one-off snippets.
+
+<ToolCTA toolId="code-minifier" toolName="code-minifier" />
+
+## Use cases
+
+### Quick production snippet prep
+
+Need to ship a small bookmarklet / Chrome-extension content script / inline JS? Minify reduces 5KB to 1KB without setting up a build pipeline.
+
+### Embedded SVG inline minification
+
+SVGs in HTML often carry editor metadata + comments. Strip for smaller files; can save 30–50% on icon SVGs.
+
+### JSON payload size
+
+API responses with pretty-printed JSON waste ~30% bandwidth on whitespace. Minify before transmission (or configure server to do it).
+
+### Bookmarklets
+
+Bookmarks have URL length limits (~2000 chars). Minified JavaScript fits much more functionality in a single bookmarklet.
+
+## How it works
+
+1. **Paste code** — Auto-detect language or pick manually.
+2. **Set options** — Strip comments (yes/no), strip whitespace (yes), rename vars (JS only — risky for inline event handlers), preserve license headers.
+3. **Minify** — Tool emits compact single-line output (or near-single-line for HTML).
+4. **Compare sizes** — Before/after byte count + percentage reduction shown.
+5. **Copy / download** — Clipboard or .min.&lt;ext&gt; file download.
+
+## Examples
+
+**Input:** Pretty JS (~5KB) → minified
+
+**Output:** ~1.5KB (70% reduction). Whitespace + comments removed; vars unchanged for safety.
+
+---
+
+**Input:** Pretty CSS → minified
+
+**Output:** 50–60% reduction. Removes comments, whitespace, optimises shorthand (margin: 5px 5px 5px 5px → 5px).
+
+---
+
+**Input:** Pretty JSON 10KB → minified
+
+**Output:** ~7KB (30% reduction). Pure whitespace removal; semantics identical.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will minification break my code?**</summary>
+
+Whitespace + comment removal is safe. Variable renames (in JS) can break code that uses string-keyed access (e.g. `obj["functionName"]`). The tool defaults to safe mode.
+
+</details>
+
+<details>
+<summary>**Should I minify in production?**</summary>
+
+Yes — every byte saved on the wire matters for first-paint and Core Web Vitals. Use a production build pipeline (Vite / Webpack / esbuild) for app code; this tool for ad-hoc snippets.
+
+</details>
+
+<details>
+<summary>**Does gzip / brotli compression replace minification?**</summary>
+
+No — they're complementary. Minification removes redundant characters; gzip/brotli compress the result. Combined: ~85–95% reduction vs original.
+
+</details>
+
+<details>
+<summary>**Is the source map preserved?**</summary>
+
+Not in this tool — for source-map-aware minification, use Terser CLI or your build tool.
+
+</details>
+
+<details>
+<summary>**How much smaller does it get?**</summary>
+
+JS: 30–60%. CSS: 30–60%. HTML: 10–30%. JSON: 25–35%. Bigger savings if the source has heavy comments/whitespace.
+
+</details>
+
+<details>
+<summary>**Can it un-minify (the inverse)?**</summary>
+
+Yes — use the Code Beautifier tool. Output won't restore variable names if they were renamed; just whitespace + indentation.
+
+</details>
+
+## Tips
+
+- Always test minified output in a staging environment before production — variable renames especially can break edge cases.
+- Preserve license-header comments — many open-source licenses require attribution to remain.
+- For app code, use your build tool (Vite/esbuild/Webpack) — this is for ad-hoc snippets.
+- Combine minification + gzip + tree-shaking + code-splitting for max bundle savings.
+- Don't minify human-readable config files (you might re-edit them); minify only what's shipped.
+
+## Try it now
+
+The full code-minifier runs in your browser at **[https://ztools.zaions.com/code-minifier](https://ztools.zaions.com/code-minifier)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/code-minifier)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/code-minifier.mdx)*

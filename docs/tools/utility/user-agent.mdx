@@ -1,0 +1,130 @@
+---
+id: user-agent
+title: "User Agent Detector — See Your Browser, OS & Device Info"
+description: "Detect your User Agent string, browser, OS, device type, and capabilities. Test bot detection, debug device-specific bugs. Free."
+sidebar_label: "user-agent"
+keywords:
+  - "user agent"
+  - "user agent detector"
+  - "browser detector"
+  - "my user agent"
+  - "ua string"
+  - "browser fingerprint"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# user-agent
+
+A user agent detector reveals the User-Agent (UA) string your browser sends with every HTTP request — the identification of browser name, version, rendering engine, operating system, and device type. Used by web servers for analytics, conditional content (mobile vs desktop layouts), bot detection, and debugging device-specific bugs. The ZTools User Agent Detector parses the current request UA, displays it in a structured way (browser / version / OS / engine / device / type), and shows the modern Client Hints values (browsers progressively replacing the UA string). Useful for QA, debugging, and bot/automation testing.
+
+<ToolCTA toolId="user-agent" toolName="user-agent" />
+
+## Use cases
+
+### Mobile / desktop testing
+
+Verify your "is this a mobile device?" detection works correctly across iPhone, Android, iPad, desktop, etc.
+
+### Bug reporting
+
+When filing a browser-specific bug, attach UA + parsed details to the report — saves the engineer triage time.
+
+### Bot detection debugging
+
+Test how your site treats different UAs — bot-like UAs should not get challenged. Whitelist known good bots (Googlebot, Bingbot).
+
+### Compatibility checks
+
+Old browser UAs help confirm whether your site renders correctly on legacy users (or whether to drop support).
+
+## How it works
+
+1. **View current UA** — Displays your browser's User-Agent header verbatim.
+2. **Parsed breakdown** — Browser name + version, OS name + version, rendering engine (Blink / Gecko / WebKit), device type (desktop / mobile / tablet / TV / wearable).
+3. **Client Hints** — Modern browsers send `Sec-CH-UA-*` headers; tool displays available values.
+4. **Capabilities check** — Touch, WebGL, WebRTC, Service Workers, Web Push — quick capability summary.
+5. **Copy raw UA** — For pasting into bug reports.
+
+## Examples
+
+**Input:** iPhone 16 Pro Safari
+
+**Output:** `Mozilla/5.0 (iPhone; CPU iPhone OS 18_3...)` parsed as: Safari 18 / iOS 18 / Mobile / WebKit.
+
+---
+
+**Input:** Chrome desktop
+
+**Output:** `Mozilla/5.0 (Windows NT 10.0...)` parsed as: Chrome 138 / Windows 10 / Desktop / Blink.
+
+---
+
+**Input:** Googlebot UA
+
+**Output:** `Mozilla/5.0 (compatible; Googlebot/2.1; +https://...)` flagged as Bot / Crawler.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does the UA say "Mozilla/5.0" even for non-Mozilla browsers?**</summary>
+
+Historical: in 1990s, sites required "Mozilla" to ship modern HTML. Browsers spoofed it for compatibility, and the convention stuck. Every modern browser starts UA with "Mozilla/5.0" for legacy reasons.
+
+</details>
+
+<details>
+<summary>**What's "Client Hints"?**</summary>
+
+Modern (post-2020) replacement for the UA string. Servers request specific hints (browser brand, model, full version) via HTTP headers, reducing fingerprinting surface area while preserving useful signals.
+
+</details>
+
+<details>
+<summary>**Can I spoof my UA?**</summary>
+
+Yes — browsers expose dev-tool UA override (Chrome DevTools → ⋮ → More tools → Network conditions). Useful for testing mobile-vs-desktop responsive views.
+
+</details>
+
+<details>
+<summary>**Why does my UA have "iPad" but the site treats me as desktop?**</summary>
+
+iPadOS 13+ defaults to desktop UA on iPad to encourage desktop-class web experience. Some sites are catching up; iPad-specific detection often requires Touch capability + screen size, not UA.
+
+</details>
+
+<details>
+<summary>**Is my UA unique enough to fingerprint me?**</summary>
+
+Combined with screen size, fonts, timezone, etc., yes — UA contributes meaningfully to browser fingerprinting. Modern browsers (Brave, Firefox with strict mode) randomise/reduce UA precision to mitigate.
+
+</details>
+
+<details>
+<summary>**Should I do UA detection in my code?**</summary>
+
+Prefer feature detection (`if (navigator.serviceWorker)`) over UA detection — UAs lie, features tell the truth. Reserve UA for analytics and bot detection.
+
+</details>
+
+## Tips
+
+- Always include UA + browser version in bug reports — saves engineering triage time.
+- For detection logic, prefer feature detection over UA parsing — more reliable.
+- Test UA spoofing in DevTools when QAing mobile responsiveness from desktop.
+- Watch out for iPad-as-desktop UA gotcha — affects ~5% of users.
+- Modern Client Hints will replace UA over coming years — design for both.
+
+## Try it now
+
+The full user-agent runs in your browser at **[https://ztools.zaions.com/user-agent](https://ztools.zaions.com/user-agent)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/user-agent)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/user-agent.mdx)*

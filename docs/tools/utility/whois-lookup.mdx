@@ -1,0 +1,125 @@
+---
+id: whois-lookup
+title: "WHOIS Lookup — Domain Registration, Owner, Expiry Date (Free)"
+description: "Look up WHOIS data for any domain — registrar, registration date, expiry date, name servers, registrant (when public). Free, no limits."
+sidebar_label: "whois-lookup"
+keywords:
+  - "whois lookup"
+  - "domain whois"
+  - "domain lookup"
+  - "domain registration check"
+  - "domain expiry check"
+  - "whois domain"
+  - "free whois tool"
+  - "domain owner lookup"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# whois-lookup
+
+A WHOIS lookup tool queries the public WHOIS database for registration information about a domain name: the registrar, original registration date, expiry date, last update date, name servers, and registrant contact details (when not redacted by privacy services or GDPR). The ZTools WHOIS Lookup tool returns parsed, human-readable WHOIS data for `.com`, `.net`, `.org`, country-code TLDs (`.co.uk`, `.de`, `.in`), and most new gTLDs (`.app`, `.dev`, `.io`).
+
+<ToolCTA toolId="whois-lookup" toolName="whois-lookup" />
+
+## Use cases
+
+### Checking when a competitor's domain was first registered
+
+The "Created Date" field reveals when a domain was first registered, often a proxy for when a project or company started. Useful competitive intel and for spotting domains rebranded from a parked state.
+
+### Verifying domain ownership before buying or renewing
+
+Confirm the current registrar and expiry date before initiating a transfer. Domains expiring in under 60 days often hit transfer holds; the WHOIS expiry tells you whether you can move it now.
+
+### Detecting parked or expiring domains for acquisition
+
+A domain that's been parked for years with no name servers (or default registrar parking NS) and is approaching expiry may be acquirable cheaply via drop-catching or backorder services.
+
+### Investigating phishing or trademark abuse
+
+Look up a suspicious domain — registration &lt; 30 days, generic registrar (Namecheap, Porkbun), and privacy-protected ownership are common indicators of throwaway phishing infrastructure.
+
+## How it works
+
+1. **Enter a domain name** — Bare domain (`example.com`) or with `https://` prefix — the tool normalizes the input. Subdomains are stripped to the registrable domain.
+2. **Click Lookup** — The tool queries the appropriate WHOIS server for the TLD (e.g., whois.verisign-grs.com for `.com`) via a serverless proxy that bridges the WHOIS protocol (port 43) to HTTPS.
+3. **Read the registration data** — Registrar, creation/update/expiry dates, name servers, and contact info (where not redacted).
+4. **Note privacy redactions** — Since GDPR (2018), most registrant details are redacted by default for individual owners. Corporate registrants may still show full info.
+5. **Cross-reference with DNS lookup** — Pair with our DNS Lookup tool: WHOIS tells you who owns the registration; DNS tells you where it currently points.
+
+## Examples
+
+**Input:** google.com
+
+**Output:** Registrar: MarkMonitor Inc. Created: 1997-09-15. Expires: 2028-09-14. Status: clientDeleteProhibited, clientTransferProhibited, clientUpdateProhibited.
+
+---
+
+**Input:** example.com
+
+**Output:** Registrar: Reserved by ICANN. Created: 1995-08-14. Expires: 2025-08-13.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is the registrant information hidden?**</summary>
+
+Since GDPR took effect in May 2018, registrars redact personally identifiable information for individual registrants by default. Corporate registrants may opt in to public display. Use a registrar's "anonymous email" link to contact the owner without revealing their address.
+
+</details>
+
+<details>
+<summary>**How do I know if a domain is available to register?**</summary>
+
+A WHOIS lookup that returns "No match for ..." or "Domain not found" usually means the domain is unregistered. Verify at any registrar before buying — sometimes WHOIS lags by a few hours behind real availability.
+
+</details>
+
+<details>
+<summary>**What does "clientTransferProhibited" mean?**</summary>
+
+A registrar lock that prevents the domain from being transferred to another registrar without the owner first removing the lock. Common security default for high-value domains.
+
+</details>
+
+<details>
+<summary>**Why is the WHOIS data different for `.com` vs `.io` or country TLDs?**</summary>
+
+Each TLD has its own registry with its own WHOIS server and data format. The tool normalizes the most common fields, but exact wording and available fields vary.
+
+</details>
+
+<details>
+<summary>**Can I look up historical WHOIS records?**</summary>
+
+No — this tool shows current WHOIS only. Historical WHOIS is a paid service from providers like DomainTools or WhoisXMLAPI.
+
+</details>
+
+<details>
+<summary>**Is my WHOIS query logged?**</summary>
+
+WHOIS servers may log queries. If you need anonymity, route through a VPN or query via Tor.
+
+</details>
+
+## Tips
+
+- Set domain auto-renew at your registrar — losing a domain to lapse-and-snipe is among the most painful infra mistakes.
+- Enable transfer-lock and 2FA at your registrar to prevent domain hijacking.
+- For brand monitoring, set calendar reminders for the expiry dates of your important competitor or partner domains.
+- Cross-check WHOIS with DNS — discrepancies (e.g., name servers in WHOIS differ from live NS records) hint at recent or in-progress changes.
+
+## Try it now
+
+The full whois-lookup runs in your browser at **[https://ztools.zaions.com/whois-lookup](https://ztools.zaions.com/whois-lookup)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/whois-lookup)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/whois-lookup.mdx)*

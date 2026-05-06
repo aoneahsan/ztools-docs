@@ -1,0 +1,134 @@
+---
+id: bulk-url-checker
+title: "Bulk URL Checker — Test Many URLs for Status & Redirects"
+description: "Check a list of URLs for HTTP status, redirects, response time, and redirect chain. Browser-only, free, batch-friendly."
+sidebar_label: "bulk-url-checker"
+keywords:
+  - "bulk url checker"
+  - "url status checker"
+  - "broken link checker"
+  - "bulk redirect checker"
+  - "http status checker"
+  - "link audit tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# bulk-url-checker
+
+A bulk URL checker hits a list of URLs in parallel and reports the HTTP status code (200, 301, 404, 500, etc.), final URL after redirects, full redirect chain, and response time. Used to audit broken links on a site, verify redirect mappings during a migration, find dead pages in a sitemap before submitting to Google, and flag slow pages. The ZTools Bulk URL Checker runs entirely in the browser (with CORS-aware fallbacks) — paste URLs, get results in seconds. Up to 200 URLs per batch; concurrency-limited to 10 parallel requests so you don't flood your own network.
+
+<ToolCTA toolId="bulk-url-checker" toolName="bulk-url-checker" />
+
+## Use cases
+
+### Site migration audit
+
+Migrating from /blog/2025/post-name to /post-name? Need every old URL to redirect (301) to a new URL. Bulk-check your full URL list pre-launch.
+
+### Broken-link audit
+
+Periodic site-wide check for 404s. Catch broken external links in blog posts, broken internal links after page deletion.
+
+### Sitemap pre-submission
+
+Before submitting sitemap to Google, ensure all URLs return 200. Submitting a sitemap with 100 broken URLs damages crawl budget.
+
+### Affiliate / external link audit
+
+Affiliate links die over time. Quarterly bulk-check catches dead links before users encounter them.
+
+### Performance flagging
+
+Response-time column flags slow pages — pair with Lighthouse / WebPageTest for deeper performance analysis.
+
+## How it works
+
+1. **Paste URLs** — One per line. Up to 200 per batch.
+2. **Set concurrency** — 5 / 10 / 20 parallel. 10 is the sane default; 20 is fast but may rate-limit your local network.
+3. **Set timeout** — 5s / 10s / 30s per URL.
+4. **Run** — Each URL fetched; status, final URL after redirects, redirect chain length, response time logged.
+5. **Filter results** — Show only 4xx / 5xx errors; export CSV.
+
+## Examples
+
+**Input:** 50-URL list of blog posts
+
+**Output:** Per-URL row: status, redirects, response time. 3 marked 404 — fix or remove.
+
+---
+
+**Input:** Migration mapping (old → new)
+
+**Output:** Verify each old URL returns 301 to expected new URL. Highlight unexpected redirects.
+
+---
+
+**Input:** External link audit
+
+**Output:** Flag 404s and 410s; warn on 5xx (transient — re-check) and slow responses.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my bulk-check show CORS errors?**</summary>
+
+Browser security blocks cross-origin requests without server cooperation. The tool uses CORS-aware fetch + a fallback proxy where available; some servers genuinely don't cooperate.
+
+</details>
+
+<details>
+<summary>**Can it detect soft 404s?**</summary>
+
+"Soft 404" pages return 200 with "page not found" content. The tool checks status only — soft 404 detection requires content analysis. Use Google Search Console for that.
+
+</details>
+
+<details>
+<summary>**Will it follow redirects?**</summary>
+
+Yes — final URL after redirect chain is shown, plus the chain itself.
+
+</details>
+
+<details>
+<summary>**How is this different from Screaming Frog?**</summary>
+
+Screaming Frog is desktop, free up to 500 URLs, with crawler features (link extraction, content analysis). ZTools is browser-only, batch-only, simpler. Use Screaming Frog for crawl-then-check; ZTools for known-URL-list checks.
+
+</details>
+
+<details>
+<summary>**Will it flag rate-limiting?**</summary>
+
+429 status (Too Many Requests) is shown. Reduce concurrency or wait between batches.
+
+</details>
+
+<details>
+<summary>**Can I check internal-network URLs?**</summary>
+
+Only if the URLs are reachable from the browser. For private intranet, run the tool on a machine inside the network.
+
+</details>
+
+## Tips
+
+- Run before any sitemap submission — broken sitemap URLs hurt crawl budget.
+- After a site migration, run with the OLD URL list to verify all redirect to new URLs.
+- Quarterly check for broken external links — dead affiliate links lose revenue.
+- Concurrency 10 is typically safe; 20+ can rate-limit your own home/office network.
+- For deep crawls (find all URLs first), use Screaming Frog; this tool checks known URLs.
+
+## Try it now
+
+The full bulk-url-checker runs in your browser at **[https://ztools.zaions.com/bulk-url-checker](https://ztools.zaions.com/bulk-url-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/bulk-url-checker)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/bulk-url-checker.mdx)*

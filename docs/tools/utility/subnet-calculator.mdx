@@ -1,0 +1,131 @@
+---
+id: subnet-calculator
+title: "Subnet Calculator — IPv4 / IPv6 CIDR Subnetting Tool Free"
+description: "Calculate IPv4/IPv6 subnets, CIDR ranges, network/broadcast addresses, host counts, subnet masks. Browser-only, instant."
+sidebar_label: "subnet-calculator"
+keywords:
+  - "subnet calculator"
+  - "cidr calculator"
+  - "ip subnet calculator"
+  - "ipv4 subnetting"
+  - "ipv6 subnet"
+  - "vlsm calculator"
+  - "network calculator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# subnet-calculator
+
+A subnet calculator computes IP-network properties from CIDR notation (e.g. 192.168.1.0/24) — the network address, broadcast address, usable host range, total host count, subnet mask in dotted-decimal, and binary representation. Network engineers and sysadmins use it daily for planning IP allocation, configuring routers, and troubleshooting network issues. The ZTools Subnet Calculator handles both IPv4 (32-bit) and IPv6 (128-bit) addressing, supports VLSM (variable-length subnet mask) calculations, and provides a hosts-per-subnet table for splitting a /24 into smaller subnets.
+
+<ToolCTA toolId="subnet-calculator" toolName="subnet-calculator" />
+
+## Use cases
+
+### Network design / VLAN planning
+
+Allocating IP ranges across VLANs, departments, or customers. /24 (256 addresses) is too big for a small office; /28 (16 addresses) is right-sized.
+
+### Cloud VPC subnet planning
+
+AWS / GCP / Azure VPCs need subnet CIDR planning. Avoid overlap with on-prem ranges, account for future growth, leave room for AWS reserved addresses (5 per subnet).
+
+### Firewall rules / ACLs
+
+Allow source 10.0.0.0/16 → expand to range; deny 192.168.5.0/27 → calculate exact addresses covered.
+
+### CCNA / network certification study
+
+Subnetting is a core skill on networking certs (CCNA, CompTIA Network+). Calculator validates manual answers during practice.
+
+## How it works
+
+1. **Enter IP/CIDR** — `192.168.1.100/24` or `2001:db8::/32`. Both notations supported.
+2. **Or pick mask** — Mask in dotted-decimal (255.255.255.0) auto-converts to /24.
+3. **View results** — Network, broadcast, first host, last host, total hosts, mask in multiple notations, binary, hex.
+4. **Subnet division (VLSM)** — Split a /24 into N smaller subnets; calculator generates the table of resulting CIDR blocks.
+5. **IP-in-subnet check** — Test if a specific IP falls within a subnet. Useful for ACL verification.
+
+## Examples
+
+**Input:** 192.168.1.0/24
+
+**Output:** Network: 192.168.1.0; Broadcast: 192.168.1.255; Hosts: 254; Mask: 255.255.255.0.
+
+---
+
+**Input:** 10.0.0.0/16 split into 4 equal subnets
+
+**Output:** 10.0.0.0/18, 10.0.64.0/18, 10.0.128.0/18, 10.0.192.0/18 — 16,382 hosts each.
+
+---
+
+**Input:** 2001:db8::/64
+
+**Output:** IPv6 /64 = 2^64 addresses (~18 quintillion). Host range covers entire /64; first host 2001:db8::1.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does a /24 have 254 hosts and not 256?**</summary>
+
+Network address (.0) and broadcast address (.255) are reserved. 256 total addresses minus 2 = 254 usable hosts. AWS reserves an additional 3 (so 251 usable in AWS VPCs).
+
+</details>
+
+<details>
+<summary>**What's VLSM?**</summary>
+
+Variable-Length Subnet Masking — splitting an IP range into subnets of different sizes. Example: a /24 into a /25 (128 addresses) plus 2 /26s (64 each). Allows efficient address allocation.
+
+</details>
+
+<details>
+<summary>**Difference between /24 and 255.255.255.0?**</summary>
+
+Same thing in different notation. /24 means "24 ones in the mask"; 255.255.255.0 in binary is `11111111.11111111.11111111.00000000` = 24 ones.
+
+</details>
+
+<details>
+<summary>**Can I subnet IPv6?**</summary>
+
+Yes — IPv6 uses identical CIDR notation. Common practice: allocate /48 to organisations, /64 per LAN.
+
+</details>
+
+<details>
+<summary>**How does AWS subnet differ?**</summary>
+
+AWS reserves 5 addresses per subnet (.0, .1, .2, .3, .last). Subtract 5 from total host count for usable AWS VPC subnet capacity.
+
+</details>
+
+<details>
+<summary>**What's a /31 subnet?**</summary>
+
+Used for point-to-point links (RFC 3021). Only 2 addresses, both usable as hosts (no broadcast). Common between routers.
+
+</details>
+
+## Tips
+
+- Always reserve 20–30% growth headroom in subnet sizing — bigger now is cheaper than re-numbering later.
+- Document your subnet plan (spreadsheet or IPAM tool) before deploying — drift is brutal to fix.
+- For AWS VPC, account for the 5 reserved addresses per subnet.
+- Use private RFC1918 ranges (10/8, 172.16/12, 192.168/16) for internal — never public space without ownership.
+- Avoid 169.254/16 (link-local, used by APIPA) and 224/4 (multicast) for production subnets.
+
+## Try it now
+
+The full subnet-calculator runs in your browser at **[https://ztools.zaions.com/subnet-calculator](https://ztools.zaions.com/subnet-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/subnet-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/subnet-calculator.mdx)*

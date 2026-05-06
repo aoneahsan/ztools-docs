@@ -1,0 +1,107 @@
+---
+id: alarm-clock
+title: "Alarm Clock Online — Free, Custom Sounds, Browser"
+description: "Free online alarm clock — set time, custom sounds, snooze, fullscreen mode. Browser-only — no signup."
+sidebar_label: "alarm-clock"
+keywords:
+  - "alarm clock online"
+  - "free browser alarm"
+  - "set alarm in browser"
+  - "desktop alarm clock"
+  - "web alarm tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# alarm-clock
+
+A browser-based alarm clock runs in any tab and rings at a chosen time — useful when your phone is on silent, when you're at a desktop computer, or when you want a backup alarm visible on a separate screen. The ZTools Alarm Clock supports multiple alarms, custom sound choice (ten built-in tones plus upload-your-own), snooze, fullscreen display, and sticky tab notifications so the alarm fires even when the tab is in the background. Runs entirely client-side; no signup, no account.
+
+<ToolCTA toolId="alarm-clock" toolName="alarm-clock" />
+
+## Use cases
+
+### Backup alarm at your desk
+
+Phone on silent during a meeting; alarm clock in a browser tab catches you when the meeting runs over.
+
+### Cooking / baking timer
+
+Set an alarm for when bread comes out of the oven. More reliable than a kitchen timer that runs out of battery.
+
+### Pomodoro reminder
+
+25 minutes work + 5 minutes break — set an alarm at the end of each cycle. Or use a dedicated Pomodoro timer.
+
+### Wake-up alarm on a hotel laptop
+
+No phone charger; laptop is your only device. Alarm clock in a browser tab works.
+
+## How it works
+
+1. **Set time** — Pick the alarm time. Multiple alarms supported.
+2. **Pick sound** — Built-in tones (gentle bell, classic ring, bird chirp, etc.) or upload your own MP3.
+3. **Configure** — Snooze duration (default 5 min), repeat (one-time or daily).
+4. **Activate** — Browser uses Web Audio API to play sound. Notification API surfaces a desktop notification when the alarm fires.
+
+## Examples
+
+**Input:** Alarm at 7:30 AM, gentle bell, snooze 5 min
+
+**Output:** Browser plays sound at 7:30. Snooze button delays by 5 min; second snooze re-triggers.
+
+---
+
+**Input:** Multi-alarm: 9:00, 12:00, 17:00 (workday milestones)
+
+**Output:** All three trigger throughout the day. Each labelled.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will it ring if the tab is in the background?**</summary>
+
+Modern browsers throttle background tabs — alarms fire but with a few seconds delay. For mission-critical wakeups, keep the tab in the foreground or use your phone.
+
+</details>
+
+<details>
+<summary>**What if I close the tab?**</summary>
+
+Alarms don't persist past tab close. The tool isn't a daemon — it's a browser tab.
+
+</details>
+
+<details>
+<summary>**Notification permission?**</summary>
+
+Optional. Without it, alarm still fires sound; with it, you also get a desktop notification.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser. Alarms / sounds never uploaded.
+
+</details>
+
+## Tips
+
+- For background reliability, keep the tab in the foreground — most browsers throttle non-foreground tabs.
+- Custom sound? Upload an MP3 — the alarm uses your file via local URL, never uploads it anywhere.
+- For Pomodoro, multiple alarms work — but a dedicated Pomodoro timer is more ergonomic.
+- Don't rely on this for medication reminders or critical wake-ups — phone alarms are more robust.
+
+## Try it now
+
+The full alarm-clock runs in your browser at **[https://ztools.zaions.com/alarm-clock](https://ztools.zaions.com/alarm-clock)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/alarm-clock)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/alarm-clock.mdx)*

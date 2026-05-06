@@ -1,0 +1,113 @@
+---
+id: barcode-scanner-advanced
+title: "Barcode Scanner — Free Online via Webcam, Browser"
+description: "Scan barcodes with your webcam. Code 128, EAN, UPC, QR, more. Browser-only — no upload, no signup."
+sidebar_label: "barcode-scanner-advanced"
+keywords:
+  - "barcode scanner online"
+  - "webcam barcode reader"
+  - "browser qr scanner"
+  - "free barcode scanner"
+  - "no install barcode reader"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# barcode-scanner-advanced
+
+A barcode scanner reads barcodes from a webcam feed and decodes them into the underlying data. Useful for inventory checks, retail price lookups, ticket validation, and quick QR-code scanning when you don't want to install an app. The ZTools Barcode Scanner runs entirely in the browser via the BarcodeDetector API (Chrome / Edge native) or ZXing-JS fallback for other browsers. Supports Code 128, Code 39, EAN-13, EAN-8, UPC-A, UPC-E, ITF, QR, Data Matrix, PDF417, Aztec.
+
+<ToolCTA toolId="barcode-scanner-advanced" toolName="barcode-scanner-advanced" />
+
+## Use cases
+
+### Quick inventory check
+
+Webcam scan; decodes the barcode; copies to clipboard. Faster than typing the code.
+
+### Retail price lookup
+
+Customer-facing: scan a product, see info. (Tool only decodes; you provide the lookup logic.)
+
+### Ticket scan at small events
+
+Browser-based scanner — no app install required for volunteer staff.
+
+### QR code scan from screen
+
+Webcam pointing at another screen. Decodes URL / data.
+
+## How it works
+
+1. **Grant camera permission** — Browser asks once.
+2. **Scan continuously** — Tool processes frames at 10-30 fps depending on device.
+3. **Detect + decode** — BarcodeDetector API (native, fast) or ZXing-JS (works everywhere). Both are accurate at typical resolution.
+4. **Display result** — Decoded data + format detected. Copy / read aloud / open URL (for QR).
+
+## Examples
+
+**Input:** Code 128 product label
+
+**Output:** Decoded: "INV-2026-0042". Format detected.
+
+---
+
+**Input:** QR code with URL
+
+**Output:** Decoded URL. Click to open or copy.
+
+---
+
+**Input:** EAN-13 retail product
+
+**Output:** 13-digit code displayed. Use for product lookup against your database.
+
+## Frequently asked questions
+
+<details>
+<summary>**Browser support?**</summary>
+
+Chrome / Edge (native BarcodeDetector). Firefox / Safari (ZXing-JS fallback). Both work; native is faster.
+
+</details>
+
+<details>
+<summary>**Camera privacy?**</summary>
+
+Browser asks for permission. Frames processed locally; never uploaded.
+
+</details>
+
+<details>
+<summary>**Low-light / blurry barcodes?**</summary>
+
+Resolution matters. Better lighting + steady camera = better recognition. Some barcodes (low-contrast print, damage) won't decode.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side. Camera frames never leave the device.
+
+</details>
+
+## Tips
+
+- For best results, hold barcode 6-12 inches from camera in good light.
+- For low-resolution webcams, larger barcodes scan better than tiny ones.
+- Native BarcodeDetector (Chrome) decodes 5-10x faster than the JS fallback — prefer Chromium-based browsers for high-volume scanning.
+- Always check the decoded data before using — corrupted barcodes can decode to garbage.
+
+## Try it now
+
+The full barcode-scanner-advanced runs in your browser at **[https://ztools.zaions.com/barcode-scanner-advanced](https://ztools.zaions.com/barcode-scanner-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/barcode-scanner-advanced)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/barcode-scanner-advanced.mdx)*

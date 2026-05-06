@@ -1,0 +1,130 @@
+---
+id: dns-lookup-tool
+title: "DNS Lookup Tool — Query A, AAAA, MX, TXT, NS, CNAME Records Online"
+description: "Look up DNS records for any domain — A, AAAA, MX, TXT, NS, CNAME, SOA. See TTLs and authoritative responses. Free, no rate limits."
+sidebar_label: "dns-lookup-tool"
+keywords:
+  - "dns lookup"
+  - "dns checker"
+  - "dns record lookup"
+  - "mx record lookup"
+  - "txt record lookup"
+  - "spf check"
+  - "dkim check"
+  - "dns propagation check"
+  - "free dns tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# dns-lookup-tool
+
+A DNS lookup tool queries the global Domain Name System for records associated with a given domain — A (IPv4 address), AAAA (IPv6 address), MX (mail exchanger), TXT (arbitrary text records like SPF/DKIM), NS (name servers), CNAME (canonical name aliases), and SOA (start of authority). The ZTools DNS Lookup tool uses Google's public DNS-over-HTTPS resolver (dns.google) to return authoritative answers with TTL values, so you can debug DNS propagation, verify SPF/DKIM email-auth setup, audit name-server delegation, or check whether a domain points where you think it does.
+
+<ToolCTA toolId="dns-lookup-tool" toolName="dns-lookup-tool" />
+
+## Use cases
+
+### Diagnosing a "site not loading" issue
+
+When a deploy goes wrong and users report "the site is down", DNS is often the culprit. Look up the A and AAAA records for your domain — if they point to the wrong IP, you have a DNS misconfiguration, not an application bug.
+
+### Verifying SPF, DKIM, and DMARC for email deliverability
+
+Look up TXT records for your sending domain to see your SPF policy ("v=spf1 ..."). Look up `_dmarc.example.com` for the DMARC policy. Look up `selector._domainkey.example.com` for DKIM keys. Misconfigurations here cause emails to land in spam.
+
+### Auditing name-server delegation after a registrar change
+
+When migrating between registrars or DNS providers, the NS records must be updated at both the registrar and the parent zone. Use the tool to confirm the live NS records match your new provider before disabling the old one.
+
+### Confirming DNS propagation after a record change
+
+After updating an A record, run a lookup every few minutes to watch the change propagate. The TTL value tells you the longest a stale cached response could persist.
+
+## How it works
+
+1. **Enter a domain name** — Bare domain (`example.com`) or fully-qualified subdomain (`mail.example.com`). The tool normalizes the input automatically.
+2. **Choose the record type** — A (IPv4), AAAA (IPv6), MX (mail), TXT (text), NS (name servers), CNAME (alias), SOA (zone authority), CAA (certificate authority authorization). Or "All" to query the most common types.
+3. **Click Lookup** — The tool queries Google's DNS-over-HTTPS resolver at https://dns.google/resolve over HTTPS — no sensitive headers, no tracking.
+4. **Read the results** — Each record shows value, TTL (seconds until cache expires), and authoritative status. MX records include priority. TXT records show the full string content.
+5. **Compare with expected configuration** — Mismatch between live and expected records is the smoking gun for most DNS-related outages.
+
+## Examples
+
+**Input:** example.com, type A
+
+**Output:** 93.184.216.34 (TTL 86400)
+
+---
+
+**Input:** gmail.com, type MX
+
+**Output:** 5 gmail-smtp-in.l.google.com.
+10 alt1.gmail-smtp-in.l.google.com.
+20 alt2.gmail-smtp-in.l.google.com.
+30 alt3.gmail-smtp-in.l.google.com.
+40 alt4.gmail-smtp-in.l.google.com.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my DNS change not appear immediately?**</summary>
+
+DNS records are cached at every layer — your browser, your OS, your ISP's recursive resolver, and Google's public resolver. The TTL on the old record sets the maximum cache lifetime. Lower TTLs (e.g. 300 seconds) before planned changes for faster propagation.
+
+</details>
+
+<details>
+<summary>**What's the difference between A and AAAA records?**</summary>
+
+A maps a hostname to an IPv4 address (32-bit, e.g., 93.184.216.34). AAAA maps to IPv6 (128-bit). Modern sites should publish both for dual-stack reachability.
+
+</details>
+
+<details>
+<summary>**Why are MX records prefixed with a number?**</summary>
+
+The number is the priority. Mail senders try the lowest-priority MX first; on failure, they fall back to higher-priority alternatives. Equal priorities are tried round-robin.
+
+</details>
+
+<details>
+<summary>**What does TTL mean?**</summary>
+
+Time To Live, in seconds — the maximum time a DNS resolver may cache the record before re-querying. Common values: 300 (5 min, fast updates), 3600 (1 hour), 86400 (24 hours).
+
+</details>
+
+<details>
+<summary>**Can I look up records for any domain, including subdomains?**</summary>
+
+Yes — any public domain. Internal/private DNS records (e.g., 10.0.0.1 hosts on a corporate network) are not queryable from the public internet.
+
+</details>
+
+<details>
+<summary>**Why use this instead of `dig` or `nslookup`?**</summary>
+
+Quick, no terminal needed, no flags to remember, plus a friendly tabular display. For scripting and detailed query control, `dig` is better — they complement each other.
+
+</details>
+
+## Tips
+
+- Lower the TTL on records you plan to change at least one TTL period before the change.
+- Always include both A and AAAA records for IPv6 reachability.
+- For email deliverability, configure SPF, DKIM, and DMARC and verify all three with this tool.
+- For redundancy, host name servers across at least two providers (or two AZs of the same provider).
+
+## Try it now
+
+The full dns-lookup-tool runs in your browser at **[https://ztools.zaions.com/dns-lookup-tool](https://ztools.zaions.com/dns-lookup-tool)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/dns-lookup-tool)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/dns-lookup-tool.mdx)*

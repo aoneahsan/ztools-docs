@@ -64,6 +64,16 @@ const TOOLS_TO_PUBLISH = [
   'reverse-image-search','rotate-png','sharpen-image','smart-image-optimizer','social-media-image-resizer',
   'svg-optimizer','svg-png','transparent-jpg','transparent-png-maker','transparent-webp','tweet-generator',
   'tweet-to-image-converter','universal-image-converter','vimeo-thumbnail-grabber','youtube-thumbnail-grabber',
+
+  // Batch 4: utility category — 43 tools
+  'age-calculator','alarm-clock','aspect-ratio-calculator','barcode-scanner-advanced','billable-hours',
+  'bulk-url-checker','code-beautifier','code-minifier','code-to-image-converter','coin-flipper',
+  'color-contrast-checker','countdown-timer','credit-card-validator','date-calculator','date-difference-calculator',
+  'device-info','dice-roller','digital-clock','dns-lookup-tool','email-validator','emoji-picker',
+  'file-hash-calculator','iban-validator','invoice-generator-pro','ip-lookup','memento-mori-calendar',
+  'notepad-online','password-strength-checker','phone-number-validator','pomodoro','random-name-generator',
+  'receipt-generator','scientific-calculator','stopwatch-timer','subnet-calculator','timer','timezone',
+  'twitter-ad-revenue-generator','url-validator','user-agent','vin-decoder','whois-lookup','world-clock-converter',
 ];
 
 // ---------------------------------------------------------------------------

@@ -1,0 +1,135 @@
+---
+id: aspect-ratio-calculator
+title: "Aspect Ratio Calculator — Free Pixel Dimensions Tool"
+description: "Calculate width/height for any aspect ratio (16:9, 4:3, 1:1, 2.35:1). Resize images and videos while preserving ratio. Free, instant."
+sidebar_label: "aspect-ratio-calculator"
+keywords:
+  - "aspect ratio calculator"
+  - "pixel dimensions calculator"
+  - "16:9 calculator"
+  - "video aspect ratio"
+  - "image aspect ratio"
+  - "aspect ratio resize"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# aspect-ratio-calculator
+
+An aspect ratio calculator computes pixel dimensions for any width/height ratio — given a width, find the height that maintains the ratio (or vice versa). Common ratios: 16:9 (HD video, YouTube, modern TVs), 9:16 (Stories, TikTok, Reels), 4:3 (older TVs, PowerPoint default), 3:2 (DSLR photos), 1:1 (Instagram square), 2.35:1 (cinematic widescreen), 21:9 (ultrawide monitors), 4:5 (Instagram portrait). The ZTools Aspect Ratio Calculator handles bidirectional conversion (W from H or H from W), preset ratios, and GCD reduction (e.g. 1920×1080 → 16:9).
+
+<ToolCTA toolId="aspect-ratio-calculator" toolName="aspect-ratio-calculator" />
+
+## Use cases
+
+### Video resizing for platforms
+
+Source video is 4K (3840×2160 = 16:9). Target for TikTok needs 9:16. Calculator gives the crop dimensions instantly.
+
+### Image responsive sizing
+
+Hero image must be 16:9 across breakpoints. Pick a max width (e.g. 1280); calculator gives the matching height (720).
+
+### CSS aspect-ratio preservation
+
+Modern CSS supports `aspect-ratio: 16/9`; older browsers need a padding-bottom hack. Calculator gives the exact percentage (56.25%).
+
+### Print / display sizing
+
+Photo print at 8×12 in (3:2). Want to fit a 4×5 frame? Calculator shows you'll lose the top/bottom strips.
+
+## How it works
+
+1. **Pick or enter ratio** — Preset (16:9, 4:3, 1:1, etc.) or custom W:H.
+2. **Enter known dimension** — Width OR height — the tool computes the missing value.
+3. **Get result** — Pixel dimension at the input value, with optional rounding to even number for video codec friendliness.
+4. **Optional reduce** — Reduce arbitrary dimensions to a simple ratio (1920×1080 → 16:9). Uses GCD.
+
+## Examples
+
+**Input:** 16:9 ratio + width 1920
+
+**Output:** Height = 1080. Native 1080p HD.
+
+---
+
+**Input:** 9:16 ratio + width 1080
+
+**Output:** Height = 1920. TikTok / Stories / Reels native.
+
+---
+
+**Input:** Reduce 1920×1080
+
+**Output:** 16:9 (GCD 120, divides both).
+
+---
+
+**Input:** 4:5 ratio + width 1080
+
+**Output:** Height = 1350. Instagram portrait max.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why aren't my dimensions even numbers?**</summary>
+
+Some ratios produce non-integer heights (e.g. 1080×608.4 for 16:9 from 1080 wide). Most video codecs require even numbers — round to the nearest even (608 or 610).
+
+</details>
+
+<details>
+<summary>**What's the difference between "16:9" and "1.78:1"?**</summary>
+
+Identical — 16/9 = 1.778. Cinematic ratios are often given as decimals (1.85:1, 2.35:1, 2.39:1); video/display ratios as integer ratios.
+
+</details>
+
+<details>
+<summary>**How does CSS aspect-ratio compare?**</summary>
+
+Modern browsers (96%+ in 2026) support `aspect-ratio: 16/9` directly — no hack needed. Older browsers (IE11) need padding-bottom: 56.25% on a wrapper. Calculator emits both.
+
+</details>
+
+<details>
+<summary>**Does it handle non-integer ratios?**</summary>
+
+Yes — 21:9 ultrawide is actually 21.5:9 = 2.39:1 in cinema terminology. The calculator accepts decimal inputs.
+
+</details>
+
+<details>
+<summary>**Why does my screenshot at 16:9 look stretched on a 4:3 monitor?**</summary>
+
+Old 4:3 monitors stretch 16:9 content. Either letterbox (black bars) or accept the stretch. Modern monitors handle aspect-correct display automatically.
+
+</details>
+
+<details>
+<summary>**Can it suggest crops to change aspect ratio?**</summary>
+
+Yes — give source dimensions and target ratio; tool shows crop margins on each side.
+
+</details>
+
+## Tips
+
+- Always round video dimensions to even numbers — codecs require it.
+- Stick to standard ratios where possible — custom ratios cause player bugs and platform rejections.
+- For social: 9:16 (Stories/Reels), 1:1 (IG feed), 4:5 (IG portrait — most screen space), 16:9 (YouTube).
+- For print, keep aspect ratio of frame in mind — common photo paper is 3:2; common frame is 4:5 → loses content on every print.
+- Use CSS `aspect-ratio` over padding-bottom hack — cleaner code, ships in every modern browser.
+
+## Try it now
+
+The full aspect-ratio-calculator runs in your browser at **[https://ztools.zaions.com/aspect-ratio-calculator](https://ztools.zaions.com/aspect-ratio-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/aspect-ratio-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/aspect-ratio-calculator.mdx)*

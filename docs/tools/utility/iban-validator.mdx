@@ -1,0 +1,130 @@
+---
+id: iban-validator
+title: "IBAN Validator — Check International Bank Account Numbers"
+description: "Validate IBAN numbers (International Bank Account Number) format and checksum for 75+ countries. Identify country, bank code, account."
+sidebar_label: "iban-validator"
+keywords:
+  - "iban validator"
+  - "iban checker"
+  - "international bank account validator"
+  - "sepa iban"
+  - "bank account validator"
+  - "iban format checker"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# iban-validator
+
+An IBAN validator checks an International Bank Account Number for proper format and a valid mod-97 checksum — catching typos before money is sent to a wrong account. IBAN is the standard for cross-border bank transfers in Europe and 75+ countries; format is country-specific (German IBAN is 22 chars, UK is 22, Italy 27). The ZTools IBAN Validator checks: country code prefix, length per country, character set, and the mathematical mod-97 check digit calculation. Identifies the country, BBAN (basic bank account number), bank code, and branch. Pure client-side; no IBAN sent to any server.
+
+<ToolCTA toolId="iban-validator" toolName="iban-validator" />
+
+## Use cases
+
+### Pre-transfer typo check
+
+About to wire money internationally? Validate the IBAN before submitting to your bank — catches typos that could send money to a stranger.
+
+### Vendor / supplier onboarding
+
+New international supplier provided an IBAN. Validate before adding to AP system; bad IBANs cause delayed/lost payments.
+
+### E-commerce checkout
+
+Real-time validation during checkout for SEPA direct debit / bank transfer. Catches typos before they cost the customer time.
+
+### Migrating data
+
+Importing customer / supplier records — bulk-validate IBANs to find dirty data.
+
+## How it works
+
+1. **Enter IBAN** — With or without spaces. Tool normalises (removes spaces, uppercase).
+2. **Format check** — Country code (first 2 chars) → expected length and pattern lookup. Length must match exactly.
+3. **Checksum** — Mod-97 algorithm: rearrange chars, convert letters to numbers, compute mod 97. Result must be 1.
+4. **Parse fields** — Country, check digits, bank code, branch code, account number — each country has different layout.
+5. **Result** — Pass / fail + parsed components shown. Failed IBANs may indicate typo or wrong country.
+
+## Examples
+
+**Input:** `DE89 3704 0044 0532 0130 00` (Germany sample)
+
+**Output:** Valid — Germany, Bank: Commerzbank Cologne, Account: 0532013000.
+
+---
+
+**Input:** `GB82 WEST 1234 5698 7654 32` (UK sample)
+
+**Output:** Valid — UK, Bank: NatWest sort code 12-34-56, Account: 98765432.
+
+---
+
+**Input:** `DE89 3704 0044 0532 0130 01` (typo last digit)
+
+**Output:** INVALID — checksum fails. Likely typo in last digit.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's an IBAN?**</summary>
+
+International Bank Account Number — standardised account ID for international transfers. ISO 13616. Includes country code + check digits + country-specific bank/account portion.
+
+</details>
+
+<details>
+<summary>**Why does the checksum matter?**</summary>
+
+Mod-97 algorithm catches single-digit typos (the most common error). Without checksum, a 1-character typo silently sends money to a different real account.
+
+</details>
+
+<details>
+<summary>**Is "valid" the same as "this account exists"?**</summary>
+
+No — checksum validation only confirms the format is mathematically correct. The account may not exist or may be closed. Only the destination bank can confirm.
+
+</details>
+
+<details>
+<summary>**Which countries use IBAN?**</summary>
+
+All EU + EEA, Switzerland, UK, Norway, Iceland, plus 50+ others (Israel, Saudi Arabia, UAE, Tunisia, Turkey, Pakistan, etc.). Notably NOT used in US, Canada, Australia, India.
+
+</details>
+
+<details>
+<summary>**How do US accounts work?**</summary>
+
+US uses ACH (domestic) or SWIFT/BIC + account number (international). No IBAN.
+
+</details>
+
+<details>
+<summary>**Is IBAN sufficient for an international wire?**</summary>
+
+In SEPA region (EU): IBAN alone often enough. Outside SEPA: need IBAN + BIC/SWIFT code of the destination bank. Always confirm with the recipient.
+
+</details>
+
+## Tips
+
+- Always validate IBAN before initiating a wire transfer — catches the cheapest-to-fix errors at the cheapest moment.
+- For UI input, normalise (strip spaces, uppercase) on blur — improves UX.
+- Display the formatted IBAN (with spaces every 4 chars) on output — easier for humans to verify.
+- For SEPA, IBAN + recipient name is enough; for non-SEPA, also collect BIC/SWIFT.
+- Bulk-validate vendor IBANs annually — bank mergers cause IBAN changes.
+
+## Try it now
+
+The full iban-validator runs in your browser at **[https://ztools.zaions.com/iban-validator](https://ztools.zaions.com/iban-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/iban-validator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/iban-validator.mdx)*

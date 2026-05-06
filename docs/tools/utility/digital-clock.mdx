@@ -1,0 +1,113 @@
+---
+id: digital-clock
+title: "Digital Clock Online — Full Screen, Free"
+description: "Free online digital clock with 12/24 hour, seconds, fullscreen, multiple timezones. Browser-only."
+sidebar_label: "digital-clock"
+keywords:
+  - "digital clock online"
+  - "fullscreen clock free"
+  - "multi timezone clock"
+  - "browser clock tool"
+  - "desktop digital clock"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# digital-clock
+
+A digital clock displays the current time in numeric form (HH:MM:SS) — useful as a fullscreen kitchen / studio / classroom clock, on a second monitor for time-zone awareness, or as a timer reference. The ZTools Digital Clock runs in any modern browser, supports 12-hour / 24-hour formats, optional seconds + date display, multiple time-zone clocks side by side, and a fullscreen mode for projector / monitor use. No ads, no upload, no signup — refreshes every second using performance.now() for drift-free accuracy.
+
+<ToolCTA toolId="digital-clock" toolName="digital-clock" />
+
+## Use cases
+
+### Studio / classroom wall clock
+
+Project to a screen at the back of the room — every speaker can see the time.
+
+### Multi-timezone team awareness
+
+A remote team across NYC / London / Singapore — three clocks side by side gives instant coordination context.
+
+### Fullscreen kitchen timer reference
+
+Tablet on the kitchen counter; fullscreen clock with seconds for cooking timing.
+
+### Streaming / video on-screen clock
+
+For "this happened at" reference in long-form videos. Browser source in OBS / Streamlabs.
+
+## How it works
+
+1. **Pick format** — 12-hour (with AM/PM) or 24-hour (military / international).
+2. **Configure display** — Show / hide seconds, date, day name. Pick font (sans / mono / segment-display).
+3. **Add timezones** — Up to 4 clocks side by side. Pick from any IANA timezone (America/New_York, Europe/London, Asia/Tokyo).
+4. **Fullscreen** — Toggle fullscreen for projector / monitor use. Browser handles the rest.
+
+## Examples
+
+**Input:** Default (24-hour, seconds, current TZ)
+
+**Output:** 14:32:07 (refreshing every second).
+
+---
+
+**Input:** 12-hour with date
+
+**Output:** 2:32:07 PM\\nWednesday, May 6 2026.
+
+---
+
+**Input:** Multi-TZ: NYC, London, Tokyo
+
+**Output:** Three columns. Different times. Useful at a glance for a global team.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the time?**</summary>
+
+Refreshes every 1 second using performance.now() ticks. Browser tab clocks rely on the OS clock, which is sync'd via NTP. Accuracy: ±1 second from atomic time on a normal Internet connection.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Yes — once loaded. No server pings. Time comes from the OS clock.
+
+</details>
+
+<details>
+<summary>**Time zone abbreviations?**</summary>
+
+Displayed (e.g. EST, GMT, JST) — but DST handling varies. IANA timezone strings (America/New_York) are unambiguous.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+No tracking, no analytics. Browser-only.
+
+</details>
+
+## Tips
+
+- Use 24-hour for international / engineering contexts; 12-hour for casual / US use.
+- For multi-timezone teams, label clocks with city / member name so each is unambiguous.
+- For studio use, dim the clock's background to dark to avoid screen glare.
+- For OBS browser sources, set the page CSS background to transparent and overlay the clock on your scene.
+
+## Try it now
+
+The full digital-clock runs in your browser at **[https://ztools.zaions.com/digital-clock](https://ztools.zaions.com/digital-clock)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/digital-clock)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/digital-clock.mdx)*

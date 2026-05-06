@@ -1,0 +1,107 @@
+---
+id: device-info
+title: "Device Info — Browser, OS, Screen, Free Detection"
+description: "See what your browser knows about your device: OS, browser, screen, GPU, language, timezone. Privacy-aware."
+sidebar_label: "device-info"
+keywords:
+  - "device info checker"
+  - "browser fingerprint test"
+  - "what is my user agent"
+  - "device os detection"
+  - "browser info viewer"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# device-info
+
+Device info shows what your browser exposes to any website you visit — OS, browser engine + version, screen resolution, GPU (via WebGL renderer string), language, timezone, color depth, supported features (touch, WebGL, WebRTC). Useful for privacy audits ("what fingerprintable data does my browser leak?"), debugging cross-device bugs, and understanding why a site renders differently on your device. The ZTools Device Info tool reads only standard JavaScript APIs — no probing, no upload, no tracking.
+
+<ToolCTA toolId="device-info" toolName="device-info" />
+
+## Use cases
+
+### Privacy audit your browser
+
+See what fingerprintable data your browser exposes. Higher entropy = easier to track across sites.
+
+### Debug a "works on my machine" bug
+
+A bug only reproduces on a specific OS / browser / GPU combo. Tool exposes the exact env.
+
+### Verify a VPN / privacy extension is working
+
+Tool shows reported timezone / locale / IP-derived country. If they match your VPN region, the protection is active.
+
+### Quick reference for support tickets
+
+Copy device info into a bug report — saves the engineer from asking "what browser version?"
+
+## How it works
+
+1. **Page loads** — JavaScript reads navigator, screen, Intl, performance APIs.
+2. **Display** — Sections: OS / browser, screen, language / timezone, GPU, network, supported features.
+3. **Privacy info** — Each value tagged with how fingerprintable it is. High-entropy values (GPU string, timezone + locale combo) flag.
+4. **Copy** — One-click copy of all info as JSON or formatted text — paste into bug reports.
+
+## Examples
+
+**Input:** Chrome on macOS
+
+**Output:** OS: macOS 14.5; Browser: Chrome 130; Screen: 2880×1800 @ 2x; GPU: Apple M2 Pro; Language: en-US; Timezone: America/New_York.
+
+---
+
+**Input:** Firefox with privacy add-ons
+
+**Output:** Many fields show "blocked / spoofed". Reduces fingerprint surface.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this all websites can see?**</summary>
+
+It's the obvious data. Websites can also probe rendering quirks (Canvas fingerprinting), audio context, font availability, behavioral signals — these aren't shown here. For a deeper audit, use AmIUnique.org / EFF's Cover Your Tracks.
+
+</details>
+
+<details>
+<summary>**Why does my GPU show as "Apple GPU"?**</summary>
+
+Some browsers redact the precise GPU model to reduce fingerprinting. Safari especially. Chrome and Firefox usually expose the full string.
+
+</details>
+
+<details>
+<summary>**Can I block this info?**</summary>
+
+Privacy extensions (uBlock, Privacy Badger) and browser settings (Firefox's resistFingerprinting, Brave's shields) can spoof or block many fields.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Tool reads locally and shows the values. Nothing is uploaded.
+
+</details>
+
+## Tips
+
+- Run the same audit in different browsers — entropy varies dramatically. Tor Browser leaks the least; Chrome the most.
+- For bug reports, screenshot or copy the full JSON — saves engineers from asking 10 questions.
+- After enabling a privacy extension, re-run to verify the change took effect.
+- For a comprehensive fingerprint audit, also visit AmIUnique.org — combines this info with rendering / audio / WebRTC checks.
+
+## Try it now
+
+The full device-info runs in your browser at **[https://ztools.zaions.com/device-info](https://ztools.zaions.com/device-info)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/device-info)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/device-info.mdx)*

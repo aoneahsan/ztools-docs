@@ -1,0 +1,131 @@
+---
+id: timezone
+title: "Timezone Converter — Convert Time Between Any Two Cities"
+description: "Convert a time between any two cities or timezones. Handles DST automatically. 400+ cities, 100+ timezones. Free, in-browser."
+sidebar_label: "timezone"
+keywords:
+  - "timezone converter"
+  - "time zone converter"
+  - "world clock"
+  - "meeting time across timezones"
+  - "dst converter"
+  - "utc converter"
+  - "cross timezone scheduler"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# timezone
+
+A timezone converter translates a wall-clock time in one location into the equivalent time in another, accounting for the offset between zones plus daylight-saving-time transitions on each side — essential for scheduling cross-border meetings, watching live events, coordinating remote teams, and planning travel arrivals. The ZTools Timezone Converter covers 400+ major cities and 100+ named timezones (IANA database), updates DST rules through 2030, supports a multi-city "world clock" view, and emits a shareable link encoding the time and zones so meeting invites become unambiguous in any language.
+
+<ToolCTA toolId="timezone" toolName="timezone" />
+
+## Use cases
+
+### Cross-border meeting scheduling
+
+"3pm London on Tuesday" — what is that in San Francisco, Mumbai, and Tokyo? One conversion shows all four times so the calendar invite is correct.
+
+### Live event watching
+
+A keynote streams "9am Pacific" — find the local equivalent and add it to the calendar with no mental math.
+
+### Remote-team daily standups
+
+A team across SF / NYC / Berlin / Bangalore needs one time that works for everyone. The world-clock view shows overlapping waking hours at a glance.
+
+### Travel itinerary
+
+Flight lands "8:45 PM local" — what is that back home? Quick conversion plus DST awareness avoids the "did my parents already go to bed" guess.
+
+## How it works
+
+1. **Pick the source location** — Search by city name (London, New York, Tokyo) or timezone code (UTC+5:30, America/Chicago).
+2. **Enter the time** — Local wall-clock time at the source. Date matters because DST transitions shift the offset.
+3. **Pick target locations** — One or many. Each shows the equivalent local time and date (which may differ by ±1 from source).
+4. **Inspect DST status** — Each location shows whether DST is currently in effect and when the next shift happens.
+5. **Share the calendar entry** — Generate a shareable link OR an .ics file that encodes the meeting time correctly for every recipient's local zone.
+
+## Examples
+
+**Input:** 15:00 London (BST), 2026-05-05 → SF, NYC, Mumbai, Tokyo
+
+**Output:** SF 07:00, NYC 10:00, Mumbai 19:30, Tokyo 23:00 (same date except Tokyo: also 2026-05-05)
+
+---
+
+**Input:** 09:00 New York (EDT) → Sydney
+
+**Output:** 23:00 Sydney (next day) — 14-hour offset during US DST
+
+---
+
+**Input:** UTC noon → 5 cities
+
+**Output:** London 13:00 (BST), Berlin 14:00, Mumbai 17:30, Tokyo 21:00, SF 05:00
+
+## Frequently asked questions
+
+<details>
+<summary>**How does DST work?**</summary>
+
+Most locations shift the local clock forward 1 hour in spring and back in autumn. Dates vary by country (US: 2nd Sunday in March / 1st Sunday in November; EU: last Sundays in March / October). The IANA tzdata captures all rules.
+
+</details>
+
+<details>
+<summary>**Why do India and Newfoundland have :30 offsets?**</summary>
+
+Historic / political timezone choices. India runs on UTC+5:30 nationally. Newfoundland on UTC-3:30. Calculations handle them like any other offset.
+
+</details>
+
+<details>
+<summary>**My city is not in the list**</summary>
+
+Type the timezone code instead (e.g. "Asia/Karachi", "Africa/Lagos"). All IANA zones are supported even if the city search misses.
+
+</details>
+
+<details>
+<summary>**What if I need a future-date conversion across a DST boundary?**</summary>
+
+The tool uses the published DST schedule. For dates beyond 2030 some rules may be tentative; double-check for any 5+ year forward planning.
+
+</details>
+
+<details>
+<summary>**Can I save a "world clock" of cities I care about?**</summary>
+
+Yes — pin cities; pinned set persists in your browser. Useful for distributed teams.
+
+</details>
+
+<details>
+<summary>**How do I make a calendar invite work for everyone?**</summary>
+
+Set the meeting time in your calendar in YOUR local zone with the timezone metadata attached. Modern calendar apps (Google, Outlook, Apple) auto-translate for each invitee. Avoid sending plain-text "3pm" without a zone.
+
+</details>
+
+## Tips
+
+- Always include the timezone abbreviation when typing meeting times in chat: "3pm BST" beats "3pm".
+- Pin your team's 4–5 most-common cities; the world clock saves repeat searches.
+- When scheduling across continents, watch out for the "next day" shift — Tokyo from morning London is the same calendar day, but Sydney is a day ahead.
+- For events that recur weekly, send an .ics — DST is handled automatically on each occurrence.
+- For long calls, glance at every participant's waking hours — what is 9am for you may be midnight for them.
+
+## Try it now
+
+The full timezone runs in your browser at **[https://ztools.zaions.com/timezone](https://ztools.zaions.com/timezone)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/timezone)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/timezone.mdx)*

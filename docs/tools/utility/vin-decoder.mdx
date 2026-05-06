@@ -1,0 +1,114 @@
+---
+id: vin-decoder
+title: "VIN Decoder — Free Vehicle Identification Lookup"
+description: "Decode any 17-char VIN to manufacturer, model year, plant, body type. Browser-only — no API key."
+sidebar_label: "vin-decoder"
+keywords:
+  - "vin decoder online"
+  - "free vin lookup"
+  - "vehicle identification decoder"
+  - "decode 17 character vin"
+  - "wmi lookup"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# vin-decoder
+
+A Vehicle Identification Number (VIN) is the 17-character code stamped on every car since 1981. Each position encodes specific info: country of origin (positions 1-3, called WMI / World Manufacturer Identifier), vehicle attributes (4-9), check digit (9), model year (10), assembly plant (11), and serial number (12-17). The ZTools VIN Decoder parses any 17-char VIN, validates the check digit, and decodes each segment using public NHTSA / ISO 3779 reference data. Runs entirely client-side with bundled WMI data — no API key, no signup.
+
+<ToolCTA toolId="vin-decoder" toolName="vin-decoder" />
+
+## Use cases
+
+### Verify a used-car VIN before buying
+
+A seller claims "2018 Honda Civic". The VIN should encode that. Decoder confirms or contradicts in seconds.
+
+### Decode a car part marked with a VIN
+
+Parts often list compatible VINs. Decoder shows what each compatible vehicle is.
+
+### Validate a VIN format
+
+Tool checks length (17 chars), allowed characters (no I, O, Q to avoid confusion with 1, 0), and the check-digit math.
+
+### Quick lookup before insurance / registration
+
+Confirm key vehicle details from the VIN before filing forms.
+
+## How it works
+
+1. **Paste 17-char VIN** — Tool validates length and character set immediately.
+2. **Decode WMI** — First 3 chars → manufacturer (1HG = Honda US, WBA = BMW Germany, JTD = Toyota Japan).
+3. **Decode VDS (Vehicle Descriptor Section)** — Chars 4-8 → body, engine, restraint system. Manufacturer-specific encoding.
+4. **Decode model year + plant** — Char 10 → model year (A=1980, ..., Y=2000, 1-9=2001-2009, A=2010 again, ...). Char 11 → plant code.
+5. **Validate check digit** — Char 9 is computed from the rest using a weighted-sum formula. Mismatch flags a likely typo.
+
+## Examples
+
+**Input:** 1HGBH41JXMN109186
+
+**Output:** WMI 1HG = Honda US. Model year M = 1991 (or 2021 — context required). Plant N = Marysville, OH. Check digit X — validates.
+
+---
+
+**Input:** Invalid: too short, has I/O/Q
+
+**Output:** Validation error: VIN must be exactly 17 chars and exclude I, O, Q.
+
+---
+
+**Input:** Mismatched check digit
+
+**Output:** Tool flags the typo position and suggests likely correct char.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the decode?**</summary>
+
+WMI (manufacturer + country) is reliable — public data. Model-specific decoding (engine, body type) varies — manufacturers don't fully publish their VDS schemes. Major makes are well-covered; obscure brands may show "unknown".
+
+</details>
+
+<details>
+<summary>**Why no I, O, Q?**</summary>
+
+They look too similar to 1, 0, 0 respectively. Excluded by the ISO 3779 spec.
+
+</details>
+
+<details>
+<summary>**Model year is ambiguous?**</summary>
+
+Position 10 cycles every 30 years (A=1980 and A=2010). Tool uses the model-year char + plant code + trim heuristics to resolve. For complete certainty, use NHTSA's online VIN decoder.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side. VIN never uploaded.
+
+</details>
+
+## Tips
+
+- Always validate the check digit — a single-char typo invalidates the whole VIN.
+- For pre-1981 vehicles, VIN length varies (sometimes 11-13 chars) — decoder doesn't apply.
+- For comprehensive decoding (full vehicle history, accident records, recalls), use a paid service like Carfax — this tool only decodes the VIN itself.
+- Cross-reference with the vehicle's registration documents if anything looks off.
+
+## Try it now
+
+The full vin-decoder runs in your browser at **[https://ztools.zaions.com/vin-decoder](https://ztools.zaions.com/vin-decoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/vin-decoder)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/vin-decoder.mdx)*

@@ -1,0 +1,136 @@
+---
+id: scientific-calculator
+title: "Scientific Calculator — Free Online with Trig, Log, Memory"
+description: "Full-featured browser scientific calculator: trigonometry, logarithms, exponents, factorials, memory, history. No signup, works offline."
+sidebar_label: "scientific-calculator"
+keywords:
+  - "scientific calculator online"
+  - "free scientific calculator"
+  - "trigonometry calculator"
+  - "logarithm calculator"
+  - "browser calculator"
+  - "sci calc"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# scientific-calculator
+
+A scientific calculator is a calculator with built-in mathematical functions beyond the basic four arithmetic operations — trigonometry (sin, cos, tan and inverse), logarithms (natural and base-10), exponents (e^x, 10^x, x^y), roots (square, cube, nth), factorials, modulo, parentheses-aware expression evaluation, and memory storage (M+, M−, MR, MC). The ZTools Scientific Calculator runs entirely in the browser, supports keyboard input, calculation history, configurable angle units (degrees / radians / gradians), and copy-paste of expressions and results. Useful for school, engineering, finance, and anywhere a phone calc isn't enough.
+
+<ToolCTA toolId="scientific-calculator" toolName="scientific-calculator" />
+
+## Use cases
+
+### School / homework
+
+Algebra, trigonometry, calculus exercises. The calculator handles the same expressions a Casio fx-991 does — with copy-paste of intermediate results.
+
+### Engineering quick-checks
+
+Stress, current, frequency calculations on the fly. Faster than opening a full CAS (Mathematica, MATLAB) for one-off lookups.
+
+### Finance with non-trivial formulas
+
+Compound interest, mortgage amortisation, IRR — formulas with exponents and logarithms that basic calculators botch.
+
+### Statistics quick math
+
+Combinations (nCr), permutations (nPr), factorial-heavy probability problems. Precomputed factorial tables would be limited; the calculator computes for arbitrary n.
+
+## How it works
+
+1. **Enter expression** — Type with keyboard or click buttons. Parentheses, operator precedence respected.
+2. **Pick angle unit** — Degrees (default), radians, or gradians. Affects sin/cos/tan inputs.
+3. **Apply scientific functions** — sin / cos / tan / asin / acos / atan / log / ln / exp / sqrt / cbrt / pow / factorial / mod / abs / floor / ceil / round.
+4. **Use memory** — M+ (add to memory), M− (subtract), MR (recall), MC (clear). Useful for multi-step calculations.
+5. **View history** — All previous calculations stored in a panel — click to re-use any prior result.
+
+## Examples
+
+**Input:** sin(30°) + cos(60°)
+
+**Output:** 1 (since both equal 0.5).
+
+---
+
+**Input:** log(1000)
+
+**Output:** 3 (base-10 by default; ln() for natural log).
+
+---
+
+**Input:** 5! × (4 choose 2)
+
+**Output:** 720 (5! = 120, C(4,2) = 6, product 720).
+
+---
+
+**Input:** (1 + 0.05)^10
+
+**Output:** 1.62889... — compound interest factor for 5%/yr over 10 years.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it support imaginary numbers?**</summary>
+
+No — real numbers only. For complex arithmetic, use Wolfram Alpha or a CAS.
+
+</details>
+
+<details>
+<summary>**How precise are the results?**</summary>
+
+JavaScript double-precision floats — about 15 significant digits. Sufficient for most engineering/scientific work; insufficient for cryptography or arbitrary-precision symbolic math.
+
+</details>
+
+<details>
+<summary>**Why does sin(180°) not return 0 exactly?**</summary>
+
+Floating-point math. sin(180°) returns 1.2246e-16 — close enough to 0 for any practical purpose. Round to 10 decimals to display 0.
+
+</details>
+
+<details>
+<summary>**Is there a graphing mode?**</summary>
+
+Not in this tool — pair with Desmos or GeoGebra for graphing.
+
+</details>
+
+<details>
+<summary>**Can I use it offline?**</summary>
+
+Yes — once loaded, the calculator works without network. PWA install supported in Chrome/Edge.
+
+</details>
+
+<details>
+<summary>**Does it support engineering notation (1.5E3)?**</summary>
+
+Yes — `e` notation (1.5e3 = 1500) parses correctly, and results display in engineering notation when very large or small.
+
+</details>
+
+## Tips
+
+- Use keyboard input — much faster than clicking buttons. Tab through history with up/down arrows.
+- Toggle angle unit before trig calculations — radians for calculus, degrees for engineering.
+- Use memory (M+) for accumulating sums across multiple calculations.
+- For high-precision math (&gt;15 digits), use a dedicated arbitrary-precision tool (mpmath, Python).
+- For symbolic math (factor, simplify, integrate), use Wolfram Alpha or SymPy.
+
+## Try it now
+
+The full scientific-calculator runs in your browser at **[https://ztools.zaions.com/scientific-calculator](https://ztools.zaions.com/scientific-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/scientific-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/scientific-calculator.mdx)*

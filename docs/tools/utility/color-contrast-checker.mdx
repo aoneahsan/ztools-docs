@@ -1,0 +1,130 @@
+---
+id: color-contrast-checker
+title: "Color Contrast Checker — WCAG AA / AAA Compliance Tool"
+description: "Check text/background color contrast against WCAG AA (4.5:1) and AAA (7:1). APCA-aware, color-blind preview. Free."
+sidebar_label: "color-contrast-checker"
+keywords:
+  - "color contrast checker"
+  - "wcag contrast checker"
+  - "accessibility contrast"
+  - "apca contrast"
+  - "wcag aa checker"
+  - "a11y color tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-contrast-checker
+
+A color contrast checker measures the perceived contrast ratio between two colors (typically text and its background) against WCAG accessibility guidelines — AA requires 4.5:1 for normal text and 3:1 for large text (≥18px or ≥14px bold); AAA requires 7:1 normal and 4.5:1 large. Failing contrast is the #1 accessibility violation on the web (per WebAIM annual survey, ~83% of homepage failures). The ZTools Color Contrast Checker computes both the WCAG contrast ratio AND the newer APCA score (WCAG 3 draft), shows a live text preview at multiple sizes, and offers color-blind simulation (Protanopia, Deuteranopia, Tritanopia).
+
+<ToolCTA toolId="color-contrast-checker" toolName="color-contrast-checker" />
+
+## Use cases
+
+### Pre-launch accessibility audit
+
+Check every color pair in the design system before shipping. Catch violations now, not after a lawsuit or accessibility audit fails.
+
+### Marketing landing-page review
+
+Hero CTAs over photo backgrounds often fail contrast. Verify each color pair against the worst-case underlying color in the photo.
+
+### Brand color audit
+
+Brand uses a specific accent color — does it pass contrast against your background palette? Tool flags pairs that need text-color tweaks.
+
+### PDF / print accessibility
+
+Print designs follow same WCAG guidelines (effectively). Audit before sending to press; reprints are expensive.
+
+## How it works
+
+1. **Pick foreground + background colors** — Hex picker, RGB sliders, OKLCH, or paste hex codes.
+2. **View ratio** — WCAG contrast ratio (e.g. 4.7:1) + AA / AAA pass/fail for normal AND large text.
+3. **View APCA score** — Newer perception-based score (WCAG 3 draft); -100 to 100. Generally aligns with WCAG but more accurate for thin fonts.
+4. **Simulate color blindness** — Toggle Protanopia / Deuteranopia / Tritanopia preview — does the contrast still hold for color-blind users?
+5. **Suggest fixes** — If failing, tool suggests darker / lighter shades that pass.
+
+## Examples
+
+**Input:** Foreground #6366f1 (indigo-500), background #ffffff
+
+**Output:** Contrast 4.61:1 — passes AA normal, fails AA large strict, passes AA-large by sub-pixel margin. Use indigo-600 for safer compliance.
+
+---
+
+**Input:** Foreground #ffffff, background #ef4444 (red-500)
+
+**Output:** Contrast 4.10:1 — fails AA (4.5 required). Use red-600 background or larger text.
+
+---
+
+**Input:** Foreground #1f2937 (slate-800), background #f3f4f6 (gray-100)
+
+**Output:** Contrast 12.6:1 — passes AAA. Industry-standard "almost-black on light-gray" body text combination.
+
+## Frequently asked questions
+
+<details>
+<summary>**WCAG AA vs AAA — which target?**</summary>
+
+AA is the legal-compliance baseline (ADA, EN 301 549). AAA is best practice but stricter — many brands can't hit AAA on every component without sacrificing visual hierarchy. Aim for AA everywhere; AAA on body text where possible.
+
+</details>
+
+<details>
+<summary>**What's "large text" exactly?**</summary>
+
+WCAG defines large = 18pt+ (24px) at any weight, OR 14pt+ (18.66px) at 700+ weight. Headings often qualify as large.
+
+</details>
+
+<details>
+<summary>**APCA vs WCAG — which to follow?**</summary>
+
+WCAG 2.x is the current legal standard. APCA is in WCAG 3 draft and may become the standard in coming years. Comply with WCAG 2.x AA today; cross-reference APCA for thin/decorative fonts where WCAG's formula is too lenient.
+
+</details>
+
+<details>
+<summary>**Why does color contrast matter for color-blind users?**</summary>
+
+Red-green contrast that looks fine to most users may be invisible to deuteranopes. WCAG ratio is luminance-based and largely independent of hue, so AA-passing red-on-green also passes for color-blind users — but always verify with simulation.
+
+</details>
+
+<details>
+<summary>**Does font weight affect required contrast?**</summary>
+
+Yes — bold text reads at smaller sizes, so WCAG allows large-text contrast (3:1) for 14pt+ bold or 18pt+ regular.
+
+</details>
+
+<details>
+<summary>**What about text on photos / gradients?**</summary>
+
+Test against the worst-case underlying color (darkest part if light text, lightest part if dark text). Add a semi-transparent overlay if necessary.
+
+</details>
+
+## Tips
+
+- For body text, target 7:1 (AAA) — buys safety margin against display variation.
+- Test text-over-photo against the worst-case underlying color; add overlay/scrim if needed.
+- Body text + background pair is the highest-leverage check — fix that first.
+- Color-blind preview is mandatory for any color-encoded UI (status badges, charts, "required field" red).
+- Include link/button hover states in audit — only ~30% of teams check hover contrast.
+
+## Try it now
+
+The full color-contrast-checker runs in your browser at **[https://ztools.zaions.com/color-contrast-checker](https://ztools.zaions.com/color-contrast-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-contrast-checker)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/color-contrast-checker.mdx)*

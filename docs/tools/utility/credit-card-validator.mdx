@@ -1,0 +1,131 @@
+---
+id: credit-card-validator
+title: "Credit Card Validator — Luhn Check + Issuer / BIN Lookup (Free)"
+description: "Validate credit card numbers: Luhn checksum, issuer detection (Visa, MC, Amex, etc.), BIN lookup. Free, in-browser, no signup."
+sidebar_label: "credit-card-validator"
+keywords:
+  - "credit card validator"
+  - "luhn check online"
+  - "card number validator"
+  - "bin lookup"
+  - "visa mastercard validator"
+  - "free card validator"
+  - "pci pre-flight check"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# credit-card-validator
+
+A credit card validator runs Luhn-checksum validation on a card number, identifies the issuer (Visa, Mastercard, Amex, Discover, JCB, Diners Club, UnionPay) by prefix and length, and optionally looks up the bank-identification number (first 6 digits) against a public BIN database to surface the issuing bank, country, and card type (credit / debit / prepaid). The ZTools Credit Card Validator runs entirely in the browser, validates bulk lists, and is the right pre-flight check for QA, fraud-rule development, and form validation — never use it on real customer card numbers in production logs.
+
+<ToolCTA toolId="credit-card-validator" toolName="credit-card-validator" />
+
+## Use cases
+
+### Frontend form validation
+
+Checkout form rejects mistyped card numbers before submitting to the PSP — fewer round-trips, better UX, fewer false declines.
+
+### Fraud-rule development
+
+Anti-fraud team writes BIN-prefix rules. Use this validator to inspect issuer / country / type from a list of test BINs.
+
+### QA and synthetic test sets
+
+Pair with the Credit Card Generator: generate Luhn-valid test numbers, run them through the validator to confirm your form parses correctly.
+
+### Receipt/invoice validation in your pipeline
+
+A reconciliation pipeline reads PAN-redacted strings; validate the masked-style format ("•••• 4242") for plausibility.
+
+## How it works
+
+1. **Paste card number(s)** — Single or bulk. Spaces and dashes are stripped automatically.
+2. **Luhn checksum** — Standard mod-10 algorithm. Verifies the last digit matches the rest.
+3. **Issuer detection** — Prefix + length match: Visa starts 4 (13/16/19); MC 51–55 or 2221–2720 (16); Amex 34/37 (15); Discover 6011/65 (16); JCB 35 (16); Diners 30/36/38 (14).
+4. **Optional BIN lookup** — First 6 digits queried against a free, public BIN database. Returns issuing bank, country, type. Skip if offline.
+5. **Inspect results** — luhn_valid, issuer, length_ok, bank, country, card_type. Bulk results export to CSV.
+
+## Examples
+
+**Input:** 4242 4242 4242 4242
+
+**Output:** luhn=true, issuer=Visa, length=16, BIN=Stripe test card
+
+---
+
+**Input:** 5555 5555 5555 4444
+
+**Output:** luhn=true, issuer=Mastercard, length=16
+
+---
+
+**Input:** 4242 4242 4242 4243
+
+**Output:** luhn=false (failed checksum)
+
+## Frequently asked questions
+
+<details>
+<summary>**Does Luhn validation prove the card is real?**</summary>
+
+No — Luhn only proves the digits self-consistently. A Luhn-valid number can still be unassigned, expired, frozen, or stolen. Authorisation requires a payment-processor call.
+
+</details>
+
+<details>
+<summary>**Should I store full card numbers?**</summary>
+
+No, never. PCI-DSS forbids it for non-compliant systems. Frontend validators should pass the number directly to your PSP's tokenization SDK; your servers should never see it.
+
+</details>
+
+<details>
+<summary>**Is the BIN lookup live?**</summary>
+
+Yes — calls a public BIN-DB API. Free tier is rate-limited; for high-volume use, integrate a paid BIN service in your backend.
+
+</details>
+
+<details>
+<summary>**Are 19-digit Visa cards supported?**</summary>
+
+Yes — Visa allows 13, 16, or 19 digits. The validator detects the length and confirms checksum.
+
+</details>
+
+<details>
+<summary>**Is data uploaded?**</summary>
+
+Luhn + issuer detection are fully local. BIN lookup hits a public API only when you opt in.
+
+</details>
+
+<details>
+<summary>**How does this differ from a real authorisation check?**</summary>
+
+Authorisation is a card-network call that confirms the account exists, has funds, and is not frozen. The validator does only static checks; authorisation needs your PSP.
+
+</details>
+
+## Tips
+
+- Use this validator on the frontend to catch typos early; never log full PANs.
+- For PCI-DSS scope reduction, send card data directly from the user's browser to your PSP's tokenizer — your servers should only ever see tokens.
+- BIN-based fraud rules are powerful (block known prepaid BINs in high-risk regions) — use the BIN lookup to build the lists.
+- Validator output is metadata; always wait for the PSP authorisation before fulfilling the order.
+- For QA fixtures, prefer your PSP's documented test card numbers over generated Luhn-valid ones — they exercise specific simulated flows.
+
+## Try it now
+
+The full credit-card-validator runs in your browser at **[https://ztools.zaions.com/credit-card-validator](https://ztools.zaions.com/credit-card-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/credit-card-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/credit-card-validator.mdx)*

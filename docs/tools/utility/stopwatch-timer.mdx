@@ -1,0 +1,131 @@
+---
+id: stopwatch-timer
+title: "Online Stopwatch — Start, Stop, Lap with Millisecond Precision"
+description: "Online stopwatch with start, stop, lap, reset. Millisecond precision. Multiple lap export to CSV. Free, in-browser."
+sidebar_label: "stopwatch-timer"
+keywords:
+  - "online stopwatch"
+  - "stopwatch timer"
+  - "lap timer"
+  - "sprint timer"
+  - "free stopwatch"
+  - "classroom stopwatch"
+  - "millisecond stopwatch"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# stopwatch-timer
+
+An online stopwatch counts elapsed time from a start moment with millisecond precision and supports lap recording — used for sprint timing, presentation rehearsal, cooking, exercise interval tracking, and any "how long did that take" question. The ZTools Stopwatch runs entirely in the browser, ticks at 10 ms resolution, supports unlimited laps with delta times between laps, exports the lap list as CSV or JSON, persists across page refreshes via local storage so an accidental tab close does not lose your data, and offers a large display mode suitable for projecting in a classroom or sports setting.
+
+<ToolCTA toolId="stopwatch-timer" toolName="stopwatch-timer" />
+
+## Use cases
+
+### Sprint and interval training
+
+Time 10x100m sprints with one tap per lap. Delta times reveal which sprints are slowest. Export CSV at the end.
+
+### Presentation rehearsal
+
+Speakers rehearse against a 20-minute slot. The stopwatch on a second screen confirms whether each section runs over.
+
+### Code benchmarking (manual)
+
+Comparing two manual workflows ("how long does this take?"). Lap mode marks each step; CSV captures the breakdown.
+
+### Cooking sequences
+
+Track multiple stages of a recipe (preheat, knead, bake) without juggling multiple kitchen timers.
+
+## How it works
+
+1. **Press Start** — Stopwatch begins ticking at 10 ms resolution. Large digit display visible from across the room.
+2. **Lap on demand** — Press Lap to record the current elapsed time. Each lap also shows the delta from the previous lap.
+3. **Stop and read** — Stop pauses; resume continues without resetting. Reset zeros everything (with confirmation).
+4. **Export laps** — CSV (lap, total, delta) or JSON. Useful for sport coaches and trainers.
+5. **Persist or share** — Stopwatch state survives reloads via local storage. Optional shareable URL freezes the elapsed time at the moment of sharing.
+
+## Examples
+
+**Input:** 5 sprint laps
+
+**Output:** lap 1: 12.45s; lap 2: 12.71s (+0.26); lap 3: 12.62s (-0.09); lap 4: 12.93s (+0.31); lap 5: 13.10s (+0.17)
+
+---
+
+**Input:** Total elapsed 1h 23m 45.123s
+
+**Output:** 01:23:45.123
+
+---
+
+**Input:** CSV export of 10 laps
+
+**Output:** lap,total_ms,delta_ms — 10 rows
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the stopwatch?**</summary>
+
+10 ms display resolution; underlying timing uses performance.now() which is sub-millisecond accurate. Suitable for everything except scientific timing.
+
+</details>
+
+<details>
+<summary>**Will it keep ticking with the tab in the background?**</summary>
+
+Yes — performance-driven timing is self-correcting. Browser tab throttling does not affect accuracy of the displayed elapsed time when you return to the tab.
+
+</details>
+
+<details>
+<summary>**Can I share laps with a coach?**</summary>
+
+Yes — export CSV or JSON, attach to email or chat. The shareable URL feature freezes a snapshot for read-only viewing.
+
+</details>
+
+<details>
+<summary>**What happens if I close the tab by accident?**</summary>
+
+Local storage persists the running state. Reopen the tool and the stopwatch is exactly where you left it (within a second of accuracy).
+
+</details>
+
+<details>
+<summary>**Does it support countdown alongside stopwatch?**</summary>
+
+No — for countdown, use the dedicated Countdown Timer tool. Mixing the two on one display gets confusing.
+
+</details>
+
+<details>
+<summary>**Can I project it on a classroom screen?**</summary>
+
+Yes — full-screen mode shows the time in oversized digits visible from the back of any classroom.
+
+</details>
+
+## Tips
+
+- For sprint coaching, set up a CSV-export template and send to athletes after the session.
+- Use lap mode liberally — even if you do not need them, deltas often reveal slow stages.
+- Full-screen mode is the right choice for any projector / second-screen setup.
+- Reset before every fresh session — accidentally chaining sessions inflates totals.
+- The shareable URL feature is useful for "I just ran a 3:42 — proof!" moments.
+
+## Try it now
+
+The full stopwatch-timer runs in your browser at **[https://ztools.zaions.com/stopwatch-timer](https://ztools.zaions.com/stopwatch-timer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/stopwatch-timer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/stopwatch-timer.mdx)*

@@ -1,0 +1,131 @@
+---
+id: email-validator
+title: "Email Validator — RFC 5322 Syntax + DNS MX Record Check (Free)"
+description: "Validate email addresses against RFC 5322 syntax + check the domain MX records exist. Bulk check up to 1,000 emails. Free."
+sidebar_label: "email-validator"
+keywords:
+  - "email validator"
+  - "email syntax check"
+  - "email mx check"
+  - "bulk email validator"
+  - "disposable email checker"
+  - "email typo detector"
+  - "free email validation"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# email-validator
+
+An email validator checks whether a string is a syntactically valid email address per RFC 5322, whether the domain part has functioning DNS MX (mail-exchange) records, and optionally whether the address looks like a disposable / role-based / typo-prone variant — useful before sending to a list, for form validation, and for cleaning a stale CRM. The ZTools Email Validator runs the syntax check in the browser and uses a public DNS-over-HTTPS resolver for MX checks, supports bulk validation of up to 1,000 addresses, exports labelled results to CSV / JSON, and never sends a real email so it does not poison delivery reputation.
+
+<ToolCTA toolId="email-validator" toolName="email-validator" />
+
+## Use cases
+
+### Form input validation
+
+Frontend forms accept whatever users type; "user@gmial.com" passes naive regex but is wrong. Run the typo-detector to catch the most common mistakes before submit.
+
+### CRM list cleanup
+
+A 2-year-old CRM list has stale addresses. Bulk-validate; flag domains with no MX (likely dead) for soft-suppression before the next campaign.
+
+### Disposable-email blocking
+
+Sign-up form should reject Mailinator / 10minutemail / etc. The validator detects ~3000 known disposable domains.
+
+### Pre-import data cleaning
+
+CSV import of contacts. Run validation first; quarantine the invalid ones for human review rather than letting them clog the database.
+
+## How it works
+
+1. **Paste email(s)** — Single address or one-per-line for bulk. Up to 1,000 per batch.
+2. **Syntax check** — RFC 5322 regex covering local-part rules, quoted strings, IP-literal domains, internationalised (IDN) addresses.
+3. **MX DNS check** — Public DNS-over-HTTPS lookup (Cloudflare 1.1.1.1) confirms the domain has at least one mail-exchange record.
+4. **Heuristic flags** — Disposable-domain match, role-based (info@, support@), typo suspicion (gmial.com, yaho.com, hotnail.com).
+5. **Export results** — CSV columns: email, syntax_valid, mx_valid, disposable, role, typo_suggestion.
+
+## Examples
+
+**Input:** user@example.com
+
+**Output:** syntax_valid=true, mx_valid=true, disposable=false, role=false
+
+---
+
+**Input:** user@gmial.com
+
+**Output:** syntax_valid=true, mx_valid=false, typo_suggestion=user@gmail.com
+
+---
+
+**Input:** admin@example.com
+
+**Output:** syntax_valid=true, mx_valid=true, role=true
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it actually send a probe email?**</summary>
+
+No — and that is the correct design. Sending probe emails harms sender reputation. We rely on syntax + MX + heuristics, which together catch ~95% of invalid addresses.
+
+</details>
+
+<details>
+<summary>**How accurate is MX-based validation?**</summary>
+
+A valid MX confirms the domain accepts mail. It does NOT confirm the specific mailbox exists — only the domain itself accepts delivery. SMTP-level mailbox probes are unreliable and often blocked, so we skip them.
+
+</details>
+
+<details>
+<summary>**What is a role-based address?**</summary>
+
+Generic mailboxes like info@, support@, admin@, sales@. ESPs sometimes block these to protect engagement metrics. The flag lets you choose.
+
+</details>
+
+<details>
+<summary>**Are international (Unicode) emails supported?**</summary>
+
+Yes — ümlaut@example.com and 用户@例子.com pass syntax. MX check still applies to the punycode-encoded domain.
+
+</details>
+
+<details>
+<summary>**How are typos detected?**</summary>
+
+Levenshtein distance + a curated list of common provider domains (gmail, yahoo, hotmail, outlook, icloud). Distance ≤ 2 with a known target produces a suggestion.
+
+</details>
+
+<details>
+<summary>**Is the data stored or sent anywhere?**</summary>
+
+Only DNS lookups go to Cloudflare's public 1.1.1.1 resolver — that is required for MX checks. The address strings themselves are not stored.
+
+</details>
+
+## Tips
+
+- On signup forms, run typo detection — converting "gmial" → "gmail" recovers a real user before they bounce.
+- For CRM cleanup, soft-suppress (mark, do not delete) MX-failed addresses; manual review may catch a temporary DNS outage.
+- Treat disposable-domain flag as advisory — some legit users use them; block only if abuse is real.
+- Always validate at signup AND before send. Domains die between those moments.
+- Never validate by sending a real email — bounce rate kills sender reputation.
+
+## Try it now
+
+The full email-validator runs in your browser at **[https://ztools.zaions.com/email-validator](https://ztools.zaions.com/email-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/email-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/email-validator.mdx)*

@@ -1,0 +1,131 @@
+---
+id: phone-number-validator
+title: "Phone Number Validator — Country-Aware E.164 Format Checker"
+description: "Validate phone numbers against country-specific rules. Returns E.164 format, line type, country. Bulk check. Free, in-browser."
+sidebar_label: "phone-number-validator"
+keywords:
+  - "phone number validator"
+  - "phone validator"
+  - "e164 phone format"
+  - "libphonenumber online"
+  - "mobile or landline checker"
+  - "bulk phone validator"
+  - "free phone validator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# phone-number-validator
+
+A phone number validator parses a phone string under a chosen country's rules, normalizes it to E.164 international format (+countrycode followed by digits), classifies it as mobile / fixed-line / VoIP / toll-free / premium-rate, and detects obvious errors like wrong digit counts or invalid prefixes — using Google's libphonenumber rules so the verdict matches what carriers actually deliver. The ZTools Phone Validator runs entirely in the browser, supports 200+ countries, validates bulk lists up to 1,000 entries at once, exports labelled CSV / JSON, and exposes country-specific format hints so users see why a number was rejected and how to fix it.
+
+<ToolCTA toolId="phone-number-validator" toolName="phone-number-validator" />
+
+## Use cases
+
+### Form input validation
+
+Sign-up forms ask for phone. Validate against the user's declared country; offer country-specific error messages.
+
+### CRM list cleanup
+
+Sales lists accumulate sloppy phone formats. Bulk-validate and emit clean E.164 strings for telephony / SMS APIs.
+
+### SMS pre-flight check
+
+Before sending SMS at scale, dedupe and normalise phone numbers. Invalid ones cost money and never deliver.
+
+### Lead-form quality scoring
+
+Lead with valid mobile + valid email + matched country = high-quality. Validator output feeds a scoring rule.
+
+## How it works
+
+1. **Pick the default country** — Affects how leading digits are interpreted (e.g. "020 ..." parses as UK landline given GB default).
+2. **Paste number(s)** — Single or bulk. Both spaces and dashes acceptable; the parser strips formatting.
+3. **Parse and validate** — libphonenumber rules return: valid yes/no, country, line type, E.164 form, national display form.
+4. **Inspect line type** — mobile, fixed_line, voip, toll_free, premium_rate, shared_cost, unknown.
+5. **Export** — CSV with: input, valid, country, line_type, e164, national_format. JSON also available.
+
+## Examples
+
+**Input:** +1 415 555 0123 (US)
+
+**Output:** valid=true, country=US, line=mobile, e164=+14155550123
+
+---
+
+**Input:** 020 7946 0958 (GB default)
+
+**Output:** valid=true, country=GB, line=fixed_line, e164=+442079460958
+
+---
+
+**Input:** 0800 123456 (DE default)
+
+**Output:** valid=true, country=DE, line=toll_free
+
+## Frequently asked questions
+
+<details>
+<summary>**What is E.164?**</summary>
+
+The international phone-number format: + then country code then national number. Maximum 15 digits. SMS / VoIP APIs require E.164 — non-E.164 input often silently fails.
+
+</details>
+
+<details>
+<summary>**Can it tell mobile from landline?**</summary>
+
+For most countries yes — libphonenumber maintains range databases. Some countries have ported numbers (mobile to landline), so the verdict is "intended type at allocation", not necessarily "current type".
+
+</details>
+
+<details>
+<summary>**Why is "555-0100" invalid?**</summary>
+
+In North America, 555-01xx is reserved for fictional use (TV / movies). Real assignments do not use that range. The validator correctly flags it as invalid.
+
+</details>
+
+<details>
+<summary>**Does it call the number?**</summary>
+
+No — pure offline rule-based parsing. No tariffs, no API calls, no live dial.
+
+</details>
+
+<details>
+<summary>**What about VoIP numbers?**</summary>
+
+Detected when the country exposes VoIP ranges (US tollfree, UK 070, etc.). For most countries the verdict is "fixed_line_or_mobile" because the data is not segmented.
+
+</details>
+
+<details>
+<summary>**Are international roaming numbers handled?**</summary>
+
+Roaming uses the home E.164. The validator returns the home country regardless of where the device is currently connected.
+
+</details>
+
+## Tips
+
+- Always validate at form-submit AND before any SMS API call — formats drift between the two.
+- For multi-country forms, capture country first, then phone — the parser is dramatically more accurate with a default country.
+- Use E.164 as the canonical form in your database; render national format only for display.
+- Reject premium-rate and unknown line types on signup forms — they are usually fraud-prone.
+- When users mistype, show the country-specific format hint instead of a generic "invalid phone".
+
+## Try it now
+
+The full phone-number-validator runs in your browser at **[https://ztools.zaions.com/phone-number-validator](https://ztools.zaions.com/phone-number-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/phone-number-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/phone-number-validator.mdx)*

@@ -1,0 +1,131 @@
+---
+id: date-calculator
+title: "Date Calculator — Add or Subtract Days, Weeks, Months from a Date"
+description: "Add or subtract days, weeks, months, years from any date. Find the difference between two dates. Business-day mode. Free."
+sidebar_label: "date-calculator"
+keywords:
+  - "date calculator"
+  - "add days to date"
+  - "subtract days from date"
+  - "business day calculator"
+  - "date difference calculator"
+  - "days between dates"
+  - "working day calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# date-calculator
+
+A date calculator performs arithmetic on calendar dates — adding or subtracting days, weeks, months, or years from a starting date, or computing the elapsed duration between two dates — handling all the awkward cases (leap years, end-of-month rollover, varying month lengths, time-zone shifts) that humans get wrong by hand. The ZTools Date Calculator supports both operations, offers a business-day mode that skips weekends and an optional list of holidays, formats output in the locale of your choice, and emits a shareable URL so you can send a calculation to a colleague without screenshots.
+
+<ToolCTA toolId="date-calculator" toolName="date-calculator" />
+
+## Use cases
+
+### Project deadline math
+
+"Sprint planning is in 14 business days from kickoff." Punch the kickoff date, add 14 business days, get the exact target date with weekends skipped.
+
+### Contract and notice periods
+
+Two-month notice from today — what is the last working day? Add 2 months, subtract 1 day, mark the calendar.
+
+### Loan and lease maturity
+
+A 36-month lease starts 2026-04-15. End date? Add 36 months. The calculator handles the same-day-of-month convention and end-of-month adjustments.
+
+### Travel and visa expiry
+
+Visa valid for 90 days from arrival. Calculate the last legal day before re-entry rules kick in.
+
+## How it works
+
+1. **Pick the operation** — Add or subtract from a date, OR find the difference between two dates.
+2. **Enter the input(s)** — Start date plus duration (years, months, weeks, days), or two dates for the difference mode.
+3. **Enable business-day mode (optional)** — Skips Saturdays and Sundays. Optional: paste a list of public holidays to also skip.
+4. **Pick output format** — YYYY-MM-DD (ISO), MM/DD/YYYY (US), DD/MM/YYYY (EU), human-readable ("Friday, May 15, 2026").
+5. **Copy or share** — Result + a shareable link encoding the inputs so others see the same calculation.
+
+## Examples
+
+**Input:** Add 14 business days to 2026-05-05
+
+**Output:** 2026-05-25 (skips two weekends)
+
+---
+
+**Input:** 2026-04-15 plus 36 months
+
+**Output:** 2029-04-15
+
+---
+
+**Input:** Difference: 2024-01-01 → 2026-05-05
+
+**Output:** 2 years 4 months 4 days; 856 days; 122 weeks 2 days
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it handle adding "1 month" to January 31?**</summary>
+
+Convention: clamp to the last day of the target month, so Jan 31 + 1 month = Feb 28 (or 29 in a leap year). Some legal systems use a "last-business-day" convention; the calculator offers both.
+
+</details>
+
+<details>
+<summary>**Can I add fractional units?**</summary>
+
+Days yes (decimal days are converted to hours). Months and years are inherently variable, so fractional months prompt for clarification ("30 days" or "calendar half-month").
+
+</details>
+
+<details>
+<summary>**What counts as a business day?**</summary>
+
+Monday through Friday by default. Optional holiday list excludes specific dates. Useful for legal deadline calculations where the convention is fixed by jurisdiction.
+
+</details>
+
+<details>
+<summary>**Does it handle DST transitions?**</summary>
+
+Yes — internally it uses calendar arithmetic, so DST shifts do not change the date result. If you need exact hour-arithmetic across DST, switch to UTC mode.
+
+</details>
+
+<details>
+<summary>**Can I export a list of dates (every Friday for 6 months, etc.)?**</summary>
+
+Yes — switch to "date series" mode for recurring date generation.
+
+</details>
+
+<details>
+<summary>**Are inputs stored?**</summary>
+
+No — calculations are local, the shareable link encodes inputs in the URL only.
+
+</details>
+
+## Tips
+
+- For legal deadlines, always check whether your jurisdiction uses calendar days or business days — the same "30 days" can land 6 weeks apart.
+- For end-of-month operations, decide upfront whether to use "same day clamped" or "last business day" — the calculator supports both.
+- When sharing a deadline, send the shareable link rather than a screenshot — recipients can re-run with their own inputs if needed.
+- Save your country's holiday list as a preset — re-use across all business-day calculations.
+- For multi-year contracts, double-check around February 29 — leap-year edges can shift the maturity date by a day.
+
+## Try it now
+
+The full date-calculator runs in your browser at **[https://ztools.zaions.com/date-calculator](https://ztools.zaions.com/date-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/date-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/date-calculator.mdx)*

@@ -1,0 +1,120 @@
+---
+id: billable-hours
+title: "Billable Hours Calculator — Free Time Tracker"
+description: "Track billable hours, calculate invoice amounts, multi-rate clients. Free, browser-only — no signup."
+sidebar_label: "billable-hours"
+keywords:
+  - "billable hours calculator"
+  - "time tracker freelance"
+  - "hourly invoice calculator"
+  - "lawyer billing tool"
+  - "consultant hours tracker"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# billable-hours
+
+A billable hours calculator tracks work time in fractional hours and computes the invoice amount. Useful for freelancers, lawyers, consultants — anyone billing by the hour. The ZTools Billable Hours tool offers two modes: a stopwatch (start / stop / pause) for live tracking, and a manual entry form for retroactive logging. Multiple rates per client / task, rounding rules (nearest 6 / 15 / 30 minutes), tax / discount, and CSV export of the time log.
+
+<ToolCTA toolId="billable-hours" toolName="billable-hours" />
+
+## Use cases
+
+### Track hours for a client project
+
+Stopwatch starts when you begin work, pauses for breaks, stops at end of day. Tool sums total billable hours.
+
+### Calculate an invoice
+
+Total hours × rate = invoice amount. Tool handles multi-rate (different tasks at different rates) and tax.
+
+### Retroactive logging
+
+Forgot to start the timer? Manually enter time blocks (start, end). Tool computes total.
+
+### Compare planned vs actual
+
+Estimated 40 hours; actual 47. Tool shows over/under.
+
+## How it works
+
+1. **Add a task** — Name, client, rate. Tool shows live timer or accepts manual time entry.
+2. **Track time** — Stopwatch with start / pause / stop. Multiple concurrent tasks if needed.
+3. **Configure rounding** — Lawyers often round to nearest 6 minutes (0.1 hour). Some round up to 15 minutes. Tool supports both.
+4. **Export** — CSV with task / client / hours / rate / amount. Plug into invoice software.
+
+## Examples
+
+**Input:** 3.5 hours @ $100/hour
+
+**Output:** $350 (with rounding off).
+
+---
+
+**Input:** Same time, rounded up to nearest 15 min
+
+**Output:** 3.75 hours × $100 = $375.
+
+---
+
+**Input:** Multi-rate: 2 h research @ $80, 1.5 h drafting @ $120
+
+**Output:** $160 + $180 = $340.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it persist across sessions?**</summary>
+
+Tool uses localStorage (or @capacitor/preferences in mobile) — your data stays on the device. Closing the browser keeps logs; clearing browser data wipes them. Always export CSV regularly as backup.
+
+</details>
+
+<details>
+<summary>**How are partial hours rendered?**</summary>
+
+Decimal (3.5) by default. Toggle to show as HH:MM (3:30) for invoices that prefer that format.
+
+</details>
+
+<details>
+<summary>**Tax / discount handling?**</summary>
+
+Optional tax % applied to subtotal. Discounts are flat or percentage. Both shown in invoice export.
+
+</details>
+
+<details>
+<summary>**Multi-currency?**</summary>
+
+Pick currency per client. Tool tracks separately so cross-currency invoicing doesn't mix.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- Export CSV at the end of every week — protects against accidental browser data wipe.
+- For lawyer billing, round to 6-minute increments (0.1 hour). Most legal billing systems expect this.
+- For freelance work, track in 15-minute increments — simpler invoices.
+- Tag time by task type when possible — easier to identify which projects are most profitable.
+
+## Try it now
+
+The full billable-hours runs in your browser at **[https://ztools.zaions.com/billable-hours](https://ztools.zaions.com/billable-hours)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/billable-hours)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/billable-hours.mdx)*

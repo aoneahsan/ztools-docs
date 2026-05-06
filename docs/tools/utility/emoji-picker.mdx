@@ -1,0 +1,131 @@
+---
+id: emoji-picker
+title: "Emoji Picker — Search 3,000+ Emoji by Keyword, Copy Instantly"
+description: "Search 3,000+ emoji by keyword. One-click copy. Skin-tone variants. Recently used. Free, in-browser, no signup."
+sidebar_label: "emoji-picker"
+keywords:
+  - "emoji picker"
+  - "emoji search"
+  - "emoji copy paste"
+  - "unicode emoji"
+  - "emoji shortcuts"
+  - "free emoji picker"
+  - "skin tone emoji"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# emoji-picker
+
+An emoji picker lets you search the full Unicode emoji set (3,000+ characters across the latest standard) by keyword, click to copy, see skin-tone and gender variants, and keep a history of recently used emoji — useful when chat apps, IDEs, design tools, or terminals do not have a native emoji input or when you need a specific emoji whose name you forgot. The ZTools Emoji Picker indexes every Unicode emoji with its standard short codes (e.g. :thumbs_up:, :rocket:, :pizza:), supports fuzzy search across multiple keyword lists, exposes ZWJ-sequence emoji (family, flag combinations), and runs entirely client-side with zero tracking.
+
+<ToolCTA toolId="emoji-picker" toolName="emoji-picker" />
+
+## Use cases
+
+### Composing chat / Slack messages
+
+Search "celebrate" → 🎉 🥳 🎊 🎈. One click copies; paste into Slack, Discord, WhatsApp, anywhere.
+
+### Markdown documents and READMEs
+
+Add visual structure to a README without images. Search "warning" or "rocket"; paste into the markdown.
+
+### Code comments and commit messages
+
+Conventional-commit emoji: ✨ for feature, 🐛 for fix, 📝 for docs. Quick search beats memorising shortcodes.
+
+### Social media posts
+
+Searches like "money", "fire", "hundred" surface the right emoji for tweets / IG captions / TikTok descriptions.
+
+## How it works
+
+1. **Search by keyword** — Type any English keyword — fuzzy match across the official Unicode names + community shortcodes (Slack-style :keyword:).
+2. **Browse by category** — Smileys, people, animals, food, travel, objects, symbols, flags. Categories follow the Unicode emoji standard.
+3. **Pick skin-tone / gender variant** — Long-press / right-click an emoji to show variants (👋🏻 👋🏼 👋🏽 👋🏾 👋🏿). Default is the yellow.
+4. **Click to copy** — One click copies the emoji to clipboard. Paste anywhere — chat, code, terminal, design tool.
+5. **Recent and favourites** — Last-used set persists locally. Star common ones for instant access.
+
+## Examples
+
+**Input:** search "rocket"
+
+**Output:** 🚀 (and related: 🛸, 🛰️)
+
+---
+
+**Input:** search "100" or "hundred"
+
+**Output:** 💯
+
+---
+
+**Input:** search "thumbs up", with light skin tone
+
+**Output:** 👍🏻
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the emoji render the same everywhere?**</summary>
+
+The Unicode codepoints are universal, but each platform renders them with its own font (Apple, Google, Microsoft, Twemoji). The picker shows the codepoints; final visual depends on the recipient's OS / app.
+
+</details>
+
+<details>
+<summary>**How do skin-tone variants work?**</summary>
+
+A base emoji + a Fitzpatrick modifier (U+1F3FB ... U+1F3FF) form a single grapheme. The picker handles the joining — copy gives you the combined sequence.
+
+</details>
+
+<details>
+<summary>**What are ZWJ sequences?**</summary>
+
+Zero-Width Joiner sequences combine multiple emoji into one (👨‍👩‍👧‍👦 family, 🏳️‍🌈 rainbow flag). Older systems may render them as separate emoji; modern systems show the combined glyph.
+
+</details>
+
+<details>
+<summary>**Why is search returning unexpected emoji?**</summary>
+
+Search hits on official names AND community shortcodes AND aliases. "fire" also matches "fire engine" and "campfire". Use more specific terms for a tighter list.
+
+</details>
+
+<details>
+<summary>**Are flag emoji supported?**</summary>
+
+Yes — all 250+ country flags via Regional Indicator Symbol pairs. Search by country name.
+
+</details>
+
+<details>
+<summary>**Is data uploaded?**</summary>
+
+No — entirely local. The emoji index ships with the page bundle.
+
+</details>
+
+## Tips
+
+- Star your top 10 — the favourites bar saves the search step every time.
+- For commit messages, adopt a convention (✨ feature, 🐛 fix, 📝 docs) and the picker becomes muscle memory.
+- Match the recipient's OS — what looks polished on iOS may render differently on Windows.
+- For accessibility, do not rely on emoji alone for meaning; pair with text.
+- For dense use (READMEs, headers), keep emoji to 1–2 per heading — overuse looks juvenile.
+
+## Try it now
+
+The full emoji-picker runs in your browser at **[https://ztools.zaions.com/emoji-picker](https://ztools.zaions.com/emoji-picker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/emoji-picker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/emoji-picker.mdx)*

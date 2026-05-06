@@ -1,0 +1,130 @@
+---
+id: date-difference-calculator
+title: "Date Difference Calculator — Days, Weeks, Months, Years"
+description: "Calculate the difference between two dates in days, weeks, months, years, hours, minutes. Business-day mode and timezone-aware. Free."
+sidebar_label: "date-difference-calculator"
+keywords:
+  - "date difference calculator"
+  - "days between dates"
+  - "date duration calculator"
+  - "business days calculator"
+  - "age in days"
+  - "date interval"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# date-difference-calculator
+
+A date difference calculator computes the elapsed time between two dates — in days, weeks, months, years, hours, or minutes. Used for: age calculation, project duration, contract terms, days-until countdowns, business-day counts (excluding weekends and holidays), and travel-day calculations across timezones. The ZTools Date Difference Calculator runs entirely in the browser using JavaScript Date API + a tested duration library, with timezone awareness, business-day mode (skip weekends + configurable holidays), and inclusive/exclusive endpoint toggles.
+
+<ToolCTA toolId="date-difference-calculator" toolName="date-difference-calculator" />
+
+## Use cases
+
+### Project / contract duration
+
+Contract from Jan 15 to Dec 31 — how many business days? Calculator excludes weekends + holidays for accurate billing.
+
+### Age in days / hours / minutes
+
+"How many days have I been alive?" From birth date to today. Often surprising (~10,000 days = 27.4 years).
+
+### Days-until countdown
+
+Days until a launch, exam, vacation, retirement. Useful for motivation, planning, or project Gantt-chart math.
+
+### Travel time across timezones
+
+Flight departs JFK at 10pm ET, arrives LHR at 10am GMT. Total elapsed time? 7 hours (not 12 — the timezone shift hides 5 hours).
+
+## How it works
+
+1. **Enter start date** — Date picker or ISO 8601 input. Optional time-of-day for precise calculations.
+2. **Enter end date** — Same options. Defaults to today if blank.
+3. **Pick units** — Days, weeks, months, years, hours, minutes — or all at once.
+4. **Optional business-day mode** — Toggle to skip Saturdays, Sundays, and configurable holidays.
+5. **Inclusive / exclusive** — Inclusive (counts both start and end days) or exclusive (count of full days between).
+
+## Examples
+
+**Input:** 2026-01-01 to 2026-12-31
+
+**Output:** 364 days, 52 weeks, ~12 months, ~1 year. Business days: ~250.
+
+---
+
+**Input:** Birth date 1990-06-15 to today (2026-05-06)
+
+**Output:** ~13,108 days, ~1873 weeks, ~35.9 years, ~430 months.
+
+---
+
+**Input:** 2026-05-06 09:00 PT to 2026-05-06 14:00 ET
+
+**Output:** 2 hours (5 hours minus the 3-hour timezone shift).
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it handle leap years?**</summary>
+
+Yes — JavaScript Date API correctly handles leap years (2024, 2028, 2032 are leap; 2100 is not).
+
+</details>
+
+<details>
+<summary>**What about Feb 29 birthdays?**</summary>
+
+Age in years is computed from the date components — someone born Feb 29, 2000, is age 25 on Feb 28, 2025 (or Mar 1 — varies by convention; tool defaults to "Feb 28").
+
+</details>
+
+<details>
+<summary>**How precise are months / years?**</summary>
+
+Months and years aren't fixed lengths — Jan→Feb is 28-31 days. The tool uses calendar arithmetic (e.g. "1 month and 5 days") rather than averaging.
+
+</details>
+
+<details>
+<summary>**Are timezones handled?**</summary>
+
+Yes — you can specify timezone for each date. Without it, defaults to local browser timezone.
+
+</details>
+
+<details>
+<summary>**Holidays in business-day mode?**</summary>
+
+Pre-loaded country holiday lists (US, UK, EU). Custom holidays via comma-separated dates. Not all national holidays globally; check before relying for legal contract calculations.
+
+</details>
+
+<details>
+<summary>**DST handling?**</summary>
+
+JavaScript Date API handles DST transitions correctly — durations in hours respect the "spring forward" / "fall back" jumps.
+
+</details>
+
+## Tips
+
+- For business-day calculations, always specify holiday list for the relevant jurisdiction.
+- Inclusive vs exclusive matters in legal contracts — check the contract language ("from X through Y" vs "from X to Y").
+- Cross-timezone travel: input both dates with explicit timezone for accurate elapsed time.
+- For age in years, calendar arithmetic ("3 years and 5 months") usually clearer than average-day math.
+- Use ISO 8601 (YYYY-MM-DD) input format — unambiguous internationally.
+
+## Try it now
+
+The full date-difference-calculator runs in your browser at **[https://ztools.zaions.com/date-difference-calculator](https://ztools.zaions.com/date-difference-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/date-difference-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/date-difference-calculator.mdx)*

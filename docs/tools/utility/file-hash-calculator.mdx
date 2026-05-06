@@ -1,0 +1,130 @@
+---
+id: file-hash-calculator
+title: "File Hash Calculator — MD5, SHA-1, SHA-256, SHA-512 Free"
+description: "Calculate file hashes (MD5, SHA-1, SHA-256, SHA-512) in the browser. Verify downloads, detect tampering. No upload, instant."
+sidebar_label: "file-hash-calculator"
+keywords:
+  - "file hash calculator"
+  - "md5 calculator"
+  - "sha-256 calculator"
+  - "sha-512 calculator"
+  - "file checksum"
+  - "verify file hash"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# file-hash-calculator
+
+A file hash calculator produces a fixed-length cryptographic digest from a file's content — used to verify downloads (does the file match the publisher's published hash?), detect tampering, deduplicate files, and create unique fingerprints for indexing. The ZTools File Hash Calculator runs entirely in the browser using SubtleCrypto + crypto-js for legacy algorithms — files are read into memory, hashed locally, never uploaded. Supports MD5 (legacy, fast, broken for security), SHA-1 (legacy, deprecated), SHA-256 (modern standard), SHA-384, SHA-512. Multi-file batch with per-file hash output.
+
+<ToolCTA toolId="file-hash-calculator" toolName="file-hash-calculator" />
+
+## Use cases
+
+### Verify ISO / installer downloads
+
+Linux distributions (Ubuntu, Debian, Fedora) publish SHA-256 hashes for ISOs. Compute and compare to verify download integrity. Catches truncated, tampered, or MITM'd downloads.
+
+### Software publisher hash verification
+
+Open-source projects publish SHA-256/SHA-512 hashes of releases on GitHub/sourceforge. Compute locally; if mismatch, the file is corrupted or compromised.
+
+### Deduplication / inventory
+
+Find duplicate files in a backup or photo archive — same hash = identical content. Faster than per-byte comparison.
+
+### Forensic / chain-of-custody
+
+Capture file hashes at evidence collection; later compute again to prove no tampering. Standard digital forensics practice.
+
+## How it works
+
+1. **Drop file(s)** — Single or batch. Up to ~2 GB per file works in modern browsers; larger may exhaust memory.
+2. **Pick algorithm(s)** — MD5 / SHA-1 / SHA-256 (default) / SHA-384 / SHA-512. Multiple at once supported.
+3. **Compute** — File read in chunks, hashed via SubtleCrypto.digest() (or MD5 fallback). Progress shown for large files.
+4. **Compare** — Paste expected hash; tool flags match/mismatch. Hex case-insensitive.
+5. **Copy / export** — Per-file hashes shown in standard `&lt;algo&gt;: &lt;hex&gt;` format; batch export as CSV.
+
+## Examples
+
+**Input:** Ubuntu 24.04 ISO + SHA-256
+
+**Output:** Computed hash matches Ubuntu's published `5e38b55d...` — download verified.
+
+---
+
+**Input:** Photo archive batch + MD5
+
+**Output:** CSV listing every file + MD5; duplicates instantly visible by sorting on hash column.
+
+---
+
+**Input:** Suspect EXE + SHA-256
+
+**Output:** Compute hash, paste into VirusTotal — known-malicious or unique?
+
+## Frequently asked questions
+
+<details>
+<summary>**Why MD5 for security if it's broken?**</summary>
+
+MD5 has known collision attacks — different files can produce the same hash. Don't use MD5 for security verification. For non-adversarial integrity (download verification, deduplication), MD5 is fast and fine.
+
+</details>
+
+<details>
+<summary>**SHA-256 vs SHA-512 — which is better?**</summary>
+
+SHA-256 is industry standard, fast, ample security margin. SHA-512 is slightly more secure (longer digest) and surprisingly faster on 64-bit CPUs. Both are recommended over SHA-1.
+
+</details>
+
+<details>
+<summary>**Can I hash a string instead of a file?**</summary>
+
+Yes — paste text into the input. Useful for password hashing demos (don't actually use bare SHA-256 for passwords; use bcrypt/scrypt/argon2).
+
+</details>
+
+<details>
+<summary>**Is the file uploaded?**</summary>
+
+No — SubtleCrypto runs in-browser. The file content stays on your device.
+
+</details>
+
+<details>
+<summary>**How big can a file be?**</summary>
+
+~2 GB on typical browsers (memory-limited). For larger files, use a desktop tool: `sha256sum` (Linux/macOS), `Get-FileHash` (PowerShell).
+
+</details>
+
+<details>
+<summary>**Why are my hashes uppercase / lowercase different?**</summary>
+
+Hex digits are case-insensitive — `5E38B55D` ≡ `5e38b55d`. Compare case-insensitively.
+
+</details>
+
+## Tips
+
+- Use SHA-256 as default — modern, secure, fast.
+- Never trust hashes published on the same compromised CDN as the file. Always check hashes from a separate channel (publisher's git repo, signed manifest).
+- For commands-line equivalents: `sha256sum file.iso` (Linux), `shasum -a 256 file.iso` (macOS), `Get-FileHash file.iso` (PowerShell).
+- Don't use bare SHA-256 for password storage — use bcrypt / scrypt / argon2 with salt.
+- For deduplication of media files, SHA-256 is overkill — MD5 is faster and the collision risk is negligible at scale.
+
+## Try it now
+
+The full file-hash-calculator runs in your browser at **[https://ztools.zaions.com/file-hash-calculator](https://ztools.zaions.com/file-hash-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/file-hash-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/file-hash-calculator.mdx)*

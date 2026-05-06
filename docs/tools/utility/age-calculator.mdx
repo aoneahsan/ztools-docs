@@ -1,0 +1,131 @@
+---
+id: age-calculator
+title: "Age Calculator — Years, Months, Days, Hours from Date of Birth"
+description: "Calculate exact age in years, months, days, weeks, hours, and minutes between any two dates. Free, in-browser, no signup."
+sidebar_label: "age-calculator"
+keywords:
+  - "age calculator"
+  - "how old am i"
+  - "date of birth calculator"
+  - "days alive calculator"
+  - "exact age calculator"
+  - "age in months"
+  - "next birthday countdown"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# age-calculator
+
+An age calculator computes the exact elapsed time between a date of birth (or any starting date) and a target date — usually today — broken down into years, months, days, weeks, hours, minutes, and seconds, with full handling of leap years, varying month lengths, and time-zone effects. The ZTools Age Calculator runs entirely in the browser, supports any calendar date back to 1900 and forward to 2100, lets you compare two arbitrary dates (not just "today"), shows the next-birthday countdown, and exports results to clipboard or as a shareable link with the dates encoded.
+
+<ToolCTA toolId="age-calculator" toolName="age-calculator" />
+
+## Use cases
+
+### Knowing your exact age in any unit
+
+"I am 32" hides interesting numbers like "I have lived 11,824 days" or "Today is my 280,000th hour alive." Useful for milestone posts, journals, and life-tracking apps.
+
+### Eligibility checks on forms
+
+Age-restricted services (driving, voting, alcohol, retirement benefits) require precise age. Punch the DOB and the cutoff date; see whether the user is eligible.
+
+### Pediatric and medical records
+
+Pediatric dosing, vaccination schedules, and growth charts use age in months until ~3 years and weeks for newborns. The calculator returns the appropriate granularity automatically.
+
+### Pet age calculations
+
+Convert a kitten's or puppy's actual age to "human years" using the breed-aware multiplier — useful for vet conversations.
+
+## How it works
+
+1. **Enter the start date** — Date of birth or any starting date. Calendar picker with quick "today" / "1 year ago" shortcuts.
+2. **Enter the target date (optional)** — Defaults to today. Choose any future or past date for comparisons.
+3. **Pick the precision** — Years + months + days, or full breakdown including weeks, days, hours, minutes, seconds.
+4. **Read the result** — Primary line shows "X years Y months Z days". Secondary lines show alternative units. Next birthday countdown shows when relevant.
+5. **Copy or share** — Copy result text to clipboard, or generate a permalink that encodes both dates so a friend sees the same calculation.
+
+## Examples
+
+**Input:** DOB: 1990-03-15, target: 2026-05-05
+
+**Output:** 36 years 1 month 20 days; 13,200 days; 316,800 hours
+
+---
+
+**Input:** Two arbitrary dates: 2020-01-01 → 2023-12-31
+
+**Output:** 3 years 11 months 30 days
+
+---
+
+**Input:** Newborn: DOB 2026-04-15, target 2026-05-05
+
+**Output:** 0 years 0 months 20 days; 2 weeks 6 days
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it handle leap years?**</summary>
+
+Standard Gregorian rules: years divisible by 4 are leap, except centuries unless divisible by 400. February 29 is preserved exactly. The calculator never shows "30 February" or similar artefacts.
+
+</details>
+
+<details>
+<summary>**What about time zones?**</summary>
+
+Default is your local time zone. Switch to UTC if you need timezone-independent calculations. For DST shifts, hours and minutes are precise to the second.
+
+</details>
+
+<details>
+<summary>**Does it count the start date as day 0 or day 1?**</summary>
+
+Day 1 — being born on Jan 1 and asking "as of Jan 2" returns 1 day. The convention matches how doctors, schools, and legal systems count age.
+
+</details>
+
+<details>
+<summary>**Can I compare two future dates?**</summary>
+
+Yes — both dates can be in the future, the past, or one of each. Negative durations show as "N days ago" rather than negative numbers.
+
+</details>
+
+<details>
+<summary>**Does it support the Hijri / Hebrew / other calendars?**</summary>
+
+No — Gregorian only for now. Convert your dates to Gregorian first if needed.
+
+</details>
+
+<details>
+<summary>**Are calculations stored?**</summary>
+
+No — everything runs in your browser. The shareable link encodes the dates in the URL fragment so even the link does not hit a server.
+
+</details>
+
+## Tips
+
+- For pediatric records, use weeks until 12 weeks, then months until 3 years, then years.
+- When checking eligibility, set the target date to the eligibility-cutoff date, not today.
+- For long-term life tracking, screenshot a "days alive" reading on each birthday — visual progression beats spreadsheets.
+- Use the shareable link feature to send an exact age comparison to family — saves explaining the dates over chat.
+- For legal age in different jurisdictions, double-check the local rule (some count from midnight of the previous day).
+
+## Try it now
+
+The full age-calculator runs in your browser at **[https://ztools.zaions.com/age-calculator](https://ztools.zaions.com/age-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/age-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/age-calculator.mdx)*

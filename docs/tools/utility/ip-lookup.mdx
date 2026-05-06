@@ -1,0 +1,126 @@
+---
+id: ip-lookup
+title: "IP Address Lookup — Geolocation, ISP, ASN, Reverse DNS (Free)"
+description: "Look up any IPv4 or IPv6 address — geolocation, ISP, ASN, reverse DNS, and connection type. Includes lookup of your own public IP."
+sidebar_label: "ip-lookup"
+keywords:
+  - "ip lookup"
+  - "ip address lookup"
+  - "ip geolocation"
+  - "whois ip"
+  - "ip checker"
+  - "find my ip"
+  - "reverse ip lookup"
+  - "asn lookup"
+  - "free ip tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ip-lookup
+
+An IP address lookup tool reveals everything publicly known about a given IPv4 or IPv6 address: approximate geographic location (country, region, city), the Internet Service Provider (ISP), the Autonomous System Number (ASN) and organization, the reverse DNS (PTR) record, and the connection type (residential, mobile, hosting, business). The ZTools IP Lookup tool queries multiple public databases (ipinfo.io, ipwhois) to combine the most accurate data, and supports lookups of your own public IP (one click, no input required).
+
+<ToolCTA toolId="ip-lookup" toolName="ip-lookup" />
+
+## Use cases
+
+### Diagnosing why a user reports access from the wrong country
+
+User sees "Access from suspicious location" warnings? Look up their IP — if they appear to be in another country (VPN, proxy, mobile carrier routing), you can update fraud heuristics or whitelist their region.
+
+### Identifying which cloud provider hosts a competing service
+
+Look up the IP behind a competitor's domain (combine with our DNS Lookup). The ASN/Organization field tells you whether they're on AWS, Cloudflare, Vercel, or self-hosted — useful competitive intel.
+
+### Building a server allowlist for office or VPN-only access
+
+Look up your office's public IP (or your VPN's exit IP) and add it to your application's allowlist. The lookup confirms exactly which ASN you'll be coming from.
+
+### Tracking down the source of suspicious traffic
+
+Your logs show repeated requests from 198.51.100.42 — look up the IP, see "Bad Bot Reporter, AS12345" or a known hosting provider, and decide whether to block at the edge.
+
+## How it works
+
+1. **Enter an IP address (or click "My IP")** — Supports IPv4 (e.g., 8.8.8.8) and IPv6 (e.g., 2001:4860:4860::8888). The "My IP" button auto-fills your current public IP.
+2. **Click Lookup** — The tool queries multiple public IP-info APIs in parallel and combines the results. No personal data leaves your browser beyond the IP itself.
+3. **Review geolocation data** — Country, region, city, postal code, latitude/longitude. Accuracy varies: country is usually correct; city may be off by 50-100 km for mobile or VPN IPs.
+4. **Check ISP, ASN, and connection type** — ASN is a 1-6 digit number identifying the network operator globally. Connection type (residential, mobile, hosting, business) helps with fraud heuristics.
+5. **Optionally do a reverse DNS lookup** — Returns the PTR record — the hostname an IP claims to map back to. Useful for verifying the legitimacy of an inbound connection.
+
+## Examples
+
+**Input:** 8.8.8.8
+
+**Output:** Google LLC (AS15169), United States, Mountain View, CA. Connection type: hosting. PTR: dns.google.
+
+---
+
+**Input:** 2001:4860:4860::8888
+
+**Output:** Same Google ASN, IPv6 version of Google Public DNS.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is IP geolocation?**</summary>
+
+Country is ~99% accurate. Region is ~80% accurate. City is ~60% for residential IPs, much lower for mobile (carrier-aggregated) and VPN/proxy IPs. Treat city-level data as approximate, never authoritative.
+
+</details>
+
+<details>
+<summary>**What is an ASN?**</summary>
+
+An Autonomous System Number — a globally unique identifier (1-65,535 for legacy, up to ~4 billion for ASN32) for a network operator. Each ASN owns a set of IP ranges and exchanges routing info via BGP.
+
+</details>
+
+<details>
+<summary>**Can I look up my own IP?**</summary>
+
+Yes — click "My IP" and the tool auto-detects and queries your current public address. The address you see is your network's public-facing IP, not your local LAN address.
+
+</details>
+
+<details>
+<summary>**Why do I see different results from different lookup tools?**</summary>
+
+Different providers use different geolocation databases (MaxMind, IP2Location, ipinfo, etc.) updated at different cadences. Cross-check 2-3 providers for important decisions.
+
+</details>
+
+<details>
+<summary>**Does this work for IPv6?**</summary>
+
+Yes — both IPv4 and IPv6 lookups are supported. IPv6 geolocation tends to be slightly less granular because the IPv6 address space is much newer and less mapped.
+
+</details>
+
+<details>
+<summary>**Is the lookup logged?**</summary>
+
+The third-party APIs may log the IP queried. If privacy is critical, route through a VPN or use a self-hosted MaxMind GeoLite2 database for queries.
+
+</details>
+
+## Tips
+
+- Cross-reference at least two databases for important decisions (fraud, blocking, billing).
+- For mobile traffic, expect city-level accuracy to be poor — carrier-aggregated IPs span entire metros.
+- Combine with reverse DNS to verify "this IP claims to be Googlebot" — Google publishes their bot IP ranges.
+- For server access control, prefer ASN-based allowlists over fixed IP allowlists when possible.
+
+## Try it now
+
+The full ip-lookup runs in your browser at **[https://ztools.zaions.com/ip-lookup](https://ztools.zaions.com/ip-lookup)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ip-lookup)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/ip-lookup.mdx)*

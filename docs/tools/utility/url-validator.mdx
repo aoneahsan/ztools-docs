@@ -1,0 +1,131 @@
+---
+id: url-validator
+title: "URL Validator — Syntax + Reachability Check for Links (Free)"
+description: "Validate URLs: syntax, scheme, host, optional reachability check (HEAD). Bulk check up to 500 URLs. Free, in-browser."
+sidebar_label: "url-validator"
+keywords:
+  - "url validator"
+  - "link validator"
+  - "broken link checker"
+  - "url syntax check"
+  - "bulk url validator"
+  - "dead link checker"
+  - "free url checker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# url-validator
+
+A URL validator checks whether a string is a syntactically valid URL (per WHATWG URL spec) — correct scheme, host, port, path, query, fragment — and optionally probes the URL to see if it actually resolves and returns a successful HTTP status, distinguishing dead links, redirects, and broken paths. The ZTools URL Validator handles bulk lists up to 500 URLs, supports HTTP / HTTPS / FTP / mailto / tel / custom schemes, exports labelled CSV with status code and final-URL columns, and is the right pre-flight check before importing a CSV of links into a CMS or CRM.
+
+<ToolCTA toolId="url-validator" toolName="url-validator" />
+
+## Use cases
+
+### CMS content audit
+
+Editors paste hundreds of links. Validate before publish; catch typos ("htttp://", missing TLD, dangling redirects) before users see them.
+
+### CSV / spreadsheet cleanup
+
+A "links" column in a spreadsheet has dirty formatting. Bulk-validate; emit clean canonical URLs and flag dead ones.
+
+### Link-rot survey
+
+Old blog posts accumulate dead links. Run reachability check; produce a CSV of broken URLs to fix or replace.
+
+### Form input validation
+
+User-supplied homepage URL on profile signup. Strict syntax + reachability check ensures the link is actually browsable.
+
+## How it works
+
+1. **Paste URL(s)** — Single URL or one-per-line bulk up to 500. Auto-detect scheme; missing scheme prompts whether to assume https://.
+2. **Syntax parse** — WHATWG URL parser confirms scheme, host, port, path, query, fragment.
+3. **Optional reachability** — HEAD request via the browser; reports HTTP status, final URL after redirects, and content-type. Skipped when CORS blocks the host.
+4. **Inspect results** — syntax_valid, status_code, final_url, redirect_count, content_type. Dead links show 404 / 410 / DNS error.
+5. **Export** — CSV / JSON with one row per URL.
+
+## Examples
+
+**Input:** https://example.com/path?q=1#top
+
+**Output:** syntax_valid=true, scheme=https, host=example.com, status=200
+
+---
+
+**Input:** htttp://broken-typo.com
+
+**Output:** syntax_valid=false, reason="invalid scheme"
+
+---
+
+**Input:** https://www.google.com
+
+**Output:** syntax_valid=true, status=200, final_url=https://www.google.com/
+
+## Frequently asked questions
+
+<details>
+<summary>**Does the reachability check follow redirects?**</summary>
+
+Yes — up to 10 hops. final_url shows the destination; redirect_count shows how many hops it took.
+
+</details>
+
+<details>
+<summary>**Why is reachability blocked for some hosts?**</summary>
+
+CORS — the browser only allows cross-origin HEAD requests when the server permits it. For locked-down hosts the syntax check still works; reachability returns "blocked".
+
+</details>
+
+<details>
+<summary>**What about HTTPS certificate issues?**</summary>
+
+Browsers report TLS failures as fetch errors. The validator surfaces "TLS error" so you know the link is fundamentally broken even if the syntax is fine.
+
+</details>
+
+<details>
+<summary>**Can it detect dead links inside content?**</summary>
+
+Yes — paste the entire content; the validator extracts URLs (http/https) and checks each. Useful for a single-page audit.
+
+</details>
+
+<details>
+<summary>**Does it handle internationalised domain names?**</summary>
+
+Yes — IDN ("xn--..." or unicode) parses cleanly. Reachability uses the punycode form internally.
+
+</details>
+
+<details>
+<summary>**Is the data uploaded?**</summary>
+
+Syntax parsing is fully local. Reachability checks fetch the URLs from your browser — that traffic obviously hits the target servers but does not pass through any third-party proxy.
+
+</details>
+
+## Tips
+
+- Always run syntax + reachability for content audits — syntax alone misses dead links that look fine.
+- For CMS imports, soft-suppress dead URLs — do not silently delete; editors may want to fix them.
+- When CORS blocks reachability, fall back to a server-side checker for those specific hosts.
+- Tag long redirect chains for review — they are slow and often indicate stale tracking links.
+- For RSS / sitemap audits, this tool plus periodic re-runs catches link rot before users do.
+
+## Try it now
+
+The full url-validator runs in your browser at **[https://ztools.zaions.com/url-validator](https://ztools.zaions.com/url-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/url-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/url-validator.mdx)*

@@ -1,0 +1,130 @@
+---
+id: world-clock-converter
+title: "World Clock Converter — Compare Times Across 5+ Cities at Once"
+description: "Compare current and future times across many cities in one view. Visualise overlapping working hours. Free, in-browser."
+sidebar_label: "world-clock-converter"
+keywords:
+  - "world clock converter"
+  - "world clock"
+  - "meeting time across cities"
+  - "distributed team scheduler"
+  - "timezone overlap finder"
+  - "free world clock"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# world-clock-converter
+
+A world clock converter shows current and future local times side-by-side across multiple cities — designed for distributed teams scheduling meetings, travellers planning calls home, and anyone trying to find a slot that does not put a teammate in the middle of dinner. The ZTools World Clock Converter pins your favourite cities, draws a 24-hour heatmap so overlapping working hours are obvious at a glance, supports DST awareness, and emits a shareable URL containing the cities + the chosen meeting time so calendar invites become unambiguous.
+
+<ToolCTA toolId="world-clock-converter" toolName="world-clock-converter" />
+
+## Use cases
+
+### Distributed-team standup scheduling
+
+A team in SF / NYC / London / Berlin / Bangalore has 4 working-hour overlaps per day. The heatmap surfaces them so the standup lands inside everyone's 09:00–17:00 local.
+
+### Cross-border client calls
+
+Schedule a 1-hour call between you and a client. Drag the meeting band across the heatmap until both ends sit in 09–17.
+
+### Family / personal calls
+
+Living abroad — when is "good morning here" still "before bed there"? The world clock makes the answer obvious without mental math.
+
+### Travel planning
+
+Multi-leg trip across timezones; pin each destination ahead of time so jet-lag math is one glance away.
+
+## How it works
+
+1. **Pin cities** — Search by name; pin to the panel. Default order: home city first, then by UTC offset.
+2. **View the heatmap** — A 24-hour grid where each pinned city's "working hours" (09–17 by default) is highlighted. Overlapping bands are visually obvious.
+3. **Drag a meeting time** — Click any column to set a candidate meeting hour. The corresponding local time shows for each city; out-of-hours cells warn with a different colour.
+4. **Adjust for DST** — Each city shows current DST status and the next shift date. The heatmap updates automatically when DST flips.
+5. **Share** — Generate a shareable URL containing the city list + the proposed time. Recipients see the same view in their local zone.
+
+## Examples
+
+**Input:** Pinned: SF, NYC, London, Berlin, Mumbai
+
+**Output:** Heatmap shows three overlapping bands (08:00–09:00 PT / 11:00–12:00 ET / 16:00–17:00 GMT / 17:00–18:00 CET / 21:30–22:30 IST)
+
+---
+
+**Input:** 14:00 UTC meeting time
+
+**Output:** SF 07:00, NYC 10:00, London 15:00 (BST), Berlin 16:00, Mumbai 19:30
+
+---
+
+**Input:** After EU DST end
+
+**Output:** Berlin shifts back 1 hour; the heatmap updates to reflect new overlap windows
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from a single timezone converter?**</summary>
+
+A single converter answers "what is X in zone Y?". The world clock answers "what hour works for everyone?" — the visual heatmap is the difference, especially when 5+ cities are involved.
+
+</details>
+
+<details>
+<summary>**Can I customise working hours per city?**</summary>
+
+Yes — set 09–17 globally or per-city (e.g., NYC 08–16, Mumbai 10–18). Heatmap respects each city's window.
+
+</details>
+
+<details>
+<summary>**Does it handle DST?**</summary>
+
+Yes — IANA tzdata. Both directions: spring-forward and fall-back. Future-date previews honour the published rules.
+
+</details>
+
+<details>
+<summary>**How accurate is "future date" mode?**</summary>
+
+Through 2030 the rules are stable. Beyond that, some countries' DST rules are tentative; double-check for long-range planning.
+
+</details>
+
+<details>
+<summary>**Can I save my pinned cities?**</summary>
+
+Yes — pinned set persists in browser local storage. Optional shareable URL captures the same set for collaborators.
+
+</details>
+
+<details>
+<summary>**Does it auto-detect my city?**</summary>
+
+Optionally, by browser timezone. Manual override always works.
+
+</details>
+
+## Tips
+
+- Pin your home city first — every other time becomes relative to "you".
+- Set custom working-hour windows per city; some teams run 10–18 (Mumbai), others 08–16 (NYC).
+- For meetings, send the shareable URL — recipients see times in their own zone, no mental math.
+- Watch for DST transitions in either zone — meeting times "every Tuesday at 15:00 GMT" can shift relative to other cities at the boundaries.
+- For 5+ cities, accept that perfect overlap is rare — pick the time with fewest people inconvenienced.
+
+## Try it now
+
+The full world-clock-converter runs in your browser at **[https://ztools.zaions.com/world-clock-converter](https://ztools.zaions.com/world-clock-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/world-clock-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/world-clock-converter.mdx)*
