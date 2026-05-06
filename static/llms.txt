@@ -38,7 +38,7 @@ Ahsan Mahmood — solo developer, Pakistan-based.
 
 ## Analytics & privacy
 
-This documentation site uses Google Analytics 4 with IP anonymization on. Page traffic only — no input tracking, no PII, no email gates. Full disclosure at https://ztools-docs.zaions.com/docs/privacy.
+The documentation site optionally uses up to four third-party tools — Google Analytics 4 (page traffic, IP-anonymized), Microsoft Clarity (anonymized recordings + heatmaps), Amplitude (page views + downloads, no form/element capture), and Sentry (10%-sampled error reports, no session replay, no PII). Each is gated by an env var; absent secrets mean the corresponding tool's script does not ship. Full disclosure: https://ztools-docs.zaions.com/docs/privacy.
 
 The main app at ztools.zaions.com processes everything browser-side; tool inputs never reach a server.
 

@@ -6,11 +6,24 @@ const SITE_URL = 'https://ztools-docs.zaions.com';
 const APP_URL = 'https://ztools.zaions.com';
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 
-// Google Analytics 4 — Measurement ID is read from GA_MEASUREMENT_ID env var
-// at build time. Set it as a GitHub Actions repo secret named
-// GA_MEASUREMENT_ID. When unset (e.g. local dev), the plugin is skipped
-// entirely and no tracking script ships.
+// Third-party tracking / monitoring — all optional via env vars.
+// Set as GitHub Actions repo secrets to enable; absent vars cause the
+// related script / SDK to be skipped entirely (no broken state, no
+// console errors). Privacy disclosure at /docs/privacy.
 const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID || '';
+const CLARITY_PROJECT_ID = process.env.CLARITY_PROJECT_ID || '';
+const AMPLITUDE_API_KEY = process.env.AMPLITUDE_API_KEY || '';
+const SENTRY_DSN = process.env.SENTRY_DSN || '';
+
+// Microsoft Clarity inline snippet (their official install code).
+// Only emitted when CLARITY_PROJECT_ID is set.
+const clarityScript = (id: string) => `
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "${id}");
+`.trim();
 
 const config: Config = {
   title: 'ZTools Documentation',
@@ -36,6 +49,29 @@ const config: Config = {
   headTags: [
     {tagName: 'link', attributes: {rel: 'canonical', href: SITE_URL}},
     {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood'}},
+    // Clarity — emitted only when CLARITY_PROJECT_ID env var is set
+    ...(CLARITY_PROJECT_ID
+      ? [
+          {
+            tagName: 'script' as const,
+            attributes: {type: 'text/javascript'},
+            innerHTML: clarityScript(CLARITY_PROJECT_ID),
+          },
+        ]
+      : []),
+  ],
+
+  // Pass env-driven config to the client. Read from clientModules.
+  customFields: {
+    AMPLITUDE_API_KEY,
+    SENTRY_DSN,
+    CLARITY_PROJECT_ID,
+  },
+
+  // Client modules run in every page's bundle; we use one to init
+  // Amplitude + Sentry when their respective env vars are set.
+  clientModules: [
+    require.resolve('./src/clientModules/third-party-analytics.ts'),
   ],
 
   // Mermaid diagrams — write graphs/flowcharts inline in MDX with

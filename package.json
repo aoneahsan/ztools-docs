@@ -17,6 +17,7 @@
     "build:full": "yarn generate:tools && yarn build"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.42.1",
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/plugin-google-gtag": "^3.10.1",
@@ -24,6 +25,7 @@
     "@docusaurus/theme-mermaid": "^3.10.1",
     "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@mdx-js/react": "^3.0.0",
+    "@sentry/react": "^10.51.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",

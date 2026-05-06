@@ -8,7 +8,18 @@ sidebar_position: 98
 
 # Privacy & Analytics
 
-This documentation site (`ztools-docs.zaions.com`) uses **Google Analytics 4** to track aggregate page traffic. This page tells you exactly what is and isn't collected, and how to opt out.
+This documentation site (`ztools-docs.zaions.com`) uses up to four third-party tools — **Google Analytics 4** (page traffic), **Microsoft Clarity** (anonymized session recordings + heatmaps), **Amplitude** (product analytics), and **Sentry** (error monitoring). Any combination may be active depending on which env-driven secrets are set in CI. This page tells you exactly what each one collects, what they don't, and how to opt out.
+
+## Tools at a glance
+
+| Tool | What it does | When active |
+|---|---|---|
+| Google Analytics 4 | Aggregate page traffic, referrers, country (no city), device class | When `GA_MEASUREMENT_ID` build secret is set |
+| Microsoft Clarity | Anonymized session recordings + click/scroll heatmaps | When `CLARITY_PROJECT_ID` is set |
+| Amplitude | Page views, file downloads, attribution. NO form/element interactions. | When `AMPLITUDE_API_KEY` is set |
+| Sentry | Frontend JS error reports + 10% transaction perf samples | When `SENTRY_DSN` is set |
+
+If a tool's secret isn't configured, **its script doesn't ship at all** — nothing to opt out from.
 
 ## What's tracked
 
@@ -22,13 +33,16 @@ This documentation site (`ztools-docs.zaions.com`) uses **Google Analytics 4** t
 
 GA4 is configured with **IP anonymization on** — your IP address is truncated before storage. Google never sees your full IP for this site.
 
-## What's NOT tracked
+## What's NOT tracked (across all four tools)
 
-- ❌ **Your inputs to ZTools tools.** This is the main app at `ztools.zaions.com`, not the docs. Tool inputs are processed in your browser and never leave your device. The docs site only tracks doc reading, not tool usage.
-- ❌ **Personally identifying information.** No email, no name, no account ID. The docs site has no signup.
-- ❌ **Form submissions.** This site has no forms.
-- ❌ **Outbound link clicks.** Default GA4 enhanced measurement is ENABLED for outbound clicks; if you'd rather we disable that, [open an issue](https://github.com/aoneahsan/ztools-docs/issues).
-- ❌ **Cross-site cookies.** GA4 uses first-party cookies only.
+- ❌ **Your inputs to ZTools tools.** This is the main app at `ztools.zaions.com`, not the docs. Tool inputs are processed in your browser and never leave your device.
+- ❌ **Personally identifying information.** No email, no name, no account ID — the docs site has no signup.
+- ❌ **Form submissions.** Site has no forms; Amplitude form interactions explicitly disabled.
+- ❌ **Element-level interactions.** Amplitude `elementInteractions` disabled.
+- ❌ **Cross-site cookies.** GA4 + Amplitude use first-party cookies only.
+- ❌ **Sentry session replay.** `replaysSessionSampleRate: 0` — no DOM replay capture.
+- ❌ **Sentry default PII.** `sendDefaultPii: false` — request headers / cookies not sent on errors.
+- ❌ **Search-input URLs in Sentry breadcrumbs.** Strip query string + hash from navigation breadcrumbs to avoid leaking what you typed into the search bar.
 
 ## How to opt out
 
@@ -47,12 +61,17 @@ Most modern browsers respect a "Do Not Track" or equivalent tracking-prevention 
 
 Install the official [GA Opt-out browser add-on](https://tools.google.com/dlpage/gaoptout) — works for any GA-using site, not just this one.
 
-### 3. Block the GA domain at the DNS level
+### 3. Block tracking domains at the DNS / network level
 
-Block `googletagmanager.com` and `google-analytics.com` via:
-- A privacy-focused DNS resolver (NextDNS, AdGuard DNS, Quad9)
-- A browser extension (uBlock Origin, Privacy Badger)
-- `/etc/hosts` if you're old-school
+Block these hosts via DNS resolver, browser extension, or `/etc/hosts`:
+
+- GA4: `googletagmanager.com`, `google-analytics.com`
+- Clarity: `clarity.ms`, `c.clarity.ms`
+- Amplitude: `api2.amplitude.com`, `cdn.amplitude.com`
+- Sentry: `o*.ingest.sentry.io` (the `o*` is a per-org subdomain)
+
+uBlock Origin's default lists already block most of these. NextDNS,
+AdGuard DNS, or Pi-hole at the network level catch them all.
 
 ## Why use analytics at all?
 
