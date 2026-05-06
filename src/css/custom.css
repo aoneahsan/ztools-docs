@@ -134,6 +134,45 @@ details[open] > summary {
   margin-bottom: 0.5rem;
 }
 
+/* ----------------------------------------------------------------------------
+ * Button contrast — Infima's default --ifm-color-primary-contrast-*
+ * variables can yield amber-on-amber in dark mode. Force dark text on
+ * amber buttons in both themes for guaranteed contrast.
+ * --------------------------------------------------------------------------*/
+:root,
+[data-theme='dark'] {
+  --ifm-color-primary-contrast-background: #ffa840;
+  --ifm-color-primary-contrast-foreground: #0a0a0a;
+  --ifm-button-color: #0a0a0a;
+}
+
+.button--primary,
+.button--primary:visited {
+  background: #ffa840;
+  color: #0a0a0a;
+  border-color: #ffa840;
+}
+
+.button--primary:hover,
+.button--primary:focus,
+.button--primary:active {
+  background: #f59e0b;
+  color: #0a0a0a;
+  border-color: #f59e0b;
+}
+
+.button--secondary,
+.button--secondary:visited {
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.button--secondary:hover {
+  border-color: #ffa840;
+  color: #ffa840;
+}
+
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *,

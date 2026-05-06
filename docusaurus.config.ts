@@ -32,6 +32,34 @@ const config: Config = {
     {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood'}},
   ],
 
+  // Mermaid diagrams — write graphs/flowcharts inline in MDX with
+  // ```mermaid ... ``` fenced blocks. See docusaurus.io/docs/markdown-features/diagrams
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */
+      ({
+        // Indexes both docs and blog
+        hashed: true,
+        indexBlog: true,
+        indexDocs: true,
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+        blogRouteBasePath: '/blog',
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 12,
+        searchResultContextMaxLength: 60,
+        explicitSearchResultPath: true,
+      }),
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -63,6 +91,14 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/social-card.png',
+    announcementBar: {
+      id: 'launch-2026-05',
+      content:
+        '🎉 ZTools docs site launched — every one of 520+ tools now has a dedicated documentation page. <a href="/docs/intro">Get started →</a>',
+      backgroundColor: '#ffa840',
+      textColor: '#0a0a0a',
+      isCloseable: true,
+    },
     metadata: [
       {name: 'keywords', content: 'developer tools, online tools, free tools, browser tools, ztools, json formatter, password generator, qr generator, image compressor, regex tester, base64, color picker'},
       {name: 'twitter:card', content: 'summary_large_image'},
@@ -131,7 +167,16 @@ const config: Config = {
       darkTheme: prismThemes.oneDark,
       additionalLanguages: ['bash', 'json', 'yaml', 'toml', 'diff', 'tsx', 'jsx'],
     },
-    docs: {sidebar: {hideable: true, autoCollapseCategories: false}},
+    docs: {
+      sidebar: {hideable: true, autoCollapseCategories: false},
+      // Show breadcrumbs at the top of every doc page.
+      // (Built into Docusaurus 3 — explicit declaration here for clarity.)
+    },
+    // Built-in TOC; tweak depth on long pages
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

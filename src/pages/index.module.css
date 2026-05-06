@@ -7,6 +7,8 @@
   --hero-fg: var(--ifm-color-content);
   --accent: #ffa840;
   --accent-soft: rgba(255, 168, 64, 0.18);
+  --btn-bg: #ffa840;
+  --btn-fg: #0a0a0a;
 }
 
 /* HERO ---------------------------------------------------------------------*/
@@ -76,14 +78,15 @@
 }
 
 .btnPrimary {
-  background: var(--hero-fg);
-  color: var(--ifm-background-color);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
 }
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.4);
-  color: var(--ifm-background-color);
+  box-shadow: 0 16px 32px -16px rgba(255, 168, 64, 0.45);
+  color: var(--btn-fg);
+  background: var(--btn-bg);
 }
 
 .btnGhost {
