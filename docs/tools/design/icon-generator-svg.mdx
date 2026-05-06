@@ -1,0 +1,130 @@
+---
+id: icon-generator-svg
+title: "SVG Icon Generator — Build Custom Icons from Shapes"
+description: "Build custom SVG icons combining shapes, text, paths. Color, stroke, export. Free, in-browser, no sign-up."
+sidebar_label: "icon-generator-svg"
+keywords:
+  - "svg icon generator"
+  - "custom icon maker"
+  - "free svg icon tool"
+  - "icon designer browser"
+  - "create svg icon"
+  - "inline svg generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# icon-generator-svg
+
+An SVG icon generator lets you compose simple custom icons from primitive SVG shapes — circles, rectangles, polygons, paths, text — adjusting fill, stroke, and arrangement, then exporting clean SVG markup ready for use in HTML, React, Vue, or design tools. The ZTools SVG Icon Generator runs entirely in the browser, supports a 24×24 / 48×48 / 64×64 canvas, layered shape composition, snap-to-grid alignment, and exports valid SVG markup with optimised path data.
+
+<ToolCTA toolId="icon-generator-svg" toolName="icon-generator-svg" />
+
+## Use cases
+
+### Custom UI icon for a unique feature
+
+Existing icon libraries (Lucide, Heroicons) cover common cases; sometimes a feature needs a bespoke icon. Generator handles 1-off needs without requiring full vector software.
+
+### Brand-specific icon set
+
+A small icon set with a unified visual style — a stroke width, a corner radius, a fill rule. Build once; reuse across product.
+
+### Quick prototype mark
+
+Wireframe / prototype needs a placeholder icon. Generator outputs something usable in minutes.
+
+### Educational / illustrative
+
+Tutorial or blog post needs a simple inline SVG. Quick build vs licensing concern of using random web images.
+
+## How it works
+
+1. **Pick canvas size** — 24×24 (most common UI icons), 48×48 (larger detail), 64×64. Standard sizes for icon libraries.
+2. **Add shapes** — Circle, rectangle (rounded or square), polygon, path. Each shape has fill + stroke + position.
+3. **Compose + align** — Shapes layer top-to-bottom; reorder via panel. Snap-to-grid (1px) ensures crisp pixels at small sizes.
+4. **Set styles** — Fill: solid color, none. Stroke: width 1-4px, color. Outline matched to icon-library conventions.
+5. **Export SVG** — Output: clean SVG markup, optimised paths, no inline styles. Drop into JSX as &lt;svg&gt;…&lt;/svg&gt; or save as .svg file.
+
+## Examples
+
+**Input:** 24×24 plus icon: 2 rectangles forming +
+
+**Output:** &lt;svg viewBox="0 0 24 24"&gt;&lt;rect x="11" y="4" width="2" height="16"/&gt;&lt;rect x="4" y="11" width="16" height="2"/&gt;&lt;/svg&gt;
+
+---
+
+**Input:** Custom checkmark with thick stroke
+
+**Output:** Single SVG path with stroke-width 3, rounded line caps; clean React-component-ready output.
+
+---
+
+**Input:** Stylised arrow combining triangle + rectangle
+
+**Output:** Two-shape compound; export keeps both as separate &lt;polygon&gt; + &lt;rect&gt; for easy editing later.
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I use SVG or icon fonts?**</summary>
+
+SVG. Icon fonts (FontAwesome) were popular pre-2018; modern best practice is inline SVG (smaller, more flexible, accessible, no font loading). All major libraries (Lucide, Heroicons, Tabler) ship SVG.
+
+</details>
+
+<details>
+<summary>**Why 24×24?**</summary>
+
+Material Design + iOS conventions standardised on 24×24 for UI icons. Predictable size lets design systems align icon + text baseline cleanly.
+
+</details>
+
+<details>
+<summary>**Are exported SVGs accessible?**</summary>
+
+Add an aria-label to the surrounding wrapper. SVG itself doesn't carry semantic meaning by default; pair with appropriate HTML attributes.
+
+</details>
+
+<details>
+<summary>**Can I import existing SVG?**</summary>
+
+Paste raw SVG markup; tool re-renders shapes for further editing. Useful for tweaking icons from libraries.
+
+</details>
+
+<details>
+<summary>**Is the SVG uploaded?**</summary>
+
+No — entirely client-side. Your custom icons stay private.
+
+</details>
+
+<details>
+<summary>**How small can SVGs be?**</summary>
+
+Simple icons are &lt;500 bytes. Optimised SVG (no metadata, condensed paths) often beats equivalent PNG by 10-50x.
+
+</details>
+
+## Tips
+
+- Pixel-snap for small icons (24×24 etc.) — sub-pixel coordinates produce blurry rendering.
+- Maintain consistent stroke width across an icon set — visual harmony matters.
+- Run output through SVGO (or the bundled svg-optimizer tool) before shipping for production.
+- Avoid embedded fonts in icons — they bloat. Use simple shapes or paths instead.
+- Test at multiple sizes (12px, 24px, 48px) — what reads at large can fail at small.
+
+## Try it now
+
+The full icon-generator-svg runs in your browser at **[https://ztools.zaions.com/icon-generator-svg](https://ztools.zaions.com/icon-generator-svg)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/icon-generator-svg)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/design/icon-generator-svg.mdx)*

@@ -1,0 +1,130 @@
+---
+id: email-signature-generator
+title: "Email Signature Generator — HTML Sig with Logo & Links"
+description: "Build HTML email signatures with logo, social links, contact info. Copy-paste-ready for Gmail / Outlook. Free."
+sidebar_label: "email-signature-generator"
+keywords:
+  - "email signature generator"
+  - "free email signature"
+  - "gmail signature maker"
+  - "html email signature"
+  - "outlook signature template"
+  - "professional email signature"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# email-signature-generator
+
+An email signature generator produces a compact HTML block — name, title, company, contact info, social-network links, optional logo — formatted to render correctly across Gmail, Outlook, Apple Mail, and webmail clients despite their varied HTML / CSS support. The ZTools Email Signature Generator runs entirely in the browser, generates inline-styled HTML (the only safe approach for email rendering), supports brand colors, image-based logos, and copy-as-rich-content for one-click paste into Gmail / Outlook / Apple Mail signature settings.
+
+<ToolCTA toolId="email-signature-generator" toolName="email-signature-generator" />
+
+## Use cases
+
+### New employee onboarding
+
+New hire needs a branded signature on day one. Generator outputs a copy-paste-ready HTML block matching company guidelines.
+
+### Freelancer / contractor branding
+
+Personal brand signature with logo, portfolio link, social. First impression on every email — worth getting right.
+
+### Sales / outreach team
+
+Standardised signature across the sales team with phone + booking link. Consistency reinforces brand.
+
+### Conference / event signature
+
+Temporary signature for a conference period: "Find me at booth 12" or "Speaking at X conference". Generator makes one-off sig changes painless.
+
+## How it works
+
+1. **Enter contact info** — Name, title, company, email, phone, website, social URLs (LinkedIn, Twitter, GitHub).
+2. **Pick layout** — Vertical (info stacked) or horizontal (logo left, info right). Vertical wins for narrow viewports; horizontal for branded look.
+3. **Customise styling** — Brand color, font, separator style, logo upload (uses a hosted URL or base64 inline).
+4. **Generate HTML** — Tool produces inline-CSS HTML block. Inline styles are the only reliable way to style email — most clients strip &lt;style&gt; blocks.
+5. **Copy + paste** — Copy as rich content into Gmail (Settings → Signature) or as raw HTML into Outlook (signature editor source).
+
+## Examples
+
+**Input:** Standard signature: name, title, company, email, phone, LinkedIn
+
+**Output:** Compact HTML block, ~400 bytes; renders consistently in Gmail / Outlook / Apple Mail.
+
+---
+
+**Input:** Branded signature with logo + 4 social icons
+
+**Output:** ~1-2 KB block; logo as image URL, icons as inline base64 SVG.
+
+---
+
+**Input:** Minimal text-only signature
+
+**Output:** ~100 byte text block; renders identically everywhere; no image dependencies.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why are inline styles needed?**</summary>
+
+Email clients strip or reject &lt;style&gt; blocks; inline styles attached to each element survive. Generator outputs all-inline-CSS HTML for compatibility.
+
+</details>
+
+<details>
+<summary>**Should I use an image-based or text-based signature?**</summary>
+
+Text-based signatures are bulletproof (every client renders text). Image-based look more polished but break when recipients block images. Best practice: text + small inline logo.
+
+</details>
+
+<details>
+<summary>**How do I add the signature to Gmail / Outlook?**</summary>
+
+Gmail: Settings → General → Signature → paste rich-content. Outlook: File → Options → Mail → Signatures → paste HTML source. Apple Mail: Preferences → Signatures.
+
+</details>
+
+<details>
+<summary>**Will the signature break on mobile?**</summary>
+
+Generator uses simple table-based layouts (the only reliable cross-client format). Mobile clients render correctly. Test on iPhone / Android Gmail.
+
+</details>
+
+<details>
+<summary>**Can I include tracking?**</summary>
+
+Possible (UTM-tagged links, tracking pixels) but creepy. Most professional contexts avoid pixel tracking — recipients notice and resent.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only. Your contact details stay in the browser.
+
+</details>
+
+## Tips
+
+- Keep signatures under 5-6 lines. Long signatures push email content below the fold.
+- Test in your actual email client before rolling out — different versions of Outlook render slightly differently.
+- Avoid web fonts; use system fallbacks (Arial, Helvetica, sans-serif). Web fonts often fail in email.
+- Update signatures quarterly — stale phone numbers, dead social links signal carelessness.
+- For company-wide signatures, distribute the HTML + setup instructions; centralised email-management tools can also enforce consistency.
+
+## Try it now
+
+The full email-signature-generator runs in your browser at **[https://ztools.zaions.com/email-signature-generator](https://ztools.zaions.com/email-signature-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/email-signature-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/design/email-signature-generator.mdx)*

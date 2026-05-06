@@ -1,0 +1,105 @@
+---
+id: api-response-mocker
+title: "API Response Mocker — Browser-Only, Free"
+description: "Build mock API responses with custom status, headers, body. Test client-side error handling. Browser-only."
+sidebar_label: "api-response-mocker"
+keywords:
+  - "api response mocker"
+  - "mock http response"
+  - "msw mock generator"
+  - "fake api response"
+  - "test client error handling"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# api-response-mocker
+
+A mock API response is a fake HTTP response — status code, headers, body — for testing client-side code without a real backend. Useful for testing error handling (404, 500), edge cases (slow responses, malformed JSON), and offline development. The ZTools API Response Mocker builds the response shape, exports as msw / json-server / mirage / custom-fetch handler config, or runs in-browser as a service worker that intercepts matching URLs.
+
+<ToolCTA toolId="api-response-mocker" toolName="api-response-mocker" />
+
+## Use cases
+
+### Test error handling
+
+Backend won't reliably return 500. Mock response forces a 500; verify your error UI renders correctly.
+
+### Develop offline against API contract
+
+Backend not ready. Mock the contract; build the UI; swap in real backend later.
+
+### Test slow / timeout scenarios
+
+Add a 5-second delay to a mock response; verify the loading spinner shows.
+
+### Edge-case test data
+
+Empty arrays, null fields, missing keys — manually craft each scenario.
+
+## How it works
+
+1. **Define request match** — URL pattern (regex or wildcard) + HTTP method.
+2. **Define response** — Status code, headers, body (JSON / text). Optional delay.
+3. **Pick output format** — msw handler, json-server route, mirage route, fetch interceptor.
+4. **Apply** — Copy into your dev setup. Subsequent matching requests use the mock.
+
+## Examples
+
+**Input:** GET /api/users → 200 with [\{id:1,name:"Alice"\}]
+
+**Output:** msw handler ready to copy.
+
+---
+
+**Input:** POST /api/login → 401 with \{error: "Invalid credentials"\}
+
+**Output:** Triggers the failure UI in your app.
+
+---
+
+**Input:** GET /api/slow → 200 with 5s delay
+
+**Output:** Tests loading-state UX.
+
+## Frequently asked questions
+
+<details>
+<summary>**Mock for production?**</summary>
+
+No — mocks are for development and testing. Production should hit real APIs.
+
+</details>
+
+<details>
+<summary>**How is this different from Mock API generator?**</summary>
+
+Mock API generator builds the response payload (the data). Response mocker builds the full HTTP response (status / headers / body / timing). Use both together.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For new projects, write the mocks before the backend — drives clear API contracts.
+- Test error paths first — most apps under-test error handling.
+- Use msw — service-worker-based, works for both fetch and XHR, no backend needed.
+
+## Try it now
+
+The full api-response-mocker runs in your browser at **[https://ztools.zaions.com/api-response-mocker](https://ztools.zaions.com/api-response-mocker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/api-response-mocker)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/api-response-mocker.mdx)*

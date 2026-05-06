@@ -1,0 +1,130 @@
+---
+id: flowchart-maker
+title: "Flowchart Maker — Process Diagrams in the Browser, Free"
+description: "Draw process flowcharts with standard shapes (start, action, decision, end). Drag-and-drop, PNG / SVG export, no sign-up."
+sidebar_label: "flowchart-maker"
+keywords:
+  - "flowchart maker"
+  - "flowchart tool online"
+  - "free flowchart software"
+  - "process diagram tool"
+  - "flow chart creator"
+  - "browser flowchart"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# flowchart-maker
+
+A flowchart maker is a diagramming tool for building process diagrams — sequences of actions, decisions, and outcomes connected by directional arrows — using a fixed vocabulary of shapes (oval = start/end, rectangle = action, diamond = decision, parallelogram = input/output) that engineers, business analysts, and educators have used since the 1960s. The ZTools Flowchart Maker runs entirely in the browser, gives drag-and-drop shape placement, auto-routing arrows, alignment guides, and exports to PNG / SVG without uploading anything to a server.
+
+<ToolCTA toolId="flowchart-maker" toolName="flowchart-maker" />
+
+## Use cases
+
+### Business process documentation
+
+New employee onboarding flow, refund handling, escalation paths. Flowchart makes the process unambiguous — everyone sees the same flow, eliminating "I thought we did it this way" misunderstandings.
+
+### Software algorithm design
+
+Before coding a non-trivial function, sketch the decision tree. Catches missing branches and edge cases before they cost an afternoon of debugging.
+
+### Decision-tree training material
+
+Teach a process to a customer-support team or new hires. Flowchart turns text procedures into visual flows that the brain processes faster.
+
+### Approval workflows
+
+Document approval chains (request → manager review → finance approval → payment). Flowchart surfaces parallel paths and bottlenecks visually.
+
+## How it works
+
+1. **Drag shapes onto the canvas** — Standard symbols: oval (start/end), rectangle (action), diamond (decision), parallelogram (I/O), cylinder (data store).
+2. **Connect with arrows** — Click+drag from one shape's edge to another. Arrows route automatically; right-angle bends snap to a grid.
+3. **Label decisions with branches** — Diamond shapes have at least 2 outgoing arrows labelled (Yes/No, True/False, condition).
+4. **Align and tidy** — Auto-align on horizontal / vertical axes; gridlines snap. Consistent spacing makes flow direction obvious.
+5. **Export** — PNG for documents and presentations, SVG for crisp scaling, JSON for re-importing. Fully client-side.
+
+## Examples
+
+**Input:** Login flow: enter credentials → validate → branch on success → either dashboard or error
+
+**Output:** Oval (start) → Parallelogram (input creds) → Diamond (valid?) → Rectangle (dashboard) | Rectangle (error message → back to input).
+
+---
+
+**Input:** Refund process: request → check eligibility → approve / deny → notify
+
+**Output:** 5-step linear flow with one decision diamond and two branches; total 7 shapes.
+
+---
+
+**Input:** Bug triage: report → severity? → branch P0/P1/P2 → assign owner → resolve
+
+**Output:** Decision diamond with three outputs; each branch leads to its own assignment + resolution sub-flow.
+
+## Frequently asked questions
+
+<details>
+<summary>**What standard symbols should I use?**</summary>
+
+Oval = start / end. Rectangle = action / process. Diamond = decision. Parallelogram = input / output. Cylinder = database. Arrows = flow direction. Stick to these and any reader will understand.
+
+</details>
+
+<details>
+<summary>**How big should a flowchart be?**</summary>
+
+One page / one screen. If it spills, split into sub-flowcharts and cross-reference. Bigger flowcharts are not read; they are skipped.
+
+</details>
+
+<details>
+<summary>**Should arrows always go top-to-bottom?**</summary>
+
+Top-to-bottom or left-to-right is convention; reverse direction needs explicit arrowheads. Mixing both directions in one chart confuses readers.
+
+</details>
+
+<details>
+<summary>**How do I show parallel processes?**</summary>
+
+Split node (one input, multiple outputs) for fork; join node for merge. Some standards use double-line bars; rectangles work fine if arrows are labelled.
+
+</details>
+
+<details>
+<summary>**When should I use a swimlane diagram instead?**</summary>
+
+When ownership matters — different teams handle different steps. Swimlane (BPMN-style) shows who does what; classic flowchart shows what happens.
+
+</details>
+
+<details>
+<summary>**How do I version-control flowcharts?**</summary>
+
+Export as JSON or SVG and check into git. Plain-text formats diff cleanly; PNG-only versioning is a dead end.
+
+</details>
+
+## Tips
+
+- Pick a single direction (top-to-bottom OR left-to-right) and stick with it. Mixing forces readers to track flow manually.
+- Limit decisions to 2-3 outcomes. Diamonds with 5+ branches signal you need a sub-flow.
+- Label every arrow leaving a decision diamond — unlabelled branches are the #1 ambiguity in flowcharts.
+- Keep shapes the same size for the same role. Mixed sizes hint at importance you didn't intend.
+- Export to SVG when the chart will be printed or zoomed; PNG suffices for screen-only.
+
+## Try it now
+
+The full flowchart-maker runs in your browser at **[https://ztools.zaions.com/flowchart-maker](https://ztools.zaions.com/flowchart-maker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/flowchart-maker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/productivity/flowchart-maker.mdx)*

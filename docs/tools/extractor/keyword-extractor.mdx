@@ -1,0 +1,130 @@
+---
+id: keyword-extractor
+title: "Keyword Extractor — Find Top Keywords & Phrases in Text"
+description: "Extract top single-word and multi-word keywords from text using TF-IDF / RAKE. Free, in-browser, no upload."
+sidebar_label: "keyword-extractor"
+keywords:
+  - "keyword extractor"
+  - "tf-idf keywords"
+  - "rake keyword extraction"
+  - "free keyword tool"
+  - "extract keywords from text"
+  - "seo keyword finder"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# keyword-extractor
+
+A keyword extractor analyses a body of text and surfaces the most informative words and phrases — the ones that distinguish the document from generic English — using algorithms like TF-IDF (term frequency–inverse document frequency) or RAKE (Rapid Automatic Keyword Extraction) to weigh significance. The ZTools Keyword Extractor runs entirely in the browser, supports single-word and multi-word phrase extraction, configurable stopword filtering (English / Spanish / French / German), n-gram range (1-3 words), and outputs a ranked list with relevance scores.
+
+<ToolCTA toolId="keyword-extractor" toolName="keyword-extractor" />
+
+## Use cases
+
+### SEO content audit
+
+Paste a draft blog post; extractor surfaces the dominant keywords. Compare to your target keyword — is the post actually about what you intended?
+
+### Document summarisation
+
+A long report or article. Top keywords tell you the gist in 30 seconds without reading the document.
+
+### Tag suggestion for a CMS
+
+Extract candidate tags for blog posts or knowledge-base articles. Beats human-only tagging consistency for large content libraries.
+
+### Theme analysis across documents
+
+Paste each document separately; compare top keywords to see which themes recur and which are unique.
+
+## How it works
+
+1. **Paste text** — Single document. For multi-document analysis, run each separately and compare.
+2. **Pick algorithm** — TF-IDF: best with a reference corpus. RAKE: works on a single document; favours phrases over single words.
+3. **Configure** — Stopword language, n-gram range (1 = single words, 2-3 = phrases), max results.
+4. **Tokenise + score** — Lowercase, drop stopwords, tokenise into words / n-grams, score by chosen algorithm.
+5. **Export** — Ranked list with score + frequency. Plain text or CSV.
+
+## Examples
+
+**Input:** 500-word article on machine learning
+
+**Output:** Top keywords: "machine learning", "neural network", "training data", "model accuracy". Ranking by score.
+
+---
+
+**Input:** Product description
+
+**Output:** Top: "ergonomic", "adjustable height", "lumbar support" — surfaces the standout features.
+
+---
+
+**Input:** Multi-paragraph travel review
+
+**Output:** Top: "boutique hotel", "rooftop bar", "old town", "walking distance". Captures the experience.
+
+## Frequently asked questions
+
+<details>
+<summary>**TF-IDF vs RAKE — which to use?**</summary>
+
+TF-IDF needs a corpus to compute IDF (e.g. all documents on your blog) — surfaces what makes this doc unique. RAKE works on one doc — surfaces dense phrases. RAKE for one-off; TF-IDF for cross-document analysis.
+
+</details>
+
+<details>
+<summary>**Should I use single words or phrases?**</summary>
+
+Phrases (2-3 words) are usually more informative ("machine learning" beats "machine" alone). Single words help for very short texts.
+
+</details>
+
+<details>
+<summary>**Stopwords — what are they?**</summary>
+
+Common words (the, is, of, and) that appear everywhere and provide little discrimination. Removed before scoring. Custom stopword lists let you remove domain-specific noise.
+
+</details>
+
+<details>
+<summary>**How accurate is keyword extraction?**</summary>
+
+Algorithms are fast and language-agnostic but miss semantic synonyms (AI ↔ artificial intelligence). For deep semantic analysis, switch to embedding-based tools.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only.
+
+</details>
+
+<details>
+<summary>**Why do some "obvious" keywords miss?**</summary>
+
+If they appear too uniformly across a corpus (TF-IDF) or lack co-occurring related words (RAKE), score is low. Tune algorithm parameters or supply a different corpus.
+
+</details>
+
+## Tips
+
+- Always check the top 10 — they tell you what your document is "really" about, which often differs from your intent.
+- Use 2-3 word phrase mode for blog and product content; single-word mode for short texts.
+- Remove brand names from stopwords if you want them as keywords; add them as stopwords if you want underlying-topic analysis.
+- For SEO, compare extracted keywords to your target search keyword. If they don't match, the article needs editing.
+- Run on chunks (per section) for long documents — global keywords miss local themes.
+
+## Try it now
+
+The full keyword-extractor runs in your browser at **[https://ztools.zaions.com/keyword-extractor](https://ztools.zaions.com/keyword-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/keyword-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/keyword-extractor.mdx)*

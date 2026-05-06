@@ -1,0 +1,130 @@
+---
+id: email-extractor
+title: "Email Extractor — Pull Email Addresses from Text"
+description: "Extract all email addresses from pasted text or HTML. Deduplicates, lowercases, validates format. Free, in-browser."
+sidebar_label: "email-extractor"
+keywords:
+  - "email extractor"
+  - "extract emails from text"
+  - "email scraper"
+  - "free email extractor"
+  - "pull emails from text"
+  - "email harvester"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# email-extractor
+
+An email extractor scans a block of text — pasted from a document, web page HTML, log file, or contact list — and pulls out every valid email address it contains, deduplicating and normalising them into a clean list ready for use in mail-merge, CRM import, or contact backup. The ZTools Email Extractor runs entirely in the browser, uses RFC-5322-aware regex matching, deduplicates case-insensitively, drops invalid-format candidates, and outputs the cleaned list as plain text or CSV — all client-side, no upload, no server logging.
+
+<ToolCTA toolId="email-extractor" toolName="email-extractor" />
+
+## Use cases
+
+### Conference attendee follow-up
+
+Paste the public attendee list (often a long mixed text block); extractor pulls every email address. Use only with explicit consent and applicable opt-in laws (CAN-SPAM, GDPR).
+
+### CRM data cleanup
+
+Old export with emails buried in notes fields. Extractor gathers them into a single list for re-import or deduplication against existing records.
+
+### Personal contact backup
+
+Forwarded thread contains 30 email replies. Extractor pulls every from-address, helping rebuild a contact list after losing a phone or address book.
+
+### Extracting from a downloaded webpage
+
+Saved HTML page with mixed text and markup. Extractor reads through HTML and finds emails regardless of mailto: vs plain-text format.
+
+## How it works
+
+1. **Paste source text** — Plain text, HTML, JSON, log files. Mixed content fine — the regex finds emails regardless of surrounding markup.
+2. **Apply pattern match** — RFC-5322-style regex matches local-part + @ + domain.tld. Common edge cases (plus tags, dots) handled.
+3. **Validate format** — Each match is validated against a stricter format check; obvious garbage (no TLD, malformed domain) dropped.
+4. **Deduplicate** — Case-insensitive deduplication (Email@Example.com = email@example.com). Final list is lowercased.
+5. **Export** — Plain text (one per line) or CSV (with optional surrounding-context column). Copy to clipboard or download.
+
+## Examples
+
+**Input:** "Contact alice@example.com or bob@test.org for details"
+
+**Output:** alice@example.com, bob@test.org
+
+---
+
+**Input:** HTML: &lt;a href="mailto:hi@site.com"&gt;hi&lt;/a&gt;; text: "fallback: hi@site.com"
+
+**Output:** hi@site.com (deduplicated)
+
+---
+
+**Input:** Long thread with 50 emails (some duplicate)
+
+**Output:** ~30 unique emails after dedupe
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the regex?**</summary>
+
+Catches &gt;99% of real-world email formats. Edge cases (quoted-string local parts, IP-address domains) are rare in practice but can be missed. The full RFC-5322 grammar is complex — pragmatic regex covers the realistic cases.
+
+</details>
+
+<details>
+<summary>**Will it find obfuscated emails (foo [at] bar [dot] com)?**</summary>
+
+Optional "anti-obfuscation" mode normalises common patterns ([at]→@, [dot]→.). Off by default to avoid false positives in technical text.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — entirely client-side. Pasted text never leaves your browser. Privacy by design.
+
+</details>
+
+<details>
+<summary>**Can I use this for cold-email outreach?**</summary>
+
+Technically yes; legally, depends. CAN-SPAM (US), CASL (Canada), GDPR (EU), PIPEDA, and others impose consent rules. Extracting emails ≠ consent to email. Verify legality in your jurisdiction.
+
+</details>
+
+<details>
+<summary>**How do I keep surrounding context?**</summary>
+
+Use the CSV export with "context" column — captures the full sentence around each match. Useful for auditing data sources.
+
+</details>
+
+<details>
+<summary>**Why are some emails dropped?**</summary>
+
+Format validation rejects: missing TLD ("foo@bar"), invalid characters, suspicious patterns ("test@example" — no real TLD). Adjust strictness if you need looser matching.
+
+</details>
+
+## Tips
+
+- Verify before sending — extracted emails may be stale, role-based (info@, support@), or include unsubscribed contacts.
+- For mail-merge, always run extracted lists through opt-in / suppression filters before sending.
+- Use the CSV-with-context export for audits; valuable when extracting from forums or scraped pages.
+- Combine with the data-cleaner tool to standardise names + emails for CRM import.
+- Honour GDPR / CAN-SPAM / CASL — extraction is just data collection, not consent.
+
+## Try it now
+
+The full email-extractor runs in your browser at **[https://ztools.zaions.com/email-extractor](https://ztools.zaions.com/email-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/email-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/email-extractor.mdx)*

@@ -1,0 +1,130 @@
+---
+id: markdown-editor
+title: "Markdown Editor — Live Preview, Toolbar, Export"
+description: "Markdown editor with live preview, toolbar, GitHub-flavored support. Export Markdown / HTML. Free, no sign-up."
+sidebar_label: "markdown-editor"
+keywords:
+  - "markdown editor"
+  - "online markdown editor"
+  - "free markdown editor"
+  - "github flavored markdown"
+  - "live markdown preview"
+  - "markdown to html"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# markdown-editor
+
+A Markdown editor is a split-pane text editor where the left pane accepts Markdown source (lightweight markup using # headings, **bold**, [links](url), `code`) and the right pane shows the rendered output in real time, used for README files, blog drafts, technical documentation, and any plain-text-with-formatting workflow. The ZTools Markdown Editor runs entirely in the browser, supports GitHub-flavored Markdown (tables, fenced code blocks, task lists, strikethrough), keyboard shortcuts (Ctrl+B for bold, Ctrl+K for link), and exports both Markdown source and rendered HTML.
+
+<ToolCTA toolId="markdown-editor" toolName="markdown-editor" />
+
+## Use cases
+
+### README drafting
+
+Side-by-side Markdown + preview helps catch formatting mistakes before pushing to GitHub. Especially useful for tables and nested lists where syntax is fiddly.
+
+### Blog post in static-site workflow
+
+Hugo / Jekyll / Astro / Next.js blogs use Markdown. Editor lets you draft + preview before adding to the site repo.
+
+### Technical documentation
+
+API docs, runbooks, internal wikis. Markdown is the lingua franca; portable across GitHub, GitLab, Confluence, Notion.
+
+### Quick note-taking with formatting
+
+Faster than rich-text editors for keyboard-driven users; familiar to developers; produces clean output.
+
+## How it works
+
+1. **Type or paste Markdown** — Standard syntax: # H1, ## H2, **bold**, *italic*, [link](url), \![alt](image), - lists, ```code blocks```, &gt; blockquotes.
+2. **Live preview renders right pane** — Each keystroke triggers a re-render; debounced to 100-200ms for smooth typing on long documents.
+3. **Use toolbar shortcuts** — Toolbar: B/I/U for bold/italic, link, image, list, blockquote, code, table-template insertion. Cuts down on syntax-recall.
+4. **Apply GitHub-flavored extensions** — Tables (| col | col |), task lists ([ ]), strikethrough (~~text~~), fenced code with language for syntax highlighting.
+5. **Export** — Markdown (.md), rendered HTML (.html with embedded CSS), or copy formatted to paste into rich-text destinations.
+
+## Examples
+
+**Input:** # Hello\\n\\nThis is **bold** and *italic*.
+
+**Output:** Renders: heading, paragraph with bold and italic.
+
+---
+
+**Input:** | Name | Age |\\n|---|---|\\n| Alice | 30 |
+
+**Output:** Renders as HTML table.
+
+---
+
+**Input:** ```js\\nconst x = 1;\\n```
+
+**Output:** Renders as syntax-highlighted code block.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is GitHub-flavored Markdown?**</summary>
+
+GFM is GitHub's superset of CommonMark Markdown adding tables, task lists, strikethrough, autolinks, and fenced code with language hint. Most modern Markdown tools support it.
+
+</details>
+
+<details>
+<summary>**Why use Markdown over rich text?**</summary>
+
+Plain-text source: portable across editors, version-controllable in git, faster to type, no formatting drift between tools. Rich text: better for non-technical users.
+
+</details>
+
+<details>
+<summary>**Is my draft saved?**</summary>
+
+Auto-saved to browser local storage between sessions. Clear browser data and the draft is gone — export periodically.
+
+</details>
+
+<details>
+<summary>**Can I add images?**</summary>
+
+Yes — \![alt](url) syntax. Inline images via base64 data URLs or external URLs. For GitHub, host images in the repo or via CDN.
+
+</details>
+
+<details>
+<summary>**Does it support footnotes?**</summary>
+
+Yes (GFM extension): [^1] in body, [^1]: text at the bottom. Renders as superscript link.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — entirely client-side. Drafts stay private.
+
+</details>
+
+## Tips
+
+- Learn the keyboard shortcuts — Ctrl+B for bold, Ctrl+K for link. Faster than mouse-driven workflow.
+- Use fenced code blocks with language hint (```js, ```python) for syntax highlighting in destinations that support it (GitHub, GitLab, etc.).
+- For long docs, use ## headings liberally — they create the document outline and improve readability.
+- Preview at GitHub before pushing — GFM rendering can differ slightly from your editor.
+- Export both .md (source) and .html (rendered) — keeps options open for the destination.
+
+## Try it now
+
+The full markdown-editor runs in your browser at **[https://ztools.zaions.com/markdown-editor](https://ztools.zaions.com/markdown-editor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/markdown-editor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/markdown-editor.mdx)*

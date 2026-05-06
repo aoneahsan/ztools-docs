@@ -1,0 +1,130 @@
+---
+id: pixel-to-rem-converter
+title: "Pixel to REM Converter — px ↔ rem ↔ em Calculator"
+description: "Convert between px, rem, em with adjustable base font size (default 16). Bulk convert lists. Free, in-browser."
+sidebar_label: "pixel-to-rem-converter"
+keywords:
+  - "pixel to rem converter"
+  - "px to rem"
+  - "css unit converter"
+  - "rem calculator"
+  - "em to px"
+  - "free css converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pixel-to-rem-converter
+
+A pixel-to-rem converter computes equivalent values across the three common CSS sizing units — px (absolute), rem (root-relative, derived from html font-size), and em (parent-relative) — supporting the now-standard practice of using rem for accessibility-friendly scalable typography. The ZTools Pixel to REM Converter runs entirely in the browser, supports a configurable base font size (default 16px), single value or bulk list conversion, and outputs all three units side-by-side for cross-reference.
+
+<ToolCTA toolId="pixel-to-rem-converter" toolName="pixel-to-rem-converter" />
+
+## Use cases
+
+### Migrating a px-based design system to rem
+
+Existing CSS in px. Converter helps batch-translate every value (padding, margin, font-size) to rem; cleaner accessibility behaviour after.
+
+### Translating Figma / Sketch px values
+
+Designers spec in px; developers prefer rem. Converter bridges the gap; designer says "16px"; dev codes "1rem".
+
+### Verifying responsive type scales
+
+Type scale based on rem (1rem, 1.25rem, 1.5625rem…). Converter shows the px equivalents for design tools that don't support rem.
+
+### Debugging a layout with mixed units
+
+CSS uses both px and rem. Converter normalises to a single unit for clean reasoning.
+
+## How it works
+
+1. **Set base font size** — Default 16px (browser default). Some projects override (1rem = 10px shortcut by setting html \{ font-size: 62.5% \}). Set whatever your project uses.
+2. **Enter value + unit** — Single value (e.g. 24px) or bulk list (one per line). Tool detects unit by suffix.
+3. **Compute conversions** — rem = px ÷ base. em = px ÷ parent (assumed = base if not specified).
+4. **Display side-by-side** — Output: px / rem / em columns. Round to 4 decimal places; trim trailing zeros for clean output.
+5. **Bulk export** — Convert a list at once; output as CSV or pasteable formatted text.
+
+## Examples
+
+**Input:** 16px (base 16)
+
+**Output:** 1rem, 1em
+
+---
+
+**Input:** 24px (base 16)
+
+**Output:** 1.5rem, 1.5em
+
+---
+
+**Input:** 10px (base 16)
+
+**Output:** 0.625rem, 0.625em
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I use rem, em, or px?**</summary>
+
+rem: layout, font-size at root level; respects user font-size setting → accessibility. em: when sizing relative to parent (e.g. icon inside text). px: borders (1px hairlines), media queries (debate), legacy code.
+
+</details>
+
+<details>
+<summary>**What's the "62.5% trick"?**</summary>
+
+html \{ font-size: 62.5% \} makes 1rem = 10px (since 62.5% × 16 = 10). Cleaner mental math but breaks user font-size scaling. Modern best practice avoids it.
+
+</details>
+
+<details>
+<summary>**Does rem respect user-set browser font size?**</summary>
+
+Yes — that's the point. Users with vision needs can increase default font size in browser settings; rem-based layouts scale; px-based don't.
+
+</details>
+
+<details>
+<summary>**Should I use rem in media queries?**</summary>
+
+Debate. Some recommend rem (respects user zoom). Others use px (predictable across devices). Pick one and stay consistent project-wide.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — pure math, client-side.
+
+</details>
+
+<details>
+<summary>**What about px to ch / vw / vh?**</summary>
+
+Different conversion (depends on font + viewport). Use the converter for px ↔ rem ↔ em; other relative units have context-dependent values.
+
+</details>
+
+## Tips
+
+- Default base 16; only change if your project sets a different html font-size.
+- For consistency, pick rem for layout + font-size, em for component-internal sizing relative to component font.
+- Use 1rem = 16px mentally; doubles for 2rem = 32px etc. Building this intuition saves the converter for edge values.
+- For type scales, multiplier ratios (1.25x or 1.333x) yield clean rem progressions: 1, 1.25, 1.5625, 1.953125…
+- Validate after conversion — visual round-trip matters; don't trust math alone.
+
+## Try it now
+
+The full pixel-to-rem-converter runs in your browser at **[https://ztools.zaions.com/pixel-to-rem-converter](https://ztools.zaions.com/pixel-to-rem-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pixel-to-rem-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/pixel-to-rem-converter.mdx)*

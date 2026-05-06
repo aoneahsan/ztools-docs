@@ -1,0 +1,130 @@
+---
+id: cookie-policy-generator
+title: "Cookie Policy Generator — GDPR / ePrivacy Cookie Notice"
+description: "Generate a cookie policy + banner template covering GDPR / ePrivacy / CCPA cookies. Free, in-browser."
+sidebar_label: "cookie-policy-generator"
+keywords:
+  - "cookie policy generator"
+  - "gdpr cookie policy"
+  - "cookie banner template"
+  - "eprivacy compliance"
+  - "free cookie policy"
+  - "ccpa cookie policy"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# cookie-policy-generator
+
+A cookie policy generator produces a starter document explaining which cookies (and similar tracking technologies) your site uses, what they do, who places them, and how users can manage them — required by GDPR / ePrivacy in the EU and increasingly by CCPA in California. The ZTools Cookie Policy Generator runs entirely in the browser, asks which cookie categories you use (essential, performance, functional, advertising), the third parties involved (Google Analytics, Hotjar, Meta Pixel, etc.), and outputs a structured policy plus boilerplate cookie-banner copy. NOT legal advice; real consent-management implementation needs a CMP and attorney review.
+
+<ToolCTA toolId="cookie-policy-generator" toolName="cookie-policy-generator" />
+
+## Use cases
+
+### Adding analytics to an existing site
+
+Adding Google Analytics or similar triggers EU consent obligations. Generator produces the policy + banner copy in minutes.
+
+### EU launch from outside Europe
+
+US site expanding to EU users. Cookie policy + consent banner are essential before targeting EU traffic.
+
+### Migrating to a new CMP
+
+Switching from one consent platform to another. Generator produces fresh policy reflecting current cookies.
+
+### Pre-launch compliance checklist
+
+Combined with privacy policy + ToS, cookie policy completes the basic legal triple required for most jurisdictions.
+
+## How it works
+
+1. **Identify cookies in use** — List from your site or from your CMP. Categories: strictly necessary, performance, functional, advertising / targeting.
+2. **Identify third parties** — Google Analytics, Meta / Facebook Pixel, Hotjar, advertising networks, CDN cookies. Each needs disclosure.
+3. **Pick regulatory framework** — GDPR + ePrivacy (EU), CCPA (California), LGPD (Brazil). Multiple may apply.
+4. **Generate** — Tool outputs: cookie policy document + cookie-banner copy with categories.
+5. **Implement consent** — Pair the policy with a real Consent Management Platform (CMP) — Cookiebot, OneTrust, Klaro — that blocks cookies until consent.
+
+## Examples
+
+**Input:** Marketing site with Google Analytics + Meta Pixel + Hotjar
+
+**Output:** Cookie policy lists 3 third parties, 4 categories (essential + performance + functional + advertising), with cookie names and durations.
+
+---
+
+**Input:** SaaS app with auth cookies only
+
+**Output:** Minimal policy: essential cookies only, no consent banner needed (though best-practice still discloses).
+
+---
+
+**Input:** E-commerce with payment + analytics + retargeting
+
+**Output:** Comprehensive policy: payment session cookies, analytics, retargeting (advertising opt-in required).
+
+## Frequently asked questions
+
+<details>
+<summary>**Does my site need a cookie banner?**</summary>
+
+In the EU + UK, yes if you use anything beyond strictly-necessary cookies. In California, depends on your "sale" of data. In other jurisdictions, increasingly yes. Default: implement one.
+
+</details>
+
+<details>
+<summary>**What's "strictly necessary"?**</summary>
+
+Cookies essential for the requested service: session ID, cart contents, security tokens. These do NOT need consent. Analytics, marketing, personalisation DO.
+
+</details>
+
+<details>
+<summary>**Can I just say "we use cookies, click OK"?**</summary>
+
+No — GDPR requires categorised, granular consent (accept all vs reject all vs customise) and the ability to withdraw consent. Bare "we use cookies" banners are non-compliant in the EU.
+
+</details>
+
+<details>
+<summary>**How often should I audit cookies?**</summary>
+
+Quarterly, or whenever you add a new third-party tool. Cookie audit tools (and CMPs) automate this.
+
+</details>
+
+<details>
+<summary>**Is this enough for GDPR compliance?**</summary>
+
+Policy is one piece. You also need: a real CMP that blocks pre-consent cookies, a record of consent, and the ability to withdraw consent. Generator helps with the policy; the implementation needs more.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only.
+
+</details>
+
+## Tips
+
+- Pair the policy with a real CMP. Policy + non-blocking banner is non-compliant.
+- Audit your cookies quarterly — third-party scripts add cookies without notice.
+- List specific cookie names + purposes + durations in the policy. Vague disclosures are weakly enforceable.
+- Provide accept-all + reject-all buttons of equal prominence; pre-checked boxes are non-compliant under GDPR.
+- Keep records of consent (timestamp, what was consented to). Required under GDPR.
+
+## Try it now
+
+The full cookie-policy-generator runs in your browser at **[https://ztools.zaions.com/cookie-policy-generator](https://ztools.zaions.com/cookie-policy-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/cookie-policy-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/legal/cookie-policy-generator.mdx)*

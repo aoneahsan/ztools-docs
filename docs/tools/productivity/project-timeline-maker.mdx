@@ -1,0 +1,130 @@
+---
+id: project-timeline-maker
+title: "Project Timeline Maker — Gantt-Style Charts in the Browser"
+description: "Build project timelines: tasks, durations, dependencies, milestones. Gantt-style view, export PNG. Free, no sign-up."
+sidebar_label: "project-timeline-maker"
+keywords:
+  - "project timeline maker"
+  - "gantt chart maker"
+  - "project timeline tool"
+  - "free gantt chart"
+  - "project planner online"
+  - "milestone tracker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# project-timeline-maker
+
+A project timeline maker visualises a project's tasks as horizontal bars on a calendar, showing each task's start, duration, end, and dependencies — the classic Gantt-chart format Henry Gantt formalised in the 1910s and that remains the default for project planning a century later. The ZTools Project Timeline Maker runs entirely in the browser, supports task list with start dates and durations, dependency arrows (task B starts after task A), milestones (zero-duration markers), critical-path highlighting, and PNG / SVG export.
+
+<ToolCTA toolId="project-timeline-maker" toolName="project-timeline-maker" />
+
+## Use cases
+
+### Software product release
+
+Design / development / QA / launch with handoff dependencies. Timeline shows the critical path; slipping a task on it slips the launch. Slipping off-path tasks may not affect launch — visible at a glance.
+
+### Wedding or event planning
+
+Vendor bookings, invitations, fittings, day-of tasks. Some tasks have hard dependencies (cake order before tasting); others run parallel. Timeline prevents missed lead times.
+
+### Research project / thesis
+
+Literature review → study design → IRB approval → data collection → analysis → writeup. Dependencies enforced; deadline reverse-engineering exposes whether the schedule is realistic.
+
+### Construction or renovation
+
+Demolition → framing → electrical → drywall → finishes. Trades hand off; one delay cascades. Gantt-style timeline surfaces cascade risk early.
+
+## How it works
+
+1. **Add tasks** — Task name, start date (or "after task X"), duration in days. Each task becomes a horizontal bar on the timeline.
+2. **Set dependencies** — Mark "task B starts after task A finishes". Tool draws arrow + reschedules B if A moves.
+3. **Add milestones** — Zero-duration markers for key dates (launch, deadline, review meeting). Visual reference points.
+4. **Compute critical path** — Tool identifies the longest dependency chain — the path that determines project end date. Highlighted in red.
+5. **Export** — PNG for slide decks, SVG for printing, JSON for re-importing or sharing.
+
+## Examples
+
+**Input:** 6-week product launch: design 2w → dev 3w → QA 1w → launch milestone
+
+**Output:** Critical path = 6 weeks; design slip 3 days = launch slip 3 days; QA can compress only at quality cost.
+
+---
+
+**Input:** Thesis: 4-week lit review || 2-week IRB || then 8-week data collection → 6-week analysis → 4-week writeup = ~22 weeks
+
+**Output:** Lit review and IRB run parallel; data collection is the constraint; total ≈ 22 weeks.
+
+---
+
+**Input:** Renovation with 5 trades, 3 dependencies
+
+**Output:** Timeline shows trades sequenced; idle gaps where one trade waits for previous; opportunity to compress by overlapping.
+
+## Frequently asked questions
+
+<details>
+<summary>**When is a Gantt chart overkill?**</summary>
+
+For projects under 10 tasks with no real dependencies, a checklist works fine. Gantt earns its keep when dependencies + parallel work create coordination cost.
+
+</details>
+
+<details>
+<summary>**What is the critical path?**</summary>
+
+The longest sequence of dependent tasks. Total duration of project = sum of critical-path tasks. Slipping any of them slips the project. Slipping off-path tasks may not.
+
+</details>
+
+<details>
+<summary>**How do I estimate task durations?**</summary>
+
+Three-point estimation: best, worst, most-likely. Weighted average ((best + 4×most + worst) / 6). More honest than single-point estimates.
+
+</details>
+
+<details>
+<summary>**How granular should tasks be?**</summary>
+
+Each task: 1-10 days. Smaller than 1 day clutters; larger than 10 hides risk. Break large tasks into sub-tasks.
+
+</details>
+
+<details>
+<summary>**How often do I update the timeline?**</summary>
+
+Weekly minimum. Each week: mark progress, re-baseline future tasks, recompute critical path. Stale Gantt charts deceive worse than no chart.
+
+</details>
+
+<details>
+<summary>**Can I export to MS Project / Asana?**</summary>
+
+JSON export captures structure; importing into specialised tools requires their format. PNG / SVG always work for sharing.
+
+</details>
+
+## Tips
+
+- Add buffer at the project level (10-25%), not on every task. Per-task buffers get consumed; project-level buffer is visible.
+- Highlight the critical path in red — the team's attention should focus there.
+- Update weekly. The Gantt chart is a living plan, not a one-time artifact.
+- For long projects, show two views: full timeline (overview) + zoomed-in next 4 weeks (action).
+- Identify dependencies early — most slippage comes from unmodeled "I was waiting for X" handoffs.
+
+## Try it now
+
+The full project-timeline-maker runs in your browser at **[https://ztools.zaions.com/project-timeline-maker](https://ztools.zaions.com/project-timeline-maker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/project-timeline-maker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/productivity/project-timeline-maker.mdx)*

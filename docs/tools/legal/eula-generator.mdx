@@ -1,0 +1,129 @@
+---
+id: eula-generator
+title: "EULA Generator — End User License Agreement Template"
+description: "Generate a starter EULA (End User License Agreement) for software apps. Customisable. NOT legal advice."
+sidebar_label: "eula-generator"
+keywords:
+  - "eula generator"
+  - "end user license agreement"
+  - "software license template"
+  - "free eula template"
+  - "app license agreement"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# eula-generator
+
+An EULA (End User License Agreement) generator produces the legal contract that grants end users a limited license to use software they have downloaded or purchased — common for desktop apps, mobile apps, browser extensions, and any installed software, distinguishing between ownership of the binary and rights to use it. The ZTools EULA Generator runs entirely in the browser, asks about the software type (commercial, freeware, open source, internal), distribution model, and usage restrictions, and outputs a structured EULA. NOT legal advice; real software licensing is jurisdiction-specific and benefits from attorney review.
+
+<ToolCTA toolId="eula-generator" toolName="eula-generator" />
+
+## Use cases
+
+### Mobile app launch
+
+Apple App Store + Google Play accept either platform default EULA or your custom one. Custom EULA needed for commercial / paid / sensitive apps.
+
+### Desktop / installer software
+
+EULA shown during install, accepted via clickwrap. Generator produces installer-ready text covering license grant, restrictions, warranty disclaimer.
+
+### Browser extension distribution
+
+Chrome / Firefox extensions benefit from explicit license terms. Generator covers extension-specific clauses (data access, permission scope).
+
+### Internal enterprise software
+
+Custom EULA for software distributed within an enterprise. Tailored to internal-use scenarios with no resale rights.
+
+## How it works
+
+1. **Software basics** — Product name, vendor (your company), distribution model (free / paid / subscription), platforms.
+2. **License grant** — How users may use: single device, multiple devices, commercial use, modification, redistribution.
+3. **Restrictions** — No reverse engineering, no copying, no sublicensing, no use to compete. Generator includes standard restrictions.
+4. **Warranty + liability** — AS-IS (most software), limited warranty (consumer products), liability cap.
+5. **Generate** — Markdown / HTML output ready for installer or in-app display.
+
+## Examples
+
+**Input:** Free desktop app, single-user, no commercial restriction
+
+**Output:** ~1500 word EULA: free license, single-device, no warranty, liability disclaimer.
+
+---
+
+**Input:** Paid mobile app, per-device, no enterprise use
+
+**Output:** ~2000 word EULA: per-device license, commercial restrictions, payment terms.
+
+---
+
+**Input:** Open-source software
+
+**Output:** Note: most OSS uses standard licenses (MIT, Apache, GPL) rather than custom EULA. Generator points to standard licenses instead.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is an EULA needed for free software?**</summary>
+
+Optional but recommended. Without one, your rights and users' rights are unclear. Even free software benefits from a clear license + warranty disclaimer.
+
+</details>
+
+<details>
+<summary>**Open source vs proprietary?**</summary>
+
+Open-source software typically uses standard OSS licenses (MIT, Apache, GPL). EULAs are for proprietary software. Don't confuse the two.
+
+</details>
+
+<details>
+<summary>**Is clickwrap acceptance enforceable?**</summary>
+
+Generally yes if reasonable + visible. Hidden EULAs auto-accepted by use are weaker. Best practice: explicit "I accept" checkbox at install / first run.
+
+</details>
+
+<details>
+<summary>**Can I limit liability to $0?**</summary>
+
+Most jurisdictions allow disclaiming consequential damages, but limiting all liability to $0 is often unenforceable in consumer contexts. Limit to "amount paid" or use a hard cap.
+
+</details>
+
+<details>
+<summary>**How often should EULA be updated?**</summary>
+
+When the software materially changes. Notify existing users of major changes (new feature with new restrictions, etc.).
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only.
+
+</details>
+
+## Tips
+
+- Pair EULA with privacy policy — EULA handles software license; privacy policy handles data.
+- Show EULA + accept checkbox at install. In-app-only EULAs are harder to enforce.
+- Match EULA to actual product. Don't prohibit reverse engineering if you provide source code; don't require commercial restrictions if it's free.
+- For OSS, prefer standard licenses (MIT for permissive, GPL for copyleft) — better-understood, easier to enforce.
+- Update EULA on major version bumps; notify users of material changes.
+
+## Try it now
+
+The full eula-generator runs in your browser at **[https://ztools.zaions.com/eula-generator](https://ztools.zaions.com/eula-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/eula-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/legal/eula-generator.mdx)*

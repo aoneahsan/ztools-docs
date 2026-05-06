@@ -1,0 +1,130 @@
+---
+id: number-extractor
+title: "Number Extractor — Pull Integers, Decimals, Currency from Text"
+description: "Extract integers, decimals, percentages, currency from text. Skip dates / phones. Free, in-browser."
+sidebar_label: "number-extractor"
+keywords:
+  - "number extractor"
+  - "extract numbers from text"
+  - "currency extractor"
+  - "percentage extractor"
+  - "free number parser"
+  - "numeric extraction tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# number-extractor
+
+A number extractor scans text for numeric values — integers, decimals, percentages, currency amounts, scientific notation — and outputs a clean list, skipping numeric patterns that match dates, phone numbers, or version strings to avoid noise. The ZTools Number Extractor runs entirely in the browser, supports US ($1,234.56), European (1.234,56), and ISO formats, classifies each match (integer, decimal, percent, currency), and exports as a sorted, deduplicated list with optional unit / context columns.
+
+<ToolCTA toolId="number-extractor" toolName="number-extractor" />
+
+## Use cases
+
+### Invoice / receipt total extraction
+
+Paste an OCRed receipt; extractor pulls all currency amounts. Quickly verify subtotals + tax against expected.
+
+### Scientific paper data extraction
+
+Extract every numeric value (statistics, p-values, sample sizes) from a methods section into a CSV for meta-analysis.
+
+### Bulk number cleanup
+
+Customer-feedback survey with numeric ratings buried in free text. Extract to compute averages and distributions.
+
+### Product spec extraction
+
+Paste a product description; extract dimensions, weights, capacities for tabular comparison.
+
+## How it works
+
+1. **Paste text** — Free-form text or pasted document. Numbers in any format.
+2. **Apply numeric patterns** — Integers, decimals, scientific (1e6), currency ($1,234.56), percent (45%), units (10 kg).
+3. **Classify each match** — Integer / decimal / percent / currency / scientific. Tag with unit if detected.
+4. **Heuristic filter** — Skip patterns that look like dates (5/1/24), phones (555-1234), or version strings (1.2.3) to reduce false positives.
+5. **Export** — Plain list, CSV with classification + raw match + parsed value + context columns.
+
+## Examples
+
+**Input:** "$1,234.56 invoice with 8.5% tax = $1,339.50"
+
+**Output:** 1234.56 (currency), 8.5 (percent), 1339.50 (currency).
+
+---
+
+**Input:** "Sample n=42, p&lt;0.001, age 24.3 ± 3.1 years"
+
+**Output:** 42, 0.001, 24.3, 3.1.
+
+---
+
+**Input:** "Released v1.2.3 in 2024 with 10000 users"
+
+**Output:** Skips "1.2.3" (version) and "2024" (year). Keeps 10000.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it skip dates and phones?**</summary>
+
+Heuristics: 4-digit standalone integers (year-like), patterns like "555-1234", "(555) 123-4567", and explicit time formats are filtered out. Adjustable strictness if too aggressive.
+
+</details>
+
+<details>
+<summary>**What about scientific notation?**</summary>
+
+Yes — "1.5e6" and "1.5×10^6" both extract. Toggleable.
+
+</details>
+
+<details>
+<summary>**Currency: what currencies are recognised?**</summary>
+
+$, €, £, ¥, ₹, plus 3-letter codes (USD, EUR). Currency-symbol detection populates the unit column.
+
+</details>
+
+<details>
+<summary>**How are thousands separators handled?**</summary>
+
+Auto-detected by locale. US: 1,234.56 → 1234.56. EU: 1.234,56 → 1234.56. Toggle locale to change.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side.
+
+</details>
+
+<details>
+<summary>**Why are some numbers missing?**</summary>
+
+Heuristic filters err on the side of avoiding false positives (e.g. dates). If you need every digit cluster regardless of context, switch to "permissive" mode.
+
+</details>
+
+## Tips
+
+- Pick the right locale before extracting — wrong locale flips the meaning of comma vs period.
+- Use the context column (raw surrounding text) to verify high-stakes extractions.
+- For financial data, validate sums against expected totals — extraction misses one digit cleanly produces wrong totals.
+- Combine classification filters (only currency, only percent) for cleaner downstream analysis.
+- Run permissive mode then manually filter when context-aware mode is too aggressive.
+
+## Try it now
+
+The full number-extractor runs in your browser at **[https://ztools.zaions.com/number-extractor](https://ztools.zaions.com/number-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/number-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/number-extractor.mdx)*

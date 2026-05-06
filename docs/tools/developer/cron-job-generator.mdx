@@ -1,0 +1,113 @@
+---
+id: cron-job-generator
+title: "Cron Job Generator — Free Online, Validated"
+description: "Generate cron expressions visually. Pick frequency, validate, get the canonical 5-field expression."
+sidebar_label: "cron-job-generator"
+keywords:
+  - "cron job generator"
+  - "cron expression builder"
+  - "crontab generator online"
+  - "cron schedule tool"
+  - "cron validator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# cron-job-generator
+
+Cron expressions are 5-field strings ("0 0 * * *") that schedule recurring tasks: minute, hour, day-of-month, month, day-of-week. Easy to misremember; one wrong asterisk turns "every day at midnight" into "every minute". The ZTools Cron Job Generator builds expressions visually: pick frequency from a list (every minute, hourly, daily, weekly, monthly, custom), get the canonical 5-field expression with explanation. Validates against standard Unix cron syntax. Useful for crontab, GitHub Actions, GitLab CI, Vercel cron, AWS EventBridge.
+
+<ToolCTA toolId="cron-job-generator" toolName="cron-job-generator" />
+
+## Use cases
+
+### Schedule a daily backup
+
+"Every day at 2 AM" → 0 2 * * *. Tool shows the expression + plain-English explanation.
+
+### Schedule weekly report
+
+"Every Monday at 9 AM" → 0 9 * * 1.
+
+### Hourly task on weekdays
+
+"Every hour on weekdays" → 0 * * * 1-5.
+
+### Custom complex schedules
+
+"Every 15 min from 9 AM to 5 PM on weekdays" → */15 9-17 * * 1-5.
+
+## How it works
+
+1. **Pick frequency** — Common scenarios as buttons (hourly, daily, weekly, etc.) or build custom.
+2. **Set time** — Hour / minute / day-of-week pickers fill the cron fields.
+3. **Validate** — Tool checks against standard cron syntax. Warns on common mistakes (e.g. day-of-month + day-of-week interaction).
+4. **Output** — 5-field expression + plain-English description + next 5 expected run times.
+
+## Examples
+
+**Input:** "Every day at 2 AM"
+
+**Output:** 0 2 * * * — "minute=0 hour=2 every day". Next runs: tomorrow 2 AM, day after 2 AM, etc.
+
+---
+
+**Input:** "Every Monday at 9 AM"
+
+**Output:** 0 9 * * 1 — "Monday=1". Next 5 Mondays at 9 AM.
+
+---
+
+**Input:** "Every 15 min weekdays 9-5"
+
+**Output:** */15 9-17 * * 1-5.
+
+## Frequently asked questions
+
+<details>
+<summary>**Day-of-month vs day-of-week?**</summary>
+
+Cron interprets "day-of-month=15 AND day-of-week=1" with OR semantics in most implementations — runs on both. To AND them, use a script wrapper.
+
+</details>
+
+<details>
+<summary>**6 fields vs 5?**</summary>
+
+Some systems (Quartz, Spring) add a "seconds" field at the start — 6 fields total. Tool toggles between standard 5 and Quartz 6.
+
+</details>
+
+<details>
+<summary>**Time zone?**</summary>
+
+cron uses the system's local time zone. For UTC scheduling, set TZ=UTC in the crontab.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Always test new cron expressions against the "next 5 runs" preview — confirms the schedule is what you expect.
+- For UTC/cross-timezone schedules, prefix crontab with TZ=UTC.
+- For very frequent jobs (every minute), consider whether cron is the right tool — message queues / event-driven systems often work better.
+- Validate with crontab.guru before deploying — independent verification.
+
+## Try it now
+
+The full cron-job-generator runs in your browser at **[https://ztools.zaions.com/cron-job-generator](https://ztools.zaions.com/cron-job-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/cron-job-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/cron-job-generator.mdx)*

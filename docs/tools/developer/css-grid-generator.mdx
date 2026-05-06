@@ -1,0 +1,130 @@
+---
+id: css-grid-generator
+title: "CSS Grid Generator — Visual Grid Layout Builder"
+description: "Visually build CSS Grid layouts: rows, columns, gaps, areas. Live preview, copy CSS code. Free, browser-only."
+sidebar_label: "css-grid-generator"
+keywords:
+  - "css grid generator"
+  - "grid layout builder"
+  - "css grid tool"
+  - "free grid generator"
+  - "visual css grid"
+  - "grid template areas tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-grid-generator
+
+A CSS Grid generator lets you visually build a CSS Grid layout — rows, columns, gaps, named areas — with a live preview and one-click copy of the resulting CSS, eliminating the trial-and-error of writing grid-template-* properties by hand. The ZTools CSS Grid Generator runs entirely in the browser, supports drag-to-resize columns + rows, named grid areas, gap configuration, and outputs both `display: grid` parent CSS and child `grid-area` placement, ready to paste into any project.
+
+<ToolCTA toolId="css-grid-generator" toolName="css-grid-generator" />
+
+## Use cases
+
+### Page-level layout
+
+Header / sidebar / main / footer holy-grail layout. Generator outputs `grid-template-areas: "header header" "sidebar main" "footer footer"` with named placement.
+
+### Card grids
+
+Responsive card grids using `repeat(auto-fit, minmax(250px, 1fr))`. Generator surfaces the auto-fit / auto-fill distinction visually.
+
+### Form layouts
+
+2-column form with labels left, inputs right. Grid handles alignment cleanly without absolute positioning hacks.
+
+### Dashboard layouts
+
+Multi-widget dashboard with nested grids. Generator outputs the parent grid; nest child grids in the generated areas.
+
+## How it works
+
+1. **Set grid dimensions** — Number of columns (1-12) and rows (1-12). Default unit is fr (fractional) — equal sizing across columns.
+2. **Resize tracks** — Drag column / row separators to set sizes (px, fr, %, auto). Mix-and-match supported (1fr / 200px / auto).
+3. **Set gaps** — Row gap and column gap in px / rem / em. Equal in both directions or different per axis.
+4. **(Optional) Name areas** — Click cells to assign to a named area (e.g. "header"). Multiple cells with same name merge.
+5. **Copy CSS** — Output: parent `display: grid` + `grid-template-columns/rows/areas/gap`; child `grid-area: header` etc. Copy + paste into your stylesheet.
+
+## Examples
+
+**Input:** 3-column equal grid with 16px gap
+
+**Output:** display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+
+---
+
+**Input:** Holy-grail layout: header + sidebar + main + footer
+
+**Output:** grid-template-areas: "header header" "sidebar main" "footer footer"; grid-template-columns: 200px 1fr; grid-template-rows: 60px 1fr 40px;
+
+---
+
+**Input:** Auto-fit card grid
+
+**Output:** grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+## Frequently asked questions
+
+<details>
+<summary>**Grid vs Flexbox: which to use?**</summary>
+
+Grid: 2D layouts (rows + columns simultaneously). Flexbox: 1D (single axis). Page layouts → grid; navigation bars → flex; cards inside a grid cell → flex.
+
+</details>
+
+<details>
+<summary>**What's the difference between fr and %?**</summary>
+
+fr = fractional unit; distributes available space after fixed-size tracks. % = percentage of container. fr is more flexible for responsive layouts.
+
+</details>
+
+<details>
+<summary>**When should I use named areas?**</summary>
+
+When the layout has semantic regions (header, sidebar, main, footer). Names beat numeric line references for readability and refactoring.
+
+</details>
+
+<details>
+<summary>**Auto-fit vs auto-fill?**</summary>
+
+auto-fit: empty tracks collapse to 0 — items expand. auto-fill: empty tracks remain — items don't expand. auto-fit is usually what you want for responsive cards.
+
+</details>
+
+<details>
+<summary>**Is the CSS uploaded?**</summary>
+
+No — generator runs in browser; output stays local until you copy.
+
+</details>
+
+<details>
+<summary>**Will this work in older browsers?**</summary>
+
+CSS Grid: all modern browsers (98%+ support since 2017). For IE11, fallback to flexbox or table-cell layouts.
+
+</details>
+
+## Tips
+
+- Start with named areas — semantic markup beats numeric grid lines for maintainability.
+- Use fr for flexible sizing; px for fixed sidebars / headers.
+- Inspect grid in DevTools — Chrome / Firefox both have visual grid overlays for debugging.
+- Combine grid (parent) + flex (child cells) — both excel at different layout problems.
+- For responsive: change grid-template-columns at breakpoints; the structure stays the same.
+
+## Try it now
+
+The full css-grid-generator runs in your browser at **[https://ztools.zaions.com/css-grid-generator](https://ztools.zaions.com/css-grid-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-grid-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/css-grid-generator.mdx)*

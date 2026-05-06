@@ -152,6 +152,28 @@ const TOOLS_TO_PUBLISH = [
   'audio-cutter','audio-format-converter','audio-joiner','audio-noise-reducer','gif-maker',
   'image-to-text-ocr','qr-code-scanner','screen-recorder','speech-to-text','video-compressor',
   'video-subtitle-extractor','video-thumbnail-generator','video-to-gif','voice-recorder',
+
+  // Batch 13: design + productivity + developer + extractor + legal — 55 tools (FINAL)
+  // Design (14)
+  'app-icon-generator','business-card-designer','collage-maker','color-blindness-simulator',
+  'email-signature-generator','icon-generator-svg','logo-maker','meme-generator',
+  'pattern-generator-advanced','photo-editor','poster-maker','social-media-banner-maker','whiteboard',
+  'youtube-thumbnail-maker',
+  // Productivity (14)
+  'checklist-maker','cover-letter-generator','daily-planner-advanced','decision-wheel-spinner',
+  'eisenhower-matrix-maker','flowchart-maker','goal-tracker','habit-tracker','kanban-board',
+  'meeting-cost-calculator','meeting-notes-generator','mind-map-maker','project-timeline-maker','resume-builder',
+  // Developer (10)
+  'api-response-mocker','cron-job-generator','css-flexbox-generator','css-grid-generator',
+  'git-command-generator','html-to-markdown-converter','json-to-typescript','markdown-editor',
+  'pixel-to-rem-converter','sql-formatter-pro',
+  // Extractor (10)
+  'date-time-extractor','domain-extractor','email-extractor','hashtag-mention-extractor',
+  'ip-address-extractor','keyword-extractor','lead-extractor','number-extractor',
+  'phone-number-extractor','url-extractor',
+  // Legal (7)
+  'contract-template-generator','cookie-policy-generator','disclaimer-generator','eula-generator',
+  'privacy-policy-generator','return-refund-policy-generator','terms-of-service-generator',
 ];
 
 // ---------------------------------------------------------------------------

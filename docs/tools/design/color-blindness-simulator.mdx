@@ -1,0 +1,113 @@
+---
+id: color-blindness-simulator
+title: "Color Blindness Simulator — Free, Browser-Only"
+description: "Simulate protanopia, deuteranopia, tritanopia. Verify designs work for color-blind users. Browser-only."
+sidebar_label: "color-blindness-simulator"
+keywords:
+  - "color blindness simulator"
+  - "deuteranopia simulator"
+  - "protanopia checker"
+  - "wcag color audit"
+  - "accessible design tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-blindness-simulator
+
+A color blindness simulator transforms colors to show how a design appears to users with different types of color vision deficiency: protanopia (red-blind, ~1% of men), deuteranopia (green-blind, ~5% of men — most common), tritanopia (blue-blind, very rare), and achromatopsia (full color blindness, extremely rare). About 8% of men and 0.5% of women globally have some form of color blindness. The ZTools Color Blindness Simulator applies the standard transformation matrices (per Brettel/Viénot 1997 model) to images and color swatches, runs entirely client-side, and helps verify your design communicates with cues other than color alone.
+
+<ToolCTA toolId="color-blindness-simulator" toolName="color-blindness-simulator" />
+
+## Use cases
+
+### Audit a chart for accessibility
+
+A red/green status indicator becomes ambiguous for deuteranopes. Simulator shows the problem; fix with shape, label, or different palette.
+
+### Check a UI design pre-launch
+
+Critical buttons (success / error) shouldn't depend on color alone. Simulator confirms they're distinguishable.
+
+### Test a logo / brand palette
+
+Brand colors picked for "vibrancy" can collapse for color-blind viewers. Simulator reveals which combinations to avoid.
+
+### Comply with WCAG accessibility guidelines
+
+WCAG 1.4.1 forbids using color alone to convey information. Simulator helps verify compliance.
+
+## How it works
+
+1. **Drop image or pick colors** — Upload an image, paste a palette, or screenshot a UI.
+2. **Pick simulation type** — Protanopia, deuteranopia, tritanopia, achromatopsia. Plus the milder anomalous trichromacy variants.
+3. **Apply matrix** — Brettel/Viénot 1997 transformation matrices (the standard model used by tools like Sim Daltonism, Color Oracle).
+4. **Display side-by-side** — Original + simulated. Toggle between simulation types. Export annotated comparison.
+
+## Examples
+
+**Input:** Red / green chart, deuteranopia simulation
+
+**Output:** Both colors converge to similar muddy tones — chart now ambiguous. Add labels or shape encoding.
+
+---
+
+**Input:** Brand palette with multiple greens
+
+**Output:** Greens collapse to single tone for deuteranopes. Diversify with luminance contrast.
+
+---
+
+**Input:** Stoplight icons
+
+**Output:** Red and green become very similar; rely on position (top vs bottom) and shape, not just color.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate are the simulations?**</summary>
+
+Brettel/Viénot 1997 is the academic standard, validated against actual color-blind test subjects. Real perceived differences vary individually; the simulation is representative, not exact.
+
+</details>
+
+<details>
+<summary>**Most common form?**</summary>
+
+Deuteranopia (red-green, ~5% of men). Protanopia (~1%). Tritanopia and full achromatopsia rare. Always test deuteranopia at minimum.
+
+</details>
+
+<details>
+<summary>**WCAG implications?**</summary>
+
+WCAG 1.4.1 (Use of Color) — never use color alone. Add icons, patterns, labels, position. Simulator helps verify but doesn't replace pattern-based encoding.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in browser.
+
+</details>
+
+## Tips
+
+- Always test deuteranopia first — it's the most common form (~5% of men).
+- Add redundant cues (icon + label + color) so color isn't load-bearing.
+- For data viz, use ColorBrewer / viridis / cubehelix palettes — designed to work for color-blind viewers.
+- Test before launch, not after — design changes are cheaper before users complain.
+
+## Try it now
+
+The full color-blindness-simulator runs in your browser at **[https://ztools.zaions.com/color-blindness-simulator](https://ztools.zaions.com/color-blindness-simulator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-blindness-simulator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/design/color-blindness-simulator.mdx)*

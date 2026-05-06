@@ -1,0 +1,132 @@
+---
+id: json-to-typescript
+title: "JSON to TypeScript Interface Generator — Type-Safe in One Click"
+description: "Generate TypeScript interfaces from any JSON object. Detects nested types, optional fields, arrays, unions. Saves hours of manual typing."
+sidebar_label: "json-to-typescript"
+keywords:
+  - "json to typescript"
+  - "typescript interface generator"
+  - "json to ts"
+  - "generate typescript from json"
+  - "ts type generator"
+  - "json types"
+  - "free typescript generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-to-typescript
+
+A JSON-to-TypeScript converter analyzes a JSON sample (typically an API response) and emits matching TypeScript `interface` definitions, automatically inferring types for primitives, arrays, nested objects, and union types from sibling examples. The ZTools JSON-to-TypeScript tool handles deeply nested structures, optional fields (when keys appear in some objects but not others within an array), and union types (when array elements have different shapes), producing clean, idiomatic TypeScript code ready to paste into a `.d.ts` or `.ts` file.
+
+<ToolCTA toolId="json-to-typescript" toolName="json-to-typescript" />
+
+## Use cases
+
+### Adding type safety to a third-party API integration
+
+You're calling a REST API that has no TypeScript SDK. Paste a sample response, generate interfaces, and your code is now type-safe — no more `response: any` and runtime KeyError surprises. Saves an hour of manual interface authoring per endpoint.
+
+### Generating types from a JSON schema or fixture file
+
+Your test fixtures are JSON files. Convert them to TypeScript interfaces, then your test code can import the same types your production code uses — single source of truth for the data shape.
+
+### Migrating a JavaScript codebase to TypeScript
+
+During incremental migration, convert sample data shapes to TypeScript interfaces and use them to type the previously-untyped JS code. Dramatically reduces the manual typing effort during conversion.
+
+### Documenting a data structure for new team members
+
+A TypeScript interface is the most precise documentation for a data shape. Generate from a sample, drop into your docs or types module, and new developers see the entire structure at a glance.
+
+## How it works
+
+1. **Paste a JSON sample into the input pane** — Single object or array of objects. The tool walks the structure recursively to infer all nested types.
+2. **Configure naming** — Root interface name (default `RootObject`). Nested interfaces are named after their parent key (e.g., `address` → `Address` interface).
+3. **Click Generate** — The tool builds an AST of the JSON, infers a TypeScript type for every leaf and node, and emits `interface` declarations in dependency order.
+4. **Review the output** — Generated TypeScript appears in the right pane with syntax highlighting. Optional fields are marked with `?`; union types appear as `string | number`.
+5. **Copy or download** — Save as `.ts` or paste into your project. The output is idiomatic TypeScript ready to be consumed by `tsc` without modification.
+
+## Examples
+
+**Input:** \{ "name": "Ahsan", "age": 32, "tags": ["admin", "user"] \}
+
+**Output:** interface RootObject \{
+  name: string;
+  age: number;
+  tags: string[];
+\}
+
+---
+
+**Input:** [\{ "id": 1, "label": "a" \}, \{ "id": 2, "label": "b", "extra": true \}]
+
+**Output:** interface RootObject \{
+  id: number;
+  label: string;
+  extra?: boolean;
+\}
+
+## Frequently asked questions
+
+<details>
+<summary>**How does the tool handle null values?**</summary>
+
+A field that is sometimes null produces `T | null`. A field that is always null produces just `null` (and a warning suggests providing a richer sample).
+
+</details>
+
+<details>
+<summary>**What about union types in arrays?**</summary>
+
+When array elements have different shapes (e.g., `[\{type: "a", x: 1\}, \{type: "b", y: 2\}]`), the tool generates a union type and emits both interfaces. Discriminated unions work especially well.
+
+</details>
+
+<details>
+<summary>**Can I generate types from a JSON Schema directly?**</summary>
+
+This tool infers types from sample data. For JSON Schema input, use `json-schema-to-typescript` (npm package) or our JSON Schema Generator tool to produce a schema first.
+
+</details>
+
+<details>
+<summary>**Are dates auto-detected?**</summary>
+
+JSON has no native date type — dates appear as strings. The tool defaults to `string`. If you want stricter typing, manually replace with `Date` or a branded type after generation.
+
+</details>
+
+<details>
+<summary>**Does the output use `interface` or `type`?**</summary>
+
+Default is `interface` (better for object shapes, supports declaration merging). A toggle switches to `type` aliases if you prefer.
+
+</details>
+
+<details>
+<summary>**Will the generated types catch every runtime mismatch?**</summary>
+
+They're inferred from one sample, so edge cases not in your sample (different shapes, unexpected nulls) won't be caught. Always validate at the boundary with `zod` or `io-ts` for production code.
+
+</details>
+
+## Tips
+
+- Provide a representative sample — include both the common case and an edge case (e.g., a record with optional fields populated).
+- After generating, replace `string` with `Date`, branded types, or enums where the JSON `string` actually represents a richer type.
+- For runtime validation, pair generated types with a `zod` schema — types alone don't protect against malformed input at runtime.
+- Re-generate when the API changes; diff the new output against the old to spot breaking changes.
+
+## Try it now
+
+The full json-to-typescript runs in your browser at **[https://ztools.zaions.com/json-to-typescript](https://ztools.zaions.com/json-to-typescript)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-to-typescript)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/json-to-typescript.mdx)*

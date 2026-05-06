@@ -1,0 +1,130 @@
+---
+id: ip-address-extractor
+title: "IP Address Extractor — IPv4 + IPv6 from Logs & Text"
+description: "Extract IPv4 and IPv6 addresses from logs, text, or HTML. Validates octets, deduplicates. Free, in-browser."
+sidebar_label: "ip-address-extractor"
+keywords:
+  - "ip address extractor"
+  - "extract ip from logs"
+  - "ipv4 extractor"
+  - "ipv6 extractor"
+  - "free ip parser"
+  - "log ip extractor"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ip-address-extractor
+
+An IP address extractor scans text — server logs, firewall reports, packet dumps, support tickets — and pulls out every valid IPv4 (e.g. 192.168.1.1) and IPv6 address (e.g. 2001:db8::1), validating each against the address format and deduplicating the result. The ZTools IP Address Extractor runs entirely in the browser, supports both protocol versions, drops obvious non-IPs (invalid octets, malformed IPv6), and exports a clean list for use in firewalls, allow / deny lists, geo-IP lookup, or incident response.
+
+<ToolCTA toolId="ip-address-extractor" toolName="ip-address-extractor" />
+
+## Use cases
+
+### Log analysis
+
+Paste a 10MB nginx access log; extractor pulls every client IP. Feed list into geo-IP lookup or rate-limiting rules.
+
+### Incident response
+
+Suspect IPs from intrusion alerts collected in a single pass. Pipe to threat-intelligence lookup before blocking.
+
+### Firewall rule generation
+
+List of trusted IPs scattered across a config doc. Extract once, format as iptables / Cloudflare allow-list rules.
+
+### Traffic-source audit
+
+Application logs with embedded IPs. Extract + group by /24 subnet to identify large source clusters or potential abuse.
+
+## How it works
+
+1. **Paste source text** — Logs, configs, JSON dumps. No size limit other than browser memory.
+2. **Match IPv4 pattern** — Four octets 0-255 separated by dots. Strict octet validation drops "999.999.999.999" and similar garbage.
+3. **Match IPv6 pattern** — 8 hex groups separated by colons; supports compressed (::) and embedded IPv4 (::ffff:1.2.3.4) forms.
+4. **Deduplicate + sort** — Exact dedup; optional: numeric sort (groups identical /24 subnets together).
+5. **Export** — Plain list or CSV with version column (v4/v6) and frequency count.
+
+## Examples
+
+**Input:** nginx log: "192.168.1.1 - - [date] GET /…"
+
+**Output:** 192.168.1.1
+
+---
+
+**Input:** Mixed: "Client 10.0.0.1, server 2001:db8::1, fail 999.1.1.1"
+
+**Output:** 10.0.0.1, 2001:db8::1 (the 999. address rejected by octet validation)
+
+---
+
+**Input:** Frequency analysis on 10k log lines
+
+**Output:** Top 10 IPs sorted by request count.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it handle IPv6 compressed notation?**</summary>
+
+Yes — "::1", "fe80::", "2001:db8:0:0:0:0:0:1" all parse correctly. Output is normalised to standard form unless raw mode requested.
+
+</details>
+
+<details>
+<summary>**What about CIDR blocks (10.0.0.0/24)?**</summary>
+
+Optional CIDR mode extracts both the IP and prefix length. Default extracts only the IP portion.
+
+</details>
+
+<details>
+<summary>**Why are some "valid-looking" IPs dropped?**</summary>
+
+Octet validation: each must be 0-255. "256.1.1.1" is rejected. Heuristics also drop version strings (1.2.3.4 inside "version 1.2.3.4 build 5") if explicit context is detected.
+
+</details>
+
+<details>
+<summary>**Can I extract MAC addresses?**</summary>
+
+No — different format. Use a regex or a dedicated MAC-extractor tool. (MAC = 00:1A:2B:3C:4D:5E hex pattern.)
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only. Logs may contain sensitive info; tool processes locally.
+
+</details>
+
+<details>
+<summary>**Should I trust the extracted list?**</summary>
+
+Always validate before acting (block, allow, charge). Logs can contain spoofed IPs; geo-IP lookups beat raw extraction for accuracy.
+
+</details>
+
+## Tips
+
+- Sort by /24 prefix to spot subnet-level patterns (a single source spreading across many client IPs).
+- For abuse / fraud analysis, combine with geo-IP and threat-intel lookups — raw IPs alone are limited.
+- Strip private (RFC1918) ranges if extracting from external-traffic logs to focus on real internet sources.
+- Use frequency counts to spot top talkers; then drill into their full requests, not just IP.
+- Be careful before adding IPs to deny lists — false positives lock out legitimate users behind shared NAT or proxies.
+
+## Try it now
+
+The full ip-address-extractor runs in your browser at **[https://ztools.zaions.com/ip-address-extractor](https://ztools.zaions.com/ip-address-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ip-address-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/ip-address-extractor.mdx)*

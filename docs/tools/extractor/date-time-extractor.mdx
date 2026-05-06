@@ -1,0 +1,130 @@
+---
+id: date-time-extractor
+title: "Date & Time Extractor — Pull Dates from Text, ISO Format"
+description: "Extract dates and times from text in many formats. Normalise to ISO 8601. Free, in-browser, locale-aware."
+sidebar_label: "date-time-extractor"
+keywords:
+  - "date extractor"
+  - "extract dates from text"
+  - "time extractor"
+  - "iso 8601 normaliser"
+  - "date parser"
+  - "free date extractor"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# date-time-extractor
+
+A date and time extractor scans free-form text and pulls out every date and time expression it recognises — "Jan 5, 2024", "5/1/24", "2024-01-05", "next Tuesday", "2 hours ago" — normalising them to ISO 8601 (2024-01-05T00:00:00) for downstream sorting, filtering, or programmatic use. The ZTools Date & Time Extractor runs entirely in the browser, supports common locales (US MM/DD vs UK/EU DD/MM), relative dates ("yesterday", "last Friday"), partial dates ("January 2024"), and outputs both raw match + ISO normalised form.
+
+<ToolCTA toolId="date-time-extractor" toolName="date-time-extractor" />
+
+## Use cases
+
+### Email / chat archive timeline
+
+Paste a long email thread with embedded dates. Extractor surfaces every date mentioned, useful for reconstructing event timelines.
+
+### Document version tracking
+
+Old document mentioning multiple revision dates. Extract to chronologically order revisions.
+
+### Resume / CV date audit
+
+Verify date consistency across resume entries. Extractor surfaces every "Jan 2020 – Mar 2022" range; spot gaps and overlaps.
+
+### Meeting-notes deadlines
+
+Past meeting notes contain references to "by Friday", "next month", "Q3". Extract + normalise relative to the note's date for actionable deadlines.
+
+## How it works
+
+1. **Paste source text** — Free-form English (other locales available). Multi-paragraph supported.
+2. **Pick locale** — US (MM/DD), UK / EU (DD/MM), ISO (YYYY-MM-DD). Determines how ambiguous dates parse.
+3. **Pick reference date** — Anchor for relative dates. "Yesterday" parses against this reference. Default = today.
+4. **Apply parsers** — Multiple parsers: explicit dates, relative dates, partial dates, time-only expressions. Best match wins per text fragment.
+5. **Normalise + export** — ISO 8601 output. CSV with raw match + parsed value + confidence column.
+
+## Examples
+
+**Input:** "Meeting on Jan 5, 2024 at 3pm UK time"
+
+**Output:** 2024-01-05T15:00:00 (Europe/London).
+
+---
+
+**Input:** "The deadline is next Friday"
+
+**Output:** If reference = 2026-05-05 Tuesday → 2026-05-15 (next Friday in 10 days)
+
+---
+
+**Input:** Mixed locales: "5/1/24 in US format vs 1/5/24 in UK format"
+
+**Output:** Both parse to 2024-05-01 vs 2024-01-05 depending on locale toggle.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it handle ambiguous dates?**</summary>
+
+Defers to the locale you select. "5/1/24" = May 1 (US) or Jan 5 (UK / EU). When mixed, run twice with different locales and compare.
+
+</details>
+
+<details>
+<summary>**What about timezones?**</summary>
+
+If the text specifies a TZ ("3pm EST", "15:00 UTC"), extractor preserves it. Otherwise, output is naive (no TZ) and you supply context.
+
+</details>
+
+<details>
+<summary>**Can it parse "two weeks ago"?**</summary>
+
+Yes — relative phrases parse against your reference date. "2 weeks ago" from 2026-05-05 → 2026-04-21.
+
+</details>
+
+<details>
+<summary>**Are partial dates extracted?**</summary>
+
+Yes — "January 2024" → 2024-01-01 (1st of the month) with low confidence flag. Use confidence column to filter for full dates only.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only.
+
+</details>
+
+<details>
+<summary>**What languages are supported?**</summary>
+
+Primary: English. Optional locales: French, German, Spanish, Italian. Date words ("janvier", "lundi") parse in those locales.
+
+</details>
+
+## Tips
+
+- Always set the locale before extracting — wrong locale silently produces wrong dates for ambiguous formats.
+- Use the reference date when extracting from old documents — relative phrases need the right anchor.
+- For audit work, keep the raw match alongside the parsed ISO value — preserves source intent.
+- Filter by confidence: high-confidence matches first; low-confidence (partial dates) flagged for manual review.
+- Combine with the date-calculator tool for downstream date-arithmetic on extracted timestamps.
+
+## Try it now
+
+The full date-time-extractor runs in your browser at **[https://ztools.zaions.com/date-time-extractor](https://ztools.zaions.com/date-time-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/date-time-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/date-time-extractor.mdx)*

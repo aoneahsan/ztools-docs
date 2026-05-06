@@ -1,0 +1,130 @@
+---
+id: url-extractor
+title: "URL Extractor — Extract All Links from Text or HTML"
+description: "Extract every URL (http, https, ftp, mailto) from pasted text. Dedupe, validate, classify by domain. Free, in-browser."
+sidebar_label: "url-extractor"
+keywords:
+  - "url extractor"
+  - "extract links from text"
+  - "link extractor"
+  - "free url extractor"
+  - "pull urls from html"
+  - "url scraper"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# url-extractor
+
+A URL extractor scans text or HTML and pulls every URL it contains — http(s), ftp, mailto, tel, and custom schemes — producing a clean, deduplicated list ready for link-checking, archival, redirect testing, or competitive analysis. The ZTools URL Extractor runs entirely in the browser, recognises both bare URLs and HTML &lt;a href="…"&gt;, deduplicates exact matches and normalised matches (trailing slash, scheme), and exports plain text or CSV with domain classification.
+
+<ToolCTA toolId="url-extractor" toolName="url-extractor" />
+
+## Use cases
+
+### Link audit on a long article
+
+Paste the full HTML or markdown of a published article; extractor lists every outgoing link. Run them through a link-checker tool to catch 404s before readers do.
+
+### Backlink list assembly
+
+Forum thread, comments page, or directory listing with many references to other sites. Extract for SEO research or partner outreach.
+
+### Archiving research bookmarks
+
+Long email thread with embedded URLs. Extract once for a flat reading list rather than scrolling back through quoted replies.
+
+### Cleaning markdown / converting to plain links
+
+Convert mixed [text](url) and bare URLs into a single normalised list for migration to a different format.
+
+## How it works
+
+1. **Paste source** — Plain text, HTML, markdown, JSON. Tool tokenises preserving URL boundaries.
+2. **Match URL patterns** — Regex matches: scheme://host[:port][/path][?query][#fragment]. Plus mailto:, tel:, ftp:, ws://, wss:// schemes.
+3. **Normalise** — Optional: collapse trailing slashes, downcase host, strip default ports (:80, :443). Normalisation increases dedup hits.
+4. **Classify by domain** — Each URL tagged with its registrable domain (example.com from sub.example.com/path). Useful for grouping.
+5. **Export** — Plain list, CSV with domain + path + query columns, or JSON for downstream processing.
+
+## Examples
+
+**Input:** "See https://a.com and visit b.com/page or read www.c.org/article"
+
+**Output:** 3 URLs: https://a.com, b.com/page, www.c.org/article (with optional auto-prefix to https://).
+
+---
+
+**Input:** Markdown: "[click](https://x.com) or https://y.com"
+
+**Output:** https://x.com, https://y.com.
+
+---
+
+**Input:** HTML: &lt;a href="https://a.com"&gt;a&lt;/a&gt; + plain "see https://a.com"
+
+**Output:** https://a.com (deduplicated).
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it find bare domains without scheme?**</summary>
+
+Optional. "Strict" mode requires explicit scheme; "loose" mode catches "example.com/path". Loose mode has more false positives (e.g. file paths matching domain pattern).
+
+</details>
+
+<details>
+<summary>**How are tracking parameters handled?**</summary>
+
+Optional UTM stripping to canonicalise URLs (drop utm_source, utm_medium, etc.). Useful for dedup and clean archives.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only. Privacy by design.
+
+</details>
+
+<details>
+<summary>**Can I extract from a live URL?**</summary>
+
+No — extractor reads pasted text. To extract from a live page, save the page HTML and paste it.
+
+</details>
+
+<details>
+<summary>**Why do mailto: links show up?**</summary>
+
+They are URIs (mailto: is a URI scheme). Filter by scheme if you only want web URLs (http/https).
+
+</details>
+
+<details>
+<summary>**How do I sort by domain frequency?**</summary>
+
+CSV export includes domain column; sort in spreadsheet to find most-linked sites.
+
+</details>
+
+## Tips
+
+- Run extracted lists through a link-checker before publishing — broken outbound links hurt SEO and reader trust.
+- Strip UTM parameters before archival; they obscure the canonical resource.
+- For competitive analysis, extract URLs from competitor blog posts and find common backlink targets.
+- When extracting from forums, dedupe before opening — many threads quote the same URL repeatedly.
+- Combine with domain-extractor for high-level domain frequency analysis.
+
+## Try it now
+
+The full url-extractor runs in your browser at **[https://ztools.zaions.com/url-extractor](https://ztools.zaions.com/url-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/url-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/url-extractor.mdx)*

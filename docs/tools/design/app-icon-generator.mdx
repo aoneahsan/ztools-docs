@@ -1,0 +1,130 @@
+---
+id: app-icon-generator
+title: "App Icon Generator — iOS, Android, Web, PWA Icon Sets"
+description: "Generate full app icon sets for iOS, Android, web favicon, PWA from a single source SVG / PNG. Free, no upload."
+sidebar_label: "app-icon-generator"
+keywords:
+  - "app icon generator"
+  - "ios icon generator"
+  - "android icon generator"
+  - "pwa icon generator"
+  - "favicon generator"
+  - "free app icon set"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# app-icon-generator
+
+An app icon generator takes a single high-resolution source image (typically 1024×1024 PNG or SVG) and outputs every icon size required by iOS, Android, web favicon standards, and PWAs — eliminating the manual resize / export rountine for the dozens of files modern apps require. The ZTools App Icon Generator runs entirely in the browser, generates the standard size sets per platform (iOS: 20–1024px; Android: mdpi–xxxhdpi 48–192px + adaptive icon layers; web: favicon.ico + apple-touch + manifest), and packages all output into a downloadable ZIP.
+
+<ToolCTA toolId="app-icon-generator" toolName="app-icon-generator" />
+
+## Use cases
+
+### New iOS / Android app launch
+
+Apple requires ~12 icon sizes; Google requires multiple density buckets + adaptive icon layers. Hand-resizing eats half a day; generator does it in 30 seconds.
+
+### Web app / PWA setup
+
+PWA needs favicon (16px, 32px), apple-touch (180px), manifest icons (192px, 512px). Generator outputs the set + a manifest.json snippet.
+
+### Browser extension icon
+
+Chrome / Firefox extensions need 16px, 48px, 128px (Chrome) or 16/32/48/96 (Firefox). Generator handles both browsers from one source.
+
+### Brand refresh
+
+Updated logo: regenerate the entire icon set in seconds. Push to all platforms simultaneously without re-doing manual resize.
+
+## How it works
+
+1. **Upload source image** — SVG (preferred — vector, infinite resize) or 1024×1024 PNG (high enough for the largest output). Square aspect ratio required.
+2. **Pick target platforms** — iOS, Android, web, PWA, browser extension. Multiple selectable; tool generates all chosen sets.
+3. **Configure adaptive icons (Android)** — Android adaptive icons require foreground + background as separate layers. Tool can generate from a single source with auto-padding, or accept separate layers.
+4. **Generate set** — Tool resizes the source to each platform's required dimensions. SVG → PNG via Canvas; PNG → smaller PNG via downsampling.
+5. **Download ZIP** — All generated PNGs in folder structure matching each platform's expected layout. Drop into your project; reference per platform docs.
+
+## Examples
+
+**Input:** 1024×1024 source PNG → iOS + Android + PWA
+
+**Output:** ZIP with ~30 PNG files; iOS folder, Android folder (per density), PWA folder.
+
+---
+
+**Input:** SVG source with adaptive icon layers
+
+**Output:** Android adaptive icons in foreground + background layers; classic icons fall back for older Android.
+
+---
+
+**Input:** Browser-extension only (Chrome)
+
+**Output:** 16px, 48px, 128px PNGs + manifest.json snippet ready to drop into a WXT or vanilla-MV3 project.
+
+## Frequently asked questions
+
+<details>
+<summary>**What size source should I use?**</summary>
+
+SVG = infinite (resize without quality loss). PNG = at least 1024×1024 (the largest needed by iOS). Smaller sources upscale poorly.
+
+</details>
+
+<details>
+<summary>**Why does Android need so many sizes?**</summary>
+
+Android supports many screen densities (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi) — each gets its own optimised icon. Plus adaptive icons for modern Android (8.0+) introduce a separate foreground+background layer system.
+
+</details>
+
+<details>
+<summary>**What about iOS adaptive icons (iOS 18+)?**</summary>
+
+iOS 18+ supports tinted / dark / clear modes from a single icon. Generator can produce variants; final tinting is iOS-side.
+
+</details>
+
+<details>
+<summary>**Is the source image uploaded?**</summary>
+
+No — Canvas processes entirely in the browser. Your icon stays private.
+
+</details>
+
+<details>
+<summary>**Are favicon.ico files generated?**</summary>
+
+Yes — favicon.ico bundles 16px + 32px + 48px PNGs into the legacy ICO format for older browser compatibility.
+
+</details>
+
+<details>
+<summary>**Can I regenerate just one platform later?**</summary>
+
+Yes — pick only the platform you need; other folders skipped.
+
+</details>
+
+## Tips
+
+- Always start from SVG when possible. Vector resize beats any pixel-based downsampling.
+- Test the smallest size (16px favicon, 24px notification) — many designs work at 1024px but lose detail at 16px. Simplify if needed.
+- Use the same icon across platforms when possible — brand consistency. Slight per-platform optimisations only when needed.
+- For PWA, manifest icons (192, 512) are the most important — they show on home-screen install.
+- Re-run the generator on every branding update; missing size = wrong icon shown on a niche device.
+
+## Try it now
+
+The full app-icon-generator runs in your browser at **[https://ztools.zaions.com/app-icon-generator](https://ztools.zaions.com/app-icon-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/app-icon-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/design/app-icon-generator.mdx)*

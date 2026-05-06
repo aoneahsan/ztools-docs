@@ -1,0 +1,131 @@
+---
+id: sql-formatter-pro
+title: "SQL Formatter Pro — Pretty-Print SQL Queries"
+description: "Format messy SQL into clean, indented queries. Supports MySQL, Postgres, SQL Server, BigQuery dialects. Free."
+sidebar_label: "sql-formatter-pro"
+keywords:
+  - "sql formatter"
+  - "sql beautifier"
+  - "free sql formatter"
+  - "pretty print sql"
+  - "sql indent tool"
+  - "mysql formatter"
+  - "postgresql formatter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sql-formatter-pro
+
+A SQL formatter takes a flat or messy SQL query and rewrites it into a clean, indented, line-broken form that humans can actually read — keywords uppercased, JOINs aligned, subqueries indented, conditions broken across lines — making code review, debugging, and documentation dramatically faster. The ZTools SQL Formatter Pro runs entirely in the browser, supports MySQL / PostgreSQL / SQL Server / Oracle / BigQuery / Snowflake / SQLite dialects, configurable indent (2 / 4 / tabs), keyword case (UPPER / lower / preserve), and outputs ready-to-paste formatted SQL.
+
+<ToolCTA toolId="sql-formatter-pro" toolName="sql-formatter-pro" />
+
+## Use cases
+
+### Code review
+
+Pull request includes a 500-character SQL query on one line. Format first; review second. Dramatically faster than parsing the raw blob.
+
+### Debugging slow queries
+
+Production slow query in monitoring tool. Format to read its actual structure; identify the JOIN order or subquery that's the bottleneck.
+
+### Documentation
+
+Including SQL examples in runbooks or docs. Formatted queries are readable; minified queries are not.
+
+### Cross-team handoff
+
+Data analyst sends a query to engineer. Format ensures both read it the same way; reduces mistranslation.
+
+## How it works
+
+1. **Paste SQL** — Single query or multi-statement script. Tool tokenises preserving comments and strings.
+2. **Pick dialect** — Different dialects have slightly different keywords (MySQL's LIMIT vs SQL Server's TOP, BigQuery's STRUCT, Postgres's LATERAL). Right dialect = right formatting.
+3. **Configure style** — Indent: 2 spaces / 4 spaces / tabs. Keyword case: UPPER / lower / preserve. Comma placement: trailing or leading.
+4. **Format** — Tool re-emits SQL with proper indentation, line breaks at major clauses (SELECT / FROM / WHERE / JOIN / GROUP BY / ORDER BY), aligned subqueries.
+5. **Copy / export** — Output to clipboard or download. Original SQL untouched; format is purely cosmetic — the executed result is identical.
+
+## Examples
+
+**Input:** SELECT a,b FROM t WHERE c=1 AND d&gt;2 GROUP BY a ORDER BY b
+
+**Output:** SELECT a, b\\nFROM t\\nWHERE c = 1\\n  AND d &gt; 2\\nGROUP BY a\\nORDER BY b;
+
+---
+
+**Input:** Subquery: SELECT * FROM (SELECT id FROM users) sub
+
+**Output:** SELECT *\\nFROM (\\n  SELECT id\\n  FROM users\\n) sub;
+
+---
+
+**Input:** CTE with WITH clause
+
+**Output:** WITH cte AS (...) SELECT ... → properly indented across multiple lines.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will formatting change query behaviour?**</summary>
+
+No — formatting only adjusts whitespace and case. The parsed AST is identical; execution result is identical.
+
+</details>
+
+<details>
+<summary>**Why dialect-aware formatting?**</summary>
+
+BigQuery uses backticks for tables; Postgres uses double-quotes; MySQL uses backticks. Functions differ (DATE_TRUNC vs FORMAT_TIMESTAMP). Dialect-aware formatting respects each.
+
+</details>
+
+<details>
+<summary>**Should I use uppercase keywords?**</summary>
+
+Convention varies. Most style guides recommend UPPER for keywords (SELECT, WHERE) for visual contrast against identifiers. Some teams prefer lower for less visual noise. Pick one project-wide.
+
+</details>
+
+<details>
+<summary>**Is the SQL uploaded?**</summary>
+
+No — entirely client-side. Sensitive query logic stays private.
+
+</details>
+
+<details>
+<summary>**Can it format dynamic SQL with placeholders?**</summary>
+
+Yes — placeholders ($1, ?, :name) preserved. Tool sees them as values, not keywords.
+
+</details>
+
+<details>
+<summary>**What about embedded SQL in strings?**</summary>
+
+Format the SQL alone, then paste into your code. Formatter doesn't know about your host language's string escaping.
+
+</details>
+
+## Tips
+
+- Set up an automatic formatter in your editor (sqlfluff, prettier-plugin-sqlfluff). Manual formatting is unsustainable for large codebases.
+- Pick a project-wide style and document it. Inconsistency is the real productivity drain.
+- Format before commit — clean diffs make code review faster.
+- For very long queries (multi-hundred lines), break into CTEs (WITH clauses); each CTE is an independent block easier to read than nested subqueries.
+- Always test the formatted query — copy-paste, run, confirm same result. Trust but verify.
+
+## Try it now
+
+The full sql-formatter-pro runs in your browser at **[https://ztools.zaions.com/sql-formatter-pro](https://ztools.zaions.com/sql-formatter-pro)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sql-formatter-pro)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/sql-formatter-pro.mdx)*

@@ -1,0 +1,130 @@
+---
+id: meeting-cost-calculator
+title: "Meeting Cost Calculator — Real-Time Cost of Your Meetings"
+description: "Calculate the cost of a meeting from headcount, average salary, and duration. Live ticker. Free, browser-only."
+sidebar_label: "meeting-cost-calculator"
+keywords:
+  - "meeting cost calculator"
+  - "meeting cost"
+  - "cost of meetings"
+  - "meeting roi"
+  - "reduce meetings"
+  - "meeting price calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# meeting-cost-calculator
+
+A meeting cost calculator multiplies meeting duration × number of attendees × average hourly cost (salary + overhead) to produce a single dollar figure showing what the meeting actually costs the organisation, providing a hard data point against which to challenge unnecessary or oversized meetings. The ZTools Meeting Cost Calculator runs entirely in the browser, supports per-attendee salary input (or a flat average), accounts for fully-loaded cost (typically 1.3-1.5× base salary for benefits + overhead), and includes a live "ticker" mode that increments cost in real time during the meeting.
+
+<ToolCTA toolId="meeting-cost-calculator" toolName="meeting-cost-calculator" />
+
+## Use cases
+
+### Manager justifying smaller meetings
+
+Recurring weekly all-hands: 25 people × 1 hour × $80/hr loaded = $2000 / week, $104k / year. Concrete number changes the conversation about whether the meeting needs all 25.
+
+### Pre-meeting framing
+
+Show the cost figure on the agenda slide. "This 90-min meeting costs ~$1500 — let's respect that." Behaviour change measurable in tighter agendas and earlier endings.
+
+### Quarterly meeting audit
+
+Sum the calculated cost of every recurring meeting on a team's calendar. Often surfaces 30-50% of meetings that can be cancelled, shortened, or made async with no loss.
+
+### Pitching async-first cultures
+
+Hard cost numbers anchor the case for async-first work — same coordination, fraction of the cost.
+
+## How it works
+
+1. **Enter headcount** — Number of attendees (use the actual count, not the invite list — calendar accept rates run 70-80%).
+2. **Enter average salary** — Per-attendee or aggregate. Default: median engineer ~$120k base; manager ~$180k; senior leader ~$250k+. Adjust to your org.
+3. **Apply loading factor** — Fully-loaded cost = base salary × ~1.3-1.5 (benefits, taxes, overhead). Conservative: 1.3x; HR-standard: 1.4x.
+4. **Enter duration** — In minutes. Includes prep / context-switching cost (often 10-20 min per meeting on top of scheduled time).
+5. **Compute** — Total cost = headcount × hourly cost × duration ÷ 60. Live ticker option for during-meeting awareness.
+
+## Examples
+
+**Input:** 10 engineers ($120k loaded × 1.4 = $168k/yr ≈ $84/hr) × 1 hour
+
+**Output:** $840 per meeting; weekly = $43.6k / year for one meeting.
+
+---
+
+**Input:** 4 managers + 8 ICs, 90 min
+
+**Output:** 4 × $108/hr + 8 × $84/hr = $432 + $672 = $1104/hr × 1.5 hr = $1656.
+
+---
+
+**Input:** All-hands: 50 people × 1 hour × $90/hr avg
+
+**Output:** $4,500 per all-hands. Quarterly = $18k. Annually = $234k for weekly all-hands.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why include overhead in the rate?**</summary>
+
+Salary alone underestimates real cost by 30-50%. Benefits (health, retirement, payroll tax), facilities, equipment, and HR overhead are the same employee's cost just less visible. Use 1.3-1.5x for honest figures.
+
+</details>
+
+<details>
+<summary>**Should I include preparation time?**</summary>
+
+Yes when it's significant. A 30-min meeting that requires 30 min of prep has 2x the visible cost. Tracker mode counts only the meeting itself; mental overhead can be added.
+
+</details>
+
+<details>
+<summary>**Is this just shaming culture?**</summary>
+
+No — it's data. Meetings that produce decisions worth their cost stay. Meetings that don't get cancelled or compressed. Cost transparency turns intuition into data.
+
+</details>
+
+<details>
+<summary>**What about meetings without dollars (volunteer, school)?**</summary>
+
+Replace dollars with hours. 25 attendees × 1 hour = 25 person-hours of opportunity cost. Same accountability, different unit.
+
+</details>
+
+<details>
+<summary>**Are status meetings worth it?**</summary>
+
+Often not. The same status, written async, costs ~10% of the meeting time and is searchable later. Cost calculator usually proves the case.
+
+</details>
+
+<details>
+<summary>**How do I reduce cost without cutting needed meetings?**</summary>
+
+Smaller invite list (only decision-makers + 1-2 informers), shorter time-box (30 min default beats 60), better agendas (decisions vs discussion), async pre-reads.
+
+</details>
+
+## Tips
+
+- Run the calculator on your standing recurring meetings first — they accumulate cost most invisibly.
+- Show the cost number on the agenda slide. Humans respond to concrete numbers more than abstract "let's be efficient".
+- Default new meetings to 25 or 50 minutes (Parkinson defeats), not 30 or 60. Buffer time prevents back-to-back fatigue.
+- Track meetings cancelled / shortened over a quarter — concrete savings in dollar-hours, not vague "we cut meetings".
+- For external meetings (sales, customer), the cost is the same. Salary loading still applies; treat customer time with equal respect.
+
+## Try it now
+
+The full meeting-cost-calculator runs in your browser at **[https://ztools.zaions.com/meeting-cost-calculator](https://ztools.zaions.com/meeting-cost-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/meeting-cost-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/productivity/meeting-cost-calculator.mdx)*

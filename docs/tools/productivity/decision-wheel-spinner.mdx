@@ -1,0 +1,131 @@
+---
+id: decision-wheel-spinner
+title: "Decision Wheel Spinner — Random Picker for Tough Calls"
+description: "Spin a wheel of options for random decisions: dinner, classroom picks, raffle. Custom segments, fair RNG, free."
+sidebar_label: "decision-wheel-spinner"
+keywords:
+  - "decision wheel spinner"
+  - "random picker"
+  - "wheel of names"
+  - "random decision maker"
+  - "spinner wheel"
+  - "random choice generator"
+  - "name picker wheel"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# decision-wheel-spinner
+
+A decision wheel spinner is an animated random-choice tool where you list options as wheel segments and click to spin, landing on one at random — a fast, visually-engaging alternative to coin flips, dice, or "let's vote" deadlocks. The ZTools Decision Wheel Spinner runs entirely in the browser, uses cryptographically-strong randomness for fair outcomes, supports unlimited segments, custom colours, weighted (uneven) segments, sound-on-spin, and works on any device including projection for classroom or team use.
+
+<ToolCTA toolId="decision-wheel-spinner" toolName="decision-wheel-spinner" />
+
+## Use cases
+
+### Stuck-in-decision pairs
+
+Couple deciding dinner; family choosing weekend activity. The wheel breaks deadlock without anyone "winning" the argument. Outcome rarely matters; the deadlock cost was the bigger problem.
+
+### Classroom random picker
+
+Teacher needs to call on a student. Wheel of names ensures fairness (no bias toward extroverts). Students often experience this as fun rather than threatening.
+
+### Team standup or icebreaker
+
+Random ordering for who speaks first; random pairing for breakout rooms; random topic for icebreaker. Lower-cognitive-load fun.
+
+### Raffle / giveaway draw
+
+List participants on segments, spin, the landed segment wins. Visible randomness builds trust in the outcome.
+
+## How it works
+
+1. **Add segments** — One per option. Segments auto-size to fill the wheel evenly; can be weighted (one option larger = higher chance) for asymmetric draws.
+2. **Customise** — Colour per segment, optional emoji or icon, sound on spin start / stop.
+3. **Click spin** — Wheel rotates with deceleration. Spin angle determined by Crypto-API random (32-bit) — no shortcut to guess outcome.
+4. **Read result** — Pointer at top indicates winning segment. Result displayed below; option to remove that segment for "draw without replacement".
+5. **Save / share (optional)** — Save the wheel configuration; share a link to a pre-built wheel.
+
+## Examples
+
+**Input:** 6 dinner options: pizza, sushi, tacos, salad, pasta, leftovers
+
+**Output:** Spin lands on tacos (random angle 217° → segment 4 of 6). Decision in 3 seconds.
+
+---
+
+**Input:** 20 student names for cold call
+
+**Output:** Each segment 18°; spin uniform. Over 100 spins, each name lands ~5 times — confirmed fair.
+
+---
+
+**Input:** Weighted wheel: 70% chance "Yes", 30% chance "No"
+
+**Output:** "Yes" segment 252°, "No" segment 108°; weights respected.
+
+## Frequently asked questions
+
+<details>
+<summary>**How random is the spin?**</summary>
+
+Uses crypto.getRandomValues — same cryptographic-grade RNG used for security applications. Outcomes are uniform across segments to within statistical noise.
+
+</details>
+
+<details>
+<summary>**Why use a wheel instead of just random.choice?**</summary>
+
+Visible randomness builds trust. When others see the wheel spin, they accept the outcome more readily than "the algorithm picked you".
+
+</details>
+
+<details>
+<summary>**Can I pre-rig the outcome?**</summary>
+
+No. The result is determined at spin time from the RNG; no setting to favour a specific segment outside of explicit weights.
+
+</details>
+
+<details>
+<summary>**Is the weighted wheel still random?**</summary>
+
+Yes — weights set the probability of each segment, but each spin is still randomly drawn from those probabilities. Equal weight = uniform.
+
+</details>
+
+<details>
+<summary>**Can I save my wheel?**</summary>
+
+Yes, locally. Persisted in browser storage so the same wheel reopens next session. Export JSON to share or back up.
+
+</details>
+
+<details>
+<summary>**Is this gambling?**</summary>
+
+For non-money decisions, no. For gambling-related uses, check local laws — randomness alone does not make a wheel gambling, but money + outcome does.
+
+</details>
+
+## Tips
+
+- Weight only when there's a real reason — equal weights are fairer and avoid suspicion.
+- For draws-without-replacement (e.g. picking 3 winners), enable "remove on spin" to avoid duplicates.
+- Project the wheel for classroom or team use — visibility is half the appeal.
+- Use sound sparingly; a brief click on landing is enough, continuous music is distracting.
+- Limit segments to ~12 for readability; more than that, group into categories or use a different tool.
+
+## Try it now
+
+The full decision-wheel-spinner runs in your browser at **[https://ztools.zaions.com/decision-wheel-spinner](https://ztools.zaions.com/decision-wheel-spinner)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/decision-wheel-spinner)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/productivity/decision-wheel-spinner.mdx)*

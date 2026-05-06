@@ -1,0 +1,127 @@
+---
+id: html-to-markdown-converter
+title: "HTML to Markdown Converter — Clean, Lossless, Online (Free)"
+description: "Convert HTML to clean Markdown. Preserves headings, lists, links, images, code blocks, tables. Strips inline styles. 100% client-side."
+sidebar_label: "html-to-markdown-converter"
+keywords:
+  - "html to markdown"
+  - "html markdown converter"
+  - "convert html to md"
+  - "html to md online"
+  - "web to markdown"
+  - "free html markdown tool"
+  - "turndown converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# html-to-markdown-converter
+
+An HTML-to-Markdown converter parses HTML into a clean, portable Markdown document, preserving semantic structure (headings, paragraphs, lists, links, images, tables, code blocks, blockquotes) while stripping presentational artifacts (inline styles, font tags, class attributes). The ZTools HTML to Markdown tool uses a Turndown-style parser to produce CommonMark-compliant output suitable for GitHub READMEs, blog posts, documentation sites, or any system that consumes Markdown. Bidirectional companion: pair with our Markdown to HTML tool for round trips.
+
+<ToolCTA toolId="html-to-markdown-converter" toolName="html-to-markdown-converter" />
+
+## Use cases
+
+### Migrating blog content from a CMS to a static site generator
+
+Export your old WordPress, Ghost, or Medium posts as HTML; convert each to Markdown, drop the resulting `.md` files into your Hugo, Jekyll, or Astro `content/` folder, and ship. The conversion preserves every heading, link, and image — no rewriting needed.
+
+### Cleaning up rich-text-editor output for storage
+
+TinyMCE, Quill, and ProseMirror all output HTML laden with `&lt;span style="..."&gt;` and `&lt;font&gt;` tags. Convert to Markdown to strip the noise and store a clean, portable representation in your database.
+
+### Turning a copy-pasted webpage into shareable text
+
+Copy an article from a website, paste the HTML source, get clean Markdown that renders consistently in Slack, Notion, GitHub Issues, or any Markdown-friendly tool.
+
+### Producing readme files from documentation HTML
+
+When a tool only generates HTML docs but you need a `README.md`, convert the relevant section, tweak the output, and commit.
+
+## How it works
+
+1. **Paste HTML into the input pane** — Full HTML documents or fragments both work. Drag-drop a `.html` file works too.
+2. **Click Convert** — A Turndown-style parser walks the HTML DOM and produces equivalent Markdown for every supported element.
+3. **Configure options** — Heading style (ATX `#` vs Setext `===`), bullet character (`-` vs `*`), code-block fence (``` vs indent), bold style (`**` vs `__`).
+4. **Review the output** — Side-by-side preview shows the rendered Markdown to confirm visual fidelity.
+5. **Copy or download** — Save as `.md` or paste into your CMS, README, or chat tool.
+
+## Examples
+
+**Input:** &lt;h1&gt;Hello&lt;/h1&gt;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text.&lt;/p&gt;
+
+**Output:** # Hello
+
+This is **bold** text.
+
+---
+
+**Input:** &lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;/ul&gt;
+
+**Output:** - One
+- Two
+
+## Frequently asked questions
+
+<details>
+<summary>**Does the converter preserve every HTML feature?**</summary>
+
+Markdown does not have native equivalents for every HTML feature (e.g., colspan, complex CSS). Unsupported features are either dropped or kept as inline HTML (Markdown allows raw HTML). The tool keeps inline HTML for the safest round-trip.
+
+</details>
+
+<details>
+<summary>**How are images handled?**</summary>
+
+Images become standard Markdown image syntax: `\![alt](src)`. Width/height attributes are dropped because Markdown does not support them — wrap in HTML if you need them preserved.
+
+</details>
+
+<details>
+<summary>**What happens to inline styles and classes?**</summary>
+
+Stripped by default. Markdown is intentionally style-agnostic. If you need to preserve them, the tool provides an "Allow inline HTML" option to keep `&lt;span class="..."&gt;` blocks intact.
+
+</details>
+
+<details>
+<summary>**Are tables supported?**</summary>
+
+Yes — converted to GitHub-flavored Markdown table syntax. Complex tables (nested headers, colspan) may not round-trip perfectly; check the preview.
+
+</details>
+
+<details>
+<summary>**Will my HTML be uploaded?**</summary>
+
+No. Conversion runs entirely in your browser. Disconnect from the internet after page load and the tool still works.
+
+</details>
+
+<details>
+<summary>**How do I round-trip Markdown → HTML → Markdown?**</summary>
+
+Paste Markdown into our Markdown to HTML tool, copy the HTML output, paste into this tool. Round-trip is mostly lossless except for very complex inline HTML or unusual whitespace.
+
+</details>
+
+## Tips
+
+- For migrating an entire site, batch the conversion via the Turndown library in a Node script — this tool is for ad-hoc one-shot use.
+- Always preview the Markdown output to spot dropped features before committing.
+- Use the "Allow inline HTML" option if your source contains custom embeds (iframes, video, etc.).
+- Pair with a linter (`markdownlint`) on the output to catch formatting issues.
+
+## Try it now
+
+The full html-to-markdown-converter runs in your browser at **[https://ztools.zaions.com/html-to-markdown-converter](https://ztools.zaions.com/html-to-markdown-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/html-to-markdown-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/html-to-markdown-converter.mdx)*

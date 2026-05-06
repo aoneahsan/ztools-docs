@@ -1,0 +1,130 @@
+---
+id: hashtag-mention-extractor
+title: "Hashtag & Mention Extractor — Pull #tags and @handles"
+description: "Extract hashtags (#tag) and @mentions from social posts, captions, articles. Frequency count. Free, in-browser."
+sidebar_label: "hashtag-mention-extractor"
+keywords:
+  - "hashtag extractor"
+  - "mention extractor"
+  - "social media hashtag tool"
+  - "extract hashtags"
+  - "hashtag analyser"
+  - "free hashtag extractor"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# hashtag-mention-extractor
+
+A hashtag and mention extractor scans text — social-media post drafts, scraped feeds, blog content — and pulls every hashtag (#topic) and @mention (@handle), deduplicating, lowercasing, and counting frequency for content audits, hashtag strategy planning, or competitive social analysis. The ZTools Hashtag & Mention Extractor runs entirely in the browser, handles Twitter/X, Instagram, LinkedIn, TikTok conventions (Unicode hashtags supported), and exports lists with frequency counts as plain text or CSV.
+
+<ToolCTA toolId="hashtag-mention-extractor" toolName="hashtag-mention-extractor" />
+
+## Use cases
+
+### Social-media content audit
+
+Paste 50 of your past posts; extractor outputs every hashtag used, ranked by frequency. Identify under- or over-used tags; align with content strategy.
+
+### Competitor hashtag research
+
+Scrape a competitor's recent posts; extract their hashtag set. Compare with yours to find gaps or trending tags worth adopting.
+
+### Influencer mention map
+
+Identify which accounts are mentioned across a campaign or topic. Useful for collaboration outreach or sentiment analysis prep.
+
+### Trend discovery
+
+Paste a Twitter/X feed dump; extract all hashtags and mentions to surface most-discussed topics in real time.
+
+## How it works
+
+1. **Paste source text** — Social posts, captions, comments, blog text. Mixed formats handled.
+2. **Apply pattern matching** — Hashtag: # followed by 1+ letters/digits/underscores (Unicode aware). Mention: @ followed by handle characters.
+3. **Validate** — Drops bare # and bare @, common false positives (HTML entities, code fragments).
+4. **Aggregate frequency** — Counts how often each tag/mention appears. Lowercase normalisation merges #SEO and #seo.
+5. **Export** — Sorted list (alphabetical or frequency), CSV with tag + count, or plain text.
+
+## Examples
+
+**Input:** "Loved the #seo session by @smithy at #marketingweek2024"
+
+**Output:** Hashtags: #seo, #marketingweek2024. Mentions: @smithy.
+
+---
+
+**Input:** 50 captions, mixed
+
+**Output:** Top hashtags: #seo (12), #content (9), #marketing (7), #ai (5).
+
+---
+
+**Input:** Unicode: "#한국 #日本 #🎉"
+
+**Output:** Unicode hashtags preserved; emoji hashtag included if option enabled.
+
+## Frequently asked questions
+
+<details>
+<summary>**How are case differences handled?**</summary>
+
+Default: case-insensitive — #SEO and #seo merge. Optional case-sensitive mode for platforms where case matters (rare on social media).
+
+</details>
+
+<details>
+<summary>**What about emoji hashtags?**</summary>
+
+Toggleable. Modern Unicode regex supports emoji codepoints. Some platforms (LinkedIn) strip them; Twitter/X and Instagram preserve.
+
+</details>
+
+<details>
+<summary>**Are mentions resolved to real accounts?**</summary>
+
+No — extraction is text-only. To verify accounts, run the list through each platform's API or manual lookup.
+
+</details>
+
+<details>
+<summary>**Will it extract from screenshots?**</summary>
+
+Run the screenshot through OCR (image-to-text-ocr) first, then the extracted text through this tool.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only.
+
+</details>
+
+<details>
+<summary>**How do I find trending tags I should use?**</summary>
+
+Extract from your audience's posts (not yours). Their tags reveal what they search; you match those.
+
+</details>
+
+## Tips
+
+- Combine your historical post extraction with your audience's tags — overlap reveals the strategically valuable tags.
+- Don't over-tag. Twitter/X: 1-3 tags optimal. Instagram: up to 30 allowed but 5-10 outperforms 30 in tests.
+- Track tag frequency over time — declining usage signals a tag is losing relevance.
+- Mentions in comments often indicate community; mentions in posts often indicate collaboration. Different signals.
+- Filter by frequency to find the long-tail of niche tags worth experimenting with.
+
+## Try it now
+
+The full hashtag-mention-extractor runs in your browser at **[https://ztools.zaions.com/hashtag-mention-extractor](https://ztools.zaions.com/hashtag-mention-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hashtag-mention-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/hashtag-mention-extractor.mdx)*

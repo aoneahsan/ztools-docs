@@ -1,0 +1,130 @@
+---
+id: phone-number-extractor
+title: "Phone Number Extractor — Pull Numbers from Text, E.164"
+description: "Extract phone numbers from text. Recognises US, UK, EU, international formats; normalises to E.164. Free, in-browser."
+sidebar_label: "phone-number-extractor"
+keywords:
+  - "phone number extractor"
+  - "extract phone numbers"
+  - "phone scraper"
+  - "e.164 normaliser"
+  - "free phone extractor"
+  - "phone parser online"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# phone-number-extractor
+
+A phone number extractor scans text for numeric patterns matching common telephone formats — US ((555) 123-4567), UK (+44 20 7946 0958), bare international (+1 555 123 4567), with various separators — and outputs a deduplicated list, optionally normalised to the international E.164 standard (+15551234567). The ZTools Phone Number Extractor runs entirely in the browser, supports country-aware parsing (default US; switch for UK / EU / IN / etc.), drops obvious non-phones (years, IP addresses, page numbers), and exports plain text or CSV.
+
+<ToolCTA toolId="phone-number-extractor" toolName="phone-number-extractor" />
+
+## Use cases
+
+### CRM cleanup
+
+Customer notes contain phone numbers in many formats. Extractor pulls them into a normalised list for direct dial / SMS integration.
+
+### Conference / event speaker list
+
+Public speaker bios with contact phones. Extract once for organiser logistics — not for marketing without consent.
+
+### Personal address-book backup
+
+Email signature thread with several contact numbers. Extract for contact import.
+
+### Multi-country team directory
+
+Mixed US + UK + EU numbers. Country-aware parsing recognises all three correctly; E.164 output is unambiguous for international dialling.
+
+## How it works
+
+1. **Paste source text** — Plain text or formatted (numbers in parentheses, dashes, dots, spaces all handled).
+2. **Pick default country** — Bare numbers without country code interpreted in this default. International (+44, +91) numbers always parse correctly regardless of default.
+3. **Apply pattern + heuristics** — Regex matches numeric patterns; heuristics drop obvious non-phones (4-digit years, IP fragments, version strings).
+4. **Normalise to E.164** — +[country code][number] with no separators. Universal format for APIs, dialling, and storage.
+5. **Export** — Plain text or CSV. Optional second column: "raw match" alongside normalised.
+
+## Examples
+
+**Input:** "Call (555) 123-4567 or +44 20 7946 0958 for support"
+
+**Output:** US: +15551234567; UK: +442079460958
+
+---
+
+**Input:** "Phone: 555.123.4567 ext 99"
+
+**Output:** +15551234567 (extension dropped or kept as separate column)
+
+---
+
+**Input:** "Anniversary: 1985, model 4567"
+
+**Output:** Heuristics drop these (years and product codes do not match phone patterns).
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it know the country?**</summary>
+
+Numbers prefixed with + are explicit. Bare numbers fall back to your selected default. For multi-country sources, set default to most common; let + prefixes handle the rest.
+
+</details>
+
+<details>
+<summary>**What about extensions?**</summary>
+
+Detected when in standard form ("ext 123", "x123"). Stored as a separate field rather than concatenated to the number.
+
+</details>
+
+<details>
+<summary>**Will it match short codes (e.g. 911, 311)?**</summary>
+
+Disabled by default — short codes too easily collide with regular numeric data. Enable explicitly when needed.
+
+</details>
+
+<details>
+<summary>**Are non-NANP / non-EU numbers supported?**</summary>
+
+India, Australia, Japan, Brazil, and other major formats included. Niche country formats may need explicit international prefix to parse correctly.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — entirely client-side. Privacy by design.
+
+</details>
+
+<details>
+<summary>**How are vanity numbers handled?**</summary>
+
+Letter-to-digit mapping (1-800-FLOWERS = 1-800-3569377) optional; default is digits-only matching.
+
+</details>
+
+## Tips
+
+- Always normalise to E.164 for storage. Display formatting belongs in the UI; storage should be unambiguous.
+- Validate extracted numbers against an SMS / voice provider's real validation API before mass-dialing — extraction does not guarantee the number is in service.
+- Consent matters. Extracted numbers ≠ permission to call or text. Local laws (TCPA, etc.) apply.
+- For multi-country contact lists, store the country code separately for routing logic.
+- Strip extensions for dial workflows; preserve them only when the destination supports DTMF post-dial.
+
+## Try it now
+
+The full phone-number-extractor runs in your browser at **[https://ztools.zaions.com/phone-number-extractor](https://ztools.zaions.com/phone-number-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/phone-number-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/phone-number-extractor.mdx)*

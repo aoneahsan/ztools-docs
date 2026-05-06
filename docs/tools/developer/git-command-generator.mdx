@@ -1,0 +1,105 @@
+---
+id: git-command-generator
+title: "Git Command Generator — Free Online, Cheatsheet"
+description: "Generate git commands by intent. Visual builder for clone, branch, merge, rebase, etc. Browser-only."
+sidebar_label: "git-command-generator"
+keywords:
+  - "git command generator"
+  - "git cheatsheet online"
+  - "generate git commands"
+  - "git command builder"
+  - "visual git"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# git-command-generator
+
+Git's command surface is large — clone, branch, checkout, merge, rebase, cherry-pick, reset, revert, stash, log, blame — and each has many flags. Forgetting the right combination is universal. The ZTools Git Command Generator turns intent ("undo my last commit but keep the changes") into the exact command (`git reset --soft HEAD~1`). Built-in templates for 50+ common scenarios, custom-flag mode for power users, plus inline explanation of what each generated command does.
+
+<ToolCTA toolId="git-command-generator" toolName="git-command-generator" />
+
+## Use cases
+
+### Undo a mistake without destroying work
+
+"Reset last commit but keep changes" → git reset --soft HEAD~1. Tool explains what each flag does.
+
+### Onboard new git users
+
+Visual wizard turns workflows into commands. Faster than memorising for occasional users.
+
+### Discover lesser-known commands
+
+Browse "scenarios" to find commands you didn't know existed (worktree, bisect, etc.).
+
+### Generate consistent team workflows
+
+For team conventions, generate the canonical commands and share.
+
+## How it works
+
+1. **Pick scenario** — From a list of common intents (commit, branch, merge, undo, etc.) or "advanced" for custom flags.
+2. **Fill placeholders** — Branch name, commit hash, file path, etc. Tool validates inputs.
+3. **Generate command** — Output: exact git command. Explanation: what each flag does.
+4. **Optional safety check** — Destructive commands (reset --hard, push --force) get warnings.
+
+## Examples
+
+**Input:** "Create a new branch from current"
+
+**Output:** git checkout -b new-branch. Or modern: git switch -c new-branch.
+
+---
+
+**Input:** "Squash last 3 commits"
+
+**Output:** git reset --soft HEAD~3 && git commit. Or interactive: git rebase -i HEAD~3.
+
+---
+
+**Input:** "Discard all uncommitted changes"
+
+**Output:** git checkout . && git clean -fd. WARNING: destructive — irrecoverable.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will it run the command for me?**</summary>
+
+No — generator only. Copy and paste into your terminal. Reduces typo risk.
+
+</details>
+
+<details>
+<summary>**Most useful commands?**</summary>
+
+reset, revert, stash, log, branch operations. The generator covers all common scenarios.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Always read the explanation — running git commands without understanding them risks data loss.
+- For destructive commands (reset --hard, clean -f), double-check the working directory first.
+- Modern git: use `git switch` and `git restore` (since 2.23) instead of `git checkout` for branch / file ops — clearer semantics.
+
+## Try it now
+
+The full git-command-generator runs in your browser at **[https://ztools.zaions.com/git-command-generator](https://ztools.zaions.com/git-command-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/git-command-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/git-command-generator.mdx)*

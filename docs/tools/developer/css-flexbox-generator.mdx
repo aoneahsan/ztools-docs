@@ -1,0 +1,134 @@
+---
+id: css-flexbox-generator
+title: "CSS Flexbox Generator — Visual Flex Layout Builder with Live Preview"
+description: "Build CSS flexbox layouts visually. Toggle direction, justify, align, wrap, gap with live preview. Copies clean, production-ready CSS."
+sidebar_label: "css-flexbox-generator"
+keywords:
+  - "css flexbox generator"
+  - "flexbox builder"
+  - "flex layout generator"
+  - "css flex tool"
+  - "flexbox playground"
+  - "flex visual editor"
+  - "free flexbox tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-flexbox-generator
+
+A CSS flexbox generator is a visual tool that lets you compose `display: flex` containers by toggling each flex property and seeing the result in real time. The ZTools CSS Flexbox Generator covers every flex container property (`flex-direction`, `justify-content`, `align-items`, `align-content`, `flex-wrap`, `gap`) and per-child properties (`flex-grow`, `flex-shrink`, `flex-basis`, `align-self`), generating both the parent and child CSS in copy-paste-ready form. Designed for developers who know flexbox conceptually but find the property combinations hard to memorize.
+
+<ToolCTA toolId="css-flexbox-generator" toolName="css-flexbox-generator" />
+
+## Use cases
+
+### Building a navbar with logo on left, links centered, CTA on right
+
+Set `justify-content: space-between` plus a flex spacer trick, see the result, copy the CSS. Faster than tweaking margin values until it looks right.
+
+### Centering content vertically AND horizontally
+
+The classic "how do I center a div" — set `justify-content: center` + `align-items: center` on the parent. The generator shows you exactly that combination with a live preview.
+
+### Building responsive card grids that wrap gracefully
+
+Set `flex-wrap: wrap` + `gap: 1rem`, watch cards reflow as the preview width changes. Copy the CSS and apply to your real grid.
+
+### Learning flexbox without trial-and-error
+
+Each property has a tooltip explaining its behavior. Toggle and see — the preview makes flexbox's otherwise-confusing rules immediately visible.
+
+## How it works
+
+1. **Choose the number of children** — Slider from 1 to 12 children. Each child renders as a colored block in the preview.
+2. **Set parent (container) properties** — Toggle `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap`. Each click updates the preview instantly.
+3. **Optionally set per-child properties** — Click any child block to set its `flex-grow`, `flex-shrink`, `flex-basis`, or `align-self` independently.
+4. **Preview at multiple widths** — Drag the preview width slider to test how the layout reflows on narrow vs wide screens.
+5. **Copy generated CSS** — Output includes a `.container \{ display: flex; ... \}` block plus per-child overrides if you set any. One click copies the full snippet.
+
+## Examples
+
+**Input:** flex-direction: row, justify-content: space-between, align-items: center
+
+**Output:** .container \{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+\}
+
+---
+
+**Input:** flex-direction: column, gap: 1rem, align-items: stretch
+
+**Output:** .container \{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+\}
+
+## Frequently asked questions
+
+<details>
+<summary>**When should I use flexbox vs grid?**</summary>
+
+Flexbox for one-dimensional layouts (a row OR a column). Grid for two-dimensional layouts (rows AND columns simultaneously). Both can be combined in the same page.
+
+</details>
+
+<details>
+<summary>**Why doesn't `justify-content: center` center my content vertically?**</summary>
+
+Because `justify-content` works on the main axis (horizontal in a row layout). For vertical centering in a row, use `align-items: center`. The generator labels each property by axis to avoid this confusion.
+
+</details>
+
+<details>
+<summary>**What does `flex: 1` mean?**</summary>
+
+Shorthand for `flex: 1 1 0%` — grow to fill available space, shrink if needed, and start from 0 width. Common for equal-width children: `&lt;div style="flex: 1"&gt;` × N gives N equal columns.
+
+</details>
+
+<details>
+<summary>**How do I make children wrap to a new line?**</summary>
+
+Set `flex-wrap: wrap` on the container. Without it, children shrink to fit on one line (or overflow). The generator includes wrap toggling so you can see the effect immediately.
+
+</details>
+
+<details>
+<summary>**What's the difference between `gap` and `margin`?**</summary>
+
+`gap` applies space between children only — no leading/trailing space at the container edges. `margin` on children produces both interior and edge space, often requiring `:last-child` overrides. Prefer `gap` in modern CSS.
+
+</details>
+
+<details>
+<summary>**Is the generated CSS production-ready?**</summary>
+
+Yes — uses standard, evergreen-browser-supported properties. No vendor prefixes needed since 2018.
+
+</details>
+
+## Tips
+
+- Default to `gap` for spacing between flex children — no more `:not(:last-child) \{ margin-right \}` hacks.
+- For equal-width columns, use `flex: 1` on every child instead of fixed widths.
+- Combine flexbox with `min-width: 0` on children when text might overflow — fixes the "ellipsis not working" gotcha.
+- Use the generator to learn flexbox visually, then graduate to writing CSS by hand.
+
+## Try it now
+
+The full css-flexbox-generator runs in your browser at **[https://ztools.zaions.com/css-flexbox-generator](https://ztools.zaions.com/css-flexbox-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-flexbox-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/css-flexbox-generator.mdx)*

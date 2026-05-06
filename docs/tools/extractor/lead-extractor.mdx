@@ -1,0 +1,130 @@
+---
+id: lead-extractor
+title: "Lead Extractor — Extract Names, Emails, Phones, Companies"
+description: "Extract name + email + phone + company combinations from text or pasted lists. Cleaned, ready for CRM import. Free."
+sidebar_label: "lead-extractor"
+keywords:
+  - "lead extractor"
+  - "contact extractor"
+  - "crm import tool"
+  - "lead list builder"
+  - "extract contacts from text"
+  - "free lead extraction"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# lead-extractor
+
+A lead extractor combines several extraction patterns into one workflow — pulling names, email addresses, phone numbers, company affiliations, and (where present) job titles from messy text and outputting a structured CSV ready for CRM import. The ZTools Lead Extractor runs entirely in the browser, applies email + phone + name heuristics together, attempts to associate each contact item with the same person via proximity rules, and exports clean rows — saving hours of manual cleanup on conference attendee lists, email-thread participants, or contact-form scrapes.
+
+<ToolCTA toolId="lead-extractor" toolName="lead-extractor" />
+
+## Use cases
+
+### Conference attendee list cleanup
+
+Public attendee directory pasted as messy text. Extract name + email + company per attendee into rows for CRM. Hours of manual data entry collapsed to seconds.
+
+### Email thread participant capture
+
+Long email reply chain. Extractor pulls each unique participant's name + email + signature info into one row per person.
+
+### LinkedIn / Twitter export normalisation
+
+Exported contact list with inconsistent formatting. Extractor standardises names + handles + company affiliations.
+
+### Sales prospect-list cleanup
+
+Bulk lead list from various sources. Extractor reformats into a single canonical structure for sales-tool import.
+
+## How it works
+
+1. **Paste source text** — Conference list, email thread, contact form dump, exported directory. Mixed formatting OK.
+2. **Run individual extractors** — Email, phone, hashtag, name, and company patterns identified separately.
+3. **Associate by proximity** — Tokens within N characters / lines of each other associate as one lead. Configurable proximity window.
+4. **Validate + dedupe** — Drop incomplete rows (no email AND no phone), dedupe by email (lowercased).
+5. **Export CSV** — Columns: name, email, phone, company, title, source-context. Ready for CRM mapping.
+
+## Examples
+
+**Input:** "John Smith — VP Sales — Acme Corp — john@acme.com — (555) 123-4567"
+
+**Output:** Single lead with all 5 fields populated.
+
+---
+
+**Input:** Email signatures from a thread
+
+**Output:** One row per unique signer with as much data as the signature provided.
+
+---
+
+**Input:** Conference list with mixed formatting
+
+**Output:** Each entry parsed independently; rows for each.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the association?**</summary>
+
+Depends heavily on input format. Tabular / consistent formats: ~95%. Free-form text: ~70-85%. Always review the CSV before import; common errors are mismatched name/email pairs in dense text.
+
+</details>
+
+<details>
+<summary>**How are names recognised?**</summary>
+
+Heuristics: capitalisation pattern (Title Case), proximity to other lead fields, common first/last name lists. Foreign names are harder; review necessary.
+
+</details>
+
+<details>
+<summary>**Can I extract roles / titles?**</summary>
+
+Yes — recognised patterns ("CEO", "VP", "Director", "Manager", "Engineer"). Optional column.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — entirely client-side. Important when handling personal data.
+
+</details>
+
+<details>
+<summary>**Does this comply with GDPR / CCPA?**</summary>
+
+Extraction itself is data processing. Storing or using extracted PII for marketing requires lawful basis (consent, legitimate interest, etc.). Tool output ≠ permission to email/call.
+
+</details>
+
+<details>
+<summary>**How do I improve accuracy?**</summary>
+
+Pre-clean the source — consistent line breaks, one entry per row. Tabular sources extract more cleanly than narrative paragraphs.
+
+</details>
+
+## Tips
+
+- Always review the CSV before CRM import — automated extraction misses edge cases.
+- Set proximity window based on input format. Tight (50 char) for tabular; wide (500 char) for free text.
+- Honour data-protection regulations. Extract only with lawful basis; store securely; delete on request.
+- For high-volume work, do extraction + manual spot-check rather than blind import.
+- Combine with email + phone validators before outreach — extracted data may be stale or mistyped.
+
+## Try it now
+
+The full lead-extractor runs in your browser at **[https://ztools.zaions.com/lead-extractor](https://ztools.zaions.com/lead-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/lead-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/lead-extractor.mdx)*

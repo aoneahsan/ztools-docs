@@ -1,0 +1,130 @@
+---
+id: domain-extractor
+title: "Domain Extractor — Extract Domains & Subdomains from URLs"
+description: "Extract registrable domains and subdomains from a URL list. PSL-aware, dedupe, frequency. Free, in-browser."
+sidebar_label: "domain-extractor"
+keywords:
+  - "domain extractor"
+  - "extract domain from url"
+  - "subdomain extractor"
+  - "public suffix list"
+  - "free domain parser"
+  - "url to domain"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# domain-extractor
+
+A domain extractor takes a list of URLs and outputs the domain (or registrable domain, e.g. example.com) for each, optionally separating subdomains and computing frequency, useful for SEO link audits, security incident analysis, and consolidating large reference lists. The ZTools Domain Extractor runs entirely in the browser, uses the Public Suffix List (PSL) to correctly identify registrable domains for complex TLDs (.co.uk, .com.au), supports input as a URL list or raw text, and exports a sorted list with frequency counts.
+
+<ToolCTA toolId="domain-extractor" toolName="domain-extractor" />
+
+## Use cases
+
+### SEO outbound link audit
+
+Extracted URLs from your blog posts; collapse to domains. See which domains you link to most; identify imbalance.
+
+### Backlink source analysis
+
+Backlink list from Ahrefs / SEMrush; collapse to root domains. Identify how many unique referring domains you have (a key SEO metric).
+
+### Security log domain analysis
+
+Extract domains from suspicious URLs in a phishing log; group by registrable domain to identify campaign patterns.
+
+### Subdomain enumeration
+
+Given a list of URLs from a single root domain, extract all subdomains for security or content audits.
+
+## How it works
+
+1. **Paste URL list or raw text** — One URL per line, or free-form text. URL extractor runs first if needed.
+2. **Parse each URL** — Extract host portion. Handle scheme (http://), port (:80), path (/foo), query (?bar) — drop all but host.
+3. **Apply PSL** — Public Suffix List determines the "registrable domain". For "blog.example.co.uk", PSL says co.uk is the public suffix; registrable domain = example.co.uk.
+4. **Optional: separate subdomain** — Output two columns: subdomain (blog) and registrable domain (example.co.uk).
+5. **Aggregate frequency** — Count occurrences. Sort alphabetically or by frequency.
+
+## Examples
+
+**Input:** URLs: https://blog.example.com/a, https://shop.example.com/b, https://other.org/c
+
+**Output:** Registrable domains: example.com (2), other.org (1).
+
+---
+
+**Input:** URL: https://api.user.example.co.uk
+
+**Output:** Registrable: example.co.uk; Subdomain: api.user
+
+---
+
+**Input:** 500 URLs across many domains
+
+**Output:** Top 20 domains by frequency; long tail of single-occurrence domains.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the Public Suffix List?**</summary>
+
+A community-maintained list (publicsuffix.org) of "effective top-level domains" — including compound suffixes like co.uk, com.au, github.io. Used by browsers to determine cookie scope and by tools to identify registrable domains correctly.
+
+</details>
+
+<details>
+<summary>**What's the difference between subdomain, domain, and TLD?**</summary>
+
+For "blog.example.co.uk": TLD = .uk, public suffix = co.uk, registrable domain = example.co.uk, subdomain = blog. PSL handles compound TLDs correctly; naive splitting on dots does not.
+
+</details>
+
+<details>
+<summary>**Why use PSL instead of last two segments?**</summary>
+
+"sub.foo.co.uk" with "last two segments" = co.uk (wrong; that's the suffix). PSL correctly identifies foo.co.uk as the registrable domain. Critical for cookie / security boundaries.
+
+</details>
+
+<details>
+<summary>**How are IP-address URLs handled?**</summary>
+
+Recognised separately. The "domain" field is the IP itself; no subdomain split.
+
+</details>
+
+<details>
+<summary>**Is the input uploaded?**</summary>
+
+No — client-side only. PSL is bundled, no network call.
+
+</details>
+
+<details>
+<summary>**Can I extract path or query?**</summary>
+
+Use the URL extractor + a parsing step. This tool focuses on hostname / domain analysis.
+
+</details>
+
+## Tips
+
+- For backlink analysis, count unique registrable domains (not unique URLs) — the SEO metric that matters.
+- Sort by frequency to identify your most-linked partners or most-suspect malicious sources.
+- Subdomain enumeration is great for security recon — combine with passive DNS or scanning tools.
+- Filter out your own domains before competitive analysis — internal links inflate counts.
+- Use the PSL-aware mode always — naive dot-splitting produces wrong results for international domains.
+
+## Try it now
+
+The full domain-extractor runs in your browser at **[https://ztools.zaions.com/domain-extractor](https://ztools.zaions.com/domain-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/domain-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/extractor/domain-extractor.mdx)*
