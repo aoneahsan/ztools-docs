@@ -1,0 +1,132 @@
+---
+id: csv-json
+title: "CSV to JSON & JSON to CSV Converter — Bidirectional, Online"
+description: "Convert CSV to JSON or JSON to CSV in your browser. Auto-detects delimiters, handles quoted fields, nested objects flattened safely. Free, no upload."
+sidebar_label: "csv-json"
+keywords:
+  - "csv to json"
+  - "json to csv"
+  - "csv json converter"
+  - "convert csv to json online"
+  - "json to csv online"
+  - "csv parser"
+  - "rfc 4180 csv"
+  - "free csv json tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# csv-json
+
+A CSV-to-JSON converter parses tabular comma-separated values into a JSON array of objects (one object per row, keyed by header), and the reverse operation flattens a JSON array back into a CSV file. The ZTools CSV ↔ JSON tool supports auto-detected delimiters (comma, semicolon, tab, pipe), quoted fields containing commas or newlines per RFC 4180, custom header rows, and configurable null-handling. Everything runs in your browser; even 100 MB CSV exports parse without uploading. The tool is bidirectional: paste either format, click the matching button, and get the other format with consistent escaping.
+
+<ToolCTA toolId="csv-json" toolName="csv-json" />
+
+## Use cases
+
+### Importing spreadsheet data into a JavaScript application
+
+Export your Google Sheet or Excel file as CSV, paste it here, convert to JSON, and copy the result directly into a `.json` data file or an in-memory mock dataset. Saves the round trip through Papa Parse or csv-parser in your build pipeline for one-shot ingestion tasks.
+
+### Exporting API responses to spreadsheets
+
+Many APIs return JSON arrays of objects (users, orders, log entries). Paste the JSON, click "JSON → CSV", and the tool produces a header row plus one data row per object — open directly in Excel, Google Sheets, or Numbers.
+
+### Cleaning a malformed CSV before importing into a database
+
+CSVs from legacy systems often have stray quotes, mixed delimiters, or missing trailing commas. Paste the CSV, convert to JSON to canonicalize, then convert JSON back to CSV. The round trip rewrites every field with consistent quoting and escaping.
+
+### Generating fixture data for unit tests
+
+Maintain test data as a CSV (easy to edit in any spreadsheet), then convert to JSON at test-bootstrap time so your test fixtures stay readable to non-developers (QA, product managers) but consumable by your test runner.
+
+## How it works
+
+1. **Paste your CSV or JSON into the input pane** — The tool auto-detects the format based on the first non-whitespace character. Drag-drop a `.csv` or `.json` file works too.
+2. **Choose the conversion direction** — Click "CSV → JSON" or "JSON → CSV". The opposite-direction button is disabled when the input format does not match.
+3. **Configure options if needed** — Set the delimiter (auto, comma, semicolon, tab, pipe), specify whether the first row is a header, and choose null-value handling (empty string, JSON null, or omit).
+4. **Review the output** — Output appears in the right pane with syntax highlighting. CSV output uses RFC 4180 quoting; JSON output is pretty-printed for readability.
+5. **Copy or download** — One-click copy or download as `.csv` / `.json`. The original input remains untouched in the left pane for re-conversion with different settings.
+
+## Examples
+
+**Input:** name,age,city
+Ahsan,32,Lahore
+Fatima,28,Karachi
+
+**Output:** [
+  \{ "name": "Ahsan", "age": "32", "city": "Lahore" \},
+  \{ "name": "Fatima", "age": "28", "city": "Karachi" \}
+]
+
+---
+
+**Input:** [\{"id":1,"label":"alpha,beta"\},\{"id":2,"label":"gamma"\}]
+
+**Output:** id,label
+1,"alpha,beta"
+2,gamma
+
+## Frequently asked questions
+
+<details>
+<summary>**Does the tool handle quoted fields with commas inside?**</summary>
+
+Yes. The parser is RFC 4180 compliant, so a field like `"Smith, John"` is treated as a single value containing a literal comma. Embedded quotes are escaped per spec (doubled `""`).
+
+</details>
+
+<details>
+<summary>**What if my CSV uses semicolons instead of commas?**</summary>
+
+Set the delimiter to semicolon, or leave it on auto-detect — the tool sniffs the first 1,000 characters to guess the delimiter. Tab-separated values (TSV) and pipe-delimited values are also supported.
+
+</details>
+
+<details>
+<summary>**Can the tool handle large files?**</summary>
+
+Yes — files up to ~100 MB parse comfortably on a modern desktop browser. The conversion happens off the main thread to keep the UI responsive.
+
+</details>
+
+<details>
+<summary>**How are nested JSON objects flattened to CSV?**</summary>
+
+Nested objects are flattened with dot-notation keys (e.g. `address.city`). Arrays inside JSON objects become JSON-stringified strings within the CSV cell. For complex nesting, prefer the JSON format.
+
+</details>
+
+<details>
+<summary>**Is type information preserved?**</summary>
+
+CSV is a string-only format, so number and boolean types are lost on JSON → CSV. On the reverse path, you can opt in to type-coercion (numeric strings become numbers, "true"/"false" become booleans). Disabled by default to avoid silent data loss.
+
+</details>
+
+<details>
+<summary>**Is my data uploaded anywhere?**</summary>
+
+No. Conversion happens entirely in your browser. Disconnect from the internet after page load and the tool still works — proof that nothing is sent server-side.
+
+</details>
+
+## Tips
+
+- Always inspect the first 5 output rows to verify headers were detected correctly.
+- For files over 50 MB, increase your browser memory by closing other tabs before converting.
+- When round-tripping CSV → JSON → CSV, expect minor whitespace and quoting normalization — semantically identical, byte-different.
+- For production ETL pipelines, use Papa Parse (CSV) or fast-csv (Node) — this tool is for ad-hoc one-shot conversions.
+
+## Try it now
+
+The full csv-json runs in your browser at **[https://ztools.zaions.com/csv-json](https://ztools.zaions.com/csv-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/csv-json)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/csv-json.mdx)*

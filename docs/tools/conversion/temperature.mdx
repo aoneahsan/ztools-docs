@@ -1,0 +1,136 @@
+---
+id: temperature
+title: "Temperature Converter — Celsius, Fahrenheit, Kelvin Free"
+description: "Convert between Celsius, Fahrenheit, Kelvin, Rankine, and Réaumur with formula display. Free, instant, no signup, browser-only."
+sidebar_label: "temperature"
+keywords:
+  - "temperature converter"
+  - "celsius to fahrenheit"
+  - "fahrenheit to celsius"
+  - "kelvin converter"
+  - "temperature units"
+  - "weather converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# temperature
+
+A temperature converter translates a value between scales — Celsius (used by ~95% of the world), Fahrenheit (used by the US, Bahamas, Cayman, Liberia), Kelvin (scientific absolute scale starting at absolute zero), Rankine (Fahrenheit equivalent of Kelvin, used in some US engineering), and Réaumur (historic, mostly extinct). The ZTools Temperature Converter handles all five scales bidirectionally, shows the conversion formula explicitly (so you can verify the math by hand), and supports negative values down to absolute zero (-273.15 °C / -459.67 °F / 0 K). Useful for cooking recipes from foreign sources, scientific work, weather, and anywhere a number needs to cross the imperial/metric boundary.
+
+<ToolCTA toolId="temperature" toolName="temperature" />
+
+## Use cases
+
+### Cooking recipes from other countries
+
+European recipe says "180 °C oven"; your US oven is in Fahrenheit. Convert: 180 °C = 356 °F (rounded to 350 °F). Common kitchen lookup.
+
+### Weather across regions
+
+Weather report in °C while traveling to / from the US. Quick mental conversion (× 9/5 + 32) is error-prone — calculator is faster.
+
+### Scientific Kelvin conversion
+
+Physics / chemistry homework, lab notes — convert lab Celsius readings to Kelvin for thermodynamics calculations (always Kelvin in equations).
+
+### Industrial equipment specs
+
+Engineering specs sometimes use Rankine (esp. older US thermodynamics literature). Convert to °F or K for modern usage.
+
+## How it works
+
+1. **Enter value** — Numeric input; supports negatives, decimals, scientific notation (e.g. 1.5e3).
+2. **Pick source scale** — Celsius, Fahrenheit, Kelvin, Rankine, Réaumur.
+3. **View all conversions** — Result in all four other scales simultaneously.
+4. **See formula** — Each conversion shows the explicit formula (e.g. °F = °C × 9/5 + 32) for verification.
+5. **Round result** — Choose decimal precision: 0 (integer), 1, 2, or 4 decimals.
+
+## Examples
+
+**Input:** 0 °C
+
+**Output:** 32 °F, 273.15 K, 491.67 °R, 0 °Ré. (Water freezing.)
+
+---
+
+**Input:** 100 °C
+
+**Output:** 212 °F, 373.15 K, 671.67 °R, 80 °Ré. (Water boiling at sea level.)
+
+---
+
+**Input:** -40 °C
+
+**Output:** -40 °F, 233.15 K. (The unique value where Celsius and Fahrenheit are equal.)
+
+---
+
+**Input:** 180 °C (oven)
+
+**Output:** 356 °F (round to 350 °F for US oven dial).
+
+## Frequently asked questions
+
+<details>
+<summary>**Why -40 °C = -40 °F exactly?**</summary>
+
+The conversion °F = °C × 9/5 + 32, set °F = °C, gives -40. Mathematical fluke; useful trivia + memorable.
+
+</details>
+
+<details>
+<summary>**What's absolute zero?**</summary>
+
+-273.15 °C / -459.67 °F / 0 K. The temperature at which atomic motion theoretically stops. Tool prevents inputs below absolute zero (would be unphysical).
+
+</details>
+
+<details>
+<summary>**Which countries use Fahrenheit?**</summary>
+
+US (officially), Bahamas, Belize, Cayman Islands, Liberia, Palau, FSM, Marshall Islands. Everyone else uses Celsius.
+
+</details>
+
+<details>
+<summary>**Why is Kelvin "K" not "°K"?**</summary>
+
+In SI, Kelvin is treated as a base unit, not a scale. The degree symbol was officially dropped in 1968.
+
+</details>
+
+<details>
+<summary>**How accurate is the conversion?**</summary>
+
+Formulas are exact (linear); precision limited only by float arithmetic. Sub-millikelvin accuracy.
+
+</details>
+
+<details>
+<summary>**Why do oven recipes round to multiples of 25 °F?**</summary>
+
+US ovens have 25 °F dial increments. Convert C→F, then round to nearest 25.
+
+</details>
+
+## Tips
+
+- For cooking, after converting, round to your oven's dial increments (typically 25 °F or 5 °C).
+- For scientific work, ALWAYS use Kelvin in equations — Celsius gives wrong answers in thermodynamics formulas.
+- Quick mental check: 0 °C ≈ 32 °F, 20 °C ≈ 68 °F (room), 100 °C = 212 °F.
+- -40 = -40 in both scales — only point of equality.
+- Avoid Réaumur unless the source explicitly uses it — long obsolete except in old wine/cheese-making traditions.
+
+## Try it now
+
+The full temperature runs in your browser at **[https://ztools.zaions.com/temperature](https://ztools.zaions.com/temperature)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/temperature)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/temperature.mdx)*

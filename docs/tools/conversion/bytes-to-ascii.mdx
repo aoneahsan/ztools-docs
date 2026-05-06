@@ -1,0 +1,100 @@
+---
+id: bytes-to-ascii
+title: "Bytes to ASCII Converter — Free, Browser-Only"
+description: "Convert byte arrays (hex or decimal) to ASCII text. Decode binary blobs to readable strings. Browser-only."
+sidebar_label: "bytes-to-ascii"
+keywords:
+  - "bytes to ascii"
+  - "hex to ascii text"
+  - "byte array to string"
+  - "decode hex bytes"
+  - "binary to text converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# bytes-to-ascii
+
+Converting bytes to ASCII decodes a byte sequence into text. Bytes can be in hex (48 65 6C 6C 6F) or decimal (72, 101, 108, 108, 111); both decode to the same text. The ZTools Bytes to ASCII converter accepts either format, auto-detects which is which, and outputs the resulting text. Non-ASCII bytes (≥ 128) are flagged or decoded per chosen encoding (Latin-1, UTF-8, Windows-1252).
+
+<ToolCTA toolId="bytes-to-ascii" toolName="bytes-to-ascii" />
+
+## Use cases
+
+### Decode a hex dump from a debugger
+
+gdb/lldb shows memory as hex; tool turns the bytes back into text.
+
+### Read a binary blob from network capture
+
+Wireshark exports hex; copy-paste, convert, read.
+
+### Inspect packed data structures
+
+A C struct with embedded strings; manually carve out the bytes for inspection.
+
+## How it works
+
+1. **Paste bytes** — Hex (with or without spaces / 0x prefix) or decimal (comma / space-separated).
+2. **Detect format** — If only 0-9 and A-F characters, treat as hex; else decimal.
+3. **Pick encoding** — ASCII (default), UTF-8, Latin-1. Determines how bytes ≥ 128 decode.
+4. **Decode + display** — Output text. Non-printable bytes shown as escapes.
+
+## Examples
+
+**Input:** Hex "48 65 6C 6C 6F"
+
+**Output:** "Hello".
+
+---
+
+**Input:** Decimal "72 101 108 108 111"
+
+**Output:** "Hello".
+
+---
+
+**Input:** Hex "FF FE 41 00"
+
+**Output:** Looks like UTF-16 LE. Toggle UTF-16 mode for proper decoding.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from decimal-to-ascii?**</summary>
+
+Same operation but accepts hex too. Convenience tool for byte arrays from debuggers / network captures.
+
+</details>
+
+<details>
+<summary>**Encoding detection?**</summary>
+
+Tool warns when bytes ≥ 128 appear — pure ASCII would have all bytes &lt; 128.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For mixed-encoding dumps, try ASCII first; if garbled, try UTF-8 or Latin-1.
+- For multi-byte char encodings, bytes count differs from char count. UTF-8 é is 2 bytes; ASCII A is 1.
+
+## Try it now
+
+The full bytes-to-ascii runs in your browser at **[https://ztools.zaions.com/bytes-to-ascii](https://ztools.zaions.com/bytes-to-ascii)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/bytes-to-ascii)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/bytes-to-ascii.mdx)*

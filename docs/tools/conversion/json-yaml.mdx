@@ -1,0 +1,129 @@
+---
+id: json-yaml
+title: "JSON to YAML & YAML to JSON Converter — Both Directions (Free)"
+description: "Convert between JSON and YAML in either direction. Preserves types, comments where possible, indentation control. Free."
+sidebar_label: "json-yaml"
+keywords:
+  - "json to yaml"
+  - "yaml to json"
+  - "json yaml converter"
+  - "kubernetes yaml"
+  - "openapi converter"
+  - "config converter"
+  - "free json yaml tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-yaml
+
+A JSON to YAML and YAML to JSON converter translates between the two most common human-readable structured-data formats — JSON (concise, brace-delimited, programmer-friendly) and YAML (indentation-based, more human-readable, used heavily in configuration). The ZTools JSON/YAML Converter handles either direction, validates input before converting, preserves types (numbers stay numbers, booleans stay booleans), supports YAML-specific features (anchors, aliases, multi-line strings) when converting from JSON, and lets you pick indentation (2 or 4 spaces) for consistent output.
+
+<ToolCTA toolId="json-yaml" toolName="json-yaml" />
+
+## Use cases
+
+### Switching config formats between projects
+
+GitHub Actions uses YAML; older CI tools use JSON. Convert your existing config when migrating between systems.
+
+### Reading API responses in YAML
+
+JSON API responses are dense and hard to scan. Convert to YAML for code reviews and incident postmortems — easier to read.
+
+### Authoring Kubernetes configs in JSON, deploying as YAML
+
+JSON has better tooling support for generation; YAML is the kubectl-friendly format. Author in JSON, convert at deploy time.
+
+### OpenAPI / Swagger spec translation
+
+OpenAPI specs work in both formats. Some teams prefer YAML for authoring; others prefer JSON for diffs. Convert to whichever the team uses.
+
+## How it works
+
+1. **Pick the direction** — JSON → YAML or YAML → JSON. The same input field accepts either; auto-detect determines which.
+2. **Paste your data** — Validates first. Malformed JSON or YAML produces an error with line and column info before conversion.
+3. **Configure output format** — YAML output: indentation (2 or 4 spaces), flow style (compact inline) vs block style (one item per line), explicit document marker (---). JSON output: pretty-printed (default 2-space) or minified.
+4. **Read the converted output** — Side-by-side preview shows source vs converted. One-click copy or download.
+
+## Examples
+
+**Input:** JSON: \{"name":"Alice","tags":["admin","user"]\}
+
+**Output:** YAML:
+name: Alice
+tags:
+  - admin
+  - user
+
+---
+
+**Input:** YAML: a: 1
+b: 2
+
+**Output:** JSON: \{"a":1,"b":2\}
+
+---
+
+**Input:** YAML with anchor: defaults: &d
+  retries: 3
+prod: *d
+
+**Output:** JSON: \{"defaults":\{"retries":3\},"prod":\{"retries":3\}\}
+
+## Frequently asked questions
+
+<details>
+<summary>**When should I use JSON vs YAML?**</summary>
+
+JSON: programmatic data, API requests/responses, machine-to-machine. Pros: simpler spec, faster parsing, no indentation gotchas. YAML: human-authored config files (Kubernetes, CI, OpenAPI). Pros: readable, supports comments, less punctuation noise.
+
+</details>
+
+<details>
+<summary>**Can YAML express things JSON can't?**</summary>
+
+Yes: comments, anchors and aliases (DRY references), multi-line strings with literal/folded operators, tagged types (e.g., !!int "123"). Converting YAML → JSON loses these — anchors are expanded; comments are dropped.
+
+</details>
+
+<details>
+<summary>**What about JSON things YAML can't do?**</summary>
+
+YAML 1.2 is a superset of JSON in practice — anything valid in JSON is valid YAML. Converting JSON → YAML is always safe; the reverse may lose YAML-specific features.
+
+</details>
+
+<details>
+<summary>**How are dates handled?**</summary>
+
+JSON has no date type — dates are typically ISO strings. YAML 1.2 supports timestamps natively but they're commonly written as strings too. The converter preserves string form by default.
+
+</details>
+
+<details>
+<summary>**How is duplicate-key handling?**</summary>
+
+Both formats technically reject duplicate keys, though many parsers accept them silently. The converter validates and warns; if a YAML input has duplicates, the JSON output will have only the last value (overwrite behavior).
+
+</details>
+
+## Tips
+
+- Use JSON for machine-to-machine; YAML for human-edited config.
+- YAML's strict-indentation rule means small whitespace mistakes break parsing — validate before conversion.
+- When converting YAML to JSON, comments are lost — keep your YAML version if comments are important.
+- For consistent output, pick a single style (block vs flow YAML) per project rather than mixing.
+
+## Try it now
+
+The full json-yaml runs in your browser at **[https://ztools.zaions.com/json-yaml](https://ztools.zaions.com/json-yaml)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-yaml)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/json-yaml.mdx)*

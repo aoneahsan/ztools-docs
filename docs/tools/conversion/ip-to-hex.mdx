@@ -1,0 +1,112 @@
+---
+id: ip-to-hex
+title: "IP to Hex Converter — IPv4 / IPv6 to Hexadecimal, Free"
+description: "Convert any IPv4 or IPv6 address to hex notation. Decimal, octet, packed forms supported. Browser-only."
+sidebar_label: "ip-to-hex"
+keywords:
+  - "ip to hex converter"
+  - "ipv4 hex notation"
+  - "ipv6 hex form"
+  - "packed ip address"
+  - "ip address byte form"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ip-to-hex
+
+Converting an IP address to hex represents the same address in hexadecimal — useful for low-level networking, IPv6 already-hex notation, packet captures, and embedded systems where addresses are stored as 4 / 16 raw bytes. IPv4 dotted-quad 192.168.1.1 becomes 0xC0A80101 in hex; IPv6 stays close to its native colon-hex form. The ZTools IP to Hex Converter handles both versions, supports CIDR notation, and outputs in multiple formats (packed, byte-spaced, with / without 0x prefix).
+
+<ToolCTA toolId="ip-to-hex" toolName="ip-to-hex" />
+
+## Use cases
+
+### Decode a packet capture
+
+tcpdump shows hex addresses; convert back to dotted-quad for human reading.
+
+### Embedded systems / firmware
+
+Static IP addresses stored as 4-byte arrays. Hex form is the canonical representation.
+
+### Database storage
+
+Some databases (PostgreSQL inet, MySQL VARBINARY) store IPs as bytes. Hex form is portable across systems.
+
+### Verify subnet math
+
+AND-ing an address with its netmask is easier visualised in hex than dotted-decimal.
+
+## How it works
+
+1. **Paste IP** — IPv4 (192.168.1.1) or IPv6 (2001:db8::1). Tool detects version automatically.
+2. **Convert** — IPv4: each octet → 2 hex digits → concatenated. IPv6: already hex, just normalised.
+3. **Pick format** — Packed (C0A80101), byte-spaced (C0 A8 01 01), 0x-prefixed (0xC0A80101), array of bytes ([192,168,1,1]).
+4. **Reverse direction** — Toggle to convert hex back to IP.
+
+## Examples
+
+**Input:** 192.168.1.1
+
+**Output:** Hex packed: C0A80101. Bytes: C0 A8 01 01. 0x form: 0xC0A80101.
+
+---
+
+**Input:** 10.0.0.1
+
+**Output:** Hex: 0A000001. Easy to spot the leading 10 (= 0x0A).
+
+---
+
+**Input:** 2001:db8::1
+
+**Output:** Already hex; full form 2001:0DB8:0000:0000:0000:0000:0000:0001.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why hex instead of decimal?**</summary>
+
+Hex maps cleanly to bits (4 bits per hex digit). Easier for bitmask math, firewall rules, low-level packet work. Dotted-quad is friendlier for humans navigating networks.
+
+</details>
+
+<details>
+<summary>**IPv6 already shows hex — why convert?**</summary>
+
+IPv6 in zero-compressed form (::1) hides leading zeros. Packed hex shows all 16 bytes for byte-level work.
+
+</details>
+
+<details>
+<summary>**CIDR support?**</summary>
+
+Yes — 192.168.0.0/24 converts the address; the prefix length stays as-is.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For firewall rule debugging, convert both address and netmask to hex — bit operations become obvious.
+- For database storage, packed bytes (no separators) is the most portable.
+- For human reading, prefer dotted-quad — hex is for code and packet captures.
+
+## Try it now
+
+The full ip-to-hex runs in your browser at **[https://ztools.zaions.com/ip-to-hex](https://ztools.zaions.com/ip-to-hex)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ip-to-hex)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/ip-to-hex.mdx)*

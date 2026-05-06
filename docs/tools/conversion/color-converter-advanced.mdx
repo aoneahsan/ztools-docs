@@ -1,0 +1,125 @@
+---
+id: color-converter-advanced
+title: "Color Converter — HEX, RGB, HSL, OKLCH, CMYK with Live Preview"
+description: "Convert colors between HEX, RGB, HSL, HSV, OKLCH, OKLAB, CMYK, LAB, LCH. Includes accessibility contrast, color blindness simulation. Free."
+sidebar_label: "color-converter-advanced"
+keywords:
+  - "color converter"
+  - "hex to rgb"
+  - "rgb to hsl"
+  - "oklch converter"
+  - "cmyk converter"
+  - "wcag contrast checker"
+  - "color blindness simulator"
+  - "free color tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-converter-advanced
+
+A color converter translates a color value between every common color space — HEX, RGB(A), HSL(A), HSV, OKLCH, OKLAB, CMYK, LAB, LCH — and shows the equivalent representation in each. The ZTools Color Converter goes further: it computes WCAG accessibility contrast ratios against any background, simulates how the color appears under common color-vision deficiencies (deuteranopia, protanopia, tritanopia), and exposes modern wide-gamut spaces (P3, Rec. 2020) for HDR-aware design work.
+
+<ToolCTA toolId="color-converter-advanced" toolName="color-converter-advanced" />
+
+## Use cases
+
+### Translating brand colors between design tools
+
+Designer hands you `#3B82F6` from Figma; you need RGB for a Tailwind config, HSL for a CSS variable, and OKLCH for a modern design token. Paste once, copy each format. Saves the awkward "convert by hand" trip through three calculators.
+
+### Auditing accessibility contrast for WCAG compliance
+
+Paste a foreground and background color; the tool shows the contrast ratio (4.5:1 minimum for body text per WCAG AA). Switch to AAA standard (7:1) for stricter audits.
+
+### Designing in OKLCH for perceptually-uniform palettes
+
+OKLCH is the modern color space for design tokens — equal numerical changes produce equal perceptual changes. Generate a palette in OKLCH, then convert to HEX/RGB for legacy compatibility. Modern CSS lets you ship OKLCH directly.
+
+### Verifying how colors look for color-blind users
+
+Enable the color-blindness simulator to see how your design appears to users with deuteranopia (most common, ~5% of men) or other vision deficiencies. Critical for charts, status indicators, and category color codes.
+
+## How it works
+
+1. **Enter a color in any format** — HEX (`#3B82F6`, `#3b82f6ff`), RGB (`rgb(59 130 246)`), HSL (`hsl(217 91% 60%)`), or any other supported format. Auto-detected from input.
+2. **See every equivalent format instantly** — Output rows for HEX, RGB, RGBA, HSL, HSLA, HSV, OKLCH, OKLAB, CMYK, LAB, LCH — each with a one-click copy button.
+3. **Optionally compare with a background** — Add a background color to see the contrast ratio computed per WCAG. Pass/fail badges for AA, AA-large, and AAA.
+4. **Toggle color-blindness simulation** — Six modes: deuteranopia, protanopia, tritanopia, achromatopsia, deuteranomaly, protanomaly. Preview the color under each.
+5. **Copy the format you need** — Each output row has its own copy button. The most common format (HEX or RGB) is also auto-copied to clipboard on first conversion.
+
+## Examples
+
+**Input:** #3B82F6
+
+**Output:** RGB: rgb(59, 130, 246) | HSL: hsl(217, 91%, 60%) | OKLCH: oklch(62% 0.18 257) | CMYK: 76 47 0 4
+
+---
+
+**Input:** oklch(70% 0.15 30)
+
+**Output:** HEX: #ED9279 | RGB: rgb(237, 146, 121) — warm coral, perceptually similar lightness to other 70%-L colors
+
+## Frequently asked questions
+
+<details>
+<summary>**Why use OKLCH instead of HSL?**</summary>
+
+HSL's lightness is perceptually uneven — `hsl(60 100% 50%)` (yellow) looks much lighter than `hsl(240 100% 50%)` (blue) despite the same lightness number. OKLCH normalizes lightness perceptually, so a palette built in OKLCH stays visually balanced.
+
+</details>
+
+<details>
+<summary>**What contrast ratio do I need for WCAG compliance?**</summary>
+
+WCAG AA: 4.5:1 for body text, 3:1 for large text (18pt+ or 14pt+ bold). WCAG AAA: 7:1 / 4.5:1 (stricter). The tool color-codes your input against both standards.
+
+</details>
+
+<details>
+<summary>**How accurate is the color-blindness simulation?**</summary>
+
+The simulation uses the Brettel-Viénot-Mollon model — the standard for perceptual simulation in design tools (Figma, Stark). It's a close approximation but not a substitute for testing with users who have those vision conditions.
+
+</details>
+
+<details>
+<summary>**Why are CMYK values approximate?**</summary>
+
+CMYK conversion depends on the printer's color profile. The tool uses a generic SWOP profile; real-world printing may differ. For exact CMYK, request a profile-specific conversion from your printer.
+
+</details>
+
+<details>
+<summary>**Can I use OKLCH in CSS today?**</summary>
+
+Yes — every evergreen browser since 2023. For older browsers, the tool also outputs the HEX/RGB equivalent so you can ship `color: oklch(...)` with a `color: #...` fallback.
+
+</details>
+
+<details>
+<summary>**Does the tool support HDR colors (P3, Rec. 2020)?**</summary>
+
+Yes — when an OKLCH or LAB value falls outside sRGB but inside P3, the tool flags it as "wide gamut" and shows the P3 CSS color() function form: `color(display-p3 r g b)`.
+
+</details>
+
+## Tips
+
+- Build palettes in OKLCH, then export to HEX for legacy systems.
+- Always check contrast against actual background, not just black/white — branded backgrounds often fail WCAG.
+- Test in deuteranopia mode for any color used as a status signal (red/green chart segments, traffic-light indicators).
+- For modern design tokens, prefer OKLCH or LCH — these will increasingly become the CSS default.
+
+## Try it now
+
+The full color-converter-advanced runs in your browser at **[https://ztools.zaions.com/color-converter-advanced](https://ztools.zaions.com/color-converter-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-converter-advanced)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/color-converter-advanced.mdx)*

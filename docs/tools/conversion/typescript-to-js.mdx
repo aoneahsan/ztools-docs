@@ -1,0 +1,130 @@
+---
+id: typescript-to-js
+title: "TypeScript to JS Converter — Free Strip Types Online"
+description: "Strip TypeScript types and emit clean JavaScript. Free, instant, browser-only. Pick target ES version (ES5, ES2017, ESNext)."
+sidebar_label: "typescript-to-js"
+keywords:
+  - "typescript to js"
+  - "typescript to javascript"
+  - "strip typescript types"
+  - "tsx to jsx"
+  - "compile typescript"
+  - "tsc online"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# typescript-to-js
+
+A TypeScript-to-JavaScript converter removes type annotations and emits plain JS — useful for: showing TS code to a JS-only audience, embedding snippets where TS isn't supported, debugging compiled output, learning what TS adds vs JS, and quick removal of TS for prototyping in JS-only contexts. The ZTools TypeScript to JS Converter uses the official TypeScript compiler with configurable target (ES5 / ES2017 / ES2020 / ESNext), preserves comments, supports React TSX → JSX, and handles modern features (decorators, async/await, optional chaining).
+
+<ToolCTA toolId="typescript-to-js" toolName="typescript-to-js" />
+
+## Use cases
+
+### StackOverflow / blog where TS isn't welcome
+
+Question/answer audience expects JS. Quick conversion strips types without manual work.
+
+### Quick prototyping in JS sandbox
+
+CodePen, JSFiddle don't support TS without setup. Strip types, paste, run.
+
+### Learning TypeScript
+
+See how TS code compiles to JS — understand what types add (none at runtime) and what TS does at compile time.
+
+### Debugging compile output
+
+Suspect a TS bug? See exactly what JS is being emitted; check for unexpected transformations.
+
+## How it works
+
+1. **Paste TypeScript** — Standalone code, modules, classes, JSX/TSX all supported.
+2. **Pick target ES version** — ES5 (legacy compat), ES2017 (async/await native), ES2020 (optional chaining native), ESNext (latest).
+3. **Pick module system** — ES modules / CommonJS / UMD / None.
+4. **Convert** — TypeScript compiler removes types, optionally lowers syntax to target ES version.
+5. **Copy / download** — .js file ready to use.
+
+## Examples
+
+**Input:** `function add(a: number, b: number): number \{ return a + b; \}`
+
+**Output:** `function add(a, b) \{ return a + b; \}` — types removed.
+
+---
+
+**Input:** TSX: `const Btn = (props: \{ label: string \}) =&gt; &lt;button&gt;\{props.label\}&lt;/button&gt;`
+
+**Output:** JSX: `const Btn = (props) =&gt; &lt;button&gt;\{props.label\}&lt;/button&gt;` — types stripped, JSX preserved.
+
+---
+
+**Input:** Class with private fields, ES5 target
+
+**Output:** IIFE-wrapped function with prototype methods — full lowering for old browsers.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does the output differ between targets?**</summary>
+
+TS lowers modern syntax to older equivalents. Target ES5: async/await becomes generator + Promise polyfill. Target ESNext: keep async/await as-is.
+
+</details>
+
+<details>
+<summary>**Are decorators preserved?**</summary>
+
+Yes — TS Stage 3 decorators emit cleanly to ES2022+. For earlier targets, lowered to function calls.
+
+</details>
+
+<details>
+<summary>**Will my JSX still work?**</summary>
+
+TSX → JSX strips types; JSX itself is preserved. Use a JSX-aware bundler (Vite, Webpack) to compile JSX → React.createElement calls.
+
+</details>
+
+<details>
+<summary>**What about type-only imports?**</summary>
+
+Removed entirely — they have no runtime effect. `import type \{ User \}` becomes nothing.
+
+</details>
+
+<details>
+<summary>**Will the JS run identically?**</summary>
+
+Yes — TS types are erased at compile, so the JS behaves the same. Only edge case: enum / namespace / decorator emit JS code that didn't exist in TS source.
+
+</details>
+
+<details>
+<summary>**How is this different from `tsc`?**</summary>
+
+Same compiler, browser-friendly UI. For a project, run `tsc` from CLI; for one-off conversion, this tool.
+
+</details>
+
+## Tips
+
+- Pick target ESNext for modern dev; ES5 only for legacy browser support.
+- Type-only imports (`import type`) are tree-shaken automatically.
+- JSX preserved — use a JSX bundler downstream.
+- For libraries, ship both: `.ts` source + compiled `.js` + `.d.ts` declarations.
+- For runtime-checked types, TS doesn't help — use Zod / io-ts / etc. for runtime validation.
+
+## Try it now
+
+The full typescript-to-js runs in your browser at **[https://ztools.zaions.com/typescript-to-js](https://ztools.zaions.com/typescript-to-js)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/typescript-to-js)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/typescript-to-js.mdx)*

@@ -1,0 +1,129 @@
+---
+id: octal-converter
+title: "Octal Converter — Free Decimal, Binary, Hex to Octal"
+description: "Convert numbers between octal (base 8), decimal (base 10), binary (base 2), and hexadecimal (base 16). Free, instant."
+sidebar_label: "octal-converter"
+keywords:
+  - "octal converter"
+  - "decimal to octal"
+  - "octal to decimal"
+  - "octal to binary"
+  - "octal to hex"
+  - "unix permissions calculator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# octal-converter
+
+An octal converter translates between octal (base 8) and other bases — decimal (base 10), binary (base 2), hex (base 16). Octal was historically used in early computing (PDP-11, Unix file permissions) and remains the standard format for Unix/Linux file mode notation (e.g. `chmod 755`). The ZTools Octal Converter handles bidirectional conversion across all four common bases with bit-grouping display (binary in groups of 3 for octal alignment) and Unix-permission breakdown (octal 755 = rwxr-xr-x). Useful for sysadmins, embedded developers, and CS students.
+
+<ToolCTA toolId="octal-converter" toolName="octal-converter" />
+
+## Use cases
+
+### Unix / Linux file permissions
+
+`chmod 755 file.sh` — what does 755 mean? Calculator decodes: owner=rwx, group=r-x, other=r-x. Daily sysadmin task.
+
+### Embedded systems / older hardware
+
+PDP-11, classic minicomputers, some embedded MCUs use octal for register bits. Conversion bridges modern hex docs to octal hardware specs.
+
+### CS coursework
+
+Number-systems homework. Calculator confirms manual conversions during practice.
+
+### Number representation in language source
+
+C/C++ allow octal literals with leading 0 (e.g. 0755 = decimal 493). Pitfall when accidentally writing 0755 expecting decimal.
+
+## How it works
+
+1. **Enter value** — Pick base (octal / decimal / binary / hex). Numeric input.
+2. **Validate digits** — Octal allows only 0–7; binary 0–1; hex 0–9 + a–f. Tool rejects out-of-range digits.
+3. **Convert to all bases** — Output shown in decimal, octal, binary (grouped 3-bits for octal alignment), hex.
+4. **Unix permission breakdown (when 3-digit octal)** — e.g. 755 → owner rwx (7=4+2+1), group r-x (5=4+0+1), other r-x (5).
+
+## Examples
+
+**Input:** 755 (octal, Unix permission)
+
+**Output:** decimal 493, binary 111 101 101, hex 1ED. rwxr-xr-x.
+
+---
+
+**Input:** 0o644 (chmod default)
+
+**Output:** decimal 420, binary 110 100 100. rw-r--r--.
+
+---
+
+**Input:** 255 (decimal) → octal
+
+**Output:** 377. (Each octal digit = 3 binary bits; 255 = 11111111 = 011 111 111 = 377.)
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is octal still used?**</summary>
+
+Mainly Unix file permissions (because each digit cleanly maps to 3 permission bits — rwx). Outside that, octal has been mostly replaced by hex in modern computing.
+
+</details>
+
+<details>
+<summary>**Why not use binary directly for permissions?**</summary>
+
+111101101 (9 binary bits) is hard to read; 755 (3 octal digits) is faster. 3-digit octal is the right tradeoff for 9-bit permissions.
+
+</details>
+
+<details>
+<summary>**What does each Unix permission digit mean?**</summary>
+
+Each octal digit = sum of: 4 (read) + 2 (write) + 1 (execute). 7 = all (4+2+1). 6 = read + write. 5 = read + execute. 4 = read only.
+
+</details>
+
+<details>
+<summary>**C-language octal pitfall?**</summary>
+
+In C, leading 0 means octal: `int x = 0755;` is 493 in decimal, not 755. Easy to write accidentally — most modern languages dropped this convention (Python, JavaScript use 0o755 prefix instead).
+
+</details>
+
+<details>
+<summary>**Why no leading zeros in normal numbers?**</summary>
+
+Most modern languages and conventions don't use leading-0 octal anymore — too easy to confuse with decimal. Use 0o (Python, ES2015+) or 0O prefix.
+
+</details>
+
+<details>
+<summary>**Larger than 32 bits?**</summary>
+
+Yes — JavaScript BigInt handles arbitrarily large integers. Tool supports up to 64-bit values comfortably.
+
+</details>
+
+## Tips
+
+- Memorise: 7=rwx, 6=rw-, 5=r-x, 4=r--, 0=---. Covers 95% of chmod uses.
+- Common file mode: 644 (rw-r--r--) for documents, 755 (rwxr-xr-x) for scripts/dirs, 600 (rw-------) for SSH keys.
+- In code, prefer 0o755 over 0755 — clarity beats compactness.
+- For new development, hex (base 16) is more common than octal — better fits 8-bit byte boundaries.
+- For permission planning, draw the 9-bit grid: owner rwx | group rwx | other rwx — fill in 4/2/1 sums.
+
+## Try it now
+
+The full octal-converter runs in your browser at **[https://ztools.zaions.com/octal-converter](https://ztools.zaions.com/octal-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/octal-converter)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/octal-converter.mdx)*

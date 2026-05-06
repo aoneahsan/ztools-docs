@@ -1,0 +1,134 @@
+---
+id: markdown-to-pdf
+title: "Markdown to PDF — Free Browser Converter with Styling"
+description: "Convert Markdown to a styled PDF with headings, code blocks, tables, images, and CSS theming. Browser-only, no upload, free."
+sidebar_label: "markdown-to-pdf"
+keywords:
+  - "markdown to pdf"
+  - "md to pdf"
+  - "markdown pdf converter"
+  - "github readme to pdf"
+  - "markdown to pdf online"
+  - "commonmark pdf"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# markdown-to-pdf
+
+A Markdown-to-PDF converter renders Markdown source into a styled PDF — preserving headings (H1–H6), bold/italic, code blocks with syntax highlighting, tables, images (inline data URIs or remote URLs), blockquotes, and lists. The ZTools Markdown to PDF tool runs entirely in the browser using a headless PDF rendering pipeline (CommonMark parser → HTML → PDF via jsPDF / browser print-to-PDF), with theme presets (GitHub, academic paper, manuscript, business document), page-size options (Letter / A4 / Legal), and configurable margins. Useful for resumes, technical docs, README exports, contracts, and sharing Markdown content with non-technical audiences.
+
+<ToolCTA toolId="markdown-to-pdf" toolName="markdown-to-pdf" />
+
+## Use cases
+
+### Resume / CV from Markdown
+
+Many devs maintain their resume in Markdown for version control. Convert to PDF for job applications without leaving Markdown.
+
+### GitHub README archival
+
+Snapshot a project README as PDF for offline reference, presentations, or attached to a release.
+
+### Technical documentation
+
+Engineering docs, runbooks, technical specs — write in Markdown, ship as PDF for non-technical stakeholders or compliance archives.
+
+### Academic paper drafts
+
+Markdown + LaTeX-equation extension is faster than full LaTeX for early drafts. Convert to PDF for review cycles.
+
+### Contracts / proposals
+
+Author in Markdown for clean version control + diffing, render to PDF for client signature.
+
+## How it works
+
+1. **Paste Markdown** — Standard CommonMark + GFM (tables, task lists, strikethrough). Up to 100k chars typical.
+2. **Pick theme** — GitHub-style (default), academic (serif body, 12pt), manuscript (Courier 12pt), business (Arial / Calibri).
+3. **Pick page size + margins** — Letter / A4 / Legal; margins 0.5–1.5 inch.
+4. **Optional** — Page numbers, header/footer, custom CSS override.
+5. **Generate PDF** — Browser renders HTML → PDF; download immediately.
+
+## Examples
+
+**Input:** Resume Markdown + GitHub theme
+
+**Output:** 2-page PDF with proper heading hierarchy, lists, contact info — recruiter-ready.
+
+---
+
+**Input:** README with code blocks + Mermaid diagrams
+
+**Output:** PDF with syntax-highlighted code, rendered diagrams, GitHub-style tables.
+
+---
+
+**Input:** Technical spec with images + tables
+
+**Output:** Multi-page PDF with images embedded, tables fitting page width.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the PDF look identical to GitHub README?**</summary>
+
+Visually similar with the GitHub theme, but exact rendering differs (GitHub uses its own CSS + emoji rendering). Pixel-perfect match isn't achievable; the tool aims for ~95% visual similarity.
+
+</details>
+
+<details>
+<summary>**Are remote images embedded?**</summary>
+
+Yes — images are fetched and embedded as base64 inside the PDF (CORS permitting). Avoids broken images when the PDF is opened offline.
+
+</details>
+
+<details>
+<summary>**Math equations?**</summary>
+
+KaTeX-style $E=mc^2$ supported. Renders as proper math, not raw text.
+
+</details>
+
+<details>
+<summary>**Can I use custom CSS?**</summary>
+
+Yes — paste CSS in the override field. Useful for brand-specific styling (font, color, header logo).
+
+</details>
+
+<details>
+<summary>**How big can the source be?**</summary>
+
+Browser-bounded — up to 100k chars handles fine; 1M+ chars may stutter. For very large documents, use Pandoc CLI.
+
+</details>
+
+<details>
+<summary>**Pandoc vs this tool?**</summary>
+
+Pandoc is the gold standard for Markdown → many-formats. CLI-only, requires LaTeX for complex PDFs. ZTools is browser-based, no install — sufficient for typical resumes/docs.
+
+</details>
+
+## Tips
+
+- For resumes, GitHub theme + 0.75-inch margins fits a typical 2-page CV.
+- Use H1 for the document title (your name on a resume), H2 for major sections (Experience, Education).
+- Use task lists (`- [x] Done`) to render with checkbox glyphs.
+- For academic papers, switch to academic (serif) theme + 1-inch margins for journal submission feel.
+- For images, use absolute URLs or local file uploads — relative paths break in browser context.
+
+## Try it now
+
+The full markdown-to-pdf runs in your browser at **[https://ztools.zaions.com/markdown-to-pdf](https://ztools.zaions.com/markdown-to-pdf)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/markdown-to-pdf)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/markdown-to-pdf.mdx)*

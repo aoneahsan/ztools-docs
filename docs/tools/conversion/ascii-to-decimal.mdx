@@ -1,0 +1,105 @@
+---
+id: ascii-to-decimal
+title: "ASCII to Decimal Converter — Free Online, Browser"
+description: "Convert ASCII text to decimal codes (A=65, a=97). Per-character or run-length output. Browser-only."
+sidebar_label: "ascii-to-decimal"
+keywords:
+  - "ascii to decimal"
+  - "character code lookup"
+  - "ascii numeric values"
+  - "string to int array"
+  - "ascii decimal converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ascii-to-decimal
+
+Converting ASCII to decimal turns each character into its numeric code: A → 65, a → 97, space → 32. ASCII covers the first 128 code points (0-127); for non-ASCII characters use Unicode-aware tools. Useful for low-level programming (storing strings as int arrays), quick character-code lookups, and teaching how strings are stored in memory. The ZTools ASCII to Decimal converter takes any text, outputs the decimal codes per character, and supports separators (space, comma, newline) and reverse direction.
+
+<ToolCTA toolId="ascii-to-decimal" toolName="ascii-to-decimal" />
+
+## Use cases
+
+### Look up a character code
+
+"What's the ASCII code for tab?" → 9. Tool gives the answer in one step.
+
+### Convert a string for embedded code
+
+C/C++ string literals can be int arrays. "abc" → \{97, 98, 99\}.
+
+### Verify character escape sequences
+
+Newline \\n is decimal 10. Tab \\t is 9. Tool confirms the codes.
+
+### Teach how computers store text
+
+Show students each character's numeric code — concrete intuition for "everything is bytes".
+
+## How it works
+
+1. **Paste text** — Any ASCII string. Non-ASCII characters flagged.
+2. **Convert** — String.charCodeAt() per character. Output array of decimals.
+3. **Pick format** — Comma list (65, 97, 32), space-separated, newline per char, JSON array.
+4. **Reverse** — Toggle direction to go from decimals back to text.
+
+## Examples
+
+**Input:** "ABC"
+
+**Output:** 65, 66, 67.
+
+---
+
+**Input:** "Hello!"
+
+**Output:** 72, 101, 108, 108, 111, 33.
+
+---
+
+**Input:** "\\n\\t"
+
+**Output:** 10, 9 (newline, tab).
+
+## Frequently asked questions
+
+<details>
+<summary>**What about non-ASCII characters?**</summary>
+
+Above 127 is non-ASCII. Use Unicode-to-UTF-8 for proper encoding. JavaScript string.charCodeAt returns UTF-16 code units, which differ from "ASCII decimal" for non-ASCII chars.
+
+</details>
+
+<details>
+<summary>**Extended ASCII (128-255)?**</summary>
+
+Tool handles these but flags them as locale-dependent (Latin-1 vs Windows-1252 vs ISO-8859-X).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For non-English text, prefer Unicode tools — ASCII only covers basic Latin.
+- For embedded C arrays, output as comma-separated int list — pastes directly into source.
+- For escape-sequence references, common values: 9 (tab), 10 (LF), 13 (CR), 32 (space), 127 (DEL).
+
+## Try it now
+
+The full ascii-to-decimal runs in your browser at **[https://ztools.zaions.com/ascii-to-decimal](https://ztools.zaions.com/ascii-to-decimal)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ascii-to-decimal)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/ascii-to-decimal.mdx)*

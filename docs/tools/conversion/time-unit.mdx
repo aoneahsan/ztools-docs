@@ -1,0 +1,135 @@
+---
+id: time-unit
+title: "Time Unit Converter — Seconds, Minutes, Days, Years Free"
+description: "Convert time between nanoseconds, milliseconds, seconds, minutes, hours, days, weeks, months, years, decades, centuries. Free."
+sidebar_label: "time-unit"
+keywords:
+  - "time unit converter"
+  - "seconds to minutes"
+  - "days to hours"
+  - "years to seconds"
+  - "duration converter"
+  - "time conversion"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# time-unit
+
+A time-unit converter translates a duration between scales — from nanoseconds (computing) up to centuries (history). Useful for: software performance work (latency in ns / μs / ms), human-time conversions (How many minutes in a day? 1440), age calculation, project planning ("18 months = 1.5 years = 547 days"), and intuition for very large or small durations. The ZTools Time Unit Converter handles 12+ units, with explicit handling of "month" and "year" being non-fixed lengths (default to Gregorian average: month = 30.4375 days, year = 365.25 days; selectable to "common year" 365 days or "leap year" 366).
+
+<ToolCTA toolId="time-unit" toolName="time-unit" />
+
+## Use cases
+
+### Performance / latency conversion
+
+API responds in 245 ms; database query takes 12 µs. Convert to consistent unit (e.g. ms) for comparison and budgeting.
+
+### Project / contract durations
+
+Contract is 18 months; how many days for resource planning? 547. How many work days (excluding weekends)? ~390.
+
+### Age / lifespan
+
+Average human lifespan ~80 years ≈ 2.5 billion seconds. Quick conversion drives intuition for "how much time do I have".
+
+### Astronomical durations
+
+Earth orbits sun every 365.256 days = 31.558 million seconds. Useful for orbital mechanics and physics.
+
+## How it works
+
+1. **Enter value + source unit** — Numeric input; pick ns / µs / ms / s / min / hr / day / week / month / year / decade / century.
+2. **View all conversions** — Result in 12+ units simultaneously.
+3. **Pick year length** — 365 days (common year), 366 (leap), 365.25 (average), 365.2425 (Gregorian average — accounts for century rules).
+4. **Pick month length** — 28 / 29 / 30 / 31 / 30.4375 (average) / 30.4368 (Gregorian average).
+
+## Examples
+
+**Input:** 1 day
+
+**Output:** 24 hr, 1440 min, 86,400 s, 86.4 million ms.
+
+---
+
+**Input:** 1 year (Gregorian average)
+
+**Output:** 365.2425 days, 8765.82 hr, 525,949 min, 31.557 million s.
+
+---
+
+**Input:** 1 minute
+
+**Output:** 60 s, 60,000 ms, 60 million µs, 60 billion ns.
+
+---
+
+**Input:** Average human life (80 years)
+
+**Output:** ~2.524 billion s, ~70,000 hr, ~29,200 days. Surprising at this resolution.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why are months and years not fixed?**</summary>
+
+Months range 28–31 days (Feb is 28, Apr is 30, etc.). Years are 365 except leap years (every 4, except century-not-divisible-by-400). Tool defaults to Gregorian average (365.2425 days/year) for accurate long-term math.
+
+</details>
+
+<details>
+<summary>**What's a "Julian year"?**</summary>
+
+365.25 days exactly — used in astronomy and many SI definitions. Slightly longer than Gregorian (365.2425). Difference matters over millennia.
+
+</details>
+
+<details>
+<summary>**Difference between ms / µs / ns?**</summary>
+
+1 ms = 1000 µs = 1,000,000 ns. Modern hardware operates at ns / GHz scale (1 ns = clock cycle of a 1 GHz processor); humans perceive change at ms scale.
+
+</details>
+
+<details>
+<summary>**How precise for very long durations?**</summary>
+
+JS doubles handle ~15 significant digits; converting 1 century to ns (~3.156e18) is at the edge of precision. For longer / more precise, use BigInt arithmetic.
+
+</details>
+
+<details>
+<summary>**Are leap seconds handled?**</summary>
+
+No — leap seconds (UTC adjustments ~once per year) are usually negligible for unit conversion. They matter for absolute time, not duration math.
+
+</details>
+
+<details>
+<summary>**How long is a "decade"?**</summary>
+
+10 years. By default uses Gregorian average year, so ~3652.4 days. Some calendar systems vary; this tool sticks to Gregorian.
+
+</details>
+
+## Tips
+
+- For software performance, stick to ns / µs / ms — humans-scale (s / min) introduces useless precision.
+- For project work, use days for short, months for medium, years for long. Don't mix scales in one sentence.
+- Use Gregorian average (365.2425 days) for long-term project math; calendar arithmetic ("13 months and 5 days") for legal contracts.
+- For age, calendar arithmetic is more intuitive than "16,425 days old".
+- Mental math: 1 minute = 60 s; 1 hour = 3600 s; 1 day ≈ 86,400 s; 1 year ≈ 3.15e7 s.
+
+## Try it now
+
+The full time-unit runs in your browser at **[https://ztools.zaions.com/time-unit](https://ztools.zaions.com/time-unit)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/time-unit)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/time-unit.mdx)*

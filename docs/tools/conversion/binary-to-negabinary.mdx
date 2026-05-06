@@ -1,0 +1,92 @@
+---
+id: binary-to-negabinary
+title: "Binary to Negabinary Converter — Base −2, Free"
+description: "Convert binary (base 2) to negabinary (base −2). Curiosity / educational tool. Browser-only."
+sidebar_label: "binary-to-negabinary"
+keywords:
+  - "binary to negabinary"
+  - "base negative 2"
+  - "negabinary converter"
+  - "curious number bases"
+  - "positional notation"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# binary-to-negabinary
+
+Negabinary is base −2 — a positional numeral system where each position's weight is (−2)^k. It can represent both positive and negative integers without a separate sign bit, making it a curiosity in computer-science theory. Position 0 = (-2)^0 = 1, position 1 = (-2)^1 = -2, position 2 = (-2)^2 = 4, position 3 = -8, ... Decimal 5 in negabinary is 101 (= 4 + 0 + 1). Decimal -1 is 11 (= -2 + 1). The ZTools Binary to Negabinary Converter handles both directions and any integer.
+
+<ToolCTA toolId="binary-to-negabinary" toolName="binary-to-negabinary" />
+
+## Use cases
+
+### Computer-science curiosity
+
+Negabinary teaches positional notation generality — base doesn't have to be positive.
+
+### Algorithm exercise
+
+Implementing negabinary conversion is a fun coding-interview problem.
+
+### Teach number bases beyond positive
+
+Students see that "base" is more flexible than they think.
+
+## How it works
+
+1. **Paste decimal or binary** — Tool detects.
+2. **Convert** — Repeatedly divide by −2 with a non-negative remainder. The remainder sequence is the negabinary representation.
+3. **Output** — Negabinary digits + verification (multiply out and check equals input).
+
+## Examples
+
+**Input:** Decimal 5
+
+**Output:** Negabinary 101. Verify: 1·4 + 0·(-2) + 1·1 = 5.
+
+---
+
+**Input:** Decimal -1
+
+**Output:** Negabinary 11. Verify: 1·(-2) + 1·1 = -1.
+
+---
+
+**Input:** Decimal 6
+
+**Output:** Negabinary 11010. Verify: 1·16 + 1·(-8) + 0·4 + 1·(-2) + 0·1 = 6.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is this useful?**</summary>
+
+Mostly theoretical — positional notation generality. Some hardware experiments use balanced ternary or negabinary; mainstream computing uses two's complement.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Pure curiosity — useful for CS theory, coding-interview problems, and teaching number bases.
+- For practical work, two's complement is the universal standard.
+
+## Try it now
+
+The full binary-to-negabinary runs in your browser at **[https://ztools.zaions.com/binary-to-negabinary](https://ztools.zaions.com/binary-to-negabinary)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/binary-to-negabinary)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/binary-to-negabinary.mdx)*

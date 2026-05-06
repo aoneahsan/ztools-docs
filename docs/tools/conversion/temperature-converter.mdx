@@ -1,0 +1,121 @@
+---
+id: temperature-converter
+title: "Temperature Converter — Celsius, Fahrenheit, Kelvin & Rankine (Free)"
+description: "Convert between Celsius, Fahrenheit, Kelvin, and Rankine instantly. Shows the formula. Useful for cooking, weather, science. Free."
+sidebar_label: "temperature-converter"
+keywords:
+  - "temperature converter"
+  - "celsius to fahrenheit"
+  - "fahrenheit to celsius"
+  - "kelvin converter"
+  - "temperature scale converter"
+  - "free temp converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# temperature-converter
+
+A temperature converter translates between Celsius (°C), Fahrenheit (°F), Kelvin (K), and Rankine (°R) — the four primary temperature scales — using their exact relationship formulas which involve both multiplication and offset (unlike length or weight which are pure ratios). The ZTools Temperature Converter live-updates as you type, supports negative values (Celsius and Fahrenheit go below zero; Kelvin starts at absolute zero), shows the conversion formula and a brief reference of common temperatures (water freezing/boiling, body temperature, room temperature), and works offline once loaded.
+
+<ToolCTA toolId="temperature-converter" toolName="temperature-converter" />
+
+## Use cases
+
+### Cooking with international recipes
+
+A US recipe calls for 350°F oven; you have a Celsius oven dial. Quick conversion to 177°C — and you don't over-bake the chicken.
+
+### Weather translation
+
+Friend abroad says "it's 30°C". You think in Fahrenheit. Convert to 86°F — "warm summer day". No more confused conversations about weather.
+
+### Science and engineering homework
+
+Physics problems often use Kelvin (where T = 0 means absolute zero). Convert from Celsius to Kelvin: just add 273.15.
+
+### HVAC and climate control
+
+Datasheet specifies "operating temperature -20°C to 60°C". Convert to Fahrenheit (-4°F to 140°F) for US installation manuals.
+
+## How it works
+
+1. **Enter the temperature** — Decimals OK. Negative values OK for Celsius/Fahrenheit; Kelvin must be ≥ 0 (absolute zero is the lowest possible).
+2. **Pick the source scale** — Celsius, Fahrenheit, Kelvin, or Rankine.
+3. **See conversions to all other scales** — Single screen shows the equivalent in all three other scales. No re-clicking to flip direction.
+4. **Read the formula used** — Each conversion is shown with its formula (e.g., °F = °C × 9/5 + 32). Useful for homework verification and learning.
+
+## Examples
+
+**Input:** 100°C
+
+**Output:** 212°F | 373.15 K | 671.67°R (water boiling point)
+
+---
+
+**Input:** 0°F
+
+**Output:** -17.78°C | 255.37 K | 459.67°R
+
+---
+
+**Input:** -40°C
+
+**Output:** -40°F | 233.15 K (the magic point where C and F are equal)
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is temperature conversion not just multiplication?**</summary>
+
+Each scale has a different "zero" point. Celsius zero is water freezing; Fahrenheit zero is roughly the freezing point of saltwater. So conversion needs both a scaling factor (9/5) and an offset (+32). This is why "double the Celsius" doesn't give Fahrenheit.
+
+</details>
+
+<details>
+<summary>**How do I convert °C to °F in my head?**</summary>
+
+Approximate: double the Celsius, add 30. So 25°C ≈ 50 + 30 = 80°F (actual: 77°F). Close enough for weather. Exact: × 9/5, + 32.
+
+</details>
+
+<details>
+<summary>**When should I use Kelvin?**</summary>
+
+Physics, chemistry, and engineering — anywhere absolute temperature matters. Gas laws (PV = nRT) only work in Kelvin. Day-to-day weather and cooking use Celsius or Fahrenheit.
+
+</details>
+
+<details>
+<summary>**What's Rankine and who uses it?**</summary>
+
+Rankine is to Fahrenheit what Kelvin is to Celsius — an absolute scale where 0 = absolute zero, but with Fahrenheit-sized degrees. Used in some US engineering applications (especially thermodynamics, aerospace) but rare elsewhere.
+
+</details>
+
+<details>
+<summary>**What's absolute zero?**</summary>
+
+0 K = -273.15°C = -459.67°F = 0°R. The theoretical lowest possible temperature, where all thermal motion stops. Approached experimentally but never reached.
+
+</details>
+
+## Tips
+
+- For oven temps: 350°F = 177°C, 400°F = 204°C, 425°F = 218°C. Most home ovens round to 175°C, 200°C, 220°C respectively.
+- For human body temperature: 98.6°F = 37°C. A fever starts around 38°C / 100.4°F.
+- For cold weather: -40°C = -40°F (the only place the two scales agree).
+- When converting recipes, be aware that ovens and thermometers have ±5°C variation — small differences don't matter much.
+
+## Try it now
+
+The full temperature-converter runs in your browser at **[https://ztools.zaions.com/temperature-converter](https://ztools.zaions.com/temperature-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/temperature-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/temperature-converter.mdx)*

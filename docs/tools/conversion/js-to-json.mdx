@@ -1,0 +1,129 @@
+---
+id: js-to-json
+title: "JS to JSON Converter — JS Object Literal to Strict JSON"
+description: "Convert JS object literal (with single quotes, trailing commas, comments) to strict valid JSON. Free, browser-only, instant."
+sidebar_label: "js-to-json"
+keywords:
+  - "js to json"
+  - "javascript to json"
+  - "js object to json"
+  - "object literal to json"
+  - "js to json converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# js-to-json
+
+A JS-to-JSON converter transforms JavaScript object literal syntax into strict JSON — quote keys with double quotes, replace single quotes with double quotes, remove trailing commas, strip comments, escape special characters. JS object literals are MORE lenient than JSON; JSON has strict rules. Pasted JS often comes from console output, code snippets, or hand-written config that won't parse as JSON. The ZTools JS to JSON Converter handles unquoted keys, single quotes, trailing commas, comments (// and /* */), undefined → null conversion, and emits standards-conformant JSON.
+
+<ToolCTA toolId="js-to-json" toolName="js-to-json" />
+
+## Use cases
+
+### Console output → API payload
+
+Copied a JS object from `console.log()`. Need to send via curl as JSON. Converter cleans up the syntax.
+
+### Hand-written config to JSON
+
+Wrote `\{name: "x", value: 42, // important\}` casually; need strict JSON for a tool that requires it.
+
+### Migration from JS config to JSON
+
+Modernising a codebase: `config.js` exporting an object → `config.json`. Converter does the heavy lifting.
+
+### Test fixtures
+
+JS tests use object literals; CI/external fixtures may want JSON. Quick conversion.
+
+## How it works
+
+1. **Paste JS object literal** — Anything that's a valid JS object expression. Wrapped in `\{...\}` or pasted from a `const x = \{...\}`.
+2. **Convert** — Tool parses with a permissive JS parser, then re-serialises as strict JSON.
+3. **Format options** — Pretty-print (2/4-space indent) or minified.
+4. **Validate** — Output verified as parseable by JSON.parse(); errors flagged.
+5. **Copy / download** — .json file or clipboard.
+
+## Examples
+
+**Input:** `\{name: 'Alice', age: 30, // age in years\\n active: true,\}`
+
+**Output:** `\{"name":"Alice","age":30,"active":true\}` — keys quoted, comments removed, trailing comma stripped.
+
+---
+
+**Input:** `\{ undefined: undefined, fn: () =&gt; \{\} \}`
+
+**Output:** WARNING: undefined and functions stripped (JSON has no representation). Output: `\{\}`.
+
+---
+
+**Input:** Complex nested object
+
+**Output:** Pretty-printed JSON with 2-space indent.
+
+## Frequently asked questions
+
+<details>
+<summary>**What gets stripped?**</summary>
+
+`undefined` (no JSON equivalent — becomes null or omitted), functions (no JSON equivalent), Symbols, and circular references. Tool warns when stripping.
+
+</details>
+
+<details>
+<summary>**Are comments preserved?**</summary>
+
+No — JSON has no comment spec. Tool strips both // and /* */ comments. For "JSON with comments", use JSONC (used by VS Code config) — different format.
+
+</details>
+
+<details>
+<summary>**Trailing commas?**</summary>
+
+Removed. JSON spec disallows. JS allows. Tool handles silently.
+
+</details>
+
+<details>
+<summary>**BigInt / Date / regex?**</summary>
+
+JSON doesn't support these natively. BigInt → string representation. Date → ISO string (recommended). Regex → /pattern/flags as string. Tool warns on conversion.
+
+</details>
+
+<details>
+<summary>**Can I round-trip JSON → JS → JSON?**</summary>
+
+Yes — both directions are loss-less for plain objects. With BigInt/Date/etc., expect lossy conversion.
+
+</details>
+
+<details>
+<summary>**JSON5 support?**</summary>
+
+JSON5 (relaxed JSON) supports comments, trailing commas, single quotes. Use a dedicated JSON5 parser; this tool emits strict JSON.
+
+</details>
+
+## Tips
+
+- Strict JSON: double quotes only, no comments, no trailing commas, no functions, no undefined.
+- For configs that need comments, use JSONC (JSON with comments) or YAML, not JSON.
+- Always pretty-print for human-edited JSON; minify for over-the-wire / size.
+- Validate output by attempting `JSON.parse()` — if it throws, the converter missed something.
+- For dates, use ISO 8601 strings — universally parseable across languages.
+
+## Try it now
+
+The full js-to-json runs in your browser at **[https://ztools.zaions.com/js-to-json](https://ztools.zaions.com/js-to-json)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/js-to-json)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/js-to-json.mdx)*

@@ -1,0 +1,129 @@
+---
+id: json-to-js
+title: "JSON to JS Converter — Generate JS Object Literal Free"
+description: "Convert JSON to JavaScript object literal with cleaner syntax: unquoted keys, single quotes, optional const/var prefix. Free."
+sidebar_label: "json-to-js"
+keywords:
+  - "json to js"
+  - "json to javascript"
+  - "json to object literal"
+  - "json to js object"
+  - "json to js converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-to-js
+
+A JSON-to-JS converter transforms strict JSON into a JavaScript object literal — unquoted keys (where valid identifier), single quotes (more idiomatic JS), optional `const x = \{...\}` wrapper, and configurable indentation. Useful for: pasting JSON config into a JS file with cleaner syntax, generating mock data fixtures from JSON API responses, and producing easier-to-read JS source from JSON. The ZTools JSON to JS Converter handles unicode keys properly (only valid JS identifiers go unquoted), optionally promotes ISO date strings to `new Date(...)` calls, and emits ESLint-friendly output.
+
+<ToolCTA toolId="json-to-js" toolName="json-to-js" />
+
+## Use cases
+
+### JSON config → JS module
+
+A `.json` config promoted to `.js` module to allow comments and computed values: tool generates `export const config = \{...\}` from JSON.
+
+### API response → mock fixture
+
+Captured a JSON API response; want JS-format fixture for tests. Cleaner syntax + comments support after conversion.
+
+### JSON-blob doc → readable JS
+
+A 200-line JSON config is hard to read. JS object literal with unquoted keys + single quotes is friendlier.
+
+### Migration: JSON → CommonJS module
+
+`module.exports = require("./config.json")` → just import-as-JS for a richer module.
+
+## How it works
+
+1. **Paste JSON** — Strict valid JSON.
+2. **Pick output style** — Single quotes (default JS idiom) or double; unquote valid-identifier keys; wrap in `const x = \{...\}`.
+3. **Date promotion (optional)** — Detected ISO 8601 strings (`"2026-05-06T..."`) become `new Date("2026-05-06T...")` calls.
+4. **Convert** — AST-driven; output is ESLint-friendly.
+5. **Copy / download** — .js file or clipboard.
+
+## Examples
+
+**Input:** `\{"name":"Alice","age":30,"active":true\}`
+
+**Output:** `\{ name: 'Alice', age: 30, active: true \}` — keys unquoted, single quotes, idiomatic JS.
+
+---
+
+**Input:** `\{"created":"2026-05-06T10:00:00Z"\}`
+
+**Output:** `\{ created: new Date('2026-05-06T10:00:00Z') \}` — ISO promoted to Date.
+
+---
+
+**Input:** JSON with `"2nd-key": ...`
+
+**Output:** `"2nd-key"` stays quoted (not a valid JS identifier).
+
+## Frequently asked questions
+
+<details>
+<summary>**When does a key stay quoted?**</summary>
+
+When it's not a valid JS identifier: starts with digit, contains hyphens/spaces, is a reserved word, or is non-ASCII. Tool quotes those automatically.
+
+</details>
+
+<details>
+<summary>**Single vs double quotes?**</summary>
+
+Both valid JS. Single quotes are more idiomatic in modern JS / TS codebases (+ standard ESLint rule). Tool defaults to single; configurable.
+
+</details>
+
+<details>
+<summary>**Will output be ESLint-clean?**</summary>
+
+Generally yes — unquoted-when-possible keys + single quotes + 2-space indent matches default ESLint config.
+
+</details>
+
+<details>
+<summary>**Can the JS be parsed back?**</summary>
+
+Yes — output is valid JS and `eval` or `(...)`-wrap evaluates to the same object. For round-trip, use the JS-to-JSON converter.
+
+</details>
+
+<details>
+<summary>**Date promotion safe?**</summary>
+
+Mostly — but ISO format detection is heuristic. Strings that look like dates but aren't may be wrongly promoted. Disable for safety in those cases.
+
+</details>
+
+<details>
+<summary>**Comments on output?**</summary>
+
+Optional toggle: insert "// generated from JSON" header. Useful for tracking provenance.
+
+</details>
+
+## Tips
+
+- Single quotes + unquoted keys + 2-space indent = idiomatic modern JS.
+- Use date promotion only when you need actual Date objects; otherwise strings are simpler.
+- For TypeScript output, pair this tool with the JS-to-TS converter — gets you typed JS from JSON.
+- For very large JSON (10k+ lines), consider keeping JSON-as-is and `import json from "./data.json"`.
+- For dynamically-keyed objects, output may have many quoted keys — that's normal, JS rules.
+
+## Try it now
+
+The full json-to-js runs in your browser at **[https://ztools.zaions.com/json-to-js](https://ztools.zaions.com/json-to-js)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-to-js)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/json-to-js.mdx)*

@@ -1,0 +1,128 @@
+---
+id: json-to-csv
+title: "JSON to CSV Converter — Flatten Arrays of Objects to Spreadsheets"
+description: "Convert JSON arrays to CSV with auto-detected headers, proper quoting, and nested-object flattening. Open results directly in Excel or Sheets."
+sidebar_label: "json-to-csv"
+keywords:
+  - "json to csv"
+  - "convert json to csv"
+  - "json to spreadsheet"
+  - "json to excel"
+  - "flatten json to csv"
+  - "json csv converter online"
+  - "free json csv tool"
+  - "json array to csv"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# json-to-csv
+
+A JSON-to-CSV converter takes a JSON array of objects and produces a CSV file with one row per object, using the union of all object keys as the header row. The ZTools JSON-to-CSV tool follows RFC 4180 for quoting (fields containing commas, quotes, or newlines are wrapped in double quotes; embedded quotes are doubled), supports nested-object flattening via dot-notation keys, and handles missing keys gracefully (empty cell). Output opens cleanly in Excel, Google Sheets, Apple Numbers, LibreOffice Calc, and any database `COPY FROM` or `LOAD DATA` statement.
+
+<ToolCTA toolId="json-to-csv" toolName="json-to-csv" />
+
+## Use cases
+
+### Exporting an API response as a spreadsheet for stakeholders
+
+Product managers, marketers, and finance teams live in spreadsheets. Convert your `/users.json`, `/orders.json`, or analytics export to CSV, drop it in Sheets, and they can pivot, filter, and chart without ever touching JSON.
+
+### Bulk-importing JSON data into a relational database
+
+Postgres `\\copy table FROM 'file.csv' CSV HEADER` is the fastest way to ingest tabular data. Convert your JSON dump to CSV first, then bulk-load. Often 10-50× faster than INSERT statements per row.
+
+### Generating downloadable reports from a SaaS dashboard
+
+When users click "Download CSV" in your app, the front end can fetch JSON from the API and convert client-side. This avoids server-side CSV generation, reduces backend load, and keeps the data flow simple.
+
+### Sharing structured data with non-technical collaborators
+
+Send a colleague a JSON file and they will ask "how do I open this?" Send the same data as CSV and they double-click and read it. CSV is the universal interchange format for tabular data outside engineering.
+
+## How it works
+
+1. **Paste a JSON array into the input pane** — Top-level structure must be an array of objects: `[\{...\}, \{...\}]`. Bare objects or scalar values trigger a clear error.
+2. **Configure flattening behavior** — Choose how nested objects map to columns: dot-notation (`address.city`), bracket-notation (`address[city]`), or JSON-stringified column.
+3. **Click Convert** — The tool walks every object, builds the union of keys for the header row, and emits one CSV row per object with proper RFC 4180 quoting.
+4. **Review the output** — CSV preview appears with syntax highlighting. Verify the header row contains every column you expect.
+5. **Download or copy** — Save as `.csv` and open in your spreadsheet of choice, or copy and paste directly into Sheets.
+
+## Examples
+
+**Input:** [\{"name":"Ahsan","city":"Lahore"\},\{"name":"Fatima","city":"Karachi"\}]
+
+**Output:** name,city
+Ahsan,Lahore
+Fatima,Karachi
+
+---
+
+**Input:** [\{"id":1,"meta":\{"tag":"a","score":3\}\}]
+
+**Output:** id,meta.tag,meta.score
+1,a,3
+
+## Frequently asked questions
+
+<details>
+<summary>**What if the array contains objects with different keys?**</summary>
+
+The header row is the union of all keys across all objects. Missing keys for a given row produce empty cells. This matches the behavior of pandas, jq, and most ETL tools.
+
+</details>
+
+<details>
+<summary>**Are nested arrays supported?**</summary>
+
+Nested arrays are JSON-stringified into the CSV cell by default. For deeply nested data, consider flattening upstream or use a relational normalization step before converting.
+
+</details>
+
+<details>
+<summary>**Does the tool quote every field, or only when needed?**</summary>
+
+Only when needed (RFC 4180 minimum quoting): fields containing the delimiter, embedded quotes, or newlines. This keeps the CSV smallest while remaining spec-compliant.
+
+</details>
+
+<details>
+<summary>**Can I change the delimiter to a semicolon or tab?**</summary>
+
+Yes — the delimiter selector supports comma, semicolon, tab, and pipe. Useful when your locale's default Excel delimiter is semicolon (most of continental Europe).
+
+</details>
+
+<details>
+<summary>**How are null and undefined values handled?**</summary>
+
+Configurable: empty string (default), the literal "null", or omitted entirely. Choose the option that matches your downstream consumer.
+
+</details>
+
+<details>
+<summary>**Is the output stable when I re-convert the same JSON?**</summary>
+
+Yes — column order is determined by first-seen-key order, which is deterministic for any given input. Re-converting produces identical output byte-for-byte.
+
+</details>
+
+## Tips
+
+- Always inspect the first 3 output rows to confirm the header matches your expectations.
+- For arrays larger than 100,000 rows, expect 1-2 seconds of conversion time on a modern desktop.
+- When loading into Excel on macOS, set the delimiter to semicolon if you see all data crammed into column A.
+- For Google Sheets, paste the CSV directly into A1 — it auto-parses the columns.
+
+## Try it now
+
+The full json-to-csv runs in your browser at **[https://ztools.zaions.com/json-to-csv](https://ztools.zaions.com/json-to-csv)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-to-csv)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/json-to-csv.mdx)*

@@ -1,0 +1,122 @@
+---
+id: number-base
+title: "Number Base Converter — Binary, Octal, Decimal, Hex (Free)"
+description: "Convert numbers between binary (base 2), octal (base 8), decimal (base 10), and hexadecimal (base 16). Negative & fractional. Free."
+sidebar_label: "number-base"
+keywords:
+  - "number base converter"
+  - "binary to decimal"
+  - "hex converter"
+  - "octal converter"
+  - "base conversion"
+  - "binary octal hex"
+  - "free base converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# number-base
+
+A number base converter translates an integer or fractional value between bases — binary (base 2), octal (base 8), decimal (base 10), hexadecimal (base 16), or any custom base from 2 to 36 — used constantly in computing, electronics, and number theory work. The ZTools Number Base Converter handles arbitrary precision (no overflow on huge integers), supports negative numbers, decimal fractions (e.g., 0.1 in binary is the famous repeating 0.000110011…), and shows the calculation work step-by-step so users learn the algorithm rather than just trusting a black box.
+
+<ToolCTA toolId="number-base" toolName="number-base" />
+
+## Use cases
+
+### Reading hex memory dumps and color codes
+
+Hex value 0xFF means 255 in decimal, 11111111 in binary. Color #FF8800 is RGB(255, 136, 0). Quick conversion saves squinting at the calculator.
+
+### Programming and bit manipulation
+
+Setting bit 5 of a register: 1 &lt;&lt; 5 = 32 in decimal = 0x20 in hex = 0100000 in binary. The converter helps verify bitmask operations.
+
+### Subnet masks and IP networking
+
+/24 subnet mask = 255.255.255.0 = 11111111.11111111.11111111.00000000. Convert between dotted decimal and binary for networking math.
+
+### Computer science homework
+
+Convert 173 (dec) to binary: 10101101. The converter shows the divide-by-2-with-remainders work that's core to understanding how it works.
+
+## How it works
+
+1. **Enter the value** — In any base from 2 to 36. Hex digits A-F, larger bases use letters G-Z. Decimal fractions OK.
+2. **Pick the source base** — Common bases (2, 8, 10, 16) have shortcut tabs. Custom bases enter as a number 2-36.
+3. **Convert simultaneously to all common bases** — Binary, octal, decimal, hex shown side-by-side. Custom target base as needed.
+4. **Optional: see the work** — Toggle "show work" to display the division-by-target-base algorithm step-by-step. Useful for homework or learning.
+
+## Examples
+
+**Input:** 255 (decimal)
+
+**Output:** Binary: 11111111 | Octal: 377 | Hex: FF
+
+---
+
+**Input:** 0xFF (hex)
+
+**Output:** Decimal: 255 | Binary: 11111111
+
+---
+
+**Input:** 0.1 (decimal)
+
+**Output:** Binary: 0.0001100110011… (repeating). The famous reason 0.1 + 0.2 ≠ 0.3 in floating-point.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does programming use hex so often?**</summary>
+
+Each hex digit corresponds to exactly 4 binary bits, so 8 bits = 2 hex digits. This makes hex compact and easy to mentally translate to/from binary. 1 byte = 0x00 to 0xFF — much more readable than 8 binary digits.
+
+</details>
+
+<details>
+<summary>**How do I convert decimal to binary by hand?**</summary>
+
+Divide by 2, write the remainder, repeat with the quotient. Read the remainders bottom-up. 13 ÷ 2 = 6 r 1, 6 ÷ 2 = 3 r 0, 3 ÷ 2 = 1 r 1, 1 ÷ 2 = 0 r 1 → reading up: 1101 = 13.
+
+</details>
+
+<details>
+<summary>**What's the largest base supported?**</summary>
+
+Base 36 — uses digits 0-9 and letters A-Z. Base 64 (used in encoding) is a different system that uses additional symbols and isn't a "number base" in the math sense.
+
+</details>
+
+<details>
+<summary>**How are negative numbers represented?**</summary>
+
+In math, just prefix with a minus: -10 (dec) = -1010 (bin). In computing, "two's complement" representation is more common — see the dedicated 2's complement tool. The converter shows mathematical representation by default.
+
+</details>
+
+<details>
+<summary>**Why are some decimals "exact" in binary and others not?**</summary>
+
+Decimal fractions whose denominator (when fully reduced) is a power of 2 are exact in binary (0.5 = 0.1, 0.25 = 0.01). Otherwise, the binary representation is repeating: 0.1 (decimal) repeats forever in binary. This causes floating-point precision quirks.
+
+</details>
+
+## Tips
+
+- For reading hex quickly, memorize: 0xF = 15, 0xFF = 255 (max byte), 0xFFFF = 65,535 (max 16-bit), 0xFFFFFFFF ≈ 4.3 billion (max 32-bit).
+- Bit manipulation: bit N is the value 2^N. Bit 0 = 1, bit 4 = 16, bit 7 = 128.
+- Color codes: #RRGGBB where each pair is 0x00-0xFF — the converter helps decode them.
+- For very large numbers, BigInt support handles values beyond 2^53 (the JavaScript safe integer limit).
+
+## Try it now
+
+The full number-base runs in your browser at **[https://ztools.zaions.com/number-base](https://ztools.zaions.com/number-base)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/number-base)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/number-base.mdx)*

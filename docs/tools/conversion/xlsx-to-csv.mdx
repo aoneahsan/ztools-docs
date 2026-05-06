@@ -1,0 +1,122 @@
+---
+id: xlsx-to-csv
+title: "XLSX to CSV Converter — Excel to CSV Online, Multi-Sheet (Free)"
+description: "Convert Excel .xlsx files to CSV instantly. Multi-sheet handling, delimiter choice, encoding control. No upload — runs in browser. Free."
+sidebar_label: "xlsx-to-csv"
+keywords:
+  - "xlsx to csv"
+  - "excel to csv"
+  - "convert xlsx to csv online"
+  - "multi sheet xlsx converter"
+  - "excel csv export"
+  - "free xlsx converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# xlsx-to-csv
+
+An XLSX to CSV converter reads Microsoft Excel .xlsx files and exports each worksheet as a CSV (comma-separated values) file — converting the structured spreadsheet (with formatting, formulas, and multiple sheets) into the lightweight, universally-readable plain-text format consumed by databases, scripting languages, and BI tools. The ZTools XLSX to CSV Converter runs entirely in your browser (no upload, no server roundtrip, your data stays private), handles multi-sheet workbooks (one CSV per sheet or merged), preserves formula results (not the formula text), supports custom delimiters and encoding (UTF-8 default, optional BOM for Excel re-opening), and handles dates and numbers correctly.
+
+<ToolCTA toolId="xlsx-to-csv" toolName="xlsx-to-csv" />
+
+## Use cases
+
+### Importing Excel data into a database
+
+Postgres, MySQL, BigQuery — they import CSV easily, XLSX poorly. Convert first, then run a one-line COPY/LOAD statement.
+
+### Sharing data with non-Excel users
+
+Mac users with Numbers, Linux users with LibreOffice, scripts using Pandas — all consume CSV happily, XLSX with friction.
+
+### Version-control friendly storage
+
+XLSX is binary and diffs poorly in Git. CSV is text and diffs cleanly. Convert before committing data files.
+
+### Feeding data into scripts and pipelines
+
+Python, Node, R, Bash — all parse CSV with one line. XLSX needs heavier libraries. CSV is the universal interchange format.
+
+## How it works
+
+1. **Drop or select an .xlsx file** — File stays in your browser — no upload to any server. Multi-sheet workbooks supported.
+2. **Pick which sheet(s) to convert** — Convert only the active sheet, all sheets to one merged CSV (with sheet name as a column), or all sheets as separate CSV files in a zip.
+3. **Configure CSV options** — Delimiter (comma, tab, semicolon, pipe), quote character, encoding (UTF-8 with or without BOM), line endings (LF / CRLF).
+4. **Formula results are exported** — Cells with formulas export their computed value, not the formula text. Same as how Excel itself exports CSV.
+5. **Download** — Single CSV file or a zip if multiple sheets. The original XLSX is never modified.
+
+## Examples
+
+**Input:** Single-sheet XLSX with 1,000 rows
+
+**Output:** CSV with 1,000 rows + 1 header row. Identical data, ready for database import.
+
+---
+
+**Input:** Workbook with 5 sheets
+
+**Output:** Choice: 1 merged CSV (5,000 rows with a "sheet" column), or 5 CSV files in a zip.
+
+---
+
+**Input:** Sheet with formulas (=A1+B1)
+
+**Output:** CSV exports the computed result (e.g., 30), not the formula text.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will my data be uploaded to a server?**</summary>
+
+No — the conversion runs entirely in your browser using a JavaScript XLSX library. Your file never leaves your device. Important for sensitive financials, HR data, and proprietary spreadsheets.
+
+</details>
+
+<details>
+<summary>**How are dates handled?**</summary>
+
+Excel stores dates as serial numbers (days since 1900-01-01). The converter recognizes date-formatted cells and exports them as ISO 8601 strings (2026-05-05). Custom date formats are preserved when possible.
+
+</details>
+
+<details>
+<summary>**What about multi-sheet workbooks?**</summary>
+
+Three options: (1) just the active sheet, (2) all sheets merged into one CSV with a "sheet name" column, (3) all sheets as separate CSV files in a zip download.
+
+</details>
+
+<details>
+<summary>**Does it handle merged cells, formatting, charts, and images?**</summary>
+
+Merged cells: the value goes into the top-left, others are blank. Formatting (colors, bold) is lost — CSV is plain text. Charts and images are dropped — they don't exist in CSV.
+
+</details>
+
+<details>
+<summary>**Can it preserve UTF-8 special characters?**</summary>
+
+Yes — the default encoding is UTF-8, which handles all Unicode characters. For Excel re-import, enable UTF-8 BOM so Excel correctly recognizes the encoding when opening the CSV.
+
+</details>
+
+## Tips
+
+- For Excel users opening CSVs, include the UTF-8 BOM — without it, accented characters display as gibberish.
+- For data with embedded commas (addresses, descriptions), use semicolon or tab as delimiter — avoids heavy quoting.
+- Always preview the first 10 rows before downloading large files — catches mapping issues early.
+- For very large XLSX files (&gt;100k rows), convert in chunks if your browser slows down.
+
+## Try it now
+
+The full xlsx-to-csv runs in your browser at **[https://ztools.zaions.com/xlsx-to-csv](https://ztools.zaions.com/xlsx-to-csv)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/xlsx-to-csv)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/xlsx-to-csv.mdx)*

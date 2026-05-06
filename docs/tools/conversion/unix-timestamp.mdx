@@ -1,0 +1,122 @@
+---
+id: unix-timestamp
+title: "Unix Timestamp Converter — Epoch to Date & Date to Epoch (Free)"
+description: "Convert Unix epoch timestamps to human dates and vice versa. Supports seconds, milliseconds, microseconds. UTC + local time. Free."
+sidebar_label: "unix-timestamp"
+keywords:
+  - "unix timestamp converter"
+  - "epoch converter"
+  - "unix time"
+  - "epoch to date"
+  - "date to epoch"
+  - "iso 8601"
+  - "free epoch converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# unix-timestamp
+
+A Unix timestamp converter translates between Unix epoch (the integer number of seconds since 1970-01-01 00:00 UTC) and human-readable dates and times, supporting seconds, milliseconds (JavaScript convention), and microseconds (Python/database convention). The ZTools Unix Timestamp Converter shows both UTC and local time side-by-side, auto-detects whether you pasted seconds, milliseconds, or microseconds based on magnitude, supports any year from 1970 to 9999, and offers ISO 8601 output (the universal date-time string format) along with relative time ("3 hours ago", "in 2 days").
+
+<ToolCTA toolId="unix-timestamp" toolName="unix-timestamp" />
+
+## Use cases
+
+### Debugging API responses with epoch timestamps
+
+API returns "createdAt: 1715000000". Convert to "2024-05-06 14:13:20 UTC" — instantly understandable instead of opaque integer.
+
+### Reading database log entries
+
+Database stores timestamps as Unix epoch for portability. Convert any specific log entry to local time for incident investigation.
+
+### Setting cron jobs and scheduled events
+
+"What's the epoch for next Monday at 9am UTC?" — convert from a date to find the timestamp value to schedule against.
+
+### Verifying token expiration
+
+JWT and OAuth tokens often have expiration as Unix epoch. Quick conversion confirms whether a token is still valid or expired.
+
+## How it works
+
+1. **Pick the conversion direction** — Epoch → date, or date → epoch. Either input field works for the same conversion.
+2. **Enter the timestamp or date** — For epoch: integer (seconds), 13-digit (milliseconds), or 16-digit (microseconds) auto-detected. For date: ISO 8601, common formats (MM/DD/YYYY), or natural language ("tomorrow 3pm").
+3. **Read both UTC and local time** — Side-by-side. UTC for server-timestamp and database storage; local for understanding "what does this mean for me".
+4. **Optional: relative time** — For recent timestamps, see "3 hours ago" alongside the absolute time. Future times show "in 2 days".
+
+## Examples
+
+**Input:** 1714900000 (seconds)
+
+**Output:** 2024-05-05 09:46:40 UTC | Sunday, May 5, 2024 5:46:40 AM ET (local)
+
+---
+
+**Input:** 2026-05-05T00:00:00Z
+
+**Output:** 1746403200 (seconds since epoch)
+
+---
+
+**Input:** 0 (epoch)
+
+**Output:** 1970-01-01 00:00:00 UTC — the start of Unix time, also called "the epoch".
+
+## Frequently asked questions
+
+<details>
+<summary>**What is "Unix time" or "the epoch"?**</summary>
+
+Unix time is the count of seconds since 1970-01-01 00:00:00 UTC, ignoring leap seconds. It's the standard machine timestamp for Unix, Linux, macOS, and most server systems. The "epoch" is that 1970 starting point.
+
+</details>
+
+<details>
+<summary>**Why do some timestamps have 10 digits and others 13?**</summary>
+
+10 digits = seconds (Unix convention, used by most languages). 13 digits = milliseconds (JavaScript Date.now() convention). 16 digits = microseconds (Python time.time_ns() / 1000). The converter auto-detects.
+
+</details>
+
+<details>
+<summary>**What's the "Year 2038 problem"?**</summary>
+
+32-bit signed integers max out at 2,147,483,647 seconds, which is 2038-01-19. Older systems storing Unix time in 32-bit ints will overflow then. Most modern systems use 64-bit ints, which won't overflow for ~292 billion years.
+
+</details>
+
+<details>
+<summary>**Does Unix time include leap seconds?**</summary>
+
+No — by convention, Unix time ignores leap seconds and "smears" them. So Unix time is not a perfect count of SI seconds; it's a count of fictional 86400-second days. Doesn't matter for most applications.
+
+</details>
+
+<details>
+<summary>**How do I convert in different time zones?**</summary>
+
+Unix time is always UTC by definition. Convert to UTC first, then to your local time zone. The converter shows both side-by-side; you can also pick any IANA time zone (America/Los_Angeles, Asia/Tokyo, etc.).
+
+</details>
+
+## Tips
+
+- Always store and exchange Unix time in UTC; convert to local time only at display time.
+- For databases, prefer storing Unix epoch (or ISO 8601) over locale-specific date strings.
+- Many APIs return milliseconds (JavaScript convention) — divide by 1000 if your library expects seconds.
+- For human-readable display, ISO 8601 ("2026-05-05T12:34:56Z") is the most universally parsed format.
+
+## Try it now
+
+The full unix-timestamp runs in your browser at **[https://ztools.zaions.com/unix-timestamp](https://ztools.zaions.com/unix-timestamp)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/unix-timestamp)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/unix-timestamp.mdx)*

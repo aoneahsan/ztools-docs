@@ -1,0 +1,121 @@
+---
+id: heic-to-jpg
+title: "HEIC to JPG Converter — iPhone Photos to Universal JPG (Free)"
+description: "Convert iPhone HEIC photos to JPG instantly. Batch conversion, quality control, EXIF preservation. No upload — runs in browser. Free."
+sidebar_label: "heic-to-jpg"
+keywords:
+  - "heic to jpg"
+  - "iphone photo to jpg"
+  - "heic converter"
+  - "heic to jpeg online"
+  - "free heic converter"
+  - "iphone heic to jpg"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# heic-to-jpg
+
+A HEIC to JPG converter decodes the modern, efficient HEIC (High Efficiency Image Container) format that iPhones use by default and re-encodes the image as JPG (JPEG) — the universally-supported format that every browser, OS, app, and email client opens without complaint. The ZTools HEIC to JPG Converter runs entirely in your browser using a WebAssembly HEIC decoder, supports batch conversion (drop multiple files at once), gives you quality-vs-size control (50-100%), preserves EXIF metadata (camera, date, GPS) by default, and produces output identical to what iPhone's native "send as JPEG" option would.
+
+<ToolCTA toolId="heic-to-jpg" toolName="heic-to-jpg" />
+
+## Use cases
+
+### Sharing iPhone photos with Windows or older devices
+
+Windows 10/11 sometimes shows HEIC as a broken thumbnail. Convert to JPG and share — universal compatibility, no codec installs.
+
+### Uploading to websites that reject HEIC
+
+Many web upload forms (job applications, government portals) only accept JPG/PNG. Convert before uploading.
+
+### Editing in software without HEIC support
+
+Older Photoshop versions and many free editors don't handle HEIC. Convert to JPG, edit, save.
+
+### Email attachments and document insertion
+
+Email clients often render JPG inline but show HEIC as an attachment. Convert for better recipient experience.
+
+## How it works
+
+1. **Drop one or many HEIC files** — Files stay in your browser — no server upload. Batch up to a few hundred files at once.
+2. **Pick output quality** — JPG quality 50-100. 85 (default) gives near-indistinguishable visual quality at ~30% of the lossless size. 70 for "good enough" and smaller files.
+3. **WebAssembly decoder converts each file** — HEIC is decoded to a raw bitmap, re-encoded as JPG. EXIF metadata (camera, date, GPS) is copied across by default.
+4. **Download single or zip** — Single file → one JPG download. Multiple → all JPGs in a zip with original filenames preserved.
+
+## Examples
+
+**Input:** IMG_1234.heic (3.2 MB iPhone photo)
+
+**Output:** IMG_1234.jpg (~1.8 MB at quality 85), visually identical, EXIF preserved.
+
+---
+
+**Input:** 50 HEIC files dropped at once
+
+**Output:** Zip download with 50 JPG files, total ~75 MB → ~45 MB.
+
+---
+
+**Input:** HEIC with GPS coordinates
+
+**Output:** JPG with same GPS coordinates intact (or stripped, if you toggle "strip metadata").
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my iPhone save as HEIC instead of JPG?**</summary>
+
+HEIC files are roughly half the size of JPG at equivalent visual quality. Apple defaults to HEIC to save storage. You can change the iPhone setting (Settings &gt; Camera &gt; Formats &gt; Most Compatible) to save JPG directly.
+
+</details>
+
+<details>
+<summary>**Will I lose quality converting HEIC to JPG?**</summary>
+
+Both formats are lossy. Converting once at quality 85+ is visually indistinguishable from the original. Converting multiple times in a row degrades quality each time — try to keep one master and re-convert from it.
+
+</details>
+
+<details>
+<summary>**Is metadata preserved?**</summary>
+
+EXIF (camera, lens, exposure, date, GPS) is preserved by default. Toggle "strip metadata" if you're sharing publicly and want to remove location data.
+
+</details>
+
+<details>
+<summary>**Is this safe for private photos?**</summary>
+
+Yes — conversion runs entirely in your browser using WebAssembly. No upload, no cloud, no analytics on the image content. The original files never leave your device.
+
+</details>
+
+<details>
+<summary>**Can it convert to other formats (PNG, WebP)?**</summary>
+
+This tool focuses on HEIC → JPG. For PNG or WebP output, use the Image Format Converter; HEIC source still works but the destination is more flexible.
+
+</details>
+
+## Tips
+
+- Quality 85 is the sweet spot — near-perfect visual quality at modest file size.
+- For final masters, keep the HEIC; convert to JPG only when sharing.
+- Strip metadata before posting publicly to avoid leaking GPS coordinates of your home/workplace.
+- For very large batches (500+ files), convert in groups of 100 to avoid browser memory pressure.
+
+## Try it now
+
+The full heic-to-jpg runs in your browser at **[https://ztools.zaions.com/heic-to-jpg](https://ztools.zaions.com/heic-to-jpg)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/heic-to-jpg)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/heic-to-jpg.mdx)*

@@ -1,0 +1,129 @@
+---
+id: js-to-typescript
+title: "JS to TypeScript Converter — Free Auto Type Annotations"
+description: "Convert JavaScript to TypeScript with auto-inferred types, JSDoc-to-types upgrades, and strict-mode hints. Free, browser-only."
+sidebar_label: "js-to-typescript"
+keywords:
+  - "js to typescript"
+  - "javascript to typescript converter"
+  - "auto typescript types"
+  - "jsdoc to typescript"
+  - "js typescript migration"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# js-to-typescript
+
+A JS-to-TypeScript converter takes plain JavaScript code and rewrites it as TypeScript by adding type annotations — function parameter types, return types, variable types, JSDoc → TS type upgrades, and basic generic inference. Useful for incremental migration of legacy JS codebases to TS, learning TS by seeing how JS maps to typed equivalents, and one-off file conversions. The ZTools JS to TypeScript Converter uses TypeScript's own compiler API for inference, plus heuristics for tricky cases (callbacks, untyped object literals). Output isn't production-ready without review — manual type tightening is always required, but the converter saves 60–80% of the typing effort.
+
+<ToolCTA toolId="js-to-typescript" toolName="js-to-typescript" />
+
+## Use cases
+
+### Legacy JS → TS migration
+
+A 10k-line JS codebase needs migration. Run files through the converter; review and tighten output. Saves weeks.
+
+### Learning TypeScript
+
+Paste familiar JS, see what TS would look like. Learn types by seeing them applied to your own code instead of contrived examples.
+
+### Sharing snippets in TS-only environments
+
+StackOverflow / blog post requires TS; you wrote in JS. Quick convert + manual polish.
+
+### JSDoc → real types
+
+Existing code has rich JSDoc. Tool converts `@param \{string\} name` to `name: string`. Native TS is more reliable for tooling.
+
+## How it works
+
+1. **Paste JS** — ES6+ syntax. CommonJS, ES modules, browser globals all handled.
+2. **Set strictness** — Lenient (any where unclear) or strict (force explicit types).
+3. **Convert** — TypeScript compiler infers types from usage. JSDoc annotations promoted to TS types.
+4. **Review** — Output highlights inferred-as-any locations + suggests tightening. NEVER ship without manual review.
+5. **Copy / download** — .ts file ready for `tsc` compile.
+
+## Examples
+
+**Input:** `function add(a, b) \{ return a + b; \}`
+
+**Output:** `function add(a: number, b: number): number \{ return a + b; \}` — types inferred from + operator usage.
+
+---
+
+**Input:** `const fetchUser = async (id) =&gt; \{ ... \}` with JSDoc `@param \{string\} id`
+
+**Output:** `const fetchUser = async (id: string): Promise&lt;User&gt; =&gt; \{ ... \}` (with User interface inferred from return).
+
+---
+
+**Input:** JS callback `arr.map(x =&gt; x * 2)`
+
+**Output:** TS: `arr.map((x: number): number =&gt; x * 2)` — types pulled from arr type.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will it convert any JS?**</summary>
+
+Most. Edge cases: dynamic typeof patterns, runtime-built objects, prototype manipulation may need manual types. Plain functional code converts cleanly.
+
+</details>
+
+<details>
+<summary>**Is the output production-ready?**</summary>
+
+No — manual review is mandatory. Inferred types may be too loose (e.g. `any[]` where `User[]` is correct). Treat output as "85% of the way there".
+
+</details>
+
+<details>
+<summary>**JSDoc vs new TS types — which wins?**</summary>
+
+JSDoc upgraded to TS types. If both exist (rare), TS wins.
+
+</details>
+
+<details>
+<summary>**Will it preserve comments?**</summary>
+
+Yes — non-JSDoc comments preserved verbatim. JSDoc may be removed if its info is now redundant with the TS type.
+
+</details>
+
+<details>
+<summary>**Generics?**</summary>
+
+Some inferred for obvious cases (`function identity&lt;T&gt;(x: T): T \{ return x; \}`). Most generics need manual annotation.
+
+</details>
+
+<details>
+<summary>**React JSX → TSX?**</summary>
+
+Tool handles JSX → TSX conversion + adds prop types where it can infer.
+
+</details>
+
+## Tips
+
+- Always run `tsc --strict` after conversion — catches loose types the tool missed.
+- Tighten `any` to specific types in your review pass — that's where TS value comes from.
+- For file-by-file migration, set `allowJs: true` in tsconfig so JS and TS files coexist.
+- JSDoc-rich code converts much cleaner than untyped JS — invest in JSDoc before migrating.
+- For React, consider migrating components last — types propagate from leaf to root.
+
+## Try it now
+
+The full js-to-typescript runs in your browser at **[https://ztools.zaions.com/js-to-typescript](https://ztools.zaions.com/js-to-typescript)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/js-to-typescript)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/js-to-typescript.mdx)*

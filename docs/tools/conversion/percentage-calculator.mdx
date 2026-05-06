@@ -1,0 +1,145 @@
+---
+id: percentage-calculator
+title: "Percentage Calculator — Free Online Percentage Tool"
+description: "Calculate percentages: X% of Y, X is what % of Y, percentage change, percent increase/decrease. Free, instant, no signup."
+sidebar_label: "percentage-calculator"
+keywords:
+  - "percentage calculator"
+  - "percent calculator"
+  - "percentage change"
+  - "tip calculator"
+  - "discount calculator"
+  - "percentage of"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# percentage-calculator
+
+A percentage calculator handles the four common percentage operations: (1) what is X% of Y (e.g. 15% of $80 = $12 tip), (2) X is what percent of Y (e.g. 35 out of 50 = 70%), (3) percentage change from X to Y (e.g. price up from $100 to $115 = +15%), (4) X% increase or decrease (e.g. $100 + 25% = $125). The ZTools Percentage Calculator covers all four with separate inputs, shows the formula explicitly for verification, supports negative changes (decreases), and has a tipping presets section for common dining/service tip rates.
+
+<ToolCTA toolId="percentage-calculator" toolName="percentage-calculator" />
+
+## Use cases
+
+### Tipping / service charges
+
+Quick 15% / 18% / 20% tip on a restaurant bill. Calculator beats mental math when split among a group with tax.
+
+### Discount / sale pricing
+
+Product 30% off original $89.99 — final price? Calculator: $62.99. Avoid checkout-line surprises.
+
+### Performance / KPI changes
+
+Quarterly KPI moved from 50,000 to 56,500 — that's a 13% increase. Conversion ratio 3.2% → 3.8% = 18.75% relative increase. Calculator distinguishes absolute vs relative.
+
+### Test scores
+
+47 questions correct out of 60 = 78.3%. Quick grading aid.
+
+### Tax calculation
+
+Sales tax 7% on $245 → $17.15 tax + $262.15 total. VAT 20% on £100 ex-VAT → £120 inc-VAT.
+
+## How it works
+
+1. **Pick operation** — "X% of Y", "X is what % of Y", "% change from X to Y", "X ± N% = ?".
+2. **Enter values** — Two numeric inputs per operation.
+3. **View result** — Result + formula shown explicitly. e.g. "15% of $80 = (15 / 100) × 80 = $12".
+4. **Tip presets** — Quick buttons for 10%, 15%, 18%, 20%, 25% tips.
+
+## Examples
+
+**Input:** 15% of 80
+
+**Output:** 12 (formula: 0.15 × 80).
+
+---
+
+**Input:** 35 is what % of 50
+
+**Output:** 70% (formula: 35 / 50 × 100).
+
+---
+
+**Input:** Change from 100 to 115
+
+**Output:** +15% increase. (115 - 100) / 100 × 100.
+
+---
+
+**Input:** 100 + 25%
+
+**Output:** 125. (100 × 1.25.)
+
+---
+
+**Input:** 100 - 25%
+
+**Output:** 75. (100 × 0.75.)
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does 100 + 25% then -25% not return to 100?**</summary>
+
+100 × 1.25 = 125. 125 × 0.75 = 93.75. The percentages are computed against different bases (100 then 125). Common gotcha.
+
+</details>
+
+<details>
+<summary>**Compound interest vs simple interest — which here?**</summary>
+
+Tool does single-period percentage math. For multi-period compound, use the financial-calculator tool — different formulas.
+
+</details>
+
+<details>
+<summary>**How do percentage points differ from percentages?**</summary>
+
+Conversion 3% → 4% is a "1 percentage-point increase" but a "33% relative increase". Different things; mixing them is the most common political/financial misstatement.
+
+</details>
+
+<details>
+<summary>**Tax-exclusive vs tax-inclusive — how to compute?**</summary>
+
+$100 ex-VAT 20% = $120 inc-VAT. From $120 inc-VAT 20% back to ex-VAT: $120 / 1.2 = $100 (NOT $120 × 0.8 which is $96 — common error).
+
+</details>
+
+<details>
+<summary>**Percentage of percentages?**</summary>
+
+Always specify the base: 50% of 80% = 40% of original. Use this calculator twice: first 80% × something = X, then 50% of X.
+
+</details>
+
+<details>
+<summary>**Negative percentages?**</summary>
+
+A change from 100 to 75 is -25%. The tool handles negative changes correctly with explicit sign in output.
+
+</details>
+
+## Tips
+
+- For tipping, 20% of $X = $X / 5 — fastest mental shortcut.
+- Tax-back-out: divide by (1 + tax%) as a decimal — e.g. $108 / 1.08 = $100 ex-tax (8% tax).
+- Always specify "percentage" vs "percentage point" — they differ enormously.
+- For investment returns, compounded over multiple years, use compound-interest calculator (NOT this percentage tool).
+- For grading, percentage = correct / total × 100. 70% is the common minimum-pass threshold.
+
+## Try it now
+
+The full percentage-calculator runs in your browser at **[https://ztools.zaions.com/percentage-calculator](https://ztools.zaions.com/percentage-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/percentage-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/percentage-calculator.mdx)*

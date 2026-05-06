@@ -1,0 +1,125 @@
+---
+id: html-entities
+title: "HTML Entities Reference & Converter — Named, Numeric, Hex (Online)"
+description: "Look up HTML entities by name, number, or character. Convert between named (&copy;), numeric (&#169;), and hex (&#xA9;) forms. Free."
+sidebar_label: "html-entities"
+keywords:
+  - "html entities"
+  - "html entity reference"
+  - "html character entities"
+  - "named entities"
+  - "numeric entities"
+  - "html special characters"
+  - "unicode entity converter"
+  - "free html entities tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# html-entities
+
+HTML entities are escape sequences that represent characters which are either reserved in HTML (`&lt;`, `&gt;`, `&`), invisible (non-breaking space), or hard to type directly (©, ™, ←, ✓). The ZTools HTML Entities tool is a comprehensive reference and converter: search the full HTML5 named entity table by name, number, or character; convert any character to its named, decimal numeric (`&#169;`), or hex numeric (`&#xA9;`) entity form; and decode any entity back to its character. Built-in copy buttons make it fast to look up `→` or `©` and paste the right entity into your HTML.
+
+<ToolCTA toolId="html-entities" toolName="html-entities" />
+
+## Use cases
+
+### Inserting special characters into HTML without typing them
+
+Need an em-dash (—), copyright symbol (©), or arrow (→) in your HTML? Search the entity table, click Copy, paste. Faster than memorizing entity names or hunting through Unicode tables.
+
+### Identifying mystery entities in HTML source
+
+You see `&#8594;` in a stranger's HTML and wonder what it renders as. Paste into the decoder; the tool shows the character (→) and its name (`&rarr;`).
+
+### Standardizing entity style across a codebase
+
+Some files use `&copy;`, others use `&#169;`, others use `&#xA9;` — all valid, all equivalent. Convert all to one style for consistency in code review and grep.
+
+### Building or debugging an entity-aware text editor
+
+When implementing rich-text features (like Notion-style "type `--` and get `—`"), the entity table tells you which character → entity mappings to support. The reference is built from the official HTML5 spec.
+
+## How it works
+
+1. **Search by character, name, or number** — Type "©", "copy", or "169" to find the copyright entity. Real-time filter narrows the table as you type.
+2. **Click any row to see all forms** — Named (`&copy;`), decimal (`&#169;`), hex (`&#xA9;`), and the literal character. Each has a copy button.
+3. **Use the bidirectional converter** — Paste raw text → see all characters with HTML-special meaning highlighted with their entities. Or paste entity-laden text → see the decoded form.
+4. **Toggle between named and numeric output** — Named entities are more readable (`&euro;`); numeric entities are universal (`&#8364;`). Choose based on your downstream consumer.
+5. **Copy with one click** — Each entity row has a copy button for the format you need. Pastes anywhere — code editors, CMS WYSIWYG, terminal.
+
+## Examples
+
+**Input:** Look up "copyright"
+
+**Output:** Named: &copy; | Decimal: &#169; | Hex: &#xA9; | Character: ©
+
+---
+
+**Input:** Decode: 5 &times; 3 &#8804; 16
+
+**Output:** 5 × 3 ≤ 16
+
+## Frequently asked questions
+
+<details>
+<summary>**When do I need to use HTML entities?**</summary>
+
+Always for `&`, `&lt;`, `&gt;`, `"`, `'` inside HTML body or attributes. Optional for other characters in modern UTF-8 documents — write them literally. Use entities for non-typeable characters (←, ✓) or when sending HTML through systems that may corrupt UTF-8.
+
+</details>
+
+<details>
+<summary>**What's the difference between named and numeric entities?**</summary>
+
+Named entities like `&copy;` are human-readable but limited to ~2,200 characters in HTML5. Numeric entities like `&#169;` work for any Unicode code point (1.1M+ characters). Named entities are slightly shorter for common chars; numeric entities are universal.
+
+</details>
+
+<details>
+<summary>**Are HTML entities case-sensitive?**</summary>
+
+Yes — `&Copy;` and `&copy;` are different entities (uppercase Copy is a math symbol; lowercase is the © character). When in doubt, copy from a reference table.
+
+</details>
+
+<details>
+<summary>**Do I need to use entities for emoji?**</summary>
+
+No — emoji are plain UTF-8 characters. Save your file as UTF-8 (the modern default), declare `&lt;meta charset="UTF-8"&gt;`, and emoji render directly. Entity-encoding emoji wastes bytes.
+
+</details>
+
+<details>
+<summary>**How many HTML entities exist?**</summary>
+
+HTML5 defines ~2,200 named entities. Numeric entities can address all 1.1M+ Unicode code points.
+
+</details>
+
+<details>
+<summary>**Why might my entity not render?**</summary>
+
+Most common cause: typo in the name (`&abcd;` is invalid). Other causes: missing semicolon, browser caching, or an XHTML doctype that requires strict syntax.
+
+</details>
+
+## Tips
+
+- Prefer numeric entities for non-Latin scripts (more reliable across legacy parsers).
+- Always include the trailing semicolon — some parsers tolerate its absence, but it's a syntax error per spec.
+- For modern UTF-8 documents, only encode `&lt;`, `&gt;`, `&`, `"`, `'` — write everything else as literal characters.
+- Use named entities for documentation's sake (`&euro;` is readable; `&#8364;` is opaque).
+
+## Try it now
+
+The full html-entities runs in your browser at **[https://ztools.zaions.com/html-entities](https://ztools.zaions.com/html-entities)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/html-entities)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/html-entities.mdx)*

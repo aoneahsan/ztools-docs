@@ -84,6 +84,15 @@ const TOOLS_TO_PUBLISH = [
   'list-randomizer','list-shuffler','list-sorter','obfuscate-json','reverse-hex','shuffle-binary-bits',
   'sort-csv-data','sql-formatter','sql-to-json','xml-formatter','xml-minifier','xml-validator',
   'yaml-to-json','yaml-validator',
+
+  // Batch 6: conversion category — 40 tools
+  'ascii-art-to-image','ascii-to-decimal','binary-to-negabinary','bytes-to-ascii','color-converter-advanced',
+  'csv-json','csv-to-xlsx','currency-converter','data-storage-converter','decimal-to-ascii','docx-to-pdf',
+  'dog-age-converter','heic-to-jpg','hex-to-text-converter','html-entities','ip-address-converter','ip-to-hex',
+  'js-to-json','js-to-typescript','json-to-csv','json-to-js','json-yaml','length','length-converter',
+  'markdown-to-pdf','number-base','octal-converter','percentage-calculator','rgb-hex','roman-numerals',
+  'speed-converter','temperature','temperature-converter','time-unit','typescript-to-js','unit-converter',
+  'unix-timestamp','weight','weight-converter','xlsx-to-csv',
 ];
 
 // ---------------------------------------------------------------------------

@@ -1,0 +1,100 @@
+---
+id: decimal-to-ascii
+title: "Decimal to ASCII Converter — Free, Browser-Only"
+description: "Convert decimal codes (65, 97, 32) back to ASCII text. Useful for decoding char arrays. Browser-only."
+sidebar_label: "decimal-to-ascii"
+keywords:
+  - "decimal to ascii"
+  - "char codes to text"
+  - "int array to string"
+  - "decode ascii numbers"
+  - "decimal text converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# decimal-to-ascii
+
+Decimal to ASCII reverses the encoding: 65 → A, 97 → a, 32 → space. Useful for decoding character-code arrays, recovering text from C-style int arrays, and reading hex-dump-derived sequences. The ZTools Decimal to ASCII converter accepts any whitespace / comma-separated decimal list and outputs the resulting text, with warnings for out-of-range or non-printable codes.
+
+<ToolCTA toolId="decimal-to-ascii" toolName="decimal-to-ascii" />
+
+## Use cases
+
+### Decode a char array
+
+C array \{72, 101, 108, 108, 111\} → "Hello". Useful for reading firmware dumps.
+
+### Read a manually-typed hex/decimal sequence
+
+Forensics or CTF: hex/decimal numbers; convert to readable text.
+
+### Inspect serialised data
+
+Some binary formats use ASCII-decimal length prefixes — decode to verify.
+
+## How it works
+
+1. **Paste decimal codes** — Comma, space, or newline-separated. Tool parses each as integer.
+2. **Validate** — Codes 0-127 are pure ASCII. 128-255 extended. Above 255 (Unicode) toggles to UTF-8 mode.
+3. **Convert** — String.fromCharCode per code. Output assembled.
+4. **Display** — Resulting text. Non-printable codes shown as escape sequences (\\n, \\t) or control symbols.
+
+## Examples
+
+**Input:** 72, 101, 108, 108, 111
+
+**Output:** "Hello".
+
+---
+
+**Input:** 65, 66, 67, 32, 49, 50, 51
+
+**Output:** "ABC 123".
+
+---
+
+**Input:** 9, 10
+
+**Output:** \\t\\n (tab, newline).
+
+## Frequently asked questions
+
+<details>
+<summary>**What if a code is out of range?**</summary>
+
+0-127 is pure ASCII. 128-255 is locale-dependent. Above 255 is Unicode (toggle UTF-16 / UTF-32 mode).
+
+</details>
+
+<details>
+<summary>**Non-printable codes?**</summary>
+
+Codes 0-31 are control characters. Tool shows them as \\n, \\t, etc., or special symbols (NUL, SOH).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For pure ASCII text, codes stay 32-126 (printable). Anything else hints at non-ASCII or control characters.
+- For roundtrip verification, convert text → decimal → text and confirm match.
+
+## Try it now
+
+The full decimal-to-ascii runs in your browser at **[https://ztools.zaions.com/decimal-to-ascii](https://ztools.zaions.com/decimal-to-ascii)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/decimal-to-ascii)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/decimal-to-ascii.mdx)*

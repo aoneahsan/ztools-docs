@@ -1,0 +1,122 @@
+---
+id: rgb-hex
+title: "RGB to Hex Converter — Color Code Translation Both Ways (Free)"
+description: "Convert between RGB and hex color codes instantly. Supports HSL, named colors, alpha channel. Live color preview. Free."
+sidebar_label: "rgb-hex"
+keywords:
+  - "rgb to hex"
+  - "hex to rgb"
+  - "color converter"
+  - "css color converter"
+  - "hex color code"
+  - "rgb color picker"
+  - "free color converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# rgb-hex
+
+An RGB to hex converter translates color values between the three common formats — RGB triplets like rgb(255, 136, 0), hex codes like #FF8800, and HSL like hsl(32, 100%, 50%) — used by CSS, design tools, and image-processing pipelines. The ZTools RGB/Hex Converter live-renders the color as you type, supports the alpha channel for transparency (rgba and 8-digit hex), recognizes 140+ named CSS colors (dodgerblue, aliceblue, etc.), and shows the same color in all three formats side-by-side so you can copy whichever your downstream tool expects.
+
+<ToolCTA toolId="rgb-hex" toolName="rgb-hex" />
+
+## Use cases
+
+### Pasting brand colors into different tools
+
+Brand book lists "#1E3A8A". Your design tool wants RGB. The converter gives rgb(30, 58, 138). Copy and paste — done.
+
+### Translating between CSS and image-editor color pickers
+
+Photoshop uses RGB sliders; CSS uses hex. Convert between them without manually typing six characters and hoping you got it right.
+
+### Building gradients and color-themed UI
+
+Need 5 evenly-spaced colors between two endpoints? Convert each endpoint to HSL, interpolate hue/lightness, convert back to hex.
+
+### Accessibility checks
+
+Compute the contrast ratio between two hex colors. The converter feeds into the Contrast Checker tool for full WCAG compliance verification.
+
+## How it works
+
+1. **Enter a color in any format** — Hex (#FF8800 or #F80), RGB (255, 136, 0), HSL (32, 100%, 50%), or a named CSS color (orange, dodgerblue).
+2. **Live color preview** — The page background or a swatch tile shows the actual color so you can see what you're working with.
+3. **Read all formats simultaneously** — Hex (3-digit and 6-digit), RGB, RGBA, HSL, HSLA, and the closest named CSS color. Click any to copy.
+4. **Optional alpha channel** — Adjust the alpha (transparency) slider to see rgba() and 8-digit hex (#FF8800CC) variants.
+
+## Examples
+
+**Input:** #FF8800
+
+**Output:** rgb(255, 136, 0) | hsl(32, 100%, 50%) | nearest CSS name: darkorange
+
+---
+
+**Input:** rgb(30, 58, 138)
+
+**Output:** #1E3A8A | hsl(225, 64%, 33%)
+
+---
+
+**Input:** hsl(0, 100%, 50%)
+
+**Output:** #FF0000 | rgb(255, 0, 0) | red (CSS named)
+
+## Frequently asked questions
+
+<details>
+<summary>**How does hex relate to RGB?**</summary>
+
+Each pair of hex digits is one channel: red, green, blue. #FF8800 = R:0xFF (255), G:0x88 (136), B:0x00 (0). Use the Number Base Converter for the hex math.
+
+</details>
+
+<details>
+<summary>**What's the difference between #F80 and #FF8800?**</summary>
+
+CSS short hex (#F80) expands to long form (#FF8800) by repeating each digit. So #F80 = #FF8800 = same color. Short form is just shorter to type.
+
+</details>
+
+<details>
+<summary>**When should I use HSL instead of RGB?**</summary>
+
+HSL is friendlier for human reasoning: hue is what color (0-360°), saturation is how vivid (0-100%), lightness is how bright (0-100%). To make a color "more red", change hue. RGB requires changing R and adjusting G/B inversely.
+
+</details>
+
+<details>
+<summary>**How does alpha (transparency) work?**</summary>
+
+Alpha 1.0 (or 255) = fully opaque. Alpha 0 = fully transparent. In hex 8-digit form, the last two digits are alpha: #FF8800CC has alpha 0xCC = 204 ≈ 80% opaque.
+
+</details>
+
+<details>
+<summary>**Are CSS named colors universal?**</summary>
+
+The CSS Level 3 specification defines 140+ named colors (red, blue, dodgerblue, etc.). Modern browsers support them all. For brand-specific colors, use exact hex/RGB.
+
+</details>
+
+## Tips
+
+- For brand colors, store the exact hex — don't round to a nearby named color.
+- When designing dark/light theme variants, work in HSL: change lightness, keep hue/saturation.
+- Always specify color in only one format per file — mixing causes confusion in code reviews.
+- Alpha is the last channel — RGBA and 8-digit hex append it; RGB and 6-digit hex omit it.
+
+## Try it now
+
+The full rgb-hex runs in your browser at **[https://ztools.zaions.com/rgb-hex](https://ztools.zaions.com/rgb-hex)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/rgb-hex)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/rgb-hex.mdx)*

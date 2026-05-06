@@ -1,0 +1,129 @@
+---
+id: ip-address-converter
+title: "IP Address Converter — IPv4, IPv6, Decimal, Hex, Binary"
+description: "Convert IPv4 / IPv6 between dotted-decimal, hex, binary, integer (32/128-bit), and IPv6 expanded/compact forms. Free."
+sidebar_label: "ip-address-converter"
+keywords:
+  - "ip address converter"
+  - "ipv4 to integer"
+  - "ipv6 expander"
+  - "ip to hex"
+  - "ip to binary"
+  - "ipv4 ipv6 converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ip-address-converter
+
+An IP address converter translates IP addresses between representations — IPv4 dotted-decimal (192.168.1.1), 32-bit decimal integer (3232235777), hex (C0A80101), binary (11000000.10101000.00000001.00000001); IPv6 compact (2001:db8::1), expanded (2001:0db8:0000:0000:0000:0000:0000:0001), 128-bit integer, and hex. Used for: storing IPs efficiently in databases (integer is 4 bytes vs 15-char string), reading server logs that record IPs as integers, network device configuration, and learning IP encoding. The ZTools IP Address Converter handles both IPv4 and IPv6 with format validation.
+
+<ToolCTA toolId="ip-address-converter" toolName="ip-address-converter" />
+
+## Use cases
+
+### Database storage decisions
+
+Storing IPs as 32-bit ints saves space and enables range queries (`WHERE ip BETWEEN x AND y`). Tool converts before insert.
+
+### Reading binary log formats
+
+Some servers log IPs as raw 32-bit int. Quick conversion to dotted-decimal makes the log human-readable.
+
+### Network device configuration
+
+Firewalls, routers sometimes accept IP ranges as int + mask, hex, or binary. Convert from familiar dotted-decimal.
+
+### IPv6 expansion / compression
+
+Compact form `::1` vs expanded `0000:0000:...:0001`. ACL configs may require one form; tool converts both ways.
+
+## How it works
+
+1. **Enter IP** — IPv4 dotted-decimal, IPv6 compact/expanded, or decimal/hex/binary integer with version specified.
+2. **Validate** — Format check + range (each IPv4 octet 0–255; IPv6 hex digits valid).
+3. **Convert** — All representations shown: dotted-decimal, integer (32 or 128 bit), hex (8 or 32 chars), binary (32 or 128 bits with octet/group separators).
+4. **Range info** — For IPv6, identify scope (link-local fe80::/10, unique local fc00::/7, global, etc.).
+
+## Examples
+
+**Input:** 192.168.1.1
+
+**Output:** Decimal int: 3232235777. Hex: C0A80101. Binary: 11000000.10101000.00000001.00000001.
+
+---
+
+**Input:** 2001:db8::1
+
+**Output:** Expanded: 2001:0db8:0000:0000:0000:0000:0000:0001. Hex 32: 20010db8000000000000000000000001.
+
+---
+
+**Input:** Decimal 167772161
+
+**Output:** IPv4 10.0.0.1. (Class A reserved private range.)
+
+## Frequently asked questions
+
+<details>
+<summary>**Why store IPs as integers?**</summary>
+
+Smaller (4 bytes vs ~15 char string), enables range queries, faster index lookups. MySQL has `INET_ATON()` / `INET_NTOA()` for the conversion natively.
+
+</details>
+
+<details>
+<summary>**IPv4 vs IPv6 — which to use?**</summary>
+
+New deployments should support both (dual-stack). IPv6 is the future (IPv4 is exhausted in most regions). Most modern OSes/routers support both transparently.
+
+</details>
+
+<details>
+<summary>**Why is `::1` valid IPv6?**</summary>
+
+`::` is a shorthand for "any number of zero groups". So `::1` = `0:0:0:0:0:0:0:1` = IPv6 loopback (equivalent to IPv4's `127.0.0.1`).
+
+</details>
+
+<details>
+<summary>**How does mapping IPv4-in-IPv6 work?**</summary>
+
+`::ffff:192.168.1.1` is "IPv4-mapped IPv6" — embeds an IPv4 address in IPv6 space. Used by dual-stack APIs.
+
+</details>
+
+<details>
+<summary>**What's a 128-bit integer?**</summary>
+
+2^128 ≈ 3.4 × 10^38. JavaScript needs BigInt for full precision; tool uses BigInt where supported.
+
+</details>
+
+<details>
+<summary>**Is 0.0.0.0 valid?**</summary>
+
+Yes — represents "any address" (typically used for binding sockets to all interfaces). Not a real reachable address.
+
+</details>
+
+## Tips
+
+- For DBs: store IPs as INT (IPv4) or BINARY(16) (IPv6). Use built-in conversion functions.
+- For logs, convert int IPs to dotted-decimal at display, not storage.
+- IPv6 abbreviations: leading zeros optional in groups, `::` replaces a single run of all-zero groups.
+- For network programming, always test both IPv4 and IPv6 paths — dual-stack matters.
+- Reserved ranges to know: 10/8, 172.16/12, 192.168/16 (IPv4 private); fc00::/7 (IPv6 unique-local); fe80::/10 (link-local).
+
+## Try it now
+
+The full ip-address-converter runs in your browser at **[https://ztools.zaions.com/ip-address-converter](https://ztools.zaions.com/ip-address-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ip-address-converter)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/ip-address-converter.mdx)*

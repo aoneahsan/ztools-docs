@@ -1,0 +1,140 @@
+---
+id: weight
+title: "Weight Converter — Kg, Lb, Oz, Stone, Tonnes Free"
+description: "Convert weight between kilograms, pounds, ounces, stone, metric tonnes, US tons, milligrams, and more. Free, instant, no signup."
+sidebar_label: "weight"
+keywords:
+  - "weight converter"
+  - "mass converter"
+  - "kg to lb"
+  - "lb to kg"
+  - "kg to stone"
+  - "oz to g"
+  - "pounds to kilograms"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# weight
+
+A weight (mass) converter translates between units across systems — metric (mg, g, kg, metric ton/tonne), imperial / US customary (oz, lb, stone, US ton, UK ton), and scientific (atomic mass unit, slug). The ZTools Weight Converter handles 15+ units, supports compound input (e.g. "12 st 5 lb" common for human weight in UK), distinguishes US ton (2000 lb) from UK long ton (2240 lb) from metric tonne (1000 kg), and shows the conversion factor explicitly. Useful for shipping, fitness, cooking, science.
+
+<ToolCTA toolId="weight" toolName="weight" />
+
+## Use cases
+
+### Shipping / freight
+
+Shipping label in lb; courier API expects kg. Quick conversion saves a math error that overcharges/undercharges.
+
+### Fitness / weight tracking
+
+UK uses stone for body weight; US uses lb; metric uses kg. Convert across when reading/sharing fitness data internationally.
+
+### Cooking from foreign recipes
+
+European recipe in grams; US tradition uses pounds/ounces. Convert ingredients quickly and accurately.
+
+### Science / lab work
+
+Mass in mg/g/kg per spec; calculator confirms unit-conversion math for prep work.
+
+### Construction / engineering
+
+Material weights cross unit boundaries on multinational projects. Calculator settles disputes.
+
+## How it works
+
+1. **Enter value + source unit** — Numeric input; pick from mg / g / kg / tonne / oz / lb / stone / US ton / UK ton, etc.
+2. **View all conversions** — Result in 15+ units simultaneously.
+3. **Compound input (optional)** — "12 st 5 lb" or "5 lb 8 oz" parses correctly.
+4. **Choose precision** — 0–6 decimals.
+
+## Examples
+
+**Input:** 70 kg
+
+**Output:** 154.32 lb, 11 st 0.32 lb, 0.07 tonne, 2469.16 oz.
+
+---
+
+**Input:** 1 lb
+
+**Output:** 453.592 g, 0.4536 kg, 16 oz.
+
+---
+
+**Input:** 12 st 5 lb (compound)
+
+**Output:** 173 lb = 78.47 kg.
+
+---
+
+**Input:** 1 metric tonne
+
+**Output:** 1000 kg, 2204.62 lb, 0.984 UK long ton, 1.102 US short ton.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why are there three "tons"?**</summary>
+
+US short ton = 2000 lb = 907.185 kg. UK long ton = 2240 lb = 1016.05 kg. Metric tonne = 1000 kg = 2204.62 lb. They differ enough to matter in shipping and engineering — always specify which.
+
+</details>
+
+<details>
+<summary>**Stone — used where?**</summary>
+
+Common in UK and Ireland for body weight (1 stone = 14 lb = 6.35 kg). Not used elsewhere. UK media reports human weight as "12 st 5 lb" rather than "173 lb" or "78 kg".
+
+</details>
+
+<details>
+<summary>**Mass vs weight?**</summary>
+
+Strictly: mass (kg) is the amount of matter; weight (newtons) is the force gravity exerts. Colloquially we say "weight" but mean mass. This converter handles mass; you wouldn't convert newtons to pounds (different physical quantity).
+
+</details>
+
+<details>
+<summary>**Is 1 oz of feathers the same as 1 oz of gold?**</summary>
+
+Trick question — depends on the type of ounce. Avoirdupois ounce (28.35 g) is for everyday weight. Troy ounce (31.10 g) is for precious metals. So 1 troy oz of gold &gt; 1 avoir oz of feathers by ~10%. Tool clearly distinguishes.
+
+</details>
+
+<details>
+<summary>**How precise are conversions?**</summary>
+
+1 lb = 453.59237 g exactly (since 1959 international yard and pound agreement). All other conversions are exact rational numbers; precision limited by float arithmetic.
+
+</details>
+
+<details>
+<summary>**Carat — same as karat?**</summary>
+
+No: carat (200 mg) measures gemstone mass; karat (k or kt) measures gold purity (24k = pure). Different units for different things; same word origin.
+
+</details>
+
+## Tips
+
+- Always specify which "ton" — US short, UK long, or metric tonne — they differ ~10–13%.
+- For body weight, US uses lb, UK uses stone, rest of world uses kg.
+- Cooking: metric (g) is more precise than imperial (oz, cups) — pro bakers prefer it.
+- For gold/silver, troy ounce (31.1 g) is standard; for everything else, avoir ounce (28.35 g).
+- 1 kg ≈ 2.2 lb — useful mental math (off by 1% from exact 2.2046).
+
+## Try it now
+
+The full weight runs in your browser at **[https://ztools.zaions.com/weight](https://ztools.zaions.com/weight)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/weight)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/conversion/weight.mdx)*
