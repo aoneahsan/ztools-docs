@@ -1,0 +1,124 @@
+---
+id: hreflang-tag-generator
+title: "Hreflang Tag Generator — Generate hreflang for Multilingual SEO (Free)"
+description: "Generate hreflang tags for multi-language and multi-region sites. Validates ISO codes, mutual references, x-default. Copy as HTML, sitemap, or HTTP. Free."
+sidebar_label: "hreflang-tag-generator"
+keywords:
+  - "hreflang generator"
+  - "hreflang tags"
+  - "multilingual seo"
+  - "international seo"
+  - "language tag generator"
+  - "free hreflang tool"
+  - "hreflang sitemap"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# hreflang-tag-generator
+
+A hreflang tag generator builds the `&lt;link rel="alternate" hreflang&gt;` elements (or sitemap entries or HTTP headers) that tell Google which language and regional version of a page to show each user. The ZTools Hreflang Tag Generator validates ISO 639-1 language codes (en, es, fr, ar, …) and ISO 3166-1 region codes (US, GB, MX, IN, …), enforces mutual references (every page in a hreflang group must point at every other), and emits the recommended `x-default` for users in unmatched languages — preventing the most common hreflang bugs that cause Google to ignore the entire group.
+
+<ToolCTA toolId="hreflang-tag-generator" toolName="hreflang-tag-generator" />
+
+## Use cases
+
+### Setting up hreflang for the first time on a multilingual site
+
+You have English, Spanish, and French versions of the same page. Generate the hreflang block; paste into the `&lt;head&gt;` of all three. Google then serves each user the right language version in SERP.
+
+### Adding regional variants (en-US, en-GB, en-AU) to a single English page
+
+Same English content, different currency or shipping rules per region. hreflang signals which region each page targets so Google routes users correctly.
+
+### Ensuring mutual references in an existing hreflang group
+
+The most common hreflang bug: page A links to B and C, but B doesn't link back to A. Google then ignores the whole group. The generator enforces mutuality automatically.
+
+### Migrating from per-page HTML hreflang to sitemap hreflang
+
+For large multilingual sites (100s of pages × 10+ languages), per-page hreflang adds significant HTML weight. Sitemap hreflang is more efficient. The tool emits both formats so you can switch.
+
+## How it works
+
+1. **List your language/region variants** — For each variant: ISO 639-1 code (`en`, `es`, `fr`), optional ISO 3166-1 region (`US`, `MX`, `AR`), and the URL of the corresponding page.
+2. **Pick the x-default URL** — The page to show users whose language doesn't match any variant. Usually the English version (default for global audiences).
+3. **Validate codes and references** — Tool checks ISO codes, ensures every variant's URL is unique, and confirms mutual references will be emitted.
+4. **Click Generate** — Outputs three formats: HTML `&lt;link&gt;` tags for the `&lt;head&gt;`, sitemap.xml `&lt;xhtml:link&gt;` entries, HTTP `Link` header.
+5. **Implement and validate** — Paste the HTML into each variant page (every page gets the FULL block, including a self-reference). Submit a sitemap with hreflang entries to GSC and monitor the International Targeting report.
+
+## Examples
+
+**Input:** EN at /en/about, ES at /es/about, FR at /fr/about, x-default = /en/about
+
+**Output:** HTML: 4 `&lt;link rel="alternate" hreflang="en/es/fr/x-default"&gt;` tags, all listing each variant. Paste into all 3 pages.
+
+---
+
+**Input:** en-US, en-GB, en-AU all serving the same English content
+
+**Output:** HTML with hreflang="en-US", "en-GB", "en-AU" + an x-default. Each page references all 4.
+
+## Frequently asked questions
+
+<details>
+<summary>**Do I need hreflang if I only have one language?**</summary>
+
+No — hreflang is for sites with multiple language or regional variants of the same page. A monolingual site needs no hreflang.
+
+</details>
+
+<details>
+<summary>**What's x-default and do I need it?**</summary>
+
+`x-default` is the page Google shows users whose language matches none of your variants. Strongly recommended — without it, Google may show no version at all to unmatched users.
+
+</details>
+
+<details>
+<summary>**Does every page in the group need to link back?**</summary>
+
+Yes — every page must list every other page in the group, including itself. If A → B and C, then B → A and C, and C → A and B. Missing back-references is the #1 hreflang bug.
+
+</details>
+
+<details>
+<summary>**Can I use hreflang for region without language?**</summary>
+
+No. Format is `language` or `language-region`. Region-only is invalid. For region targeting use `en-US`, `en-GB`, `es-MX`, etc.
+
+</details>
+
+<details>
+<summary>**Should I use HTML, sitemap, or HTTP-header hreflang?**</summary>
+
+HTML is easiest for small sites. Sitemap is best for large multilingual sites (efficiency, central management). HTTP header is for non-HTML resources (PDFs). Pick one and stick with it — mixing causes conflicts.
+
+</details>
+
+<details>
+<summary>**How does Google use hreflang?**</summary>
+
+Google serves the user the page version most appropriate for their language and region settings. hreflang doesn't affect rankings — just which version is shown to whom.
+
+</details>
+
+## Tips
+
+- Always include x-default — protects against missing-version edge cases.
+- Enforce mutual references — every page in the group lists every other.
+- For large sites (&gt;50 pages × 5+ languages), use sitemap hreflang for efficiency.
+- Validate in GSC's International Targeting report — surfaces missing back-references and bad codes.
+
+## Try it now
+
+The full hreflang-tag-generator runs in your browser at **[https://ztools.zaions.com/hreflang-tag-generator](https://ztools.zaions.com/hreflang-tag-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hreflang-tag-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/hreflang-tag-generator.mdx)*

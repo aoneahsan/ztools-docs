@@ -1,0 +1,123 @@
+---
+id: mobile-seo-checker
+title: "Mobile SEO Checker — Audit Mobile-Friendliness, Speed, Tap Targets"
+description: "Audit mobile SEO — viewport meta, font sizes, tap-target spacing, image responsiveness, mobile speed signals. Mobile-first index ready. Free."
+sidebar_label: "mobile-seo-checker"
+keywords:
+  - "mobile seo checker"
+  - "mobile friendly test"
+  - "mobile-first index audit"
+  - "tap target checker"
+  - "mobile responsiveness checker"
+  - "free mobile seo tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# mobile-seo-checker
+
+A mobile SEO checker audits a page for the signals Google uses in its mobile-first index — the index used to rank every site since 2023. The ZTools Mobile SEO Checker covers viewport meta tag, minimum font sizes (16 px body recommended), tap-target spacing (48×48 px minimum per WCAG and Google's mobile-friendly rules), image responsiveness (`srcset` / `&lt;picture&gt;` usage), text-to-tap-target ratio, mobile speed signals (LCP, CLS), and content parity (mobile content matches desktop). Each issue is reported with the affected element so fixes are immediate.
+
+<ToolCTA toolId="mobile-seo-checker" toolName="mobile-seo-checker" />
+
+## Use cases
+
+### Pre-launch mobile readiness check
+
+Before announcing a new site, run the mobile checker. Catches the easy mistakes — missing viewport meta, 12 px body text, tap targets too close — before mobile users (and Google's mobile crawler) experience them.
+
+### Diagnosing a sudden mobile-rankings drop
+
+A page that ranked well on mobile suddenly doesn't? Often a recent CSS change broke the mobile layout (text too small, buttons too close). The checker surfaces the regression.
+
+### Auditing tap-target accessibility (WCAG 2.5.5)
+
+WCAG AAA requires 44×44 px touch targets. The checker maps every interactive element's actual size on a 375 px viewport and flags violations.
+
+### Verifying mobile/desktop content parity
+
+Some sites hide content on mobile via `display: none` — Google's mobile-first index then misses that content for ranking. The checker compares mobile and desktop content trees.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches the page and renders it at a 375×812 mobile viewport (iPhone X size).
+2. **Check viewport meta tag** — Missing viewport meta is the #1 mobile SEO killer. Tool flags absence and recommends `&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;`.
+3. **Audit text sizes** — Every text element measured at the rendered mobile viewport. Body text below 14 px flagged; below 12 px flagged as critical (Google's mobile-friendly rule).
+4. **Audit tap-target sizes and spacing** — Every link, button, and input rendered. Targets under 44×44 px or with neighbors closer than 8 px flagged.
+5. **Mobile speed signals** — LCP, CLS, FID/INP estimated from the page load on a throttled mobile connection. Detailed perf audit in our Page Speed Analyzer.
+
+## Examples
+
+**Input:** https://example.com (viewport meta present, body 16px, tap targets ≥48px)
+
+**Output:** PASS. Viewport ✓. Font sizes ✓. Tap targets ✓. LCP 2.1s ✓.
+
+---
+
+**Input:** https://example.com/legacy (no viewport, 12px body, links 24px tall)
+
+**Output:** CRITICAL: viewport meta missing. ERROR: body text 12px (rec 16px). ERROR: 8 links under 44px.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is mobile SEO different from regular SEO?**</summary>
+
+Since 2023, Google indexes the mobile version of pages first. So "mobile SEO" IS regular SEO; the desktop-only mistakes (popups that block mobile, tiny text, slow mobile load) directly hurt rankings.
+
+</details>
+
+<details>
+<summary>**What's the minimum body font size for mobile?**</summary>
+
+Google's mobile-friendly rule: 12 px minimum, 16 px recommended. Below 16 px on mobile is uncomfortable for most readers; below 12 px Google flags as mobile-unfriendly.
+
+</details>
+
+<details>
+<summary>**What's the minimum tap-target size?**</summary>
+
+Google: 48×48 dp. WCAG AAA: 44×44 px. Apple HIG: 44×44 pt. The checker uses 48 px as the practical minimum and 44 px as the absolute floor.
+
+</details>
+
+<details>
+<summary>**Should mobile content match desktop?**</summary>
+
+Yes for Google's mobile-first index — content shown only on desktop is essentially invisible to Google. If you must collapse content on mobile, use accordions or "show more" toggles (still in DOM) rather than `display: none`.
+
+</details>
+
+<details>
+<summary>**Will the checker handle SPAs?**</summary>
+
+It analyzes the initial HTML response. For JS-rendered SPAs, the bot view is what matters for SEO — the checker correctly shows that view.
+
+</details>
+
+<details>
+<summary>**What about the AMP format — is it still relevant?**</summary>
+
+No — Google deprecated AMP's SERP boost in 2021. Modern responsive HTML with good Core Web Vitals is the recommended path. Don't invest in new AMP work.
+
+</details>
+
+## Tips
+
+- Always set the viewport meta — single biggest mobile-SEO fix for legacy sites.
+- Default body text to 16 px on mobile; nothing under 14 px without a strong reason.
+- Tap targets minimum 48×48 px with at least 8 px gap from neighbors.
+- Avoid mobile popups that block content — Google penalizes intrusive interstitials.
+
+## Try it now
+
+The full mobile-seo-checker runs in your browser at **[https://ztools.zaions.com/mobile-seo-checker](https://ztools.zaions.com/mobile-seo-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/mobile-seo-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/mobile-seo-checker.mdx)*

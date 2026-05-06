@@ -1,0 +1,123 @@
+---
+id: twitter-card-validator
+title: "Twitter Card Validator — Preview Twitter (X) Link Cards (Free)"
+description: "Validate twitter:card meta tags. Preview summary, summary_large_image, app, and player cards. Image-size warnings, fallback-to-OG check. Free."
+sidebar_label: "twitter-card-validator"
+keywords:
+  - "twitter card validator"
+  - "x card validator"
+  - "twitter preview tester"
+  - "twitter:card debugger"
+  - "free twitter card tool"
+  - "x link preview"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# twitter-card-validator
+
+A Twitter Card validator fetches a URL, extracts every `twitter:*` meta tag (with Open Graph fallback when twitter:* is absent), and renders the link card as it would appear in a tweet. The ZTools Twitter Card Validator supports all four card types — summary, summary_large_image, app, player — with per-type field validation, image dimension and file-size checks against current X (Twitter) rules, and a fallback report showing which fields would be inherited from Open Graph if twitter:* is missing.
+
+<ToolCTA toolId="twitter-card-validator" toolName="twitter-card-validator" />
+
+## Use cases
+
+### Verifying a new article will display a large image card on X
+
+summary_large_image is dramatically more clickable than summary (small thumbnail). The validator confirms your tags trigger the large-image variant before you tweet.
+
+### Diagnosing why X strips your image and shows just a link
+
+Common causes: twitter:image missing (and og:image too), image format unsupported (X rejects WebP for cards as of 2026), image &gt; 5 MB, image not HTTPS-accessible. The validator flags each.
+
+### Adding app cards for a mobile app
+
+App cards (twitter:card "app") deep-link to App Store / Play Store with metadata. The validator checks every required field for both stores so the install card renders correctly.
+
+### Confirming OG fallback covers when you don't set twitter:*
+
+You don't need both. Set OG comprehensively, and twitter:card "summary_large_image" — Twitter pulls title/description/image from OG. The validator confirms the fallback works.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches and parses the `&lt;head&gt;`.
+2. **Extract twitter:* and OG tags** — Both sets, because Twitter falls back to OG for missing twitter:*. The validator shows which value will actually be used per field.
+3. **Validate twitter:card type and required fields** — summary needs title + description + image (≥120×120). summary_large_image needs an image at least 300×157 (recommended 1200×675). app and player have their own required fields.
+4. **Validate image dimensions and size** — Format (JPG, PNG, GIF, WebP — but WebP not supported for X cards), max size 5 MB, min 120×120 for summary, recommended 1200×675 for large.
+5. **Render the preview** — See exactly how X will display the card. Large image vs small thumbnail vs full app install card.
+
+## Examples
+
+**Input:** https://example.com (twitter:card summary_large_image, twitter:image 1200×675)
+
+**Output:** Card type: summary_large_image. Image: 1200×675 ✓. Title from OG. Description from OG. Renders large image card.
+
+---
+
+**Input:** https://example.com/page (no twitter:* tags)
+
+**Output:** No twitter:* tags. OG fallback: title ✓, description ✓, image ✓ but in WebP — X will strip image. Convert to JPG/PNG.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between summary and summary_large_image?**</summary>
+
+summary shows a small square thumbnail next to text. summary_large_image shows a wide horizontal image above text. Large is dramatically more clickable; default to it for content sites.
+
+</details>
+
+<details>
+<summary>**Do I need twitter:* tags if I have Open Graph?**</summary>
+
+Twitter falls back to OG, so you don't need duplicate fields. You DO need twitter:card to declare the card type. So the minimum: `&lt;meta name="twitter:card" content="summary_large_image"&gt;` plus a complete OG set.
+
+</details>
+
+<details>
+<summary>**What image formats does X support for cards?**</summary>
+
+JPG, PNG, GIF, BMP. WebP and AVIF are NOT supported for X cards (as of 2026), even though they work fine elsewhere. If your og:image is WebP, also set twitter:image to a JPG/PNG variant.
+
+</details>
+
+<details>
+<summary>**Why is my card not rendering on X?**</summary>
+
+Common: image too small, image not HTTPS, image too large (&gt;5 MB), URL behind authentication, twitter:card missing. The validator checks each.
+
+</details>
+
+<details>
+<summary>**Did the official Twitter Card Validator go away?**</summary>
+
+The official validator was discontinued. Third-party tools (this one included) reproduce the card-rendering logic from public spec — the previews match real X behavior.
+
+</details>
+
+<details>
+<summary>**Are app cards still supported?**</summary>
+
+Yes — `twitter:card="app"` for mobile app deep-link cards. Required fields for both iOS and Android variants must be set; validator covers both.
+
+</details>
+
+## Tips
+
+- Default to summary_large_image for content sites — much higher click-through.
+- Use a JPG or PNG for twitter:image even if your og:image is WebP — X doesn't support WebP cards.
+- Set twitter:card explicitly even when relying on OG for the rest — Twitter needs the card type declaration.
+- Test in the validator before tweeting; X caches aggressively after the first scrape.
+
+## Try it now
+
+The full twitter-card-validator runs in your browser at **[https://ztools.zaions.com/twitter-card-validator](https://ztools.zaions.com/twitter-card-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/twitter-card-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/twitter-card-validator.mdx)*

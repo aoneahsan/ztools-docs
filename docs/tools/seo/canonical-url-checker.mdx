@@ -1,0 +1,123 @@
+---
+id: canonical-url-checker
+title: "Canonical URL Checker — Detect Wrong Canonicals, Self-Referential, Chains"
+description: "Check the canonical URL of any page. Detects self-referential, cross-domain, redirected, missing, and chained canonicals. Free, instant."
+sidebar_label: "canonical-url-checker"
+keywords:
+  - "canonical url checker"
+  - "canonical tag checker"
+  - "rel canonical validator"
+  - "canonical chain detector"
+  - "canonical seo"
+  - "free canonical tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# canonical-url-checker
+
+A canonical URL checker fetches a page and reports its canonical declaration — both the `&lt;link rel="canonical"&gt;` in HTML and any HTTP `Link: rel="canonical"` header — then verifies the canonical points to a 200-OK page that doesn't itself canonicalize away. The ZTools Canonical URL Checker catches the four failure modes that cause Google to drop pages from the index: missing canonical, canonical pointing to a 404 or redirect, canonical pointing cross-domain (rare but legitimate; usually a bug), and chained canonicals (A → B → C, which Google often refuses to follow).
+
+<ToolCTA toolId="canonical-url-checker" toolName="canonical-url-checker" />
+
+## Use cases
+
+### Auditing a site for canonical hygiene before a major SEO push
+
+Sample 10-20 representative pages. Confirm each has a self-referential canonical (or a deliberate alias-to-master canonical). Catches the "framework auto-generated wrong canonicals" disaster early.
+
+### Diagnosing why a page is missing from the index
+
+A page disappeared from Google? Check its canonical — often it points to a different page that Google indexed instead, or it points to a redirect that confuses crawlers. The checker reveals both.
+
+### Verifying that paginated, faceted, or sorted URLs canonicalize correctly
+
+Pagination (`?page=2`), faceted browsing (`?color=red`), and sort variants (`?sort=newest`) should canonicalize to the master URL. Run several variants through the checker to confirm.
+
+### Confirming HTTPS migration didn't leave HTTP canonicals behind
+
+After migrating to HTTPS, every HTTP page should redirect to HTTPS AND every HTTPS page's canonical should be the HTTPS URL (not HTTP). Test sample URLs to verify.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches the page and any HTTP headers.
+2. **Check both HTML and HTTP-header canonicals** — Reports both. If they conflict, that's a bug — Google's behavior on conflict is undefined.
+3. **Verify the canonical target** — Fetches the canonical URL. Reports its HTTP status, its own canonical, and any redirect chain.
+4. **Flag the four failure modes** — Missing canonical (warning), canonical to 404/redirect (error), cross-domain canonical (warning, may be intentional), chained canonical (error).
+5. **Recommend the fix per failure** — For each issue, the recommended canonical declaration is shown ready to paste into your template.
+
+## Examples
+
+**Input:** https://example.com/blog/post
+
+**Output:** Canonical: https://example.com/blog/post (self-referential ✓). Target status: 200. No chain. PASS.
+
+---
+
+**Input:** https://example.com/page?utm_source=email
+
+**Output:** Canonical: https://example.com/page (clean URL ✓). Target: 200. PASS — UTM parameter correctly stripped.
+
+## Frequently asked questions
+
+<details>
+<summary>**Should every page have a self-referential canonical?**</summary>
+
+Yes — even unique pages benefit from an explicit self-referential canonical because it pre-empts URL-parameter duplicates (`?utm_source=...`) from being indexed as separate pages.
+
+</details>
+
+<details>
+<summary>**What's a "canonical chain" and why is it bad?**</summary>
+
+When page A canonicalizes to B, and B canonicalizes to C. Google's documented behavior: it prefers single-hop canonicals. Multi-hop chains often cause Google to ignore the canonical entirely and pick its own.
+
+</details>
+
+<details>
+<summary>**Can the canonical point to a different domain?**</summary>
+
+Yes — cross-domain canonicals are valid, used by content syndication (the original source canonicalizes to itself; the syndicating site canonicalizes back to the original). Most accidental cross-domain canonicals are bugs, so the checker warns by default.
+
+</details>
+
+<details>
+<summary>**Why might Google ignore my canonical?**</summary>
+
+Common reasons: canonical points to a redirect or 404, canonical chain (A→B→C), conflicting signals (canonical says X but sitemap and internal links point to Y), or quality difference (canonical-target page is much weaker than the source).
+
+</details>
+
+<details>
+<summary>**Should the canonical use absolute or relative URL?**</summary>
+
+Always absolute. Google accepts both per spec, but relative canonicals are frequently misinterpreted by less-permissive crawlers and social-share scrapers.
+
+</details>
+
+<details>
+<summary>**How do canonical and `noindex` interact?**</summary>
+
+They're different signals. `canonical` says "index this content under URL X". `noindex` says "don't index at all". Don't use both on the same page — Google's behavior is undefined; pick one.
+
+</details>
+
+## Tips
+
+- Always emit absolute, self-referential canonicals as the default for every page.
+- For URL parameters, point all variants to the clean URL.
+- After CMS template changes, sample 10-20 URLs to confirm canonicals still emit correctly.
+- For HTTPS migration, audit canonicals as a dedicated post-migration task.
+
+## Try it now
+
+The full canonical-url-checker runs in your browser at **[https://ztools.zaions.com/canonical-url-checker](https://ztools.zaions.com/canonical-url-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/canonical-url-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/canonical-url-checker.mdx)*

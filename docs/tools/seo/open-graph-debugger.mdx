@@ -1,0 +1,123 @@
+---
+id: open-graph-debugger
+title: "Open Graph Debugger — Test Facebook, LinkedIn, Slack Previews (Free)"
+description: "Debug Open Graph tags. See exactly how Facebook, LinkedIn, Slack, Discord, and WhatsApp will render your link preview. Image-size warnings. Free."
+sidebar_label: "open-graph-debugger"
+keywords:
+  - "open graph debugger"
+  - "og tag tester"
+  - "facebook preview debugger"
+  - "linkedin preview tester"
+  - "slack unfurl tester"
+  - "free open graph tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# open-graph-debugger
+
+An Open Graph debugger fetches a URL, parses every `og:*` and related meta tag, and renders the resulting link preview as it would appear in Facebook, LinkedIn, Slack, Discord, WhatsApp, and iMessage. The ZTools Open Graph Debugger covers the full OG vocabulary (og:title, og:description, og:image, og:image:width/height, og:type, og:url, og:site_name, og:locale, plus article:published_time and product:price for typed objects), validates image dimensions against each platform's recommended size, and flags every common mistake that breaks shares.
+
+<ToolCTA toolId="open-graph-debugger" toolName="open-graph-debugger" />
+
+## Use cases
+
+### Confirming a new page's social preview before announcing
+
+Before tweeting a new article, paste the URL into the debugger. See exactly the image, title, and description that recipients will see — fix anything wrong before the announcement instead of after.
+
+### Diagnosing why a Slack share shows the wrong image
+
+Slack caches OG previews aggressively. The debugger shows the live OG tags AND a "force re-fetch" hint for Slack to bust the cache.
+
+### Verifying og:image dimensions match recommendations
+
+1200×630 is the universal recommendation; smaller images get cropped or padded; under 200×200 may not render at all on Facebook. The debugger flags every dimension issue with the platform-specific rule.
+
+### Auditing OG coverage across a batch of pages
+
+Run several URLs; spot which ones have missing or weak OG. Often the gap is one CMS template that omits og:image — fix once, lift all instances.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches and parses the page `&lt;head&gt;`.
+2. **All OG and related tags are extracted** — og:title, og:description, og:image, og:image:width/height, og:type, og:url, og:site_name, og:locale, plus type-specific fields (article:author, product:price, etc.).
+3. **Image is fetched and validated** — Dimensions, aspect ratio, file size, format, accessibility (200 OK, no auth required). Each platform's ideal vs actual is shown.
+4. **Per-platform preview rendered** — Facebook (1200×630), LinkedIn (1200×627), Twitter (depends on twitter:card type), Slack (large + compact unfurls), Discord, WhatsApp.
+5. **Issues listed with fixes** — Missing tags, undersized images, cross-protocol mismatches (HTTP image on HTTPS page), unreachable images.
+
+## Examples
+
+**Input:** https://example.com/blog/post (og:title, og:description, og:image 1200×630)
+
+**Output:** Facebook preview: large card with image. LinkedIn: same. Slack: large unfurl. All platforms: correct.
+
+---
+
+**Input:** https://example.com/page (og:image is 600×400)
+
+**Output:** WARN: og:image undersized. Facebook will crop. LinkedIn will pad. Recommend 1200×630.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the recommended og:image size?**</summary>
+
+1200×630 (1.91:1 aspect ratio) is the universal recommendation that works on Facebook, LinkedIn, Slack, Discord, and Twitter (when paired with twitter:card summary_large_image). Going larger is fine; going smaller risks crops or padding.
+
+</details>
+
+<details>
+<summary>**Why does my Slack/Facebook preview show the wrong image?**</summary>
+
+Cache. Both platforms aggressively cache OG previews. Use Facebook's Sharing Debugger ("Scrape Again" button) and Slack's `unfurl debug` command to force a re-fetch.
+
+</details>
+
+<details>
+<summary>**Do I need both Open Graph and Twitter Cards?**</summary>
+
+OG covers Facebook, LinkedIn, Slack, Discord, WhatsApp, iMessage — and Twitter as fallback. Add twitter:card overrides only when you want Twitter-specific styling (summary_large_image, app card, player card).
+
+</details>
+
+<details>
+<summary>**Can I have different OG images per page?**</summary>
+
+Yes — and you should. A unique og:image per article (often featuring the article's topic or author) outperforms a generic site-wide image for click-through.
+
+</details>
+
+<details>
+<summary>**Does og:image need to be HTTPS?**</summary>
+
+Strongly recommended. HTTP og:image on an HTTPS page causes mixed-content issues; many platforms refuse to render. Always serve OG images over HTTPS.
+
+</details>
+
+<details>
+<summary>**How do I generate og:images at scale?**</summary>
+
+Use Vercel OG, Cloudinary, or a self-hosted Satori-based generator that templates an image per page from the page title and metadata.
+
+</details>
+
+## Tips
+
+- Default to a 1200×630 og:image — works everywhere.
+- Always set absolute og:url — relative URLs break LinkedIn previews.
+- Test every important page in the debugger; cache both Facebook and Slack after deploys.
+- Generate per-page og:images at build time using templated rendering (Vercel OG / Satori).
+
+## Try it now
+
+The full open-graph-debugger runs in your browser at **[https://ztools.zaions.com/open-graph-debugger](https://ztools.zaions.com/open-graph-debugger)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/open-graph-debugger)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/open-graph-debugger.mdx)*

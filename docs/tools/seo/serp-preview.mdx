@@ -1,0 +1,124 @@
+---
+id: serp-preview
+title: "SERP Preview Tool — See Your Page in Google Search Results (Free)"
+description: "Preview how your page will appear in Google search results. Pixel-accurate desktop and mobile rendering. Title, URL, description, sitelinks. Free."
+sidebar_label: "serp-preview"
+keywords:
+  - "serp preview"
+  - "google serp preview"
+  - "serp snippet preview"
+  - "meta tag preview"
+  - "search result preview"
+  - "free serp preview"
+  - "serp simulator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# serp-preview
+
+A SERP preview tool renders the snippet your page will show in Google search results — title, URL breadcrumb, meta description — at the exact pixel widths Google truncates at. The ZTools SERP Preview reproduces both desktop and mobile SERP layouts (different truncation points, font sizes, breadcrumb rules), letting you verify your title and description fit in the visible window before deploying. Optionally previews additional rich-snippet elements when applicable: review stars, FAQ accordions, breadcrumb, sitelinks search box, and date prefix for time-sensitive content.
+
+<ToolCTA toolId="serp-preview" toolName="serp-preview" />
+
+## Use cases
+
+### Drafting titles and descriptions that don't get truncated
+
+A 75-character title looks fine in a CMS field but gets cut to 60 in SERP. The preview shows you exactly where Google will truncate, so you can craft titles that read complete in the visible window.
+
+### A/B-testing meta descriptions for click-through
+
+Three description variants previewed side-by-side reveal which feels most clickable. The visual choice often differs from what reads best in raw text.
+
+### Mobile-first SERP optimization
+
+Mobile SERP truncates earlier than desktop (~55 chars title vs 60). Verify the mobile preview separately — your mobile-first traffic depends on what fits.
+
+### Checking how rich snippets will appear (review stars, FAQ accordions)
+
+When schema markup makes your page eligible for rich snippets, the preview shows the augmented SERP appearance — stars, prices, FAQ expansion, breadcrumb path.
+
+## How it works
+
+1. **Enter title, description, and URL** — Or paste a URL — the tool fetches and pre-fills these fields from the page's actual meta tags.
+2. **Choose desktop or mobile view** — Truncation rules and font sizes match Google's current SERP rendering as of 2026.
+3. **See pixel-accurate truncation** — Truncation happens at 580 px (desktop) or 540 px (mobile). The preview cuts off at exactly those points and shows the trailing ellipsis.
+4. **Optionally enable rich-snippet overlays** — Toggle: review stars, FAQ accordion, breadcrumb path, date prefix. Reflects what you'll get if your schema is valid.
+5. **Iterate on title and description live** — Edit the fields; the preview updates immediately. Save the final version when it reads complete and compelling.
+
+## Examples
+
+**Input:** Title: "Best Free PDF Tools for Developers in 2026 — ZTools" (58 chars)
+
+**Output:** Renders complete on desktop (580 px). Mobile truncates last 2 chars; consider shortening to 55 chars.
+
+---
+
+**Input:** Title with rich-snippet review stars enabled
+
+**Output:** SERP shows 4.8★ rating + 142 reviews under the description — eligible if Review schema is valid.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the truncation prediction?**</summary>
+
+Pixel-perfect for the current Google SERP layout (as of 2026). Google occasionally rebalances the layout (a few pixels here or there); the tool updates as Google ships changes.
+
+</details>
+
+<details>
+<summary>**Why does Google sometimes show a different title than what I set?**</summary>
+
+Google rewrites titles when it judges yours doesn't match the query well, contains keyword stuffing, or mismatches the page content. Keep titles honest and query-aligned to minimize rewrites.
+
+</details>
+
+<details>
+<summary>**How long should my title and description be?**</summary>
+
+Title: 50-60 chars (desktop limit ~60); 55 max if you also care about mobile. Description: 140-160 chars desktop, ~120 mobile.
+
+</details>
+
+<details>
+<summary>**Will branded prefix/suffix push my keyword off the visible part?**</summary>
+
+Yes — "ZTools | " adds 9 chars. If your title is 55 chars + 9-char brand suffix = 64 chars, you lose the brand on mobile. Keep brand suffix short or move it to the front for short titles.
+
+</details>
+
+<details>
+<summary>**Does the preview reflect rich-result eligibility?**</summary>
+
+It shows what you'd get if the rich result triggers. Actual triggering depends on Google's additional quality signals — eligibility is necessary but not sufficient.
+
+</details>
+
+<details>
+<summary>**Can I preview Bing or DuckDuckGo SERPs?**</summary>
+
+Currently Google only. Bing and DDG largely follow Google's width conventions but with minor differences; the preview is a strong proxy.
+
+</details>
+
+## Tips
+
+- Optimize for mobile truncation first — most search traffic is mobile.
+- Put the most important words in the first 50 characters of the title.
+- Don't pad descriptions to 160 if you don't have value to add — a tight 130-char description outperforms a padded 160.
+- Re-preview after every title or description edit; small character changes can flip the truncation outcome.
+
+## Try it now
+
+The full serp-preview runs in your browser at **[https://ztools.zaions.com/serp-preview](https://ztools.zaions.com/serp-preview)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/serp-preview)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/serp-preview.mdx)*

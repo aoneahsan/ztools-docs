@@ -1,0 +1,97 @@
+---
+id: breadcrumb-schema-generator
+title: "Breadcrumb Schema Generator — JSON-LD, Free"
+description: "Generate BreadcrumbList JSON-LD schema for SEO. Multi-level paths, custom URLs. Browser-only."
+sidebar_label: "breadcrumb-schema-generator"
+keywords:
+  - "breadcrumb schema generator"
+  - "json-ld breadcrumblist"
+  - "seo breadcrumb structured data"
+  - "schema.org breadcrumb"
+  - "rich results breadcrumb"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# breadcrumb-schema-generator
+
+Breadcrumb schema (schema.org BreadcrumbList) is JSON-LD structured data that tells search engines about a page's position in your site hierarchy — Home &gt; Category &gt; Subcategory &gt; Page. Google often shows breadcrumbs instead of the URL in search results, increasing click-through. The ZTools Breadcrumb Schema Generator builds valid BreadcrumbList JSON-LD from your hierarchy: enter each level's name and URL, get the schema ready to paste into your &lt;head&gt;.
+
+<ToolCTA toolId="breadcrumb-schema-generator" toolName="breadcrumb-schema-generator" />
+
+## Use cases
+
+### Add breadcrumbs to product pages
+
+Home &gt; Electronics &gt; Headphones &gt; Sony WH-1000XM5. Schema makes Google show this trail in search results.
+
+### Multi-level blog navigation
+
+Home &gt; Blog &gt; Category &gt; Article. Helps users + search engines understand the structure.
+
+### Documentation hierarchy
+
+Home &gt; Docs &gt; Topic &gt; Sub-topic. Common in API documentation.
+
+## How it works
+
+1. **Enter levels** — For each: name (display), URL (clickable destination).
+2. **Generate JSON-LD** — Output: \{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [...] \}
+3. **Validate** — Tool runs Schema.org validator checks. Pass = ready to paste.
+4. **Embed** — Paste inside &lt;script type="application/ld+json"&gt; in your &lt;head&gt;.
+
+## Examples
+
+**Input:** 3 levels: Home (/), Blog (/blog), This Article (/blog/this-article)
+
+**Output:** Valid BreadcrumbList with 3 ListItem entries (positions 1, 2, 3).
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I add breadcrumbs to all pages?**</summary>
+
+Yes for content pages, products, articles. Skip for the homepage (no parent). Skip for utility pages (login, signup).
+
+</details>
+
+<details>
+<summary>**Multiple breadcrumb trails?**</summary>
+
+A page can have multiple BreadcrumbList scripts if reachable via multiple paths. Google picks one for display.
+
+</details>
+
+<details>
+<summary>**Visible breadcrumbs vs schema-only?**</summary>
+
+Best practice: both. Show visible breadcrumbs in the UI AND emit schema. Schema-only without UI breadcrumbs is allowed but less discoverable.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- Always include a position field starting at 1 (home / root).
+- URLs should be absolute (https://yoursite.com/...) for cross-site references; relative is OK for same-domain.
+- Match the visible breadcrumb trail to the schema — Google can flag mismatch as "structured data not visible".
+- Validate via Google Rich Results Test before deploying.
+
+## Try it now
+
+The full breadcrumb-schema-generator runs in your browser at **[https://ztools.zaions.com/breadcrumb-schema-generator](https://ztools.zaions.com/breadcrumb-schema-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/breadcrumb-schema-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/breadcrumb-schema-generator.mdx)*

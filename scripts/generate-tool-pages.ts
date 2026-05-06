@@ -123,6 +123,13 @@ const TOOLS_TO_PUBLISH = [
   'organize-pdf','pdf-bookmark-manager','pdf-form-filler','pdf-ocr-text-extraction','pdf-page-reorder',
   'pdf-reader','pdf-to-excel','pdf-to-image','pdf-to-text-extractor','pdf-to-word','protect-pdf','rotate-pdf',
   'sign-pdf','split-pdf','unlock-pdf','watermark-pdf','word-to-pdf',
+
+  // Batch 11: seo category — 20 tools
+  'alt-text-generator','breadcrumb-schema-generator','canonical-url-checker','heading-structure-checker',
+  'hreflang-tag-generator','internal-link-analyzer','keyword-density-analyzer','meta-tags-analyzer',
+  'mobile-seo-checker','open-graph-debugger','page-speed-analyzer','redirect-chain-checker',
+  'robots-txt-validator','seo-checker','seo-content-analyzer','seo-score-calculator','serp-preview',
+  'sitemap-xml-generator','structured-data-validator','twitter-card-validator',
 ];
 
 // ---------------------------------------------------------------------------

@@ -1,0 +1,123 @@
+---
+id: heading-structure-checker
+title: "Heading Structure Checker — Audit H1-H6 Hierarchy on Any Page (Free)"
+description: "Audit any page's heading hierarchy (H1-H6). Detects multiple H1s, skipped levels, empty headings, missing structure. SEO + accessibility. Free."
+sidebar_label: "heading-structure-checker"
+keywords:
+  - "heading structure checker"
+  - "h1 h2 checker"
+  - "heading hierarchy audit"
+  - "seo heading checker"
+  - "accessibility heading audit"
+  - "free heading tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# heading-structure-checker
+
+A heading structure checker fetches a page and visualizes its H1-H6 hierarchy as an outline tree, flagging the structural mistakes that hurt both SEO and accessibility: multiple H1s on one page (Google convention prefers one), skipped heading levels (H2 → H4 with no H3), empty headings, headings used for visual styling instead of structure, and pages with no H1 at all. The ZTools Heading Structure Checker outputs both the visual outline and a copy-paste-ready list of fixes.
+
+<ToolCTA toolId="heading-structure-checker" toolName="heading-structure-checker" />
+
+## Use cases
+
+### Pre-publish accessibility check on a new article
+
+Screen-reader users navigate by headings; a broken hierarchy (skipped levels, empty headings) makes pages painful to use. The checker catches these before publish.
+
+### Auditing CMS-generated heading bugs
+
+WYSIWYG editors often let writers apply styling that produces semantic-wrong headings (H3 used for visual emphasis without an H2 above). The checker reveals the resulting outline so the underlying CMS bug or style guide can be fixed.
+
+### Confirming the H1 matches the intended page topic
+
+A page about "JSON Formatter" should have an H1 like "JSON Formatter & Validator". If the H1 is generic ("Welcome") or wrong ("Tools"), search engines lose the strongest on-page signal.
+
+### Detecting duplicate or competing H1s
+
+Some templates accidentally render two H1s (logo + page title). Google flexibly accepts multiple, but a single canonical H1 sends the cleanest signal.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches the page and parses every H1-H6 element.
+2. **Heading tree is built** — Each heading becomes a node; level determines depth. Visual outline shows the hierarchy at a glance.
+3. **Structural issues are flagged** — Multiple H1s, skipped levels (H2 → H4), empty headings, hidden headings (display:none), headings inside `&lt;button&gt;` or other improper containers.
+4. **Each issue links to the offending element** — Click an issue to see the HTML snippet with the heading and its surrounding context.
+5. **Get the recommended fix** — For each issue: "Change H4 to H3" or "Add an H2 between H1 and H3" or "Remove the empty heading".
+
+## Examples
+
+**Input:** https://example.com/article (H1, H2, H2, H3, H3, H2)
+
+**Output:** PASS. Clean hierarchy. Single H1. No skips. Logical outline.
+
+---
+
+**Input:** https://example.com/page (H1, H1, H3, H4, empty H2)
+
+**Output:** WARN: 2 H1s. ERROR: H3 follows H1 (skipped H2). ERROR: empty H2 has no text.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is multiple H1s on one page actually a problem?**</summary>
+
+It used to be a hard rule. Google has softened ("we don't mind multiple H1s") but accessibility experts still recommend one — screen-reader navigation is cleaner. Single H1 is the safer default.
+
+</details>
+
+<details>
+<summary>**Can I skip a heading level?**</summary>
+
+You can technically (HTML allows H1 → H4 directly), but it's a structural anti-pattern. Skipping confuses screen-reader users and breaks the document outline. Always go in order: H1 → H2 → H3 → H4.
+
+</details>
+
+<details>
+<summary>**What about headings used for visual styling only?**</summary>
+
+Don't. Use CSS for visual styling. Headings are semantic — they tell users and search engines about content structure. Misusing them for size or weight breaks both SEO and accessibility.
+
+</details>
+
+<details>
+<summary>**Should the H1 match the SERP title?**</summary>
+
+They're different fields, but they should communicate the same topic. Identical text is fine; varying for tone is fine. Vastly different topics (H1 says one thing, title says another) confuses both users and Google.
+
+</details>
+
+<details>
+<summary>**Does my logo or site name count as an H1?**</summary>
+
+Often a CMS wraps the logo in H1 site-wide — bad pattern. The page-specific topic should be the H1; the logo should be an `&lt;img&gt;` or a `&lt;div&gt;` with appropriate styling.
+
+</details>
+
+<details>
+<summary>**How long should an H1 be?**</summary>
+
+40-70 characters typically works for both SEO and readability. No hard limit — but very short (&lt;10 chars) lacks ranking signal; very long (&gt;100 chars) feels heavy in the visual layout.
+
+</details>
+
+## Tips
+
+- One H1 per page that clearly states the page topic.
+- Use headings for structure, not styling — CSS for visual size and weight.
+- Never skip heading levels — H1 → H2 → H3 in order.
+- After CMS template changes, audit headings on a sample page before approving the deploy.
+
+## Try it now
+
+The full heading-structure-checker runs in your browser at **[https://ztools.zaions.com/heading-structure-checker](https://ztools.zaions.com/heading-structure-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/heading-structure-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/heading-structure-checker.mdx)*

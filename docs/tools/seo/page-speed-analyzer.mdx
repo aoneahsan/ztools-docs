@@ -1,0 +1,99 @@
+---
+id: page-speed-analyzer
+title: "Page Speed Analyzer — Core Web Vitals, Free"
+description: "Analyze any page's speed: LCP, FID, CLS, TTFB. Browser-only via Performance API. No signup."
+sidebar_label: "page-speed-analyzer"
+keywords:
+  - "page speed analyzer"
+  - "core web vitals checker"
+  - "lcp cls fid online"
+  - "free page speed tool"
+  - "browser performance audit"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# page-speed-analyzer
+
+Page speed analysis measures how fast a page loads and becomes interactive — Core Web Vitals (LCP, FID/INP, CLS) plus supplementary metrics (FCP, TTFB, Speed Index). Page speed is a Google ranking factor, so improvements directly affect SEO. The ZTools Page Speed Analyzer uses the browser's Performance Observer API to measure actual loading metrics for the current page, plus optional remote-URL analysis (limited by CORS). For comprehensive analysis, also use Lighthouse and PageSpeed Insights.
+
+<ToolCTA toolId="page-speed-analyzer" toolName="page-speed-analyzer" />
+
+## Use cases
+
+### Quick local-page audit
+
+Open a page; tool reports load metrics. Faster than running Lighthouse for a quick check.
+
+### Compare your page vs competitor
+
+Side-by-side metrics for two URLs (where CORS allows).
+
+### Track improvement over time
+
+Run before / after a performance fix to verify the speedup.
+
+### Identify which metric needs most work
+
+High LCP? Optimize hero image. High CLS? Fix layout shifts. Each metric has its own fixes.
+
+## How it works
+
+1. **Open the page or paste URL** — For current page, just visit the tool. For remote URL, fetch via iframe or proxy (CORS permitting).
+2. **Performance Observer collects metrics** — LCP (Largest Contentful Paint), FCP, FID, CLS, TTFB are all standard browser APIs.
+3. **Display** — Each metric with green / amber / red threshold (per Google's Core Web Vitals). Plus suggestions per failing metric.
+
+## Examples
+
+**Input:** Page with 4-second LCP
+
+**Output:** Red — needs fixing. Likely heavy hero image / late-loading font / slow server.
+
+---
+
+**Input:** Page with CLS 0.05
+
+**Output:** Green — &lt; 0.1 is good. Layout is stable.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from Lighthouse?**</summary>
+
+Lighthouse runs a full simulated audit (mobile, throttled CPU). This tool measures real performance in your current environment. Both useful — different angles.
+
+</details>
+
+<details>
+<summary>**Will it work on remote URLs?**</summary>
+
+Limited by CORS. Some sites allow embedding via iframe; most don't. Best use on your own pages.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All measurements in browser.
+
+</details>
+
+## Tips
+
+- Run on the actual production URL, not localhost — CDN, network, real-world conditions matter.
+- Test on mobile via DevTools throttling — desktop speeds hide issues.
+- For the most accurate metrics, run multiple times (3-5) and average — first load includes cold-cache delays.
+- For comprehensive optimization, also run Lighthouse and PageSpeed Insights.
+
+## Try it now
+
+The full page-speed-analyzer runs in your browser at **[https://ztools.zaions.com/page-speed-analyzer](https://ztools.zaions.com/page-speed-analyzer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/page-speed-analyzer)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/page-speed-analyzer.mdx)*

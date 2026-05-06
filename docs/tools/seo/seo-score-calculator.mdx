@@ -1,0 +1,123 @@
+---
+id: seo-score-calculator
+title: "SEO Score Calculator — Quantify On-Page SEO Health (0-100, Free)"
+description: "Compute a single 0-100 SEO score from on-page signals. Weighted by impact. Compare scores across pages or before/after fixes. Free, fast."
+sidebar_label: "seo-score-calculator"
+keywords:
+  - "seo score calculator"
+  - "seo score"
+  - "on-page seo score"
+  - "page seo rating"
+  - "seo health score"
+  - "free seo score tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# seo-score-calculator
+
+An SEO score calculator boils a long list of on-page signals into a single 0-100 number that's easy to track over time and compare across pages. The ZTools SEO Score Calculator weights each signal by its actual ranking impact (Title presence + length: 15 points; Description: 10; H1: 8; image alts: 7; canonical: 8; schema: 10; mobile viewport: 7; HTTPS: 10; speed signals: 15; link health: 10), so a score of 78 has a defensible meaning rather than being arbitrary feel-good math.
+
+<ToolCTA toolId="seo-score-calculator" toolName="seo-score-calculator" />
+
+## Use cases
+
+### Tracking SEO health over time on a single page
+
+Score before edits, score after. A clear delta proves whether your changes moved the on-page needle. Especially useful for justifying SEO sprints to stakeholders who want a number.
+
+### Comparing competitive pages quantitatively
+
+Score your page and the top 3 SERP competitors. The gap reveals where you're behind and where your on-page is already strong — informs which sprint to prioritize.
+
+### Setting SEO targets for a content team
+
+Adopt an organizational floor (e.g., "every published page must score 80+"). The calculator becomes the gate; content reviewers run it before approving publish.
+
+### Auditing a site at scale by sampling
+
+Sample 10-20 representative pages, score each, identify the lowest-scoring template (e.g., "all blog posts score 65 because of missing schema"). One template fix lifts hundreds of pages.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches and analyzes.
+2. **Each signal is checked and scored** — Title length, description length, H1 presence, image alts, canonical, schema, mobile viewport, HTTPS, speed signals, link health.
+3. **Weighted aggregate produces the 0-100 score** — Each category contributes its weight (visible in the result breakdown). High-impact signals weighted more heavily.
+4. **See the per-category breakdown** — Bar chart shows where points are won and lost. Click any category for the underlying issues list.
+5. **Save or compare scores** — Export the result; re-run after fixes to compute the delta.
+
+## Examples
+
+**Input:** https://example.com/blog/post (no schema, missing 5 alts)
+
+**Output:** Score: 73/100. Categories: Title 15/15, Description 10/10, H1 8/8, Alts 4/7, Canonical 8/8, Schema 0/10, Mobile 7/7, HTTPS 10/10, Speed 11/15, Links 10/10.
+
+---
+
+**Input:** Same page after fixing alts and adding Article schema
+
+**Output:** Score: 90/100 (+17). Schema 10/10, Alts 7/7, Speed 11/15.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the score predictive of search rankings?**</summary>
+
+Partially. On-page is one of three pillars (alongside content quality and authority/backlinks). A 95 score won't outrank a 70 score with stronger content and links. But a 50 score will be capped: it lacks the on-page foundation needed to compete.
+
+</details>
+
+<details>
+<summary>**Why do my page and a competitor have different scores for similar issues?**</summary>
+
+The score weights matter. Two pages with "missing alts" issues can score very differently if one has 3 missing alts (small deduction) and the other has 30 (larger deduction). The breakdown view shows exactly where points were lost.
+
+</details>
+
+<details>
+<summary>**Can I customize the weights?**</summary>
+
+Default weights reflect current SEO consensus. The tool is opinionated by design — changing weights is fine for internal use, but cross-site comparisons require a consistent rubric.
+
+</details>
+
+<details>
+<summary>**Does the score account for content quality?**</summary>
+
+Only basic content signals (word count, heading hierarchy). True content quality requires human or AI evaluation and is out of scope for an automated on-page tool.
+
+</details>
+
+<details>
+<summary>**How often should I re-score a page?**</summary>
+
+After every significant edit; quarterly for evergreen pages; once per quarter for the whole site (sample 10-20 pages) to catch template-level regressions.
+
+</details>
+
+<details>
+<summary>**Will the score change if I do nothing?**</summary>
+
+Slightly, because crawler weights and best practices evolve. Major changes happen ~yearly; the tool updates its rubric to match. Re-score after major Google announcements (March/April annual core updates) to recalibrate.
+
+</details>
+
+## Tips
+
+- Use score deltas (before/after) to quantify SEO sprint impact for stakeholders.
+- Set an organizational floor (e.g., 80+) and gate publishing on it.
+- When scoring multiple pages from one template, the lowest-scoring template usually has a single template-level fix that lifts all instances.
+- Pair with our SEO Checker for the underlying issue list when you want to know how to lift the score.
+
+## Try it now
+
+The full seo-score-calculator runs in your browser at **[https://ztools.zaions.com/seo-score-calculator](https://ztools.zaions.com/seo-score-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/seo-score-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/seo-score-calculator.mdx)*

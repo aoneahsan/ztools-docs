@@ -1,0 +1,86 @@
+---
+id: internal-link-analyzer
+title: "Internal Link Analyzer — Free SEO Tool, Browser"
+description: "Analyze internal links on a page. Count, classify, find orphan pages. Browser-only via paste / fetch."
+sidebar_label: "internal-link-analyzer"
+keywords:
+  - "internal link analyzer"
+  - "seo internal links audit"
+  - "link graph tool"
+  - "orphan page finder"
+  - "anchor text analyzer"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# internal-link-analyzer
+
+Internal link analysis maps the link graph within a website — which pages link to which, anchor text patterns, link depth from homepage. Strong internal linking (hub-and-spoke) helps SEO by distributing PageRank and helping crawlers discover all pages. Orphan pages (no incoming internal links) often go unindexed. The ZTools Internal Link Analyzer parses an HTML page or a URL, extracts all internal links, classifies them (text vs nav vs footer), and counts unique destinations.
+
+<ToolCTA toolId="internal-link-analyzer" toolName="internal-link-analyzer" />
+
+## Use cases
+
+### Audit a page's internal-linking strategy
+
+"How many internal links does this page have?" — quick count from pasted HTML.
+
+### Find anchor-text patterns
+
+List all anchor texts pointing at the same destination — useful for diversifying anchor text.
+
+### Spot orphan pages
+
+After mapping all internal links, pages absent from the graph are orphans.
+
+### Audit redirect chains
+
+Combined with the redirect-chain checker, find internal links that hit redirects.
+
+## How it works
+
+1. **Paste HTML or URL** — For URL fetch, tool requires CORS-permissive site or browser extension.
+2. **Parse** — DOM parser extracts all &lt;a href&gt; elements.
+3. **Classify** — Internal vs external (same domain or not). Within internal: nav / footer / body / inline.
+4. **Display** — Table of (destination, anchor text, count). Plus stats: total internal, total external, top destinations.
+
+## Examples
+
+**Input:** Page with 30 internal links
+
+**Output:** Unique destinations: 22 (some destinations linked multiple times). Top destination: /pricing (5 links).
+
+## Frequently asked questions
+
+<details>
+<summary>**CORS issues?**</summary>
+
+Browser CORS prevents fetching arbitrary sites. Paste the HTML directly, or use a browser extension that bypasses CORS for whitelisted sites.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in browser.
+
+</details>
+
+## Tips
+
+- Aim for 6-8 internal links per content page (hub-and-spoke pattern).
+- Diversify anchor text — every link to /pricing reading "click here" is wasted.
+- Orphan pages should be linked from at least one navigation element OR sitemap.xml.
+
+## Try it now
+
+The full internal-link-analyzer runs in your browser at **[https://ztools.zaions.com/internal-link-analyzer](https://ztools.zaions.com/internal-link-analyzer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/internal-link-analyzer)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/internal-link-analyzer.mdx)*

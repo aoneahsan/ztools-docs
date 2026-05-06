@@ -1,0 +1,124 @@
+---
+id: alt-text-generator
+title: "Alt Text Generator — Write SEO + Accessibility Alt Attributes (Free)"
+description: "Generate descriptive alt text for images. Helps SEO + screen readers. Bulk mode, character-limit warnings, decorative-image detection. Free."
+sidebar_label: "alt-text-generator"
+keywords:
+  - "alt text generator"
+  - "alt attribute writer"
+  - "image alt text"
+  - "accessibility alt"
+  - "seo alt text"
+  - "free alt text tool"
+  - "wcag alt text"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# alt-text-generator
+
+An alt text generator helps you write descriptive `alt` attributes for images — short, content-aware text that screen readers announce and search engines use to understand the image. The ZTools Alt Text Generator lets you draft, review, and bulk-export alt text per image, with character-limit guidance (125 chars max for screen-reader friendliness), keyword-stuffing warnings, decorative-image detection (when alt should be empty), and CSV export of the image-URL → alt-text mapping for templates and CMS imports.
+
+<ToolCTA toolId="alt-text-generator" toolName="alt-text-generator" />
+
+## Use cases
+
+### Adding alt text to existing images on a website
+
+Crawl your site, list images missing alt attributes, draft descriptive text for each, export the mapping. Improves SEO and meets WCAG AA accessibility standards in one pass.
+
+### Drafting alt text for blog post images during writing
+
+For each image you embed, draft alt text alongside the caption. The tool warns when you write past 125 characters or include obvious keyword-stuffing patterns.
+
+### Auditing alt text quality on a high-traffic page
+
+Existing alts often say "image1.png" or "hero" — useless for SEO and accessibility. The generator helps rewrite each into a proper description.
+
+### Generating CSV maps for bulk-import into a CMS
+
+When migrating a site, bulk-import alt text via CSV (image URL → alt text) into the new CMS. The tool exports in the standard column format most CMSes expect.
+
+## How it works
+
+1. **Add image URLs (one at a time, or bulk paste)** — Each URL becomes a row in the editor.
+2. **Draft alt text per image** — Write a description focused on what's in the image and its function on the page (not "image of"). Live character count and quality flags.
+3. **Quality flags surface in real time** — Too long (&gt;125 chars), too short (&lt;10 chars), keyword stuffing detected, starts with "image of" or "picture of" (redundant for screen readers), uses filename as alt (e.g., "IMG_4523.jpg").
+4. **Mark decorative images** — Decorative images (visual flourishes, ornaments) should have empty alt (`alt=""`). The tool exports these correctly so screen readers skip them.
+5. **Export the mapping** — CSV (image URL, alt text), JSON, or copy as `&lt;img&gt;` tag snippets ready to paste into HTML.
+
+## Examples
+
+**Input:** Photo of a woman teaching a class on her laptop
+
+**Output:** Alt: "Woman teaching an online programming class via laptop" — 51 chars, descriptive, no stuffing
+
+---
+
+**Input:** Decorative ornamental flourish at section divider
+
+**Output:** Alt: "" (empty) — correctly marked as decorative; screen readers skip
+
+## Frequently asked questions
+
+<details>
+<summary>**How long should alt text be?**</summary>
+
+Aim for 80-125 characters. Screen readers cut off after ~125 chars; very short alt (&lt;10 chars) usually lacks descriptive value. Be specific without becoming a paragraph.
+
+</details>
+
+<details>
+<summary>**Should I include the target keyword in alt text?**</summary>
+
+When natural, yes — alt text is a ranking signal for Google Images. But never stuff. "Red running shoes for marathon training" is fine; "running shoes running shoes red running shoes" hurts.
+
+</details>
+
+<details>
+<summary>**When should alt text be empty?**</summary>
+
+For purely decorative images (ornamental dividers, background flourishes, visual padding) — `alt=""` tells screen readers to skip. Empty alt is correct and required for decorative content; missing alt attribute is wrong (screen readers may announce the filename).
+
+</details>
+
+<details>
+<summary>**How is alt text different from a caption?**</summary>
+
+Alt is announced by screen readers and read by search engines; caption is visible to all users. They serve different audiences and should usually contain different (complementary) text — not duplicates.
+
+</details>
+
+<details>
+<summary>**Will the tool generate alt text automatically from the image content?**</summary>
+
+No — automatic image-recognition alt text is often generic ("a person standing"). The tool helps you write better alt text faster but does not replace human judgment about what matters in context.
+
+</details>
+
+<details>
+<summary>**Does the tool handle SVG images?**</summary>
+
+Yes — SVG `&lt;img&gt;` tags need alt just like raster images. Inline SVGs use `&lt;title&gt;` for accessibility instead.
+
+</details>
+
+## Tips
+
+- Describe what's in the image AND its function on the page — context beats pure description.
+- Avoid "image of" or "picture of" — screen readers already announce that it's an image.
+- Mark decorative images with empty alt (`alt=""`) — required for accessibility.
+- Include keywords only when they're genuinely descriptive — never stuff.
+
+## Try it now
+
+The full alt-text-generator runs in your browser at **[https://ztools.zaions.com/alt-text-generator](https://ztools.zaions.com/alt-text-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/alt-text-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/alt-text-generator.mdx)*

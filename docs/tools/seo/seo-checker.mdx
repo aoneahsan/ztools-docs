@@ -1,0 +1,124 @@
+---
+id: seo-checker
+title: "SEO Checker — Audit Any URL for On-Page SEO Issues (Free)"
+description: "Run a complete on-page SEO audit on any URL — title, meta, headings, images, links, schema, mobile, speed. Prioritized fix list. Free."
+sidebar_label: "seo-checker"
+keywords:
+  - "seo checker"
+  - "on-page seo audit"
+  - "seo audit tool"
+  - "website seo checker"
+  - "free seo checker"
+  - "page seo analyzer"
+  - "seo health check"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# seo-checker
+
+An SEO checker fetches a URL and runs a comprehensive on-page audit covering title and description tags, heading hierarchy (H1-H6), image alt attributes, internal/external link counts, canonical correctness, schema markup presence, mobile readiness, basic performance signals, and crawler accessibility. The ZTools SEO Checker scores each area, lists every individual issue with the affected element, and prioritizes fixes by impact (Critical / Important / Minor). Designed as a one-page replacement for paid SEO tools when you only need to audit one URL at a time.
+
+<ToolCTA toolId="seo-checker" toolName="seo-checker" />
+
+## Use cases
+
+### Pre-publish review of a new blog post or landing page
+
+Before announcing the page, run it through the checker. The fix list shows every gap — missing alt text, weak title, no schema — in under a minute. Fix what matters; ship with confidence.
+
+### Diagnosing why a page underperforms in search
+
+A page with strong content but poor rankings often has an obvious on-page bug (missing canonical, duplicate H1, broken schema). The checker surfaces it.
+
+### Onboarding audit for a new SEO client or project
+
+Run the homepage and 3-5 key pages of any new project. The combined audit gives you the on-page punch list for the first sprint.
+
+### Checking that a site migration didn't break SEO basics
+
+After migrating to a new framework, CMS, or domain, run the checker on critical pages. Catches the "we forgot meta descriptions on the new templates" type of regression.
+
+## How it works
+
+1. **Enter a URL** — Public HTTP/HTTPS URL. The tool fetches the page and any sitemap/robots.txt referenced.
+2. **Audit runs across 10+ categories** — Title, meta description, headings, images, links, canonical, schema, mobile viewport, basic speed signals, OG/Twitter, hreflang, robots compliance.
+3. **Each category gets a score and a list of issues** — Score: 0-100. Issues: each one with the offending element (HTML snippet) and the recommended fix.
+4. **Issues are prioritized by impact** — Critical (likely hurting rankings or indexing): fix today. Important (best-practice gaps): fix this sprint. Minor (polish): fix when time permits.
+5. **Export the report as PDF or Markdown** — Hand the prioritized fix list to your dev team or client.
+
+## Examples
+
+**Input:** https://example.com/blog/post
+
+**Output:** Score: 78/100. Critical: missing canonical (1). Important: 4 images without alt; H1 missing. Minor: title 65 chars (ideal 50-60).
+
+---
+
+**Input:** https://example.com/product
+
+**Output:** Score: 92/100. Important: no Product schema. Minor: og:image is 800×420 (recommended 1200×630).
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the score?**</summary>
+
+The score reflects on-page signals only — content quality, backlinks, and domain authority all matter for actual ranking. A 95-score page can still rank poorly without backlinks; a 70-score page with strong content can outrank it. Use the score as a checklist, not a prediction.
+
+</details>
+
+<details>
+<summary>**How is this different from Lighthouse SEO?**</summary>
+
+Lighthouse covers the basics; this tool extends to schema validation, OG/Twitter card preview, hreflang, AI-bot accessibility, and per-issue HTML snippets. Use both — they overlap but cover different gaps.
+
+</details>
+
+<details>
+<summary>**Does it check for mobile-friendliness?**</summary>
+
+Yes — viewport meta, font-size minimums, tap-target spacing, and image responsiveness. For a deeper mobile audit, use our dedicated Mobile SEO Checker.
+
+</details>
+
+<details>
+<summary>**Will it check JavaScript-rendered content?**</summary>
+
+It fetches the initial HTML response (the "bot view"). If your SEO-critical content is JS-rendered, the checker shows what bots actually see — usually the most important diagnostic.
+
+</details>
+
+<details>
+<summary>**Can I audit a private/staging site?**</summary>
+
+Only public URLs are supported. For private staging, run the tool against a tunneled URL (ngrok) or implement the checks locally with Lighthouse CI.
+
+</details>
+
+<details>
+<summary>**How often should I re-run the audit?**</summary>
+
+After every significant content edit on the page; quarterly for evergreen pages; immediately after any template or framework change site-wide.
+
+</details>
+
+## Tips
+
+- Fix Critical issues first — they often block indexing or trigger penalties.
+- For new sites, run the homepage + top 5 pages and bundle the punch list as your week-1 SEO sprint.
+- Use the exported PDF for client reporting; the markdown export pairs well with GitHub Issues.
+- Re-run after fixes to verify the score went up — confirms the change reached production.
+
+## Try it now
+
+The full seo-checker runs in your browser at **[https://ztools.zaions.com/seo-checker](https://ztools.zaions.com/seo-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/seo-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/seo-checker.mdx)*

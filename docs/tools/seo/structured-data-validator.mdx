@@ -1,0 +1,124 @@
+---
+id: structured-data-validator
+title: "Structured Data Validator — Test JSON-LD, Microdata, RDFa Online"
+description: "Validate JSON-LD, Microdata, and RDFa schema against schema.org and Google rich-result rules. Catch missing required fields. Free, instant."
+sidebar_label: "structured-data-validator"
+keywords:
+  - "structured data validator"
+  - "json-ld validator"
+  - "schema.org validator"
+  - "rich results test"
+  - "microdata validator"
+  - "free schema tester"
+  - "json ld checker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# structured-data-validator
+
+A structured data validator parses the structured data on a page (JSON-LD, Microdata, or RDFa), validates it against the schema.org vocabulary, and checks Google's rich-result eligibility rules — the additional required fields beyond schema.org's baseline. The ZTools Structured Data Validator covers all common types (Article, BlogPosting, FAQPage, HowTo, Product, Recipe, LocalBusiness, Organization, BreadcrumbList, Event, Person, Review, Course, JobPosting, SoftwareApplication, VideoObject, ImageObject, WebSite, WebPage), flags missing required and recommended fields, and links each error to the exact spec.
+
+<ToolCTA toolId="structured-data-validator" toolName="structured-data-validator" />
+
+## Use cases
+
+### Pre-publish check that your JSON-LD will trigger rich results
+
+You added FAQPage schema to a help article. Will Google show the FAQ-rich result? The validator confirms required fields (question text, accepted answer, etc.) and warns on recommended-but-missing extras.
+
+### Diagnosing why GSC reports schema errors
+
+GSC says "Article: missing dateModified." Paste the page; the validator shows the exact JSON-LD block and the missing field, faster than navigating GSC's coverage report.
+
+### Migrating from Microdata to JSON-LD
+
+Validate the existing Microdata, generate equivalent JSON-LD, validate the new version produces the same entities. Removes the risk of regression during the migration.
+
+### Building a Product page that qualifies for the merchant rich result
+
+Product schema has many required fields for the rich result (price, availability, currency, image). The validator flags exactly which are missing before you publish.
+
+## How it works
+
+1. **Paste a URL or raw JSON-LD/HTML** — URL: the tool fetches the page and extracts every structured-data block. Raw input: validates directly.
+2. **Each block is parsed and identified by @type** — Article, FAQPage, Product, etc. The tool finds the schema definition and required-field list.
+3. **Validation runs against schema.org and Google rules** — Schema.org: which fields are valid. Google rich-results: which fields are required for eligibility (often a stricter superset of schema.org).
+4. **Errors and warnings are listed per block** — Errors: invalid types, malformed values, missing required fields. Warnings: missing recommended fields (eligibility OK but quality lower).
+5. **Each issue links to the spec** — Click any error for the schema.org definition or the Google rich-result requirement.
+
+## Examples
+
+**Input:** JSON-LD Article with @context, @type, headline, author, datePublished
+
+**Output:** VALID. Warnings: missing dateModified (recommended), missing image (required for rich-result eligibility).
+
+---
+
+**Input:** JSON-LD FAQPage with 3 questions
+
+**Output:** VALID. Eligible for FAQ rich-result. Each Question has acceptedAnswer with text — minimum requirements met.
+
+## Frequently asked questions
+
+<details>
+<summary>**JSON-LD vs Microdata vs RDFa — which should I use?**</summary>
+
+JSON-LD is Google's recommended format and the easiest to maintain (lives in a single `&lt;script&gt;` block in `&lt;head&gt;`). Microdata and RDFa interleave attributes with HTML, harder to manage. Use JSON-LD for new sites; convert legacy Microdata when refactoring.
+
+</details>
+
+<details>
+<summary>**Is rich-result eligibility the same as actually getting the rich result?**</summary>
+
+No. Eligibility is necessary but not sufficient. Google chooses when to show rich results based on additional quality signals (E-E-A-T, content depth, site reputation). Pages can be 100% valid and never trigger the rich result.
+
+</details>
+
+<details>
+<summary>**Can I have multiple JSON-LD blocks on one page?**</summary>
+
+Yes — and you should, when the page legitimately represents multiple entities (e.g., an article that's also a HowTo, or a product page that's also a BreadcrumbList). Each `&lt;script type="application/ld+json"&gt;` block is parsed independently.
+
+</details>
+
+<details>
+<summary>**How does this differ from Google's Rich Results Test?**</summary>
+
+This validator runs entirely in your browser, supports more types (including non-rich-result types like Person, Organization), and gives you the spec citations inline. Google's test is the canonical "will this render in SERP" check; use both.
+
+</details>
+
+<details>
+<summary>**What about FAQPage abuse — is it still indexed?**</summary>
+
+In August 2023 Google narrowed FAQ rich-results to only government and health sites. Other sites can still emit FAQPage schema (good for AI search citations and general structured data) but the SERP rich-result is rare.
+
+</details>
+
+<details>
+<summary>**Will the validator flag duplicate or conflicting schema?**</summary>
+
+Yes — duplicate `@id` values across blocks, conflicting types for the same entity, and contradictory property values are all flagged.
+
+</details>
+
+## Tips
+
+- Standardize on JSON-LD; deprecate Microdata as you refactor.
+- For Article/BlogPosting, always include both `datePublished` AND `dateModified` — `dateModified` is the freshness signal.
+- For Product schema, include all required fields the first time — eligibility errors block the whole rich-result.
+- Re-validate after every CMS template change; a single template bug nullifies schema across the whole site.
+
+## Try it now
+
+The full structured-data-validator runs in your browser at **[https://ztools.zaions.com/structured-data-validator](https://ztools.zaions.com/structured-data-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/structured-data-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/structured-data-validator.mdx)*

@@ -1,0 +1,124 @@
+---
+id: robots-txt-validator
+title: "robots.txt Validator — Check Syntax, Test URLs, Catch Mistakes"
+description: "Validate robots.txt syntax, test if specific URLs are allowed for each user-agent, and catch the disasters (Disallow: /). Free, in-browser."
+sidebar_label: "robots-txt-validator"
+keywords:
+  - "robots.txt validator"
+  - "robots txt checker"
+  - "robots.txt tester"
+  - "crawl rules tester"
+  - "ai bot blocker"
+  - "gptbot robots"
+  - "free robots.txt tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# robots-txt-validator
+
+A robots.txt validator parses a robots.txt file and reports syntax errors, then lets you test specific URLs against the rules to see whether each user-agent (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot) can crawl them. The ZTools robots.txt Validator catches the catastrophic mistakes — `Disallow: /` left after a staging push, missing line breaks, blocked CSS/JS that breaks rendering — plus the subtle ones, like blocking a `Sitemap:` directive or accidentally disallowing AI bots that you actually want to cite your content.
+
+<ToolCTA toolId="robots-txt-validator" toolName="robots-txt-validator" />
+
+## Use cases
+
+### Pre-launch check before pushing robots.txt to production
+
+Before deploying a robots.txt change, paste the new content and test your most important URLs against Googlebot. Catches the "I forgot to delete the staging Disallow" disaster that has cost organizations months of organic traffic.
+
+### Verifying AI crawlers can access your content
+
+Test GPTBot, PerplexityBot, ClaudeBot, and Google-Extended against your URLs. Blocking these bots silently removes you from AI search citations — a costly mistake for content sites in 2026.
+
+### Diagnosing why a URL was deindexed
+
+A page disappeared from search? Validate robots.txt and test that exact URL — often the cause is an over-broad Disallow rule (`Disallow: /pdf/` blocks `/pdf/important-doc`).
+
+### Auditing a competitor's crawler strategy
+
+A competitor's robots.txt reveals which paths they hide (admin, internal search), which AI bots they block, and which they allow. Useful intel for content strategy.
+
+## How it works
+
+1. **Paste robots.txt content or fetch from URL** — Paste directly, or enter your domain and the tool fetches `/robots.txt`.
+2. **Syntax validation runs immediately** — Each line checked: valid directive, valid user-agent, properly-quoted path, no stray characters. Errors flagged with line numbers.
+3. **Test URLs against rules** — Enter one or more URL paths and pick a user-agent. The tool walks the rules in spec order (longest match wins for path patterns) and reports allowed/disallowed per URL.
+4. **See AI-bot accessibility summary** — A dedicated panel shows the access status for GPTBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, Bingbot. Critical for AI SEO.
+5. **Get fix suggestions for issues** — For every error or warning, the tool shows the offending line and the recommended fix.
+
+## Examples
+
+**Input:** User-agent: *\\nDisallow: /admin\\nSitemap: https://example.com/sitemap.xml
+
+**Output:** Syntax: VALID. Test /admin: BLOCKED. Test /blog: ALLOWED. AI bots: all ALLOWED (no specific block).
+
+---
+
+**Input:** User-agent: *\\nDisallow: /
+
+**Output:** CRITICAL: Disallow: / blocks ALL URLs for ALL user-agents. Likely a leftover from staging — fix immediately.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between robots.txt and meta robots?**</summary>
+
+robots.txt blocks crawling (the bot doesn't fetch the URL). Meta robots `noindex` blocks indexing (the bot fetches but doesn't add to the index). Use robots.txt for paths you don't want crawled at all; use meta noindex for pages you want crawled but not indexed (e.g., to consolidate canonical signals).
+
+</details>
+
+<details>
+<summary>**Should I block AI bots like GPTBot and ClaudeBot?**</summary>
+
+Trade-off: blocking prevents your content from being used to train models AND from being cited in AI search answers. For content-driven businesses, citation traffic from ChatGPT/Perplexity often outweighs the training concern. The tool defaults to highlighting blocks of these bots so you make a deliberate choice.
+
+</details>
+
+<details>
+<summary>**Does robots.txt protect sensitive data?**</summary>
+
+No — it's a polite request, not a security mechanism. Anyone (including bad actors) can read robots.txt and learn the URLs you tried to hide. Use auth or noindex headers for actual secrets.
+
+</details>
+
+<details>
+<summary>**How does Google handle conflicting rules for different user-agents?**</summary>
+
+The most specific user-agent block wins. If `User-agent: Googlebot` has rules, Googlebot ignores `User-agent: *` entirely. Test each bot independently — assumptions about inheritance are the most common robots.txt bug.
+
+</details>
+
+<details>
+<summary>**Why is my Sitemap: directive ignored?**</summary>
+
+Common causes: relative URL (must be absolute), file is at the wrong path (must be `/sitemap.xml` accessible), or robots.txt itself is unreachable. The validator checks all three.
+
+</details>
+
+<details>
+<summary>**Can I have multiple Sitemap: directives?**</summary>
+
+Yes — each on its own line. Useful for split sitemaps (e.g., separate sitemaps for blog, products, docs).
+
+</details>
+
+## Tips
+
+- Test the AI-bot section of the validator — many sites accidentally block GPTBot via legacy "block all bots" rules.
+- Always include an absolute Sitemap: line in robots.txt.
+- Never block CSS or JS files — Google needs them to render and rank your page correctly.
+- Re-run the validator after every robots.txt deploy — the disasters happen when nobody re-tests.
+
+## Try it now
+
+The full robots-txt-validator runs in your browser at **[https://ztools.zaions.com/robots-txt-validator](https://ztools.zaions.com/robots-txt-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/robots-txt-validator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/robots-txt-validator.mdx)*

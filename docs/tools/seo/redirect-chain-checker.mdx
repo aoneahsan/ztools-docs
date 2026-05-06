@@ -1,0 +1,99 @@
+---
+id: redirect-chain-checker
+title: "Redirect Chain Checker — Free Online, Browser"
+description: "Check redirect chains for any URL. Detect redirect loops, slow hops. Browser-only — CORS permitting."
+sidebar_label: "redirect-chain-checker"
+keywords:
+  - "redirect chain checker"
+  - "url redirect tracer"
+  - "detect redirect loop"
+  - "redirect path tool"
+  - "301 chain checker"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# redirect-chain-checker
+
+A redirect chain happens when a URL redirects to another URL, which redirects again, and so on. Each hop adds latency, costs SEO juice, and risks loops. Long chains (3+ hops) are red flags; the ideal redirect is one direct 301. The ZTools Redirect Chain Checker follows the redirect chain for any URL, reports each hop's status code, latency, and final destination. Useful for SEO audits, debugging deployment redirects, and finding loops. CORS limitations apply — works best on your own domain or CORS-permissive APIs.
+
+<ToolCTA toolId="redirect-chain-checker" toolName="redirect-chain-checker" />
+
+## Use cases
+
+### Audit migration redirects
+
+After a domain move, verify old-URL → new-URL is a single 301, not 301 → 301 → 301 chain.
+
+### Find redirect loops
+
+A → B → A indicates a misconfiguration. Tool detects loops and stops.
+
+### Measure redirect latency
+
+Each hop adds ~100-500 ms. Long chains hurt user experience.
+
+### Verify HTTPS upgrade
+
+http://example.com should redirect to https://example.com once (not multiple times).
+
+## How it works
+
+1. **Paste URL** — Any URL, with or without protocol.
+2. **Follow redirects** — Tool sends fetch with redirect: "manual" and walks the chain hop by hop.
+3. **Record per hop** — Status code, Location header, latency, response time.
+4. **Detect loops + endpoint** — Maximum 10 hops then stop (Chrome's limit). Loops detected by repeated URL.
+
+## Examples
+
+**Input:** http://example.com
+
+**Output:** Hop 1: 301 → https://example.com. Hop 2: 200 OK. Total: 2 hops, ~250 ms.
+
+---
+
+**Input:** olddomain.com path
+
+**Output:** Hop 1: 301 → www.olddomain.com. Hop 2: 301 → newdomain.com. Hop 3: 200. 3 hops — too long for SEO.
+
+## Frequently asked questions
+
+<details>
+<summary>**CORS limitations?**</summary>
+
+Most cross-origin redirects can't be followed in a browser. Tool works for same-origin or CORS-permissive endpoints. For arbitrary URLs, use curl or a server-side checker.
+
+</details>
+
+<details>
+<summary>**Maximum chain length?**</summary>
+
+Tool stops at 10 hops (Chrome's default limit). Loops detected before that.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Tool sends fetch from the browser; the target server logs the request. No upload to ZTools.
+
+</details>
+
+## Tips
+
+- Aim for 0-1 redirect hops. Two hops is acceptable, 3+ hurts SEO and UX.
+- For HTTPS migration: http://x.com → https://x.com is fine (one hop). Double redirects (https → www → final) are common but avoidable.
+- For domain migrations, update every internal link to the new URL — don't rely on redirects.
+
+## Try it now
+
+The full redirect-chain-checker runs in your browser at **[https://ztools.zaions.com/redirect-chain-checker](https://ztools.zaions.com/redirect-chain-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/redirect-chain-checker)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/redirect-chain-checker.mdx)*

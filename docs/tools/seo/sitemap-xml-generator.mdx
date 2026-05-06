@@ -1,0 +1,124 @@
+---
+id: sitemap-xml-generator
+title: "Sitemap XML Generator — Build Sitemap.xml for Google, Bing, IndexNow"
+description: "Generate a valid sitemap.xml from a URL list or by crawling a site. Adds lastmod, changefreq, priority. Splits >50K URLs into a sitemap index. Free."
+sidebar_label: "sitemap-xml-generator"
+keywords:
+  - "sitemap xml generator"
+  - "create sitemap"
+  - "sitemap.xml generator"
+  - "sitemap builder"
+  - "sitemap maker"
+  - "free sitemap generator"
+  - "sitemap for google"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sitemap-xml-generator
+
+A sitemap XML generator produces a sitemap.xml file that lists every URL you want search engines to know about, with optional `&lt;lastmod&gt;`, `&lt;changefreq&gt;`, and `&lt;priority&gt;` hints. The ZTools Sitemap XML Generator accepts either a manual URL list or a starting URL it will crawl, validates each URL's reachability, dedupes, and emits a sitemap.xml conformant to the sitemaps.org 0.9 protocol — automatically splitting into a sitemap index when the count exceeds 50,000 URLs (the per-file maximum). Submit the result to Google Search Console, Bing Webmaster Tools, and IndexNow for fast indexing.
+
+<ToolCTA toolId="sitemap-xml-generator" toolName="sitemap-xml-generator" />
+
+## Use cases
+
+### Bootstrapping a sitemap for a new website
+
+A new domain has no sitemap. List your top 20-50 URLs (homepage, services, blog index, about, contact, key landing pages), generate, upload to `/sitemap.xml`, submit to GSC. Indexing typically begins within days.
+
+### Adding `&lt;lastmod&gt;` to an existing static-export sitemap
+
+Static-site generators sometimes omit `&lt;lastmod&gt;`. Re-generate with current dates so search engines know which pages are fresh — meaningful re-crawl signal.
+
+### Building a sitemap for a documentation site or knowledge base
+
+Crawl mode discovers every internal link from a starting URL, ideal for docs, help centers, or wiki structures where the URL list isn't obvious.
+
+### Splitting a giant sitemap into a sitemap index for compliance
+
+Sitemaps over 50,000 URLs or 50 MB are rejected by Google. The generator auto-splits into multiple sitemap files plus a sitemap-index.xml — submit only the index URL to GSC.
+
+## How it works
+
+1. **Choose input mode** — Manual URL list (paste) or Crawl (provide a start URL; the tool follows internal links up to a configurable depth/page-cap).
+2. **Configure per-URL hints** — Set `lastmod` (auto-fill with today, or pull from HTTP Last-Modified headers when crawling), `changefreq` (always/hourly/daily/weekly/monthly/yearly/never), `priority` (0.0-1.0).
+3. **Click Generate** — URLs are validated (HTTP 200 only by default), deduped, sorted, and emitted as XML matching the sitemaps.org schema.
+4. **Auto-split if needed** — If the URL count exceeds 50,000 or the file would exceed 50 MB, the tool produces multiple sitemap files plus a sitemap-index.xml.
+5. **Download and upload** — Save sitemap.xml (and the index file if present) to your site root. Reference in robots.txt as `Sitemap: https://example.com/sitemap.xml` and submit via GSC.
+
+## Examples
+
+**Input:** List of 50 URLs with today's lastmod, weekly changefreq, priority 0.7
+
+**Output:** sitemap.xml with 50 `&lt;url&gt;` entries, each containing `&lt;loc&gt;`, `&lt;lastmod&gt;`, `&lt;changefreq&gt;`, `&lt;priority&gt;` — ready to upload
+
+---
+
+**Input:** Crawl https://example.com depth 3, max 1000 pages
+
+**Output:** sitemap.xml with all discovered internal HTML pages, lastmod from HTTP headers, ready for submission
+
+## Frequently asked questions
+
+<details>
+<summary>**Does Google use the `&lt;priority&gt;` and `&lt;changefreq&gt;` hints?**</summary>
+
+Mostly no. Google has stated that `&lt;changefreq&gt;` and `&lt;priority&gt;` are largely ignored in favor of their own crawl-frequency signals (page changes detected, link patterns). `&lt;lastmod&gt;` IS used — keep it accurate and update it when content actually changes.
+
+</details>
+
+<details>
+<summary>**How big can a sitemap be?**</summary>
+
+50,000 URLs OR 50 MB uncompressed (whichever first). Beyond that, use a sitemap-index referring to multiple sitemap files.
+
+</details>
+
+<details>
+<summary>**Should every URL be in the sitemap?**</summary>
+
+Only canonical, indexable URLs you want in search results. Skip noindex pages, redirects, error pages, and duplicates. A clean sitemap with 1,000 important URLs beats a dump with 100,000 mixed.
+
+</details>
+
+<details>
+<summary>**Should I include images and videos in the sitemap?**</summary>
+
+Optional but recommended for image-heavy sites. Use `&lt;image:image&gt;` and `&lt;video:video&gt;` extensions. Helps Google Images and Google Video discover media that might not be inferred from HTML.
+
+</details>
+
+<details>
+<summary>**How often should I regenerate the sitemap?**</summary>
+
+Whenever URLs are added, removed, or substantively changed. For high-frequency sites (news, e-commerce), automate as part of the build/publish pipeline. For static sites, weekly is a sensible floor.
+
+</details>
+
+<details>
+<summary>**Do I need to ping Google after updating the sitemap?**</summary>
+
+GSC has dropped sitemap-ping support; resubmit via the GSC interface or set up IndexNow for instant URL submission to Bing/Yandex.
+
+</details>
+
+## Tips
+
+- Always include `&lt;lastmod&gt;` — it's the signal Google actually uses; bump it only when content materially changes.
+- Reference your sitemap in robots.txt with an absolute URL.
+- Submit the sitemap to Google Search Console AND Bing Webmaster Tools — they index different things.
+- For large sites, use a sitemap-index file even when not strictly required — easier to add categories later.
+
+## Try it now
+
+The full sitemap-xml-generator runs in your browser at **[https://ztools.zaions.com/sitemap-xml-generator](https://ztools.zaions.com/sitemap-xml-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sitemap-xml-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/sitemap-xml-generator.mdx)*

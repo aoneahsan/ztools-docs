@@ -1,0 +1,124 @@
+---
+id: meta-tags-analyzer
+title: "Meta Tags Analyzer — Audit Title, Description, OG, Twitter Cards (Free)"
+description: "Inspect every meta tag on any page — title, description, canonical, OG, Twitter, robots. Length warnings, missing tag flags, social-preview render. Free."
+sidebar_label: "meta-tags-analyzer"
+keywords:
+  - "meta tags analyzer"
+  - "meta tag checker"
+  - "seo meta tag"
+  - "open graph checker"
+  - "twitter card validator"
+  - "meta description checker"
+  - "free meta tag tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# meta-tags-analyzer
+
+A meta tags analyzer fetches a public URL, parses every `&lt;meta&gt;` and related `&lt;link&gt;` element from the page `&lt;head&gt;`, and reports on length, completeness, and social-preview readiness against current Google and social-platform guidelines. The ZTools Meta Tags Analyzer covers title, description, canonical, robots, viewport, charset, the full Open Graph set (og:title, og:description, og:image, og:type, og:url), Twitter Card tags, language, theme-color, and JSON-LD presence — flagging missing essentials and length violations that hurt click-through in SERP and social previews.
+
+<ToolCTA toolId="meta-tags-analyzer" toolName="meta-tags-analyzer" />
+
+## Use cases
+
+### Pre-launch SEO check on a new landing page
+
+Before pushing a new page live, paste the staging URL and confirm every required tag is present and within length limits. A 5-minute check that prevents the "we shipped without a meta description" embarrassment.
+
+### Auditing a competitor's page for SEO patterns
+
+See exactly which Open Graph fields a competitor sets, what schema types they emit, and how their title/description are crafted. Useful intelligence for optimizing your own equivalent pages.
+
+### Diagnosing why a Slack or Twitter share looks broken
+
+Social previews break for predictable reasons: missing `og:image`, image too small, unreachable URL. The analyzer lists every problematic field with the fix.
+
+### Verifying tag changes propagated after a deploy
+
+Pushed a meta-description rewrite for SEO? Re-run the analyzer right after the CDN cache flushes. Confirms the new tags are live before you ask Google to re-crawl.
+
+## How it works
+
+1. **Enter the URL of the page to analyze** — Public HTTP/HTTPS URLs only. The tool fetches via a server-side proxy that bypasses CORS.
+2. **Page is fetched and parsed** — The HTML is downloaded and the `&lt;head&gt;` parsed for every tag the SEO ecosystem relies on. JS-rendered tags are detected when the page exposes them in the initial HTML response.
+3. **Each tag is checked against current best practices** — Title: 50-60 chars ideal. Description: 140-160 chars. Canonical: must be absolute URL. OG image: at least 1200×630 for crisp social previews.
+4. **Results show what passes, what warns, and what fails** — Color-coded list with the actual value, the rule, and the recommendation. Click any row for the spec citation.
+5. **Visual previews render the SERP and social cards** — See a Google SERP-style preview, plus rendered Open Graph (Facebook/LinkedIn), Twitter Card, and Slack unfurl side-by-side.
+
+## Examples
+
+**Input:** https://ztools.zaions.com
+
+**Output:** Title: 58 chars ✓ | Description: 152 chars ✓ | Canonical: present ✓ | og:image: 1200×630 ✓ | Twitter Card: summary_large_image ✓
+
+---
+
+**Input:** https://example.com/missing-meta
+
+**Output:** Title: 42 chars ✓ | Description: MISSING ✗ | og:image: MISSING ✗ | Recommendation: add 140-160 char description and 1200×630 og:image
+
+## Frequently asked questions
+
+<details>
+<summary>**How long should my title and description be?**</summary>
+
+Title: 50-60 characters (Google truncates at ~580 px, ~60 chars). Description: 140-160 characters on desktop, ~120 on mobile. Going over isn't catastrophic but the visible portion is your only first impression in SERP.
+
+</details>
+
+<details>
+<summary>**Why does my Slack/Twitter share fail to show an image?**</summary>
+
+Most common causes: `og:image` not set, image URL is relative not absolute, image is too small (&lt;200×200), image is behind authentication, or the OG-scraper saw an old cached version. The analyzer flags each.
+
+</details>
+
+<details>
+<summary>**Does the analyzer execute JavaScript?**</summary>
+
+It fetches the initial HTML response. If your meta tags are injected by JavaScript at runtime (a common SPA mistake), they won't be visible to most crawlers either — the analyzer correctly shows the bot's view, not the rendered view.
+
+</details>
+
+<details>
+<summary>**What's the most common SEO meta-tag mistake?**</summary>
+
+Identical title or description across many pages. Each page should have a unique title and description that matches its specific content; duplicates cause Google to mark pages as "duplicate" and drop them from the index.
+
+</details>
+
+<details>
+<summary>**Do I need both Open Graph and Twitter Cards?**</summary>
+
+OG covers Facebook, LinkedIn, Slack, Discord, WhatsApp, iMessage, and Twitter (as fallback). Twitter Cards override OG on Twitter for richer formats (summary_large_image, app, player). Set OG always; add Twitter Cards when you want platform-specific styling.
+
+</details>
+
+<details>
+<summary>**Will the analyzer follow redirects?**</summary>
+
+Yes — it follows up to 5 redirects and reports the final URL plus any redirect chain warnings (&gt;2 hops, mixed HTTP/HTTPS, missing canonical).
+
+</details>
+
+## Tips
+
+- Write your title and description for the human first — Google rewrites either when they don't match the query.
+- Use a 1200×630 og:image — it's the largest social-preview format and looks great everywhere.
+- Always set an absolute `og:url` — relative URLs break LinkedIn previews most often.
+- Re-run after every meta-tag change to verify what shipped matches what you intended.
+
+## Try it now
+
+The full meta-tags-analyzer runs in your browser at **[https://ztools.zaions.com/meta-tags-analyzer](https://ztools.zaions.com/meta-tags-analyzer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/meta-tags-analyzer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/meta-tags-analyzer.mdx)*

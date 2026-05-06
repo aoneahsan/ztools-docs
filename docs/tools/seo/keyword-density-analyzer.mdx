@@ -1,0 +1,123 @@
+---
+id: keyword-density-analyzer
+title: "Keyword Density Analyzer — Find Top Keywords + Phrases on Any Page"
+description: "Analyze any URL or text for keyword density, top phrases, n-gram frequency, and stuffing risk. Stop-word filtering, multi-language support. Free."
+sidebar_label: "keyword-density-analyzer"
+keywords:
+  - "keyword density analyzer"
+  - "keyword density checker"
+  - "keyword frequency tool"
+  - "seo keyword analyzer"
+  - "keyword stuffing checker"
+  - "free keyword density tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# keyword-density-analyzer
+
+A keyword density analyzer counts how often each word and multi-word phrase appears in a page (or pasted text), reports the percentages, and flags stuffing risk. The ZTools Keyword Density Analyzer extracts the visible body text from any URL (skipping nav, footer, scripts), filters stop words ("the", "and", "of"), and reports unigram, bigram, and trigram frequencies — letting you spot which terms a page actually emphasizes versus which it claims to target. Critical for diagnosing on-page SEO drift, especially after content was edited by multiple people.
+
+<ToolCTA toolId="keyword-density-analyzer" toolName="keyword-density-analyzer" />
+
+## Use cases
+
+### Verifying a target keyword actually appears prominently
+
+You wrote a 2,000-word post targeting "vue 3 composition api" — did it appear in your top-10 phrases, or did the post drift toward generic "JavaScript framework" language? The analyzer shows the truth.
+
+### Auditing competitor pages for the keywords they emphasize
+
+Run a top-ranked competitor URL through the analyzer; the top 20 keywords reveal exactly which terms they're reinforcing. Mirror their semantic coverage, not just their target keyword.
+
+### Detecting accidental keyword stuffing after an SEO consultant edit
+
+When your "primary keyword" shows up at 6%+ density, Google reads it as spam. The analyzer flags densities above the spam threshold so you can rewrite for natural language before it costs you rankings.
+
+### Building topic clusters by analyzing related-keyword frequency
+
+Run several pages on the same topic; common high-frequency terms across them define your true topic vocabulary. Use it to plan internal linking and supporting article topics.
+
+## How it works
+
+1. **Enter a URL or paste raw text** — URL: the tool fetches and extracts visible body content (excluding nav, footer, scripts). Text: analyzed directly without fetching.
+2. **Choose stop-word language** — English, Spanish, French, German, Arabic, and 20+ other languages. Stop words ("the", "of", "and") are excluded from the meaningful counts.
+3. **Pick n-gram size** — Unigram (single words), Bigram (2-word phrases — most useful for SEO), Trigram (3-word phrases — long-tail). Typically run all three.
+4. **Click Analyze** — The tool tokenizes text, lowercases, removes punctuation, drops stop words, counts every n-gram, and ranks by frequency.
+5. **Review the ranked list with density percentages** — Each row: term, count, density (% of total non-stop-word tokens). Color-coded: 1-3% normal, 3-5% concentrated, &gt;5% potential stuffing.
+
+## Examples
+
+**Input:** A 1,500-word blog post about JSON formatters
+
+**Output:** Top 5 unigrams: json (3.2%), format (2.1%), validate (1.8%), data (1.5%), syntax (1.4%) — natural emphasis, no stuffing
+
+---
+
+**Input:** Same post after over-optimization
+
+**Output:** json (6.4%), json formatter (3.1%), format json (2.9%) — STUFFING WARNING: 3 terms above 3% threshold
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the ideal keyword density?**</summary>
+
+There is no magic number, but practical guidance: target keyword 1-2%, semantic siblings 0.5-1.5%, total spread across many natural variants. Density is a diagnostic for stuffing, not a target to hit.
+
+</details>
+
+<details>
+<summary>**Does keyword density still matter for SEO?**</summary>
+
+Less than it used to. Modern Google uses semantic models (BERT, MUM) that understand topic coverage, not raw frequency. Density is a useful sanity check — extreme values (&gt;5%) hurt; moderate values are fine.
+
+</details>
+
+<details>
+<summary>**What density triggers a stuffing penalty?**</summary>
+
+Google doesn't publish thresholds, but in practice &gt;5% for a single term reads as spammy and risks demotion. Above 8% almost always hurts. The exact line varies by content length and topic.
+
+</details>
+
+<details>
+<summary>**Should I include stop words in the analysis?**</summary>
+
+No. Stop words inflate counts without adding meaning. The tool removes them by default — toggle off only when analyzing literary or stylistic text patterns.
+
+</details>
+
+<details>
+<summary>**Can the analyzer handle non-English content?**</summary>
+
+Yes — 20+ languages with proper stop-word lists. For languages without word boundaries (Chinese, Japanese, Thai), it uses Intl.Segmenter to tokenize.
+
+</details>
+
+<details>
+<summary>**Will it be uploaded?**</summary>
+
+For URL input, the page is fetched server-side via a proxy. For pasted text input, analysis happens entirely in your browser; no data leaves your device.
+
+</details>
+
+## Tips
+
+- Run bigrams and trigrams together — single words are rarely the actual ranking target.
+- Compare your page against the top 3 SERP results for your keyword — match their density patterns.
+- When density exceeds 4-5%, rewrite for synonyms instead of repeating the exact term.
+- Use the analyzer on competitor pages to discover the topic vocabulary you should also cover.
+
+## Try it now
+
+The full keyword-density-analyzer runs in your browser at **[https://ztools.zaions.com/keyword-density-analyzer](https://ztools.zaions.com/keyword-density-analyzer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/keyword-density-analyzer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/seo/keyword-density-analyzer.mdx)*
