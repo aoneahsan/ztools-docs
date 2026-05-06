@@ -37,6 +37,7 @@
     "@docusaurus/types": "3.10.1",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
+    "dotenv": "^17.4.2",
     "tsx": "^4.19.2",
     "typescript": "~6.0.2"
   },

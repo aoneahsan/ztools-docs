@@ -22,12 +22,17 @@ The ZTools app itself is in a separate (currently private) repo. This is **just 
 
 ```bash
 yarn install
+cp .env.example .env  # fill in any analytics keys you want active locally (all optional)
 yarn generate:tools   # Read content from ../ztools/, emit MDX into docs/tools/
 yarn build            # Production build into build/
 yarn start            # Local dev server (we typically skip this — author runs ./build serving)
 ```
 
 > The generator (`scripts/generate-tool-pages.ts`) expects the **ZTools app repo** to be at `../ztools/` relative to this repo. If you're cloning standalone, the generator falls back to skipping unknown tools.
+
+### Environment variables
+
+Four optional integrations: GA4, Microsoft Clarity, Amplitude, Sentry. All gated by env vars defined in `.env.example`. Locally: copy to `.env` and fill values. CI: stored as GitHub Actions repo secrets and forwarded by `.github/workflows/deploy.yml`. Empty / unset = tool's script never ships. See [`/docs/privacy`](https://ztools-docs.zaions.com/docs/privacy) for what each tool captures.
 
 ---
 
