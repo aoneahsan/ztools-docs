@@ -245,8 +245,11 @@ function loadToolMeta(): Record<string, ToolMeta> {
 // ---------------------------------------------------------------------------
 // Escape characters MDX-3 interprets as JSX or Markdown structures:
 //   { } start expressions; < starts a tag; > ends a tag;
-//   ![alt](url) is Markdown image — escape the `!` so syntax-illustration
-//   text stays literal.
+//   ![alt](url) is Markdown image — escape the `!`;
+//   ](url) is the Markdown-link tail; escape `](` so prose like
+//     "[link](url)" used illustratively stays literal text.
+//   Intentional links live OUTSIDE escapeMdx in the generator template,
+//   so they survive this escape unaffected.
 const escapeMdx = (s: string) =>
   s
     .replace(/\\/g, '\\\\')
@@ -254,7 +257,8 @@ const escapeMdx = (s: string) =>
     .replace(/\}/g, '\\}')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/!\[/g, '\\![');
+    .replace(/!\[/g, '\\![')
+    .replace(/\]\(/g, '\\]\\(');
 const yamlString = (s: string) => `"${s.replace(/"/g, '\\"')}"`;
 
 // ---------------------------------------------------------------------------
@@ -422,7 +426,9 @@ async function main() {
 
   // Per-category index pages
   for (const [cat, tools] of byCategory) {
-    const items = tools.map((t) => `- [${t.meta.name}](./${t.id}) — ${(t.meta.description ?? '').slice(0, 100)}`).join('\n');
+    // Use absolute slug paths — relative paths break because the category
+    // index URL has no trailing slash so `./tool-id` collapses one level.
+    const items = tools.map((t) => `- [${t.meta.name}](/docs/tools/${cat}/${t.id}) — ${(t.meta.description ?? '').slice(0, 100)}`).join('\n');
     const indexFile = join(toolsDir, cat, 'index.mdx');
     writeFileSync(
       indexFile,

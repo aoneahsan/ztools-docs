@@ -9,8 +9,8 @@ const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 
 const FEATURED_TOOLS = [
   {path: 'data/json-formatter', name: 'JSON Formatter', tag: 'Most-used'},
-  {path: 'utility/password-generator', name: 'Password Generator', tag: 'Crypto-RNG'},
-  {path: 'generator/qr-generator', name: 'QR Generator', tag: 'Browser-only'},
+  {path: 'generator/password-generator', name: 'Password Generator', tag: 'Crypto-RNG'},
+  {path: 'encoding/qr-generator', name: 'QR Generator', tag: 'Browser-only'},
   {path: 'image/image-compressor', name: 'Image Compressor', tag: 'Lossless'},
   {path: 'utility/regex-tester', name: 'Regex Tester', tag: 'Live preview'},
   {path: 'pdf/merge-pdf', name: 'PDF Merger', tag: 'No upload'},

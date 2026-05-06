@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1a0f00"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.15" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#ffa840" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffa840" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Logo -->
+  <rect x="80" y="80" width="120" height="120" rx="28" fill="#ffa840"/>
+  <path d="M115 122 L165 122 L130 162 L165 162" fill="none" stroke="#0a0a0a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Eyebrow -->
+  <text x="240" y="135" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#ffa840" letter-spacing="4">ZTOOLS · DOCS</text>
+
+  <!-- Headline -->
+  <text x="80" y="320" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="88" font-weight="800" fill="#fafafa" letter-spacing="-3">520+ tools.</text>
+  <text x="80" y="430" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="88" font-weight="800" fill="#ffa840" letter-spacing="-3" font-style="italic">One browser tab.</text>
+
+  <!-- Subline -->
+  <text x="80" y="510" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="500" fill="#a3a3a3">Free, browser-only developer &amp; creator tools.</text>
+  <text x="80" y="548" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="500" fill="#a3a3a3">Every tool documented · No signup · No upload.</text>
+
+  <!-- Footer URL -->
+  <text x="80" y="595" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="500" fill="#737373">ztools-docs.zaions.com</text>
+
+  <!-- Decorative dots -->
+  <g fill="#ffa840" opacity="0.4">
+    <circle cx="1080" cy="140" r="6"/>
+    <circle cx="1120" cy="140" r="6"/>
+    <circle cx="1080" cy="180" r="6"/>
+    <circle cx="1120" cy="180" r="6"/>
+    <circle cx="1080" cy="220" r="6"/>
+    <circle cx="1120" cy="220" r="6"/>
+    <circle cx="1080" cy="260" r="6"/>
+    <circle cx="1120" cy="260" r="6"/>
+  </g>
+</svg>

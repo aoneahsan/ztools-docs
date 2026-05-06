@@ -121,7 +121,7 @@ Not by default — math rendering is a separate pipeline. Wrap math in MathJax o
 ## Tips
 
 - Use fenced code blocks (` ``` `) with a language hint, not indented code blocks — they're more readable and support syntax highlighting.
-- For images, prefer the `\![alt](url)` syntax over raw `&lt;img&gt;` tags. Easier to maintain and the alt text doubles as accessibility.
+- For images, prefer the `\![alt\]\(url)` syntax over raw `&lt;img&gt;` tags. Easier to maintain and the alt text doubles as accessibility.
 - Front-matter (YAML at the top of the file `--- ... ---`) is preserved as raw text — strip it before converting if you don't want it in the output.
 - For complex tables, write them in Markdown-table format then run through this converter; pasting raw HTML tables into Markdown source breaks future edits.
 

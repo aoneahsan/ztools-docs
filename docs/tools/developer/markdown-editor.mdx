@@ -19,7 +19,7 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # markdown-editor
 
-A Markdown editor is a split-pane text editor where the left pane accepts Markdown source (lightweight markup using # headings, **bold**, [links](url), `code`) and the right pane shows the rendered output in real time, used for README files, blog drafts, technical documentation, and any plain-text-with-formatting workflow. The ZTools Markdown Editor runs entirely in the browser, supports GitHub-flavored Markdown (tables, fenced code blocks, task lists, strikethrough), keyboard shortcuts (Ctrl+B for bold, Ctrl+K for link), and exports both Markdown source and rendered HTML.
+A Markdown editor is a split-pane text editor where the left pane accepts Markdown source (lightweight markup using # headings, **bold**, [links\]\(url), `code`) and the right pane shows the rendered output in real time, used for README files, blog drafts, technical documentation, and any plain-text-with-formatting workflow. The ZTools Markdown Editor runs entirely in the browser, supports GitHub-flavored Markdown (tables, fenced code blocks, task lists, strikethrough), keyboard shortcuts (Ctrl+B for bold, Ctrl+K for link), and exports both Markdown source and rendered HTML.
 
 <ToolCTA toolId="markdown-editor" toolName="markdown-editor" />
 
@@ -43,7 +43,7 @@ Faster than rich-text editors for keyboard-driven users; familiar to developers;
 
 ## How it works
 
-1. **Type or paste Markdown** — Standard syntax: # H1, ## H2, **bold**, *italic*, [link](url), \![alt](image), - lists, ```code blocks```, &gt; blockquotes.
+1. **Type or paste Markdown** — Standard syntax: # H1, ## H2, **bold**, *italic*, [link\]\(url), \![alt\]\(image), - lists, ```code blocks```, &gt; blockquotes.
 2. **Live preview renders right pane** — Each keystroke triggers a re-render; debounced to 100-200ms for smooth typing on long documents.
 3. **Use toolbar shortcuts** — Toolbar: B/I/U for bold/italic, link, image, list, blockquote, code, table-template insertion. Cuts down on syntax-recall.
 4. **Apply GitHub-flavored extensions** — Tables (| col | col |), task lists ([ ]), strikethrough (~~text~~), fenced code with language for syntax highlighting.
@@ -93,7 +93,7 @@ Auto-saved to browser local storage between sessions. Clear browser data and the
 <details>
 <summary>**Can I add images?**</summary>
 
-Yes — \![alt](url) syntax. Inline images via base64 data URLs or external URLs. For GitHub, host images in the repo or via CDN.
+Yes — \![alt\]\(url) syntax. Inline images via base64 data URLs or external URLs. For GitHub, host images in the repo or via CDN.
 
 </details>
 

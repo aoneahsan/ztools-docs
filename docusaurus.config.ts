@@ -17,8 +17,10 @@ const config: Config = {
   organizationName: 'aoneahsan',
   projectName: 'ztools-docs',
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  // Fail the build on broken links/markdown — keeps CI honest. Bumped from
+  // 'warn' to 'throw' after audit confirmed clean state on 2026-05-06.
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',
@@ -103,8 +105,11 @@ const config: Config = {
           items: [
             {label: 'GitHub', href: GH_REPO},
             {label: 'Issues', href: `${GH_REPO}/issues`},
-            {label: 'RSS feed', to: '/blog/rss.xml'},
-            {label: 'Sitemap', to: '/sitemap.xml'},
+            // Use absolute URLs for files generated post-link-check.
+            // Docusaurus's link checker can't see /blog/rss.xml or /sitemap.xml
+            // because they're emitted after MDX compilation.
+            {label: 'RSS feed', href: `${SITE_URL}/blog/rss.xml`},
+            {label: 'Sitemap', href: `${SITE_URL}/sitemap.xml`},
           ],
         },
         {
