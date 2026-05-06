@@ -1,0 +1,124 @@
+---
+id: base32-encoder
+title: "Base32 Encoder & Decoder — RFC 4648 Compliant, Online"
+description: "Encode binary or text to Base32 (RFC 4648) and decode back. Case-insensitive, no ambiguous characters. Used in TOTP, S3 keys, DNS."
+sidebar_label: "base32-encoder"
+keywords:
+  - "base32 encoder"
+  - "base32 decoder"
+  - "rfc 4648 base32"
+  - "totp secret decoder"
+  - "base32hex"
+  - "crockford base32"
+  - "free base32 tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# base32-encoder
+
+Base32 is a binary-to-text encoding that uses 32 characters (A-Z and 2-7) to represent 5 bytes per 8 characters of output. The ZTools Base32 Encoder & Decoder follows RFC 4648, supporting standard Base32 (A-Z, 2-7) and Base32hex (0-9, A-V) variants. Base32 is used in TOTP authenticator apps (the QR codes contain a Base32-encoded secret), S3 access keys, DNS responses, and case-insensitive identifiers because its alphabet excludes ambiguous characters (no 0/O, no 1/I) and is case-insensitive.
+
+<ToolCTA toolId="base32-encoder" toolName="base32-encoder" />
+
+## Use cases
+
+### Decoding a TOTP secret from an authenticator QR code
+
+Two-factor authentication apps store the shared secret as a Base32 string. When migrating between apps or backing up secrets, decode the Base32 here, save the raw bytes, and re-encode when registering with a new device.
+
+### Generating case-insensitive identifiers for shared URLs
+
+Base32 strings can be spoken aloud and typed without case sensitivity issues — useful for short URL codes, redemption codes, or anything users have to read or type.
+
+### Encoding binary data for DNS TXT records
+
+DNS TXT record content has limited charset support. Base32 fits cleanly without escaping, unlike Base64 which uses `+`, `/`, `=`. Useful for email auth (DKIM) or telemetry payloads.
+
+### Working with Z-Base-32 or Crockford's Base32 (with mode switching)
+
+Different Base32 variants exist (Z-Base-32 for human-friendly encoding, Crockford's for short identifiers). The tool supports the standard variants and translates between them when needed.
+
+## How it works
+
+1. **Paste text or hex into the input pane** — For encoding: raw text or hex bytes (`0xDEADBEEF`). For decoding: Base32 string (case-insensitive, padding optional).
+2. **Choose the variant** — Standard Base32 (RFC 4648, A-Z + 2-7), Base32hex (RFC 4648, 0-9 + A-V), or Crockford's Base32.
+3. **Click Convert** — Encoding: each 5-byte block becomes 8 Base32 chars (with `=` padding for partial blocks). Decoding: 8 chars become 5 bytes (padding stripped automatically).
+4. **Review the output** — Output shown with byte count and character count. Decoded binary is shown as hex + UTF-8 attempt for readability.
+5. **Copy or download** — One-click copy or save decoded binary as `.bin`.
+
+## Examples
+
+**Input:** Encode: "Hello"
+
+**Output:** JBSWY3DPEB3W64TMMQ======
+
+---
+
+**Input:** Decode: JBSWY3DPEB3W64TMMQ======
+
+**Output:** Hello
+
+## Frequently asked questions
+
+<details>
+<summary>**How does Base32 differ from Base64?**</summary>
+
+Base64 uses 64 characters (A-Z, a-z, 0-9, `+`, `/`) and encodes 3 bytes per 4 characters. Base32 uses 32 characters (A-Z, 2-7) and encodes 5 bytes per 8 characters. Base32 is ~20% larger but case-insensitive and avoids URL/filename-unsafe chars.
+
+</details>
+
+<details>
+<summary>**Why does Base32 skip 0, 1, 8, 9?**</summary>
+
+To avoid ambiguity — `0` looks like `O`, `1` looks like `I` and `l`, `8` and `9` aren't needed in the 32-char alphabet. The omission makes Base32 strings safer to dictate or transcribe by hand.
+
+</details>
+
+<details>
+<summary>**Is the padding (`=`) required?**</summary>
+
+RFC 4648 requires it for unambiguous decoding of streams. For self-contained strings, padding is often optional and decoders accept both. The tool emits padding by default but accepts unpadded input.
+
+</details>
+
+<details>
+<summary>**What is Base32hex?**</summary>
+
+A variant using 0-9 + A-V (instead of A-Z + 2-7). Order is preserved with binary, so sorted Base32hex strings sort the same as their decoded bytes — useful for sortable identifiers.
+
+</details>
+
+<details>
+<summary>**Why do TOTP secrets use Base32?**</summary>
+
+TOTP authenticator apps need users to type the secret on tiny phone keyboards in some setup flows. Base32's case-insensitive, ambiguity-free alphabet is the safest choice for human transcription.
+
+</details>
+
+<details>
+<summary>**Is the encoding offline?**</summary>
+
+Yes. The tool runs entirely in your browser and never uploads input.
+
+</details>
+
+## Tips
+
+- For TOTP, always use standard Base32 — that's what RFC 6238 specifies.
+- For sortable identifiers, prefer Base32hex (sorts the same as the decoded bytes).
+- For human-friendly short codes, Crockford's Base32 (`23456789ABCDEFGHJKMNPQRSTVWXYZ`) is even safer to dictate.
+- Padding is optional in many decoders but always emit it for max compatibility.
+
+## Try it now
+
+The full base32-encoder runs in your browser at **[https://ztools.zaions.com/base32-encoder](https://ztools.zaions.com/base32-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/base32-encoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/base32-encoder.mdx)*

@@ -1,0 +1,131 @@
+---
+id: caesar-cipher
+title: "Caesar Cipher — Shift Text by Any Number 1–25 (Free)"
+description: "Encrypt or decrypt text with a Caesar shift cipher (1–25 positions). Brute-force decode option. Free, in-browser."
+sidebar_label: "caesar-cipher"
+keywords:
+  - "caesar cipher"
+  - "shift cipher"
+  - "caesar encoder"
+  - "caesar decoder"
+  - "brute force caesar"
+  - "classical cipher"
+  - "free caesar tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# caesar-cipher
+
+A Caesar cipher shifts every letter in a message by a fixed number of positions in the alphabet — Julius Caesar reportedly used a shift of 3 (A → D, B → E, ...) — producing the simplest historical substitution cipher. The ZTools Caesar Cipher tool encodes or decodes with any shift from 1 to 25, includes a brute-force decoder that tries all 25 shifts at once and surfaces the most plausible English plaintext, preserves case, passes non-letters through unchanged, and is the canonical "first cipher you ever implement" for cryptography learners.
+
+<ToolCTA toolId="caesar-cipher" toolName="caesar-cipher" />
+
+## Use cases
+
+### Cryptography education
+
+Teach the concept of substitution ciphers with the simplest possible example. Then break it via frequency analysis to demonstrate why it is not secure.
+
+### Puzzle / escape-room clues
+
+Hide a clue under a Caesar shift; provide the shift number elsewhere as part of the puzzle solution.
+
+### Brute-force decoding unknown shifts
+
+Found a shifted message but the shift is unknown. Brute-force tries all 25; the most plausible English candidate wins.
+
+### Casual obfuscation
+
+Light hiding of trivia answers in a workbook or party game.
+
+## How it works
+
+1. **Pick mode** — Encode (apply shift), Decode (apply inverse shift), Brute-force (try all 25 and rank by plausibility).
+2. **Set shift number** — 1–25 (shift 13 = ROT13, the self-inverse special case).
+3. **Paste text** — Letters shift; case preserved; digits and symbols pass through.
+4. **Inspect** — Side-by-side original / shifted view. Brute-force mode shows all 25 candidates with English-frequency scores.
+5. **Copy** — Result to clipboard. Shareable URL encodes both shift and text.
+
+## Examples
+
+**Input:** HELLO with shift 3
+
+**Output:** KHOOR (E→H, L→O, etc.)
+
+---
+
+**Input:** KHOOR with shift 3 (decode)
+
+**Output:** HELLO
+
+---
+
+**Input:** Brute-force of "WKLV LV WHVW"
+
+**Output:** shift 3 → "THIS IS TEST" (highest English score)
+
+## Frequently asked questions
+
+<details>
+<summary>**Is a Caesar cipher secure?**</summary>
+
+No. With only 25 possible shifts, brute-force is trivial. Frequency analysis breaks even longer Caesar ciphers in seconds for any reasonable plaintext.
+
+</details>
+
+<details>
+<summary>**How does the brute-force scorer work?**</summary>
+
+It computes letter-frequency similarity to standard English (e.g. E ≈ 13%, T ≈ 9%) for each candidate and ranks by similarity. The best match is almost always the correct plaintext.
+
+</details>
+
+<details>
+<summary>**Does it handle Unicode / accented letters?**</summary>
+
+No — like classical Caesar, only A–Z / a–z shift. Accented letters and non-Latin scripts pass through unchanged.
+
+</details>
+
+<details>
+<summary>**Can I use a non-integer shift?**</summary>
+
+No — shifts must be integers in [1, 25]. (0 and 26 are no-ops.)
+
+</details>
+
+<details>
+<summary>**How does Caesar relate to Vigenère?**</summary>
+
+Vigenère is a Caesar with a varying shift driven by a keyword. It is harder to break (Kasiski / Friedman attacks) but still inadequate for modern security.
+
+</details>
+
+<details>
+<summary>**Why include brute-force in the tool?**</summary>
+
+It is the educational payoff — showing how trivially breakable the cipher is is the lesson.
+
+</details>
+
+## Tips
+
+- For puzzles, use shifts other than 13 — readers familiar with ROT13 will try 13 first.
+- Use brute-force whenever the shift is unknown; the English-score ranker almost always surfaces the right answer.
+- Mix Caesar with column-transposition for slightly less trivial puzzle ciphers.
+- For real security, use AES-GCM or modern equivalents — Caesar is for learning and fun only.
+- When teaching, immediately follow Caesar with frequency analysis — the failure mode is the lesson.
+
+## Try it now
+
+The full caesar-cipher runs in your browser at **[https://ztools.zaions.com/caesar-cipher](https://ztools.zaions.com/caesar-cipher)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/caesar-cipher)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/caesar-cipher.mdx)*

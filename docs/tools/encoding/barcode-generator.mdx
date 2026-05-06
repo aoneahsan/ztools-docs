@@ -1,0 +1,113 @@
+---
+id: barcode-generator
+title: "Barcode Generator — Free Online, All Formats"
+description: "Generate Code 128, EAN-13, UPC, QR codes from any text. Download as SVG or PNG. Browser-only."
+sidebar_label: "barcode-generator"
+keywords:
+  - "barcode generator online"
+  - "free barcode maker"
+  - "ean 13 generator"
+  - "code 128 generator"
+  - "qr code generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# barcode-generator
+
+A barcode encodes data as a pattern of bars (1D) or squares (2D / QR) that machines can read optically. Common formats: Code 128 (general-purpose alphanumeric), EAN-13 (retail products, 13 digits), UPC-A (US retail, 12 digits), QR codes (any data including URLs, up to ~3KB). The ZTools Barcode Generator runs in the browser via JsBarcode + qrcode-generator libraries, supports 10+ formats, and outputs SVG (vector, scalable) or PNG. Useful for inventory, retail, ticketing, and asset tracking.
+
+<ToolCTA toolId="barcode-generator" toolName="barcode-generator" />
+
+## Use cases
+
+### Print product barcodes
+
+Small business; need EAN-13 codes for products. Generator produces print-ready SVG with check digit.
+
+### Track assets with internal codes
+
+Code 128 for inventory: any alphanumeric ID. Print on labels, scan with phone.
+
+### Generate QR codes for URLs
+
+Restaurant menu QR pointing to a URL. Generator handles encoding + error correction.
+
+### Event tickets
+
+Code 128 with ticket ID. Scanner at door verifies validity.
+
+## How it works
+
+1. **Pick format** — Code 128, Code 39, EAN-13, EAN-8, UPC-A, UPC-E, ITF-14, MSI, Pharmacode, Codabar, QR.
+2. **Type data** — Format-specific validation — EAN-13 needs 12 digits + check, Code 128 accepts almost anything.
+3. **Configure** — Width, height, margin, foreground / background colors, optional human-readable text below code.
+4. **Save** — SVG (vector) or PNG (raster).
+
+## Examples
+
+**Input:** Code 128, "INV-2026-001"
+
+**Output:** A bar pattern encoding the alphanumeric value. Decodes back to "INV-2026-001".
+
+---
+
+**Input:** EAN-13, "123456789012"
+
+**Output:** Tool computes check digit (8) and produces the 13-digit barcode "1234567890128".
+
+---
+
+**Input:** QR code, URL https://example.com
+
+**Output:** Square QR pattern. Phones decode in &lt;1 second to the URL.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which format for retail?**</summary>
+
+EAN-13 (worldwide) or UPC-A (US/Canada). Both are GTIN-12/13 — register with GS1 for unique manufacturer codes.
+
+</details>
+
+<details>
+<summary>**What if my data has special chars?**</summary>
+
+Code 128 handles alphanumeric + most ASCII. QR codes handle anything (Unicode supported).
+
+</details>
+
+<details>
+<summary>**Will scanners read my code?**</summary>
+
+Generated codes follow the format spec. Test with a scanner before printing 1,000 labels — printer DPI / contrast matters.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- For retail, use registered GS1 codes — random digits look like barcodes but won't scan in retail systems.
+- For QR codes, use error correction level Q or H — scanning still works with up to 25-30% damage.
+- For asset tracking, Code 128 supports alphanumeric — easier to type into systems than digit-only formats.
+- Always test print at production size — too small can't be scanned reliably.
+
+## Try it now
+
+The full barcode-generator runs in your browser at **[https://ztools.zaions.com/barcode-generator](https://ztools.zaions.com/barcode-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/barcode-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/barcode-generator.mdx)*

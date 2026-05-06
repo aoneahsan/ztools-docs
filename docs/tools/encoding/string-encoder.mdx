@@ -1,0 +1,98 @@
+---
+id: string-encoder
+title: "String Encoder — Multi-Format Online, Free"
+description: "Encode strings: base64, URL, HTML entities, hex, UTF-16. One-click switch between formats. Browser-only."
+sidebar_label: "string-encoder"
+keywords:
+  - "string encoder online"
+  - "multi format encoder"
+  - "base64 url html encode"
+  - "string encoding tool"
+  - "all encodings online"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# string-encoder
+
+A string encoder transforms a string into a different representation: base64 (binary-safe text), URL-percent (safe in URLs), HTML entities (safe in HTML), hex (raw bytes), UTF-16 (JavaScript-internal). Each is for a specific context — using the wrong encoding causes corruption. The ZTools String Encoder offers all common encodings in one tool with one-click switching, plus a "decode" toggle to reverse any of them.
+
+<ToolCTA toolId="string-encoder" toolName="string-encoder" />
+
+## Use cases
+
+### Encode text for a URL parameter
+
+Spaces, ampersands, special chars need percent-encoding. Tool produces correctly-encoded URL string.
+
+### Embed text in HTML safely
+
+&lt;script&gt;alert("XSS")&lt;/script&gt; needs HTML entity encoding to avoid injection. Tool produces safe form.
+
+### Build base64 payloads
+
+JSON over HTTP often base64s binary. Tool builds the encoded string.
+
+### Quick encoding switch
+
+Same input encoded as base64 / URL / hex / HTML side by side.
+
+## How it works
+
+1. **Paste text** — Plain text input.
+2. **Pick encoding(s)** — Multiple shown side-by-side. Each updates live as input changes.
+3. **Toggle decode mode** — For decoding, pick the input encoding. Tool reverses.
+
+## Examples
+
+**Input:** "Hello World!"
+
+**Output:** Base64: SGVsbG8gV29ybGQh. URL: Hello%20World%21. HTML: Hello World&excl; (or just Hello World).
+
+---
+
+**Input:** "&lt;script&gt;"
+
+**Output:** HTML entities: &lt;script&gt;. URL: %3Cscript%3E. Base64: PHNjcmlwdD4=.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which encoding for which context?**</summary>
+
+URL params: percent-encoding. HTML body / attributes: HTML entities. Binary in text: base64. Bytes for code: hex. JSON strings: nothing extra (already string-safe).
+
+</details>
+
+<details>
+<summary>**How is this different from individual encoders?**</summary>
+
+Convenience tool — all encodings in one view. Useful for comparison + quick switching.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For URL parameters, encodeURIComponent (full encoding) is usually right — encodeURI leaves some chars unencoded for backwards compatibility.
+- For HTML, also escape & — &amp; — most often forgotten.
+- For base64 in URLs, prefer base64url variant (replaces +/= with -_ and removes padding).
+
+## Try it now
+
+The full string-encoder runs in your browser at **[https://ztools.zaions.com/string-encoder](https://ztools.zaions.com/string-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/string-encoder)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/string-encoder.mdx)*

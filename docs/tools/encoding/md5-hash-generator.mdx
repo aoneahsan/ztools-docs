@@ -1,0 +1,131 @@
+---
+id: md5-hash-generator
+title: "MD5 Hash Generator — 128-bit Checksum for Files and Strings"
+description: "Generate MD5 hashes of strings or files. Useful for checksums and legacy systems. NOT for security. Free, in-browser."
+sidebar_label: "md5-hash-generator"
+keywords:
+  - "md5 hash generator"
+  - "md5 calculator"
+  - "file md5"
+  - "string md5"
+  - "md5 checksum"
+  - "free md5 tool"
+  - "legacy hash"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# md5-hash-generator
+
+An MD5 hash generator computes the 128-bit MD5 message digest of a string or file — used historically as a checksum to verify file integrity (e.g., "did the download corrupt?") and as a fingerprint in legacy systems, but **considered cryptographically broken since 2004 — never use MD5 for password hashing, digital signatures, or any security-sensitive purpose**. The ZTools MD5 Hash Generator runs in the browser using the Web Crypto API or a JS implementation as fallback, supports both UTF-8 strings and arbitrary binary files (drag-and-drop), and outputs both hex and base64 encodings of the digest.
+
+<ToolCTA toolId="md5-hash-generator" toolName="md5-hash-generator" />
+
+## Use cases
+
+### Legacy file-integrity checksums
+
+Some download mirrors still publish MD5 sums alongside files. Compute locally to verify the download was not corrupted in transit.
+
+### Cache key fingerprinting
+
+Caching by content. MD5 is fast and "good enough" when collision-resistance does not matter (caching is not security).
+
+### Database deduplication
+
+Detecting duplicate documents. MD5 collisions are rare in practice for non-adversarial data.
+
+### Educational comparison
+
+Demonstrate hash functions: produce MD5 alongside SHA-256 for the same input; show that small input changes produce wildly different hashes (avalanche effect).
+
+## How it works
+
+1. **Choose input type** — String (paste text) or file (drag-and-drop, up to several GB).
+2. **Pick string encoding** — UTF-8 (default), UTF-16, ASCII. Affects bytes hashed.
+3. **Hash** — Web Crypto subtle.digest("MD5", bytes) when available, JS fallback otherwise. Streaming for large files.
+4. **Read output** — 128-bit digest in hex (32 chars) and base64 (24 chars). Copy with one click.
+5. **Compare** — Optional "compare" mode lets you paste a published hash and confirms match/mismatch.
+
+## Examples
+
+**Input:** "hello" (UTF-8 string)
+
+**Output:** 5d41402abc4b2a76b9719d911017c592
+
+---
+
+**Input:** "" (empty string)
+
+**Output:** d41d8cd98f00b204e9800998ecf8427e
+
+---
+
+**Input:** File 50 MB
+
+**Output:** Computed via streaming in ~1 second on a modern laptop
+
+## Frequently asked questions
+
+<details>
+<summary>**Is MD5 secure?**</summary>
+
+No. MD5 was cryptographically broken in 2004 — collisions can be generated in seconds. NEVER use it for password hashing, certificate signatures, or any security-sensitive context. Use SHA-256 (or stronger) instead.
+
+</details>
+
+<details>
+<summary>**When is MD5 still acceptable?**</summary>
+
+Non-security use: download checksums, cache keys, ETags, deduplication of non-adversarial data. The legacy ecosystem still uses MD5 in these contexts.
+
+</details>
+
+<details>
+<summary>**Why is the empty-string MD5 always the same?**</summary>
+
+Because hash functions are deterministic — same input always produces the same output. The empty-string hash (d41d8cd98f00b204e9800998ecf8427e) is the same on every system.
+
+</details>
+
+<details>
+<summary>**How is MD5 different from SHA-256?**</summary>
+
+Different algorithms; MD5 outputs 128 bits, SHA-256 outputs 256 bits. SHA-256 is currently considered secure; MD5 is not.
+
+</details>
+
+<details>
+<summary>**Are file hashes reliable for huge files?**</summary>
+
+Yes — the implementation streams chunks rather than loading the whole file into memory. Multi-GB files hash without issue.
+
+</details>
+
+<details>
+<summary>**Is the file uploaded?**</summary>
+
+No — entirely client-side. Files never leave the browser.
+
+</details>
+
+## Tips
+
+- For passwords, use bcrypt / scrypt / argon2 — never MD5 (or even SHA-256 raw).
+- For digital signatures, MD5 is forbidden — modern systems require SHA-256+.
+- For checksums, accept that MD5 catches accidental corruption but not deliberate tampering.
+- Always publish the algorithm used — consumers cannot verify a hash without knowing what generated it.
+- For modern checksums, prefer SHA-256 — only marginally slower, dramatically more secure.
+
+## Try it now
+
+The full md5-hash-generator runs in your browser at **[https://ztools.zaions.com/md5-hash-generator](https://ztools.zaions.com/md5-hash-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/md5-hash-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/md5-hash-generator.mdx)*

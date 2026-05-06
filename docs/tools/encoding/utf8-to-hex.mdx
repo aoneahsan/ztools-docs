@@ -1,0 +1,131 @@
+---
+id: utf8-to-hex
+title: "UTF-8 to Hex Converter — Inspect Byte-Level Encoding (Free)"
+description: "Convert UTF-8 text to its hex byte representation. Configurable separators. Free, in-browser, no signup."
+sidebar_label: "utf8-to-hex"
+keywords:
+  - "utf-8 to hex"
+  - "text to hex"
+  - "utf8 hex converter"
+  - "unicode to hex"
+  - "byte-level encoding viewer"
+  - "free hex encoder"
+  - "unicode debug"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# utf8-to-hex
+
+A UTF-8 to hex converter encodes a text string as the sequence of hexadecimal byte values its UTF-8 representation produces — useful for inspecting non-ASCII characters byte-by-byte, debugging encoding mismatches, and embedding raw bytes in places that accept hex literals (Wireshark filter rules, hex-edited binary files, low-level network packets). The ZTools UTF-8 to Hex converter handles full Unicode (BMP plus supplementary planes — emoji, CJK extensions), supports multiple separator styles (space, comma, none, 0x prefix), and is paired with an inverse Hex-to-UTF-8 converter for round-trip verification.
+
+<ToolCTA toolId="utf8-to-hex" toolName="utf8-to-hex" />
+
+## Use cases
+
+### Debugging encoding bugs
+
+Mystery character renders as "â€™". Convert the original UTF-8 to hex; compare to what the system reads. Mismatches reveal the wrong-decode path.
+
+### Wireshark / network analysis
+
+Filter rules need byte-level patterns (e.g. `tcp contains 48:65:6c:6c:6f`). Convert "Hello" to hex once.
+
+### Embedding bytes in code
+
+A test fixture or migration script embeds a known string as `\\x48\\x65\\x6c\\x6c\\x6f` for byte-precision. Convert text once.
+
+### Educational demos
+
+Demonstrate that "€" is 3 UTF-8 bytes (E2 82 AC). Concrete byte view makes the abstract concrete.
+
+## How it works
+
+1. **Paste text** — Any Unicode — Latin, CJK, emoji, etc.
+2. **Encode UTF-8** — Each codepoint encodes to 1–4 bytes per UTF-8 rules.
+3. **Format as hex** — Each byte → two-digit hex. Pick separator: space (`48 65 6c`), comma (`48,65,6c`), 0x (`0x48 0x65 0x6c`), or no separator.
+4. **Copy** — Output to clipboard. Round-trip via Hex-to-UTF-8 to verify.
+5. **Inspect codepoints** — Optional view shows codepoint, character, byte sequence side-by-side.
+
+## Examples
+
+**Input:** Hello (UTF-8 → hex, space-separated)
+
+**Output:** 48 65 6c 6c 6f
+
+---
+
+**Input:** € (UTF-8)
+
+**Output:** e2 82 ac
+
+---
+
+**Input:** 🚀 (UTF-8, 4 bytes)
+
+**Output:** f0 9f 9a 80
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is "Hello" 5 bytes but "héllo" is 6?**</summary>
+
+ASCII characters fit in 1 byte each. "é" (U+00E9) requires 2 bytes in UTF-8 (c3 a9). So "héllo" is 6 bytes.
+
+</details>
+
+<details>
+<summary>**How big can emoji be?**</summary>
+
+4 bytes in UTF-8 (codepoints in the supplementary planes). Newer emoji like 🚀 (U+1F680) take 4 bytes.
+
+</details>
+
+<details>
+<summary>**Can I convert directly to UTF-16 hex?**</summary>
+
+Yes — switch the encoding selector to UTF-16 BE / LE. Output is hex of those bytes.
+
+</details>
+
+<details>
+<summary>**What if my text has a BOM?**</summary>
+
+A leading BOM (EF BB BF for UTF-8) appears in the hex output. Toggle "strip BOM" to omit it.
+
+</details>
+
+<details>
+<summary>**Are uppercase or lowercase hex digits used?**</summary>
+
+Selectable. Lowercase is the modern convention; some legacy systems prefer uppercase.
+
+</details>
+
+<details>
+<summary>**Does it handle invalid UTF-8?**</summary>
+
+Input is assumed valid Unicode text from your browser; output is always valid UTF-8 hex. For decoding broken byte streams, use Hex-to-UTF-8 in lenient mode.
+
+</details>
+
+## Tips
+
+- For Wireshark filters, no-separator hex (`48656c6c6f`) is the right format.
+- For embedded code literals, `\\xNN` style is most common — switch the format to that.
+- Round-trip via Hex-to-UTF-8 always — round-trip mismatches reveal off-by-one or BOM issues.
+- For mojibake debugging, also dump the bytes the system *thinks* it has — comparing the two reveals the wrong-decode step.
+- Use the codepoint table for in-depth investigation — sometimes a "weird character" is a confusable Unicode lookalike.
+
+## Try it now
+
+The full utf8-to-hex runs in your browser at **[https://ztools.zaions.com/utf8-to-hex](https://ztools.zaions.com/utf8-to-hex)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/utf8-to-hex)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/utf8-to-hex.mdx)*

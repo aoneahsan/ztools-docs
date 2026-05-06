@@ -1,0 +1,126 @@
+---
+id: html-encoder
+title: "HTML Encoder & Decoder — Escape Special Characters Safely (Online)"
+description: "Encode HTML special characters to entities (& → &amp;) or decode entities back to characters. Prevents XSS, fixes display bugs. Free, in-browser."
+sidebar_label: "html-encoder"
+keywords:
+  - "html encoder"
+  - "html decoder"
+  - "html entity converter"
+  - "escape html"
+  - "unescape html"
+  - "html entities online"
+  - "xss prevention"
+  - "html character encoder"
+  - "free html encoder"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# html-encoder
+
+An HTML encoder converts characters with special meaning in HTML — `&lt;`, `&gt;`, `&`, `"`, `'` — into their named or numeric entity equivalents (`&lt;`, `&gt;`, `&amp;`, `&quot;`, `&#39;`) so they render as literal text instead of being parsed as markup. The ZTools HTML Encoder is bidirectional: paste raw text to escape, or paste entity-laden text to decode back to characters. Encoding is the first line of defense against cross-site scripting (XSS) when injecting user-supplied data into HTML, and is required when displaying code samples, JSON snippets, or template syntax inside an article.
+
+<ToolCTA toolId="html-encoder" toolName="html-encoder" />
+
+## Use cases
+
+### Displaying code samples in a blog post or documentation page
+
+Want to show readers `&lt;script&gt;alert("xss")&lt;/script&gt;` as literal text? Encode it first to `&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;` and the browser will render the characters instead of executing the script. Saves the round trip through a syntax-highlighter's escape function.
+
+### Sanitizing user-submitted content before rendering
+
+Comment forms, profile bios, and reviews often accept free text. Encode the input server-side or client-side before injecting into the DOM via `innerHTML` to neutralize XSS payloads. Even a single un-encoded `&lt;` can become a script-injection vector.
+
+### Embedding HTML inside JSON or XML payloads
+
+When sending an HTML snippet inside a JSON string or XML attribute, the entities prevent the snippet from breaking the outer parser. The receiving end can decode back to raw HTML when actually rendering.
+
+### Debugging "why is my HTML rendering as text" issues
+
+When a developer sees `&lt;div&gt;` instead of an actual div, paste the source into the decoder; the tool reveals whether the data was double-encoded somewhere in the pipeline (a common bug when frameworks auto-escape values that were already escaped).
+
+## How it works
+
+1. **Paste text into the input pane** — Raw text, HTML markup, or already-encoded text. The tool detects which mode you need based on which button you click.
+2. **Choose encode or decode** — Encode replaces `&lt;`, `&gt;`, `&`, `"`, `'` with named entities. Decode walks the string and replaces every recognized entity (named or numeric) with the literal character.
+3. **Pick encoding scope** — Minimal (only HTML-special chars) or extensive (all non-ASCII characters become numeric entities). Use minimal for general HTML; extensive for legacy systems that mishandle UTF-8.
+4. **Click Convert** — Output appears in the right pane with a character count and entity count for sanity-checking.
+5. **Copy or download** — One-click copy. Original input remains for re-encoding with different settings.
+
+## Examples
+
+**Input:** &lt;div class="alert"&gt;Hello & welcome!&lt;/div&gt;
+
+**Output:** &lt;div class=&quot;alert&quot;&gt;Hello &amp; welcome!&lt;/div&gt;
+
+---
+
+**Input:** &copy; 2026 ZTools &mdash; Free &amp; Open
+
+**Output:** © 2026 ZTools — Free & Open
+
+## Frequently asked questions
+
+<details>
+<summary>**Why do I need to encode HTML?**</summary>
+
+Without encoding, browser parsers interpret `&lt;script&gt;` and similar tags as actual elements — opening the door to cross-site scripting (XSS). Encoding turns them into harmless text.
+
+</details>
+
+<details>
+<summary>**What's the difference between named and numeric entities?**</summary>
+
+Named entities like `&amp;` are human-readable but limited to a fixed set. Numeric entities like `&#38;` or `&#x26;` work for any Unicode code point. For modern UTF-8 documents, named entities suffice for the HTML-special chars; everything else can stay as raw UTF-8.
+
+</details>
+
+<details>
+<summary>**Should I encode every character?**</summary>
+
+No — only the five HTML-special characters (`&lt;`, `&gt;`, `&`, `"`, `'`) need encoding in modern UTF-8 documents. Over-encoding bloats your HTML and can break copy-paste for non-developers.
+
+</details>
+
+<details>
+<summary>**How do I prevent double-encoding?**</summary>
+
+Encode exactly once, at the boundary where untrusted text enters HTML. If your framework auto-escapes (Jinja, Mustache, React JSX, Vue templates), do not encode again.
+
+</details>
+
+<details>
+<summary>**Is HTML encoding the same as URL encoding?**</summary>
+
+No. URL encoding (percent-encoding) is for query strings and paths (e.g., `%20` for space). HTML encoding is for HTML body content. Use the right one for the right context — mixing them produces broken output.
+
+</details>
+
+<details>
+<summary>**Can the tool handle non-ASCII characters?**</summary>
+
+Yes. In "extensive" mode, every non-ASCII character is converted to a numeric entity. In "minimal" mode, non-ASCII stays as UTF-8 (the modern recommendation).
+
+</details>
+
+## Tips
+
+- Encode at the boundary — once, when untrusted data enters HTML. Never encode twice.
+- Trust your template engine's auto-escape (Jinja, Mustache, JSX) and avoid manually encoding the same value.
+- For JavaScript string contexts, use `JSON.stringify()` instead of HTML encoding — different escaping rules apply.
+- When debugging "why is HTML showing as text", check whether the data was double-encoded somewhere upstream.
+
+## Try it now
+
+The full html-encoder runs in your browser at **[https://ztools.zaions.com/html-encoder](https://ztools.zaions.com/html-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/html-encoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/html-encoder.mdx)*

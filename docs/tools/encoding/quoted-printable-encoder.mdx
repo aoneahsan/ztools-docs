@@ -1,0 +1,131 @@
+---
+id: quoted-printable-encoder
+title: "Quoted-Printable Encoder/Decoder — Email-Safe MIME Encoding"
+description: "Encode/decode quoted-printable (RFC 2045). Email-friendly representation of 8-bit data. Free, in-browser."
+sidebar_label: "quoted-printable-encoder"
+keywords:
+  - "quoted printable encoder"
+  - "qp encoder"
+  - "qp decoder"
+  - "mime encoding"
+  - "rfc 2045"
+  - "email encoding"
+  - "free quoted printable tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# quoted-printable-encoder
+
+Quoted-printable (QP) is a MIME encoding (RFC 2045) that represents 8-bit data using only printable ASCII — necessary in email systems where some intermediaries still cannot reliably handle 8-bit content — by escaping non-printable and special bytes as `=NN` (where NN is the byte's hex value) and breaking long lines. The ZTools Quoted-Printable Encoder handles both encoding and decoding, supports the soft-line-break rules (lines ≤ 76 chars with `=` continuation), preserves UTF-8 multi-byte characters correctly, and is the right tool for inspecting raw email source or producing safe email-body content.
+
+<ToolCTA toolId="quoted-printable-encoder" toolName="quoted-printable-encoder" />
+
+## Use cases
+
+### Reading raw email source
+
+Email clients show "Content-Transfer-Encoding: quoted-printable" with =E2=82=AC scattered through the body. Decode to read the original Unicode message.
+
+### Composing email programmatically
+
+A custom mail-sending script must produce QP for non-ASCII content. Encode message body before assembling the MIME message.
+
+### Debugging mojibake in email
+
+Garbled accented characters in delivered email. Trace through QP encoding to find the wrong-charset step.
+
+### Forensic email analysis
+
+Investigators read raw `.eml` files. QP decoding makes the content human-readable.
+
+## How it works
+
+1. **Pick mode** — Encode (raw text → QP) or decode (QP → raw text).
+2. **Paste content** — Raw bytes (with declared charset) for encode; QP-formatted text for decode.
+3. **Apply rules** — Encode: bytes 33–60 + 62–126 pass through; others become `=NN`. Lines wrap at 76 chars with soft `=` line breaks. Decode: reverse, joining soft-broken lines.
+4. **Inspect** — Side-by-side original / encoded view; soft line breaks marked.
+5. **Copy** — Result to clipboard. Round-trip via the inverse mode for verification.
+
+## Examples
+
+**Input:** Hello, world! → encode
+
+**Output:** Hello, world! (no special chars; passes through)
+
+---
+
+**Input:** café → encode (UTF-8)
+
+**Output:** caf=C3=A9
+
+---
+
+**Input:** caf=C3=A9 → decode
+
+**Output:** café
+
+## Frequently asked questions
+
+<details>
+<summary>**How is QP different from base64?**</summary>
+
+Base64 is a safer encoding for arbitrary binary, but inflates size by 33% and is less human-readable. QP is more efficient for mostly-ASCII text with occasional non-ASCII (only inflates the special bytes), and lets readers see most of the content directly.
+
+</details>
+
+<details>
+<summary>**What is a "soft line break"?**</summary>
+
+A line ending with `=\\r\\n` (in CRLF) or `=\\n` (LF). The decoder removes these, producing one logical long line. Used to satisfy the 76-character line-length rule without breaking content.
+
+</details>
+
+<details>
+<summary>**Should I encode "=" as "=3D"?**</summary>
+
+Yes — `=` itself is special and must be encoded as `=3D` always.
+
+</details>
+
+<details>
+<summary>**What about whitespace?**</summary>
+
+Spaces and tabs at end-of-line must be encoded (=20 / =09) because mail relays sometimes strip trailing whitespace.
+
+</details>
+
+<details>
+<summary>**Does it preserve UTF-8?**</summary>
+
+Yes — multi-byte UTF-8 sequences encode byte-by-byte (e.g. `é` = 0xC3 0xA9 → `=C3=A9`).
+
+</details>
+
+<details>
+<summary>**Why does my decoded email show "=" at end of lines?**</summary>
+
+Those are unencoded soft line breaks that the decoder did not recognise — usually due to wrong line endings (Mac CR vs Unix LF). Normalise line endings first.
+
+</details>
+
+## Tips
+
+- For programmatic email, use your language's MIME library rather than hand-encoding QP.
+- When debugging email mojibake, decode QP first, THEN check charset — the order of operations matters.
+- Soft line breaks are the most error-prone part of QP — pay attention to CRLF vs LF normalisation.
+- Round-trip via decode after encoding to verify nothing was lost.
+- For arbitrary binary, prefer base64 — QP is optimised for mostly-text content only.
+
+## Try it now
+
+The full quoted-printable-encoder runs in your browser at **[https://ztools.zaions.com/quoted-printable-encoder](https://ztools.zaions.com/quoted-printable-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/quoted-printable-encoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/quoted-printable-encoder.mdx)*

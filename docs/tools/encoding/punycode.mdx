@@ -1,0 +1,131 @@
+---
+id: punycode
+title: "Punycode Converter — Unicode IDN ↔ ASCII (xn--) Domain Names"
+description: "Convert internationalised domain names (IDN) to and from punycode (xn--). Detect homograph attacks. Free, in-browser."
+sidebar_label: "punycode"
+keywords:
+  - "punycode converter"
+  - "idn converter"
+  - "xn-- domain"
+  - "unicode domain"
+  - "homograph attack detector"
+  - "free punycode tool"
+  - "idna2008"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# punycode
+
+Punycode is the ASCII-compatible encoding (RFC 3492) used to represent Unicode domain names — letting browsers and DNS resolvers handle IDNs like `bücher.de` by translating to `xn--bcher-kva.de` for transport — and converting between the two is essential when working with international web traffic, registering IDN domains, debugging email DNS, or detecting homograph phishing attacks where an attacker registers `аррle.com` (Cyrillic а / Latin a) hoping victims will not notice. The ZTools Punycode Converter encodes and decodes any IDN, detects mixed-script labels (a homograph red flag), and runs in the browser without sending domain names to any server.
+
+<ToolCTA toolId="punycode" toolName="punycode" />
+
+## Use cases
+
+### Registering international domains
+
+A German bookseller registers `bücher.de`. Most registrar UIs require the punycode form. Convert once and submit.
+
+### Debugging email DNS
+
+Email at `测试.中国` bounces. Convert to punycode (`xn--0zwm56d.xn--fiqs8s`) to inspect MX records via standard DNS tools.
+
+### Phishing / homograph detection
+
+Suspicious URL in an email. Decode the punycode form; if the displayed Unicode looks visually similar to a known brand but uses Cyrillic / Greek lookalikes, flag as phishing.
+
+### Logging and search-engine SEO
+
+Logs sometimes show punycode; humans want Unicode. Convert for reports and dashboards.
+
+## How it works
+
+1. **Paste a domain** — Either Unicode form (`bücher.de`) or punycode (`xn--bcher-kva.de`). Auto-detect handles either.
+2. **Convert** — Each label converts independently — TLDs and subdomains may have different scripts.
+3. **Inspect script mix** — Mixed-script labels (Latin + Cyrillic in one label) are flagged as potential homograph attacks.
+4. **Validate** — Confirms each label is ≤ 63 chars (DNS limit) and the full domain ≤ 253 chars.
+5. **Copy** — Either Unicode or punycode form to clipboard.
+
+## Examples
+
+**Input:** bücher.de
+
+**Output:** xn--bcher-kva.de
+
+---
+
+**Input:** xn--0zwm56d.xn--fiqs8s
+
+**Output:** 测试.中国
+
+---
+
+**Input:** аррle.com (Cyrillic а)
+
+**Output:** xn--80akhbyknj4f.com — flagged as mixed-script homograph
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does the browser show Unicode while servers see punycode?**</summary>
+
+DNS only carries ASCII. Browsers convert IDN displayed in the address bar to punycode before resolving. The user sees `bücher.de`; the resolver receives `xn--bcher-kva.de`.
+
+</details>
+
+<details>
+<summary>**Are all browsers consistent in showing Unicode?**</summary>
+
+No — browsers selectively show punycode for suspicious mixed-script domains to defeat homograph attacks. Chrome, Firefox, Safari all have policies that reveal punycode in those cases.
+
+</details>
+
+<details>
+<summary>**How can I tell if a domain is a homograph attack?**</summary>
+
+Mixed scripts in a single label (Latin + Cyrillic) is the strongest signal. The tool flags these. Single-script Cyrillic-only domains are not attacks per se but require human judgement.
+
+</details>
+
+<details>
+<summary>**Are emoji domains legal?**</summary>
+
+A handful of TLDs (.ws, .to) accept emoji. Most do not. Punycode encodes them but the registry must allow it.
+
+</details>
+
+<details>
+<summary>**Why does my conversion fail?**</summary>
+
+Likely the input is not a valid punycode label (must start with xn--, encode rules) OR the Unicode contains forbidden characters (zero-width joiners, etc.).
+
+</details>
+
+<details>
+<summary>**Are subdomain conversions independent?**</summary>
+
+Yes — each label converts separately. Mixing Unicode and ASCII labels is fine (Unicode subdomain on ASCII root).
+
+</details>
+
+## Tips
+
+- When auditing security, decode all punycode in URLs before clicking — homograph attacks are a real and growing phishing vector.
+- For SEO, register both punycode and direct-match-Unicode variants when possible — search engines treat them as one.
+- Use IDN-aware logging tools — pure-ASCII logs hide useful context for international traffic.
+- For email, ensure SPF / DKIM records cover both punycode and Unicode forms — some receivers check one, some the other.
+- Always verify mixed-script labels manually — they are the highest-risk category.
+
+## Try it now
+
+The full punycode runs in your browser at **[https://ztools.zaions.com/punycode](https://ztools.zaions.com/punycode)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/punycode)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/punycode.mdx)*

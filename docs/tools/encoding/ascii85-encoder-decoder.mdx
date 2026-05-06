@@ -1,0 +1,124 @@
+---
+id: ascii85-encoder-decoder
+title: "ASCII85 Encoder & Decoder — More Compact Than Base64 (Online)"
+description: "Encode binary data to ASCII85 (also called Base85) — 25% more compact than Base64. Used in PDF, PostScript, and Git binary diffs. Free."
+sidebar_label: "ascii85-encoder-decoder"
+keywords:
+  - "ascii85 encoder"
+  - "base85 encoder"
+  - "ascii85 decoder"
+  - "base85 decoder"
+  - "pdf binary decoder"
+  - "postscript ascii85"
+  - "free ascii85 tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ascii85-encoder-decoder
+
+ASCII85 (also known as Base85) is a binary-to-text encoding that uses 85 printable ASCII characters to represent 4 bytes per 5 characters of output, achieving roughly 25% better density than Base64's 4 characters per 3 bytes. The ZTools ASCII85 Encoder & Decoder supports both Adobe variant (used in PDF and PostScript files, delimited by `&lt;~` and `~&gt;`) and the simpler RFC 1924 variant. Useful when working with PDF internals, PostScript files, Git binary diffs, or any context where Base64 overhead matters and the character set must remain printable ASCII.
+
+<ToolCTA toolId="ascii85-encoder-decoder" toolName="ascii85-encoder-decoder" />
+
+## Use cases
+
+### Inspecting binary streams inside a PDF file
+
+PDFs embed images and fonts as ASCII85-encoded streams. To decode and analyze, paste the stream content (between `&lt;~` and `~&gt;`) into the decoder; you'll get the raw bytes for further inspection (e.g., via a hex viewer).
+
+### Reading or writing PostScript binary blocks
+
+PostScript image data and certain binary operators use ASCII85 encoding. Paste an encoded block into the decoder to see the raw bytes; encode raw bytes back when authoring PostScript by hand.
+
+### Working with Git binary diffs
+
+Git uses a Base85 variant for its binary patches (`git format-patch` output). When manually constructing or analyzing a binary patch, the encoder/decoder lets you round-trip bytes without leaving the browser.
+
+### Squeezing extra bytes out of size-constrained text channels
+
+When transmitting binary data in a text-only channel (Slack, email, JSON) and every byte counts, ASCII85 saves ~25% versus Base64. Tradeoff: ASCII85 uses characters like `&lt;`, `&gt;`, `&`, `[`, `]` that may need additional escaping in some contexts.
+
+## How it works
+
+1. **Paste data into the input pane** — For encoding: raw text or hex bytes. For decoding: ASCII85-encoded string (with or without `&lt;~` and `~&gt;` delimiters).
+2. **Choose direction and variant** — Encode or Decode. Adobe variant (with `&lt;~` `~&gt;` delimiters, `z` shortcut for 4 zero bytes) or RFC 1924 (raw, no delimiters).
+3. **Click Convert** — Encoding: each 4-byte block becomes 5 ASCII85 chars. Decoding: each 5-char block becomes 4 bytes; the final block may be shorter (padding semantics handled correctly).
+4. **Review the output** — Output appears with both raw and length-annotated views. Decoded binary is shown as hex + UTF-8 attempt for readability.
+5. **Copy or download** — One-click copy. For binary downloads, the decoded bytes are saved as a `.bin` file.
+
+## Examples
+
+**Input:** Encode: "Hello"
+
+**Output:** &lt;~87cURD]j~&gt;
+
+---
+
+**Input:** Decode: &lt;~87cURD]j~&gt;
+
+**Output:** Hello
+
+## Frequently asked questions
+
+<details>
+<summary>**How does ASCII85 differ from Base64?**</summary>
+
+ASCII85 uses 85 printable characters (vs Base64's 64), encoding 4 bytes per 5 characters (vs Base64's 3 bytes per 4 chars). Result: ASCII85 is ~25% more compact but uses more "special" characters that may need extra escaping in some contexts (URLs, JSON strings).
+
+</details>
+
+<details>
+<summary>**When should I use ASCII85 instead of Base64?**</summary>
+
+When working with PDF/PostScript (the standard uses ASCII85), Git binary patches, or when 25% size savings outweigh the cost of extra escaping. For HTTP transport and most JSON APIs, stick with Base64 — its character set is simpler.
+
+</details>
+
+<details>
+<summary>**What's the difference between Adobe and RFC 1924 variants?**</summary>
+
+Adobe wraps output in `&lt;~` and `~&gt;` delimiters and supports `z` as a shortcut for 4 consecutive zero bytes. RFC 1924 uses a different character set chosen to be safer in URLs and identifiers. The tool supports both.
+
+</details>
+
+<details>
+<summary>**Is ASCII85 the same as Base85?**</summary>
+
+Yes — Base85 is a generic name for the family; ASCII85 is the specific Adobe-defined variant. Other variants (RFC 1924, Z85) use different character sets but the same 85-base encoding scheme.
+
+</details>
+
+<details>
+<summary>**Can I encode arbitrary binary data?**</summary>
+
+Yes. The tool accepts hex input (e.g., `0xDEADBEEF`) for raw bytes, or text input which is treated as UTF-8 bytes.
+
+</details>
+
+<details>
+<summary>**Does the tool work offline?**</summary>
+
+Yes. All encoding and decoding happen in your browser; no data is uploaded.
+
+</details>
+
+## Tips
+
+- For PDF/PostScript work, use the Adobe variant — it's what the file format spec requires.
+- For URL-safe encoding, prefer Base64URL or Z85 over ASCII85 (which uses URL-unsafe chars).
+- ASCII85 with `z` shortcuts (Adobe) saves additional bytes for data with runs of zeros.
+- For maximum density, consider Base91 — but tooling support is sparse.
+
+## Try it now
+
+The full ascii85-encoder-decoder runs in your browser at **[https://ztools.zaions.com/ascii85-encoder-decoder](https://ztools.zaions.com/ascii85-encoder-decoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ascii85-encoder-decoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/ascii85-encoder-decoder.mdx)*

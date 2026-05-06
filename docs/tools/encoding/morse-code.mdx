@@ -1,0 +1,131 @@
+---
+id: morse-code
+title: "Morse Code Translator — Text ↔ Morse with Audio Playback (Free)"
+description: "Translate text to and from Morse code. Audio playback at adjustable WPM. International + American Morse. Free, in-browser."
+sidebar_label: "morse-code"
+keywords:
+  - "morse code translator"
+  - "morse to text"
+  - "text to morse"
+  - "morse audio playback"
+  - "international morse"
+  - "cw practice"
+  - "free morse decoder"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# morse-code
+
+A Morse code translator converts plain text to dots-and-dashes Morse and back, plays the encoded sequence as audio at a chosen words-per-minute rate, and supports both International Morse (the modern global standard) and the older American Morse used by 19th-century US telegraph operators. The ZTools Morse Code Translator runs entirely in the browser, lets you tune dot-duration, dash-ratio, inter-character gap, and inter-word gap, supports flashlight-style visual playback, and decodes audio-paste input by detecting on/off transitions — useful for learning Morse, decoding faint signals, hobby radio operation, and educational demos.
+
+<ToolCTA toolId="morse-code" toolName="morse-code" />
+
+## Use cases
+
+### Learning Morse for amateur radio
+
+Hams preparing for a CW (continuous-wave) license practice with the translator at progressively higher WPM until 13–20 WPM feels natural.
+
+### Encoding short messages for fun
+
+Birthday cards / escape-room puzzles include a Morse line. Encode the surprise message; decode in the browser to verify before printing.
+
+### Educational demos
+
+A history teacher demonstrates 19th-century telegraph to students. Audio playback makes the dots and dashes audible — far more memorable than a static chart.
+
+### Decoding audio recordings
+
+Old archive recording of Morse traffic. Paste audio file (or play through mic), the decoder timing-snaps on/off transitions and emits the text.
+
+## How it works
+
+1. **Pick direction** — Text → Morse, or Morse → Text. Auto-detect tries to guess based on input characters.
+2. **Choose Morse variant** — International Morse (default, used worldwide) or American Morse (legacy, for historical decoding).
+3. **Set timing** — WPM, dot length, dash-to-dot ratio (standard 3:1), character gap (3 units), word gap (7 units).
+4. **Play or copy** — Audio playback at chosen pitch (default 700 Hz). Visual flash mode for flashlight signalling. Copy the encoded text.
+5. **Decode audio** — Paste an audio clip or use the microphone. The decoder timing-snaps and produces text.
+
+## Examples
+
+**Input:** SOS
+
+**Output:** ... --- ... (3 dots, 3 dashes, 3 dots; the universal distress signal)
+
+---
+
+**Input:** HELLO WORLD
+
+**Output:** .... . .-.. .-.. ---   .-- --- .-. .-.. -..
+
+---
+
+**Input:** .-.. --- ...- . (Morse → text)
+
+**Output:** LOVE
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between International and American Morse?**</summary>
+
+International (Continental) Morse is the modern standard. American Morse used different patterns for some letters and several "compound" symbols. American Morse is mostly only useful for decoding historical telegraph records.
+
+</details>
+
+<details>
+<summary>**What WPM should I learn at?**</summary>
+
+Beginners start at 5 WPM. The "Farnsworth method" plays characters at 18 WPM but with extra gaps so the apparent rate is ~5 — trains your ear for the eventual full speed without the slow-rate habits.
+
+</details>
+
+<details>
+<summary>**Why does the audio sound choppy?**</summary>
+
+Browser audio scheduling is sample-accurate but not perfectly smooth on busy machines. Use the WAV-export option for clean audio.
+
+</details>
+
+<details>
+<summary>**Does it support prosigns (special signals)?**</summary>
+
+Yes — SOS, AR (end of message), SK (end of contact), BT (break), KN (named-station only), and others. Prosigns are written with overlines (e.g. AR) but typed as concatenated letters.
+
+</details>
+
+<details>
+<summary>**Can it handle non-Latin alphabets?**</summary>
+
+Cyrillic, Greek, Arabic, Hebrew, Japanese have their own Morse extensions. The translator supports the most common (Cyrillic, Greek). For others, transliterate to Latin first.
+
+</details>
+
+<details>
+<summary>**Does the audio decoder need a clean recording?**</summary>
+
+It tolerates moderate noise. Heavy noise / unstable timing requires manual intervention. Boost SNR via the audio cleanup tools before decoding when possible.
+
+</details>
+
+## Tips
+
+- Practise with audio rather than visual charts — Morse is fundamentally an aural skill.
+- Use Farnsworth timing when learning — fast characters with slow gaps trains the right reflexes.
+- For radio operators, 13 WPM is the historical license threshold; aim for 20+ WPM for casual contesting.
+- When sending visual Morse (flashlight), use longer dot duration than audio — eyes are slower than ears.
+- Save common phrases ("CQ CQ DE callsign") as snippets for one-click playback.
+
+## Try it now
+
+The full morse-code runs in your browser at **[https://ztools.zaions.com/morse-code](https://ztools.zaions.com/morse-code)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/morse-code)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/morse-code.mdx)*

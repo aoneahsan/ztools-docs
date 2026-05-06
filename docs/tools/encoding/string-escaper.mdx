@@ -1,0 +1,131 @@
+---
+id: string-escaper
+title: "String Escaper — Escape for JSON, JS, Python, Java, C, Shell"
+description: "Escape strings for JSON, JavaScript, Python, Java, C/C++, shell. Multi-language. Reverse mode unescapes. Free."
+sidebar_label: "string-escaper"
+keywords:
+  - "string escaper"
+  - "json escape"
+  - "javascript escape"
+  - "python escape"
+  - "shell escape"
+  - "java escape"
+  - "multi-language string escaper"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# string-escaper
+
+A string escaper converts a raw string to its escaped form for embedding in source code or data formats — adding the backslash sequences that each language requires for special characters (newlines, tabs, quotes, control codes, Unicode escapes) — and reverses the process for inspection. The ZTools String Escaper supports JSON, JavaScript, Python, Java, C/C++, Go, Ruby, PHP, and shell (POSIX sh and bash) escape rules, handles Unicode (\\uNNNN, \\xNN, \\u\{NNNN\}), and is the right tool when copy-pasting a multi-line string into source code without breaking the surrounding syntax.
+
+<ToolCTA toolId="string-escaper" toolName="string-escaper" />
+
+## Use cases
+
+### Embedding multi-line text in source code
+
+A long error message or template needs to live as a string literal. Escape once; paste the result with confidence that quotes and newlines do not break the file.
+
+### Producing JSON safely
+
+Hand-crafting a JSON literal with arbitrary text. Escape ensures the JSON validates.
+
+### Shell quoting
+
+Passing a complex string as a CLI argument. Shell escape rules differ across POSIX sh and bash; pick the dialect.
+
+### Cross-language porting
+
+Moving a string literal from Python to JavaScript (or vice versa). Decode in source dialect, re-encode for target dialect.
+
+## How it works
+
+1. **Pick the target language** — JSON, JS, Python, Java, C/C++, Go, Ruby, PHP, shell. Each has its own escape table.
+2. **Pick mode** — Escape (raw → escaped) or unescape (escaped → raw).
+3. **Paste raw text** — Multi-line, Unicode, control codes — anything.
+4. **Apply escapes** — Special characters replaced per language rules. Optionally wrap in surrounding quotes.
+5. **Copy** — Output to clipboard, ready to paste into source code.
+
+## Examples
+
+**Input:** Hello\\n"World" (JSON)
+
+**Output:** "Hello\\\\n\\"World\\""
+
+---
+
+**Input:** café (Python with ascii-only)
+
+**Output:** caf\\u00e9
+
+---
+
+**Input:** It's a test (shell single-quoted)
+
+**Output:** 'It'\\''s a test'
+
+## Frequently asked questions
+
+<details>
+<summary>**Why do JSON and JavaScript escape rules differ slightly?**</summary>
+
+JSON is a strict subset — single-quoted strings invalid, only double-quoted. JS allows both quote styles and supports a few extra escapes (\\v, \\0, \\xNN). The escaper picks the right rules per target.
+
+</details>
+
+<details>
+<summary>**How does shell escape differ between sh and bash?**</summary>
+
+Bash supports `$'\\n'` (ANSI-C quoting) and `$"..."` (locale translation). POSIX sh has neither. The escaper produces the simplest portable form by default.
+
+</details>
+
+<details>
+<summary>**What is the safest shell escape?**</summary>
+
+Single-quote everything; replace single quotes inside with `'\\''` (close-quote, escaped quote, reopen-quote). Ugly but unambiguous.
+
+</details>
+
+<details>
+<summary>**Should I use \\xNN or \\uNNNN?**</summary>
+
+\\xNN encodes one byte (Latin-1 range only). \\uNNNN encodes Unicode codepoints in the BMP. \\u\{NNNNNN\} (JS, Python) encodes any codepoint including emoji.
+
+</details>
+
+<details>
+<summary>**Does it handle Unicode emoji?**</summary>
+
+Yes — the escaper emits language-correct surrogate pairs (Java) or full \\u\{...\} (JS, Python 3) per dialect.
+
+</details>
+
+<details>
+<summary>**Why does the escaper add surrounding quotes?**</summary>
+
+Optional. Many users want a complete literal (`"..."` or `'...'`) rather than the bare escaped contents. Toggle off if you only want the inner escape.
+
+</details>
+
+## Tips
+
+- Always pick the target language explicitly — escape rules diverge subtly and silently.
+- Round-trip via decode after encoding to verify nothing was lost.
+- For shell, prefer single-quote-with-replacement over double-quote — fewer surprises with $variable expansion.
+- For JSON, validate the result in a strict JSON parser before relying on it.
+- When porting strings between languages, always decode in the source dialect first, then re-encode for the target.
+
+## Try it now
+
+The full string-escaper runs in your browser at **[https://ztools.zaions.com/string-escaper](https://ztools.zaions.com/string-escaper)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/string-escaper)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/string-escaper.mdx)*

@@ -1,0 +1,113 @@
+---
+id: utf8-validator
+title: "UTF-8 Validator — Check Encoding, Free Online"
+description: "Validate UTF-8 encoding of text or hex bytes. Detect invalid sequences, BOM, mixed encodings. Browser-only."
+sidebar_label: "utf8-validator"
+keywords:
+  - "utf-8 validator online"
+  - "check utf8 encoding"
+  - "detect mojibake"
+  - "utf8 byte validator"
+  - "encoding checker"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# utf8-validator
+
+UTF-8 is the dominant text encoding on the modern web — backwards-compatible with ASCII, supports all Unicode characters, variable-width (1-4 bytes per code point). Invalid UTF-8 sequences cause "mojibake" (garbled text) when interpreted with a different encoding, or outright errors in strict parsers (Python, Rust, JSON parsers). The ZTools UTF-8 Validator checks input bytes (paste hex or upload binary) for valid UTF-8 sequencing, flags invalid bytes, detects byte-order marks, and identifies likely alternative encodings (Latin-1, Windows-1252, GB2312).
+
+<ToolCTA toolId="utf8-validator" toolName="utf8-validator" />
+
+## Use cases
+
+### Debug "mojibake" in scraped text
+
+Text shows "Ã©" instead of "é". Validator reveals the bytes are valid UTF-8 but were decoded as Latin-1.
+
+### Validate user uploads
+
+CSV upload with mixed encodings. Validator detects which rows have invalid UTF-8.
+
+### Check for BOM (Byte Order Mark)
+
+Some tools add a UTF-8 BOM (0xEF 0xBB 0xBF). Most parsers handle it; some choke. Validator flags it.
+
+### Verify a binary file is text
+
+Random binary won't parse as valid UTF-8. Validator confirms or refutes.
+
+## How it works
+
+1. **Paste text or hex bytes** — Auto-detect: if hex chars only, treat as bytes; otherwise treat as already-decoded text.
+2. **Validate** — Walk bytes. UTF-8 rules: ASCII (0xxxxxxx), 2-byte (110xxxxx 10xxxxxx), 3-byte, 4-byte. Each continuation byte starts with 10.
+3. **Flag issues** — Invalid lead bytes, missing continuation bytes, overlong encodings, invalid surrogates.
+4. **Display** — Valid: ✓ + decoded text. Invalid: byte position + suggested encoding (often Latin-1 / Windows-1252).
+
+## Examples
+
+**Input:** Hex "C3 A9" (é in UTF-8)
+
+**Output:** Valid. Decodes to "é".
+
+---
+
+**Input:** Hex "E9" (é in Latin-1)
+
+**Output:** Invalid UTF-8 (orphan continuation byte). Likely Latin-1 / Windows-1252.
+
+---
+
+**Input:** Hex "EF BB BF E2 9C 93"
+
+**Output:** Valid UTF-8 with BOM (EF BB BF) prefix. Decodes to "✓".
+
+## Frequently asked questions
+
+<details>
+<summary>**What's mojibake?**</summary>
+
+Garbled text caused by encoding/decoding mismatches. "Ã©" is "é" decoded as Latin-1 then re-encoded as UTF-8. Validator helps trace the chain.
+
+</details>
+
+<details>
+<summary>**BOM — should I keep it?**</summary>
+
+For UTF-8, BOM is optional and most modern parsers handle it. Some (Python's csv module) don't. Strip if unsure.
+
+</details>
+
+<details>
+<summary>**Overlong encoding?**</summary>
+
+Older UTF-8 spec allowed encoding ASCII as multi-byte (e.g. 0x2F as C0 AF). Modern strict UTF-8 forbids — security risk (path traversal). Validator flags.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For "mojibake" debugging, the chain is usually: source encoding → mis-decoded as X → re-encoded as Y. Validator helps identify each step.
+- Always strip BOM when concatenating UTF-8 files — multiple BOMs in one file confuse parsers.
+- For user uploads, validate before processing. Reject invalid UTF-8 at the boundary, not deep in the pipeline.
+- For round-trip safety, use modern strict UTF-8 (no overlong, no surrogates) — the modern spec.
+
+## Try it now
+
+The full utf8-validator runs in your browser at **[https://ztools.zaions.com/utf8-validator](https://ztools.zaions.com/utf8-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/utf8-validator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/utf8-validator.mdx)*

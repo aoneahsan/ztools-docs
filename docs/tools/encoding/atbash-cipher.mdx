@@ -1,0 +1,130 @@
+---
+id: atbash-cipher
+title: "Atbash Cipher — Reverse-Alphabet Substitution (Self-Inverse)"
+description: "Encode/decode Atbash cipher: A↔Z, B↔Y, etc. Self-inverse. Hebrew origin. Free, in-browser, no signup."
+sidebar_label: "atbash-cipher"
+keywords:
+  - "atbash cipher"
+  - "atbash encoder"
+  - "mirror alphabet cipher"
+  - "biblical cipher"
+  - "hebrew atbash"
+  - "free atbash tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# atbash-cipher
+
+The Atbash cipher is one of the oldest known substitution ciphers — originally used in Hebrew (Aleph ↔ Tav, Beth ↔ Shin) and adapted to any alphabet — that maps each letter to its mirror across the alphabet (A ↔ Z, B ↔ Y, ..., M ↔ N). Like ROT13, it is self-inverse: applying Atbash twice returns the original. The ZTools Atbash tool encodes and decodes Latin (English), Hebrew, and Greek alphabets, preserves case, passes non-letters through unchanged, and is suitable for educational demos, puzzles, and casual obfuscation — never for real security.
+
+<ToolCTA toolId="atbash-cipher" toolName="atbash-cipher" />
+
+## Use cases
+
+### Religious / historical study
+
+Atbash appears in the Hebrew Bible (Jeremiah uses "Sheshach" as Atbash for Babel). Demonstrate the cipher for Bible-study or history classes.
+
+### Cryptography 101
+
+Teaching substitution ciphers — Atbash is even simpler than Caesar (no shift parameter to choose). One mapping, fixed.
+
+### Puzzles and escape rooms
+
+Hide a clue with Atbash. Solvers decode without needing a key beyond the alphabet itself.
+
+### Hidden spoilers / jokes
+
+Lighter than ROT13 in some communities; same purpose: read only if you choose to decode.
+
+## How it works
+
+1. **Pick alphabet** — Latin (A–Z), Hebrew (22 letters), Greek (24 letters).
+2. **Paste text** — Text in the chosen alphabet. Other characters pass through.
+3. **Apply Atbash** — Each letter maps to its mirror (1st ↔ last, 2nd ↔ second-to-last, etc.).
+4. **Inspect** — Side-by-side original / encoded view.
+5. **Decode** — Apply Atbash again — self-inverse, so the same operation undoes it.
+
+## Examples
+
+**Input:** HELLO
+
+**Output:** SVOOL
+
+---
+
+**Input:** SVOOL
+
+**Output:** HELLO (self-inverse)
+
+---
+
+**Input:** BABEL → Hebrew Atbash
+
+**Output:** SHESHACH (Biblical reference: Jeremiah 25:26)
+
+## Frequently asked questions
+
+<details>
+<summary>**How is Atbash different from Caesar?**</summary>
+
+Caesar shifts every letter by the same number (configurable 1–25). Atbash mirrors the alphabet — no parameter, fixed mapping. Caesar with shift = 25 looks similar but is not the same; only the symmetric mirror is "Atbash".
+
+</details>
+
+<details>
+<summary>**Why is it self-inverse?**</summary>
+
+Because mirroring twice returns the original position. If A → Z then Z → A; both operations use the same rule.
+
+</details>
+
+<details>
+<summary>**Is Atbash secure?**</summary>
+
+No — trivially broken by frequency analysis or guessing once you suspect it. Use only for fun and education.
+
+</details>
+
+<details>
+<summary>**Does it work on lowercase?**</summary>
+
+Yes — case is preserved. "hello" → "svool".
+
+</details>
+
+<details>
+<summary>**What about Hebrew or Greek?**</summary>
+
+Yes — the tool supports both. Hebrew Atbash maps Aleph ↔ Tav. Greek maps Alpha ↔ Omega. Same self-inverse property.
+
+</details>
+
+<details>
+<summary>**Will it handle accented letters (é, ñ)?**</summary>
+
+No — they pass through unchanged. Atbash is defined only on the chosen base alphabet.
+
+</details>
+
+## Tips
+
+- For puzzles, pair Atbash with another step — alone it is too easy.
+- For Bible study, demonstrate the Sheshach example — a memorable real-world appearance.
+- For mixed alphabets, run each segment through its corresponding alphabet setting.
+- Use sparingly — once readers know the cipher, decoding takes seconds.
+- For real obfuscation, pair with Caesar at a non-13 shift; combinations are slightly more puzzle-friendly.
+
+## Try it now
+
+The full atbash-cipher runs in your browser at **[https://ztools.zaions.com/atbash-cipher](https://ztools.zaions.com/atbash-cipher)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/atbash-cipher)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/atbash-cipher.mdx)*

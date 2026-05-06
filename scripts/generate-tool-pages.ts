@@ -111,6 +111,12 @@ const TOOLS_TO_PUBLISH = [
   'number-formatter','number-sum','numbers-to-words','pascal-triangle','percentage-calc','pi-digits',
   'prime-checker','pythagorean','random-matrix','reverse-digits','roman-numeral','salary-calculator',
   'sort-numbers','statistics','statistics-calculator','tip-calculator','words-to-numbers',
+
+  // Batch 9: encoding category — 24 tools
+  'ascii85-encoder-decoder','atbash-cipher','barcode-generator','base32-encoder','binary-text','binary-to-utf8',
+  'caesar-cipher','hex-to-utf8','html-encoder','jwt-encoder-decoder','md5-hash-generator','morse-code',
+  'punycode','quoted-printable-encoder','rot13','sql-encoder','string-encoder','string-escaper',
+  'unicode-to-utf8','utf8-to-binary','utf8-to-hex','utf8-validator','vigenere-cipher','xml-encoder',
 ];
 
 // ---------------------------------------------------------------------------

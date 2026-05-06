@@ -1,0 +1,117 @@
+---
+id: unicode-to-utf8
+title: "Unicode to UTF-8 Converter — Code Points to Bytes, Free"
+description: "Convert Unicode code points (U+1F600) to UTF-8 byte sequences (F0 9F 98 80). Browser-only — no signup."
+sidebar_label: "unicode-to-utf8"
+keywords:
+  - "unicode to utf-8 converter"
+  - "code point to bytes"
+  - "utf-8 encoder"
+  - "unicode hex bytes"
+  - "character encoding converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# unicode-to-utf8
+
+Converting Unicode to UTF-8 transforms code points (U+1F600 = 😀) into the byte sequence that UTF-8 uses to represent them (F0 9F 98 80). UTF-8 is variable-width: ASCII characters (0x00-0x7F) are 1 byte, non-ASCII characters take 2-4 bytes. Useful for low-level string handling, debugging encoding bugs, and understanding how text becomes bytes. The ZTools Unicode to UTF-8 converter accepts code-point notation (U+0041, 0x41, 65), characters directly, or escape sequences (\\u0041, \\U0001F600), and outputs hex / binary / decimal byte sequences.
+
+<ToolCTA toolId="unicode-to-utf8" toolName="unicode-to-utf8" />
+
+## Use cases
+
+### Debug a string encoding issue
+
+Code expects 4-byte UTF-8 for an emoji; got 2 bytes. Converter shows the canonical UTF-8 to compare.
+
+### Build URL-percent encoding
+
+😀 (U+1F600) → F0 9F 98 80 → %F0%9F%98%80 in URL form.
+
+### Embed Unicode in a code template
+
+Need the byte sequence to write to a binary file. Converter gives the exact hex.
+
+### Teach UTF-8 encoding
+
+Show how each code point maps to bytes — students see the variable-width pattern (1-4 bytes).
+
+## How it works
+
+1. **Paste code point or character** — U+1F600, 0x1F600, decimal 128512, the character 😀, or escape \\u00e9.
+2. **Encode** — Look up UTF-8 byte sequence: 1-byte ASCII, 2-byte (00080-007FF), 3-byte (00800-FFFF), 4-byte (10000-10FFFF).
+3. **Display** — Hex, binary, decimal byte sequences. Plus URL-percent encoding.
+
+## Examples
+
+**Input:** U+0041 (A)
+
+**Output:** 1 byte: 0x41. ASCII range. URL %41.
+
+---
+
+**Input:** U+00E9 (é)
+
+**Output:** 2 bytes: 0xC3 0xA9. URL %C3%A9.
+
+---
+
+**Input:** U+20AC (€)
+
+**Output:** 3 bytes: 0xE2 0x82 0xAC. URL %E2%82%AC.
+
+---
+
+**Input:** U+1F600 (😀)
+
+**Output:** 4 bytes: 0xF0 0x9F 0x98 0x80. URL %F0%9F%98%80.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is é 2 bytes but A is 1?**</summary>
+
+UTF-8 is variable-width. ASCII (U+0000 to U+007F) fits in 1 byte (compatibility with ASCII). Above that, 2-4 bytes encode each code point. Saves space for English text, costs more for non-Latin.
+
+</details>
+
+<details>
+<summary>**How is this different from URL encoding?**</summary>
+
+URL encoding wraps each byte in %XX. So UTF-8 bytes 0xC3 0xA9 become URL %C3%A9. Same content, different presentation.
+
+</details>
+
+<details>
+<summary>**Does it support combining characters?**</summary>
+
+Yes — combining accents (e.g. é as e + combining acute U+0301) encode as separate code points, each with its own UTF-8 sequence.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For URL encoding, convert to UTF-8 bytes first, then percent-escape. Don't encode code points directly.
+- For binary files, write the byte sequence directly. Don't round-trip through string types that might re-encode.
+- For emoji, expect 4 bytes — they're in the supplementary plane (above U+FFFF).
+
+## Try it now
+
+The full unicode-to-utf8 runs in your browser at **[https://ztools.zaions.com/unicode-to-utf8](https://ztools.zaions.com/unicode-to-utf8)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/unicode-to-utf8)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/unicode-to-utf8.mdx)*

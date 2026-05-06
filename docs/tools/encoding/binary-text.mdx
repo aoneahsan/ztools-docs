@@ -1,0 +1,131 @@
+---
+id: binary-text
+title: "Binary Translator — Text ↔ Binary (8-bit ASCII / UTF-8)"
+description: "Convert text to binary and binary to text. ASCII 7/8-bit and UTF-8 multi-byte. Free, in-browser, no signup."
+sidebar_label: "binary-text"
+keywords:
+  - "binary translator"
+  - "text to binary"
+  - "binary to text"
+  - "ascii to binary"
+  - "utf-8 binary"
+  - "free binary decoder"
+  - "binary converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# binary-text
+
+A binary translator converts text into its binary representation (each character expressed as 8-bit, 7-bit, or multi-byte UTF-8 sequences of 0s and 1s) and back again — useful for educational demos of how computers store characters, for embedding hidden binary content in text-only mediums, and for diagnosing encoding issues at the byte level. The ZTools Binary Translator handles ASCII (7-bit) and extended ASCII (8-bit) plus full Unicode via UTF-8, formats output with configurable byte separators, and runs entirely in the browser so even private messages stay on your device.
+
+<ToolCTA toolId="binary-text" toolName="binary-text" />
+
+## Use cases
+
+### Computer-science education
+
+Show students that "A" is really 01000001 in memory — concrete demonstration of bit-level character storage.
+
+### Puzzle and escape-room hints
+
+A puzzle clue printed as binary. Decode in the browser to read the hidden message.
+
+### Debugging encoding bugs
+
+Mystery character renders as "â€™". Convert the bytes to binary, see the UTF-8 codepoint, identify the mojibake (Windows-1252 misread as UTF-8).
+
+### Generating binary art
+
+A short message rendered in 0s and 1s makes a nerdy poster — convert text, paste into a stylized layout.
+
+## How it works
+
+1. **Pick direction** — Text → Binary, or Binary → Text. Auto-detect handles obvious cases.
+2. **Pick encoding** — ASCII 7-bit, ASCII 8-bit, UTF-8 (variable), UTF-16 BE/LE.
+3. **Choose separator** — Space-separated bytes (most readable), no separator (compact), newline-per-byte (annotation-friendly).
+4. **Convert** — Each character maps to its codepoint; codepoint formats as binary at the chosen width.
+5. **Copy or download** — Plain text output. For long inputs, download as .txt to avoid clipboard limits.
+
+## Examples
+
+**Input:** Hi (UTF-8, space-separated)
+
+**Output:** 01001000 01101001
+
+---
+
+**Input:** € (UTF-8)
+
+**Output:** 11100010 10000010 10101100 (3-byte UTF-8 for U+20AC)
+
+---
+
+**Input:** 01001000 01101001 → text
+
+**Output:** Hi
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does "€" produce 3 bytes?**</summary>
+
+UTF-8 encodes Unicode codepoints in 1–4 bytes. Codepoints up to U+007F use 1 byte; up to U+07FF use 2; up to U+FFFF use 3 (€ = U+20AC sits here); up to U+10FFFF use 4.
+
+</details>
+
+<details>
+<summary>**What is the difference between ASCII 7-bit and 8-bit?**</summary>
+
+7-bit ASCII covers 128 characters (codepoints 0–127). 8-bit "extended ASCII" / Latin-1 / Windows-1252 covers 256 — different code pages assign different characters to 128–255.
+
+</details>
+
+<details>
+<summary>**My binary input only decodes garbage**</summary>
+
+Wrong byte width or wrong encoding. Confirm 8 bits per byte; if the codepoints look multi-byte, switch to UTF-8 mode.
+
+</details>
+
+<details>
+<summary>**How does the decoder handle invalid UTF-8 sequences?**</summary>
+
+Reports the offending byte position and substitutes U+FFFD (replacement character). Lets you find the corruption point quickly.
+
+</details>
+
+<details>
+<summary>**Are emoji supported?**</summary>
+
+Yes — most emoji are 4-byte UTF-8 sequences. The decoder handles them transparently.
+
+</details>
+
+<details>
+<summary>**Is this useful for cryptography?**</summary>
+
+Not directly — binary is just a representation. Cryptographic operations work on raw bytes; the binary view is purely for inspection / debugging.
+
+</details>
+
+## Tips
+
+- Use space-separated bytes for readability when the audience is human; no separator for storage efficiency.
+- When debugging mojibake, dump bytes in binary AND hex side-by-side — pattern recognition is easier.
+- For puzzles, fix the encoding (ASCII 8-bit) so the decoder is unambiguous.
+- Long binary strings are hard for humans — break into 8-byte chunks for readability.
+- For emoji and non-Latin text, always use UTF-8 — Latin-1 silently drops the high codepoints.
+
+## Try it now
+
+The full binary-text runs in your browser at **[https://ztools.zaions.com/binary-text](https://ztools.zaions.com/binary-text)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/binary-text)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/binary-text.mdx)*

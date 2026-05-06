@@ -1,0 +1,101 @@
+---
+id: binary-to-utf8
+title: "Binary to UTF-8 Converter — Free, Browser-Only"
+description: "Convert binary (0s and 1s) to UTF-8 text. Decode binary-encoded strings. Browser-only — no signup."
+sidebar_label: "binary-to-utf8"
+keywords:
+  - "binary to utf-8 converter"
+  - "binary text decoder"
+  - "binary to text online"
+  - "decode binary characters"
+  - "binary string converter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# binary-to-utf8
+
+Converting binary to UTF-8 takes a sequence of bits ("01001000 01101001"), groups them into bytes, and decodes those bytes as UTF-8 text ("Hi"). Useful for low-level encoding work, decoding binary-encoded messages, learning how computers store text, and CTF / cryptography puzzles. The ZTools Binary to UTF-8 Converter accepts space-separated, comma-separated, or no-separator binary strings, validates byte alignment (multiples of 8 bits), and decodes via UTF-8 rules.
+
+<ToolCTA toolId="binary-to-utf8" toolName="binary-to-utf8" />
+
+## Use cases
+
+### Decode a binary-encoded message
+
+Puzzle / CTF: "01001000 01101001" → "Hi".
+
+### Verify text encoding
+
+Manually convert text → binary → text and confirm round-trip.
+
+### Teach binary representation
+
+Show students how each character becomes 8 bits (ASCII) or up to 32 bits (UTF-8 multi-byte).
+
+## How it works
+
+1. **Paste binary** — Spaces / commas / no separator. Tool strips non-binary chars.
+2. **Validate alignment** — Length must be multiple of 8. Otherwise warning.
+3. **Group into bytes** — Each 8 bits → one byte.
+4. **Decode as UTF-8** — TextDecoder.decode interprets bytes as UTF-8.
+
+## Examples
+
+**Input:** "01001000 01101001"
+
+**Output:** "Hi" (H = 0x48 = 01001000, i = 0x69 = 01101001).
+
+---
+
+**Input:** "11000011 10101001"
+
+**Output:** "é" — UTF-8 multi-byte sequence.
+
+---
+
+**Input:** Misaligned (15 bits)
+
+**Output:** Warning: not a multiple of 8.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why might it fail?**</summary>
+
+Misalignment (not multiple of 8 bits) or invalid UTF-8 byte sequence. Tool flags both.
+
+</details>
+
+<details>
+<summary>**Pure ASCII vs UTF-8?**</summary>
+
+ASCII is 1 byte per character. UTF-8 is variable (1-4 bytes); ASCII range (0-127) is 1 byte and identical to ASCII.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For ASCII-only text, every char is exactly 8 bits. Length / 8 = char count.
+- For multi-byte (emoji, non-Latin), bit count grows — emoji is 32 bits each.
+- Round-trip via Text-to-Binary tool to verify your binary is correct.
+
+## Try it now
+
+The full binary-to-utf8 runs in your browser at **[https://ztools.zaions.com/binary-to-utf8](https://ztools.zaions.com/binary-to-utf8)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/binary-to-utf8)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/binary-to-utf8.mdx)*

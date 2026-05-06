@@ -1,0 +1,130 @@
+---
+id: vigenere-cipher
+title: "Vigenère Cipher — Polyalphabetic Cipher with Keyword (Free)"
+description: "Encrypt or decrypt with the Vigenère cipher using a keyword. Tableau view. Kasiski analysis. Free, in-browser."
+sidebar_label: "vigenere-cipher"
+keywords:
+  - "vigenere cipher"
+  - "vigenère cipher"
+  - "polyalphabetic cipher"
+  - "keyword cipher"
+  - "kasiski analysis"
+  - "free vigenere tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# vigenere-cipher
+
+The Vigenère cipher (16th century, popularised by Blaise de Vigenère) is a polyalphabetic substitution cipher that uses a repeating keyword to drive a per-letter Caesar shift — making it harder to break than a fixed-shift Caesar but still vulnerable to Kasiski-test or Friedman-test attacks once the keyword length is known. The ZTools Vigenère Cipher encodes / decodes with any keyword, displays the classic Vigenère tableau (alphabet × alphabet), supports brute-force keyword-length detection via Kasiski analysis, and is the canonical "second cipher" after Caesar in cryptography learning.
+
+<ToolCTA toolId="vigenere-cipher" toolName="vigenere-cipher" />
+
+## Use cases
+
+### Cryptography education
+
+Demonstrate polyalphabetic substitution after teaching Caesar. Show that mid-19th-century cryptanalysts believed Vigenère was unbreakable — until Kasiski showed otherwise in 1863.
+
+### Puzzles and CTFs
+
+Many capture-the-flag challenges use Vigenère. The keyword is the puzzle. Provide a key in puzzle context.
+
+### Historical re-creation
+
+War-era communications used Vigenère variants. Re-create historical encryption for documentary work.
+
+### Casual obfuscation with shared key
+
+Two parties share a keyword in advance; messages between them remain unreadable to casual observers.
+
+## How it works
+
+1. **Pick mode** — Encrypt, decrypt, or analyse (Kasiski test for keyword length).
+2. **Enter keyword** — Any letter sequence (LEMON, KEY, etc.). Repeats to match plaintext length.
+3. **Apply per-letter shift** — Each plaintext letter shifts by the corresponding keyword letter's position (A=0, B=1, ..., Z=25).
+4. **View tableau** — Optional Vigenère table view shows the per-key-letter alphabet shifts visually.
+5. **Analyse (optional)** — Kasiski test finds repeated trigrams / quadgrams in ciphertext to estimate keyword length.
+
+## Examples
+
+**Input:** ATTACKATDAWN, key LEMON
+
+**Output:** LXFOPVEFRNHR (L+A=L, E+T=X, M+T=F, ...)
+
+---
+
+**Input:** LXFOPVEFRNHR, key LEMON (decrypt)
+
+**Output:** ATTACKATDAWN
+
+---
+
+**Input:** Kasiski on long ciphertext
+
+**Output:** Predicted keyword length: 5 (matches LEMON)
+
+## Frequently asked questions
+
+<details>
+<summary>**How is Vigenère different from Caesar?**</summary>
+
+Caesar uses one fixed shift for all letters. Vigenère cycles through multiple shifts driven by the keyword. A 6-letter keyword effectively performs 6 Caesar ciphers in rotation.
+
+</details>
+
+<details>
+<summary>**Why was Vigenère thought to be unbreakable?**</summary>
+
+Frequency analysis fails on simple polyalphabetic ciphers because the same plaintext letter encrypts to different ciphertext letters depending on position. Kasiski (1863) showed that repeated patterns reveal keyword length, breaking the spell.
+
+</details>
+
+<details>
+<summary>**How does Kasiski analysis work?**</summary>
+
+Find repeated trigrams / quadgrams in the ciphertext. The distance between repetitions is likely a multiple of the keyword length. Take the GCD of distances; that is the keyword length.
+
+</details>
+
+<details>
+<summary>**Once keyword length is known, how do you find the key?**</summary>
+
+Slice the ciphertext into N columns (one per keyword letter). Each column is encrypted with a single Caesar shift. Frequency analysis on each column reveals the shift, and combining gives the keyword.
+
+</details>
+
+<details>
+<summary>**Is Vigenère secure today?**</summary>
+
+No. Modern computers break it in milliseconds. Use only for puzzles and learning.
+
+</details>
+
+<details>
+<summary>**What is "running-key Vigenère"?**</summary>
+
+Instead of a short repeating keyword, use an entire book chapter as the key. Vastly harder to break, though still vulnerable to advanced statistical attacks.
+
+</details>
+
+## Tips
+
+- Keep keys short for puzzles, long for less trivial challenges.
+- Avoid simple words — KASISKI works best on natural-language keys.
+- For learning, pair encryption with Kasiski analysis — break your own message to see the attack.
+- Use uppercase only for clean output; mixed case complicates manual analysis.
+- For real security, use AES-GCM or ChaCha20 — Vigenère is for puzzles only.
+
+## Try it now
+
+The full vigenere-cipher runs in your browser at **[https://ztools.zaions.com/vigenere-cipher](https://ztools.zaions.com/vigenere-cipher)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/vigenere-cipher)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/vigenere-cipher.mdx)*

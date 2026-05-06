@@ -1,0 +1,131 @@
+---
+id: xml-encoder
+title: "XML Encoder/Decoder — Escape & Unescape XML Special Characters"
+description: "Encode/decode XML special characters (& < > \" ') to and from named entities (&amp; &lt; etc.). Free, in-browser."
+sidebar_label: "xml-encoder"
+keywords:
+  - "xml encoder"
+  - "xml escape"
+  - "xml special characters"
+  - "xml decode"
+  - "rss xml encoder"
+  - "sitemap encoder"
+  - "free xml escape tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# xml-encoder
+
+An XML encoder escapes the five characters that have special meaning in XML — & &lt; &gt; " ' — by replacing them with their named entity references (&amp; &lt; &gt; &quot; &apos;) so XML parsers do not mistake content for markup, and a decoder reverses the process. The ZTools XML Encoder runs entirely in the browser, supports both attribute-context and element-context encoding (which differ slightly in what must be escaped), handles numeric character references for non-ASCII characters, and is the right pre-flight when injecting user input into XML documents (RSS feeds, SOAP envelopes, sitemaps, OPML, configuration files).
+
+<ToolCTA toolId="xml-encoder" toolName="xml-encoder" />
+
+## Use cases
+
+### Building RSS / Atom feeds
+
+Feed items contain user titles with "&" and "&lt;". Encode before placing inside &lt;title&gt; elements so the feed validates.
+
+### Generating sitemap.xml
+
+URLs with query strings often contain "&". Without encoding, the sitemap fails XML validation. Encode before embedding.
+
+### SOAP / XML API payloads
+
+Older SOAP APIs use raw XML. User input in fields like &lt;name&gt; or &lt;comment&gt; must be encoded to avoid breaking the envelope.
+
+### Config-file generation
+
+Many tools (Maven, Spring) use XML config. When generating dynamically, encoded user-supplied values prevent injection and breakage.
+
+## How it works
+
+1. **Pick context** — Element content (escapes & &lt; &gt;) OR attribute (also escapes " '). Different contexts require different escapes.
+2. **Paste text** — Raw text containing special characters.
+3. **Encode** — Each special character replaced by its named entity. Non-ASCII characters optionally encoded as numeric references &#xNNNN;.
+4. **Inspect** — Side-by-side original / encoded view. Highlights which characters changed.
+5. **Copy** — Encoded output to clipboard. Reverse mode decodes back.
+
+## Examples
+
+**Input:** AT&T &lt;best&gt;
+
+**Output:** AT&amp;T &lt;best&gt;
+
+---
+
+**Input:** price="$10"
+
+**Output:** price=&quot;$10&quot; (attribute context only)
+
+---
+
+**Input:** &amp;lt;tag&amp;gt; → decode
+
+**Output:** &lt;tag&gt; (one round of decoding)
+
+## Frequently asked questions
+
+<details>
+<summary>**Why are there 5 named entities and not more?**</summary>
+
+XML's spec defines only 5 (& &lt; &gt; " '). HTML defines hundreds. If you need more, use numeric references (&#NNNN;) which work for any Unicode codepoint.
+
+</details>
+
+<details>
+<summary>**When do I need to encode " and '?**</summary>
+
+Only inside attribute values delimited by that quote. Inside element content (between tags), they are not special.
+
+</details>
+
+<details>
+<summary>**What about CDATA sections?**</summary>
+
+CDATA blocks (`&lt;\![CDATA[ ... ]]&gt;`) escape literal characters by wrapping rather than encoding. The encoder offers a CDATA-wrap mode for content with many special characters.
+
+</details>
+
+<details>
+<summary>**Are HTML named entities (e.g. &nbsp;) allowed in XML?**</summary>
+
+No — only &amp; &lt; &gt; &quot; &apos; are predefined in XML. Use numeric (&#160;) for non-breaking space or any other Unicode character.
+
+</details>
+
+<details>
+<summary>**Why does my XML break on a "smart quote"?**</summary>
+
+Smart quotes are non-ASCII. Either declare an encoding in the XML prolog (`&lt;?xml encoding="UTF-8"?&gt;`) and emit them directly, or convert to numeric refs.
+
+</details>
+
+<details>
+<summary>**How is XML encoding different from URL encoding?**</summary>
+
+XML encoding produces named entities (&amp;); URL encoding produces percent codes (%26). Different contexts, different tables.
+
+</details>
+
+## Tips
+
+- Always encode user-supplied content before embedding in XML — even seemingly safe strings can contain "&".
+- Use attribute-context encoding for attribute values, element-context for content between tags. Different rules.
+- CDATA wrapping is a clean alternative when content has many special chars — the wrapper escapes the lot at once.
+- When debugging mojibake in XML, dump the raw bytes — encoding declaration mismatches are the #1 cause.
+- Always validate output XML in a strict parser; a missed encoding is silent until validation fails.
+
+## Try it now
+
+The full xml-encoder runs in your browser at **[https://ztools.zaions.com/xml-encoder](https://ztools.zaions.com/xml-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/xml-encoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/xml-encoder.mdx)*

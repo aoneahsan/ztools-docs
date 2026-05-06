@@ -1,0 +1,131 @@
+---
+id: sql-encoder
+title: "SQL String Escaper — Escape Quotes and Special Characters Safely"
+description: "Escape single/double quotes and special characters for safe SQL string literals. MySQL, PostgreSQL, SQLite. Free."
+sidebar_label: "sql-encoder"
+keywords:
+  - "sql encoder"
+  - "sql escape"
+  - "sql string escaper"
+  - "mysql escape"
+  - "postgresql escape"
+  - "sql injection prevention"
+  - "sql literal escape"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sql-encoder
+
+A SQL string escaper produces a safely-quotable string literal for inclusion in a SQL statement — replacing single quotes with the dialect-correct doubled or backslashed form, handling backslashes, NUL bytes, newlines, and other special characters that vary by database (MySQL backslash escapes, PostgreSQL standard-conforming strings, SQLite quote-doubling). The ZTools SQL Encoder is for generating safe ad-hoc query strings for migrations, debugging, or one-off tooling. **It is NOT a substitute for parameterised queries in production code — always use prepared statements with bind parameters as the primary defence against SQL injection.**
+
+<ToolCTA toolId="sql-encoder" toolName="sql-encoder" />
+
+## Use cases
+
+### Ad-hoc data migrations
+
+A one-off CSV-to-SQL conversion. Escape each value before composing INSERT statements; load via psql / mysql client.
+
+### Debugging by hand-crafted query
+
+Reproducing an issue with specific input that contains apostrophes or backslashes. Escape correctly so the manual query runs without a syntax error.
+
+### Generating seed scripts
+
+Test fixtures with multilingual content (apostrophes, accented characters, smart quotes). Escape into safe SQL literals.
+
+### Reporting tools that emit SQL
+
+A reporting harness builds queries dynamically. Escape input values rather than concatenating raw strings.
+
+## How it works
+
+1. **Pick the dialect** — MySQL, PostgreSQL, SQLite, MSSQL, Oracle. Each escapes slightly differently.
+2. **Paste the raw string** — Whatever you want to embed inside single-quoted SQL literals.
+3. **Encode** — Apply dialect-specific rules: PostgreSQL doubles single quotes (`''`); MySQL with backslash mode replaces with `\\'`; SQLite always doubles.
+4. **Wrap in quotes** — Optionally produce the full quoted literal `'...'` ready to paste into a query.
+5. **Copy** — Output to clipboard. Always paste into a query you control — never use generated SQL with untrusted input in production.
+
+## Examples
+
+**Input:** O'Reilly (PostgreSQL)
+
+**Output:** O''Reilly
+
+---
+
+**Input:** Hello\\nWorld (MySQL)
+
+**Output:** Hello\\\\nWorld
+
+---
+
+**Input:** Standard-conforming PostgreSQL with E'\\\\'
+
+**Output:** E'\\\\\\\\' literal
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I use this in production?**</summary>
+
+No. Production code MUST use parameterised queries (prepared statements with bind parameters). The escaper is for one-off scripts and debugging; even slightly wrong escapes lead to SQL injection.
+
+</details>
+
+<details>
+<summary>**Why do dialects escape differently?**</summary>
+
+Historical accident. PostgreSQL's standard-conforming strings double the quote (`''`). MySQL added backslash escapes for C-style strings. SQLite doubles. Dialect-specific encoding is the only safe default.
+
+</details>
+
+<details>
+<summary>**Does it handle NUL bytes?**</summary>
+
+PostgreSQL forbids NUL in TEXT columns; MySQL escapes as `\\0`. The encoder warns when NUL bytes are present.
+
+</details>
+
+<details>
+<summary>**What about Unicode / emoji?**</summary>
+
+Most modern databases store Unicode natively as UTF-8. Pass through as-is unless the database encoding is non-UTF-8.
+
+</details>
+
+<details>
+<summary>**How do I generate parameterised queries?**</summary>
+
+Outside this tool — your language's database driver provides bind-parameter APIs (e.g. `?` placeholders + array of values). The escaper is only for direct-string-injection contexts.
+
+</details>
+
+<details>
+<summary>**Are stored-procedure call arguments different?**</summary>
+
+They use the same string-literal rules. Bind parameters are still preferred where supported.
+
+</details>
+
+## Tips
+
+- Default to parameterised queries — the escaper is for ad-hoc tooling only.
+- Pick the right dialect. MySQL escapes are wrong on PostgreSQL and vice-versa.
+- For multi-line strings, use the dialect's string literal escapes (`\\n` MySQL, `chr(10)` PostgreSQL's standard mode).
+- After generating, paste into a SQL editor first and run EXPLAIN — verify the syntax is right before running on real data.
+- Document any generated SQL clearly — readers may not realise values came from a templating step.
+
+## Try it now
+
+The full sql-encoder runs in your browser at **[https://ztools.zaions.com/sql-encoder](https://ztools.zaions.com/sql-encoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sql-encoder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/sql-encoder.mdx)*

@@ -1,0 +1,131 @@
+---
+id: rot13
+title: "ROT13 Encoder/Decoder — Letter Substitution Cipher (Free)"
+description: "Apply ROT13 encoding to text. Self-inverse: encode and decode with the same operation. Free, in-browser, no signup."
+sidebar_label: "rot13"
+keywords:
+  - "rot13"
+  - "rot13 encoder"
+  - "rot13 decoder"
+  - "caesar cipher 13"
+  - "spoiler obfuscator"
+  - "free rot13"
+  - "letter shift cipher"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# rot13
+
+ROT13 (rotate by 13 places) is a letter-substitution cipher that shifts each Latin letter 13 positions forward in the alphabet, wrapping around — A becomes N, B becomes O, ... and crucially M becomes Z while N becomes A, making the cipher its own inverse: applying ROT13 twice returns the original text. The ZTools ROT13 tool runs in the browser, supports uppercase / lowercase / mixed case (preserving case), passes through digits and symbols unchanged, and is the right tool for hiding spoilers, joke punchlines, and Usenet-style obscured content where the goal is "do not read accidentally" rather than "secure".
+
+<ToolCTA toolId="rot13" toolName="rot13" />
+
+## Use cases
+
+### Hiding spoilers in posts
+
+Movie / book spoiler in a forum post. Encode in ROT13 so curious readers must opt in by decoding.
+
+### Hiding joke punchlines
+
+Long-form joke setups. Punchline ROT13-encoded so readers do not skim ahead.
+
+### Lightweight obfuscation
+
+Hiding answers to puzzles in a workbook. Not secure, but sufficient for "do not glance and accidentally read".
+
+### Educational cipher demos
+
+Cryptography 101: ROT13 is the simplest possible substitution cipher. Demonstrate frequency analysis trivially breaks it.
+
+## How it works
+
+1. **Paste text** — Plain text — letters, digits, punctuation, whitespace.
+2. **Apply ROT13** — Each Latin letter shifts 13 places. Case preserved. Non-Latin characters (digits, punctuation, accented characters) pass through unchanged.
+3. **Inspect** — Side-by-side view shows original and result.
+4. **Decode** — Apply ROT13 again — the cipher is self-inverse, so the same operation undoes it.
+5. **Copy or share** — Encoded text to clipboard. The shareable URL embeds the encoded form for reader-controlled reveal.
+
+## Examples
+
+**Input:** Hello, World!
+
+**Output:** Uryyb, Jbeyq!
+
+---
+
+**Input:** Uryyb, Jbeyq!
+
+**Output:** Hello, World! (ROT13 self-inverse)
+
+---
+
+**Input:** Cryptography
+
+**Output:** Pelcgbtencul
+
+## Frequently asked questions
+
+<details>
+<summary>**Is ROT13 secure?**</summary>
+
+No — laughably not. Anyone with 30 seconds and a basic frequency table can break it. ROT13 is for obscuring spoilers, not protecting secrets.
+
+</details>
+
+<details>
+<summary>**Why does ROT13 happen to be its own inverse?**</summary>
+
+Because 13 + 13 = 26, the size of the Latin alphabet. Two shifts of 13 wraps around once and lands on the original letter. ROT(n) where n ≠ 13 is NOT self-inverse.
+
+</details>
+
+<details>
+<summary>**Does it handle uppercase and lowercase?**</summary>
+
+Yes — case is preserved. "HELLO" → "URYYB", "hello" → "uryyb".
+
+</details>
+
+<details>
+<summary>**What about non-English letters (é, ü, ñ)?**</summary>
+
+They pass through unchanged — ROT13 only operates on A–Z and a–z. For Cyrillic / Greek, use the dedicated alphabet shift.
+
+</details>
+
+<details>
+<summary>**Is there a ROT47 variant?**</summary>
+
+Yes — ROT47 covers ASCII printable 33–126 (94 characters), so it shifts symbols and digits too. Also self-inverse.
+
+</details>
+
+<details>
+<summary>**Why is it still around if it is not secure?**</summary>
+
+For its intended purpose: opt-in spoilers in text channels. The point is not security but "make accidental reading hard while making intentional reading easy".
+
+</details>
+
+## Tips
+
+- Use ROT13 only for obscuring spoilers / punchlines, never for actual secrets.
+- When sharing, label the encoded chunk explicitly ("ROT13:") so readers know how to decode.
+- For longer obscured passages, generate a shareable URL that auto-decodes with one click.
+- For real obfuscation of meaningful data, use proper encryption (AES-GCM via the Encryption tools).
+- In Usenet / forum culture, ROT13 was the polite spoiler convention — modern equivalents include `&lt;details&gt;` blocks.
+
+## Try it now
+
+The full rot13 runs in your browser at **[https://ztools.zaions.com/rot13](https://ztools.zaions.com/rot13)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/rot13)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/rot13.mdx)*

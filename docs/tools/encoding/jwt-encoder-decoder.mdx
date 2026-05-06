@@ -1,0 +1,120 @@
+---
+id: jwt-encoder-decoder
+title: "JWT Encoder Decoder — Sign, Verify, Free Online"
+description: "Encode, decode, sign, and verify JWTs with HS256, RS256, ES256. Browser-only — secrets never uploaded."
+sidebar_label: "jwt-encoder-decoder"
+keywords:
+  - "jwt encoder decoder"
+  - "jwt online debugger"
+  - "json web token tool"
+  - "sign jwt online"
+  - "verify jwt signature"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# jwt-encoder-decoder
+
+A JWT (JSON Web Token) is a compact, signed token format used for authentication and authorization. It has three parts separated by dots: header.payload.signature, each base64-url-encoded. The header declares the signing algorithm; the payload contains claims (user ID, expiry, custom data); the signature proves the token wasn't tampered with. The ZTools JWT Encoder Decoder lets you decode any JWT to inspect claims, encode a new JWT with custom claims, and sign / verify using HS256 (HMAC-SHA256), RS256 (RSA-SHA256), or ES256 (ECDSA-P256). All cryptography runs in the browser via Web Crypto API.
+
+<ToolCTA toolId="jwt-encoder-decoder" toolName="jwt-encoder-decoder" />
+
+## Use cases
+
+### Inspect a JWT during debugging
+
+API returned a JWT; decode to see what claims it carries. Confirms expected user / scope / expiry.
+
+### Build a custom test token
+
+Local dev needs a JWT signed with a known key. Encoder produces a valid signed token instantly.
+
+### Verify a token's signature
+
+Got a JWT from a partner; verify its signature against their public key. Confirms authenticity.
+
+### Learn JWT structure
+
+Decode interactively — see how header / payload / signature relate.
+
+## How it works
+
+1. **Decode mode** — Paste a JWT. Tool splits on dots, base64-decodes header + payload, displays as JSON.
+2. **Encode mode** — Provide header (alg) + payload (claims) + secret/key. Tool builds the JWT.
+3. **Sign / verify** — HS256 uses HMAC; RS256/ES256 use Web Crypto for asymmetric. Verify checks signature against payload + key.
+4. **Read result** — Decoded: pretty JSON. Encoded: header.payload.signature string.
+
+## Examples
+
+**Input:** JWT eyJhbGc...XYZ.abc...123
+
+**Output:** Decoded header: \{alg:"HS256",typ:"JWT"\}. Payload: \{sub:"user1",iat:1700000000,exp:1700003600\}.
+
+---
+
+**Input:** Encode: payload \{sub:"alice",exp:9999999999\}, alg HS256, secret "test"
+
+**Output:** Output: header.payload.signature concatenated string.
+
+---
+
+**Input:** Verify with wrong secret
+
+**Output:** Signature mismatch — token rejected. Correctly identifies tampering.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the signing safe in the browser?**</summary>
+
+Web Crypto API runs in JavaScript but uses native crypto primitives. Secrets never leave the browser. For production tokens, sign on a backend — never trust client-side signing in production.
+
+</details>
+
+<details>
+<summary>**HS256 vs RS256 vs ES256?**</summary>
+
+HS256: symmetric (one shared secret). Simple but you can't share verification without sharing signing power. RS256/ES256: asymmetric (private signs, public verifies). Use RS/ES for production. ES256 has shorter keys / signatures.
+
+</details>
+
+<details>
+<summary>**Can I read the payload without verifying?**</summary>
+
+Yes — base64 is encoding not encryption. Anyone with the JWT can read the payload. Don't put secrets in JWT payloads.
+
+</details>
+
+<details>
+<summary>**How is "exp" handled?**</summary>
+
+Claim "exp" is unix timestamp. Tool warns if past current time. Verifying libraries reject expired tokens automatically.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Never put secrets (passwords, tokens, PII) in JWT payloads — they're readable by anyone with the JWT.
+- For production, use RS256 or ES256 with key rotation. HS256 only for internal services with one secret holder.
+- Always validate "exp" / "iat" / "nbf" claims server-side. Don't trust JWT structure alone.
+- For debugging, jwt.io is the canonical decoder — this tool runs locally for privacy-sensitive payloads.
+
+## Try it now
+
+The full jwt-encoder-decoder runs in your browser at **[https://ztools.zaions.com/jwt-encoder-decoder](https://ztools.zaions.com/jwt-encoder-decoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/jwt-encoder-decoder)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/jwt-encoder-decoder.mdx)*

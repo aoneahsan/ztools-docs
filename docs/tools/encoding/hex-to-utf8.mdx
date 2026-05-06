@@ -1,0 +1,131 @@
+---
+id: hex-to-utf8
+title: "Hex to UTF-8 Converter — Decode Hex Bytes to Readable Text"
+description: "Convert a stream of hex bytes back to UTF-8 text. Tolerates separators and prefixes. Free, in-browser, no signup."
+sidebar_label: "hex-to-utf8"
+keywords:
+  - "hex to utf-8"
+  - "hex to text"
+  - "decode hex utf8"
+  - "unicode hex decoder"
+  - "free hex decoder"
+  - "byte stream to text"
+  - "utf8 hex round-trip"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# hex-to-utf8
+
+A hex-to-UTF-8 converter reads a sequence of hex byte values and decodes them as UTF-8 text — the inverse of UTF-8 to hex — useful when copying byte values out of a hex editor, packet capture, log line, or stack trace and you need to see the original string. The ZTools Hex-to-UTF-8 tool is forgiving about input formatting (spaces, commas, 0x prefixes, newlines all tolerated), supports lenient mode that substitutes U+FFFD for invalid sequences and reports their location, and is the canonical "what does this hex actually say" debugging tool.
+
+<ToolCTA toolId="hex-to-utf8" toolName="hex-to-utf8" />
+
+## Use cases
+
+### Reading hex from logs
+
+Logs sometimes dump a hex blob ("48 65 6c 6c 6f"). Decode to "Hello" to confirm what the system actually saw.
+
+### Hex editor inspection
+
+Open a binary file in a hex editor; copy a string-looking region; decode to text to confirm content.
+
+### Network packet analysis
+
+Wireshark shows payload bytes. Decode to see if it is a JSON / SOAP envelope / readable text.
+
+### Round-trip verification
+
+Encoded text → hex → text round-trip should be lossless. Mismatch reveals encoding bugs.
+
+## How it works
+
+1. **Paste hex** — Any of: space-separated, no separator, 0x-prefixed, comma-separated, newline-separated. Input is stripped of whitespace and prefixes.
+2. **Validate** — Hex string must have even length. Odd lengths trigger an error with the offending position.
+3. **Decode UTF-8** — Bytes interpret as UTF-8 sequences. Lenient mode substitutes U+FFFD for invalid sequences; strict mode errors.
+4. **Inspect** — Decoded text shown alongside any flagged error positions. Codepoint view available.
+5. **Copy** — Decoded text to clipboard.
+
+## Examples
+
+**Input:** 48 65 6c 6c 6f
+
+**Output:** Hello
+
+---
+
+**Input:** e2 82 ac
+
+**Output:** €
+
+---
+
+**Input:** f0 9f 9a 80
+
+**Output:** 🚀
+
+## Frequently asked questions
+
+<details>
+<summary>**My hex decodes to garbage**</summary>
+
+Likely the encoding is not UTF-8. Try Latin-1 / Windows-1252 / UTF-16 in the encoding selector. Old Windows logs are often cp1252.
+
+</details>
+
+<details>
+<summary>**What does "U+FFFD" mean in the output?**</summary>
+
+The Unicode replacement character — the lenient decoder inserts it where the byte sequence is invalid UTF-8. Click the marker for the offending byte position.
+
+</details>
+
+<details>
+<summary>**Can I decode hex that is mixed case?**</summary>
+
+Yes — uppercase, lowercase, mixed all accepted.
+
+</details>
+
+<details>
+<summary>**What if my input has 0x prefixes?**</summary>
+
+Stripped automatically. `0x48 0x65 0x6c` decodes correctly.
+
+</details>
+
+<details>
+<summary>**Why does the decoded length differ from the byte count?**</summary>
+
+UTF-8 encodes some characters as multiple bytes. 6 hex bytes might be 2 emoji (3 bytes each) or 6 ASCII characters.
+
+</details>
+
+<details>
+<summary>**Is this useful for binary data?**</summary>
+
+Only when the binary contains UTF-8 text. Pure binary (images, executables) decodes to garbage; use a hex viewer for non-text data.
+
+</details>
+
+## Tips
+
+- Try multiple encodings if UTF-8 decode looks garbled — Latin-1 / Windows-1252 / UTF-16 are the common alternatives.
+- For round-trip checks, encode then decode and confirm the original is recovered exactly.
+- When a single weird byte appears mid-text, the U+FFFD marker shows exactly where — invaluable for locating corruption.
+- The codepoint view turns "what byte is that" into "what character is that" instantly.
+- Pair with the UTF-8 to hex tool for full byte-level workflows.
+
+## Try it now
+
+The full hex-to-utf8 runs in your browser at **[https://ztools.zaions.com/hex-to-utf8](https://ztools.zaions.com/hex-to-utf8)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hex-to-utf8)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/hex-to-utf8.mdx)*
