@@ -1,0 +1,113 @@
+---
+id: safe-app-identifier-generator
+title: "Safe App Identifier Generator — Reverse-DNS, Free"
+description: "Generate valid app IDs (com.company.app) for Android, iOS, Capacitor. Strict naming rules enforced. Browser-only."
+sidebar_label: "safe-app-identifier-generator"
+keywords:
+  - "app identifier generator"
+  - "bundle id generator"
+  - "android package name generator"
+  - "reverse dns app id"
+  - "capacitor app id"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# safe-app-identifier-generator
+
+App identifiers (also called package names or bundle IDs) are reverse-DNS-style strings that uniquely identify an app — `com.company.appname`. Android, iOS, Capacitor, Flutter, and React Native all use this format with slightly different rules: lowercase only, dot-separated, must start with a letter, no reserved words (com.android.*), no hyphens. The ZTools Safe App Identifier Generator turns a free-form app name into a valid identifier, validates against each platform's rules, and warns on collisions with reserved prefixes.
+
+<ToolCTA toolId="safe-app-identifier-generator" toolName="safe-app-identifier-generator" />
+
+## Use cases
+
+### Pick an app ID for a new project
+
+Capacitor / Cordova ask for the bundle ID at init. Generator suggests `com.yourcompany.appname` and validates the parts.
+
+### Fix an invalid identifier
+
+Old project uses uppercase letters in the bundle ID — Android Studio rejects. Generator suggests the corrected version.
+
+### Reserve a namespace
+
+Picking a unique prefix matters — once published, you can't change it without losing user data on update.
+
+### Validate before submission
+
+Pre-flight check before App Store / Play Store upload — catch invalid identifiers locally rather than getting rejected at submission.
+
+## How it works
+
+1. **Type app name and company** — Free-form text. Spaces, capitalisation, special chars — generator normalises.
+2. **Pick TLD prefix** — com (most common), io (tech-startup), app (Apple-friendly), org (open-source), or custom.
+3. **Generate** — Output: lowercased, dots-separated, validated against per-platform rules.
+4. **Validate** — Checks against Android (no spaces, no hyphens, lowercase, starts with letter), iOS (same plus no reserved namespaces), Capacitor (matches both).
+
+## Examples
+
+**Input:** company "Acme Corp", app "My Cool App"
+
+**Output:** com.acmecorp.mycoolapp — lowercased, no spaces.
+
+---
+
+**Input:** company "Z-Tools", app "Privacy Tool 2"
+
+**Output:** com.ztools.privacytool2 — hyphens stripped (Z-Tools), digits in name allowed mid-token.
+
+---
+
+**Input:** Reserved-prefix collision: company starting "com.android.*"
+
+**Output:** Warning: this prefix is reserved by Android. Suggested alternative: com.companyname.android.appname.
+
+## Frequently asked questions
+
+<details>
+<summary>**Can I change the identifier after publishing?**</summary>
+
+No — once an app ships with bundle ID com.x.y, changing it on update treats the new version as a different app. Users lose data, ratings, paid status. Pick carefully.
+
+</details>
+
+<details>
+<summary>**Hyphens?**</summary>
+
+Not allowed in Java package names — Android rejects. iOS accepts but discouraged. Replace with underscore or remove.
+
+</details>
+
+<details>
+<summary>**How to reserve a namespace?**</summary>
+
+You don't reserve formally — first to publish under a name "owns" it on the Play Store / App Store. Use a domain you own as prefix to avoid collisions.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Use a domain you own as prefix — guarantees no collision.
+- Keep the identifier short — long IDs hurt URL schemes (com.x.y://) and look unprofessional in `Info.plist`.
+- Avoid digits at the start of any token — some toolchains reject `com.123.app`.
+- Pick once, never change — the cost of a wrong choice is enormous post-launch.
+
+## Try it now
+
+The full safe-app-identifier-generator runs in your browser at **[https://ztools.zaions.com/safe-app-identifier-generator](https://ztools.zaions.com/safe-app-identifier-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/safe-app-identifier-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/safe-app-identifier-generator.mdx)*

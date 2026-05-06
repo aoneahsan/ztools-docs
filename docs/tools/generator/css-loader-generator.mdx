@@ -1,0 +1,129 @@
+---
+id: css-loader-generator
+title: "CSS Loader Generator — Spinners & Skeletons (Free)"
+description: "Generate pure-CSS loading spinners, dots, bars, and skeleton shimmers. No SVG, no images. Adjustable color, size, speed. Copy-paste ready."
+sidebar_label: "css-loader-generator"
+keywords:
+  - "css loader generator"
+  - "css spinner"
+  - "pure css loader"
+  - "css loading animation"
+  - "css skeleton loader"
+  - "css spinner generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-loader-generator
+
+A CSS loader generator builds animated loading indicators using only CSS — keyframes, transforms, borders, gradients — no SVG, no GIF, no image dependencies. Pure-CSS loaders weigh ≈0 bytes (they live inside your stylesheet), animate on the GPU, scale crisply at any DPI, and inherit color from CSS variables. The ZTools generator includes 30+ designs: classic ring spinner, dual-ring, dots (3-dot bouncing, 4-dot pulse, dot grid), bars (5-bar audio, progress bar, segmented), shimmer skeletons, dual-color spirals, and Material-style indeterminate progress bars.
+
+<ToolCTA toolId="css-loader-generator" toolName="css-loader-generator" />
+
+## Use cases
+
+### Initial app boot loaders
+
+Show before your JS bundle hydrates. Pure CSS loaders work even if JS hasn't loaded yet — perfect for the SPA-shell-loading moment.
+
+### Form submit feedback
+
+Replace the button label with a small inline spinner during a network request. Confirms the click registered and prevents double-submit.
+
+### Skeleton placeholders
+
+Shimmering gradient bars/cards while data loads. Reduces perceived wait time vs. an empty white screen with a centered spinner.
+
+### Empty state CTAs
+
+Subtle pulsing indicator on a "Sync now" button when data is stale — invites the click without screaming.
+
+## How it works
+
+1. **Pick a loader style** — Ring, dots, bars, shimmer, spiral, indeterminate progress, etc. — preview each live.
+2. **Set size + color** — 16–80 px typical; primary color + optional secondary for dual-color loaders.
+3. **Set animation speed** — 0.5s – 2s per cycle. Faster = urgency; slower = "background work, take your time".
+4. **Copy CSS** — Includes the @keyframes block + the .loader class. Paste into your stylesheet — no JS needed.
+
+## Examples
+
+**Input:** Ring spinner, 32px, primary #6366f1, 1s
+
+**Output:** Classic indigo ring spinner — drop into any button or empty state.
+
+---
+
+**Input:** 3-dot bounce, 8px each, blue
+
+**Output:** Three blue dots that bounce in sequence; ChatGPT-style "thinking" indicator.
+
+---
+
+**Input:** Shimmer card, 320×120px
+
+**Output:** Skeleton card with diagonal-gradient shimmer running across — feels like "loading" without looking broken.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why CSS instead of SVG / GIF?**</summary>
+
+CSS loaders are smaller (no file), GPU-animated, scale to any DPI, and inherit currentColor for theming. SVG is also good (and supports more complex shapes); GIF is the worst option (rasterised, fixed size, no theming, larger).
+
+</details>
+
+<details>
+<summary>**Do they work without JavaScript?**</summary>
+
+Yes — pure CSS animations. They start the moment the element is in the DOM, regardless of JS state.
+
+</details>
+
+<details>
+<summary>**How do I show/hide them?**</summary>
+
+Toggle a class: `.loading \{ display: block \}` / `.loading \{ display: none \}`. Or use `aria-busy="true"` on the parent + CSS that targets `[aria-busy="true"] .loader \{ display: block \}`.
+
+</details>
+
+<details>
+<summary>**Accessibility?**</summary>
+
+Loaders should have `role="status"` and `aria-label="Loading"`. Don't rely on visual-only feedback — screen readers need an announcement.
+
+</details>
+
+<details>
+<summary>**Why do my keyframes conflict with another loader?**</summary>
+
+Use unique @keyframes names (e.g. `loader-1-spin` not `spin`). The generator names keyframes based on the style for collision-safety.
+
+</details>
+
+<details>
+<summary>**Does it support reduced motion?**</summary>
+
+Wrap the animation in `@media (prefers-reduced-motion: no-preference)` so motion-sensitive users see a static indicator instead of a spin. The tool offers this toggle.
+
+</details>
+
+## Tips
+
+- Use the inherit-color pattern: `border-color: currentColor transparent transparent transparent` so one CSS class adapts to button context.
+- Match loader animation speed to perceived task urgency: 0.6s for inline button submits; 1.2s for full-page loads.
+- For skeletons, match the height/shape of the actual content that will replace them — eliminates layout shift.
+- Always include `@media (prefers-reduced-motion)` fallback for accessibility.
+- Keep loader sizes ≤ 24px for inline button use; reserve large 64–80px loaders for full-page or full-modal contexts.
+
+## Try it now
+
+The full css-loader-generator runs in your browser at **[https://ztools.zaions.com/css-loader-generator](https://ztools.zaions.com/css-loader-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-loader-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-loader-generator.mdx)*

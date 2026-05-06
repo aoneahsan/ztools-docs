@@ -1,0 +1,131 @@
+---
+id: barcode-generator-advanced
+title: "Barcode Generator — EAN-13, UPC, Code 128, Code 39, ITF (Free)"
+description: "Generate barcodes: EAN-13, UPC-A, Code 128, Code 39, ITF-14, Codabar. SVG and PNG output. Bulk batch. Free, in-browser."
+sidebar_label: "barcode-generator-advanced"
+keywords:
+  - "barcode generator"
+  - "ean-13 generator"
+  - "upc generator"
+  - "code 128 barcode"
+  - "code 39 barcode"
+  - "free barcode maker"
+  - "svg barcode generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# barcode-generator-advanced
+
+A barcode generator produces scannable 1D barcodes — EAN-13, UPC-A, Code 128, Code 39, ITF-14, Codabar — from numeric or alphanumeric inputs, validates against each format's rules (length, allowed characters, check-digit), and exports as scalable SVG (best for print) or rasterized PNG (best for screen and chat). The ZTools Barcode Generator runs entirely in the browser, supports bulk generation from a CSV column (one barcode per row), customisable bar width, height, and quiet-zone, optional human-readable text underneath, and exports a ZIP of the entire batch in one click — keeping retail label workflows fast and free.
+
+<ToolCTA toolId="barcode-generator-advanced" toolName="barcode-generator-advanced" />
+
+## Use cases
+
+### Product label printing
+
+Small retailers print EAN-13 labels for new SKUs. Generate, export SVG at the printer's native size, send to label printer.
+
+### Inventory and asset tagging
+
+Tag office equipment with Code 128. Bulk-generate from a CSV of asset IDs; print to Avery sheets.
+
+### Library / archive cataloguing
+
+Code 39 is widely supported by older scanners. Generate book-spine labels in batch.
+
+### Logistics shipping labels
+
+ITF-14 marks shipping cartons. Generate per-carton barcodes from the order CSV.
+
+## How it works
+
+1. **Pick the format** — EAN-13 (12 digits + check), UPC-A (11 + check), Code 128 (alphanumeric, variable length), Code 39 (uppercase + symbols), ITF-14 (13 + check), Codabar.
+2. **Enter input** — Single value, or paste a CSV column. The generator validates each line and flags errors.
+3. **Set bar width and height** — Bar width in pixels or millimetres (for print). Height controls how tall the bars render. Quiet-zone padding for scanner reliability.
+4. **Toggle human-readable text** — Show the encoded value below the barcode for human verification.
+5. **Export** — Single SVG/PNG, or a ZIP of the whole batch. SVG preferred for print quality.
+
+## Examples
+
+**Input:** EAN-13: 5012345678900
+
+**Output:** SVG barcode with check-digit recomputed and validated
+
+---
+
+**Input:** Code 128: ABC-12345
+
+**Output:** Compact alphanumeric barcode
+
+---
+
+**Input:** CSV of 200 SKUs → ZIP
+
+**Output:** 200 SVG files, one per SKU, ready for label printing
+
+## Frequently asked questions
+
+<details>
+<summary>**Which format should I use?**</summary>
+
+Retail products: EAN-13 (Europe/global) or UPC-A (US). Internal asset tagging: Code 128 (compact, alphanumeric). Older systems: Code 39. Cartons: ITF-14.
+
+</details>
+
+<details>
+<summary>**Why does my EAN-13 fail to scan?**</summary>
+
+Common causes: bars too narrow (use ≥ 0.33 mm at print), missing quiet zone (add ≥ 10× bar-width padding), or rotated text overlapping the bars. The generator enforces minimum quiet zones by default.
+
+</details>
+
+<details>
+<summary>**Does it auto-compute the check digit?**</summary>
+
+Yes — for EAN-13, UPC, ITF-14, and others with check digits, you can supply 12 (or 13) digits and the generator computes the rest, or supply the full string and have it validated.
+
+</details>
+
+<details>
+<summary>**SVG or PNG for printing?**</summary>
+
+SVG every time. SVG scales without quality loss; PNG at low DPI prints fuzzy bars that scanners struggle with.
+
+</details>
+
+<details>
+<summary>**Can it produce QR codes?**</summary>
+
+No — QR is 2D and needs a different encoder. Use the QR Generator for that.
+
+</details>
+
+<details>
+<summary>**Is the output watermarked?**</summary>
+
+No. Output is clean, free for commercial use.
+
+</details>
+
+## Tips
+
+- Always export SVG for print. Bars must be crisp — anti-aliased PNG bars hurt scan reliability.
+- Maintain quiet zone (≥10× bar-width on each side) — scanners fail on barcodes glued to other content.
+- Use Code 128 for internal tagging — most efficient, supports A–Z + 0–9.
+- For batch label printing, generate in a single ZIP and import into Avery / Brother label software.
+- Test-scan one sample with your actual scanner before printing 1,000 — bar width may need tuning per device.
+
+## Try it now
+
+The full barcode-generator-advanced runs in your browser at **[https://ztools.zaions.com/barcode-generator-advanced](https://ztools.zaions.com/barcode-generator-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/barcode-generator-advanced)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/barcode-generator-advanced.mdx)*

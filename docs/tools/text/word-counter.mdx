@@ -47,7 +47,7 @@ Google truncates meta descriptions at ~155 characters, page titles at ~60. Paste
 
 1. **Type or paste your text** — No size limit on modern desktops; up to ~10 MB before performance degrades. The textarea handles RTL languages with correct visual direction.
 2. **Counts update live** — A `useEffect` debounced at 50ms recomputes all metrics on input change. For most documents this is imperceptible.
-3. **Word count uses regex `\S+` (non-whitespace runs)** — Matches the GNU `wc -w` definition — sequences of non-whitespace characters separated by whitespace. CJK falls back to character count because there are no spaces.
+3. **Word count uses regex `\\S+` (non-whitespace runs)** — Matches the GNU `wc -w` definition — sequences of non-whitespace characters separated by whitespace. CJK falls back to character count because there are no spaces.
 4. **Sentence count uses sentence-ending punctuation** — Matches `[.!?]+` followed by space or end-of-text. Won't over-count abbreviations like "Dr." in most cases (uses a small heuristic blacklist).
 5. **Reading time is `(wordCount / wpm)` minutes** — Default 250 wpm (English silent reading). Adjustable. For CJK text the formula is `(charCount / 400)` minutes, the empirically observed Chinese reading rate.
 

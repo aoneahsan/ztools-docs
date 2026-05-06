@@ -1,0 +1,130 @@
+---
+id: css-cubic-bezier-generator
+title: "CSS Cubic-Bezier Generator — Visual Easing Curve Editor"
+description: "Build CSS cubic-bezier easing curves visually. Compare against ease-in-out, spring, bounce. Live animation preview. Free."
+sidebar_label: "css-cubic-bezier-generator"
+keywords:
+  - "cubic bezier generator"
+  - "css easing generator"
+  - "animation curve editor"
+  - "transition timing function"
+  - "cubic bezier tool"
+  - "css ease curve maker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-cubic-bezier-generator
+
+A cubic-bezier generator lets you author CSS animation easing curves visually — dragging the two control points of a Bézier curve while a sample element animates with that exact timing — so the motion *feels* the way you want before you settle on `cubic-bezier(0.4, 0, 0.2, 1)` or some other set of magic numbers. The ZTools Cubic-Bezier Generator includes a side-by-side comparison against the CSS keyword easings (ease, ease-in, ease-out, ease-in-out, linear) and against popular published curves (Material Design standard, iOS spring, ease-out-quart), saves your custom curves locally for reuse, and exports plain CSS or a Tailwind 4 arbitrary-value transition string.
+
+<ToolCTA toolId="css-cubic-bezier-generator" toolName="css-cubic-bezier-generator" />
+
+## Use cases
+
+### Buttery UI transitions
+
+Default `ease-in-out` feels mushy. A tighter curve like `cubic-bezier(0.2, 0, 0, 1)` lands UI motion more precisely — visual editor lets you find that curve in seconds.
+
+### Page-transition timing
+
+Two-stage page transitions need an out-curve and an in-curve. Build both, visualize together, copy.
+
+### Spring-style motion
+
+Bouncy interactions in mobile-first UIs. Pick the spring preset, fine-tune, copy.
+
+### Brand-aligned animation
+
+Brand systems often define one canonical easing. Save it as a named token; reuse everywhere.
+
+## How it works
+
+1. **Drag the control points** — Two control points on a 2D pad. The curve updates live; the sample element animates with the new timing on every drag.
+2. **Compare against keywords** — Side-by-side animation: your curve vs ease-in-out, ease-out, etc. Visual diff is more useful than reading numbers.
+3. **Try presets** — Material standard, iOS spring, ease-out-quart, ease-out-expo, etc. Tweak from a preset rather than starting from blank.
+4. **Set duration** — Curve shape + duration = the felt motion. The preview animates at the duration you specify (default 400 ms).
+5. **Copy CSS** — Plain CSS string (transition or animation-timing-function), Tailwind 4 utility, or a CSS variable declaration.
+
+## Examples
+
+**Input:** Material Design standard
+
+**Output:** cubic-bezier(0.4, 0, 0.2, 1)
+
+---
+
+**Input:** iOS spring (subtle)
+
+**Output:** cubic-bezier(0.5, 1.5, 0.5, 1)
+
+---
+
+**Input:** Ease-out-quart
+
+**Output:** cubic-bezier(0.25, 1, 0.5, 1)
+
+## Frequently asked questions
+
+<details>
+<summary>**When to use cubic-bezier vs CSS keywords?**</summary>
+
+Keywords (ease, ease-out) are fine for prototypes. Production UI almost always benefits from a tuned cubic-bezier — typically a steep early acceleration (Y &gt; X) for tight, satisfying motion.
+
+</details>
+
+<details>
+<summary>**Can I overshoot (Y &gt; 1 or Y &lt; 0)?**</summary>
+
+Yes — control points can exceed 0–1 on the Y axis to produce overshoot / undershoot, useful for spring-style motion. The X axis must stay in 0–1.
+
+</details>
+
+<details>
+<summary>**How long should an animation take?**</summary>
+
+150–300 ms for in-context UI (hover, focus, click). 300–500 ms for emphasis (modal open, page transition). Beyond ~600 ms feels sluggish.
+
+</details>
+
+<details>
+<summary>**Does it work for keyframe animations too?**</summary>
+
+Yes — the curve applies to animation-timing-function, transition-timing-function, or per-keyframe via animation-timing-function inside @keyframes.
+
+</details>
+
+<details>
+<summary>**Why does my custom curve look almost identical to ease-out?**</summary>
+
+Many "tuned" curves are subtle variations — that subtlety is exactly what makes UI motion feel premium. Trust the side-by-side comparison.
+
+</details>
+
+<details>
+<summary>**Can I share the curve as a link?**</summary>
+
+Yes — the URL encodes the curve so you can paste in Slack and a teammate sees the same editor state.
+
+</details>
+
+## Tips
+
+- Start from a preset (Material standard) and tweak slightly — building a curve from scratch is rarely worth it.
+- For most UI, X1 ≈ 0.2–0.4 and X2 ≈ 0.0 produces tight ease-out motion that feels modern.
+- Pair the curve with the right duration — a great curve at 800 ms still feels slow.
+- Save a brand-canonical curve as a CSS variable (--ease-brand) so the team uses one curve everywhere.
+- Test on mobile — what feels snappy on a 120 Hz desktop sometimes feels janky on a 60 Hz phone.
+
+## Try it now
+
+The full css-cubic-bezier-generator runs in your browser at **[https://ztools.zaions.com/css-cubic-bezier-generator](https://ztools.zaions.com/css-cubic-bezier-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-cubic-bezier-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-cubic-bezier-generator.mdx)*

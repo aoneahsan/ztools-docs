@@ -1,0 +1,125 @@
+---
+id: url-slug-generator
+title: "URL Slug Generator — SEO-Friendly Slugs from Any Title (Free)"
+description: "Convert article titles to clean URL slugs. Strips accents, removes punctuation, lowercases, kebab-cases. Multi-language. Free, instant."
+sidebar_label: "url-slug-generator"
+keywords:
+  - "url slug generator"
+  - "slugify online"
+  - "seo slug generator"
+  - "permalink generator"
+  - "url friendly text"
+  - "kebab case slug"
+  - "transliterate slug"
+  - "free slug tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# url-slug-generator
+
+A URL slug generator converts a human-readable title (article headline, product name, page title) into a URL-safe path segment: lowercase, hyphen-separated, ASCII-only, no punctuation. The ZTools URL Slug Generator follows the SEO best practices used by WordPress, Ghost, Hugo, and modern static-site generators: strip diacritics (transliterate `café` → `cafe`), remove punctuation, collapse whitespace into single hyphens, lowercase everything, and enforce a max length (default 75 characters) to keep URLs scannable.
+
+<ToolCTA toolId="url-slug-generator" toolName="url-slug-generator" />
+
+## Use cases
+
+### Generating SEO-friendly URLs for blog posts
+
+Title "Why JSON Beats XML in 2026: A Deep Dive" becomes `why-json-beats-xml-in-2026-a-deep-dive`. URL is short, readable, and contains the target keywords — Google's URL parser uses this directly as a ranking signal.
+
+### Creating safe filenames for downloads or storage keys
+
+"My Resume (v2 - Final).pdf" with special characters fails on many filesystems. Convert to `my-resume-v2-final.pdf` for cross-platform safety. Particularly important for cloud storage keys (S3, GCS, FilesHub) where special chars trigger URL-encoding rabbit holes.
+
+### Generating Kubernetes resource names or Docker tags
+
+K8s names must match `[a-z0-9-]` and start/end with alphanumeric. Slugify your service name to guarantee compatibility — saves the back-and-forth with `kubectl apply` validation errors.
+
+### Building product slugs for e-commerce SKUs
+
+Product "Côté d'Or — Premium Dark Chocolate (200g)" → `cote-dor-premium-dark-chocolate-200g`. Diacritic-stripped, punctuation-removed, ready for `/products/\{slug\}` URL routing.
+
+## How it works
+
+1. **Paste a title or string into the input pane** — Any length, any language. Diacritics, emoji, punctuation, and whitespace are all handled.
+2. **Configure options** — Max length (default 75), separator (hyphen recommended; underscore alternative), strip stop words (a/an/the/of), preserve case (rarely needed; default is lowercase).
+3. **Click Generate** — The tool: (1) NFD-normalizes Unicode and strips combining marks (`café` → `cafe`); (2) lowercases; (3) replaces non-alphanumeric with hyphen; (4) collapses consecutive hyphens; (5) trims to max length without breaking mid-word.
+4. **Review the output** — Slug preview with character count. Both raw output and a "copy as URL" version (URL-encoded if it contains anything beyond ASCII alphanumerics + hyphen).
+5. **Copy with one click** — Paste directly into your CMS, route definition, or filename.
+
+## Examples
+
+**Input:** The 10 Best JavaScript Frameworks in 2026
+
+**Output:** the-10-best-javascript-frameworks-in-2026
+
+---
+
+**Input:** Côté d'Or — Premium Dark Chocolate (200g)
+
+**Output:** cote-dor-premium-dark-chocolate-200g
+
+## Frequently asked questions
+
+<details>
+<summary>**Why use slugs instead of IDs in URLs?**</summary>
+
+Slugs give Google and humans context. `/blog/how-to-deploy-vite` outranks `/blog/12345` for the target query because the URL itself is a relevance signal. Slugs also survive database migrations better than auto-increment IDs.
+
+</details>
+
+<details>
+<summary>**Should I include the date in the slug?**</summary>
+
+Generally no for evergreen content (the date in the slug locks you out of refreshing without changing the URL). For news content where the date is part of the value, including the year is fine.
+
+</details>
+
+<details>
+<summary>**How long should a slug be?**</summary>
+
+Aim for 50-75 characters. Google truncates URLs in SERP listings around 70 characters. Shorter slugs are easier to share and remember.
+
+</details>
+
+<details>
+<summary>**Should I strip stop words (a, an, the)?**</summary>
+
+Optional. Stripping them shortens the slug ("the-10-best..." → "10-best...") but reduces readability. WordPress strips by default; Ghost does not. Pick one and stay consistent.
+
+</details>
+
+<details>
+<summary>**What about non-Latin scripts (Chinese, Arabic, Japanese)?**</summary>
+
+Two strategies: (1) transliterate to Latin (e.g., pinyin for Chinese), or (2) percent-encode the original (Google handles UTF-8 URLs fine since 2009). Stripping non-Latin entirely loses the SEO value.
+
+</details>
+
+<details>
+<summary>**Is the generator deterministic?**</summary>
+
+Yes — the same input always produces the same slug. Useful for reproducible builds and migration scripts.
+
+</details>
+
+## Tips
+
+- Choose your slug at publish time and never change it — broken URLs hurt SEO.
+- Include the primary keyword once in the slug; avoid stuffing.
+- Use hyphens, never underscores — Google treats hyphens as word separators, underscores as character joins.
+- Set a max length around 75 characters and let the tool trim cleanly at word boundaries.
+
+## Try it now
+
+The full url-slug-generator runs in your browser at **[https://ztools.zaions.com/url-slug-generator](https://ztools.zaions.com/url-slug-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/url-slug-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/url-slug-generator.mdx)*

@@ -31,26 +31,26 @@ const APP_URL = 'https://ztools.zaions.com';
 // foundation tools, highest search demand, broadest appeal.
 // ---------------------------------------------------------------------------
 const TOOLS_TO_PUBLISH = [
-  'json-formatter',
-  'password-generator',
-  'base64',
-  'url-encoder',
-  'qr-generator',
-  'lorem-ipsum',
-  'color-picker',
-  'regex-tester',
-  'hash-generator',
-  'jwt-decoder',
-  'uuid-generator',
-  'word-counter',
-  'markdown-html',
-  'image-compressor',
-  'merge-pdf',
-  'json-minifier',
-  'diff-checker',
-  'image-resizer',
-  'favicon-generator',
-  'cron-expression',
+  // Batch 1 (init): foundation — 20 tools
+  'json-formatter','password-generator','base64','url-encoder','qr-generator',
+  'lorem-ipsum','color-picker','regex-tester','hash-generator','jwt-decoder',
+  'uuid-generator','word-counter','markdown-html','image-compressor','merge-pdf',
+  'json-minifier','diff-checker','image-resizer','favicon-generator','cron-expression',
+
+  // Batch 2: generator category — 58 tools
+  'api-documentation-generator','barcode-generator-advanced','bio-generator','border-radius','box-shadow',
+  'color-mixer','color-palette','color-palette-generator-advanced','color-shades-generator','credit-card-generator',
+  'css-background-pattern-generator','css-border-radius-generator','css-box-shadow-generator','css-checkbox-generator',
+  'css-clip-path-generator','css-cubic-bezier-generator','css-glassmorphism-generator','css-gradient-generator',
+  'css-loader-generator','css-switch-generator','css-text-glitch-generator','css-triangle-generator',
+  'dendrite-fractal','dummy-data','email-template-generator','fake-data','fake-iban-generator','fractal-tree',
+  'gradient-generator','hashtag-generator','hilbert-curve','htaccess-generator','invoice-generator',
+  'mac-address-generator','meta-tag-generator','mock-api','number-sequence','open-graph-meta-generator',
+  'pythagoras-fractal','random-color-generator','random-number','random-string','react-native-shadow-generator',
+  'regex-builder','robots-txt-generator','safe-app-identifier-generator','safe-file-name-generator',
+  'safe-folder-name-generator','schema-markup-generator','sierpinski-triangle','sitemap-generator',
+  'sql-query-generator','string-generator','svg-blob-generator','svg-pattern-generator','table-generator',
+  'twitter-card-generator','url-slug-generator',
 ];
 
 // ---------------------------------------------------------------------------
@@ -120,16 +120,18 @@ function loadToolMeta(): Record<string, ToolMeta> {
 //   - braces { } need escaping to avoid JSX interpretation
 //   - quotes inside front-matter strings need escaping
 // ---------------------------------------------------------------------------
-// Escape characters MDX-3 interprets as JSX:
-//   { } start expressions; < starts a tag; > ends a tag.
-// Replacing with HTML entities keeps text intact when rendered.
+// Escape characters MDX-3 interprets as JSX or Markdown structures:
+//   { } start expressions; < starts a tag; > ends a tag;
+//   ![alt](url) is Markdown image — escape the `!` so syntax-illustration
+//   text stays literal.
 const escapeMdx = (s: string) =>
   s
     .replace(/\\/g, '\\\\')
     .replace(/\{/g, '\\{')
     .replace(/\}/g, '\\}')
     .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+    .replace(/>/g, '&gt;')
+    .replace(/!\[/g, '\\![');
 const yamlString = (s: string) => `"${s.replace(/"/g, '\\"')}"`;
 
 // ---------------------------------------------------------------------------
@@ -140,11 +142,11 @@ function renderToolMdx(id: string, content: ToolContent, meta: ToolMeta): string
   const ghEdit = `https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/${meta.category}/${id}.mdx`;
 
   const useCases = content.useCases
-    .map((uc) => `### ${uc.title}\n\n${escapeMdx(uc.body)}`)
+    .map((uc) => `### ${escapeMdx(uc.title)}\n\n${escapeMdx(uc.body)}`)
     .join('\n\n');
 
   const steps = content.howItWorks
-    .map((s, i) => `${i + 1}. **${s.step}** — ${escapeMdx(s.detail)}`)
+    .map((s, i) => `${i + 1}. **${escapeMdx(s.step)}** — ${escapeMdx(s.detail)}`)
     .join('\n');
 
   const examples = content.examples

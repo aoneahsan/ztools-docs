@@ -1,0 +1,130 @@
+---
+id: robots-txt-generator
+title: "Robots.txt Generator — Free with AI-Bot Allowlist"
+description: "Generate a valid robots.txt with crawler allow/deny rules, sitemap directive, and AI-bot allowlist (GPTBot, ClaudeBot, PerplexityBot). Free."
+sidebar_label: "robots-txt-generator"
+keywords:
+  - "robots.txt generator"
+  - "robots txt generator"
+  - "crawler rules"
+  - "ai bot robots txt"
+  - "gptbot allow"
+  - "sitemap directive"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# robots-txt-generator
+
+A robots.txt file at your site root tells crawlers which paths they may or may not access — Google, Bing, but also AI training and AI search bots (GPTBot, ClaudeBot, PerplexityBot, Google-Extended). In 2026, robots.txt is critical for AI search visibility: blocking AI bots means you can't be cited by ChatGPT/Claude/Perplexity. The ZTools Robots.txt Generator builds a valid file with per-bot allow/deny rules, sitemap directive, AI-bot allowlist, and bad-bot denylist (AhrefsBot, SemrushBot, scrapers without value).
+
+<ToolCTA toolId="robots-txt-generator" toolName="robots-txt-generator" />
+
+## Use cases
+
+### New site launch
+
+Day-one foundation. Without robots.txt, crawlers default to "crawl everything" — wastes crawl budget and may index admin/test pages.
+
+### AI search optimization
+
+Explicitly allow GPTBot, ClaudeBot, PerplexityBot, Google-Extended for AI citation eligibility. The default-allow status is unreliable across bots; explicit allowlist removes ambiguity.
+
+### Block bad crawlers
+
+AhrefsBot, SemrushBot, MJ12bot — these scrape your content and feed competitor SEO tools without bringing traffic. Block them to save bandwidth.
+
+### Staging / private pages
+
+Disallow /admin, /search, /preview to keep them out of search indexes. Note: robots.txt is a polite request — security-sensitive paths should be auth-gated, not just disallowed.
+
+## How it works
+
+1. **Pick base mode** — Allow-all (default) or deny-all (private staging). Allow-all is the right starting point for public sites.
+2. **AI-bot policy** — Allow each AI bot explicitly: GPTBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, CCBot, Applebot.
+3. **Add disallow paths** — /admin, /search, /api, /preview — paths you don't want indexed.
+4. **Block bad bots** — AhrefsBot, SemrushBot, MJ12bot, DotBot, SeekportBot, Bytespider — scrapers without value to your traffic.
+5. **Add sitemap directive** — `Sitemap: https://example.com/sitemap.xml` — discoverable without GSC submission.
+
+## Examples
+
+**Input:** Public marketing site, AI-friendly
+
+**Output:** Allow-all + explicit AI-bot allowlist + Sitemap directive + bad-bot denylist.
+
+---
+
+**Input:** Staging / preview environment
+
+**Output:** `User-agent: * \\n Disallow: /` — keep out of all indexes.
+
+---
+
+**Input:** E-commerce, deny faceted-filter URLs
+
+**Output:** Allow-all + `Disallow: /*?filter=` + Sitemap.
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I block AI bots?**</summary>
+
+Decision tree: (1) If your business depends on AI search visibility (citations in ChatGPT, Perplexity, Claude), allow them. (2) If you actively don't want your content used for AI training (e.g. publisher with paid content), block GPTBot and CCBot but allow PerplexityBot/Google-Extended which are search-only.
+
+</details>
+
+<details>
+<summary>**GPTBot vs ChatGPT-User vs OAI-SearchBot?**</summary>
+
+GPTBot crawls for training data. ChatGPT-User fetches a URL when a ChatGPT user requests it. OAI-SearchBot is the new dedicated search crawler. Allow all three for full ChatGPT integration.
+
+</details>
+
+<details>
+<summary>**Is robots.txt a security mechanism?**</summary>
+
+No — it's a polite request, not enforcement. Bad actors ignore it. Use auth, IP allowlists, or 401/403 responses for security-sensitive paths.
+
+</details>
+
+<details>
+<summary>**How big can robots.txt be?**</summary>
+
+Google parses up to 500KB. Beyond that, rules are ignored. Keep it concise.
+
+</details>
+
+<details>
+<summary>**Can I use wildcards?**</summary>
+
+Yes — Google/Bing support `*` (any characters) and `$` (end of URL). Example: `Disallow: /*.pdf$` blocks all PDFs.
+
+</details>
+
+<details>
+<summary>**Where does robots.txt live?**</summary>
+
+Always at the site root: https://example.com/robots.txt. Subdomain robots.txt files cover only that subdomain. Path-based robots.txt at any other location is ignored.
+
+</details>
+
+## Tips
+
+- Always include `Sitemap: https://example.com/sitemap.xml` — discoverable without manual GSC submission.
+- Allow AI bots explicitly to remove ambiguity — default-allow is unreliable across crawlers.
+- Block AhrefsBot/SemrushBot/MJ12bot/DotBot — scrapers without traffic value.
+- Test changes with Google's robots.txt Tester (legacy GSC) or live URL inspection before deploying.
+- Don't use robots.txt to hide secrets — disallowed URLs are still publicly listed in your robots.txt itself.
+
+## Try it now
+
+The full robots-txt-generator runs in your browser at **[https://ztools.zaions.com/robots-txt-generator](https://ztools.zaions.com/robots-txt-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/robots-txt-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/robots-txt-generator.mdx)*

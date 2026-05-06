@@ -1,0 +1,120 @@
+---
+id: table-generator
+title: "Table Generator — HTML, Markdown, CSV, ASCII, Free"
+description: "Build tables in any format: HTML, Markdown, CSV, ASCII, LaTeX. Set rows/cols, paste data, export. Browser-only."
+sidebar_label: "table-generator"
+keywords:
+  - "table generator online"
+  - "markdown table generator"
+  - "html table builder"
+  - "ascii table maker"
+  - "latex table generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# table-generator
+
+A table generator turns rows and columns of data into formatted output: HTML &lt;table&gt;, Markdown pipe-tables, CSV, TSV, ASCII / boxed text, LaTeX, and BBCode. Hand-typing markdown tables is tedious; HTML tables for emails are downright cursed. The ZTools Table Generator gives you a spreadsheet-like UI to enter data, then exports to any format with proper alignment, header rows, and (where applicable) styling.
+
+<ToolCTA toolId="table-generator" toolName="table-generator" />
+
+## Use cases
+
+### Markdown tables for README / GitHub
+
+Pipe syntax is unforgiving — one missing | breaks the whole table. Generator handles alignment, padding, escaping for you.
+
+### HTML tables for email
+
+Email clients require &lt;table&gt;-based layout. Generator emits Outlook-safe markup with inlined styles.
+
+### Quick CSV from a list
+
+Paste rows separated by tabs (e.g. from a spreadsheet); generator outputs CSV with correct quoting and escaping.
+
+### LaTeX for academic papers
+
+\\begin\{tabular\}\{lcr\} ... — the syntax is exacting. Generator produces compileable LaTeX with column alignment.
+
+## How it works
+
+1. **Set dimensions** — Pick rows × columns (2×2 to 50×50). Or paste tab-separated text and the tool infers dimensions.
+2. **Enter data** — Spreadsheet-style cell editor. Header row optional. Per-column alignment (left, centre, right).
+3. **Pick output format** — HTML, Markdown, CSV, TSV, ASCII boxed, LaTeX, BBCode, JSON array of arrays / objects.
+4. **Copy or download** — Output ready to paste. CSV downloads as .csv; HTML as .html.
+
+## Examples
+
+**Input:** 3×3 with header: Name, Age, City; rows: Alice 30 NYC, Bob 25 LA, Carol 28 SF
+
+**Output:** Markdown:\\n| Name  | Age | City |\\n|-------|-----|------|\\n| Alice | 30  | NYC  |\\n| Bob   | 25  | LA   |\\n| Carol | 28  | SF   |
+
+---
+
+**Input:** Same as HTML
+
+**Output:** &lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;...&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;...&lt;/tr&gt;...&lt;/tbody&gt;&lt;/table&gt;
+
+---
+
+**Input:** ASCII boxed
+
+**Output:** +-------+-----+------+\\n| Name  | Age | City |\\n+-------+-----+------+\\n| Alice | 30  | NYC  |\\n| Bob   | 25  | LA   |\\n+-------+-----+------+
+
+## Frequently asked questions
+
+<details>
+<summary>**Can I import from CSV?**</summary>
+
+Yes — paste CSV (any delimiter); tool parses and loads into the editor.
+
+</details>
+
+<details>
+<summary>**Markdown alignment syntax?**</summary>
+
+Left :--, centre :-:, right --:. Generator produces correct alignment markers per column.
+
+</details>
+
+<details>
+<summary>**Does HTML output include styling?**</summary>
+
+Optional. Toggle "include CSS" for an inline-styled table that renders consistently in email clients.
+
+</details>
+
+<details>
+<summary>**Max table size?**</summary>
+
+50×50 in the editor; 1000+ rows in CSV-paste mode. Browser memory is the ceiling.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- For Markdown tables, keep cells short — wide tables overflow on mobile READMEs.
+- For HTML email tables, always inline styles — most clients strip &lt;style&gt; blocks.
+- For LaTeX, use the booktabs package equivalent (\\toprule \\midrule \\bottomrule) for cleaner output. Toggle "booktabs style".
+- Paste data from Google Sheets / Excel directly — copy includes tabs that the tool parses correctly.
+
+## Try it now
+
+The full table-generator runs in your browser at **[https://ztools.zaions.com/table-generator](https://ztools.zaions.com/table-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/table-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/table-generator.mdx)*

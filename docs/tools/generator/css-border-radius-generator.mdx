@@ -1,0 +1,119 @@
+---
+id: css-border-radius-generator
+title: "CSS Border Radius Generator — Visual, Free Online"
+description: "Build CSS border-radius values visually. Symmetric, asymmetric, organic blob shapes. Browser-only."
+sidebar_label: "css-border-radius-generator"
+keywords:
+  - "css border radius generator"
+  - "rounded corners css"
+  - "border radius tool"
+  - "css blob generator"
+  - "css squircle generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-border-radius-generator
+
+CSS border-radius rounds element corners. The full syntax accepts up to 8 values — four corners with separate horizontal and vertical radii — letting you build asymmetric "squircle" or organic blob shapes. Most uses stick to the simple 8px symmetric form, but the full syntax lets you produce shapes that go far beyond rounded rectangles. The ZTools CSS Border Radius Generator gives a visual UI for all 8 values, supports per-corner customisation, organic blob mode (8-handle drag), and outputs ready-to-paste CSS.
+
+<ToolCTA toolId="css-border-radius-generator" toolName="css-border-radius-generator" />
+
+## Use cases
+
+### Standard rounded buttons / cards
+
+border-radius: 8px. Tool gives you the value and visual preview.
+
+### Pill-shaped buttons
+
+border-radius: 9999px (or 50% on a square). Extreme rounding produces pill shape.
+
+### Organic blob backgrounds
+
+Set 8 different values per corner with horizontal/vertical separation. Creates trendy "squiggle" backgrounds.
+
+### Asymmetric speech bubbles / tooltips
+
+Round 3 corners; leave 1 sharp. Common for chat-bubble UI.
+
+## How it works
+
+1. **Pick mode** — Symmetric (1-4 values) or asymmetric (8 values, horizontal/vertical separated by /).
+2. **Adjust corners** — Sliders or numeric input per corner. Live preview updates.
+3. **Pick units** — px, %, em, rem, vw. Each gives different responsive behavior.
+4. **Copy CSS** — Single line ready to paste into stylesheet.
+
+## Examples
+
+**Input:** All corners 8px
+
+**Output:** border-radius: 8px;
+
+---
+
+**Input:** Asymmetric: top corners 16px, bottom 4px
+
+**Output:** border-radius: 16px 16px 4px 4px;
+
+---
+
+**Input:** Blob shape
+
+**Output:** border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; — 8 values for organic curves.
+
+---
+
+**Input:** Pill shape on a button
+
+**Output:** border-radius: 9999px; (or 50% if square).
+
+## Frequently asked questions
+
+<details>
+<summary>**Why 8 values?**</summary>
+
+Each corner has a horizontal and vertical radius. They're usually equal (forming a circular arc) but can differ (forming an elliptical arc). 4 corners × 2 = 8.
+
+</details>
+
+<details>
+<summary>**Percent vs pixel?**</summary>
+
+Pixel is fixed. Percent scales with element size. For consistent visual roundness across sizes, percent works better; for fixed UI, pixels.
+
+</details>
+
+<details>
+<summary>**Will old browsers support 8 values?**</summary>
+
+Modern browsers all support full syntax. IE11 supports 4 values only.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For most cards/buttons, 4-12px symmetric is the sweet spot.
+- For pill buttons on dynamic content (where width varies), use 9999px not 50%.
+- For organic blobs, randomize the 8 values then tweak — random seeds produce most interesting shapes.
+- Keep border-radius consistent across your design system — different radii on different components feels chaotic.
+
+## Try it now
+
+The full css-border-radius-generator runs in your browser at **[https://ztools.zaions.com/css-border-radius-generator](https://ztools.zaions.com/css-border-radius-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-border-radius-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-border-radius-generator.mdx)*

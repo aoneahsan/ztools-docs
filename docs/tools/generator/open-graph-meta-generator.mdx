@@ -1,0 +1,131 @@
+---
+id: open-graph-meta-generator
+title: "Open Graph Meta Tag Generator — OG Tags for Social Sharing"
+description: "Generate Open Graph + Twitter Card meta tags for rich social sharing previews. Live preview for Facebook, LinkedIn, Twitter/X. Free, instant."
+sidebar_label: "open-graph-meta-generator"
+keywords:
+  - "open graph generator"
+  - "og meta tag generator"
+  - "twitter card generator"
+  - "social meta tags"
+  - "og:image"
+  - "social sharing tags"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# open-graph-meta-generator
+
+Open Graph (OG) meta tags tell social platforms how to render a link preview when someone shares your URL — title, description, hero image, site name, type. Without them, shared URLs render as bare links with no image; with them, they become rich preview cards driving 2–3× higher click-through. The ZTools OG Generator emits the standard `og:title`, `og:description`, `og:image`, `og:url`, `og:type`, `og:site_name` tags plus matching `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image` for X/Twitter — and shows live previews of how the link will render on Facebook, LinkedIn, X, Slack, Discord, and iMessage.
+
+<ToolCTA toolId="open-graph-meta-generator" toolName="open-graph-meta-generator" />
+
+## Use cases
+
+### Marketing landing pages
+
+Every campaign URL needs an OG image — clicks from social drop ~50% without one. The hero image is the single biggest CTR factor on shared links.
+
+### Blog posts
+
+Per-post OG tags with title + featured image + summary. Drives rich previews in Slack/Discord when team members share articles internally.
+
+### Product pages / e-commerce
+
+Product title + price + photo as OG tags. When customers share to Pinterest/Instagram/WhatsApp, the link renders as a shoppable card.
+
+### Documentation links
+
+Docs sites with OG tags get richer Slack/Discord previews when devs share API docs — teammates see the topic without clicking through.
+
+## How it works
+
+1. **Enter title + description** — Title ≤ 60 chars, description 110–160 chars. Both visible in preview cards.
+2. **Set canonical URL** — Absolute URL (https://...). Used by `og:url` and Twitter card.
+3. **Set OG image URL** — Absolute URL to a hero image; recommended 1200×630 px for Facebook/LinkedIn, 1200×675 for Twitter summary-large-image.
+4. **Pick OG type** — website, article, product, video, music — controls what extra fields apply.
+5. **Pick Twitter card style** — summary (small square image) or summary_large_image (full-width hero).
+6. **Copy &lt;head&gt; snippet** — Multi-line meta block — paste into your page &lt;head&gt;.
+
+## Examples
+
+**Input:** Blog post: "How AI Search Changes SEO" + 1200×630 image
+
+**Output:** 12 meta tags covering OG + Twitter — preview cards on every social platform.
+
+---
+
+**Input:** Product: "Wireless Headphones $199" + product image
+
+**Output:** OG type=product, includes price and currency; renders as shoppable card on Pinterest.
+
+---
+
+**Input:** Default site (homepage)
+
+**Output:** OG type=website + site_name; minimum tags for a valid rich preview.
+
+## Frequently asked questions
+
+<details>
+<summary>**Are OG tags still needed in 2026?**</summary>
+
+Yes — Facebook, LinkedIn, Slack, Discord, iMessage, WhatsApp, and Pinterest all read OG tags for link preview cards. X reads its own twitter: tags but falls back to OG if missing.
+
+</details>
+
+<details>
+<summary>**Why is my image not showing?**</summary>
+
+Common causes: image URL is relative (must be absolute https://); image &gt; 5MB (some platforms drop it); image format not jpg/png/webp; Cloudflare/CDN serves different content to bots; OG cache stale — use Facebook Sharing Debugger / LinkedIn Post Inspector to force re-scrape.
+
+</details>
+
+<details>
+<summary>**What size should my OG image be?**</summary>
+
+1200×630 px is the universal sweet spot (1.91:1 ratio). Facebook crops if smaller; Twitter summary_large_image likes 1200×675 (16:9). Square 1200×1200 also works on most platforms.
+
+</details>
+
+<details>
+<summary>**Do I need both og: and twitter: tags?**</summary>
+
+Twitter falls back to og: tags if twitter: are missing, BUT if you want a different X preview than other platforms (e.g. summary_large_image card style), you need explicit twitter: tags.
+
+</details>
+
+<details>
+<summary>**Why does LinkedIn show stale data?**</summary>
+
+LinkedIn caches OG data for ~7 days. Use the Post Inspector (linkedin.com/post-inspector) to force re-scrape after updates.
+
+</details>
+
+<details>
+<summary>**OG vs structured data (JSON-LD)?**</summary>
+
+OG tags = social preview cards. JSON-LD = search engine rich results. Both are needed; they don't replace each other.
+
+</details>
+
+## Tips
+
+- Always use absolute https URLs for og:image — relative paths break.
+- Test with Facebook Sharing Debugger before launch; force re-scrape after any change.
+- Keep title ≤ 60 chars and description 110–160 chars for clean preview rendering.
+- Add `og:image:alt` for accessibility — described OG images get cited better in AI results.
+- For dynamic pages, generate OG image at build time or via image-CDN URL params (e.g. Vercel's @vercel/og).
+
+## Try it now
+
+The full open-graph-meta-generator runs in your browser at **[https://ztools.zaions.com/open-graph-meta-generator](https://ztools.zaions.com/open-graph-meta-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/open-graph-meta-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/open-graph-meta-generator.mdx)*

@@ -1,0 +1,103 @@
+---
+id: css-text-glitch-generator
+title: "CSS Text Glitch Generator — RGB Split, Animated, Free"
+description: "Add an animated glitch effect to text using pure CSS. RGB split, jitter, scanlines. No JS. Browser-only."
+sidebar_label: "css-text-glitch-generator"
+keywords:
+  - "css text glitch generator"
+  - "glitch text effect css"
+  - "rgb split text"
+  - "animated glitch css"
+  - "css broken text effect"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-text-glitch-generator
+
+A glitch effect makes text look like it's breaking up on a CRT or a corrupted display — RGB channel split, horizontal jitter, scanline overlays, occasional jumps. The ZTools CSS Text Glitch Generator produces the visual using pure CSS pseudo-elements and keyframe animations — no JavaScript, no images, no frameworks. Pick colour offsets, intensity, animation duration; copy the result and paste anywhere CSS works.
+
+<ToolCTA toolId="css-text-glitch-generator" toolName="css-text-glitch-generator" />
+
+## Use cases
+
+### Hero text on a portfolio site
+
+Adds a tech / cyberpunk vibe without committing to a heavy theme. Works for designers, developers, gamers.
+
+### 404 / error pages
+
+"PAGE NOT FOUND" with glitch reads as "system error" without being grim. Better than a sad emoji.
+
+### Game / UI title screens
+
+Indie game landing pages, esports brand pages, Twitch overlays.
+
+## How it works
+
+1. **Pick the text** — Type the text to glitch. Generator handles the duplicated layers automatically.
+2. **Configure intensity** — Channel offset (1-5 px), animation speed (0.5-3 s), jitter amount, scanline overlay opacity.
+3. **Pick colours** — Default cyan + magenta (most legible RGB split). Customise per channel for brand-tinted glitches.
+4. **Copy HTML + CSS** — Output: a single element with data-attribute carrying the text + ~40 lines of CSS using ::before/::after for the duplicated layers.
+
+## Examples
+
+**Input:** Text "ZTOOLS", magenta + cyan offsets
+
+**Output:** Three layers stacked: original (white), magenta-tinted ::before (offset −2px), cyan-tinted ::after (offset +2px). Keyframes nudge each layer randomly every 200 ms for the jitter effect.
+
+---
+
+**Input:** Subtle glitch (1 px offset, 3 s loop)
+
+**Output:** Same structure, smaller offsets, longer cycle. Reads as polished tech rather than retro arcade.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will this hurt accessibility?**</summary>
+
+Yes if used heavily — the animated jitter can trigger motion sensitivity. Always wrap the effect in @media (prefers-reduced-motion: reduce) and disable animation for those users.
+
+</details>
+
+<details>
+<summary>**Is the text searchable / readable to crawlers?**</summary>
+
+Yes — text lives in the DOM. The pseudo-element layers pull from data-text="..." attribute or a ::before \{ content: attr(data-text) \} pattern. Crawlers see plain text.
+
+</details>
+
+<details>
+<summary>**Does it work in all browsers?**</summary>
+
+Modern browsers (Chrome, Firefox, Safari, Edge). IE11 not supported (no relevant). Falls back to plain text gracefully.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- Always honour prefers-reduced-motion — disable animation; static RGB-split layers still look interesting without the motion.
+- Use sparingly — one hero element, not every heading. The effect loses impact when overused.
+- Pair with a monospace or display font — generic sans-serif looks weak under glitch.
+- For dark backgrounds, RGB split reads as cyan + magenta on white text. For light backgrounds, invert: red + blue on dark text.
+
+## Try it now
+
+The full css-text-glitch-generator runs in your browser at **[https://ztools.zaions.com/css-text-glitch-generator](https://ztools.zaions.com/css-text-glitch-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-text-glitch-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-text-glitch-generator.mdx)*

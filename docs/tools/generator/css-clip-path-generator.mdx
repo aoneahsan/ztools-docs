@@ -1,0 +1,130 @@
+---
+id: css-clip-path-generator
+title: "CSS Clip-Path Generator — Visual Polygon, Circle, Inset Builder"
+description: "Visually build CSS clip-path: polygon, circle, ellipse, inset. Drag points on the preview. Copy CSS. Free, no signup."
+sidebar_label: "css-clip-path-generator"
+keywords:
+  - "css clip-path generator"
+  - "clip path tool"
+  - "polygon clip path"
+  - "css mask shape"
+  - "diagonal section divider"
+  - "css clip path maker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-clip-path-generator
+
+A CSS clip-path generator builds the `clip-path` property visually — letting you drag polygon points, set circle/ellipse radii, or define inset rectangles directly on a preview element rather than computing percentages by hand. The ZTools CSS Clip-Path Generator supports polygon (any number of points), circle, ellipse, inset (with rounded corners), and SVG path() clipping; offers preset shapes (chevron, hexagon, parallelogram, message bubble, star, blob); and emits clean CSS plus a Tailwind 4 arbitrary-value utility for instant pasting.
+
+<ToolCTA toolId="css-clip-path-generator" toolName="css-clip-path-generator" />
+
+## Use cases
+
+### Diagonal section dividers
+
+Modern landing pages use polygon clip-paths to create slanted hero edges. Drag the bottom corners; copy.
+
+### Image masks
+
+Crop a profile photo to a hexagon or circle without an SVG mask. Apply clip-path:circle(50%) and you have an instant round avatar.
+
+### Reveal animations
+
+Animate clip-path between two states for a wipe-reveal effect. Build the start and end shapes here, transition between them in CSS.
+
+### Decorative ornaments
+
+Star, blob, parallelogram, chevron — non-rectangular shapes anchor brand graphics without exporting SVG for every variant.
+
+## How it works
+
+1. **Pick a shape type** — Polygon (custom point list), circle, ellipse, inset (rectangle with optional rounded corners), or path() with raw SVG.
+2. **Drag points / radii** — For polygons, drag any vertex on the preview; add or remove points. For circle/ellipse, drag radius and centre.
+3. **Tune precisely** — Type exact percentages for snap accuracy. Toggle pixel vs percent units.
+4. **Preview at multiple sizes** — Square, landscape, portrait — clip-paths often look different at different aspect ratios.
+5. **Copy CSS** — Plain CSS, Tailwind 4 arbitrary value, or a CSS custom property declaration.
+
+## Examples
+
+**Input:** Diagonal hero (polygon)
+
+**Output:** clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+---
+
+**Input:** Circle avatar
+
+**Output:** clip-path: circle(50% at 50% 50%);
+
+---
+
+**Input:** Hexagon
+
+**Output:** clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+## Frequently asked questions
+
+<details>
+<summary>**Is clip-path supported in all browsers?**</summary>
+
+All modern browsers (Chrome, Firefox, Safari, Edge). Older Safari requires the -webkit- prefix; the generator emits both for safety.
+
+</details>
+
+<details>
+<summary>**Can I animate clip-path?**</summary>
+
+Yes — animating between two polygons with the same point count works smoothly. Different point counts produce visual jumps.
+
+</details>
+
+<details>
+<summary>**How does clip-path differ from mask-image?**</summary>
+
+clip-path is a binary cut: pixels are either in or out. mask-image supports alpha gradients (soft edges). Use clip-path for sharp shapes, mask-image for soft fades.
+
+</details>
+
+<details>
+<summary>**Will it impact performance?**</summary>
+
+Clip-path is GPU-accelerated. Performance is fine even on mobile for hundreds of clipped elements.
+
+</details>
+
+<details>
+<summary>**Why is my clip-path producing the wrong shape?**</summary>
+
+Polygon points are clockwise from top-left, expressed as percentages of the element's box. The generator visualises this so you cannot get it wrong.
+
+</details>
+
+<details>
+<summary>**Can I export an SVG path version?**</summary>
+
+Yes — the generator emits clip-path: path('M…') for cases where polygon does not fit (curves, complex shapes).
+
+</details>
+
+## Tips
+
+- For diagonal section dividers, drag only one corner — the asymmetric cut feels more intentional than a symmetric diagonal.
+- Save common shapes (avatar circle, hexagon, chevron) as snippets in your CSS library.
+- For animations, ensure the start and end polygons have the same point count — otherwise the transition jumps.
+- When images get clipped, set the original image as a background so SEO-friendly alt text still works on a wrapper.
+- Test the shape at multiple aspect ratios — polygons tied to a specific shape can break in responsive contexts.
+
+## Try it now
+
+The full css-clip-path-generator runs in your browser at **[https://ztools.zaions.com/css-clip-path-generator](https://ztools.zaions.com/css-clip-path-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-clip-path-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-clip-path-generator.mdx)*

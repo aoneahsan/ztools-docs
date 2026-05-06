@@ -1,0 +1,114 @@
+---
+id: css-checkbox-generator
+title: "CSS Checkbox Generator — Custom Styled, Accessible, Free"
+description: "Build custom-styled checkboxes with pure CSS. Animations, colors, sizes. Accessible markup. Browser-only — no signup."
+sidebar_label: "css-checkbox-generator"
+keywords:
+  - "css checkbox generator"
+  - "custom checkbox css"
+  - "animated checkbox"
+  - "styled checkbox accessible"
+  - "checkbox css animation"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-checkbox-generator
+
+Native HTML checkboxes are notoriously hard to style — most browsers ignore most CSS on them. The standard workaround: hide the native input visually but leave it accessible, then style a sibling label with a faux box. The ZTools CSS Checkbox Generator does that for you: pick a colour, size, border radius, animation style — generator emits HTML + CSS that's accessible, keyboard-focusable, and visually customised. Works in all modern browsers; no JavaScript needed.
+
+<ToolCTA toolId="css-checkbox-generator" toolName="css-checkbox-generator" />
+
+## Use cases
+
+### Branded form checkboxes
+
+Default browser checkbox doesn't match your brand. Custom-styled version with brand colour and rounded corners brings forms in line with the design system.
+
+### Animated check state
+
+Smooth check-mark draw-on, scale, or fade transitions for delightful interaction. CSS-only — no JS.
+
+### Toggle-style "checkbox" (less common)
+
+Some designs use a switch UI for boolean inputs. Generator includes a switch variant alongside the box variant.
+
+### Custom indeterminate state
+
+Three-state checkbox (unchecked / indeterminate / checked) styled consistently across browsers.
+
+## How it works
+
+1. **Configure visual style** — Box size (16-32 px), border radius (square / rounded / circle), border colour and width, fill colour for checked state, check-mark colour.
+2. **Pick animation** — None, fade, scale, draw-on (SVG path animation). Each comes with adjustable duration / easing.
+3. **Configure accessibility** — Generator hides the native input via clip-path (not display:none — keyboard focus survives). Adds focus-visible ring.
+4. **Copy HTML + CSS** — Output is a small HTML snippet (label wrapping input + span) plus ~30 lines of CSS. Drop into any project.
+
+## Examples
+
+**Input:** 24px, rounded 4px, brand blue (#2563eb), animated check draw
+
+**Output:** HTML: &lt;label class="cb"&gt;&lt;input type="checkbox"&gt;&lt;span class="cb-box"&gt;&lt;/span&gt;&lt;span class="cb-label"&gt;Subscribe&lt;/span&gt;&lt;/label&gt;. CSS: ~30 lines covering hidden input, faux box, hover/focus states, draw-on animation.
+
+---
+
+**Input:** Indeterminate state styling
+
+**Output:** CSS rule .cb input:indeterminate ~ .cb-box::after \{ background: var(--brand) \} — three visually distinct states.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this accessible?**</summary>
+
+Yes — the native checkbox stays in the DOM with its semantics. Visual hiding uses clip-path, not display:none, so screen readers and keyboard navigation work correctly.
+
+</details>
+
+<details>
+<summary>**Why not appearance: none?**</summary>
+
+appearance: none + custom styles works but cross-browser support of pseudo-elements on checkboxes is patchy. The hide-and-replace pattern is more reliable.
+
+</details>
+
+<details>
+<summary>**Will it work in older browsers?**</summary>
+
+Modern browsers (Chrome 90+, Firefox 90+, Safari 14+). For older browsers, fall back to the native checkbox.
+
+</details>
+
+<details>
+<summary>**Does it need JavaScript?**</summary>
+
+No — pure CSS. The native input drives state; CSS styles the sibling span based on :checked.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- Always pair the checkbox with a clickable label — touch targets need to be 44×44 px on mobile.
+- Add a focus-visible ring — keyboard users need a visible focus indicator that matches the rest of your design system.
+- For dark mode, drive colours via CSS variables (var(--cb-bg), var(--cb-border)) so the same component works in both themes.
+- Test with a screen reader. Hidden inputs that lose focus break accessibility — clip-path preserves it.
+
+## Try it now
+
+The full css-checkbox-generator runs in your browser at **[https://ztools.zaions.com/css-checkbox-generator](https://ztools.zaions.com/css-checkbox-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-checkbox-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-checkbox-generator.mdx)*

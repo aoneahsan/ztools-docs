@@ -1,0 +1,130 @@
+---
+id: css-box-shadow-generator
+title: "CSS Box-Shadow Generator — Visual Shadow Builder with Live Preview"
+description: "Build CSS box-shadows with offset, blur, spread, colour, and inner glow. Stack multiple shadows. Live preview. Copy CSS or Tailwind."
+sidebar_label: "css-box-shadow-generator"
+keywords:
+  - "css box shadow generator"
+  - "box shadow maker"
+  - "css shadow generator"
+  - "tailwind shadow"
+  - "card shadow css"
+  - "visual box shadow tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-box-shadow-generator
+
+A CSS box-shadow generator builds the `box-shadow` CSS property visually — offset X, offset Y, blur radius, spread radius, colour, alpha, inset / outset — with a live preview on a card-shaped element so the result looks right before you paste it into your stylesheet. The ZTools CSS Box-Shadow Generator supports stacking multiple shadows for layered depth (the modern "soft, ambient + sharp, near" convention popular in UI design), saves recipes locally, and exports plain CSS or Tailwind 3/4 utility chains.
+
+<ToolCTA toolId="css-box-shadow-generator" toolName="css-box-shadow-generator" />
+
+## Use cases
+
+### Card and modal elevation
+
+Modern UIs use 2-layer shadows: a wide soft ambient shadow plus a tight near shadow. Build both, stack, copy CSS into the card component.
+
+### Button hover lift
+
+Subtle 2 px lift on hover with a softer shadow. Generate, paste, animate via a simple transition.
+
+### Inset shadows for inputs
+
+Input fields with a soft inset shadow look "carved" — useful in form-heavy designs. Toggle inset and copy.
+
+### Drop-shadow alternatives
+
+For non-rectangular elements (icons), filter:drop-shadow may suit better. The generator emits both options for comparison.
+
+## How it works
+
+1. **Drag the offset** — X / Y offset on a 2D pad. Visual feedback updates the preview live.
+2. **Tune blur and spread** — Blur softens; spread enlarges. Negative spread shrinks the shadow inside the element bounds.
+3. **Pick colour and alpha** — Hex / RGB / HSL with alpha. Most natural shadows are dark with low alpha (e.g., rgba(0,0,0,0.15)).
+4. **Stack multiple shadows** — Add another layer; reorder by drag. Up to 6 layers comfortably.
+5. **Copy CSS or Tailwind** — Pure CSS string, or a Tailwind 4 arbitrary-value utility for in-place use.
+
+## Examples
+
+**Input:** 0 4px 12px rgba(0,0,0,0.15)
+
+**Output:** Standard "card lift" shadow
+
+---
+
+**Input:** Two-layer: 0 1px 3px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.08)
+
+**Output:** Modern UI elevation — sharp + ambient
+
+---
+
+**Input:** inset 0 2px 4px rgba(0,0,0,0.08)
+
+**Output:** Subtle carved-input feel
+
+## Frequently asked questions
+
+<details>
+<summary>**How many shadow layers should I stack?**</summary>
+
+2 layers covers 95% of UI needs (sharp + ambient). 3+ layers risk performance and rarely improve realism.
+
+</details>
+
+<details>
+<summary>**Are box-shadows expensive to render?**</summary>
+
+Large blur radii on many elements can hurt scroll performance. For long lists, prefer subtle shadows or use will-change carefully.
+
+</details>
+
+<details>
+<summary>**What is the difference between box-shadow and filter:drop-shadow?**</summary>
+
+box-shadow follows the element's rectangle (or border-radius). filter:drop-shadow follows the element's actual painted shape — useful for icons / non-rectangular elements.
+
+</details>
+
+<details>
+<summary>**Why does my shadow look too harsh?**</summary>
+
+High alpha (&gt; 0.3) on dark colours reads as a stamp, not a shadow. Lower alpha (0.1–0.2) and add blur for natural softness.
+
+</details>
+
+<details>
+<summary>**Can I emit Tailwind shadows?**</summary>
+
+Yes — the generator emits a Tailwind 4 `shadow-[...]` arbitrary value, or a Tailwind 3 plugin entry for the theme.
+
+</details>
+
+<details>
+<summary>**Inset vs outset?**</summary>
+
+Inset draws inside the element (carved feel). Outset (default) draws outside (lifted feel).
+
+</details>
+
+## Tips
+
+- Use 2 layers for cards: one tight (0 1px 2px) and one wide (0 8px 24px) at low alpha.
+- Match shadow direction across the page — typically all shadows fall down-right, simulating one light source.
+- For dark mode, increase alpha and reduce blur — shadows work harder against dark backgrounds.
+- Prefer rgba() for shadow colour so you can tune alpha without picking a new hex.
+- Save your favourite recipe (e.g. "card lift") in your design system so the team uses the same shadow everywhere.
+
+## Try it now
+
+The full css-box-shadow-generator runs in your browser at **[https://ztools.zaions.com/css-box-shadow-generator](https://ztools.zaions.com/css-box-shadow-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-box-shadow-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-box-shadow-generator.mdx)*

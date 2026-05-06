@@ -1,0 +1,131 @@
+---
+id: gradient-generator
+title: "Gradient Generator — Linear, Radial, Conic CSS Gradients"
+description: "Build linear, radial, conic CSS gradients with multi-stop colour control and live preview. Copy CSS or Tailwind. Free, no signup."
+sidebar_label: "gradient-generator"
+keywords:
+  - "gradient generator"
+  - "css gradient"
+  - "linear gradient"
+  - "radial gradient"
+  - "conic gradient"
+  - "css gradient maker"
+  - "tailwind gradient"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# gradient-generator
+
+A gradient generator builds CSS gradients (linear, radial, conic) with full control over angle, shape, colour stops, opacity, and blending mode — emitting clean CSS or Tailwind utility strings ready to paste into your stylesheet. The ZTools Gradient Generator offers a visual angle dial, drag-to-position colour stops, hex / RGB / HSL inputs, alpha control per stop, and a live preview at multiple element sizes (button, card, hero) so the gradient looks right at every scale before you commit.
+
+<ToolCTA toolId="gradient-generator" toolName="gradient-generator" />
+
+## Use cases
+
+### Hero backgrounds
+
+A landing-page hero needs a brand-aware gradient. Compose two-stop linear gradient at 135°, fine-tune positions, copy CSS to the section.
+
+### Button styling
+
+Polished CTA buttons use subtle gradient backgrounds. Build a 2-stop near-tone gradient, preview at button size, paste.
+
+### Conic loaders and progress arcs
+
+Modern loaders use conic gradients. Build a 0–100% arc, paste into a CSS animation.
+
+### Mesh / radial accents
+
+Designers stack 2–3 radial gradients for a soft, multi-tone background. Compose each layer here, copy combined CSS into the body or a wrapper.
+
+## How it works
+
+1. **Pick the gradient type** — Linear, radial, or conic. Type-specific controls show: angle for linear, shape + position for radial, start angle for conic.
+2. **Add colour stops** — Start with 2 stops; add more by clicking the gradient bar. Each stop has colour (with alpha) and position 0–100%.
+3. **Tune precisely** — Drag stops to reposition; type exact percentages for snap accuracy. Reorder by dragging.
+4. **Preview at multiple sizes** — Button, card, hero, full background — the gradient often looks different at scale.
+5. **Copy CSS or Tailwind** — Cleaned CSS (linear-gradient(135deg, ...)) or a Tailwind 3 / 4 utility chain.
+
+## Examples
+
+**Input:** Linear, 135°, #6B5BFF → #00C2FF
+
+**Output:** background: linear-gradient(135deg, #6B5BFF 0%, #00C2FF 100%);
+
+---
+
+**Input:** Radial, ellipse at 50% 0%, three stops
+
+**Output:** background: radial-gradient(ellipse at 50% 0%, #FFD86B 0%, #FF7A59 50%, #6B5BFF 100%);
+
+---
+
+**Input:** Conic, from 0deg, 4 colours
+
+**Output:** background: conic-gradient(from 0deg, #F00, #FF0, #0F0, #00F, #F00);
+
+## Frequently asked questions
+
+<details>
+<summary>**Should I use linear or radial for hero backgrounds?**</summary>
+
+Linear is the safest default — predictable, scales well, and matches most brand systems. Radial works for soft "spotlight" effects; conic for circular accents.
+
+</details>
+
+<details>
+<summary>**How many stops are too many?**</summary>
+
+For brand backgrounds, 2–3 stops looks intentional. 5+ stops often looks busy unless you are deliberately creating a mesh aesthetic.
+
+</details>
+
+<details>
+<summary>**Why does my gradient look banded?**</summary>
+
+Banding happens when two stops are nearly the same colour at low bit depth. Use slightly different hues at intermediate stops, or apply a subtle SVG noise overlay (3–5% opacity).
+
+</details>
+
+<details>
+<summary>**Does the output work in older browsers?**</summary>
+
+Linear and radial gradients work everywhere modern (IE 10+). Conic is widely supported but check caniuse if you support older Safari versions.
+
+</details>
+
+<details>
+<summary>**Can I generate Tailwind classes?**</summary>
+
+Yes — Tailwind 4 supports arbitrary gradients via the `bg-[linear-gradient(...)]` arbitrary value, and the generator emits this string for you.
+
+</details>
+
+<details>
+<summary>**Are alpha stops supported?**</summary>
+
+Yes — colour stops accept rgba()/hsla(); alpha is preserved in the CSS output.
+
+</details>
+
+## Tips
+
+- 135° is the most natural-looking diagonal angle on landscape layouts; 180° (top-to-bottom) is flatter.
+- For brand-aware gradients, keep the two endpoint hues within 30–60° on the colour wheel — too distant looks gaudy.
+- Add a subtle noise overlay over flat gradients to defeat banding on dark backgrounds.
+- Preview at button size before approving — gradients can look great at hero size and busy at button size.
+- Save the CSS as a custom-property variable so you can reuse it across components.
+
+## Try it now
+
+The full gradient-generator runs in your browser at **[https://ztools.zaions.com/gradient-generator](https://ztools.zaions.com/gradient-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/gradient-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/gradient-generator.mdx)*

@@ -1,0 +1,97 @@
+---
+id: pythagoras-fractal
+title: "Pythagoras Tree Fractal — SVG Generator, Free"
+description: "Generate the Pythagoras tree fractal — recursive squares forming a tree. Customize angle, depth. Browser-only."
+sidebar_label: "pythagoras-fractal"
+keywords:
+  - "pythagoras tree fractal"
+  - "recursive square fractal"
+  - "mathematical fractal tree"
+  - "pythagorean tree svg"
+  - "fractal art generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pythagoras-fractal
+
+The Pythagoras tree is a fractal constructed from squares: place a square, attach two smaller squares on top at right angles forming a triangle (the Pythagorean theorem visualised), repeat on each child. The result resembles a stylized tree. Different angles produce dramatically different shapes — 45° gives the symmetric classic; other angles produce asymmetric "windswept" forms. The ZTools Pythagoras Tree generator builds the fractal in SVG up to depth 12 with configurable angle, color, and size.
+
+<ToolCTA toolId="pythagoras-fractal" toolName="pythagoras-fractal" />
+
+## Use cases
+
+### Decorative SVG
+
+Background or hero element with mathematical / organic feel.
+
+### Teach the Pythagorean theorem
+
+Visual demonstration of a² + b² = c² in fractal form.
+
+### Generative art
+
+Tweak angles for unexpected shapes.
+
+### CS teaching — recursion
+
+Each level is a recursive call. Watch the tree grow as depth increases.
+
+## How it works
+
+1. **Pick parameters** — Angle (default 45° for classic; 30° / 60° produce asymmetric trees). Depth (5-12). Colors. Stroke width.
+2. **Render** — Recursive draw: square → two children at angle → recurse.
+3. **Export SVG** — Vector for scaling / printing.
+
+## Examples
+
+**Input:** angle 45°, depth 10
+
+**Output:** Classic symmetric Pythagoras tree.
+
+---
+
+**Input:** angle 30°, depth 10
+
+**Output:** Asymmetric "leaning" tree.
+
+---
+
+**Input:** angle 60°, depth 8
+
+**Output:** Wide, bushy variant.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does depth 12 freeze?**</summary>
+
+Depth N produces 2^N squares. Depth 12 = 4,095 squares; depth 15 = 32,767. Beyond ~12, SVG path count slows.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- 45° is the classic — most recognisable.
+- For posters, depth 11+ at high resolution gives stunning detail.
+- Combine with color gradient (depth-based) for added visual interest.
+
+## Try it now
+
+The full pythagoras-fractal runs in your browser at **[https://ztools.zaions.com/pythagoras-fractal](https://ztools.zaions.com/pythagoras-fractal)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pythagoras-fractal)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/pythagoras-fractal.mdx)*

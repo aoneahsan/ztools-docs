@@ -1,0 +1,130 @@
+---
+id: random-color-generator
+title: "Random Color Generator — Hex / RGB / HSL with Tone Filters"
+description: "Generate random colours: hex, RGB, HSL. Filter by tone (pastel, vibrant, dark, muted). Bulk export. Free, in-browser."
+sidebar_label: "random-color-generator"
+keywords:
+  - "random color generator"
+  - "random hex color"
+  - "pastel color generator"
+  - "vibrant color generator"
+  - "random palette"
+  - "random color picker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# random-color-generator
+
+A random colour generator produces colour values — single or in bulk — drawn either uniformly across all hues or filtered by tone (pastel, vibrant, dark, muted) so you get a useful palette starting point rather than a chaotic spread. The ZTools Random Colour Generator emits hex, RGB, HSL, and CIELAB simultaneously, optional WCAG-paired light/dark companions, bulk export to CSV / JSON / CSS variables / Tailwind config, and visual contrast preview against white and black so you immediately see whether each colour is dark enough for white text or light enough for dark text.
+
+<ToolCTA toolId="random-color-generator" toolName="random-color-generator" />
+
+## Use cases
+
+### Brand exploration
+
+Brand kickoff with no fixed direction. Generate 50 random vibrant colours; pin the 3 that resonate; build a palette around them.
+
+### Categorical chart palettes
+
+A dashboard needs 12 distinct colours for a stacked-bar chart. Generate 12 with even hue spacing — distinct yet harmonious.
+
+### Random theming demos
+
+A "shuffle theme" button on a tutorial site. Each click pulls a fresh tone-filtered colour as the new accent.
+
+### Test data for design tools
+
+Stress-test a design system with 200 random fills to confirm contrast checks fire correctly.
+
+## How it works
+
+1. **Pick a tone filter** — All (uniform random), pastel (high lightness, low saturation), vibrant (high saturation), dark (low lightness), muted (low saturation).
+2. **Set the count** — 1 (single shuffle) up to 1,000.
+3. **Optional spacing** — "Even hue spacing" generates colours evenly distributed around the hue circle — perfect for categorical charts.
+4. **Generate** — Each colour shows hex, RGB, HSL, plus contrast ratios against white and black.
+5. **Export** — CSV, JSON, CSS custom properties, Tailwind colour fragment, or copy individual swatches.
+
+## Examples
+
+**Input:** 5 random vibrant
+
+**Output:** #FF4F8B, #4FC3FF, #4FFF7A, #FFC34F, #B14FFF
+
+---
+
+**Input:** 12 even-hue, vibrant
+
+**Output:** Twelve hues 30° apart on the colour wheel — categorical-chart-ready
+
+---
+
+**Input:** 5 pastel
+
+**Output:** #FFD1E2, #D1F0FF, #D8FFD1, #FFF5D1, #E2D1FF
+
+## Frequently asked questions
+
+<details>
+<summary>**Why not just call Math.random?**</summary>
+
+Pure random RGB produces ugly muddy colours half the time. Tone filters constrain to the parts of HSL that humans find aesthetically pleasing.
+
+</details>
+
+<details>
+<summary>**How do tone filters work?**</summary>
+
+They constrain HSL ranges. Pastel: high L (85–95), low-mid S (15–35). Vibrant: mid L (45–55), high S (75–95). Dark: low L (15–30). Muted: any L, low S (10–25).
+
+</details>
+
+<details>
+<summary>**Is the contrast ratio shown WCAG?**</summary>
+
+Yes — WCAG 2.1 contrast formula. Pairs labelled AA / AAA based on whether they exceed 4.5:1 / 7:1.
+
+</details>
+
+<details>
+<summary>**Can I generate evenly-spaced hues?**</summary>
+
+Yes — the "even hue spacing" mode places N colours equidistantly around the hue wheel, perfect for distinct categorical chart colours.
+
+</details>
+
+<details>
+<summary>**How do I save a colour I like?**</summary>
+
+Click the swatch to pin; pinned swatches stay across regenerations. Export the pinned set when you have your palette.
+
+</details>
+
+<details>
+<summary>**Does it support alpha (transparency)?**</summary>
+
+Yes — toggle alpha mode to also randomise the alpha channel within a configurable range.
+
+</details>
+
+## Tips
+
+- For brand exploration, generate 50 vibrant colours, pin 3, then refine via the Color Palette Generator.
+- For dashboards with many series, use even-hue spacing — visually distinct and balanced.
+- Pastel tone is ideal for soft UI backgrounds; vibrant for accents and CTAs.
+- Always check contrast ratios before using a generated colour as text/background.
+- Save winners as CSS variables so the team converges on the same palette.
+
+## Try it now
+
+The full random-color-generator runs in your browser at **[https://ztools.zaions.com/random-color-generator](https://ztools.zaions.com/random-color-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/random-color-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/random-color-generator.mdx)*

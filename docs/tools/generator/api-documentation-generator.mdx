@@ -1,0 +1,127 @@
+---
+id: api-documentation-generator
+title: "API Documentation Generator — From OpenAPI to HTML, Free"
+description: "Generate clean API docs from OpenAPI / JSON schema. Endpoints, parameters, examples, response codes. Browser-only — no signup."
+sidebar_label: "api-documentation-generator"
+keywords:
+  - "api documentation generator"
+  - "openapi to html"
+  - "swagger doc generator"
+  - "api docs from spec"
+  - "rest api docs builder"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# api-documentation-generator
+
+API documentation lists every endpoint, the parameters it accepts, the response shapes, and example requests / responses. Hand-written docs drift from the implementation. Generated docs stay in sync with the spec. The ZTools API Documentation Generator takes an OpenAPI 3.0 / Swagger 2.0 / JSON Schema input and produces an HTML page with navigation, endpoint sections, parameter tables, code samples (curl, JS, Python), and a try-it-out section. Useful when the official Swagger UI is too heavy or when you want to publish docs without standing up a service.
+
+<ToolCTA toolId="api-documentation-generator" toolName="api-documentation-generator" />
+
+## Use cases
+
+### Publish docs from a spec file
+
+Backend team owns openapi.yaml. Generator turns it into a static HTML site you can deploy anywhere (GitHub Pages, S3, Netlify).
+
+### Internal docs without a docs platform
+
+Small team; no Stoplight / Postman investment. Generator output is plain HTML — drop into a Confluence page or a wiki.
+
+### Compare two API versions
+
+Generate v1 docs and v2 docs side by side; spot what changed without parsing JSON manually.
+
+### Onboarding aid
+
+New engineers read the generator output to understand the surface area. Faster than reading code.
+
+## How it works
+
+1. **Paste spec** — OpenAPI 3.0 (YAML or JSON), Swagger 2.0, or a custom JSON describing endpoints + schemas.
+2. **Pick template** — Compact (single page, minimal styling), Standard (sidebar nav + endpoint cards), Detailed (full Swagger-UI-style layout with try-it-out).
+3. **Configure code samples** — Toggle which language samples to include (curl, JavaScript fetch, Python requests, Go, PHP).
+4. **Export** — Download as a single-file HTML or a folder ready to deploy. CSS embedded; no external assets.
+
+## Examples
+
+**Input:** Tiny OpenAPI: GET /users, POST /users
+
+**Output:** HTML with a sidebar (Users) and two endpoint cards. Each card lists method, path, parameters table, response schema, curl + JS examples.
+
+---
+
+**Input:** OpenAPI with auth scheme (Bearer JWT)
+
+**Output:** Top-of-page "Authentication" section explains the header. All examples include `Authorization: Bearer &lt;token&gt;` in the curl + fetch samples.
+
+---
+
+**Input:** Schema with nested objects
+
+**Output:** Schema section renders a tree showing types, required fields, descriptions. Click an object to drill into nested properties.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does this differ from Swagger UI?**</summary>
+
+Swagger UI is interactive but heavyweight (300 KB minified) and needs hosting. The generator produces a single static HTML file, ~50 KB, that opens with no server.
+
+</details>
+
+<details>
+<summary>**Does it support OpenAPI 3.1?**</summary>
+
+3.0 fully supported. 3.1 supported with caveats — JSON Schema 2020-12 references mostly work; webhooks render but with a draft notice.
+
+</details>
+
+<details>
+<summary>**Can I customise the styling?**</summary>
+
+Output uses CSS variables; override --primary, --bg, --text, --code-bg in a single block at the top to rebrand.
+
+</details>
+
+<details>
+<summary>**Does the try-it-out actually call my API?**</summary>
+
+Yes, from the user's browser — same as Swagger UI. CORS rules apply. For local APIs, the generator can include a fixed `Origin` header workaround.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in the browser. Spec never uploaded.
+
+</details>
+
+<details>
+<summary>**Can I include multiple specs?**</summary>
+
+One spec per page. For a multi-API portal (admin, public, partner APIs), generate three pages with shared navigation.
+
+</details>
+
+## Tips
+
+- Keep the OpenAPI spec as the single source of truth. Generate docs as part of CI so they never drift from implementation.
+- Add `description:` fields to every endpoint and schema property — they become the human-facing docs prose.
+- Use `examples:` blocks in the spec — generator surfaces them as copy-pasteable request / response samples.
+- For private APIs, generate without the try-it-out section to avoid accidentally inviting external traffic.
+
+## Try it now
+
+The full api-documentation-generator runs in your browser at **[https://ztools.zaions.com/api-documentation-generator](https://ztools.zaions.com/api-documentation-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/api-documentation-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/api-documentation-generator.mdx)*

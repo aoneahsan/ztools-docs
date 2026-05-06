@@ -1,0 +1,110 @@
+---
+id: css-switch-generator
+title: "CSS Switch Generator — Toggle Switch Builder, Free"
+description: "Build accessible toggle switches with pure CSS. Like iOS / Android. Custom colors, sizes, animations. Browser-only."
+sidebar_label: "css-switch-generator"
+keywords:
+  - "css switch generator"
+  - "toggle switch css"
+  - "ios switch css"
+  - "on off toggle css"
+  - "pure css switch"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-switch-generator
+
+Toggle switches are the iOS/Android style on/off control — a track with a thumb that slides between two positions. They're semantically a checkbox styled to look like a switch. The ZTools CSS Switch Generator builds the markup and CSS: pick a track width, height, colour for on/off states, thumb size, animation duration. Output is accessible (native input under the hood), keyboard-focusable, and works without JavaScript.
+
+<ToolCTA toolId="css-switch-generator" toolName="css-switch-generator" />
+
+## Use cases
+
+### Settings toggles
+
+"Enable notifications" — clearer affordance as a switch than a checkbox. Mobile users especially recognise the pattern.
+
+### Dark mode toggle
+
+A switch that moves left for light, right for dark. Pair with prefers-color-scheme detection.
+
+### Filter toggles in admin UIs
+
+"Show archived items" — quick on/off without a save button. Switches communicate immediate effect better than checkboxes.
+
+## How it works
+
+1. **Pick dimensions** — Track width × height (e.g. 44×24). Thumb size (typically height − 4 for padding). Border radius defaults to round (height/2).
+2. **Pick colours** — Off track, on track, thumb (typically white). Disabled state colours separately configurable.
+3. **Configure motion** — Slide duration (200-400 ms feels right). Easing curve (ease-in-out is the safe default).
+4. **Copy HTML + CSS** — Output: &lt;label class="sw"&gt;&lt;input type="checkbox"&gt;&lt;span class="sw-track"&gt;&lt;span class="sw-thumb"/&gt;&lt;/span&gt;&lt;/label&gt;. CSS ~25 lines.
+
+## Examples
+
+**Input:** 44×24 track, blue on, grey off, 250 ms slide
+
+**Output:** CSS toggles --track-bg between #d1d5db (off) and #2563eb (on); transform: translateX(20px) on the thumb when :checked.
+
+---
+
+**Input:** Larger 60×32 with text labels inside ("ON" / "OFF")
+
+**Output:** Track holds two pseudo-element labels positioned absolutely; opacity fades based on :checked.
+
+## Frequently asked questions
+
+<details>
+<summary>**Switch vs checkbox — when to use which?**</summary>
+
+Switch: immediate on/off effect. Checkbox: requires a save action OR is part of a multi-selection. iOS HIG and Material Design both follow this rule.
+
+</details>
+
+<details>
+<summary>**Is this accessible?**</summary>
+
+Yes — uses a native checkbox with semantics intact. Add aria-label or wrap in a label so screen readers announce the purpose.
+
+</details>
+
+<details>
+<summary>**Should I add aria-pressed?**</summary>
+
+Only if you're building it with a &lt;button&gt; instead of a checkbox. With native checkbox, aria-checked is implicit.
+
+</details>
+
+<details>
+<summary>**Does it work without JavaScript?**</summary>
+
+Yes — pure CSS. Native checkbox drives state; CSS animates the thumb on :checked.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- Touch targets should be at least 44×24 (iOS) or 48×24 (Material) — anything smaller is hard to hit on a phone.
+- Always pair with a label — never let a switch float without context.
+- Animation duration around 200-300 ms feels responsive without feeling rushed. Anything &lt;100ms feels instant (no feedback); &gt;500ms feels sluggish.
+- For dark mode, use CSS variables for both colours — same component, different palette.
+
+## Try it now
+
+The full css-switch-generator runs in your browser at **[https://ztools.zaions.com/css-switch-generator](https://ztools.zaions.com/css-switch-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-switch-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-switch-generator.mdx)*

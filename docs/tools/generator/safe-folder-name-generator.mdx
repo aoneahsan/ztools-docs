@@ -1,0 +1,119 @@
+---
+id: safe-folder-name-generator
+title: "Safe Folder Name Generator — Cross-Platform, Free"
+description: "Generate folder names safe across Windows, macOS, Linux. Strip illegal chars, normalize spacing. Browser-only."
+sidebar_label: "safe-folder-name-generator"
+keywords:
+  - "safe folder name generator"
+  - "sanitize folder name"
+  - "cross platform folder name"
+  - "kebab case generator"
+  - "folder slug generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# safe-folder-name-generator
+
+A safe folder name is one that survives on every filesystem and tool — Windows (no &lt;&gt;:"|?*, no reserved names CON / NUL / COM1, max 255 chars), macOS (no slash, no colon at API level), Linux (no slash, no null), Git (no spaces ideal, no dots at start), Docker (lowercase only sometimes), URLs (no spaces or non-ASCII). The ZTools Safe Folder Name Generator turns a free-form description into a folder-safe string with configurable rules: lowercase, dash / underscore / kebab-case, transliterate accents, drop reserved names, strip illegal chars.
+
+<ToolCTA toolId="safe-folder-name-generator" toolName="safe-folder-name-generator" />
+
+## Use cases
+
+### Sanitize user-uploaded folder names
+
+A user types "Q1 Report (2026) &lt;Final&gt;" — your storage backend chokes. Sanitize to "q1-report-2026-final".
+
+### Generate stable Git branch names
+
+Branch from a Linear ticket title. Sanitize to a Git-safe slug.
+
+### Standardise project folder structure
+
+Across 100+ projects, enforce consistent folder naming — kebab-case, lowercase, no special chars.
+
+### Create Docker container / image names
+
+Docker requires lowercase + limited special chars. Sanitize generated names before docker build.
+
+## How it works
+
+1. **Paste source name** — Free-form text.
+2. **Pick rules** — Case (lower / preserve), separator (- / _ / .), transliterate accents, strip illegal chars, drop reserved names, max length.
+3. **Validate against platforms** — Result tested against Windows, macOS, Linux, Git, Docker. Failures shown.
+4. **Copy** — Single name or batch from a list.
+
+## Examples
+
+**Input:** "Q1 Report (2026) &lt;Final&gt;"
+
+**Output:** q1-report-2026-final — kebab-case, illegal chars stripped, lowercased.
+
+---
+
+**Input:** "My Folder /with/ slash"
+
+**Output:** my-folder-with-slash — slashes stripped (would break path).
+
+---
+
+**Input:** "CON" (Windows reserved name)
+
+**Output:** Warning: reserved! Suggested: con-folder.
+
+---
+
+**Input:** Accented "café résumé"
+
+**Output:** cafe-resume — transliterated to ASCII for max portability.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why drop accents?**</summary>
+
+Older filesystems and some Linux locales mangle UTF-8 accents. Transliteration preserves the visual meaning while guaranteeing portability.
+
+</details>
+
+<details>
+<summary>**Reserved names — why?**</summary>
+
+Windows treats CON, PRN, AUX, NUL, COM1-9, LPT1-9 as device names regardless of file extension. Even creating CON.txt fails. Never use these.
+
+</details>
+
+<details>
+<summary>**Max length?**</summary>
+
+Default 50 chars (covers all platforms with margin). Pickleable up to 255.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Default to lowercase + kebab-case for max portability + readability.
+- For Git branches, use feature/short-description format — slash-separated namespace is Git-friendly.
+- For Docker, use lowercase only — uppercase fails docker tag.
+- Always test on the most restrictive platform you target. Windows is usually the limit.
+
+## Try it now
+
+The full safe-folder-name-generator runs in your browser at **[https://ztools.zaions.com/safe-folder-name-generator](https://ztools.zaions.com/safe-folder-name-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/safe-folder-name-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/safe-folder-name-generator.mdx)*

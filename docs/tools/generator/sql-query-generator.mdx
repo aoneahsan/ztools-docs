@@ -1,0 +1,133 @@
+---
+id: sql-query-generator
+title: "SQL Query Generator — From Schema to SELECT, Free"
+description: "Generate SQL SELECT, INSERT, UPDATE, DELETE statements from a table schema. Picks correct dialect: MySQL, Postgres, SQLite, MSSQL. Free."
+sidebar_label: "sql-query-generator"
+keywords:
+  - "sql query generator"
+  - "sql builder online"
+  - "mysql postgres query generator"
+  - "select insert update generator"
+  - "sql template tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sql-query-generator
+
+A SQL query generator turns a table schema and a few clicks into ready-to-run SQL — SELECT with filters, INSERT with values, UPDATE with WHERE, DELETE, JOIN. Useful when the syntax is fuzzy (which dialect quotes identifiers with double-quotes vs backticks?), when the table has many columns and you don't want to type them all, or when you need a quick boilerplate for a stored procedure. The ZTools SQL Query Generator builds queries for MySQL, PostgreSQL, SQLite, MSSQL, and Oracle — handling per-dialect quoting, parameter placeholders, and common gotchas like LIMIT vs TOP.
+
+<ToolCTA toolId="sql-query-generator" toolName="sql-query-generator" />
+
+## Use cases
+
+### Quickly draft INSERT for a wide table
+
+Forty columns; typing INSERT INTO ... by hand is error-prone. Paste schema, get template, fill values.
+
+### Switch dialects without learning quirks
+
+Code worked on PostgreSQL; need to port to MSSQL. Generator emits `TOP N` instead of `LIMIT N` and uses brackets for identifiers.
+
+### Boilerplate for prepared statements
+
+Generates parameterised queries with the right placeholder syntax: `?` for MySQL, `$1` for PostgreSQL, `@p0` for MSSQL.
+
+### Teaching SQL
+
+Show a student the same query in five dialects side-by-side — concrete way to teach portability lessons.
+
+## How it works
+
+1. **Define table schema** — Enter table name + columns (name, type, nullable, default). Or paste an existing CREATE TABLE statement and let the tool parse it.
+2. **Pick query type** — SELECT, INSERT, UPDATE, DELETE, UPSERT (per dialect: ON DUPLICATE KEY for MySQL, ON CONFLICT for Postgres).
+3. **Configure** — For SELECT: pick columns, WHERE filters, ORDER BY, LIMIT. For INSERT: column list, parameter style. For UPDATE: SET clauses + WHERE.
+4. **Pick dialect** — MySQL / PostgreSQL / SQLite / MSSQL / Oracle. Output adjusts: identifier quoting, LIMIT/TOP/FETCH, parameter placeholders.
+
+## Examples
+
+**Input:** SELECT all from users WHERE age &gt; 18, ORDER BY name, LIMIT 10 (MySQL)
+
+**Output:** SELECT * FROM `users` WHERE `age` &gt; 18 ORDER BY `name` LIMIT 10;
+
+---
+
+**Input:** Same query (MSSQL)
+
+**Output:** SELECT TOP 10 * FROM [users] WHERE [age] &gt; 18 ORDER BY [name];
+
+---
+
+**Input:** INSERT for users(name, email) with placeholders (Postgres)
+
+**Output:** INSERT INTO "users" ("name", "email") VALUES ($1, $2);
+
+---
+
+**Input:** UPSERT (Postgres ON CONFLICT)
+
+**Output:** INSERT INTO "users" ("id","name") VALUES ($1,$2) ON CONFLICT ("id") DO UPDATE SET "name" = EXCLUDED."name";
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it execute the query?**</summary>
+
+No — generator only. To run, paste into your database client (DBeaver, psql, MySQL Workbench).
+
+</details>
+
+<details>
+<summary>**Why are identifiers quoted?**</summary>
+
+Quoting protects against reserved-word collisions (`order`, `user`) and case-sensitivity quirks. Quoted identifiers are slightly verbose but always safe.
+
+</details>
+
+<details>
+<summary>**Does it handle JOINs?**</summary>
+
+Yes — multi-table SELECT with INNER / LEFT / RIGHT / FULL OUTER JOIN. Generator asks for the join condition and column selection per side.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in the browser. Schemas / values never uploaded.
+
+</details>
+
+<details>
+<summary>**Does it warn about SQL injection risk?**</summary>
+
+When you paste literal values, output uses string concatenation (vulnerable). Toggle "parameterise" to use placeholders — the safe default for app code.
+
+</details>
+
+<details>
+<summary>**Can it generate stored procedures?**</summary>
+
+Basic CREATE PROCEDURE templates per dialect. Complex procedural logic (cursors, control flow) is dialect-specific and out of scope.
+
+</details>
+
+## Tips
+
+- Always parameterise — generator-output queries with literal values are an injection footgun. Use placeholders in production code.
+- When porting code across dialects, regenerate rather than hand-edit. Misses on identifier quoting / LIMIT syntax cause runtime errors.
+- For UPSERT, pick the right dialect-specific form — MySQL's ON DUPLICATE KEY differs subtly from Postgres ON CONFLICT.
+- Schema-paste mode is the fastest start — no manual column entry.
+
+## Try it now
+
+The full sql-query-generator runs in your browser at **[https://ztools.zaions.com/sql-query-generator](https://ztools.zaions.com/sql-query-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sql-query-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/sql-query-generator.mdx)*

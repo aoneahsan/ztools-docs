@@ -1,0 +1,127 @@
+---
+id: email-template-generator
+title: "Email Template Generator — Responsive HTML, Free"
+description: "Generate responsive HTML email templates that render in Gmail, Outlook, Apple Mail. Drag-build header/body/CTA/footer. Browser-only."
+sidebar_label: "email-template-generator"
+keywords:
+  - "email template generator"
+  - "html email builder"
+  - "responsive email template"
+  - "outlook compatible email"
+  - "free email template"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# email-template-generator
+
+An email template generator produces HTML email markup — the cursed corner of front-end where `&lt;table&gt;` layouts are mandatory, inline CSS is the norm, and Outlook still uses Word's rendering engine. The ZTools Email Template Generator handles all that: pick a layout (single-column, hero+body, multi-column), add header, body, CTA buttons, and a footer; the tool emits Outlook-safe table HTML with inlined CSS, dark-mode hints, and bulletproof button code. Output renders correctly in Gmail (web + apps), Outlook (Mac + desktop + web), Apple Mail, Yahoo, Thunderbird.
+
+<ToolCTA toolId="email-template-generator" toolName="email-template-generator" />
+
+## Use cases
+
+### Marketing campaign without a paid ESP
+
+A small business sends 5,000 emails a month from a self-hosted SMTP. Generator output renders correctly across clients without buying Mailchimp.
+
+### Transactional emails (welcome, password reset)
+
+Build once, reuse with placeholders (\{\{name\}\}, \{\{reset_link\}\}). Plug into any backend mail library.
+
+### Newsletter for a personal blog
+
+A weekly newsletter from a static site. Generator output is HTML that any mailer (Postmark, SendGrid, plain SMTP) accepts.
+
+### A/B testing layouts
+
+Generate two layouts; send to two halves of the list; compare open + click rates.
+
+## How it works
+
+1. **Pick layout** — Single-column (mobile-first; renders well everywhere), hero + body, two-column with sidebar, footer-heavy. All max-width 600 px.
+2. **Compose blocks** — Header (logo + nav), hero (image + headline), body (text + image rows), CTA (bulletproof button), footer (address + unsubscribe). Drag to reorder.
+3. **Style** — Pick colours, font stack (web-safe + Google Fonts fallback to Arial), button radius, spacing. All CSS inlined into style attributes.
+4. **Export** — HTML output ready to paste into your mailer or save as .html. Optional plain-text alternative auto-generated.
+
+## Examples
+
+**Input:** Welcome email: hero + body + CTA + footer
+
+**Output:** ~200 lines of table-based HTML, ~15 KB total. Tested in Email on Acid for Outlook 2016+, Gmail web/iOS/Android, Apple Mail.
+
+---
+
+**Input:** Plain-text alternative
+
+**Output:** Auto-generated from the HTML — strips tables, preserves headings as ALL CAPS, indents lists. Sent as multipart/alternative for spam-filter friendliness.
+
+---
+
+**Input:** Dark-mode handling
+
+**Output:** &lt;meta name="color-scheme" content="light dark"&gt; + per-element prefers-color-scheme overrides. Outlook ignores; Apple Mail and iOS honour.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why tables and not divs?**</summary>
+
+Outlook 2007+ uses Word's renderer. Word doesn't support modern CSS layout (flex, grid, even floats reliably). Tables work everywhere — they're cursed but functional.
+
+</details>
+
+<details>
+<summary>**Does it work with all email clients?**</summary>
+
+Renders correctly in 95%+ of clients per Litmus client share-of-market. Outlook for Windows is the limiting factor — flexbox / grid / web fonts get quirky.
+
+</details>
+
+<details>
+<summary>**Can I send the email from this tool?**</summary>
+
+No — generator only. Send via your mailer (SendGrid, Postmark, SMTP, your CRM's send feature).
+
+</details>
+
+<details>
+<summary>**How big should the email be?**</summary>
+
+Under 102 KB to avoid Gmail clipping. Under 200 KB if you accept Gmail's "view entire message" link.
+
+</details>
+
+<details>
+<summary>**Does it support placeholders?**</summary>
+
+Yes — \{\{name\}\}, \{\{email\}\}, \{\{custom_field\}\} survive as plain text in the output. Most ESPs interpret them; with raw SMTP, run a templating step before sending.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in the browser. Email content never uploaded.
+
+</details>
+
+## Tips
+
+- Always include a plain-text alternative — improves deliverability + serves accessibility.
+- Test in Litmus or Email on Acid before sending a campaign — Outlook for Windows is the most finicky client.
+- Keep total width 600 px and design mobile-first — most opens are on phones.
+- Use bulletproof buttons (table-based with VML for Outlook) — CSS-only buttons break in older Outlook versions.
+
+## Try it now
+
+The full email-template-generator runs in your browser at **[https://ztools.zaions.com/email-template-generator](https://ztools.zaions.com/email-template-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/email-template-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/email-template-generator.mdx)*

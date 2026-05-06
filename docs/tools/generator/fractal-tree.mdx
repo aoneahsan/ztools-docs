@@ -1,0 +1,112 @@
+---
+id: fractal-tree
+title: "Fractal Tree Generator — SVG Trees Online, Free"
+description: "Generate fractal trees with custom branch angles, depth, and colors. Export as SVG. Browser-only — no signup."
+sidebar_label: "fractal-tree"
+keywords:
+  - "fractal tree generator"
+  - "recursive tree svg"
+  - "fractal art online"
+  - "binary tree fractal"
+  - "l-system tree"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# fractal-tree
+
+A fractal tree is a recursive branching structure: each branch sprouts two (or more) shorter sub-branches at a fixed angle, repeating to a chosen depth. With the right parameters, the result resembles a real tree, a snowflake, or a vascular network. Mathematically, fractal trees illustrate self-similarity and recursion. The ZTools Fractal Tree Generator builds the structure live in SVG: pick angle, ratio, depth, colour, and stroke width — get a clean vector you can drop into a poster, slide, or website.
+
+<ToolCTA toolId="fractal-tree" toolName="fractal-tree" />
+
+## Use cases
+
+### Decorative SVG for a hero section
+
+A subtle fractal tree adds organic visual interest to a tech-themed landing page without using stock photography.
+
+### Teaching recursion
+
+Students see what "depth N" means visually — increment depth one level at a time and watch the tree grow exponentially.
+
+### Generative art
+
+Tweak angle (15° vs 35°) and ratio (0.7 vs 0.5) to discover wildly different shapes from the same algorithm.
+
+### Data viz metaphor
+
+Use the tree shape to visualise a hierarchy or decision tree where exact node positions don't matter.
+
+## How it works
+
+1. **Set parameters** — Branch angle (each split, e.g. 30°), length ratio (each child = 0.7× parent), depth (5-12 typical), trunk thickness, colour gradient.
+2. **Render SVG** — Recursive draw — start at trunk, draw two angled lines at the top, recurse on each. SVG paths drawn live as you tweak.
+3. **Export** — Download as SVG for vector use, or PNG via the browser's rasteriser.
+
+## Examples
+
+**Input:** angle 25°, ratio 0.7, depth 10
+
+**Output:** ~2,047 line segments arranged in a balanced tree shape. Naturalistic.
+
+---
+
+**Input:** angle 60°, ratio 0.6, depth 8
+
+**Output:** Snowflake-like structure with wide branches.
+
+---
+
+**Input:** angle 45°, ratio 0.5, depth 11
+
+**Output:** Sparse, diamond-like fractal with clear self-similarity.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does depth 15 freeze the browser?**</summary>
+
+Depth N produces 2^N − 1 branches: depth 12 = 4,095, depth 15 = 32,767. Beyond depth 13, SVG path counts cause rendering lag. Stay 10-12 for interactive use.
+
+</details>
+
+<details>
+<summary>**Can I get asymmetric trees?**</summary>
+
+Toggle "stochastic" mode — each split varies the angle and ratio slightly with a seeded PRNG. Result looks more natural / less geometric.
+
+</details>
+
+<details>
+<summary>**How do I make it look like a real tree?**</summary>
+
+Angle 20-30°, ratio 0.65-0.75, stochastic on, depth 9-11. Add a colour gradient from brown (trunk) to green (leaves).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Toggle stochastic mode for naturalistic trees; off for geometric / mathematical fractals.
+- Export SVG, not PNG — vector scales infinitely. PNG locks you into a fixed resolution.
+- For posters, depth 11+ at 4096 px wide gives wall-art quality.
+- Combine two trees at different positions for a dense forest effect.
+
+## Try it now
+
+The full fractal-tree runs in your browser at **[https://ztools.zaions.com/fractal-tree](https://ztools.zaions.com/fractal-tree)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/fractal-tree)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/fractal-tree.mdx)*

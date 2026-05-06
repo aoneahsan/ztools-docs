@@ -1,0 +1,127 @@
+---
+id: twitter-card-generator
+title: "Twitter Card Generator — Meta Tags, Preview, Free"
+description: "Generate Twitter Card meta tags (summary, summary_large_image, app, player). Preview before publishing. Browser-only — no signup."
+sidebar_label: "twitter-card-generator"
+keywords:
+  - "twitter card generator"
+  - "x card meta tags"
+  - "social media meta tag generator"
+  - "twitter preview generator"
+  - "og twitter tags"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# twitter-card-generator
+
+Twitter Cards (now X cards) are meta tags that turn a plain link into a rich preview when shared on X — image, title, description, attribution. There are four card types: summary (small image), summary_large_image (banner), app (App Store / Play Store), player (audio / video). The ZTools Twitter Card Generator produces all four, validates the meta tags, previews how the card will render on web and mobile, and emits HTML you can paste into your &lt;head&gt;. Same OG-style tags work for Facebook, LinkedIn, Slack, Discord, and most modern crawlers.
+
+<ToolCTA toolId="twitter-card-generator" toolName="twitter-card-generator" />
+
+## Use cases
+
+### Add rich previews to a static site
+
+Personal blog or portfolio. Generate the meta tags once per page, paste into the head, and links shared on X stop looking naked.
+
+### Validate before publishing
+
+Wrong image dimensions or missing description? Generator catches these before you tweet a broken-looking link.
+
+### Publish a podcast / video player card
+
+Player card type embeds an iframe. Useful for podcast episodes — the tweet plays the audio inline.
+
+### App-install card from a tweet
+
+Direct link to App Store / Play Store with rating + screenshot. Card type "app".
+
+## How it works
+
+1. **Pick card type** — summary (small thumbnail + text), summary_large_image (full-bleed image at top), app (store metadata), player (HTTPS iframe of your audio / video).
+2. **Fill required fields** — Title (≤ 70 chars), description (≤ 200), image URL (≥ 300×157, max 5 MB, JPEG / PNG / WEBP / GIF), site handle (@yourhandle).
+3. **Validate** — Tool checks dimensions, file size, alt text, character limits. Shows pass/fail per rule.
+4. **Copy meta tags** — Paste the generated &lt;meta&gt; tags into your &lt;head&gt;. Verify via X's Card Validator (cards-dev.x.com).
+
+## Examples
+
+**Input:** summary_large_image with title + description + 1200×628 image
+
+**Output:** &lt;meta name="twitter:card" content="summary_large_image" /&gt;&lt;meta name="twitter:title" content="..." /&gt;&lt;meta name="twitter:description" content="..." /&gt;&lt;meta name="twitter:image" content="https://..." /&gt;&lt;meta name="twitter:site" content="@yourhandle" /&gt;
+
+---
+
+**Input:** app card pointing to App Store + Play Store
+
+**Output:** &lt;meta name="twitter:card" content="app" /&gt;&lt;meta name="twitter:app:id:iphone" content="..." /&gt;&lt;meta name="twitter:app:id:googleplay" content="..." /&gt; ...
+
+---
+
+**Input:** OG fallback
+
+**Output:** Tool also emits &lt;meta property="og:title"&gt;, &lt;meta property="og:image"&gt;, etc. — same content, different namespace, makes the link work on Facebook, LinkedIn, Slack.
+
+## Frequently asked questions
+
+<details>
+<summary>**Do I still need OG tags?**</summary>
+
+Yes — most non-X crawlers (Facebook, LinkedIn, Slack, Discord, iMessage) read OG. Twitter falls back to OG when twitter:* tags are missing. Always emit both for robustness.
+
+</details>
+
+<details>
+<summary>**What image size for summary_large_image?**</summary>
+
+1200×628 is the sweet spot — fills the X card without cropping, scales well to mobile. Min 300×157, max 5 MB.
+
+</details>
+
+<details>
+<summary>**Does X cache the card?**</summary>
+
+Yes — once X has fetched the card, it's cached. Use X's Card Validator to invalidate after changes.
+
+</details>
+
+<details>
+<summary>**Can I A/B-test cards?**</summary>
+
+X uses the URL as the cache key. Append `?v=2` to the URL to force re-fetch with new tags.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in the browser. No upload.
+
+</details>
+
+<details>
+<summary>**Are Twitter Cards still called that?**</summary>
+
+X kept the technical name `twitter:card` for backwards compatibility. The product is "X cards" but the tags didn't change.
+
+</details>
+
+## Tips
+
+- Use 1200×628 image for summary_large_image — same dimensions work for OG, LinkedIn, Slack.
+- Always include twitter:site and twitter:creator handles — drives follower acquisition from each share.
+- After publishing tags, use X's Card Validator to bust the cache and confirm the rendered preview.
+- Keep description under 125 chars to avoid truncation in cards on mobile devices.
+
+## Try it now
+
+The full twitter-card-generator runs in your browser at **[https://ztools.zaions.com/twitter-card-generator](https://ztools.zaions.com/twitter-card-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/twitter-card-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/twitter-card-generator.mdx)*

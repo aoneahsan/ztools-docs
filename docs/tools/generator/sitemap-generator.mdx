@@ -1,0 +1,130 @@
+---
+id: sitemap-generator
+title: "Sitemap.xml Generator — Free XML Sitemap Builder"
+description: "Generate valid sitemap.xml for Google Search Console with URL list, lastmod dates, priority, and changefreq. Free, no signup, instant download."
+sidebar_label: "sitemap-generator"
+keywords:
+  - "sitemap generator"
+  - "sitemap.xml generator"
+  - "xml sitemap"
+  - "google sitemap"
+  - "sitemap builder"
+  - "gsc sitemap"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sitemap-generator
+
+A sitemap.xml file is a structured list of URLs you want search engines to crawl and index — required for Google Search Console submission and a major signal for new-page discovery on large sites. The ZTools Sitemap Generator lets you paste a URL list (or upload a CSV with URL + lastmod + priority + changefreq columns), validates the XML against the Sitemap Protocol 0.9 spec, and produces a download-ready sitemap.xml. For very large sites (&gt;50,000 URLs or &gt;50MB), it also generates sitemap-index.xml referencing multiple chunked sitemaps.
+
+<ToolCTA toolId="sitemap-generator" toolName="sitemap-generator" />
+
+## Use cases
+
+### New site submission to Google
+
+After site launch, you submit sitemap.xml in Google Search Console for crawl prioritisation. Without it, Google relies on link discovery — slower for sites with sparse external backlinks.
+
+### Programmatic / large catalog sites
+
+E-commerce or directory sites with thousands of pages need explicit URL lists; relying on link discovery alone misses pages buried 5+ clicks deep.
+
+### After major content updates
+
+Re-emit sitemap with refreshed lastmod dates after updates. Signals freshness to Google and triggers re-crawl prioritisation.
+
+### IndexNow ping companion
+
+IndexNow lets you push URL updates to Bing instantly. Sitemap is the comprehensive map; IndexNow is the surgical update. Use both.
+
+## How it works
+
+1. **Provide URL list** — Paste one URL per line, or upload CSV with URL + lastmod + priority + changefreq columns.
+2. **Set defaults** — Default changefreq (daily/weekly/monthly), default priority (0.0–1.0). Per-URL overrides if needed.
+3. **Validate** — Each URL checked against the spec (absolute, &lt; 2048 chars, no fragment). Warnings for &gt;50k URLs (split required).
+4. **Generate XML** — Produces well-formed `&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;` with `&lt;url&gt;` entries.
+5. **Download** — sitemap.xml file. For &gt;50k URLs, sitemap-index.xml + sitemap-1.xml, sitemap-2.xml, etc.
+
+## Examples
+
+**Input:** 50 URLs, all "weekly" / 0.5 priority
+
+**Output:** sitemap.xml with 50 `&lt;url&gt;` entries; valid for direct GSC submission.
+
+---
+
+**Input:** CSV with 5,000 URLs + per-row lastmod
+
+**Output:** Single sitemap.xml ~ 1MB; under 50k limit.
+
+---
+
+**Input:** CSV with 200,000 URLs
+
+**Output:** sitemap-index.xml + 4 chunked sitemap-N.xml files (50k URLs each).
+
+## Frequently asked questions
+
+<details>
+<summary>**Do I really need a sitemap?**</summary>
+
+For sites &lt; 500 pages with strong internal linking, sitemap is helpful but not critical. For large or sparsely-linked sites, sitemap is essential — Google's crawl budget won't find buried pages without it.
+
+</details>
+
+<details>
+<summary>**How often should I update sitemap.xml?**</summary>
+
+Best practice: regenerate on every deploy (so lastmod reflects actual change dates). Weekly minimum for content sites. Static sites without content changes don't need refresh.
+
+</details>
+
+<details>
+<summary>**Is changefreq still useful?**</summary>
+
+Google has said changefreq is largely ignored — they use lastmod and their own crawl heuristics. lastmod is the single most important field; changefreq is optional/cosmetic.
+
+</details>
+
+<details>
+<summary>**What's the size limit?**</summary>
+
+50,000 URLs OR 50MB uncompressed per sitemap.xml. Beyond either, split into multiple sitemaps and reference via sitemap-index.xml.
+
+</details>
+
+<details>
+<summary>**Where do I host sitemap.xml?**</summary>
+
+Site root: https://example.com/sitemap.xml. Reference it in robots.txt: `Sitemap: https://example.com/sitemap.xml`. Submit URL in GSC.
+
+</details>
+
+<details>
+<summary>**Should I include noindex / blocked pages?**</summary>
+
+No — sitemap is for pages you want indexed. Including noindex pages wastes crawl budget and confuses Google's signals.
+
+</details>
+
+## Tips
+
+- lastmod is the most important field — set it to actual content modification time, not the build time.
+- Reference sitemap.xml in robots.txt: `Sitemap: https://example.com/sitemap.xml` — discoverable without GSC submission.
+- For dynamic sites, generate sitemap.xml at build time from your CMS data.
+- Skip URLs you don't want indexed (admin, search results, faceted-filter URLs) — sitemap should be the canonical list.
+- Always include lastmod with timezone (e.g. 2026-05-06T10:30:00+00:00) — Google parses ISO 8601 strictly.
+
+## Try it now
+
+The full sitemap-generator runs in your browser at **[https://ztools.zaions.com/sitemap-generator](https://ztools.zaions.com/sitemap-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sitemap-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/sitemap-generator.mdx)*

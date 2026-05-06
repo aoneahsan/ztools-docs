@@ -1,0 +1,120 @@
+---
+id: react-native-shadow-generator
+title: "React Native Shadow Generator — iOS + Android, Free"
+description: "Generate cross-platform React Native shadow code. Handles iOS shadow* and Android elevation. Visual preview included."
+sidebar_label: "react-native-shadow-generator"
+keywords:
+  - "react native shadow generator"
+  - "rn shadow ios android"
+  - "react native elevation"
+  - "cross platform shadow rn"
+  - "box shadow react native"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# react-native-shadow-generator
+
+React Native shadows are notoriously inconsistent across platforms. iOS uses shadowColor / shadowOffset / shadowOpacity / shadowRadius. Android uses elevation alone — colour and offset are ignored. The ZTools React Native Shadow Generator builds both sides at once: pick a shadow visually, get a style object that produces a similar appearance on iOS and Android. Compatible with React Native 0.70+ and the new boxShadow API in 0.76+.
+
+<ToolCTA toolId="react-native-shadow-generator" toolName="react-native-shadow-generator" />
+
+## Use cases
+
+### Add a card-style shadow to a component
+
+Designer specs an iOS shadow. You need it on Android too. Generator gives both blocks tested for visual parity.
+
+### Match a mockup from Figma
+
+Figma uses CSS-style box-shadow. Generator translates Figma values to RN equivalents, accounting for different scales.
+
+### Migrate from elevation-only to cross-platform
+
+Older code uses elevation: 4. Looks fine on Android, missing on iOS. Generator emits the matching shadow* props.
+
+### Use the new boxShadow API (RN 0.76+)
+
+Modern RN supports CSS-syntax boxShadow. Generator emits both old (shadow*) and new (boxShadow) for backwards compatibility.
+
+## How it works
+
+1. **Pick visual values** — Sliders for offset X, offset Y, blur, spread, opacity. Colour picker. Live preview shows the shadow on a sample card.
+2. **Set elevation level** — Android elevation 0-24. Generator suggests an elevation that visually matches the iOS shadow you picked.
+3. **Pick output style** — Object literal (StyleSheet.create), inline style, or boxShadow string (RN 0.76+).
+4. **Copy code** — TypeScript-ready style object. Drop into your component.
+
+## Examples
+
+**Input:** Card shadow: offset (0, 2), blur 8, opacity 0.15, color #000
+
+**Output:** \{ shadowColor: "#000", shadowOffset: \{ width: 0, height: 2 \}, shadowOpacity: 0.15, shadowRadius: 8, elevation: 4 \}
+
+---
+
+**Input:** Same as boxShadow string
+
+**Output:** boxShadow: "0px 2px 8px rgba(0,0,0,0.15)" (RN 0.76+ only)
+
+---
+
+**Input:** Elevated FAB style: large soft shadow
+
+**Output:** \{ shadowColor:"#000", shadowOffset:\{width:0,height:6\}, shadowOpacity:0.25, shadowRadius:16, elevation:12 \}
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is the Android shadow always grey?**</summary>
+
+Android elevation uses the OS's ambient + key shadow rendering — no colour control. To get a coloured shadow on Android, you have to use a custom view with native code.
+
+</details>
+
+<details>
+<summary>**Why doesn't my iOS shadow appear?**</summary>
+
+iOS shadows require backgroundColor on the view (or shadowOpacity &gt; 0). Transparent backgrounds clip the shadow.
+
+</details>
+
+<details>
+<summary>**Should I use boxShadow or shadow*?**</summary>
+
+boxShadow (RN 0.76+) is the future. Use it on new projects. shadow* still works everywhere; mix both for compatibility while you migrate.
+
+</details>
+
+<details>
+<summary>**How do I match Figma shadows exactly?**</summary>
+
+You can't exactly — RN shadow rendering differs from CSS. Generator gives a "best fit" with visible preview so you can eyeball parity.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- Always set backgroundColor on shadowed views — without it, iOS shadows clip and disappear.
+- For Android, elevation 4 is the standard "card lift"; elevation 8+ for FABs and elevated dialogs.
+- Test on both platforms — a shadow that looks right on iOS often looks too heavy on Android (and vice versa).
+- On Android, a coloured shadow requires a third-party library (react-native-shadow-2) or a wrapper view — native elevation has no colour API.
+
+## Try it now
+
+The full react-native-shadow-generator runs in your browser at **[https://ztools.zaions.com/react-native-shadow-generator](https://ztools.zaions.com/react-native-shadow-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/react-native-shadow-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/react-native-shadow-generator.mdx)*

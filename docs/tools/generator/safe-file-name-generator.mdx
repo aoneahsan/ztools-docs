@@ -1,0 +1,127 @@
+---
+id: safe-file-name-generator
+title: "Safe File Name Generator — Cross-Platform, Free"
+description: "Convert any text to a safe file name across Windows, macOS, Linux, S3, URLs. Strip illegal chars, normalize case. Browser-only."
+sidebar_label: "safe-file-name-generator"
+keywords:
+  - "safe file name generator"
+  - "sanitize filename online"
+  - "cross platform filename"
+  - "url safe filename"
+  - "remove illegal characters filename"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# safe-file-name-generator
+
+A safe file name is one that survives every filesystem and URL it might pass through — Windows (no &lt;&gt;:"|?* or reserved names like CON, NUL), macOS (no colons), Linux (no slashes / null bytes), S3 (no spaces if you want clean URLs), URLs (no spaces or non-ASCII without encoding). The ZTools Safe File Name Generator takes a free-form string and produces a file name that's legal everywhere. Configurable: lowercase or preserve case, replace spaces with - or _, transliterate accents (café → cafe), keep extension, drop or trim length, prepend a date.
+
+<ToolCTA toolId="safe-file-name-generator" toolName="safe-file-name-generator" />
+
+## Use cases
+
+### Sanitize user-uploaded file names
+
+A user uploads "Résumé - Final (v3) &lt;draft&gt;.pdf". Save as resume-final-v3-draft.pdf to avoid filesystem and URL trouble.
+
+### Generate IDs for a static file storage
+
+Each blog post needs a permanent slug-like name. Generator turns the title into a stable, lowercase, dash-separated name.
+
+### Build batch-rename rules
+
+Apply a consistent naming convention across 1000 files (date prefix + slug). Generator outputs the new names; rename script applies them.
+
+### Prevent filename collisions
+
+Two uploads named "Document.pdf" — the second overwrites the first. Add a date / hash prefix to disambiguate.
+
+## How it works
+
+1. **Paste source name** — Free-form string with any characters.
+2. **Pick rules** — Lowercase, replace spaces (-, _, or remove), strip illegal chars, transliterate accents, keep / drop extension, max length, date prefix.
+3. **Generate** — Tool applies rules in order. Shows before / after, plus list of platforms the result is safe for.
+4. **Copy result** — Single name or batch (paste a list, get a list of safe names).
+
+## Examples
+
+**Input:** "Résumé - Final (v3) &lt;draft&gt;.pdf"
+
+**Output:** resume-final-v3-draft.pdf — accents stripped, illegal chars removed, parens dropped, lowercased, dashes between words.
+
+---
+
+**Input:** "My Photo (1).jpg" with date prefix
+
+**Output:** 2026-05-06-my-photo-1.jpg — sortable by date, unique within the day, URL-safe.
+
+---
+
+**Input:** Reserved-name detection: "CON.txt"
+
+**Output:** Windows reserved! Suggested rename: con-file.txt. Generator warns and offers a fix.
+
+## Frequently asked questions
+
+<details>
+<summary>**What characters are illegal where?**</summary>
+
+Windows: &lt; &gt; : " / \\ | ? * + reserved names (CON, PRN, AUX, NUL, COM1-9, LPT1-9). macOS: : (slash internally, colon at API level). Linux: / and null. URLs: spaces and most non-ASCII unless encoded.
+
+</details>
+
+<details>
+<summary>**Why transliterate accents?**</summary>
+
+Some platforms (older S3, some Linux fs without UTF-8 locale) mangle accented characters. Transliteration (café → cafe) prevents that. Skip if your target supports UTF-8 fully.
+
+</details>
+
+<details>
+<summary>**Is the result reversible?**</summary>
+
+No — once "café" becomes "cafe", you can't recover the accent. Store the original in a database column if you need it for display.
+
+</details>
+
+<details>
+<summary>**What about emoji in file names?**</summary>
+
+Most filesystems handle them since UTF-8 became standard. Generator can preserve or strip — toggle per use case.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All processing in browser.
+
+</details>
+
+<details>
+<summary>**Maximum length?**</summary>
+
+NTFS / APFS: 255 chars. ext4: 255 bytes. URL: 2,000 in practice. Generator defaults to 100 — covers all platforms with margin.
+
+</details>
+
+## Tips
+
+- Always transliterate to ASCII for maximum portability — UTF-8 works in modern systems but breaks in legacy ones.
+- Use date prefix (YYYY-MM-DD-) for sortability — alphabetical sort gives chronological order.
+- Strip Windows reserved names defensively — even on macOS / Linux, the file might end up on a Windows backup drive.
+- Keep extensions intact — strip-and-rename without preserving .pdf breaks every consumer.
+
+## Try it now
+
+The full safe-file-name-generator runs in your browser at **[https://ztools.zaions.com/safe-file-name-generator](https://ztools.zaions.com/safe-file-name-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/safe-file-name-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/safe-file-name-generator.mdx)*

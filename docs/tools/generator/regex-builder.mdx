@@ -1,0 +1,130 @@
+---
+id: regex-builder
+title: "Regex Builder — Visually Compose Regular Expressions"
+description: "Build regular expressions visually: choose patterns from a palette, preview matches live, and export to JS/Python/PHP. Free."
+sidebar_label: "regex-builder"
+keywords:
+  - "regex builder"
+  - "regex generator"
+  - "regular expression builder"
+  - "visual regex"
+  - "regex tester builder"
+  - "free regex tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# regex-builder
+
+A regex builder lets you assemble a regular expression from a palette of common patterns — character classes, quantifiers, anchors, lookarounds, named groups — without memorising the syntax, while showing live matches against your test text and exporting the final regex in JavaScript, Python, PHP, Java, or .NET flavour. The ZTools Regex Builder is interactive: drop blocks, drag to reorder, name capture groups, and the canonical regex string updates as you build. It runs entirely in the browser, supports the modern Unicode-aware flavours, and includes 50+ ready-made templates (email, URL, IPv4, ISO date, credit card, postal codes) you can drop in and tweak.
+
+<ToolCTA toolId="regex-builder" toolName="regex-builder" />
+
+## Use cases
+
+### Validating user input
+
+Build an email or phone-number regex without recall. Drop the email template; tweak the TLD list; export as `/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/i`.
+
+### Log parsing
+
+Capture timestamp + level + message from a log line. Drop ISO date block, whitespace, level enum, message group. Live preview confirms matches before deployment.
+
+### Search-and-replace in editors
+
+Visual builder beats trial-and-error in Sublime / VS Code. Build the pattern; copy; paste into the editor's find-replace.
+
+### Data cleaning
+
+Strip control characters, normalise whitespace, extract specific tokens. Visual builder makes the intent self-documenting.
+
+## How it works
+
+1. **Pick a starting template (optional)** — 50+ ready-made patterns: email, URL, phone, IP, date, credit card, postal codes by country, hex colour, etc.
+2. **Add or modify blocks** — Character classes (digit, word, whitespace, custom set), quantifiers (?, *, +, \{n,m\}), groups, anchors, alternations, lookarounds.
+3. **Test against sample text** — Paste your sample; matches highlight in real time with capture-group annotations.
+4. **Tune flags** — Case-insensitive (i), global (g), multiline (m), Unicode (u), dotAll (s).
+5. **Export to language** — JavaScript, Python, PHP, Java, .NET, Go, Ruby. Each language's syntax differences are handled (escape rules, named-group syntax).
+
+## Examples
+
+**Input:** Build: digit\{4\}-digit\{2\}-digit\{2\}
+
+**Output:** /(\\d\{4\})-(\\d\{2\})-(\\d\{2\})/
+
+---
+
+**Input:** Email template, case-insensitive
+
+**Output:** /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/i
+
+---
+
+**Input:** Phone US: (\\d\{3\}) \\d\{3\}-\\d\{4\}
+
+**Output:** /\\((\\d\{3\})\\) (\\d\{3\})-(\\d\{4\})/
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the generated regex work in my language?**</summary>
+
+Yes — pick the target language during export. The builder handles flavour differences (e.g. PCRE lookbehinds vs JS lookbehinds, named-group syntax `(?&lt;name&gt;...)` vs `(?P&lt;name&gt;...)`).
+
+</details>
+
+<details>
+<summary>**Can I test against a list of inputs?**</summary>
+
+Yes — paste one input per line; matches show line-by-line with the captured groups.
+
+</details>
+
+<details>
+<summary>**Does it support lookbehinds?**</summary>
+
+Yes (where the target language supports them; modern JS, Python, PCRE, .NET all do).
+
+</details>
+
+<details>
+<summary>**How do I make the regex faster?**</summary>
+
+Avoid catastrophic backtracking: don't nest quantifiers (e.g. `(a+)+`). Prefer atomic groups or possessive quantifiers when available. The builder warns when a pattern is potentially slow.
+
+</details>
+
+<details>
+<summary>**Why doesn't it match my text?**</summary>
+
+Common gotchas: case-sensitivity (use the i flag), missing anchors (^ / $), forgotten escape on `.` or `(`. The live preview makes these obvious quickly.
+
+</details>
+
+<details>
+<summary>**Can I share the built regex with a teammate?**</summary>
+
+Yes — export a "regex link" that encodes your pattern + flags + sample text in the URL.
+
+</details>
+
+## Tips
+
+- Start from a template — don't build email or URL regex from scratch; the templates are battle-tested.
+- Anchor with ^ and $ when validating — without them, the regex matches substrings.
+- Name your capture groups for readability: `(?&lt;year&gt;\\d\{4\})` beats `(\\d\{4\})` when others read your code.
+- Test edge cases: empty strings, unicode, long inputs. The live preview catches catastrophic backtracking early.
+- Keep regex small — for complex parsing, two regexes plus glue code beat one giant regex.
+
+## Try it now
+
+The full regex-builder runs in your browser at **[https://ztools.zaions.com/regex-builder](https://ztools.zaions.com/regex-builder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/regex-builder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/regex-builder.mdx)*

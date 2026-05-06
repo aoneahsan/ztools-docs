@@ -1,0 +1,127 @@
+---
+id: mock-api
+title: "Mock API Generator — Free Fake REST Endpoint Builder"
+description: "Build mock JSON responses for REST endpoints. Define schema, generate realistic data, copy as JSON. Browser-only — no signup, no server."
+sidebar_label: "mock-api"
+keywords:
+  - "mock api generator"
+  - "fake rest api online"
+  - "json mock data"
+  - "mock json response"
+  - "msw mock generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# mock-api
+
+A mock API is a fake server that returns predefined JSON responses for development and testing — letting front-end teams work before the real backend is ready. The ZTools Mock API generator builds the response payload itself: define a JSON schema (fields, types, example values, optional arrays), pick the row count, and the tool fills the structure with realistic faker-style data (names, emails, dates, lorem text, IDs, prices). Output is a JSON document or an array of objects you can paste into a service worker, msw config, json-server seed file, or a static fixture in your test suite.
+
+<ToolCTA toolId="mock-api" toolName="mock-api" />
+
+## Use cases
+
+### Front-end development before backend is ready
+
+API contract is signed; backend ETA is two weeks. Generate the expected JSON structure with realistic data, paste into msw, build the UI against it.
+
+### Storybook fixtures
+
+Each story needs sample props. A mock generator gives consistent, realistic data without hand-typing 30 user objects.
+
+### Unit-test seeds
+
+Tests need predictable data. Generate once, save as a JSON fixture, import everywhere.
+
+### Demo / sales presentations
+
+A live demo needs a populated UI. Mock data avoids embarrassing empty states without using real customer data.
+
+## How it works
+
+1. **Define schema** — Add fields (name, email, age, isActive, createdAt). Pick a type (string, number, boolean, date, enum, nested object, array of objects).
+2. **Pick generators** — Each field can use a generator: full-name, email, lorem-paragraph, integer-range, date-range, uuid, sequential-id, or fixed value.
+3. **Set count** — Generate 1, 10, 100, or 10,000 rows. Output is an array of objects matching the schema.
+4. **Copy JSON** — One-click copy. Or download as .json. Use directly in msw, json-server, mirage, or as a static fixture.
+
+## Examples
+
+**Input:** Schema: \{ id: uuid, name: full-name, email: email, age: integer 18-65 \}; count 3
+
+**Output:** Output: [\{id:"a1...", name:"Jane Cooper", email:"jcooper@example.com", age:34\}, ...] — three randomly-generated user records.
+
+---
+
+**Input:** Nested: \{ user: \{ id, name \}, posts: array of \{ title, body \} size 2 \}
+
+**Output:** Each top-level row contains a user object and an array of two post objects — matches a typical "user with relations" API response.
+
+---
+
+**Input:** Sequential IDs from 1
+
+**Output:** Useful when test code assumes incrementing IDs. Toggle "sequential" instead of "uuid".
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this a mock server or just a generator?**</summary>
+
+Generator. Output is a JSON document. To serve it as an HTTP API, paste into msw (in-browser), json-server (Node), or mockoon. The generator gets you 80% of the way; the server piece is one extra step.
+
+</details>
+
+<details>
+<summary>**How realistic is the data?**</summary>
+
+Names from common Western lists; emails follow firstname.lastname@example.com pattern; dates within a configurable range. Realistic for dev/demo; not statistically representative of any real population.
+
+</details>
+
+<details>
+<summary>**Can I seed for reproducibility?**</summary>
+
+Yes — provide a seed; same seed + same schema = same output. Useful for tests where consistency matters.
+
+</details>
+
+<details>
+<summary>**Does it support GraphQL?**</summary>
+
+JSON only. For GraphQL, use the JSON output as a resolver mock — schema-aware GraphQL mocking needs a tool like @graphql-tools/mock.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in the browser. The schema and generated data never leave your device.
+
+</details>
+
+<details>
+<summary>**Faker.js compatibility?**</summary>
+
+Generator names align with Faker.js where possible (name.fullName, internet.email, lorem.paragraph). Migrating to Faker later is a search-replace.
+
+</details>
+
+## Tips
+
+- Define the schema once, reuse across tests. A 30-line schema beats 200 lines of hand-written fixtures.
+- Use sequential IDs (1, 2, 3) when assertions reference IDs; use UUIDs when uniqueness across runs matters.
+- For demo screenshots, generate names from a wide cultural pool — single-locale data looks artificial.
+- Pair with msw (Mock Service Worker) to serve mocks during front-end dev without standing up a Node server.
+
+## Try it now
+
+The full mock-api runs in your browser at **[https://ztools.zaions.com/mock-api](https://ztools.zaions.com/mock-api)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/mock-api)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/mock-api.mdx)*

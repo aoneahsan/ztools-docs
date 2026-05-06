@@ -1,0 +1,124 @@
+---
+id: htaccess-generator
+title: "htaccess Generator — Redirects, HTTPS, Caching, Free"
+description: "Generate Apache .htaccess rules for redirects, HTTPS, GZIP, caching, hotlink protection, password gates. Browser-only — no signup."
+sidebar_label: "htaccess-generator"
+keywords:
+  - "htaccess generator"
+  - "apache redirect generator"
+  - "force https htaccess"
+  - "htaccess rules online"
+  - "apache config generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# htaccess-generator
+
+.htaccess is Apache's per-directory config file — it controls URL rewriting, redirects, HTTPS forcing, cache headers, GZIP compression, password protection, hotlink blocking, and IP allow/deny. The syntax is unforgiving; one stray character returns 500. The ZTools .htaccess Generator gives you a UI for the most common rules, validates the output against Apache's spec, and explains each line so you understand what you're shipping. Useful for shared-hosting WordPress / static sites where Apache is the only web server you can configure.
+
+<ToolCTA toolId="htaccess-generator" toolName="htaccess-generator" />
+
+## Use cases
+
+### Force HTTPS site-wide
+
+A few lines of mod_rewrite redirect every HTTP request to HTTPS. Generator emits the canonical pattern.
+
+### Old domain → new domain redirects
+
+Migrating sites. Generator builds 301 redirects preserving paths (/about → newdomain.com/about) so SEO juice transfers.
+
+### Browser caching headers
+
+Set Cache-Control / Expires per file type — JS/CSS for a year, HTML for 5 minutes. Improves PageSpeed score.
+
+### Password-protect a directory
+
+AuthType Basic + AuthUserFile pointing at a .htpasswd. Generator gives you both files.
+
+### Block hotlinking
+
+Stop other sites from embedding your images and burning your bandwidth. RewriteCond on Referer.
+
+## How it works
+
+1. **Pick rules** — Checkboxes for HTTPS, www-canonicalisation, redirects, caching, GZIP, hotlink protection, security headers, password protection.
+2. **Configure each** — For redirects, paste old-URL → new-URL pairs. For caching, pick a TTL per file type. For password, set username + password (generator creates .htpasswd).
+3. **Generate output** — Output is a single .htaccess file with comments explaining each block. Optional .htpasswd companion file when password rules are enabled.
+4. **Test before deploying** — Apache fails closed — bad .htaccess = 500 errors. Test on a staging URL first.
+
+## Examples
+
+**Input:** Force HTTPS
+
+**Output:** RewriteEngine On\\nRewriteCond %\{HTTPS\} off\\nRewriteRule ^(.*)$ https://%\{HTTP_HOST\}%\{REQUEST_URI\} [L,R=301]
+
+---
+
+**Input:** Cache JS/CSS for 1 year
+
+**Output:** &lt;IfModule mod_expires.c&gt;\\nExpiresActive On\\nExpiresByType text/css "access plus 1 year"\\nExpiresByType application/javascript "access plus 1 year"\\n&lt;/IfModule&gt;
+
+---
+
+**Input:** Block hotlinking
+
+**Output:** RewriteCond %\{HTTP_REFERER\} !^$\\nRewriteCond %\{HTTP_REFERER\} !^https?://(www\\\\.)?yoursite\\\\.com [NC]\\nRewriteRule \\\\.(jpg|jpeg|png|gif)$ - [F]
+
+## Frequently asked questions
+
+<details>
+<summary>**Will this work on Nginx?**</summary>
+
+No — Nginx uses a totally different config syntax. .htaccess is Apache-specific. For Nginx, use the equivalent location/server blocks.
+
+</details>
+
+<details>
+<summary>**Does my hosting allow .htaccess?**</summary>
+
+Most shared hosting (cPanel, Bluehost, SiteGround) does. Some setups require AllowOverride All in the parent VirtualHost. Check with your host.
+
+</details>
+
+<details>
+<summary>**How do I revert if something breaks?**</summary>
+
+Always back up the existing .htaccess before replacing. If 500 errors appear, restore the backup. Apache reads .htaccess on every request — changes take effect immediately.
+
+</details>
+
+<details>
+<summary>**Is mod_rewrite always available?**</summary>
+
+On most modern Apache installs, yes. If `RewriteEngine On` errors out, mod_rewrite is disabled and your hosting needs to enable it.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser. Hosting credentials never asked for.
+
+</details>
+
+## Tips
+
+- Always back up the existing .htaccess before deploying changes — Apache offers no rollback.
+- Use 301 redirects for SEO-critical permanent moves; 302 for temporary tests. Wrong choice tanks rankings.
+- Combine GZIP + browser caching for the biggest perceived speed win — easy 30-50% load-time reduction on a typical WordPress site.
+- For URL rewrites, test in a staging directory first — broken rewrites can lock you out of /wp-admin.
+
+## Try it now
+
+The full htaccess-generator runs in your browser at **[https://ztools.zaions.com/htaccess-generator](https://ztools.zaions.com/htaccess-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/htaccess-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/htaccess-generator.mdx)*

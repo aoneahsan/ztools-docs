@@ -1,0 +1,131 @@
+---
+id: color-palette
+title: "Color Palette Generator — Build 5-Color Brand Palettes Visually"
+description: "Generate harmonious 5-colour palettes by harmony rule (analogous, complementary, triadic). Export hex, CSS, Tailwind, ASE."
+sidebar_label: "color-palette"
+keywords:
+  - "color palette generator"
+  - "palette generator"
+  - "brand palette"
+  - "harmony color picker"
+  - "tailwind palette"
+  - "css palette"
+  - "color scheme generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-palette
+
+A colour palette generator builds a small set of harmonious colours from a single base hue using formal colour-theory relationships — analogous, complementary, split-complementary, triadic, tetradic, monochromatic — so designers can scaffold a brand or UI palette in seconds rather than guessing. The ZTools Colour Palette Generator lets you pick any starting colour (hex, RGB, HSL, or pulled from an image), choose a harmony rule, fine-tune saturation and lightness across the resulting swatches, and export the palette as JSON, CSS variables, Tailwind config, Adobe ASE, or an SVG swatch sheet for handoff.
+
+<ToolCTA toolId="color-palette" toolName="color-palette" />
+
+## Use cases
+
+### Brand kickoff
+
+You have a brand primary blue. Generate a 5-swatch analogous palette to anchor the rest of the brand system in 60 seconds.
+
+### UI design tokens
+
+Build a 5–7 colour token set (primary, secondary, accent, neutral light, neutral dark) ready for the design system.
+
+### Marketing assets
+
+Posters and social-media graphics stay coherent when every asset pulls from the same five-colour set. Generate once, reuse forever.
+
+### Data visualisation
+
+Categorical chart palettes need distinct, balanced hues. Triadic or tetradic harmony provides perceptually distinct categorical colours.
+
+## How it works
+
+1. **Pick a base colour** — Type a hex, drag the colour wheel, or pull a colour from an image upload via the Image Color Extractor integration.
+2. **Choose a harmony rule** — Analogous (calm), complementary (high-contrast), split-complementary, triadic (balanced), tetradic (rich), monochromatic (subtle).
+3. **Adjust saturation and lightness** — Per-swatch sliders to soften or boost. The base hue stays anchored; surrounding swatches shift around it.
+4. **Reorder and pin swatches** — Drag to reorder; pin a swatch to lock it while regenerating others.
+5. **Export** — JSON, CSS custom properties, Tailwind 3/4 colour fragment, Adobe ASE for Illustrator/Photoshop, or SVG swatch sheet.
+
+## Examples
+
+**Input:** Base #6B5BFF, analogous
+
+**Output:** #3B5BFF, #5B5BFF, #6B5BFF, #855BFF, #A55BFF
+
+---
+
+**Input:** Base #FF6B5B, complementary
+
+**Output:** #FF6B5B and #5BFFEF — high-contrast pair
+
+---
+
+**Input:** Base #00C2FF, triadic
+
+**Output:** #00C2FF, #C2FF00, #FF00C2 — three perceptually distinct hues
+
+## Frequently asked questions
+
+<details>
+<summary>**Which harmony rule should I pick?**</summary>
+
+Brand-friendly: analogous (calm) or complementary (vibrant). Categorical chart colours: triadic or tetradic. Subtle UI: monochromatic.
+
+</details>
+
+<details>
+<summary>**Are the swatches WCAG-accessible?**</summary>
+
+The generator includes contrast ratios for every pair; check before pairing as text/background. Add neutral light + dark to the palette so any swatch has a readable companion.
+
+</details>
+
+<details>
+<summary>**Can I match a competitor's palette?**</summary>
+
+Run their hero photo through the Image Color Extractor → take the dominant colour → use it as your base here. Result is "in the same family" without copying.
+
+</details>
+
+<details>
+<summary>**Does it produce light + dark variants?**</summary>
+
+Yes — toggle "shades and tints" to add lighter and darker steps for each colour, useful for hover states and disabled buttons.
+
+</details>
+
+<details>
+<summary>**How many colours fit in a UI palette?**</summary>
+
+5–7 is the sweet spot. Beyond that, cognitive load on designers and devs starts to hurt consistency.
+
+</details>
+
+<details>
+<summary>**Can I export as Tailwind 4 theme JSON?**</summary>
+
+Yes — the export emits a `theme.colors` snippet ready to paste into your Tailwind config or @theme block.
+
+</details>
+
+## Tips
+
+- Pin the base hue and regenerate — the harmony shifts around it, letting you explore variants quickly.
+- For UI, always add neutral grey/white/black even when the harmony focuses on colour — pure colour palettes look amateur on real interfaces.
+- Validate every text/background pair against WCAG AA (4.5:1) before shipping.
+- Save the JSON in your repo as the source of truth; regenerate Tailwind config from it on demand.
+- For data viz, prefer triadic — three distinct hues that map cleanly to three categories.
+
+## Try it now
+
+The full color-palette runs in your browser at **[https://ztools.zaions.com/color-palette](https://ztools.zaions.com/color-palette)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-palette)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/color-palette.mdx)*

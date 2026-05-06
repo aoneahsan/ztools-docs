@@ -1,0 +1,124 @@
+---
+id: css-gradient-generator
+title: "CSS Gradient Generator — Linear, Radial, Conic with Live Preview"
+description: "Build CSS gradients visually — linear, radial, conic. Multi-stop colors, custom angles, presets. Copies modern CSS syntax. Free."
+sidebar_label: "css-gradient-generator"
+keywords:
+  - "css gradient generator"
+  - "linear gradient css"
+  - "radial gradient css"
+  - "conic gradient css"
+  - "css gradient builder"
+  - "gradient maker"
+  - "free gradient tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-gradient-generator
+
+A CSS gradient generator is a visual tool that lets designers and developers compose CSS `linear-gradient`, `radial-gradient`, and `conic-gradient` declarations with a live preview, then copy production-ready CSS. The ZTools CSS Gradient Generator supports unlimited color stops with custom positions, angle dial for linear gradients, shape and position controls for radial gradients, and color-stop interpolation for conic gradients. The tool also includes 50+ curated presets (sunset, aurora, ocean, glass) so you can start from a popular look and tweak.
+
+<ToolCTA toolId="css-gradient-generator" toolName="css-gradient-generator" />
+
+## Use cases
+
+### Designing a hero-section background
+
+Drop in 2-3 brand colors, drag the angle dial, see the result instantly. Copy the generated `background: linear-gradient(135deg, #...)` and paste into your CSS. Replaces the Photoshop → export → CSS workflow with a single tool.
+
+### Creating brand-colored buttons and CTAs
+
+Generate a gradient that combines your primary and accent colors for a polished button background. The tool's color picker handles HEX, RGB, HSL, and OKLCH so you can match design-token values exactly.
+
+### Prototyping a new design system color palette
+
+Test how your brand colors flow into each other across different gradient angles. Linear at 90° vs 135° vs 180° produces very different feels for the same color pair.
+
+### Building decorative section dividers and backgrounds
+
+Conic gradients create radial sweep effects perfect for loading spinners, progress rings, and avatar backgrounds. Radial gradients with `at top right` placement create subtle spotlight effects.
+
+## How it works
+
+1. **Choose gradient type** — Linear (straight-line color flow), Radial (concentric color flow from a point), Conic (sweep around a point like a pie chart).
+2. **Add and position color stops** — Click the gradient bar to add a stop. Drag stops along the bar to change position; click to edit color via picker.
+3. **Adjust angle / shape / position** — Linear: angle dial (0-360°). Radial: shape (circle/ellipse) + position (`at top right`, `at 50% 30%`). Conic: starting angle + center position.
+4. **Preview live** — A large preview tile updates with every change. Toggle preview shape (rectangle, button, card) to see how the gradient reads in different containers.
+5. **Copy production CSS** — Output uses the modern CSS syntax (full named gradient, no deprecated vendor prefixes for evergreen browsers). One click copies the full `background:` declaration.
+
+## Examples
+
+**Input:** 2 stops: #ff7e5f at 0% → #feb47b at 100%, angle 135°
+
+**Output:** background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+
+---
+
+**Input:** Radial gradient: ellipse at top, #4facfe → #00f2fe
+
+**Output:** background: radial-gradient(ellipse at top, #4facfe 0%, #00f2fe 100%);
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between linear, radial, and conic gradients?**</summary>
+
+Linear flows in a straight line at a chosen angle. Radial flows outward from a center point in concentric rings. Conic sweeps around a center point like a pie chart — useful for spinners and color wheels.
+
+</details>
+
+<details>
+<summary>**How do I create a smooth gradient between two similar colors?**</summary>
+
+Use color spaces that interpolate naturally. Modern CSS supports `linear-gradient(in oklch, ...)` for perceptually-uniform color interpolation — far smoother than the default sRGB interpolation, especially across hue boundaries.
+
+</details>
+
+<details>
+<summary>**Why does my gradient have ugly bands instead of smooth flow?**</summary>
+
+Color banding usually appears when the displayed color depth is less than 24-bit (e.g., on older mobile screens). Add a noise dither layer (`background-image: linear-gradient(...), url("noise.png")`) to mask banding visually.
+
+</details>
+
+<details>
+<summary>**Can I animate CSS gradients?**</summary>
+
+Native CSS cannot interpolate between two gradient backgrounds (the values are not numerical). Workaround: use a gradient on a pseudo-element and animate `transform` or `opacity`, or use SVG `&lt;animate&gt;` for true gradient interpolation.
+
+</details>
+
+<details>
+<summary>**Are conic gradients supported in all browsers?**</summary>
+
+Yes — every evergreen browser since 2021. For very old browsers, fall back to a radial gradient or a static image.
+
+</details>
+
+<details>
+<summary>**How do I get a gradient like Apple's frosted-glass background?**</summary>
+
+Combine a translucent gradient with `backdrop-filter: blur(20px)` and a subtle noise texture. The gradient generator produces the color layer; layer it manually with the blur.
+
+</details>
+
+## Tips
+
+- For brand consistency, pick gradient colors from your design token palette — never freehand.
+- Use `in oklch` color interpolation for smooth fades across hue boundaries (modern browsers).
+- Limit gradients to backgrounds and decorative elements; avoid gradient text for accessibility.
+- Test gradients on low-end displays — banding can be visible on cheap monitors and older phones.
+
+## Try it now
+
+The full css-gradient-generator runs in your browser at **[https://ztools.zaions.com/css-gradient-generator](https://ztools.zaions.com/css-gradient-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-gradient-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-gradient-generator.mdx)*

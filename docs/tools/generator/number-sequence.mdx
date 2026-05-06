@@ -1,0 +1,126 @@
+---
+id: number-sequence
+title: "Number Sequence Generator — Range, Step, Free"
+description: "Generate number sequences: arithmetic, geometric, Fibonacci, primes. Output as list, CSV, JSON. Browser-only."
+sidebar_label: "number-sequence"
+keywords:
+  - "number sequence generator"
+  - "arithmetic sequence online"
+  - "fibonacci generator"
+  - "prime number list"
+  - "range generator numbers"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# number-sequence
+
+A number sequence generator outputs a list of numbers following a rule — arithmetic (constant difference: 1, 4, 7, 10), geometric (constant ratio: 2, 4, 8, 16), Fibonacci (each term = sum of previous two: 1, 1, 2, 3, 5, 8), or prime numbers (2, 3, 5, 7, 11). Useful for seeding test data, generating IDs, building math worksheets, and quick exploration. The ZTools Number Sequence Generator produces all four types plus custom ranges (1..100 step 2), outputs in any common format, and runs entirely in the browser.
+
+<ToolCTA toolId="number-sequence" toolName="number-sequence" />
+
+## Use cases
+
+### Seed test IDs
+
+Need 1000 sequential IDs starting from 5000. Generator outputs in seconds — no script needed.
+
+### Math worksheet content
+
+Generate a sequence (e.g. multiples of 7) for a teacher's worksheet. Add some random gaps for the student to fill in.
+
+### Pagination URLs
+
+?page=1, 2, 3, ... 100. Generator makes the URL list for sitemaps or quick crawl seeds.
+
+### Explore a sequence visually
+
+See the first 50 Fibonacci numbers or the first 100 primes — visual aid for learning or curiosity.
+
+## How it works
+
+1. **Pick sequence type** — Arithmetic (start + step), geometric (start × ratio), Fibonacci, primes, custom (start..end step N).
+2. **Configure parameters** — Start value, step or ratio, term count or end value. Generator validates (e.g. step ≠ 0).
+3. **Pick output** — Comma list (1, 2, 3, 4), space list, newline-separated, JSON array, CSV row.
+4. **Copy or download** — One-click copy. For very long sequences, download as .txt to avoid browser textarea lag.
+
+## Examples
+
+**Input:** Arithmetic: start 1, step 3, count 10
+
+**Output:** 1, 4, 7, 10, 13, 16, 19, 22, 25, 28
+
+---
+
+**Input:** Geometric: start 2, ratio 2, count 8
+
+**Output:** 2, 4, 8, 16, 32, 64, 128, 256
+
+---
+
+**Input:** Fibonacci: 12 terms
+
+**Output:** 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+
+---
+
+**Input:** First 10 primes
+
+**Output:** 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+## Frequently asked questions
+
+<details>
+<summary>**How big can the sequence be?**</summary>
+
+Up to 1 million terms in the browser. Beyond that, prefer a CLI script — generating + rendering both hit limits.
+
+</details>
+
+<details>
+<summary>**Does it handle big numbers (&gt;2^53)?**</summary>
+
+JavaScript number precision drops above 2^53. Toggle "BigInt mode" for sequences that need exact integer arithmetic above that limit.
+
+</details>
+
+<details>
+<summary>**Can it do non-integer sequences?**</summary>
+
+Arithmetic / geometric work with floats (start 0.1 step 0.1). Floating-point rounding can accumulate — use rational mode for exact decimal arithmetic if precision matters.
+
+</details>
+
+<details>
+<summary>**Prime generation algorithm?**</summary>
+
+Sieve of Eratosthenes up to a max, then return the first N. For N up to ~1 million primes (max ~16 million), runs in &lt;1 second.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All generation in browser.
+
+</details>
+
+## Tips
+
+- For very long sequences, download instead of copy — browser clipboard can choke on &gt;10 MB strings.
+- Use BigInt mode for IDs that might exceed 2^53 — JavaScript number precision otherwise causes silent rounding.
+- For pagination, generate URLs (?page=N) directly via the format option — saves string-templating in code.
+- Custom step (negative) generates descending sequences: start 100 step -1 count 100 → 100, 99, 98, ..., 1.
+
+## Try it now
+
+The full number-sequence runs in your browser at **[https://ztools.zaions.com/number-sequence](https://ztools.zaions.com/number-sequence)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/number-sequence)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/number-sequence.mdx)*

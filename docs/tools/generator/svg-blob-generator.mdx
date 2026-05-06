@@ -1,0 +1,130 @@
+---
+id: svg-blob-generator
+title: "SVG Blob Generator — Random Organic Shapes Free"
+description: "Generate random organic SVG blob shapes for backgrounds and decorative elements. Adjustable complexity, randomness, color. Copy-paste SVG."
+sidebar_label: "svg-blob-generator"
+keywords:
+  - "svg blob generator"
+  - "organic shape generator"
+  - "svg blob shape"
+  - "random svg blob"
+  - "blob maker"
+  - "organic svg generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# svg-blob-generator
+
+SVG blobs are organic, asymmetric closed shapes — the inverse of geometric circles and squares. They became a 2018+ design trend on landing pages, mobile-app illustrations, and marketing graphics, providing visual interest without the rigid feel of grid-aligned shapes. The ZTools SVG Blob Generator produces random blobs via mathematical perturbation of a circle (n control points placed on a circle, each radius offset by random amounts), with adjustable complexity (number of bumps), randomness (irregularity), and color/gradient. Output is a single `&lt;svg&gt;` element ready to paste into HTML, React (as JSX), or design tools.
+
+<ToolCTA toolId="svg-blob-generator" toolName="svg-blob-generator" />
+
+## Use cases
+
+### Landing-page hero backgrounds
+
+A large pastel blob behind hero text adds movement and breaks the rectangular grid. Stripe, Notion, Slack marketing pages all use this pattern.
+
+### Avatar / profile picture backdrops
+
+Place a circular avatar over a blob shape for a softer, more organic profile-card look. Common in Dribbble shots and modern marketing.
+
+### Decorative section dividers
+
+Replace flat horizontal section breaks with blob-shaped transitions. Adds rhythm to long-scroll pages.
+
+### Empty-state illustrations
+
+Pair a blob with a centered icon for friendlier "no data" / "all done" / "nothing here yet" screens. Less sterile than plain icon-on-white.
+
+## How it works
+
+1. **Set complexity** — 3–20 control points. More points = more bumps. 6–10 is the visual sweet spot.
+2. **Set randomness** — 0–100%. 0 = perfect circle; 100 = wild asymmetry. 30–60% is "blob-like".
+3. **Pick color or gradient** — Solid fill, two-stop linear gradient, or three-stop radial gradient.
+4. **Re-roll for variation** — Each click generates a new random blob with the same parameters — sample 5–10 and pick the best.
+5. **Copy SVG** — Single `&lt;svg&gt;` element with `&lt;path&gt;` — paste into HTML / JSX / design app. No external dependencies.
+
+## Examples
+
+**Input:** 8 points, 50% randomness, indigo
+
+**Output:** Soft asymmetric blob suitable for hero background — saved as inline SVG.
+
+---
+
+**Input:** 15 points, 80% randomness, gradient
+
+**Output:** Highly irregular blob with light-to-dark gradient — decorative accent shape.
+
+---
+
+**Input:** 6 points, 30% randomness, currentColor
+
+**Output:** Subtle organic shape; inherits text color via currentColor.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why SVG instead of PNG?**</summary>
+
+SVG scales infinitely without pixelation, has tiny file size (a blob is &lt; 1KB), inherits CSS colors via currentColor, and animates trivially. PNG fixes you to one resolution and color.
+
+</details>
+
+<details>
+<summary>**How does the algorithm work?**</summary>
+
+N control points are placed on a circle, each at a slightly randomised distance from center. A Bézier curve smoothly connects them, producing the closed organic shape.
+
+</details>
+
+<details>
+<summary>**Can I animate the blob?**</summary>
+
+Yes — animate the SVG path's `d` attribute via SMIL or, more commonly, with a JS library that morphs between two blob shapes (e.g. blobs.app, or a custom morph-between-paths function).
+
+</details>
+
+<details>
+<summary>**Will it work in old browsers?**</summary>
+
+SVG support is universal (IE9+, all modern browsers). The blob path is just `&lt;path d="..."&gt;` — works everywhere SVG works.
+
+</details>
+
+<details>
+<summary>**Can I edit the blob in Figma?**</summary>
+
+Yes — paste the SVG into Figma; it converts to a vector shape you can edit point-by-point.
+
+</details>
+
+<details>
+<summary>**Are blobs accessible?**</summary>
+
+They're decorative — add `role="presentation"` and `aria-hidden="true"` to the SVG so screen readers skip them.
+
+</details>
+
+## Tips
+
+- Generate 5–10 blobs per design and pick the best — randomness means the first roll is rarely the best.
+- Use `aria-hidden="true"` on decorative blobs so screen readers skip them.
+- Keep blob complexity ≤ 10 for hero backgrounds; more bumps look noisy at large sizes.
+- Pair with `currentColor` and CSS variables for theme-aware blobs that change in dark mode.
+- For animated morphing, use a library like flubber.js to interpolate between two blob `d` attributes.
+
+## Try it now
+
+The full svg-blob-generator runs in your browser at **[https://ztools.zaions.com/svg-blob-generator](https://ztools.zaions.com/svg-blob-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/svg-blob-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/svg-blob-generator.mdx)*

@@ -1,0 +1,131 @@
+---
+id: random-number
+title: "Random Number Generator — Integer & Decimal, Custom Ranges, Bulk"
+description: "Generate random integers or decimals in any range. Bulk output up to 10,000 numbers. Crypto-strong RNG. Free, in-browser, no signup."
+sidebar_label: "random-number"
+keywords:
+  - "random number generator"
+  - "rng"
+  - "random integer"
+  - "random decimal"
+  - "crypto random"
+  - "bulk random number generator"
+  - "sample without replacement"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# random-number
+
+A random number generator produces unbiased numeric values inside a chosen range — integers or decimals, single values or bulk lists, with optional uniqueness — drawing from a cryptographically strong source so the output is suitable for raffles, sampling, statistical tests, password seeding, and game mechanics. The ZTools Random Number Generator runs entirely in the browser using the Web Crypto API for secure randomness, supports decimal precision, exclusive/inclusive bounds, no-repeat lists, and bulk export to CSV / JSON / clipboard, with a transparent algorithm choice (crypto vs Math.random) so users know what they are getting.
+
+<ToolCTA toolId="random-number" toolName="random-number" />
+
+## Use cases
+
+### Raffles and giveaways
+
+Pick a winner from 1,200 entrants. Generate one integer between 1 and 1,200; the entrant at that index wins. Crypto-strong RNG eliminates "the host rigged it" suspicions.
+
+### Statistical sampling
+
+Researchers sample 50 random survey IDs from a population of 5,000. Generate 50 unique integers in [1, 5000] and pull those rows from the dataset.
+
+### Game and simulation seeds
+
+Game designers test rare-drop mechanics. Generate 10,000 rolls in [1, 100] and count how many fall in the rare-drop band.
+
+### Test data generation
+
+Need 1,000 random prices between 9.99 and 99.99 for a stress test. Decimal output with 2-place precision feeds the seed script.
+
+## How it works
+
+1. **Pick the type** — Integer or decimal. Decimals support 1–10 places of precision.
+2. **Set the range** — Min and max. Inclusive on both ends by default; toggle to exclusive if needed.
+3. **Choose count and uniqueness** — One value, or a bulk list (up to 10,000). Optional "no repeats" produces a sample without replacement.
+4. **Pick the source** — Crypto-strong (default, Web Crypto) or fast pseudo-random (Math.random) for non-security uses.
+5. **Generate and export** — Display as a list, copy to clipboard, or download CSV / JSON.
+
+## Examples
+
+**Input:** Integer 1–100, count 5
+
+**Output:** 47, 12, 88, 3, 61
+
+---
+
+**Input:** Decimal 0.0–1.0, precision 4, count 3
+
+**Output:** 0.4837, 0.0192, 0.7755
+
+---
+
+**Input:** Unique integers 1–1000, count 10
+
+**Output:** Ten distinct integers; perfect for sampling without replacement
+
+## Frequently asked questions
+
+<details>
+<summary>**Is it truly random?**</summary>
+
+Cryptographically pseudo-random — indistinguishable from true random for any practical purpose. Web Crypto uses the OS entropy pool. Suitable for raffles, security seeds, and statistics.
+
+</details>
+
+<details>
+<summary>**Why offer Math.random as well?**</summary>
+
+Math.random is faster and fine for non-security uses (game prototyping, dummy data). Crypto RNG is slower per call but still generates 10,000 numbers in well under a second.
+
+</details>
+
+<details>
+<summary>**Can it produce a uniform sample without replacement?**</summary>
+
+Yes — the "no repeats" mode shuffles indices and returns the first N. Guaranteed-unique even for large counts.
+
+</details>
+
+<details>
+<summary>**How big a range can I use?**</summary>
+
+Up to JavaScript's safe integer range (≈ 9 quadrillion). For larger ranges, use a BigInt mode or generate two halves.
+
+</details>
+
+<details>
+<summary>**Can I seed for reproducibility?**</summary>
+
+Yes — switch to seeded mode (xoshiro256**) and supply a seed; the same seed always produces the same sequence. Useful for tests.
+
+</details>
+
+<details>
+<summary>**Is the result safe for cryptographic keys?**</summary>
+
+For 256-bit-or-less integer keys, yes. For longer secrets, prefer the Password Generator which formats the output as a passphrase or token.
+
+</details>
+
+## Tips
+
+- For raffles, share the seed and the algorithm — anyone can reproduce the draw and verify fairness.
+- No-repeats mode saves you the manual dedupe pass.
+- For floats, set precision before generating — rounding after introduces tiny biases.
+- Bulk-export to CSV when feeding the result into a spreadsheet or analytics tool.
+- Use crypto RNG for anything user-facing; pseudo-RNG only for performance-bound prototypes.
+
+## Try it now
+
+The full random-number runs in your browser at **[https://ztools.zaions.com/random-number](https://ztools.zaions.com/random-number)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/random-number)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/random-number.mdx)*

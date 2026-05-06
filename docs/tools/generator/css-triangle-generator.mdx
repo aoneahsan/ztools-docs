@@ -1,0 +1,129 @@
+---
+id: css-triangle-generator
+title: "CSS Triangle Generator — Pure-CSS Arrows & Tooltips (Free)"
+description: "Generate pure-CSS triangles (up/down/left/right + diagonals) for tooltips, dropdowns, and chat bubble tails. Adjust direction, size, color."
+sidebar_label: "css-triangle-generator"
+keywords:
+  - "css triangle generator"
+  - "css arrow generator"
+  - "css tooltip arrow"
+  - "pure css triangle"
+  - "css speech bubble tail"
+  - "css chevron"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-triangle-generator
+
+A CSS triangle generator creates triangular shapes using the classic "border trick" — a zero-width-and-height element with thick borders on three sides invisible and one side colored. The result is a sharp triangle pointing in any cardinal or diagonal direction, no SVG, no images. Most common use: speech-bubble / tooltip / dropdown tails (the little arrow pointing at the target). The ZTools generator emits the exact CSS for any direction, size, and color, with a live preview and copy-paste output.
+
+<ToolCTA toolId="css-triangle-generator" toolName="css-triangle-generator" />
+
+## Use cases
+
+### Tooltip / popover tails
+
+The little arrow connecting a tooltip to its target. Visual cue tells the user what the tooltip is referring to. Implemented as a pseudo-element with the triangle CSS.
+
+### Speech bubble / chat message tails
+
+Chat-app message bubbles often have a small triangle on the lower-left or lower-right indicating sender vs receiver. CSS triangle, no image needed.
+
+### Dropdown chevron substitutes
+
+For older browsers or no-Unicode contexts, a CSS triangle works as a down-arrow icon next to "Menu" or "Options".
+
+### Decorative section dividers
+
+Triangular section break (a row of zigzag triangles between sections). Adds visual rhythm without an image.
+
+## How it works
+
+1. **Pick direction** — Up, down, left, right, or diagonal (NE, NW, SE, SW).
+2. **Set size** — Border-width determines triangle dimensions. 8–16 px common for tooltip tails.
+3. **Set color** — The single "active" border's color is the triangle fill.
+4. **Preview and copy** — Output is a CSS class with width/height: 0 + border properties. Optional pseudo-element wrapper for tooltip-tail use.
+
+## Examples
+
+**Input:** Down triangle, 12px, color #1f2937
+
+**Output:** `width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 12px solid #1f2937;` — points down.
+
+---
+
+**Input:** Right triangle, 8px, color currentColor
+
+**Output:** Right-pointing arrow; inherits parent text color, themable.
+
+---
+
+**Input:** Tooltip with bottom tail, blue
+
+**Output:** Generated as `::after` pseudo-element on a `.tooltip` class — drop-in template.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why not just use SVG?**</summary>
+
+CSS triangles are smaller (no file), inherit currentColor, and animate trivially via border transitions. SVG is also great and supports more complex shapes; for a simple arrow, CSS is fine.
+
+</details>
+
+<details>
+<summary>**How does the border trick work?**</summary>
+
+A 0×0 element with thick borders on each side renders the borders meeting at miters (45° angles). Make three borders transparent and one colored, and the colored border becomes a triangle.
+
+</details>
+
+<details>
+<summary>**Can I make a non-equilateral triangle?**</summary>
+
+Yes — use different border-width values for the perpendicular sides. Larger border-left + smaller border-bottom = stretched triangle.
+
+</details>
+
+<details>
+<summary>**How do I round the corners?**</summary>
+
+You can't round CSS-triangle corners — they're border miters, not actual corners. For rounded-corner triangles, use SVG or `clip-path: polygon()`.
+
+</details>
+
+<details>
+<summary>**Can I rotate the triangle?**</summary>
+
+Use `transform: rotate(Ndeg)`. Or just pick the right direction at generation time.
+
+</details>
+
+<details>
+<summary>**Will it scale on different displays?**</summary>
+
+Border widths in `px` produce crisp rendering at any DPI. Avoid em/rem for triangles unless you want them to scale with text size.
+
+</details>
+
+## Tips
+
+- For tooltip tails, use a `::after` pseudo-element on the tooltip body, absolutely positioned at the bottom center.
+- Use `currentColor` so the triangle inherits the parent's text color — single CSS class, infinite themes.
+- For drop shadows under the tail, layer two pseudo-elements (one slightly larger, darker, offset).
+- If you need rounded triangles, use `clip-path: polygon(50% 0, 100% 100%, 0 100%)` instead of borders.
+- Triangles + transitions: animate border-width to "grow" the tail dynamically.
+
+## Try it now
+
+The full css-triangle-generator runs in your browser at **[https://ztools.zaions.com/css-triangle-generator](https://ztools.zaions.com/css-triangle-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-triangle-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-triangle-generator.mdx)*

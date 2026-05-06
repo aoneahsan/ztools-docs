@@ -1,0 +1,130 @@
+---
+id: meta-tag-generator
+title: "Meta Tag Generator — SEO + Social + Mobile Tags Free"
+description: "Generate complete <head> meta tags: title, description, robots, canonical, viewport, theme-color, OG, Twitter, manifest. Copy-paste ready."
+sidebar_label: "meta-tag-generator"
+keywords:
+  - "meta tag generator"
+  - "html meta tags"
+  - "seo meta tags"
+  - "open graph generator"
+  - "twitter card generator"
+  - "head meta generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# meta-tag-generator
+
+A meta tag generator builds the full set of `&lt;head&gt;` meta tags every modern web page needs — SEO basics (title, description, canonical, robots), social cards (Open Graph + Twitter), mobile (viewport, theme-color, apple-touch-icon), PWA hints (manifest, color-scheme), and structured-data starters. The ZTools Meta Tag Generator covers all of these in one form, validates lengths against best practices (title ≤ 60 chars, description 140–160 chars), and emits a single copy-paste block ready for any HTML page or CMS template.
+
+<ToolCTA toolId="meta-tag-generator" toolName="meta-tag-generator" />
+
+## Use cases
+
+### New site launch
+
+Day-one SEO foundation. Every page needs the basic meta block — generator gets it right the first time, ensures nothing is missing.
+
+### CMS template scaffolding
+
+Wordpress / Webflow / Ghost theme builders bake the meta block into the layout template. Generate once, parametrise placeholders, deploy.
+
+### SEO audit fixes
+
+Existing site missing canonical / robots / OG tags — generate the complete set, paste into the affected templates, fix in one pass.
+
+### Mobile / PWA polish
+
+theme-color, apple-touch-icon, viewport, manifest reference — small things that make a site feel native on mobile. Generator gets them all.
+
+## How it works
+
+1. **Enter page essentials** — Title (≤60 chars), meta description (140–160), canonical URL, language code (en, fr, etc.).
+2. **Configure robots** — index/noindex, follow/nofollow, max-snippet, max-image-preview — all standard robots-meta directives.
+3. **Add social** — OG title/description/image/type + Twitter card style. Reuses page values if not overridden.
+4. **Add mobile/PWA** — viewport (always default), theme-color (browser chrome tint), apple-touch-icon, web-app-capable.
+5. **Copy block** — Single multi-line `&lt;head&gt;` snippet — paste once, done.
+
+## Examples
+
+**Input:** Blog post: title, description, OG image, English, index+follow
+
+**Output:** ~20 meta tags covering SEO + social + mobile.
+
+---
+
+**Input:** Internal admin page: noindex, nofollow
+
+**Output:** Minimum tags + `&lt;meta name="robots" content="noindex,nofollow"&gt;` so admin pages don't get indexed.
+
+---
+
+**Input:** PWA-installable site
+
+**Output:** Adds manifest link + theme-color + apple-mobile-web-app-capable for installable behaviour on iOS/Android.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the meta keywords tag still useful?**</summary>
+
+No — Google ignored it since 2009. Bing officially dropped it. Yandex still considers it. Most generators omit it; some include it because Yandex.
+
+</details>
+
+<details>
+<summary>**Why is my page title showing differently in Google?**</summary>
+
+Since 2021, Google rewrites titles ~60% of the time based on H1, anchor text, and content. Your `&lt;title&gt;` is a strong hint, not a guarantee. Make it match user intent and the page H1.
+
+</details>
+
+<details>
+<summary>**How long can the meta description be?**</summary>
+
+160 chars is the safe maximum on desktop SERPs; 130 on mobile. Beyond that, Google truncates. Some pages benefit from short, punchy descriptions (90–110 chars) — depends on intent.
+
+</details>
+
+<details>
+<summary>**What's the difference between canonical and og:url?**</summary>
+
+`canonical` tells search engines the preferred URL for indexing. `og:url` tells social platforms where to send users when they click the preview. Usually identical — but for tracking-parameter URLs, og:url may include UTMs while canonical is the clean version.
+
+</details>
+
+<details>
+<summary>**Do I need theme-color?**</summary>
+
+Strongly recommended for PWAs and mobile sites — colors the browser chrome on Chrome Android, Safari iOS standalone, Edge mobile. Drop the fallback brown bar; gain on-brand polish.
+
+</details>
+
+<details>
+<summary>**What's the modern viewport meta?**</summary>
+
+`&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;` — viewport-fit=cover allows draw-under-notch on iOS for full-screen experiences.
+
+</details>
+
+## Tips
+
+- Always include a canonical — even self-referencing — to prevent duplicate-content issues from URL parameters.
+- Keep the title ≤ 60 chars; longer titles get truncated with "...".
+- theme-color: pick a color from your brand that contrasts with both light and dark UI.
+- Add `lang` attribute on `&lt;html&gt;` (not just meta) — improves accessibility and translation.
+- Use a build-time tool to inject per-page meta dynamically; static meta on every page is brittle.
+
+## Try it now
+
+The full meta-tag-generator runs in your browser at **[https://ztools.zaions.com/meta-tag-generator](https://ztools.zaions.com/meta-tag-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/meta-tag-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/meta-tag-generator.mdx)*

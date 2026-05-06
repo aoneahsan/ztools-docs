@@ -1,0 +1,130 @@
+---
+id: mac-address-generator
+title: "MAC Address Generator — Random Unicast / Locally-Administered"
+description: "Generate random MAC addresses (unicast / multicast, locally-administered). Multiple formats. Bulk export. Free, in-browser."
+sidebar_label: "mac-address-generator"
+keywords:
+  - "mac address generator"
+  - "random mac address"
+  - "locally administered mac"
+  - "mac generator bulk"
+  - "mac for testing"
+  - "eui-64 generator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# mac-address-generator
+
+A MAC address generator produces random media-access-control addresses in any of the standard formats — colon-separated (00:1A:2B:3C:4D:5E), hyphen-separated (00-1A-2B-3C-4D-5E), or dot-separated Cisco style (001A.2B3C.4D5E) — useful for testing network code, seeding fake-data fixtures, simulating new devices in a lab, and demonstrating MAC-related logic in tutorials. The ZTools MAC Address Generator can emit unicast or multicast addresses, force the locally-administered bit so the result will not collide with real OUI-assigned addresses, output specific OUI prefixes (Apple, Cisco, Intel, etc.) when you need realism, and export bulk batches as CSV or JSON.
+
+<ToolCTA toolId="mac-address-generator" toolName="mac-address-generator" />
+
+## Use cases
+
+### Networking lab and tutorial demos
+
+Build a tutorial on ARP / DHCP. Generate a fleet of MACs to populate the demo network without real hardware.
+
+### Testing inventory / asset systems
+
+Asset-tracking software queries by MAC. Seed the database with synthetic but valid MACs to test reporting.
+
+### Spoofing for privacy on home labs
+
+Researchers test MAC randomisation features on Wi-Fi. Generate randomised MACs with the locally-administered bit set.
+
+### Mock IoT device fleets
+
+IoT platform demos need 500 fake device IDs. MAC addresses are a common identifier; generate in bulk.
+
+## How it works
+
+1. **Pick the type** — Unicast (default) or multicast. The least-significant bit of the first octet flips between them.
+2. **Choose administration scope** — Locally-administered (default safe) sets the second-least-significant bit of the first octet — guarantees no collision with real OUI-assigned addresses.
+3. **Optional OUI prefix** — Force the first 3 octets to a known vendor (Apple 04:0C:CE, Cisco 00:1B:0C, Intel 00:1B:21) for realism in demos.
+4. **Format** — Colon, hyphen, or Cisco dot-format. Lowercase or uppercase.
+5. **Bulk and export** — 1–10,000 addresses per batch. Copy or download CSV/JSON.
+
+## Examples
+
+**Input:** Random unicast, locally-administered, colon format
+
+**Output:** 02:7A:F1:9C:33:8D
+
+---
+
+**Input:** OUI prefix Apple 04:0C:CE
+
+**Output:** 04:0C:CE:5B:91:42
+
+---
+
+**Input:** Bulk 5, Cisco format
+
+**Output:** 027A.F19C.338D / 023B.C152.6F94 / 02CD.E831.4A07 / 0269.AB37.94F1 / 0245.6B82.D3A0
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the generated MAC collide with a real device?**</summary>
+
+When the locally-administered bit is set (default), the address is in the LAA space and will never collide with real OUI-assigned addresses by definition.
+
+</details>
+
+<details>
+<summary>**What is the difference between unicast and multicast?**</summary>
+
+Least significant bit of the first octet. 0 = unicast (one device), 1 = multicast (group). Almost always you want unicast.
+
+</details>
+
+<details>
+<summary>**Can I spoof a real device's MAC?**</summary>
+
+You can set any prefix you want — but actually using a duplicate MAC on the same LAN causes ARP confusion. Use an OUI prefix only for demos and labs.
+
+</details>
+
+<details>
+<summary>**Are MACs case-sensitive?**</summary>
+
+Hex digits are not case-sensitive (00:aa:bb is the same as 00:AA:BB). Convention varies — Linux prefers lowercase, Cisco prefers uppercase.
+
+</details>
+
+<details>
+<summary>**How many bits of randomness in the locally-administered space?**</summary>
+
+46 bits (the 2 administration bits are fixed). Plenty for collision-free batches.
+
+</details>
+
+<details>
+<summary>**Are EUI-64 addresses supported?**</summary>
+
+Yes — toggle EUI-64 mode for IPv6 SLAAC-style 64-bit identifiers.
+
+</details>
+
+## Tips
+
+- Always set the locally-administered bit when using generated MACs in shared networks — guarantees no collision with real hardware.
+- For tutorials, prefix with a known OUI so readers see "Apple device" or "Cisco switch" naturally.
+- Bulk-export to CSV when seeding a database; JSON when feeding a JS test fixture.
+- Document in your test data that MACs are synthetic — future debuggers will not confuse them with real-hardware logs.
+- For spoofing privacy tests, also rotate the lower 24 bits — keeping the OUI but changing the device-specific portion.
+
+## Try it now
+
+The full mac-address-generator runs in your browser at **[https://ztools.zaions.com/mac-address-generator](https://ztools.zaions.com/mac-address-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/mac-address-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/mac-address-generator.mdx)*

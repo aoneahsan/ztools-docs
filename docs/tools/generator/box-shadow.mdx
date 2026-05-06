@@ -1,0 +1,131 @@
+---
+id: box-shadow
+title: "CSS Box Shadow Generator — Soft, Inset & Layered Shadows"
+description: "Generate CSS box-shadow with x/y offset, blur, spread, color, and inset toggle. Multi-layer shadows for realistic depth. Copy-paste ready."
+sidebar_label: "box-shadow"
+keywords:
+  - "box shadow generator"
+  - "css shadow generator"
+  - "css box shadow"
+  - "material elevation generator"
+  - "shadow css"
+  - "multi-layer shadow"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# box-shadow
+
+A box-shadow generator builds CSS drop and inset shadows with full control over offset, blur radius, spread, and color — including multi-layer shadows for realistic depth (the "Material elevation" pattern stacks 2–3 shadows for soft + sharp + ambient layers). The ZTools generator includes a live preview, multi-layer support, presets for Material/Tailwind/iOS shadow systems, and copy-paste-ready CSS. Pure visual styling — no JavaScript, no images, GPU-accelerated.
+
+<ToolCTA toolId="box-shadow" toolName="box-shadow" />
+
+## Use cases
+
+### Card elevation
+
+SaaS dashboards lift cards off the canvas with subtle shadows — typically 0 4px 12px rgba(0,0,0,0.08) or similar. The stacked-shadow pattern (Material elevation) adds realism.
+
+### Hover lift effects
+
+On hover, increase shadow blur + offset to suggest the card "rises". Pair with a small `transform: translateY(-2px)` for the full lift feel.
+
+### Inset shadows for inputs
+
+`box-shadow: inset 0 1px 2px rgba(0,0,0,0.06)` makes inputs feel "pressed in" against the page. Subtle but elevates form polish.
+
+### Modal / drawer overlays
+
+Strong shadow under floating panels — communicates "I'm above everything else". Material-style modals use 0 24px 38px stacked shadows.
+
+## How it works
+
+1. **Set offset (x, y)** — Positive y = shadow below; positive x = shadow right. 0 0 = symmetric glow.
+2. **Set blur radius** — 0 = sharp; 16+ = soft. Realistic shadows are 2–4× the y-offset.
+3. **Set spread** — Negative spread tightens the shadow under the element; positive expands it. Default 0.
+4. **Set color + alpha** — rgba(0,0,0,0.08–0.20) for natural-feeling shadows. Pure black at 50% alpha looks artificial.
+5. **Toggle inset** — Inset shadows render inside the element — for "pressed" / "indented" looks.
+6. **Stack layers** — Up to 5 shadow layers — softer + sharper combined gives realistic depth.
+
+## Examples
+
+**Input:** Card lift: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06)
+
+**Output:** Two-layer Material-style shadow — sharp anchor + soft ambient.
+
+---
+
+**Input:** Hover state: 0 8px 24px rgba(0,0,0,0.12)
+
+**Output:** Single deeper shadow for hover lift; pair with translateY(-2px).
+
+---
+
+**Input:** Inset input: inset 0 1px 2px rgba(0,0,0,0.06)
+
+**Output:** Subtle indent at top edge of input — feels "carved into" the surface.
+
+## Frequently asked questions
+
+<details>
+<summary>**How many shadow layers should I stack?**</summary>
+
+1 layer for simple cases; 2–3 for realistic depth. More than 3 rarely helps and costs paint performance.
+
+</details>
+
+<details>
+<summary>**Why does my shadow look gray and lifeless?**</summary>
+
+Pure-black shadows feel CGI. Use the parent element's dominant color tinted toward black — e.g. `rgba(15, 23, 42, 0.1)` (slate-900) instead of `rgba(0, 0, 0, 0.1)`. Adds warmth, looks more natural.
+
+</details>
+
+<details>
+<summary>**Box-shadow vs filter: drop-shadow?**</summary>
+
+`box-shadow` follows the element's box rectangle — fast, works for most cases. `filter: drop-shadow()` follows the actual rendered shape (respects rounded corners, transparency in PNGs) — slower but more accurate for non-rectangular content.
+
+</details>
+
+<details>
+<summary>**Performance impact?**</summary>
+
+Shadows trigger a paint on every redraw. Don't apply to hundreds of scrolling elements. For animated shadows, prefer transitioning a separate pseudo-element's opacity.
+
+</details>
+
+<details>
+<summary>**Why does the shadow extend past my container?**</summary>
+
+Container has `overflow: hidden`. Move the shadow to the parent or remove the overflow. Or use a wrapper element.
+
+</details>
+
+<details>
+<summary>**Are negative spread values useful?**</summary>
+
+Yes — negative spread makes the shadow narrower than the element, useful for "inset glow" looks or when the shadow should peek out only at the bottom.
+
+</details>
+
+## Tips
+
+- Match shadow direction to a single light source on the page (typically top — y offset positive, x offset 0).
+- Stack 2 layers: sharp short-blur (1–3px) for the contact shadow + soft long-blur (12–24px) for ambient.
+- Use shadow color sampled from the element's background, not pure black — more natural.
+- For dark mode, use a colored shadow or a subtle white box-shadow (rim light) instead of darker black-on-black.
+- Test on 1× and 2× DPI displays — shadow blur radius perception differs.
+
+## Try it now
+
+The full box-shadow runs in your browser at **[https://ztools.zaions.com/box-shadow](https://ztools.zaions.com/box-shadow)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/box-shadow)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/box-shadow.mdx)*

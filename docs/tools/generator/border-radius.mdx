@@ -1,0 +1,130 @@
+---
+id: border-radius
+title: "CSS Border Radius Generator — Custom Corner Shapes Free"
+description: "Generate CSS border-radius with per-corner control + elliptical radii for organic shapes. Live preview, presets, copy-paste ready."
+sidebar_label: "border-radius"
+keywords:
+  - "border radius generator"
+  - "css border radius"
+  - "rounded corners css"
+  - "squircle css"
+  - "organic shape css"
+  - "per corner border radius"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# border-radius
+
+A border-radius generator goes beyond the simple `border-radius: 8px` shortcut to expose all 8 values that CSS allows — horizontal and vertical radii per corner — letting you produce squircles, blob shapes, asymmetric containers, leaf shapes, and the famous "iOS app icon" rounded square that uses elliptical radii. The ZTools generator includes a live preview, presets (Material, iOS squircle, Apple Watch, blob, leaf), per-corner sliders, and CSS output that copies directly into your stylesheet.
+
+<ToolCTA toolId="border-radius" toolName="border-radius" />
+
+## Use cases
+
+### iOS-style app icon containers
+
+Apple's app icons aren't simple rounded squares — they're "squircles" using elliptical border-radius. Standard `border-radius: 22.5%` approximates it; `border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%` gets even closer organic feel.
+
+### Organic blob backgrounds
+
+Marketing pages use "blob" decorative shapes. Random per-corner radii produce asymmetric shapes that break the rigid grid feel.
+
+### Avatar / profile picture variants
+
+Standard avatars are circles (border-radius: 50%). Squircles and rounded squares are increasingly common — modern, soft, less "stamp" feel.
+
+### Asymmetric cards (chat bubbles)
+
+Chat-message bubbles often have 3 rounded corners and 1 sharp (the "tail" corner). Per-corner border-radius nails this.
+
+## How it works
+
+1. **Set per-corner radius** — 4 sliders: top-left, top-right, bottom-right, bottom-left.
+2. **Toggle elliptical mode** — Each corner can have separate horizontal + vertical radii — produces elliptical (egg-shaped) corners instead of circular.
+3. **Apply preset (optional)** — Material card, iOS squircle, Apple Watch, blob, leaf, ticket-stub, etc.
+4. **Set size unit** — px, %, em — % scales with container, px stays fixed.
+5. **Copy CSS** — Output is `border-radius: ...;` — clean shorthand or full longhand syntax.
+
+## Examples
+
+**Input:** iOS squircle: 30% 70% 70% 30% / 30% 30% 70% 70%
+
+**Output:** Asymmetric organic-feeling rounded square, matching Apple's icon vibe.
+
+---
+
+**Input:** Chat bubble: 12px 12px 12px 0
+
+**Output:** Three rounded + one sharp bottom-left corner — classic chat-bubble shape.
+
+---
+
+**Input:** Blob: 60% 40% 30% 70% / 60% 30% 70% 40%
+
+**Output:** Organic asymmetric blob; useful as decorative background.
+
+## Frequently asked questions
+
+<details>
+<summary>**What does the slash syntax do?**</summary>
+
+`border-radius: 30% / 60%` — values before `/` are horizontal radii, values after are vertical. Per-corner ellipticals: `border-radius: TL TR BR BL / TL TR BR BL`. Eight values total.
+
+</details>
+
+<details>
+<summary>**How is a squircle different from `border-radius: 30%`?**</summary>
+
+`border-radius: 30%` produces a circular curve. A squircle uses superellipse mathematics with continuous curvature change — Apple uses a custom algorithm. Pure CSS approximates with elliptical radii but isn't mathematically identical.
+
+</details>
+
+<details>
+<summary>**Why does my rounded image clip differently than my rounded div?**</summary>
+
+`overflow: hidden` is required to clip child content (like images) to the rounded shape. The shape itself renders without overflow:hidden but contained content overflows the corners.
+
+</details>
+
+<details>
+<summary>**Performance impact?**</summary>
+
+Negligible — border-radius is a paint optimization browsers handle natively.
+
+</details>
+
+<details>
+<summary>**Will it work on `&lt;input&gt;` elements?**</summary>
+
+Yes — but Safari historically clipped some inputs. Always test on Safari for inputs / selects with custom radii.
+
+</details>
+
+<details>
+<summary>**What unit should I use?**</summary>
+
+`%` for fluid sizes (50% = circle/oval relative to container). `px` for fixed corners regardless of container size. `em` to scale with text.
+
+</details>
+
+## Tips
+
+- For `circle/avatar`, use 50% — adapts to any element shape.
+- For "softly rounded card", use 12–20px on all corners — modern SaaS standard.
+- For organic blobs, set each corner to a different value; randomize for unique decorative shapes.
+- Use `overflow: hidden` on the rounded element when content (images, videos) needs to clip to the shape.
+- Don't over-round buttons — pill shape (border-radius: 9999px) on tiny buttons makes them feel cramped.
+
+## Try it now
+
+The full border-radius runs in your browser at **[https://ztools.zaions.com/border-radius](https://ztools.zaions.com/border-radius)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/border-radius)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/border-radius.mdx)*

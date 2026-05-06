@@ -1,0 +1,93 @@
+---
+id: dendrite-fractal
+title: "Dendrite Fractal Generator — Free Online, Browser"
+description: "Generate dendrite fractals — branching crystal-like patterns. Customize parameters. Browser-only."
+sidebar_label: "dendrite-fractal"
+keywords:
+  - "dendrite fractal generator"
+  - "diffusion limited aggregation"
+  - "crystal fractal art"
+  - "lightning fractal"
+  - "dla simulator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# dendrite-fractal
+
+Dendrite fractals model crystal growth, lightning, river networks, and frost patterns — all branching structures formed when material accretes preferentially at protrusions. The classic algorithm (diffusion-limited aggregation, Witten-Sander 1981) drops random walkers near a seed; they stick on contact, gradually growing the structure. The ZTools Dendrite Fractal generator runs DLA in the browser with configurable particle count, sticking probability, and seed shape. Useful for generative art, science visualisation, and curiosity about how natural patterns emerge from simple rules.
+
+<ToolCTA toolId="dendrite-fractal" toolName="dendrite-fractal" />
+
+## Use cases
+
+### Generative art
+
+Each run produces a unique dendrite. Save as SVG for use as a background element.
+
+### Science visualisation
+
+Demonstrate diffusion-limited aggregation. Useful for chemistry / materials-science teaching.
+
+### Procedural texture for digital art
+
+Frost / lightning / coral textures derived from the same underlying pattern.
+
+## How it works
+
+1. **Pick parameters** — Particle count (1000-50000), sticking probability (0.1-1.0), seed (point / line / shape), grid size.
+2. **Run DLA** — Each particle starts on a far-away circle, random-walks until it hits an occupied cell, then sticks.
+3. **Render** — Output as SVG (vector) or PNG (raster).
+
+## Examples
+
+**Input:** 5000 particles, sticking 1.0
+
+**Output:** Dense compact dendrite — lots of branches, tight structure.
+
+---
+
+**Input:** 5000 particles, sticking 0.3
+
+**Output:** Sparser, more open structure — particles bounce off before sticking.
+
+---
+
+**Input:** Linear seed (a row of cells)
+
+**Output:** Forest-like growth from the bottom — frost on a window.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does it look like crystals / lightning?**</summary>
+
+Same underlying physics. Crystal growth, lightning, river networks all involve preferential growth at protrusions — mathematically modeled by DLA.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For tight dendrites, sticking probability = 1.0; for sparse / lacy patterns, lower it.
+- Larger particle counts give more detail but slower generation.
+- Combine with color gradient (radial from seed) for visually striking output.
+
+## Try it now
+
+The full dendrite-fractal runs in your browser at **[https://ztools.zaions.com/dendrite-fractal](https://ztools.zaions.com/dendrite-fractal)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/dendrite-fractal)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/dendrite-fractal.mdx)*

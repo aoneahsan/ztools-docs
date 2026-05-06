@@ -1,0 +1,130 @@
+---
+id: css-glassmorphism-generator
+title: "CSS Glassmorphism Generator — Frosted Glass Effect Free"
+description: "Generate frosted-glass (glassmorphism) CSS with adjustable blur, opacity, border, and saturation. Live preview, copy-paste ready."
+sidebar_label: "css-glassmorphism-generator"
+keywords:
+  - "css glassmorphism"
+  - "frosted glass css"
+  - "glass effect generator"
+  - "backdrop filter css"
+  - "glassmorphism generator"
+  - "apple glass css"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# css-glassmorphism-generator
+
+Glassmorphism is the frosted-glass UI style popularised by macOS Big Sur (2020), iOS 14, and Microsoft Fluent Design — semi-transparent panels with backdrop blur, a thin light border, and a subtle drop shadow. It works only over visible content (gradient or photo backgrounds); on flat backgrounds it disappears. The ZTools Glassmorphism Generator dials in `backdrop-filter: blur()` + `background: rgba()` + `border` + `box-shadow`, with a live preview over a sample gradient and copy-paste CSS. Browser support is ≈98% in 2026 (Safari 9+, Chrome 76+, Firefox 103+).
+
+<ToolCTA toolId="css-glassmorphism-generator" toolName="css-glassmorphism-generator" />
+
+## Use cases
+
+### Floating navigation bars
+
+Sticky headers/sidebars over a photo or gradient hero. The blur reads as "I'm above the content" without obscuring it. Apple-style polish.
+
+### Modal dialogs and sheets
+
+Frosted-glass overlay dialogs feel less heavy than opaque white modals. Common in iOS/macOS-influenced design systems.
+
+### Stats / metric cards on a vibrant dashboard
+
+Glass cards over a colored or gradient dashboard background — the underlying color hue still reads, the card itself stays legible.
+
+### Login/signup over hero imagery
+
+Form on a glass panel over a marketing photo. Photo provides emotion; glass provides legibility. Very common SaaS landing-page pattern.
+
+## How it works
+
+1. **Set blur amount** — backdrop-filter: blur(0–40px). 8–16px is typical; 4px is subtle, 24px+ heavy.
+2. **Set background tint** — rgba(255,255,255,0–0.5) for light glass; rgba(0,0,0,0–0.5) for dark glass. 0.15–0.30 alpha is the sweet spot.
+3. **Set border** — 1px rgba(255,255,255,0.18) for the iconic "glass edge"; subtle but it sells the effect.
+4. **Set shadow + saturation** — box-shadow softens float; backdrop-filter: saturate(1.5) bumps color through the glass for liveliness.
+5. **Copy CSS** — Includes -webkit-backdrop-filter for Safari + the glass shorthand.
+
+## Examples
+
+**Input:** Light glass: blur 12px, bg rgba(255,255,255,0.25), border rgba(255,255,255,0.18)
+
+**Output:** Apple-style light glass — works over any gradient or photo.
+
+---
+
+**Input:** Dark glass: blur 16px, bg rgba(15,23,42,0.4), border rgba(255,255,255,0.06)
+
+**Output:** Dark-mode glass for night dashboards.
+
+---
+
+**Input:** Strong glass: blur 24px + saturate(1.8)
+
+**Output:** Heavy frosted blur with vivid color punch — splash screens, hero CTAs.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does glass work over solid backgrounds?**</summary>
+
+No — without underlying detail to blur, the panel is just a translucent rectangle. Pair glass with gradients, photos, or animated content.
+
+</details>
+
+<details>
+<summary>**Why is the blur not showing in Safari?**</summary>
+
+Safari requires `-webkit-backdrop-filter` (the unprefixed version was added in Safari 18). Always include both. The generator adds them automatically.
+
+</details>
+
+<details>
+<summary>**Performance impact?**</summary>
+
+backdrop-filter is GPU-accelerated but expensive. Don't apply to hundreds of elements simultaneously. Modern devices handle a few glass panels easily; mid-range Android phones may stutter on full-screen glass scroll.
+
+</details>
+
+<details>
+<summary>**Accessibility concerns?**</summary>
+
+Translucent panels can drop contrast below WCAG thresholds. Test text contrast over the worst-case background. Increase tint opacity (0.6–0.8) when text legibility wins over visual style.
+
+</details>
+
+<details>
+<summary>**Why does my glass look "muddy"?**</summary>
+
+Insufficient saturation. Add `backdrop-filter: blur(Npx) saturate(1.4)` — saturation pulls color through the blur and prevents the gray-mud look.
+
+</details>
+
+<details>
+<summary>**Can I use it for buttons?**</summary>
+
+Yes — small glass buttons over a photo hero are popular. Stick to simple shapes and increase border opacity to compensate for small surface area.
+
+</details>
+
+## Tips
+
+- Start with blur 12px + alpha 0.25 + saturate 1.4 — these defaults work for 80% of cases.
+- Always include `-webkit-backdrop-filter` for Safari 9–17.
+- Use a 1px white-translucent border on the top/left edges only for a "lit-from-above" look.
+- For dark mode, drop background alpha to 0.4–0.5 and use `rgba(0,0,0,...)` instead of pure black tint.
+- Test contrast at the lowest underlying color value — buttons must remain WCAG AA against worst-case background.
+
+## Try it now
+
+The full css-glassmorphism-generator runs in your browser at **[https://ztools.zaions.com/css-glassmorphism-generator](https://ztools.zaions.com/css-glassmorphism-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/css-glassmorphism-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/css-glassmorphism-generator.mdx)*

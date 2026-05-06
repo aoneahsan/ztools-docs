@@ -1,0 +1,119 @@
+---
+id: fake-iban-generator
+title: "Fake IBAN Generator — Test Data, Format-Valid, Free"
+description: "Generate format-valid IBANs for testing. Country-specific, MOD-97 checksum-correct. NEVER real accounts. Browser-only."
+sidebar_label: "fake-iban-generator"
+keywords:
+  - "fake iban generator"
+  - "test iban valid format"
+  - "iban for testing"
+  - "mod 97 iban generator"
+  - "sample iban generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# fake-iban-generator
+
+An IBAN (International Bank Account Number) follows a strict format: country code (2 letters) + check digits (2) + bank-specific identifier (up to 30 chars), with a MOD-97 checksum. The ZTools Fake IBAN Generator produces format-valid IBANs that pass syntax + checksum validation but reference no real bank account. Used for testing form validation, payment-flow QA, schema fuzz testing, and anywhere a real IBAN would be inappropriate (test fixtures in public repos). The generator covers 70+ countries with their specific length and structure rules.
+
+<ToolCTA toolId="fake-iban-generator" toolName="fake-iban-generator" />
+
+## Use cases
+
+### Form validation testing
+
+A payment form validates IBAN format. Need 50 valid samples across countries to test edge cases.
+
+### Database test fixtures
+
+Seed an integration test with realistic-looking IBAN data that's safe to commit to a public repo.
+
+### API contract testing
+
+Mock responses for a payment API need IBAN-shaped strings. Generated values pass the validator and behave correctly.
+
+### UI / accessibility QA
+
+Test how long IBANs render in your form fields — Maltese IBANs are 31 chars, Norwegian only 15.
+
+## How it works
+
+1. **Pick country** — Each ISO country code has a specific IBAN length and structure.
+2. **Optional bank code** — Some countries allow specifying the bank prefix; the generator fills the rest randomly.
+3. **Compute checksum** — MOD-97 algorithm: rearrange string, convert letters to digits, compute mod 97, set check digits so the total ≡ 1 mod 97.
+4. **Output** — A format-valid IBAN. Validates against any standard IBAN library — but bank rejects when used for actual transfers (account doesn't exist).
+
+## Examples
+
+**Input:** Country: GB (UK)
+
+**Output:** GB29NWBK60161331926819 — 22-char IBAN, format-valid, no real account.
+
+---
+
+**Input:** Country: DE (Germany)
+
+**Output:** DE89370400440532013000 — 22-char IBAN with German structure.
+
+---
+
+**Input:** Country: NO (Norway)
+
+**Output:** NO9386011117947 — 15-char IBAN (shortest standard).
+
+---
+
+**Input:** Country: MT (Malta)
+
+**Output:** MT84MALT011000012345MTLCAST001S — 31-char IBAN (longest standard).
+
+## Frequently asked questions
+
+<details>
+<summary>**Are these IBANs safe to use?**</summary>
+
+They're format-valid but reference no real account. Using them to attempt a transfer fails at the bank — no money moves. Safe for testing; never use for real transactions.
+
+</details>
+
+<details>
+<summary>**Will they pass my validator?**</summary>
+
+Yes — any IBAN library that checks format + MOD-97 checksum accepts these. Banks doing real-time bank-existence verification reject them, which is the point.
+
+</details>
+
+<details>
+<summary>**Can the same fake IBAN match a real account?**</summary>
+
+Statistically yes for very small countries; no for most. The generator picks bank-code + account-number portions randomly. To be safe, only use these in test environments.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Always label test data clearly as "TEST_ONLY" — a fake IBAN that escapes into production logs can confuse debugging.
+- For load testing, generate 1000+ unique fake IBANs — checksum-valid but with high cardinality.
+- For UI testing of edge cases, generate IBANs from short (NO, BE) and long (MT, RO) countries to test field width.
+- Never use fake IBANs in real banking flows — even though they're harmless, the audit log noise isn't worth it.
+
+## Try it now
+
+The full fake-iban-generator runs in your browser at **[https://ztools.zaions.com/fake-iban-generator](https://ztools.zaions.com/fake-iban-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/fake-iban-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/fake-iban-generator.mdx)*

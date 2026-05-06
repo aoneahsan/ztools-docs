@@ -1,0 +1,130 @@
+---
+id: color-palette-generator-advanced
+title: "Color Palette Generator (Advanced) — Harmony, WCAG, Export"
+description: "Build color palettes with harmony rules (complementary, triadic, tetradic, analogous), WCAG contrast checking, and export to CSS, SCSS, Tailwind, JSON."
+sidebar_label: "color-palette-generator-advanced"
+keywords:
+  - "color palette generator"
+  - "advanced color palette"
+  - "wcag color palette"
+  - "tailwind color generator"
+  - "oklch palette"
+  - "color harmony generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-palette-generator-advanced
+
+An advanced color palette generator builds 5–12 color palettes using color-harmony theory (complementary, analogous, triadic, tetradic, split-complementary, monochromatic), evaluates each pair for WCAG AA/AAA contrast compliance, and exports to CSS variables, SCSS, Tailwind config, JSON, or design-tool clipboard formats. Beyond the basic randomiser, this tool integrates HSL/OKLCH color spaces (OKLCH gives perceptually-uniform lightness — better than HSL for accessible palettes), supports import from existing brand colors, and generates 50/100/...900 tonal scales matching Tailwind's shade conventions.
+
+<ToolCTA toolId="color-palette-generator-advanced" toolName="color-palette-generator-advanced" />
+
+## Use cases
+
+### Design system kickoff
+
+Pick a primary brand color, generate the matching tonal scale (primary-50 through primary-900), and export Tailwind config in one step. The 9-shade scale is the modern design-system default.
+
+### Brand guidelines builder
+
+Define primary + secondary + accent + neutral palettes with harmony rules ensuring they look good together. Export to Figma styles or design-tokens JSON.
+
+### Marketing landing page palettes
+
+Random-by-rule palettes (triadic, complementary) get you to "this looks designed" faster than freestyle hex picking.
+
+### Accessibility audit
+
+Verify text/background contrast against WCAG AA (4.5:1 for normal text, 3:1 for large text). Quick fix-it tool when an existing palette fails contrast checks.
+
+## How it works
+
+1. **Pick a base color** — Hex, RGB, HSL, or OKLCH input. Or paste an existing brand color.
+2. **Choose harmony rule** — Complementary (180°), analogous (±30°), triadic (120° apart), tetradic (90°), split-complementary, monochromatic.
+3. **Generate tonal scale (optional)** — 50/100/200/.../900 — a 9-shade scale per palette color.
+4. **Check WCAG** — Each text/background pair flagged AA/AAA pass/fail. Adjust lightness to fix failures.
+5. **Export** — CSS variables, SCSS map, Tailwind theme config, JSON design tokens, Figma-style links.
+
+## Examples
+
+**Input:** Brand: indigo #6366f1, harmony: triadic
+
+**Output:** Indigo + teal + amber + neutral grays; export as Tailwind theme or CSS variables.
+
+---
+
+**Input:** Tonal scale of #6366f1
+
+**Output:** 9 shades: indigo-50 (#eef2ff) → indigo-900 (#1e1b4b), spaced for design-system use.
+
+---
+
+**Input:** Existing palette + WCAG check
+
+**Output:** Palette flagged: text-on-brand-blue passes AA at large sizes only — recommend lightening text by 12%.
+
+## Frequently asked questions
+
+<details>
+<summary>**HSL vs OKLCH — which should I use?**</summary>
+
+OKLCH (lightness-chroma-hue) is perceptually uniform — equal lightness values look equally bright. HSL doesn't — pure yellow at HSL 50% looks brighter than pure blue at HSL 50%. For accessible palettes (consistent perceived contrast), OKLCH wins.
+
+</details>
+
+<details>
+<summary>**How many colors in a palette?**</summary>
+
+5–7 is typical for a brand palette. 9-shade tonal scales per color give 5×9=45 total tokens for design systems. Tailwind's default is 11 shades (50, 100-900, 950).
+
+</details>
+
+<details>
+<summary>**What's WCAG AA vs AAA?**</summary>
+
+AA: 4.5:1 contrast for normal text, 3:1 for large (≥18px or ≥14px bold). AAA: 7:1 normal, 4.5:1 large. AA is the legal-compliance baseline; AAA is best practice.
+
+</details>
+
+<details>
+<summary>**Will the same input always produce the same palette?**</summary>
+
+For deterministic harmony rules (complementary, triadic, etc.) — yes. For randomised palettes — no, each click rerolls.
+
+</details>
+
+<details>
+<summary>**Can I import a Figma palette?**</summary>
+
+Paste hex codes one per line, or upload a JSON exported from Figma plugins. The tool reads any standard hex/RGB list.
+
+</details>
+
+<details>
+<summary>**Why do my palettes look different in print?**</summary>
+
+Print uses CMYK, screens use RGB. Conversion shifts perceived color — particularly for vivid blues/oranges. Always do print-proof checks before mass production.
+
+</details>
+
+## Tips
+
+- Start with a single brand primary; let harmony rules generate the rest. Resist the urge to pick every color manually.
+- Use OKLCH for tonal scales — gives consistent perceived brightness across hues.
+- Always check WCAG contrast for every text/background combination you'll actually use.
+- Limit to 5–7 brand colors + neutrals — more is harder to design with consistently.
+- Export to Tailwind config + CSS variables in parallel; use the same source-of-truth across stack.
+
+## Try it now
+
+The full color-palette-generator-advanced runs in your browser at **[https://ztools.zaions.com/color-palette-generator-advanced](https://ztools.zaions.com/color-palette-generator-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-palette-generator-advanced)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/color-palette-generator-advanced.mdx)*

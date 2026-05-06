@@ -1,0 +1,127 @@
+---
+id: dummy-data
+title: "Dummy Data Generator — Names, Emails, CSV, JSON, Free"
+description: "Generate realistic test data: names, emails, addresses, phone numbers, dates. Output CSV or JSON. Browser-only — no upload, no signup."
+sidebar_label: "dummy-data"
+keywords:
+  - "dummy data generator"
+  - "fake data csv json"
+  - "test data generator online"
+  - "sample data names emails"
+  - "realistic fake names"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# dummy-data
+
+Dummy data — also called test data, sample data, or placeholder data — is realistic-looking fake records used for development, demos, and testing. Common fields include full names, emails, phone numbers, addresses, birthdates, company names, job titles, and lorem ipsum paragraphs. The ZTools Dummy Data generator builds rows of any shape, supports CSV / JSON / SQL INSERT output, runs entirely in the browser, and never persists data. The generator picks values from open name lists and templated formats — output looks plausible but matches no real person.
+
+<ToolCTA toolId="dummy-data" toolName="dummy-data" />
+
+## Use cases
+
+### Seed a development database
+
+Need 10,000 fake users to load-test a new feature. Generate as SQL INSERT or CSV, import into Postgres / MySQL / SQLite.
+
+### Demo screenshots without real data
+
+Sales demos must not show real customer data. Generate fake names + emails matching the schema, take screenshots, ship.
+
+### Spreadsheet practice / training
+
+Excel courses need realistic data. Generate a workbook of orders, customers, transactions to use in lessons.
+
+### Form-validation testing
+
+Validate that the form correctly accepts edge cases (long names, accented characters, plus-aliased emails). Generators can produce these on demand.
+
+## How it works
+
+1. **Pick fields** — Choose from 40+ field types: full-name, first-name, last-name, email, phone, street, city, country, zip, company, job, date, age, gender, lorem, image-url, currency, boolean, custom-list.
+2. **Configure each field** — For email, pick "personal" (gmail, yahoo) or "company" (custom domain). For phone, pick country format. For date, pick range.
+3. **Set count and output** — 1 to 100,000 rows. Output as CSV (with header), JSON array, JSON lines, or SQL INSERT statements.
+4. **Download or copy** — Stream large outputs to a file directly — avoids browser-tab freezing on 100k rows.
+
+## Examples
+
+**Input:** Fields: name, email, age; count 5; output JSON
+
+**Output:** [\{"name":"Maria Garcia","email":"maria.garcia@example.com","age":31\},\{...\},...] — five plausible-looking but fake user records.
+
+---
+
+**Input:** CSV with header, 1000 rows
+
+**Output:** Header: name,email,age. Then 1000 data rows. Pasteable into Excel / Google Sheets / a database import wizard.
+
+---
+
+**Input:** SQL INSERT for 100 customers
+
+**Output:** INSERT INTO customers (name, email, age) VALUES ('Maria', 'maria@example.com', 31), ...; — quoted, escaped, ready to paste into a SQL prompt.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the data legally usable?**</summary>
+
+For development and testing, yes. The names come from public lists and aren't tied to specific real individuals — but coincidences are possible (the "any resemblance is coincidental" disclaimer applies).
+
+</details>
+
+<details>
+<summary>**How realistic is the geographic distribution?**</summary>
+
+Names lean US/Western unless you pick a locale. We support en-US, en-GB, es, fr, de, ja, zh locales — names match the locale convention.
+
+</details>
+
+<details>
+<summary>**Are emails routable?**</summary>
+
+Use @example.com / @example.org / @example.net (RFC 2606 reserved domains) — never deliverable, never spammy. Custom domains are also supported.
+
+</details>
+
+<details>
+<summary>**Does it support nested objects?**</summary>
+
+Yes — JSON output mode allows nested structures (user.address.city). CSV flattens; SQL stays one row per record.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Generator runs in the browser. Generated data never uploads. Use the data however you want.
+
+</details>
+
+<details>
+<summary>**How big can I generate?**</summary>
+
+100,000 rows works in modern browsers; larger uses streaming download to avoid memory pressure. For million-row workloads, use a CLI tool.
+
+</details>
+
+## Tips
+
+- Use @example.com domains for emails — RFC-reserved, never accidentally hits a real inbox.
+- For geographically realistic data, pick a locale and stick to it within one dataset — mixed-locale names look uncanny.
+- When seeding a database, use sequential IDs in the output and let the database auto-increment its own ID column.
+- For form-validation tests, configure edge-case generators (max-length names, plus-aliased emails, leap-day birthdays).
+
+## Try it now
+
+The full dummy-data runs in your browser at **[https://ztools.zaions.com/dummy-data](https://ztools.zaions.com/dummy-data)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/dummy-data)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/dummy-data.mdx)*

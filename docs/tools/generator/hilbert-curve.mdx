@@ -1,0 +1,112 @@
+---
+id: hilbert-curve
+title: "Hilbert Curve Generator — Space-Filling Fractal, Free"
+description: "Generate Hilbert space-filling curves at any order. Visualize how 1D maps to 2D. Export SVG. Browser-only."
+sidebar_label: "hilbert-curve"
+keywords:
+  - "hilbert curve generator"
+  - "space filling curve online"
+  - "hilbert fractal svg"
+  - "morton hilbert visualization"
+  - "recursive curve fractal"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# hilbert-curve
+
+The Hilbert curve is a space-filling fractal that maps a 1D line onto a 2D square — and at infinite iteration, fills every point. Each order N produces a curve that visits every cell of a 2^N × 2^N grid exactly once, with the property that nearby points on the line stay nearby in the square (locality preservation). Used in image compression, database indexing (BigTable, HBase), spatial-hash algorithms, and computer graphics for cache-friendly traversal. The ZTools Hilbert Curve Generator draws orders 1-7 in SVG with configurable colours and stroke styles.
+
+<ToolCTA toolId="hilbert-curve" toolName="hilbert-curve" />
+
+## Use cases
+
+### Visualise space-filling curves
+
+Computer-science teaching: how do you map 1D to 2D while preserving locality? Show the Hilbert curve at increasing orders.
+
+### Database indexing intuition
+
+BigTable / HBase use Hilbert ordering for row keys. The curve shows why nearby keys land in nearby disk pages.
+
+### Generative art
+
+High-order Hilbert curves are visually striking — repetitive yet organic.
+
+### Teach recursion + structural induction
+
+Each order is built from 4 copies of the previous order rotated and connected. Beautiful recursive construction.
+
+## How it works
+
+1. **Pick order** — 1 (simple U-shape) to 7 (16,384 segments).
+2. **Pick style** — Single colour or rainbow (colour by position along the curve, illustrating "this is the 50% point").
+3. **Render** — Recursive construction — each cell at order N contains an order-(N-1) curve, rotated as needed to maintain continuity.
+4. **Export** — SVG with the curve as a single polyline.
+
+## Examples
+
+**Input:** order 1
+
+**Output:** Simple U: 4 cells visited.
+
+---
+
+**Input:** order 4
+
+**Output:** 256 cells, 256-segment curve. Pattern recognisable.
+
+---
+
+**Input:** order 6 with rainbow colouring
+
+**Output:** 4096-cell curve, gradient from red (start) to violet (end). Visualises "where am I along the curve" intuitively.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is locality preserved?**</summary>
+
+Adjacent line segments stay in adjacent grid cells. So if you store image pixels in Hilbert order, neighbouring pixels (which are likely similar) sit close in memory — better cache performance.
+
+</details>
+
+<details>
+<summary>**Hilbert vs Z-order (Morton)?**</summary>
+
+Both are space-filling curves. Z-order is faster to compute (just bit-interleaving) but has worse locality (long jumps at quadrant boundaries). Hilbert has better locality but more expensive to compute.
+
+</details>
+
+<details>
+<summary>**Order limit?**</summary>
+
+7 in this tool (16,384 segments). Beyond, SVG path count slows rendering. For order 10+ visualisation, use canvas or WebGL.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For teaching locality, place dots at evenly-spaced points along the curve and observe their grid neighbours.
+- Rainbow colouring is the most pedagogically useful — students see "the curve goes here, then here, then here".
+- For real spatial indexing, use a Hilbert library (numpy-hilbertcurve, mortonlib in Rust) — visualisation is just intuition.
+
+## Try it now
+
+The full hilbert-curve runs in your browser at **[https://ztools.zaions.com/hilbert-curve](https://ztools.zaions.com/hilbert-curve)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hilbert-curve)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/hilbert-curve.mdx)*

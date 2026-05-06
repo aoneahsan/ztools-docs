@@ -1,0 +1,131 @@
+---
+id: random-string
+title: "Random String Generator — Hex, Alphanumeric, Custom Charsets"
+description: "Generate random strings: hex, alphanumeric, custom charsets, prefixed, length 1–4096. Bulk export. Crypto-strong RNG. Free."
+sidebar_label: "random-string"
+keywords:
+  - "random string generator"
+  - "random hex generator"
+  - "api key generator"
+  - "token generator"
+  - "random alphanumeric"
+  - "invite code generator"
+  - "crypto random string"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# random-string
+
+A random string generator produces sequences of characters drawn from a chosen alphabet — uppercase, lowercase, digits, hex, custom symbols — useful for API keys, file names, test fixtures, invite codes, and database identifiers. The ZTools Random String Generator uses the Web Crypto API for unbiased, security-grade randomness, supports lengths from 1 to 4,096 characters, lets you compose custom alphabets (include/exclude ambiguous look-alikes like 0/O), prefix or suffix every string, and emit bulk batches up to 10,000 strings to clipboard, CSV, or JSON.
+
+<ToolCTA toolId="random-string" toolName="random-string" />
+
+## Use cases
+
+### API keys and tokens
+
+Generate 64-char alphanumeric tokens for a new API key column. Crypto-strong RNG ensures entropy adequate for HMAC-style use.
+
+### Invite and coupon codes
+
+5,000 unique 8-char codes for a marketing campaign. Exclude ambiguous chars (O / 0, I / 1) so customers don't mis-type.
+
+### File and folder name seeds
+
+CI pipelines build temporary directories. 16-char hex strings make collision-free names with zero coordination.
+
+### Test data with prefixes
+
+Generate fake user IDs like "user-AbC12fXz" by prefixing every string with "user-" so logs are easier to grep.
+
+## How it works
+
+1. **Pick a charset** — Hex (0–9 a–f), alphanumeric, lowercase, uppercase, digits, base64-url, or custom — type any allowed characters.
+2. **Set length and count** — Length 1–4096 per string. Count 1–10,000 strings per batch.
+3. **Toggle exclusions** — "Avoid look-alikes" removes 0/O/o, 1/I/l, etc. for human readability.
+4. **Add prefix/suffix** — E.g. prefix "tok_" for a Stripe-style token format.
+5. **Generate and export** — Crypto RNG draws each character. Copy, CSV, or JSON output.
+
+## Examples
+
+**Input:** Hex, length 32
+
+**Output:** a3f8c2bf91d2e74b08c19f3e6c812d7a
+
+---
+
+**Input:** Alphanumeric, length 12, exclude look-alikes, count 3
+
+**Output:** XmKpqR3nVTzu / DfLs8YQwbARj / Nv4xZeKpHsdU
+
+---
+
+**Input:** Custom charset "ABCDEF1234567890", prefix "MAC-", length 12
+
+**Output:** MAC-A1B2C3D4E5F6
+
+## Frequently asked questions
+
+<details>
+<summary>**Is it suitable for security tokens?**</summary>
+
+Yes — Web Crypto is OS-entropy-backed. A 32-char base64-url string carries ~192 bits of entropy, more than adequate for session tokens and API keys.
+
+</details>
+
+<details>
+<summary>**How do I exclude confusing characters?**</summary>
+
+Toggle "Exclude look-alikes". The default exclusion list is 0OoIl1; you can edit it.
+
+</details>
+
+<details>
+<summary>**Does the same string ever repeat in a batch?**</summary>
+
+For long strings (&gt;16 chars), collisions are astronomically unlikely. For short codes, enable the "ensure unique" check which dedupes within the batch.
+
+</details>
+
+<details>
+<summary>**Can I generate UUIDs here?**</summary>
+
+Yes — pick "UUID v4" preset, or use the dedicated UUID Generator for structured RFC-4122 output.
+
+</details>
+
+<details>
+<summary>**Will the output be safe in URLs?**</summary>
+
+Use the base64-url or alphanumeric charset — both URL-safe. Hex is also safe.
+
+</details>
+
+<details>
+<summary>**How big can a single string be?**</summary>
+
+4,096 characters per string. For larger payloads, generate multiple and concatenate.
+
+</details>
+
+## Tips
+
+- For human-readable codes, exclude look-alike characters and keep length 6–10.
+- For machine tokens, use base64-url at length 32 (~192 bits entropy) — short and strong.
+- Add a prefix like "tk_" or "key_" to make tokens self-describing in logs.
+- When generating thousands, enable "ensure unique" if your namespace requires uniqueness.
+- Save your charset preset (hex / alphanumeric / custom) for reuse across projects.
+
+## Try it now
+
+The full random-string runs in your browser at **[https://ztools.zaions.com/random-string](https://ztools.zaions.com/random-string)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/random-string)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/random-string.mdx)*

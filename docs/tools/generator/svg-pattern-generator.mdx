@@ -1,0 +1,130 @@
+---
+id: svg-pattern-generator
+title: "SVG Pattern Generator — Seamless Tileable Patterns Free"
+description: "Generate seamless tileable SVG patterns (geometric, dots, lines, shapes). Adjustable scale, color, opacity. Copy-paste ready, infinitely scalable."
+sidebar_label: "svg-pattern-generator"
+keywords:
+  - "svg pattern generator"
+  - "seamless svg pattern"
+  - "tileable svg pattern"
+  - "svg background pattern"
+  - "svg pattern maker"
+  - "geometric pattern svg"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# svg-pattern-generator
+
+An SVG pattern generator builds repeating decorative patterns using SVG's `&lt;pattern&gt;` element — geometric shapes, lines, dots, hexagons tiled seamlessly across any container at any scale. Unlike CSS gradient patterns (limited to gradient math), SVG patterns can include arbitrary shapes (stars, leaves, circuit-board paths, hexagonal grids). The ZTools SVG Pattern Generator includes 40+ patterns with adjustable scale, color, opacity, and rotation, and emits a complete `&lt;svg&gt;` snippet ready to paste as a background image (data URL) or as an inline SVG defs block.
+
+<ToolCTA toolId="svg-pattern-generator" toolName="svg-pattern-generator" />
+
+## Use cases
+
+### Hero / section backgrounds
+
+Subtle geometric pattern at 5–10% opacity behind hero text. Adds texture without visual noise. SaaS landing-page mainstay.
+
+### Card / panel decoration
+
+Diagonal-stripe or hexagonal pattern as a panel background. Adds visual interest to otherwise-flat cards.
+
+### Loading state shimmer
+
+Animated SVG pattern (via `&lt;animate&gt;` or CSS) for skeleton-shimmer loading states.
+
+### Print / packaging design
+
+Vector patterns scale to any print size without quality loss. Designers use SVG patterns for backgrounds in posters, packaging, branded merch.
+
+## How it works
+
+1. **Pick pattern style** — Dots, lines, diagonals, grid, hexagons, stars, leaves, circuit, isometric cubes, plaids, herringbone — 40+ included.
+2. **Set tile size + scale** — Pattern unit (the repeating tile) sized in SVG units; scales infinitely.
+3. **Set color + opacity** — Foreground color, background color, opacity per layer.
+4. **Set rotation (optional)** — Rotate the pattern 0–360° for diagonal variants.
+5. **Copy output** — Either inline `&lt;svg&gt;` with `&lt;defs&gt;&lt;pattern&gt;` block, or a CSS data-URL `background-image: url("data:image/svg+xml,...")`.
+
+## Examples
+
+**Input:** Hexagonal grid, 32px tiles, color rgba(0,0,0,0.04)
+
+**Output:** Subtle hex pattern as data-URL CSS background — drop-in for any element.
+
+---
+
+**Input:** Polka dots, 24px tiles, blue
+
+**Output:** Inline `&lt;svg&gt;` with `&lt;pattern&gt;` definition — re-usable across the page via `fill="url(#polka)"`.
+
+---
+
+**Input:** Diagonal lines + crosshatch, 12px, white
+
+**Output:** Two-layer pattern; perfect for engineering / blueprint aesthetic.
+
+## Frequently asked questions
+
+<details>
+<summary>**CSS pattern vs SVG pattern — when to use which?**</summary>
+
+CSS gradient patterns are simpler and faster for stripes/dots/grid. SVG patterns are better for non-gradient shapes (stars, hexagons, custom paths) and for designs that need to scale crisply at any zoom.
+
+</details>
+
+<details>
+<summary>**Should I inline the SVG or use a data URL?**</summary>
+
+Data URL background-image is simpler (`background: url("data:image/svg+xml,...")`) — works everywhere CSS does. Inline SVG with `&lt;pattern&gt;` is better when the pattern needs to use `currentColor` or be animated.
+
+</details>
+
+<details>
+<summary>**Performance impact?**</summary>
+
+SVG patterns are lightweight — typically &lt; 1KB. Browsers cache them. Don't apply complex patterns to thousands of scrolling elements; one hero background is fine.
+
+</details>
+
+<details>
+<summary>**Will the pattern align across breakpoints?**</summary>
+
+Yes — SVG patterns tile based on the `width`/`height` of the `&lt;pattern&gt;` element. Set in absolute units for consistent visual density.
+
+</details>
+
+<details>
+<summary>**Can I theme it for dark mode?**</summary>
+
+Inline SVG with `currentColor` or CSS variables — yes. Data-URL backgrounds — you'd need a separate URL per theme.
+
+</details>
+
+<details>
+<summary>**Are they accessible?**</summary>
+
+Decorative — add `role="presentation"` + `aria-hidden="true"` to skip screen readers.
+
+</details>
+
+## Tips
+
+- Keep pattern opacity low (5–15%) for body backgrounds; loud patterns compete with content.
+- Use `currentColor` for inline SVG patterns so they adapt to theme.
+- For very small tiles (&lt; 16px), use CSS gradients instead — SVG overhead isn't worth it.
+- Combine two patterns by stacking multiple `background-image`s (one CSS, one SVG) for richer texture.
+- For print, increase contrast — print drops pattern visibility by ≈25%.
+
+## Try it now
+
+The full svg-pattern-generator runs in your browser at **[https://ztools.zaions.com/svg-pattern-generator](https://ztools.zaions.com/svg-pattern-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/svg-pattern-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/svg-pattern-generator.mdx)*

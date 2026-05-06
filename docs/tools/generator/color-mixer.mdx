@@ -1,0 +1,113 @@
+---
+id: color-mixer
+title: "Color Mixer Online — Blend Two Colors, Free"
+description: "Mix two colors at any ratio. RGB, HSL, LAB blending. Generate the full gradient. Browser-only — no signup."
+sidebar_label: "color-mixer"
+keywords:
+  - "color mixer online"
+  - "blend two colors"
+  - "color blending tool"
+  - "lab color mixer"
+  - "oklch gradient generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-mixer
+
+A colour mixer blends two colours at a chosen ratio — useful for designing palettes, generating gradient stops, finding the midpoint between two brand colours, and teaching colour theory. Different colour spaces produce different blends: RGB blending (the simplest, default in CSS) often looks muddy in the middle; HSL blending shifts hue smoothly but can pass through unexpected colours; LAB blending (perceptually uniform) usually looks cleanest. The ZTools Color Mixer offers all three plus a side-by-side comparison.
+
+<ToolCTA toolId="color-mixer" toolName="color-mixer" />
+
+## Use cases
+
+### Design a custom gradient palette
+
+Two brand colours; need 5 stops in between. Mixer at 25%, 50%, 75% gives them.
+
+### Find the midpoint of two brand colours
+
+Logo blends two colours. What's the visually-correct midpoint? LAB mixing gives a less muddy result than RGB.
+
+### Teach colour theory
+
+Mix red + green: RGB gives mud; HSL passes through grey; LAB gives a desaturated grey-green. Each space has its own "average".
+
+### Generate hover-state colours
+
+Mix the base button colour with white at 10% for a subtle hover lift. Or with black at 10% for press state.
+
+## How it works
+
+1. **Pick two colours** — Hex / RGB / HSL pickers. Drag the gradient handle or type values.
+2. **Pick mix space** — RGB (CSS-style), HSL (hue-shift), LAB (perceptually uniform).
+3. **Set ratio** — Slider from 0% (pure A) to 100% (pure B). Or pick a number of equally-spaced stops.
+4. **Read output** — Mixed colour as hex / RGB / HSL. Plus a swatch and the full gradient bar showing all intermediate values.
+
+## Examples
+
+**Input:** red (#FF0000) + blue (#0000FF), 50% mix
+
+**Output:** RGB: #800080 (muddy purple). LAB: closer to a balanced violet. HSL: undefined (180° hue ambiguous).
+
+---
+
+**Input:** white (#FFFFFF) + brand blue (#2563EB), 90% white
+
+**Output:** ~#E5EDFD — a very light blue. Useful for backgrounds.
+
+---
+
+**Input:** two brand colours, 5 equal stops
+
+**Output:** 5 colours equally spaced between A and B in the chosen space. Plug into a CSS gradient.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does RGB look muddy in the middle?**</summary>
+
+Linear RGB blending of complementary colours produces a near-grey desaturated result. LAB or OKLCH spaces perceive better — they preserve perceived chroma through the blend.
+
+</details>
+
+<details>
+<summary>**When should I use HSL vs LAB?**</summary>
+
+HSL: simple, predictable, good for hue-shift gradients (red → orange → yellow). LAB: more perceptually uniform, better for "natural" blends and cross-hue blends.
+
+</details>
+
+<details>
+<summary>**OKLCH support?**</summary>
+
+Optional toggle — newer perceptual space, increasingly preferred over LAB. Even more uniform across the visible gamut.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Default to LAB or OKLCH for cross-hue blends. RGB is fine for similar-hue blends.
+- For 5-stop gradients, equal spacing in OKLCH looks more visually balanced than RGB.
+- For hover states, mix base + white at 5-10%; for press states, mix base + black at 10-15%.
+- For palette derivation, mix the brand colour with surrounding neutrals (white, grey) rather than complementary colours — produces tints + shades, not new hues.
+
+## Try it now
+
+The full color-mixer runs in your browser at **[https://ztools.zaions.com/color-mixer](https://ztools.zaions.com/color-mixer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-mixer)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/color-mixer.mdx)*

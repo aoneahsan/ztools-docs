@@ -1,0 +1,130 @@
+---
+id: color-shades-generator
+title: "Color Shades Generator — Tints, Shades & Tonal Scales Free"
+description: "Generate tints (lighter) and shades (darker) of any color, plus full Tailwind-style tonal scales (50–900). HSL + OKLCH. Free."
+sidebar_label: "color-shades-generator"
+keywords:
+  - "color shades generator"
+  - "color tints shades"
+  - "tailwind color scale"
+  - "oklch color scale"
+  - "tonal scale generator"
+  - "lighten darken color"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# color-shades-generator
+
+A color shades generator takes a base color and produces variations: tints (mixed with white — lighter), shades (mixed with black — darker), tones (mixed with gray — desaturated), and full design-system tonal scales (the Tailwind 50/100/.../900 convention). The ZTools generator supports HSL and OKLCH color spaces, lets you choose the number of steps and the lightness range, and exports as CSS variables, Tailwind theme entries, or hex code lists. OKLCH mode gives perceptually-uniform lightness — equal-step shades look equally darker, unlike HSL which can produce visually-jumpy scales.
+
+<ToolCTA toolId="color-shades-generator" toolName="color-shades-generator" />
+
+## Use cases
+
+### Tailwind-style tonal scales
+
+Generate primary-50 through primary-900 from a single brand color. The 9-step scale is the modern design-system default — primary-500 is the brand color, primary-50/100 are tints for backgrounds, primary-700/900 are shades for hover/active states.
+
+### Hover / active state colors
+
+Default button = brand. Hover = ~10% darker. Active = ~20% darker. Disabled = base + 50% gray. Generator gives you all four in one step.
+
+### Subtle background variants
+
+For card / panel / row backgrounds you need slight tonal variation. Tint of brand at 95–98% lightness gives "primary-50" — barely-tinted near-white that still says "brand".
+
+### Charts / data visualisation
+
+Multi-series charts need 5–8 distinguishable colors. Using one brand color's shades gives a coherent series; using harmony-rule palettes gives categorical distinction.
+
+## How it works
+
+1. **Enter base color** — Hex, RGB, HSL, or OKLCH. Tool converts to internal HSL/OKLCH.
+2. **Pick scale type** — Tints only (lighter), shades only (darker), tonal scale (Tailwind 50–900), or custom step count.
+3. **Pick color space** — HSL (faster, simpler, but uneven perceived lightness) or OKLCH (perceptually uniform — recommended).
+4. **Set step count** — 5, 9 (Tailwind default), 11, or custom.
+5. **Export** — CSS variables, Tailwind theme entries, hex list, JSON design tokens.
+
+## Examples
+
+**Input:** Base #6366f1 (indigo-500), 9-step OKLCH scale
+
+**Output:** 9 shades from indigo-50 (#eef2ff) to indigo-900 (#1e1b4b). Drop into Tailwind config as full color theme.
+
+---
+
+**Input:** Hover state of brand color
+
+**Output:** Brand 10% darker — `darken(--brand, 10%)` equivalent in static hex.
+
+---
+
+**Input:** Chart series from single base
+
+**Output:** 6 distinct shades along the lightness axis — coherent palette for a stacked bar chart.
+
+## Frequently asked questions
+
+<details>
+<summary>**OKLCH vs HSL for shades?**</summary>
+
+OKLCH gives perceptually-uniform steps — each shade looks equally darker than the previous. HSL produces visually-jumpy scales (yellow at HSL 50% looks much brighter than blue at HSL 50%). For design systems, OKLCH is now the default in 2026 (Tailwind 4 ships OKLCH-based palettes).
+
+</details>
+
+<details>
+<summary>**How many shades do I need?**</summary>
+
+9 (Tailwind's 50, 100, 200, 300, 400, 500, 600, 700, 800, 900) is the modern default. Some systems use 11 (adds 950) or even 13 (adds 25 + 950). 5 is enough for simple buttons / hover states.
+
+</details>
+
+<details>
+<summary>**Why does shade-500 look different from my hex input?**</summary>
+
+When generating a tonal scale, the tool picks the perceived-middle shade as 500 — which may not exactly match your input. Lock-in mode keeps your input as 500 and generates around it.
+
+</details>
+
+<details>
+<summary>**Can I use these for accessible text?**</summary>
+
+Yes — but always verify WCAG contrast. Brand-50 on brand-900 background almost always passes AA; brand-500 on brand-100 may not.
+
+</details>
+
+<details>
+<summary>**Lighten/darken — same as tint/shade?**</summary>
+
+Roughly. "Tint" = mix with white; "shade" = mix with black; "tone" = mix with gray (reduces saturation). "Lighten/darken" loosely means tint/shade.
+
+</details>
+
+<details>
+<summary>**Why doesn't pure black/white generate shades?**</summary>
+
+A 0% or 100% lightness has no information — every "darker" shade of white is just white. Pick a non-extreme base.
+
+</details>
+
+## Tips
+
+- Use OKLCH for tonal scales; HSL is fine for quick hover/active variants.
+- Tailwind 9-step convention is the default in modern design systems — use it unless you have a reason not to.
+- Lock-in your brand color as 500 and generate around it; don't let the tool shift your brand hue.
+- Always check WCAG contrast for the actual text/background pairs you ship.
+- Export simultaneously to CSS variables AND Tailwind config — same source-of-truth across stack.
+
+## Try it now
+
+The full color-shades-generator runs in your browser at **[https://ztools.zaions.com/color-shades-generator](https://ztools.zaions.com/color-shades-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-shades-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/color-shades-generator.mdx)*

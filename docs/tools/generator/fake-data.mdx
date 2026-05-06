@@ -1,0 +1,134 @@
+---
+id: fake-data
+title: "Fake Data Generator — Names, Emails, Addresses, JSON, CSV, SQL"
+description: "Generate realistic fake data: names, emails, phones, addresses, companies, dates. Export as JSON, CSV, or SQL inserts. Free."
+sidebar_label: "fake-data"
+keywords:
+  - "fake data generator"
+  - "mock data generator"
+  - "seed database"
+  - "test data generator"
+  - "json mock data"
+  - "csv mock data"
+  - "faker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# fake-data
+
+A fake data generator produces realistic-but-synthetic records — names, emails, phones, postal addresses, companies, dates of birth, IBANs, IPs, user agents — for seeding development databases, testing forms, building demos, and stress-testing applications without using real personal data and risking GDPR / HIPAA exposure. The ZTools Fake Data Generator builds custom record schemas (pick the columns you want), supports localized variants (US, UK, DE, FR, JP, IN names and addresses), can emit 100,000+ rows, and exports as JSON, CSV, SQL INSERT statements, or TypeScript fixtures — all without sending the configuration to any server.
+
+<ToolCTA toolId="fake-data" toolName="fake-data" />
+
+## Use cases
+
+### Seeding a dev database
+
+Empty schema + 5,000 realistic-looking customers, orders, and addresses. Emit SQL INSERT statements; pipe into psql / mysql.
+
+### Form QA and demos
+
+Manual testers need plausible inputs. Generate 50 rows once and reuse across regression sweeps; emails fit RFC, postcodes fit the chosen country.
+
+### Frontend mock data
+
+Designers build UI before the API exists. Export as JSON and import into the React app as a fixture.
+
+### Privacy-safe demos
+
+Public demo of an internal CRM cannot use real customer names. Replace the real seed with synthetic equivalents.
+
+## How it works
+
+1. **Pick the columns** — Add fields: first_name, last_name, email, phone, address, city, country, dob, company, iban, ip, etc. 60+ field types.
+2. **Configure each field** — Locale (en-US, en-GB, de-DE, fr-FR, ja-JP, ...), nullability, unique constraint, custom regex.
+3. **Set the row count** — 1–100,000 rows. Larger generates in chunks to keep the browser responsive.
+4. **Pick the output format** — JSON, CSV, SQL INSERT (with table name), TypeScript fixture, NDJSON.
+5. **Generate and download** — Generation is in-browser; nothing uploads. Streamed download for big batches.
+
+## Examples
+
+**Input:** Schema: first_name, last_name, email; locale en-US; 3 rows; CSV
+
+**Output:** first_name,last_name,email
+John,Smith,john.smith@example.com
+Mary,Johnson,mary.johnson@example.com
+David,Brown,david.brown@example.com
+
+---
+
+**Input:** 5,000 rows; SQL INSERT for users(email, country, signup_date)
+
+**Output:** INSERT INTO users (email, country, signup_date) VALUES (...) — 5,000 rows
+
+---
+
+**Input:** JSON, 10 rows of \{id (uuid), createdAt (iso), price (decimal 0–1000)\}
+
+**Output:** Pretty-printed JSON array of 10 objects
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the data really fake?**</summary>
+
+Names and addresses come from public dictionaries. Emails are synthesised from name pairs. No record corresponds to a real person.
+
+</details>
+
+<details>
+<summary>**Can it match my country's phone format?**</summary>
+
+Yes — pick the locale; phone format follows that country's pattern (e.g., +44 ... for UK, +91 ... for India).
+
+</details>
+
+<details>
+<summary>**Will emails collide?**</summary>
+
+For &lt; 1000 rows, collisions are rare. For larger batches, enable "ensure unique email" and the generator appends a numeric suffix when needed.
+
+</details>
+
+<details>
+<summary>**Does it emit valid IBANs / credit cards?**</summary>
+
+Yes — IBANs and credit-card numbers pass checksum validation but are *test-only*; do not use them for real transactions.
+
+</details>
+
+<details>
+<summary>**Can I save my schema as a preset?**</summary>
+
+Yes — export the schema as JSON, save it in your repo, and import next time to regenerate identical mock data.
+
+</details>
+
+<details>
+<summary>**Is GDPR / HIPAA-safe?**</summary>
+
+Yes — synthetic data has no link to real people. But verify that any sample you ship in screenshots or demos truly came from this tool, not from a real export.
+
+</details>
+
+## Tips
+
+- Save the schema in your repo so any developer can regenerate the same mock dataset.
+- For SQL inserts, name your test table consistently (e.g. seed_users) so it is easy to drop later.
+- For UI demos, JSON is the easiest format to import into React fixture files.
+- Use locale-correct phone and address formats — generic mock data hides validation bugs that bite later.
+- When demoing, pin the seed so screenshots remain identical run-to-run.
+
+## Try it now
+
+The full fake-data runs in your browser at **[https://ztools.zaions.com/fake-data](https://ztools.zaions.com/fake-data)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/fake-data)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/fake-data.mdx)*

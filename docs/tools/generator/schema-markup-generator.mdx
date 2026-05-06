@@ -1,0 +1,135 @@
+---
+id: schema-markup-generator
+title: "Schema Markup Generator — JSON-LD Structured Data Free"
+description: "Generate JSON-LD structured data for Article, FAQ, HowTo, Product, Organization, Recipe, Event, LocalBusiness, and more. Copy-paste ready."
+sidebar_label: "schema-markup-generator"
+keywords:
+  - "schema markup generator"
+  - "json-ld generator"
+  - "structured data generator"
+  - "rich results schema"
+  - "faqpage schema"
+  - "product schema"
+  - "article schema"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# schema-markup-generator
+
+Schema markup is structured data (typically JSON-LD) embedded in your HTML that tells search engines and AI systems what the page is about — its type (Article, Product, Recipe), key fields (author, publishedDate, price, ingredients), and relationships. Pages with schema markup get richer SERP results (star ratings, FAQ accordions, recipe cards, event panels) and higher AI-citation rates. The ZTools Schema Markup Generator emits valid JSON-LD for 20+ schema types from `schema.org`, validated against Google's rich-result guidelines, with copy-paste output ready to drop into a `&lt;script type="application/ld+json"&gt;` tag in your `&lt;head&gt;`.
+
+<ToolCTA toolId="schema-markup-generator" toolName="schema-markup-generator" />
+
+## Use cases
+
+### FAQPage schema for blog posts
+
+Every blog post with a real FAQ should ship FAQPage schema. The Princeton GEO study found FAQ schema is the highest-leverage block for AI-citation rate. Search shows expandable FAQ accordions in SERPs.
+
+### Product schema for e-commerce
+
+Product schema with price, currency, availability, AggregateRating triggers price-and-stars rich results in SERPs — major CTR boost.
+
+### Article schema for editorial content
+
+Article schema with author, datePublished, dateModified is required for Top Stories carousel inclusion and Google News indexing.
+
+### HowTo schema for tutorial content
+
+Step-by-step tutorials get featured-snippet rich results when marked up with HowTo schema. Drives massive CTR for procedural queries.
+
+### LocalBusiness for local SEO
+
+Address, hours, phone, geo coordinates as LocalBusiness schema feed Google Business Profile data and "near me" results.
+
+## How it works
+
+1. **Pick schema type** — Article, BlogPosting, NewsArticle, Product, FAQPage, HowTo, Recipe, Event, LocalBusiness, Organization, Person, VideoObject, SoftwareApplication, BreadcrumbList, ItemList...
+2. **Fill required fields** — Each type has Google-required fields (Article: author + datePublished + headline + image; Product: name + image + offers).
+3. **Optional fields** — Add aggregateRating, review, sameAs, mainEntityOfPage for richer results.
+4. **Validate** — Tool warns about missing required fields and validates structure against schema.org spec.
+5. **Copy JSON-LD** — Wrapped in `&lt;script type="application/ld+json"&gt;` — paste into `&lt;head&gt;` (preferred) or anywhere in the body.
+
+## Examples
+
+**Input:** FAQPage with 5 Q&A pairs
+
+**Output:** `@type: FAQPage` with mainEntity: array of Question objects → triggers FAQ accordion in SERPs.
+
+---
+
+**Input:** Product: "Wireless Headphones $199" + 4.5★ × 234 reviews
+
+**Output:** Product schema with offers, aggregateRating; SERP shows price + stars + review count under the title.
+
+---
+
+**Input:** Article: blog post by named author + 1200×630 image
+
+**Output:** Article schema with author Person, image, datePublished, dateModified; eligible for Top Stories.
+
+## Frequently asked questions
+
+<details>
+<summary>**JSON-LD vs Microdata vs RDFa?**</summary>
+
+Google prefers JSON-LD since 2017 — it's separate from your HTML, easier to maintain, and has the broadest tooling support. Microdata (inline attributes) and RDFa work but are harder to keep clean.
+
+</details>
+
+<details>
+<summary>**Where do I put the JSON-LD?**</summary>
+
+Inside a `&lt;script type="application/ld+json"&gt;` tag, ideally in `&lt;head&gt;` (cleaner, separate from content). Body placement also works.
+
+</details>
+
+<details>
+<summary>**Can I have multiple schema types per page?**</summary>
+
+Yes — one JSON-LD block per type, OR a single block with `@graph` containing multiple `@type`s. Common combos: Article + BreadcrumbList + Organization on a blog post.
+
+</details>
+
+<details>
+<summary>**How do I test my schema?**</summary>
+
+Google Rich Results Test (search.google.com/test/rich-results) is the authoritative validator for Google's rich results. Schema.org's own validator (validator.schema.org) catches schema spec violations.
+
+</details>
+
+<details>
+<summary>**Will it guarantee rich results?**</summary>
+
+No — Google evaluates eligibility separately. Valid schema is necessary but not sufficient. Spammy or low-quality content may have valid schema but never trigger rich results.
+
+</details>
+
+<details>
+<summary>**Does AI search care about schema?**</summary>
+
+Yes — ChatGPT, Perplexity, and Google AI Overviews use schema markup as a primary signal for content type, author authority, and field-level facts. FAQPage especially boosts AI citation rates.
+
+</details>
+
+## Tips
+
+- FAQPage schema has the highest ROI for blog content — every post with a real FAQ should ship it.
+- Product schema MUST include offers + price + currency, OR aggregateRating, for rich results.
+- Always include datePublished AND dateModified for Article schema — freshness is a ranking signal.
+- Use Schema.org @id URIs to link related entities (Person who is author of Article, Organization that owns the site).
+- After updating schema, force re-crawl in GSC URL Inspection — wait time can be 1–7 days.
+
+## Try it now
+
+The full schema-markup-generator runs in your browser at **[https://ztools.zaions.com/schema-markup-generator](https://ztools.zaions.com/schema-markup-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/schema-markup-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/schema-markup-generator.mdx)*

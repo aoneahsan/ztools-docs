@@ -1,0 +1,113 @@
+---
+id: string-generator
+title: "String Generator — Random Strings, Custom Charsets, Free"
+description: "Generate random strings with configurable length, charset, count. UUIDs, IDs, tokens, test data. Browser-only."
+sidebar_label: "string-generator"
+keywords:
+  - "random string generator"
+  - "token generator online"
+  - "random id generator"
+  - "voucher code generator"
+  - "string generator custom charset"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# string-generator
+
+A string generator produces random sequences of characters — useful for IDs, tokens, test fixtures, password seeds, sample data. Configurable parameters: length, charset (alphanumeric, hex, base64, custom), count, prefix / suffix, optional separators. The ZTools String Generator runs in the browser, supports cryptographically-secure random (via crypto.getRandomValues) for tokens that need real entropy, plus a deterministic seed mode for reproducible tests.
+
+<ToolCTA toolId="string-generator" toolName="string-generator" />
+
+## Use cases
+
+### Generate test fixtures
+
+100 random IDs as test data. Predictable charset (alphanumeric), fixed length (16) — looks like real IDs without being real.
+
+### Seed dev passwords / tokens
+
+Need a 32-char hex token for a local API key. Generator produces it instantly with cryptographic entropy.
+
+### Generate unique test usernames
+
+For load testing, 1000 unique usernames with prefix "test_" + 10 random alphanumeric.
+
+### Custom-charset codes
+
+Voucher codes from charset "ABCDEFGHJKLMNPQRSTUVWXYZ23456789" (excludes confusing 0/O, 1/I) — 8 chars long.
+
+## How it works
+
+1. **Pick length and count** — Single string or batch (1 to 100,000).
+2. **Pick charset** — Alphanumeric, hex, base64-url, alphabetic, numeric, custom (paste your own char list).
+3. **Pick RNG** — Math.random (fast) or crypto.getRandomValues (cryptographically secure — slower but for real tokens).
+4. **Configure prefix / suffix / separator** — Optional. E.g. prefix "test_", separator "-" every 4 chars: test_a3F9-2B1C-...
+
+## Examples
+
+**Input:** 16 hex chars × 5
+
+**Output:** a3f9e2b13d0c8d12, 7c0d8d12e4f1a022, b8c2d4e6f0a1b3c5, ... (5 unique strings).
+
+---
+
+**Input:** 32 alphanumeric, crypto RNG
+
+**Output:** Suitable as a session token. Decodes to 192 bits of entropy (close to a UUID v4).
+
+---
+
+**Input:** Voucher charset, 8 chars × 100
+
+**Output:** 100 voucher codes like "K7P9X2VJ" — no ambiguous chars (0/O / 1/I).
+
+## Frequently asked questions
+
+<details>
+<summary>**Math.random vs crypto?**</summary>
+
+Math.random is pseudo-random (predictable seed). crypto.getRandomValues sources from the OS's CSPRNG. For test data, Math.random is fine. For tokens / passwords / session IDs, use crypto.
+
+</details>
+
+<details>
+<summary>**How much entropy do I need?**</summary>
+
+Session tokens: 128+ bits (16 hex chars or 22 base64 chars). API keys: 256 bits. Voucher codes: 40+ bits is usually enough (8 chars from a 32-char alphabet ≈ 40 bits).
+
+</details>
+
+<details>
+<summary>**Can I exclude ambiguous chars?**</summary>
+
+Yes — preset for "no ambiguous" (excludes 0/O, 1/I/l) is built in. Or paste a custom charset.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For real tokens, always use crypto RNG. The performance difference is negligible at typical scale.
+- For voucher / coupon codes, exclude 0/O/1/I/l — humans confuse them and complaints multiply.
+- For UUIDs specifically, use a UUID generator — RFC 4122 specifies the format, including version bits.
+- For seeded reproducibility, use Math.random with a seed — crypto RNG is non-reproducible by design.
+
+## Try it now
+
+The full string-generator runs in your browser at **[https://ztools.zaions.com/string-generator](https://ztools.zaions.com/string-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/string-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/string-generator.mdx)*

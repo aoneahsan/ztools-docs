@@ -1,0 +1,113 @@
+---
+id: sierpinski-triangle
+title: "Sierpinski Triangle Generator — SVG Fractal, Free"
+description: "Generate the Sierpinski Triangle to any depth. Famous self-similar fractal, exported as SVG. Browser-only."
+sidebar_label: "sierpinski-triangle"
+keywords:
+  - "sierpinski triangle generator"
+  - "fractal triangle online"
+  - "chaos game sierpinski"
+  - "self similar fractal"
+  - "pascal triangle fractal"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sierpinski-triangle
+
+The Sierpinski Triangle is a classic fractal: take an equilateral triangle, remove the central upside-down triangle, repeat on each remaining sub-triangle, repeat again. After infinite iterations, the result has zero area but infinite perimeter — a fractal of dimension log(3)/log(2) ≈ 1.585. The ZTools Sierpinski Triangle Generator draws the construction live in SVG up to depth 9 (19,683 triangles), with custom colours, sizes, and optional chaos-game generation as an alternative to recursion.
+
+<ToolCTA toolId="sierpinski-triangle" toolName="sierpinski-triangle" />
+
+## Use cases
+
+### Math classroom — illustrate fractals
+
+Increment depth from 0 to 7 to show how iteration produces the fractal. Visually unforgettable.
+
+### Generative wall art
+
+High-depth Sierpinski with custom colours produces striking minimalist art.
+
+### Algorithm viz
+
+Demonstrate divide-and-conquer / recursion visually. Each call splits the problem into 3 sub-problems.
+
+### Teach Pascal's Triangle connection
+
+Color Pascal's Triangle entries by parity (odd/even) — the pattern that emerges IS the Sierpinski Triangle.
+
+## How it works
+
+1. **Pick depth** — 0 = single triangle. 1 = 3 sub-triangles. N = 3^N triangles.
+2. **Choose colours** — Single fill or gradient by depth (top triangle one colour, deeper sub-triangles another).
+3. **Pick generation method** — Recursive (exact, deterministic) or chaos game (random — converges to the same shape after ~10,000 points).
+4. **Export** — SVG (clean vector), PNG (rasterised at chosen size).
+
+## Examples
+
+**Input:** depth 5, recursive
+
+**Output:** 243 small triangles arranged in the famous self-similar pattern.
+
+---
+
+**Input:** depth 7, recursive
+
+**Output:** 2,187 triangles — fine detail visible at high res.
+
+---
+
+**Input:** chaos game, 10,000 points
+
+**Output:** Each point random + halfway-to-vertex; result converges to the Sierpinski shape after ~5,000 iterations.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the chaos game?**</summary>
+
+Pick 3 vertices (corners of an equilateral triangle). Start at any point. Repeatedly: pick a random vertex, move halfway towards it, plot. After thousands of iterations, the plotted points form the Sierpinski Triangle. Counter-intuitive but provably correct.
+
+</details>
+
+<details>
+<summary>**Pascal's Triangle connection?**</summary>
+
+Color row n column k of Pascal's Triangle black if C(n, k) is odd, white if even. The resulting pattern is a Sierpinski Triangle (visible from row 16 or so).
+
+</details>
+
+<details>
+<summary>**How big can depth be?**</summary>
+
+9 in this tool (19,683 triangles). Beyond, SVG path count causes lag. For higher depth, use the chaos game with 100,000+ points.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For teaching, animate from depth 0 to depth 5 — each step is dramatic.
+- Chaos game shows that randomness can produce structure — counter-intuitive demo for students.
+- Connect to Pascal's Triangle visually — same fractal, two derivations.
+- Export SVG for slides; PNG only when a raster system needs it.
+
+## Try it now
+
+The full sierpinski-triangle runs in your browser at **[https://ztools.zaions.com/sierpinski-triangle](https://ztools.zaions.com/sierpinski-triangle)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sierpinski-triangle)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/generator/sierpinski-triangle.mdx)*
