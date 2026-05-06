@@ -55,6 +55,43 @@ const config: Config = {
   headTags: [
     {tagName: 'link', attributes: {rel: 'canonical', href: SITE_URL}},
     {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood'}},
+
+    // ----- Favicons + iOS / Android home-screen icons ---------------------
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico'}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/favicon-16x16.png'}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png'}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '48x48', href: '/img/favicon-48x48.png'}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '192x192', href: '/img/favicon-192x192.png'}},
+    {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '512x512', href: '/img/favicon-512x512.png'}},
+    {tagName: 'link', attributes: {rel: 'apple-touch-icon', sizes: '180x180', href: '/img/apple-touch-icon.png'}},
+    {tagName: 'link', attributes: {rel: 'mask-icon', href: '/img/logo.svg', color: '#ffa840'}},
+    {tagName: 'link', attributes: {rel: 'manifest', href: '/site.webmanifest'}},
+
+    // ----- Theme + Microsoft tile color -----------------------------------
+    {tagName: 'meta', attributes: {name: 'theme-color', content: '#ffa840'}},
+    {tagName: 'meta', attributes: {name: 'msapplication-TileColor', content: '#ffa840'}},
+    {tagName: 'meta', attributes: {name: 'msapplication-config', content: '/browserconfig.xml'}},
+    {tagName: 'meta', attributes: {name: 'apple-mobile-web-app-title', content: 'ZTools Docs'}},
+    {tagName: 'meta', attributes: {name: 'application-name', content: 'ZTools Docs'}},
+
+    // ----- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage) -----
+    {tagName: 'meta', attributes: {property: 'og:type', content: 'website'}},
+    {tagName: 'meta', attributes: {property: 'og:site_name', content: 'ZTools Documentation'}},
+    {tagName: 'meta', attributes: {property: 'og:url', content: SITE_URL}},
+    {tagName: 'meta', attributes: {property: 'og:locale', content: 'en_US'}},
+    {tagName: 'meta', attributes: {property: 'og:image', content: `${SITE_URL}/img/social-card.png`}},
+    {tagName: 'meta', attributes: {property: 'og:image:type', content: 'image/png'}},
+    {tagName: 'meta', attributes: {property: 'og:image:width', content: '1800'}},
+    {tagName: 'meta', attributes: {property: 'og:image:height', content: '945'}},
+    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'ZTools — 520+ free browser-only tools, every one documented'}},
+
+    // ----- Twitter / X card ----------------------------------------------
+    {tagName: 'meta', attributes: {name: 'twitter:card', content: 'summary_large_image'}},
+    {tagName: 'meta', attributes: {name: 'twitter:site', content: '@aoneahsan'}},
+    {tagName: 'meta', attributes: {name: 'twitter:creator', content: '@aoneahsan'}},
+    {tagName: 'meta', attributes: {name: 'twitter:image', content: `${SITE_URL}/img/social-card.png`}},
+    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'ZTools — 520+ free browser-only tools, every one documented'}},
+
     // Clarity — emitted only when CLARITY_PROJECT_ID env var is set
     ...(CLARITY_PROJECT_ID
       ? [
