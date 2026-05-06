@@ -1,0 +1,123 @@
+---
+id: word-frequency
+title: "Word Frequency Counter — Find Most-Used Words in Any Text (Free)"
+description: "Analyze any text to find the most-frequent words. Filters stopwords, shows percentages, exports CSV. Free, browser-based."
+sidebar_label: "word-frequency"
+keywords:
+  - "word frequency counter"
+  - "word frequency analyzer"
+  - "most common words"
+  - "keyword density"
+  - "word count analyzer"
+  - "text analysis"
+  - "free word frequency tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# word-frequency
+
+A word frequency counter analyzes a body of text and lists every distinct word with its occurrence count, sorted from most to least frequent — useful for SEO keyword density, content analysis, vocabulary profiling, and translation prep. The ZTools Word Frequency Counter parses any size paste, normalizes case for fair counting, optionally filters out common stopwords (the, a, and, of…) so meaningful content words rise to the top, computes percentage shares, and exports results as CSV for further analysis in spreadsheets.
+
+<ToolCTA toolId="word-frequency" toolName="word-frequency" />
+
+## Use cases
+
+### SEO keyword density check
+
+Paste an article draft, see which words appear most. Confirms target keywords are featured naturally; flags accidental over-use that triggers Google's keyword-stuffing penalties.
+
+### Vocabulary analysis for language learners
+
+A 10,000-word novel paste reveals the 200 most common words. Memorize those and you can read the rest — Pareto principle applied to language acquisition.
+
+### Content audit and editorial review
+
+A long-form piece overuses "however" and "moreover". The frequency counter surfaces tics so editors can vary the prose.
+
+### Translation memory and glossary building
+
+Analyze a source corpus, export the top 500 frequent words. That's the glossary translators need to translate before tackling the rest.
+
+## How it works
+
+1. **Paste your text** — Any size — articles, books, transcripts, code, scraped pages.
+2. **Configure tokenization** — Lowercase: case-insensitive (default on). Strip punctuation: yes/no. Min length: filter very short tokens (1-2 chars usually noise).
+3. **Toggle stopword filtering** — Built-in lists for English, Spanish, French, German. Removes function words (the, of, and, is) so content words dominate the rankings.
+4. **Read the frequency table** — Sorted by count desc. Each row: word | count | percentage. Top 10, top 50, or full list.
+5. **Export as CSV** — For deeper analysis in Excel, R, or Python. Format: word,count,percentage.
+
+## Examples
+
+**Input:** "the cat sat on the mat. the cat slept."
+
+**Output:** the (3), cat (2), sat (1), on (1), mat (1), slept (1)
+
+---
+
+**Input:** Article with stopwords filtered
+
+**Output:** product (15), feature (12), customer (10), value (8) — content words ready for SEO review.
+
+---
+
+**Input:** Novel chapter (5,000 words)
+
+**Output:** Top 10 words shown. Stopwords filtered. Reveals the chapter's thematic vocabulary.
+
+## Frequently asked questions
+
+<details>
+<summary>**What are stopwords and should I filter them?**</summary>
+
+Stopwords are very common function words (the, of, and, is, to) that don't carry topical meaning. Filtering them surfaces the "real" content words. Keep them in for readability analysis (Flesch-Kincaid), filter them for keyword research and topic detection.
+
+</details>
+
+<details>
+<summary>**How does the counter handle "running" vs "ran" vs "runs"?**</summary>
+
+It treats them as different words by default. For lemma-based grouping (treating all as "run"), you'd need a lemmatizer like NLTK or spaCy — beyond the scope of a frequency counter.
+
+</details>
+
+<details>
+<summary>**Can it analyze HTML or markdown?**</summary>
+
+It strips obvious markup (HTML tags, markdown syntax) by default, so word counts reflect actual prose. If you want to count tags themselves (rare), disable the strip option.
+
+</details>
+
+<details>
+<summary>**How is keyword density calculated?**</summary>
+
+word count ÷ total words × 100. So "product" appearing 15 times in a 1,500-word article = 1% density. SEO best practice is 1-2% for primary keywords; over 3% risks keyword-stuffing penalties.
+
+</details>
+
+<details>
+<summary>**Does the order of paste matter?**</summary>
+
+No — the counter is order-independent. Same words anywhere produce the same frequency table.
+
+</details>
+
+## Tips
+
+- For SEO content reviews, run with stopwords filtered to surface keywords. Run again without filtering to spot stylistic tics.
+- A 1-2% target keyword density is a safe SEO range; obsessing over an exact number is overrated.
+- Filter words shorter than 3 characters when analyzing prose — they're mostly stopwords or articles.
+- Compare frequency tables across drafts to track how your content evolves over revisions.
+
+## Try it now
+
+The full word-frequency runs in your browser at **[https://ztools.zaions.com/word-frequency](https://ztools.zaions.com/word-frequency)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/word-frequency)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/word-frequency.mdx)*

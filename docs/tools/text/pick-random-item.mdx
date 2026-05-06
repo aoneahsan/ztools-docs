@@ -1,0 +1,114 @@
+---
+id: pick-random-item
+title: "Pick Random Item Online — From a List, Free"
+description: "Pick one (or N) random items from any list. Fair, configurable, with weighting support. Browser-only."
+sidebar_label: "pick-random-item"
+keywords:
+  - "pick random item online"
+  - "random picker tool"
+  - "draw winner online"
+  - "weighted random selector"
+  - "random selector list"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pick-random-item
+
+Picking a random item from a list is the simplest random task — drawing a winner, choosing a meal from a list of options, picking a movie for movie night. The ZTools Pick Random Item tool runs in the browser using fair pseudo-random selection (Math.random) or cryptographic randomness (crypto.getRandomValues for prize draws). Supports picking N items without replacement (no duplicates) or with replacement, and optional per-item weights for biased draws.
+
+<ToolCTA toolId="pick-random-item" toolName="pick-random-item" />
+
+## Use cases
+
+### Pick a winner from a list
+
+Paste 200 entrants, pick 1. With crypto-RNG for auditable fairness.
+
+### Decide between options
+
+List of restaurants for tonight; pick one randomly. Removes decision fatigue.
+
+### Run a draw with multiple winners
+
+"Pick 3 from 100" — without replacement, each winner unique.
+
+### Weighted random for unequal probabilities
+
+Some entries get more entries (one-per-purchase). Provide weights — tool draws proportionally.
+
+## How it works
+
+1. **Paste list** — One item per line (or comma-separated, JSON).
+2. **Pick count** — How many to draw. With or without replacement.
+3. **Optional weights** — Each item can have a weight (default 1). Higher weight = more likely.
+4. **Pick RNG** — Math.random (fast, fine for casual) or crypto.getRandomValues (cryptographically random).
+5. **Draw** — Output: chosen item(s). Re-draw for new pick.
+
+## Examples
+
+**Input:** [A, B, C, D, E], pick 1
+
+**Output:** One random — say "C". Each equally likely (20%).
+
+---
+
+**Input:** Same list, pick 3 without replacement
+
+**Output:** E.g. [B, D, A] — three unique items.
+
+---
+
+**Input:** Weighted: A weight 1, B weight 3, C weight 1
+
+**Output:** A and C each ~20%, B ~60%.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from list-randomizer?**</summary>
+
+List-randomizer outputs a full shuffled list. Pick-random-item outputs N selected items. Both use Fisher-Yates internally for fairness.
+
+</details>
+
+<details>
+<summary>**Without replacement?**</summary>
+
+Once picked, an item won't be picked again in the same draw. With replacement: same item can repeat.
+
+</details>
+
+<details>
+<summary>**Weighted draw?**</summary>
+
+Useful for biased random — e.g. one ticket vs three tickets per entrant. Weights need not sum to a specific value.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For raffles, use crypto-RNG — auditable as fair.
+- For decision-making (lunch, movies), Math.random is fine.
+- For weighted random, document the weights — transparency aids fairness perception.
+- For "pick all in random order", use list-randomizer instead — full shuffle is more efficient.
+
+## Try it now
+
+The full pick-random-item runs in your browser at **[https://ztools.zaions.com/pick-random-item](https://ztools.zaions.com/pick-random-item)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pick-random-item)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/pick-random-item.mdx)*

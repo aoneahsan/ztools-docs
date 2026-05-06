@@ -1,0 +1,114 @@
+---
+id: text-truncator
+title: "Text Truncator — Cut to Length, Free Online"
+description: "Truncate text to N characters or words. Add ellipsis. Word-boundary smart. Browser-only — no signup."
+sidebar_label: "text-truncator"
+keywords:
+  - "text truncator online"
+  - "shorten text to length"
+  - "meta description truncator"
+  - "truncate string with ellipsis"
+  - "word boundary truncator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-truncator
+
+Truncating text cuts it to a maximum length while (ideally) preserving readability. Naive truncation chops mid-word ("Hello wo..."); smart truncation respects word boundaries ("Hello..."). Useful for meta descriptions (160 chars), social-media posts (280 chars), card / list previews, SMS (160 chars), and anywhere a length cap matters. The ZTools Text Truncator tool offers both modes with configurable length, ellipsis style, and word-boundary preference.
+
+<ToolCTA toolId="text-truncator" toolName="text-truncator" />
+
+## Use cases
+
+### Generate SEO meta descriptions
+
+160-char limit. Truncate at the last full word + "...". Keeps the description readable.
+
+### Format card previews
+
+"First 200 chars of the post + ..." — UI consistent across cards regardless of content length.
+
+### Stay under SMS / Tweet limits
+
+280 chars max. Tool warns when input exceeds, truncates cleanly.
+
+### Preview snippets in search results
+
+Truncate body text to 150 chars for search-result preview cards.
+
+## How it works
+
+1. **Paste text** — Any length.
+2. **Set max length** — In characters (default) or words.
+3. **Pick boundary mode** — Hard cut (exactly N chars) or word-aware (cut at last word boundary before N).
+4. **Pick ellipsis** — "...", "…" (single char), or none.
+5. **Output** — Truncated text. Original length and final length both shown.
+
+## Examples
+
+**Input:** "The quick brown fox jumps over the lazy dog", max 20 chars, word-aware
+
+**Output:** "The quick brown..." (18 chars + "..." = 21 chars; tool ensures total stays under 20 if strict).
+
+---
+
+**Input:** Same input, hard cut 20 chars
+
+**Output:** "The quick brown fox..." (exactly 20 with ellipsis included).
+
+---
+
+**Input:** Truncate to 5 words
+
+**Output:** "The quick brown fox jumps..." (5 words plus ellipsis).
+
+## Frequently asked questions
+
+<details>
+<summary>**Should ellipsis count toward the limit?**</summary>
+
+Strict mode: yes (output is exactly N chars). Loose mode: no (output is N + 3 chars). Pick per use case.
+
+</details>
+
+<details>
+<summary>**Word boundary or character boundary?**</summary>
+
+Word-aware reads better. Hard cut is exact-length. Use hard cut only when downstream truly needs N chars exact.
+
+</details>
+
+<details>
+<summary>**What about Unicode characters?**</summary>
+
+JavaScript counts UTF-16 code units; emoji can count as 2. Tool offers "code-point count" mode for graphology accuracy (rarely needed).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For meta descriptions, target ~155 chars to leave room for Google appending text.
+- For social media, count actual chars (not bytes) — Twitter's 280-char limit is code points.
+- Always use word-aware truncation for human-facing text — mid-word cuts look broken.
+- For card previews, also strip Markdown / HTML before truncating — otherwise tags consume your character budget.
+
+## Try it now
+
+The full text-truncator runs in your browser at **[https://ztools.zaions.com/text-truncator](https://ztools.zaions.com/text-truncator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-truncator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-truncator.mdx)*

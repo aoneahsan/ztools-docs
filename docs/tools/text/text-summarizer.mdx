@@ -1,0 +1,122 @@
+---
+id: text-summarizer
+title: "Text Summarizer — Auto-Summarize Articles to Key Points (Free)"
+description: "Summarize any article, document, or paste to its key sentences. Adjustable length, extractive algorithm, no AI cost. Free, fast."
+sidebar_label: "text-summarizer"
+keywords:
+  - "text summarizer"
+  - "article summarizer"
+  - "auto summarize"
+  - "extractive summarization"
+  - "tldr generator"
+  - "summary tool"
+  - "free summarizer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-summarizer
+
+A text summarizer condenses a long document down to its most important sentences using extractive summarization — scoring each sentence by keyword density, position, and relevance to the document's top terms — so readers get the gist in seconds without losing the source's exact wording. The ZTools Text Summarizer runs entirely in your browser using TextRank-style scoring, lets you choose the summary length (5%, 10%, 25%, 50% of original, or a fixed number of sentences), preserves the original sentence wording (no paraphrasing or hallucination), and works offline once loaded.
+
+<ToolCTA toolId="text-summarizer" toolName="text-summarizer" />
+
+## Use cases
+
+### Reading-list triage — should I read this article?
+
+Paste a 3,000-word article, pull a 5-sentence summary. Decide in 30 seconds whether to read in full, save for later, or skip.
+
+### Meeting notes and transcripts
+
+A 10,000-word meeting transcript reduced to 20 key sentences. Captures decisions and action items without re-watching the recording.
+
+### Student exam revision
+
+Textbook chapter shrunk to its core 30 sentences. Combined with the original for full review; summary alone for last-minute cram.
+
+### Daily news digest
+
+Paste 5 morning articles, summarize each to 3 sentences. A 60-second briefing instead of 20 minutes of reading.
+
+## How it works
+
+1. **Paste the article or document** — Any size. Plain text or markdown. Multi-paragraph documents work best — short pastes don't leave much to extract.
+2. **Choose the summary length** — Percentage of original (5%, 10%, 25%, 50%) or fixed number of sentences (3, 5, 10, 20). Shorter = key points only; longer = more nuance.
+3. **Algorithm scores every sentence** — Each sentence gets a score based on: TF-IDF keyword overlap with the document, position (early sentences score higher in news), length (very short or very long sentences are penalized), and relationship to other sentences.
+4. **Top sentences are selected and reordered** — Sentences appear in the original document's order — not by score — so the summary reads coherently as a shortened version of the original.
+
+## Examples
+
+**Input:** 3,000-word article on remote work
+
+**Output:** 5-sentence summary covering the thesis, the supporting argument, and the conclusion.
+
+---
+
+**Input:** Meeting transcript (10k words)
+
+**Output:** 20-sentence summary with decisions, action items, and key debate points.
+
+---
+
+**Input:** Wikipedia article
+
+**Output:** 10% summary that often matches the article's lede paragraphs in coverage.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this AI-generated?**</summary>
+
+No — it uses extractive summarization, which selects existing sentences rather than generating new text. No hallucination, no paraphrase errors, but also less natural flow than abstractive AI summarizers.
+
+</details>
+
+<details>
+<summary>**How is this different from ChatGPT summaries?**</summary>
+
+ChatGPT (and other LLMs) generate new sentences that paraphrase the source. They're smoother but can hallucinate or distort. Extractive summarizers pull verbatim sentences — preserving source accuracy at the cost of natural flow.
+
+</details>
+
+<details>
+<summary>**What length should I pick?**</summary>
+
+5-10% for skimming/triage. 25% for studying or note-taking. 50% if the original is very dense or you want minimal information loss. A 5-sentence fixed length works well for news.
+
+</details>
+
+<details>
+<summary>**Does it work for non-English text?**</summary>
+
+Yes — the TextRank algorithm is largely language-agnostic since it relies on word co-occurrence rather than language-specific rules. Best results with English; reasonable results with major European languages.
+
+</details>
+
+<details>
+<summary>**Can it summarize code or structured data?**</summary>
+
+No — algorithms are tuned for prose. For code summaries, use a documentation generator. For data summaries, use the Statistics Calculator.
+
+</details>
+
+## Tips
+
+- For news articles, shorter summaries (5%) are more useful — most news has the thesis in the first paragraph.
+- For narrative or story-driven content, summarization often loses the point; read the original.
+- Summaries are best for triage and revision, not for replacing primary research.
+- Long documents (10k+ words) sometimes need section-by-section summarization rather than whole-document.
+
+## Try it now
+
+The full text-summarizer runs in your browser at **[https://ztools.zaions.com/text-summarizer](https://ztools.zaions.com/text-summarizer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-summarizer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-summarizer.mdx)*

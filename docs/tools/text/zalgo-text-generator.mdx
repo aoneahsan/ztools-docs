@@ -1,0 +1,130 @@
+---
+id: zalgo-text-generator
+title: "Zalgo Text Generator — Glitchy Cursed Text Free"
+description: "Generate glitchy \"Zalgo\" text with stacked Unicode combining marks. Adjust intensity above/below/middle. Free, browser-only, copy-paste anywhere."
+sidebar_label: "zalgo-text-generator"
+keywords:
+  - "zalgo text generator"
+  - "glitch text generator"
+  - "cursed text generator"
+  - "creepy text generator"
+  - "zalgo generator online"
+  - "corrupted text"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# zalgo-text-generator
+
+Zalgo text is "glitched" or "cursed" text produced by stacking Unicode combining diacritical marks above, below, and through normal characters — the result looks dripping, corrupted, eldritch. It originated in the 2004 internet horror meme "He Comes" and remains popular for spooky social-media posts, horror-themed art, glitch aesthetics, and gaming usernames. The ZTools Zalgo Generator pulls combining marks (U+0300–U+036F range) at random and stacks 1–50 per character, with separate intensity sliders for above / below / middle marks. Output is valid Unicode and pastes into any app that supports modern fonts.
+
+<ToolCTA toolId="zalgo-text-generator" toolName="zalgo-text-generator" />
+
+## Use cases
+
+### Halloween / horror social posts
+
+Spooky captions and bios for October. The aesthetic instantly signals "this is meant to feel uncanny" — works across Twitter, Instagram, Discord.
+
+### Glitch-art typography
+
+Album covers, indie game promo art, vaporwave aesthetics — Zalgo text is a staple of the genre.
+
+### Gaming usernames / clan tags
+
+Stand-out usernames in games that allow Unicode combining marks (Steam, Discord, MMOs). Lighter intensity stays readable; max intensity is pure chaos.
+
+### ARG / horror writing
+
+Alternate-reality games and creepypastas use Zalgo to signal "the entity is breaking through" moments. A staple cliché but genuinely effective.
+
+## How it works
+
+1. **Paste base text** — Latin, Cyrillic, even emoji — combining marks stack on most code points.
+2. **Set above intensity** — 0 = none, 50 = max. Pulls from U+0300–U+0314 (acute, grave, etc.).
+3. **Set below intensity** — Pulls from U+0316–U+0344. Below marks make the dripping/decaying look.
+4. **Set middle intensity** — Pulls from U+0334–U+0338 (strikethrough, overlay).
+5. **Generate + copy** — Random sample applied per character; one-click copy preserves the Unicode payload.
+
+## Examples
+
+**Input:** "HELLO" — light intensity (3 above, 2 below)
+
+**Output:** Mildly corrupted: still readable, hint of unease.
+
+---
+
+**Input:** "HELLO" — max intensity (50 above, 50 below, 20 middle)
+
+**Output:** Almost-illegible black-blob — pure chaos. Often breaks line height in regular UIs.
+
+---
+
+**Input:** "come closer" — medium
+
+**Output:** Recognisably "creepy spooky" text suitable for Halloween posts.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will it work everywhere?**</summary>
+
+Most modern apps render Unicode combining marks correctly. Some apps (older email clients, certain mobile keyboards, basic terminals) strip or normalise them. Discord, Twitter/X, Instagram, Slack: yes. SMS: depends on phone.
+
+</details>
+
+<details>
+<summary>**Will it crash my chat app?**</summary>
+
+Old Skype builds famously crashed on heavy Zalgo (the "Skype crash bug" 2010-ish). Modern apps render fine but very heavy Zalgo may slow down older devices. Keep intensity reasonable for general use.
+
+</details>
+
+<details>
+<summary>**Is it screen-reader-accessible?**</summary>
+
+No — screen readers either skip combining marks (they read the base letters) or read each mark as "combining grave accent", which is slow and confusing. Don't use for content that needs to be accessible.
+
+</details>
+
+<details>
+<summary>**Why does my line-height blow up?**</summary>
+
+Combining marks above the cap line force CSS line-height to expand. Wrap Zalgo blocks in a container with `line-height: normal; overflow: hidden;` to clip.
+
+</details>
+
+<details>
+<summary>**Does Apple/Android show it the same?**</summary>
+
+Combining-mark stacking quality differs across font engines. Apple's rendering is denser; Android's spreads marks vertically; both are valid Unicode displays.
+
+</details>
+
+<details>
+<summary>**Is this NSFW?**</summary>
+
+No — but the aesthetic is associated with horror/creepy content. Use judgment for context.
+
+</details>
+
+## Tips
+
+- For social bios, keep "above" at 2–4 and "below" at 1–2 — the look is subtle but unmistakable.
+- For "the entity speaks" moments in writing, max it out for one line then drop back to plain text — contrast is the effect.
+- Combine with bold/italic Unicode "fancy" letterforms for an extra layer of glitch.
+- Test in the target app before committing; some apps strip combining marks silently.
+- Avoid in user-facing UI — accessibility issues are real.
+
+## Try it now
+
+The full zalgo-text-generator runs in your browser at **[https://ztools.zaions.com/zalgo-text-generator](https://ztools.zaions.com/zalgo-text-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/zalgo-text-generator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/zalgo-text-generator.mdx)*

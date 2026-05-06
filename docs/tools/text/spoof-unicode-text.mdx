@@ -1,0 +1,129 @@
+---
+id: spoof-unicode-text
+title: "Spoof Unicode Text — Lookalike Character Replacer (Free)"
+description: "Replace Latin letters with visually-identical Unicode lookalikes (Cyrillic, Greek). For research and demos of homoglyph attacks. Free, ethical use."
+sidebar_label: "spoof-unicode-text"
+keywords:
+  - "unicode spoof"
+  - "homoglyph generator"
+  - "lookalike text"
+  - "idn homograph"
+  - "confusable text"
+  - "unicode confusables"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# spoof-unicode-text
+
+Unicode "spoofing" or "homoglyph substitution" replaces Latin characters with visually-identical characters from other scripts — Cyrillic "а" (U+0430) for Latin "a" (U+0061), Greek "ο" (U+03BF) for Latin "o" (U+006F), Cherokee "ᴀ" for Latin "A". The result looks identical to the eye but is a different string under the hood. Used by security researchers and educators to demonstrate IDN (internationalised domain name) homograph attacks, phishing risk, and Unicode-confusable detection in software. The ZTools tool is for research, awareness, and testing — not for malicious deception. Do not use to deceive real users.
+
+<ToolCTA toolId="spoof-unicode-text" toolName="spoof-unicode-text" />
+
+## Use cases
+
+### Security training & awareness demos
+
+Show colleagues why "раураl.com" (Cyrillic "р" + "а") is not "paypal.com". Visual-identical strings are how phishing campaigns trick users; live demos are more memorable than slide-deck warnings.
+
+### Anti-phishing research
+
+Generate test strings to validate your homoglyph-detection rules in URL filters, email gateways, and brand-protection tools.
+
+### Username squatting tests
+
+Some services normalise lookalikes; some don't. Test whether your platform allows homoglyph variants of admin/staff usernames — fix if it does.
+
+### Bug bounty & pentesting
+
+Authorised pentesting only: probe whether an application's identity comparison is byte-level or normalised. Documenting findings.
+
+## How it works
+
+1. **Paste plain ASCII** — Latin letters with confusable counterparts in other scripts.
+2. **Pick a substitution profile** — Aggressive (replace everything that has any lookalike) vs Conservative (replace only characters with very-close confusables — Unicode TR39 "single-script confusable" set).
+3. **Generate** — Each Latin character is replaced by its homoglyph (Cyrillic, Greek, Cherokee, Latin Extended).
+4. **Inspect side-by-side** — The tool shows both strings + per-character source script + Unicode code point.
+
+## Examples
+
+**Input:** "paypal" — aggressive
+
+**Output:** "раураӏ" — Cyrillic р, а, у, а, ӏ. Looks identical; bytes differ.
+
+---
+
+**Input:** "admin" — conservative
+
+**Output:** "аdmin" — only "a" replaced (Cyrillic а); rest unchanged.
+
+---
+
+**Input:** "google.com" — domain-spoofing demo
+
+**Output:** "gооgle.com" — both "o"s Cyrillic; 100% visual match in most fonts.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this legal to use?**</summary>
+
+The tool itself is legal. Using output to deceive users (phishing, fraud) is illegal in most jurisdictions (CFAA, computer-misuse acts). Use for training, research, security testing, and awareness only.
+
+</details>
+
+<details>
+<summary>**Why does a Cyrillic а look identical to Latin a?**</summary>
+
+Cyrillic and Latin scripts share Greek ancestry. Many cursive lowercase forms converged. Modern Unicode keeps them as separate characters because they have different uppercases (А/A) and behave differently in their respective languages.
+
+</details>
+
+<details>
+<summary>**How do I detect homoglyph attacks in my app?**</summary>
+
+Use Unicode TR39 Confusables data + Punycode normalisation for domains. Many libraries (uts39, confusable_homoglyphs) implement this.
+
+</details>
+
+<details>
+<summary>**Will browsers warn me about a homoglyph URL?**</summary>
+
+Modern browsers (Chrome, Firefox, Safari) detect mixed-script IDN domains and force Punycode display ("xn--..."). Single-script all-Cyrillic domains are NOT auto-flagged — visual deception is still possible.
+
+</details>
+
+<details>
+<summary>**Why aren't emoji available as substitutes?**</summary>
+
+Emoji aren't typographic letterforms; they're pictograms. Confusable detection focuses on letter-shape lookalikes only.
+
+</details>
+
+<details>
+<summary>**Does this work on iOS / Android?**</summary>
+
+Yes — Unicode is universal. Some keyboards make typing non-Latin scripts harder, which is part of the defence-in-depth.
+
+</details>
+
+## Tips
+
+- Always disclose when sharing spoofed strings — never use to mislead.
+- For demos, show both the visible string and a hex dump side-by-side; the byte-level reality lands harder than the warning.
+- If your app accepts usernames, normalise to NFKC + script-mixing detection at signup.
+- Brand-protection: monitor IDN registrations of your trademark via tools like DNStwist; homoglyph squatting is common.
+- For password fields, browsers normalise differently — test homoglyph passwords against your auth system.
+
+## Try it now
+
+The full spoof-unicode-text runs in your browser at **[https://ztools.zaions.com/spoof-unicode-text](https://ztools.zaions.com/spoof-unicode-text)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/spoof-unicode-text)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/spoof-unicode-text.mdx)*

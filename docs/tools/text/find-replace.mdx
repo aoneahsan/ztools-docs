@@ -1,0 +1,122 @@
+---
+id: find-replace
+title: "Find and Replace Text — Bulk Edit, Regex Support, Case Options (Free)"
+description: "Find and replace text in any document with case-sensitive, whole-word, and regex options. Multiple replacements at once. Free, browser-based."
+sidebar_label: "find-replace"
+keywords:
+  - "find and replace"
+  - "bulk text replace"
+  - "regex replace"
+  - "replace text online"
+  - "text editor find replace"
+  - "free find replace tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# find-replace
+
+A find and replace tool searches a body of text for a target string or pattern and substitutes it with replacement text, supporting case-sensitive matching, whole-word boundaries, and regular expressions for advanced patterns. The ZTools Find and Replace tool processes any size paste, supports multiple search/replace pairs in one pass, previews matches with a count before applying, and offers regex backreferences ($1, $2) so users can transform patterns rather than just swap fixed strings — useful for renaming variables, fixing inconsistent formatting, and bulk-cleaning data exports.
+
+<ToolCTA toolId="find-replace" toolName="find-replace" />
+
+## Use cases
+
+### Renaming a variable across a code paste
+
+Paste a function from a codebase, find every `userId` and replace with `accountId`. Whole-word matching prevents partial-match disasters like `userIdValue` getting mangled.
+
+### Fixing inconsistent terminology in a document
+
+A draft uses "client", "customer", and "user" interchangeably. Run three find-replaces to standardize on one term, ensuring case is preserved (Customer vs customer).
+
+### Cleaning up a CSV export with bad delimiters
+
+Vendor exports CSVs with semicolons instead of commas, double-spaces between columns, and trailing whitespace. A regex find-replace rewrites them into clean, parseable CSV in seconds.
+
+### Updating dates or version strings in bulk
+
+Push a documentation update from "v2.3" to "v2.4" across hundreds of references. Regex with capture groups handles "v2.3.0" through "v2.3.99" in one pass.
+
+## How it works
+
+1. **Paste your source text** — No size limit beyond browser memory. The tool handles megabytes of text without lag.
+2. **Enter the find pattern** — Plain text by default. Toggle "regex" for pattern matching with metacharacters like \\d, \\w, ^, $, [...], and capture groups (...).
+3. **Configure match options** — Case-sensitive (default off), whole word (matches only complete tokens), multiline (^ and $ match line starts/ends instead of string boundaries).
+4. **Enter the replacement** — Plain text or, with regex enabled, backreferences like $1, $2 to rebuild matched groups. Empty replacement deletes matches.
+5. **Preview and apply** — Match count shows before applying. Inline highlight shows what will change. Apply replaces all; or step through one-by-one.
+
+## Examples
+
+**Input:** Find: "color" → Replace: "colour" (case-sensitive)
+
+**Output:** Replaces "color" but leaves "Color" untouched. 14 matches found, 14 replaced.
+
+---
+
+**Input:** Regex find: \\b(\\d\{3\})-(\\d\{4\})\\b → Replace: $1.$2
+
+**Output:** Phone numbers like "555-1234" become "555.1234". Whole-word boundary prevents matching inside longer numbers.
+
+---
+
+**Input:** Find: " " (multiple spaces) → Replace: " " (single)
+
+**Output:** Collapses runs of whitespace to single spaces. Useful for cleaning copy-pasted text.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between plain text and regex find?**</summary>
+
+Plain text matches the literal string you type. Regex treats the input as a pattern, where characters like . * ? + [ ] ^ $ have special meanings. Regex is more powerful but requires syntax knowledge.
+
+</details>
+
+<details>
+<summary>**How do I match a literal special character with regex?**</summary>
+
+Escape it with a backslash: \\. matches a literal period, \\* matches a literal asterisk, \\\\ matches a literal backslash. The tool can also disable regex if you only need literal matching.
+
+</details>
+
+<details>
+<summary>**Why isn't my replacement working?**</summary>
+
+Common causes: case-sensitive option mismatched, whole-word boundary excluding partial matches, regex syntax error in the find pattern, or replacement using $ without regex enabled. Check the match count first; if it's zero, the find is wrong.
+
+</details>
+
+<details>
+<summary>**Can I do multiple find-replaces at once?**</summary>
+
+Yes — toggle the "batch" mode and enter pairs as one find/replace per row. Replacements run in order, so consider whether earlier substitutions affect later ones (e.g., replacing "AB" then "B" is different from "B" then "AB").
+
+</details>
+
+<details>
+<summary>**Does the tool send my text to a server?**</summary>
+
+No — all processing runs in your browser. The text never leaves your device, which matters for sensitive documents, source code, and proprietary data.
+
+</details>
+
+## Tips
+
+- Always preview the match count before applying — surprises usually mean the pattern matches more than you expected.
+- Use word boundaries (\\b in regex, "whole word" toggle in plain mode) to prevent partial-match disasters.
+- For multi-line replacements, enable multiline mode so ^ and $ match each line, not just the document start/end.
+- Save complex regex patterns as bookmarks — rebuilding a 30-character regex from memory wastes time.
+
+## Try it now
+
+The full find-replace runs in your browser at **[https://ztools.zaions.com/find-replace](https://ztools.zaions.com/find-replace)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/find-replace)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/find-replace.mdx)*

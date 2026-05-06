@@ -1,0 +1,129 @@
+---
+id: google-fonts-pair-finder
+title: "Google Fonts Pair Finder — Free Heading + Body Combinations"
+description: "Discover Google Fonts pairings (heading + body) with live preview, popularity weighting, and copy-paste import code. Free, no signup."
+sidebar_label: "google-fonts-pair-finder"
+keywords:
+  - "google fonts pair finder"
+  - "font pairing tool"
+  - "heading body font combinations"
+  - "free font pairings"
+  - "web typography pairing"
+  - "google fonts combinations"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# google-fonts-pair-finder
+
+A Google Fonts pair finder helps designers and developers pick a complementary heading + body font combination from the 1500+ free fonts in the Google Fonts library. Good pairing follows simple rules: contrast (serif heading + sans-serif body, or vice-versa), shared mood (humanist with humanist; geometric with geometric), and proven usage (battle-tested combinations are safer than untested mash-ups). The ZTools Pair Finder serves curated pairings (Inter + Lora, Playfair + Source Sans, Poppins + Roboto Slab and 50+ more) with live preview using your own headline/body text, then provides ready-to-paste `&lt;link&gt;` and `@import` snippets.
+
+<ToolCTA toolId="google-fonts-pair-finder" toolName="google-fonts-pair-finder" />
+
+## Use cases
+
+### Quick web-design font selection
+
+New project, blank Figma file — pick a pairing in 30 seconds instead of agonising for 30 minutes. Battle-tested combinations remove the guesswork.
+
+### Brand identity exploration
+
+Design system stage: try 5–10 pairings against your hero copy and tagline; ship the one that feels most on-brand.
+
+### Blog/portfolio refresh
+
+Existing site looks dated? Swap the font pair for an instant visual update. Cheaper than a full redesign.
+
+### Client presentations
+
+Show the client three pre-vetted pairings instead of asking "what font do you like?" — better outcomes, faster sign-off.
+
+## How it works
+
+1. **Type sample text** — Your actual headline + paragraph. Real content makes pairing decisions easier than Lorem Ipsum.
+2. **Browse curated pairings** — 50+ vetted pairs grouped by mood: editorial, tech, minimal, friendly, classic, bold.
+3. **Live preview** — Each pair renders your copy side-by-side; tweak heading size and body size sliders.
+4. **Copy import code** — Single-line `&lt;link&gt;` for HTML, or `@import` for CSS, or @next/font snippet for Next.js apps.
+
+## Examples
+
+**Input:** Editorial blog: hero title "The State of Web Design 2026" + lead paragraph
+
+**Output:** Pairing: Playfair Display (heading) + Source Sans Pro (body). Confident, magazine-style.
+
+---
+
+**Input:** SaaS landing: "Ship your product faster" + benefit paragraph
+
+**Output:** Pairing: Inter (heading + body, single-family). Modern, clean, default tech-startup look.
+
+---
+
+**Input:** Wedding/event site: "Sarah & James, June 2026" + event-detail paragraph
+
+**Output:** Pairing: Sacramento (heading) + Lora (body). Romantic, classic.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why use Google Fonts at all?**</summary>
+
+Free, generously CDN-hosted, no licensing hassle, ~1500 fonts to choose from. Performance trade-off: external request unless self-hosted. Modern stacks (Next.js, Astro) auto-self-host Google Fonts at build time.
+
+</details>
+
+<details>
+<summary>**How many fonts should I use per page?**</summary>
+
+Two is standard (heading + body). Three is risky (add only for a third role like code or CTA). Four+ is almost always wrong.
+
+</details>
+
+<details>
+<summary>**Will Google Fonts hurt my Core Web Vitals?**</summary>
+
+Self-host or use `font-display: swap` + preload for the body font. Latency impact is small (~50–100ms FCP) when configured correctly. Bigger sin is loading 8 weight variants of one family.
+
+</details>
+
+<details>
+<summary>**Can I use Google Fonts commercially?**</summary>
+
+Yes — all Google Fonts are open-source (SIL Open Font License or similar) and free for commercial use, including in trademarks/logos.
+
+</details>
+
+<details>
+<summary>**GDPR concerns?**</summary>
+
+Loading from fonts.googleapis.com sends the user's IP to Google. Self-hosting (next/font, fontsource, manually downloaded) eliminates this. EU sites generally self-host post-2022 GDPR rulings.
+
+</details>
+
+<details>
+<summary>**Why don't my pairings look the same as the preview?**</summary>
+
+Cascade specificity, default browser styles, line-height inheritance — many factors. The preview is a starting point; expect to tune sizes/weights for your specific design.
+
+</details>
+
+## Tips
+
+- Pair contrasting moods sparingly: serif headline + serif body is fine if both are on-brand.
+- Test at extreme sizes — 12px body and 60px hero. A pair that works at 16/32 may break at 12/72.
+- Limit weights: 2 weights for heading family, 2 for body family. More weights = bigger font payload.
+- Use `font-display: swap` + `preload` for above-the-fold fonts; lazy-load the rest.
+- For accessibility, body should be ≥16px and contrast ≥4.5:1 — looks shouldn't override readability.
+
+## Try it now
+
+The full google-fonts-pair-finder runs in your browser at **[https://ztools.zaions.com/google-fonts-pair-finder](https://ztools.zaions.com/google-fonts-pair-finder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/google-fonts-pair-finder)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/google-fonts-pair-finder.mdx)*

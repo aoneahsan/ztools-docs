@@ -1,0 +1,123 @@
+---
+id: plagiarism-checker
+title: "Plagiarism Checker — Compare Text for Duplicate Content (Free)"
+description: "Compare two texts side by side, highlight matching passages, and compute a similarity score. Useful for citation review. Free."
+sidebar_label: "plagiarism-checker"
+keywords:
+  - "plagiarism checker"
+  - "duplicate content checker"
+  - "similarity checker"
+  - "compare texts"
+  - "plagiarism detector"
+  - "text comparison"
+  - "free plagiarism tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# plagiarism-checker
+
+A plagiarism checker compares a target text against one or more reference texts (or pastes), highlights matching passages, and computes a similarity score — useful for verifying that quoted material is properly attributed, that a draft hasn't accidentally repeated source phrasing, and that two documents are genuinely independent. The ZTools Plagiarism Checker runs side-by-side comparison entirely in your browser, supports paste-vs-paste comparison (no web search), highlights matched n-grams (3-, 5-, 7-word sequences), computes the percentage of overlapping words, and exports an annotated diff for documentation.
+
+<ToolCTA toolId="plagiarism-checker" toolName="plagiarism-checker" />
+
+## Use cases
+
+### Verifying a student's draft against a source paper
+
+Teacher pastes the draft and the suspected source. Highlighted overlap shows exactly which passages match — settling "did they copy this?" disputes objectively.
+
+### Self-check before submitting a research paper
+
+Author pastes their draft and a reference they cited heavily. Confirms the paraphrasing is sufficient; surfaces accidental near-quotation that should be marked as a direct quote.
+
+### Editorial review of guest posts
+
+Editor compares a submitted article against the writer's previous published work. Catches re-purposed content that the writer should disclose as a re-edit, not original.
+
+### Code-comment review
+
+Compare two README files or documentation pastes — useful for confirming whether two open-source projects copied each other's docs without attribution.
+
+## How it works
+
+1. **Paste your target text** — The document being checked.
+2. **Paste one or more reference texts** — Sources to compare against. Tabs for adding multiple references; aggregate score includes all of them.
+3. **Choose match sensitivity** — Loose: 3-word matches (catches paraphrase tendencies). Standard: 5-word matches (catches most direct copies). Strict: 7+ word matches (only true verbatim copies).
+4. **Read the highlighted output** — Matching passages are highlighted in both texts, color-coded by reference. Non-matching text remains uncolored.
+5. **Read the similarity score** — Percentage of matched words / total words in target. Above 20% suggests substantial reuse; below 5% is normal incidental overlap.
+
+## Examples
+
+**Input:** Paper A vs Paper B (well-cited paraphrase)
+
+**Output:** 8% match — within normal range for paraphrased content with proper citation.
+
+---
+
+**Input:** Draft vs source (direct quote, no quotation marks)
+
+**Output:** 24% match — likely undeclared quote; should be marked as direct citation.
+
+---
+
+**Input:** Two independent essays on the same topic
+
+**Output:** 3% match — only common phrases ("on the other hand", "in conclusion"). Independent.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does this search the web for matches?**</summary>
+
+No — this tool compares pastes against pastes. For web-wide plagiarism scanning (Turnitin-style), you'd need a service that crawls and indexes the web. The ZTools tool is for known-source comparisons and self-checks.
+
+</details>
+
+<details>
+<summary>**What's a normal similarity score?**</summary>
+
+Below 5% for independent writing on the same topic — common phrases and structural cues. 5-15% for well-paraphrased content with quoted attribution. 15%+ suggests substantial reuse that needs explicit citation. &gt;40% is essentially copy-paste.
+
+</details>
+
+<details>
+<summary>**How does the tool handle citations?**</summary>
+
+It doesn't parse citations — it shows you what overlaps. Whether the overlap is properly cited is a judgment call you make from the highlights. Tools like Turnitin try to auto-recognize quoted/cited passages; this one doesn't.
+
+</details>
+
+<details>
+<summary>**Why use this instead of a web plagiarism service?**</summary>
+
+Privacy (your text never leaves your browser), zero cost, instant results, and best when you already know the candidate source. Use a paid web service when you need broad-spectrum scanning.
+
+</details>
+
+<details>
+<summary>**Does it handle paraphrase detection?**</summary>
+
+Loose mode (3-word matches) catches some paraphrasing, but true paraphrase detection requires semantic similarity (LLM-based). The tool is best at verbatim and near-verbatim overlap.
+
+</details>
+
+## Tips
+
+- Always paraphrase AND cite — the tool can catch missing citations, but it won't fix the "I forgot to credit" omission.
+- For best results, compare against the suspected single source rather than mixing many references — the score is clearer.
+- Common phrases ("in conclusion", "on the other hand") create incidental overlap; ignore matches under 5 words.
+- For institutional plagiarism review, use a service with web index access (Turnitin, iThenticate); use this tool for self-checks.
+
+## Try it now
+
+The full plagiarism-checker runs in your browser at **[https://ztools.zaions.com/plagiarism-checker](https://ztools.zaions.com/plagiarism-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/plagiarism-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/plagiarism-checker.mdx)*

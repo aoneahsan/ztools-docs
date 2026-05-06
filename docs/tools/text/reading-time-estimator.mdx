@@ -1,0 +1,122 @@
+---
+id: reading-time-estimator
+title: "Reading Time Estimator — Estimate Reading Minutes for Any Text (Free)"
+description: "Estimate reading time for articles, blog posts, and documents. Adjustable WPM, complexity factor, and per-language defaults. Free."
+sidebar_label: "reading-time-estimator"
+keywords:
+  - "reading time estimator"
+  - "reading time calculator"
+  - "min read"
+  - "words per minute"
+  - "article length"
+  - "reading speed"
+  - "free reading time tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# reading-time-estimator
+
+A reading time estimator computes how long an average reader will take to read a piece of text by dividing the word count by a configurable words-per-minute (WPM) rate, with optional complexity adjustments for technical or dense material. The ZTools Reading Time Estimator supports preset WPM rates (200 = slow/technical, 250 = average, 300 = fast/casual), accounts for image-heavy posts (12 seconds per image as standard practice in publishing), shows the result in friendly formats ("3 min read"), and works in any language since the math is just word count ÷ rate.
+
+<ToolCTA toolId="reading-time-estimator" toolName="reading-time-estimator" />
+
+## Use cases
+
+### Adding "X min read" labels to blog posts
+
+Medium-style estimates that help readers decide whether to commit. Paste the post, get the estimate, paste it into the metadata. A 5-second editorial step.
+
+### Planning meeting agendas
+
+Pre-reading materials with estimated times let attendees budget. "Read this 10-min memo before the meeting" is more useful than "read this memo".
+
+### Newsletter and email length checks
+
+A 5-minute newsletter often gets fewer reads than a 90-second one. The estimator helps editors decide what to trim.
+
+### Course curriculum and lesson sizing
+
+Educators allocate reading-time per lesson. The estimator turns "this is a long chapter" into "this is a 25-minute chapter" — much easier to schedule.
+
+## How it works
+
+1. **Paste your text** — Any length. Markdown, HTML tags, and similar markup are stripped before counting words.
+2. **Pick the reader speed** — 200 WPM (technical/dense), 250 WPM (average adult, default), 300 WPM (fast/casual). Custom WPM also accepted for special audiences.
+3. **Optional: account for images** — Add the image count and the tool adds 12 seconds for the first image, 11 for the second, etc. (Medium's formula). Text-only posts skip this.
+4. **Read the estimate** — "~3 min read" or "~12 min read". Single short post → seconds rounded to "less than 1 min". Long content → rounded up to the nearest minute.
+
+## Examples
+
+**Input:** 750-word article
+
+**Output:** ~3 min read at 250 WPM
+
+---
+
+**Input:** 2,500-word technical post
+
+**Output:** ~13 min read at 200 WPM (technical adjustment)
+
+---
+
+**Input:** 500 words + 5 images
+
+**Output:** ~3 min read (2 min text + ~58 sec for images)
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the average reading speed?**</summary>
+
+For native-language adults, 200-300 WPM, with 250 as a common average. Speed varies by content: news ~300, novels ~250, technical content ~150-200, academic prose 100-200.
+
+</details>
+
+<details>
+<summary>**Should I use 200 or 250 WPM as default?**</summary>
+
+Use 250 for general blog posts and news. Drop to 200 for technical, scientific, or jargon-heavy content. The estimator lets you choose; default is 250.
+
+</details>
+
+<details>
+<summary>**Why do images add to reading time?**</summary>
+
+Readers pause to inspect each image. Medium's research suggested 12 seconds for the first image, dropping by ~1 second per subsequent image (people scan later images faster). The tool follows that formula.
+
+</details>
+
+<details>
+<summary>**Does this work for non-English text?**</summary>
+
+Yes — most languages have similar WPM rates (Spanish ~280, French ~240, German ~210, Japanese characters ~360 cpm). For Asian languages, character count is more reliable than word count.
+
+</details>
+
+<details>
+<summary>**Is this just word count ÷ 250?**</summary>
+
+Mostly yes. The tool adds image-time, supports tone presets (technical/general/casual), and handles markdown stripping so the count reflects readable prose. The math is simple; the polish makes the output usable.
+
+</details>
+
+## Tips
+
+- For audience-aware estimates, lower WPM for technical readers (200) and raise for casual newsletters (300).
+- Round up for honesty — "5 min read" feels less misleading than "4.7 min".
+- Combine with a "scroll-percentage to time" estimate for long-form posts so readers can pace themselves.
+- For very short content (under 100 words), most platforms just say "1 min read" rather than fractional minutes.
+
+## Try it now
+
+The full reading-time-estimator runs in your browser at **[https://ztools.zaions.com/reading-time-estimator](https://ztools.zaions.com/reading-time-estimator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/reading-time-estimator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/reading-time-estimator.mdx)*

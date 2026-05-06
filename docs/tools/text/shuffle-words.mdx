@@ -1,0 +1,129 @@
+---
+id: shuffle-words
+title: "Shuffle Words — Random Word Reordering (Free)"
+description: "Randomise the word order of any text using Fisher–Yates shuffle. Useful for poetry, language games, and randomness demos. Free, no signup."
+sidebar_label: "shuffle-words"
+keywords:
+  - "shuffle words"
+  - "word order randomiser"
+  - "random word shuffle"
+  - "fisher yates words"
+  - "word permutation"
+  - "random sentence shuffle"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# shuffle-words
+
+A word shuffler randomises the order of words in a text using a uniform-random permutation algorithm (Fisher–Yates / Knuth shuffle). Practical applications include surrealist/found poetry, "exquisite corpse"-style writing games, language-learning vocabulary drills, prompts for creative writing, generating word-cloud input, and fairness/randomness demonstrations. The ZTools Shuffle Words tool uses crypto.getRandomValues() (when available) for cryptographically-strong randomness; otherwise falls back to Math.random(). Punctuation and case are preserved per word, so the output reads as recognisable words even when the order is meaningless.
+
+<ToolCTA toolId="shuffle-words" toolName="shuffle-words" />
+
+## Use cases
+
+### Surrealist / found poetry
+
+Take a paragraph from a book, shuffle the words, see what unexpected meanings emerge. The Dadaists invented this in 1916; Tristan Tzara's "How to Make a Dadaist Poem" is the founding recipe.
+
+### Vocabulary learning drills
+
+Shuffle the words in a target-language sentence and challenge yourself to reorder them correctly — tests both vocab and grammar simultaneously.
+
+### Creative writing prompts
+
+Stuck? Shuffle a paragraph from a favourite author. The unfamiliar adjacency forces new connections in your brain.
+
+### Randomness demonstrations
+
+Teaching probability or PRNG concepts: shuffle the same sentence repeatedly, observe how rarely you get the original back (≈ 1/n!).
+
+## How it works
+
+1. **Paste text** — Plain text. Multi-paragraph supported; choose to shuffle within each paragraph or across the entire input.
+2. **Pick algorithm** — Fisher–Yates (uniform random — default) or "weighted" (preserve some structure).
+3. **Generate** — Each shuffle produces a different result; click again for another permutation.
+4. **Preserve options** — Toggle: keep punctuation attached to words, preserve sentence-final period, lowercase all (or restore initial caps after shuffle).
+
+## Examples
+
+**Input:** "The quick brown fox jumps over the lazy dog."
+
+**Output:** "jumps fox lazy The dog quick over brown the." (one of 9! ≈ 362,880 possible permutations).
+
+---
+
+**Input:** Long paragraph, shuffle within each sentence
+
+**Output:** Sentence boundaries preserved; only word order within each sentence randomised — more readable but still surreal.
+
+---
+
+**Input:** Same input run 5 times
+
+**Output:** Five distinct permutations; probability of repeating one is vanishingly small at sentence length ≥ 7 words.
+
+## Frequently asked questions
+
+<details>
+<summary>**How random is the shuffle?**</summary>
+
+Fisher–Yates with crypto.getRandomValues() gives a uniform random permutation indistinguishable from true randomness for practical purposes. Math.random() (fallback) is good enough for non-cryptographic use.
+
+</details>
+
+<details>
+<summary>**Why does my paragraph keep the period at the end?**</summary>
+
+Optional: "preserve sentence-final period" treats the trailing "." as attached to whatever word ends up last, so output still reads as a sentence. Disable to shuffle punctuation freely.
+
+</details>
+
+<details>
+<summary>**Can I shuffle while keeping noun-verb-noun structure?**</summary>
+
+No — that requires part-of-speech tagging beyond what the tool does. For structured shuffling, use a constrained-grammar generator like Tracery.
+
+</details>
+
+<details>
+<summary>**Does it preserve newlines?**</summary>
+
+Yes — paragraph boundaries are respected. Shuffle within paragraphs or across them; you choose.
+
+</details>
+
+<details>
+<summary>**Will the same text always give the same shuffle?**</summary>
+
+No — each click rerolls. If you need reproducibility, paste-shuffle-copy quickly; or use a seeded PRNG (not exposed in this tool).
+
+</details>
+
+<details>
+<summary>**How is this different from shuffle-letters?**</summary>
+
+Words shuffles whole tokens; letters shuffles individual characters. Wildly different output texture.
+
+</details>
+
+## Tips
+
+- For poetry, shuffle short paragraphs (3–5 sentences) — long inputs are too random to feel meaningful.
+- Run multiple shuffles and pick the one that sparks an idea; rejection sampling beats accepting the first output.
+- Pair with a grammar pass after editing to turn surrealist output into publishable verse.
+- For language learning, target intermediate-difficulty sentences (10–15 words) — too short is trivial; too long is intractable.
+- Combine with shuffle-lines for two-axis randomness.
+
+## Try it now
+
+The full shuffle-words runs in your browser at **[https://ztools.zaions.com/shuffle-words](https://ztools.zaions.com/shuffle-words)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/shuffle-words)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/shuffle-words.mdx)*

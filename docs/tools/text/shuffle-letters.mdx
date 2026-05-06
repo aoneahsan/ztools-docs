@@ -1,0 +1,112 @@
+---
+id: shuffle-letters
+title: "Shuffle Letters Online — Anagram Maker, Free"
+description: "Shuffle the letters of any word or phrase. Generate random anagrams. Browser-only — no signup."
+sidebar_label: "shuffle-letters"
+keywords:
+  - "shuffle letters online"
+  - "anagram generator"
+  - "random letter scrambler"
+  - "word scrambler tool"
+  - "cambridge effect demo"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# shuffle-letters
+
+Shuffling letters randomly permutes the characters of a word or phrase — turning "hello" into "olehl" or "elhlo". Useful for generating random-looking strings, anagram puzzle prep, classroom word games, and text obfuscation. The ZTools Shuffle Letters tool runs Fisher-Yates on the character array (preserving multiplicities) and supports preserving spaces, preserving capitalisation, and per-word shuffling vs whole-string shuffling.
+
+<ToolCTA toolId="shuffle-letters" toolName="shuffle-letters" />
+
+## Use cases
+
+### Make a quick anagram puzzle
+
+Take a word, shuffle, and see if you can solve back. Educational for kids.
+
+### Obfuscate text for "before / after" reveal
+
+Shuffled text in a graphic that the reader can rearrange to discover the message.
+
+### Random-looking strings
+
+"hello" → "lhleo" — feels human-typed but isn't a real word.
+
+### Test typo-tolerance algorithms
+
+Shuffled words test whether your fuzzy search / autocomplete handles letter scrambles.
+
+## How it works
+
+1. **Paste text** — Word, phrase, sentence.
+2. **Pick mode** — Per-word (each word shuffled independently) or whole-string (all letters mixed).
+3. **Configure** — Preserve spaces (default for per-word), preserve capitalisation (positions or letters).
+4. **Shuffle** — Fisher-Yates on the character array.
+
+## Examples
+
+**Input:** "hello"
+
+**Output:** One shuffle: "olehl". Another: "elhlo". 5! = 120 total permutations.
+
+---
+
+**Input:** "Hello World", per-word
+
+**Output:** Each word shuffled independently: e.g. "lloeH dlroW". Spaces preserved.
+
+---
+
+**Input:** Same input, whole-string
+
+**Output:** All 11 letters mixed: e.g. "drlowllHeo". No word boundaries.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will I get the same letters back?**</summary>
+
+Yes — multiplicities preserved. "hello" has two L's; shuffled output also has two L's.
+
+</details>
+
+<details>
+<summary>**Does shuffling preserve readability?**</summary>
+
+"Cambridge effect": often yes for short words because we read by overall shape. "hello" / "olehl" — both readable as "hello" with effort.
+
+</details>
+
+<details>
+<summary>**Can I lock first / last letter?**</summary>
+
+Yes — the "Cambridge effect" mode locks first and last letters and shuffles only the interior. Demonstrates how readable shuffled text can be.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For anagram puzzles, shuffle until the result is non-obvious — sometimes Fisher-Yates returns the original.
+- For "Cambridge effect" demos, lock first / last letter — shows how robust reading is.
+- For testing typo-tolerance, shuffle one or two letters only (not the whole word) — closer to real typos.
+
+## Try it now
+
+The full shuffle-letters runs in your browser at **[https://ztools.zaions.com/shuffle-letters](https://ztools.zaions.com/shuffle-letters)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/shuffle-letters)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/shuffle-letters.mdx)*

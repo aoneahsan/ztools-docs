@@ -1,0 +1,138 @@
+---
+id: text-sorter
+title: "Sort Lines of Text — Alphabetical, Numeric, Length, Reverse (Free)"
+description: "Sort any list of lines alphabetically, numerically, by length, or reverse. Case options, natural sort for filenames. Free, instant."
+sidebar_label: "text-sorter"
+keywords:
+  - "sort lines"
+  - "text sorter"
+  - "alphabetical sort"
+  - "numeric sort"
+  - "natural sort"
+  - "line sorter"
+  - "free text sort tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-sorter
+
+A text sorter rearranges lines of input into a defined order — alphabetical, reverse alphabetical, numeric, length, or natural — supporting case-sensitive options and stable sort behavior so equal-key lines preserve their relative order. The ZTools Text Sorter handles lists of any size, offers natural-sort mode (so "file2" sorts before "file10" instead of after), supports numeric sort for lists of numbers, length-based sort for finding the longest or shortest entries, and shuffle/randomize as a complementary mode for randomized ordering.
+
+<ToolCTA toolId="text-sorter" toolName="text-sorter" />
+
+## Use cases
+
+### Alphabetizing a name or contact list
+
+A pasted list of attendees, products, or files. One click sorts A→Z. Name-tag printing, alphabetical directories, and filing all benefit.
+
+### Sorting filenames naturally
+
+"file1, file2, file10, file20" sorts naturally (1, 2, 10, 20) rather than lexicographically (1, 10, 2, 20). Critical when filenames contain numbers.
+
+### Finding the longest or shortest entry
+
+Sort by length descending — the first line is the longest. Useful for finding the longest URL, the shortest title, or the wordiest sentence.
+
+### Preparing data for CSV imports
+
+Many database imports require pre-sorted data for indexing efficiency. Sort the column, paste into the spreadsheet, and import.
+
+## How it works
+
+1. **Paste lines into the input** — One item per line. Empty lines and whitespace are preserved or trimmed per your option.
+2. **Pick a sort method** — Alphabetical (A→Z), reverse (Z→A), numeric (treats lines as numbers), length (shortest or longest first), natural (handles embedded numbers correctly), shuffle (random order).
+3. **Configure options** — Case-sensitive: "Apple" and "apple" sort separately. Locale: en-US, de-DE, fr-FR, etc. — affects accented character ordering.
+4. **Read and copy the result** — Sorted output appears immediately. One-click copy or download. Original input is preserved if you want to re-sort with different options.
+
+## Examples
+
+**Input:** banana
+apple
+cherry
+
+**Output:** apple
+banana
+cherry
+
+---
+
+**Input:** file10
+file2
+file1
+
+**Output:** file1
+file10
+file2 (lex sort) — but with natural sort: file1
+file2
+file10
+
+---
+
+**Input:** 100
+20
+3
+
+**Output:** 100
+20
+3 (lex) | 3
+20
+100 (numeric ascending)
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between alphabetical and natural sort?**</summary>
+
+Alphabetical sorts character by character — "file10" comes before "file2" because "1" &lt; "2" in character order. Natural sort recognizes embedded numbers — "file2" comes before "file10" because 2 &lt; 10. For filenames and version strings, natural is almost always what you want.
+
+</details>
+
+<details>
+<summary>**How do uppercase and lowercase affect sorting?**</summary>
+
+In default ASCII order, uppercase letters (A-Z = 65-90) come before lowercase (a-z = 97-122), so "Zebra" sorts before "apple". Toggle case-insensitive to sort them together.
+
+</details>
+
+<details>
+<summary>**Why does my numeric list sort weirdly?**</summary>
+
+Default sort treats each line as text, so "100" comes before "20" because "1" &lt; "2" character-by-character. Switch to numeric mode for lines that are pure numbers.
+
+</details>
+
+<details>
+<summary>**Does sorting preserve original line content?**</summary>
+
+Yes — the tool only reorders lines; it doesn't modify them. With case-insensitive sort, "Apple" stays "Apple" — only the comparison ignores case.
+
+</details>
+
+<details>
+<summary>**Can it handle non-English text?**</summary>
+
+Yes — pick the appropriate locale to handle accented characters and non-Latin scripts correctly. German uses umlaut equivalencies, French handles accents, etc.
+
+</details>
+
+## Tips
+
+- For mixed lists with numbers and text, natural sort almost always gives the most intuitive result.
+- When sorting CSV columns, sort by the column you care about most — numerical IDs, alphabetical names, or chronological dates.
+- Stable sort means equal-key lines keep their original relative order; useful when sorting by multiple criteria sequentially.
+- For very long lists, consider sorting in chunks if your browser slows down — though the tool handles 1M+ lines natively.
+
+## Try it now
+
+The full text-sorter runs in your browser at **[https://ztools.zaions.com/text-sorter](https://ztools.zaions.com/text-sorter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-sorter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-sorter.mdx)*

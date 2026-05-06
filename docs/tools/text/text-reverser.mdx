@@ -1,0 +1,126 @@
+---
+id: text-reverser
+title: "Text Reverser — Reverse String, Words, Sentences, Lines (Online)"
+description: "Reverse any text — by character, word, sentence, or line. Unicode-aware (handles emoji, accents). Free, in-browser, no length limit."
+sidebar_label: "text-reverser"
+keywords:
+  - "text reverser"
+  - "reverse text online"
+  - "reverse string"
+  - "reverse words"
+  - "palindrome checker"
+  - "mirror text"
+  - "rtl text"
+  - "unicode reverser"
+  - "free text reverser"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-reverser
+
+A text reverser is a tool that flips the order of characters, words, sentences, or lines in a string. The ZTools Text Reverser is Unicode-aware (handles emoji, combining accents, and right-to-left scripts correctly using `Intl.Segmenter`), supports four reversal modes, and runs entirely in your browser. Useful for puzzle-solving, palindrome checking, RTL preview testing, generating mirror-image text for design mockups, or just learning how Unicode grapheme clusters work.
+
+<ToolCTA toolId="text-reverser" toolName="text-reverser" />
+
+## Use cases
+
+### Checking whether a phrase is a palindrome
+
+Type a candidate ("racecar", "A man a plan a canal Panama"), reverse it, compare to the original (case-insensitive, ignore spaces). The character-mode reverser produces the bit-for-bit reverse needed for the comparison.
+
+### Generating decorative reversed text for design mockups
+
+Mirrored text for posters, t-shirts, and tattoos. Reverse "STRENGTH" to "HTGNERTS" — the visual impact for graphic design. Note: this is character reversal, not glyph mirroring; use a mirroring filter in your design tool for true visual mirroring.
+
+### Testing right-to-left (RTL) layout in i18n work
+
+For locales like Arabic, Hebrew, and Persian, your UI must support RTL text flow. Reverse a sample phrase to simulate how Latin-script text would appear in an RTL context, useful for layout debugging.
+
+### Word-order reversal for parody and creative writing
+
+Switch reverser mode to "Words" — "The quick brown fox" becomes "fox brown quick The". Combined with sentence-level reversal, generates Yoda-style transpositions for parody content.
+
+## How it works
+
+1. **Paste text into the input pane** — Any length — paragraphs, multi-line text, Unicode strings with emoji and accents.
+2. **Choose reversal mode** — Characters (every grapheme reversed), Words (word order reversed, words intact), Sentences (sentence order reversed), Lines (line order reversed).
+3. **Click Reverse** — The tool uses `Intl.Segmenter` to split text into grapheme clusters, words, or sentences according to Unicode rules — so emoji like 👨‍👩‍👧 stay intact instead of being split into surrogate halves.
+4. **Review the output** — Output appears in the right pane. Character counts shown for both input and output (should match unless your input had trailing whitespace).
+5. **Copy or download** — One-click copy. Original input stays available for re-reversing with different settings.
+
+## Examples
+
+**Input:** Hello, World! 👋
+
+**Output:** 👋 !dlroW ,olleH
+
+---
+
+**Input:** The quick brown fox jumps
+
+**Output:** jumps fox brown quick The
+
+## Frequently asked questions
+
+<details>
+<summary>**Will reversing emoji break them?**</summary>
+
+No — the tool uses `Intl.Segmenter` to identify grapheme clusters. Compound emoji like 👨‍👩‍👧‍👦 stay together; the cluster is moved as a unit.
+
+</details>
+
+<details>
+<summary>**Does the reverser handle accented characters correctly?**</summary>
+
+Yes. A character with a combining accent (e.g., `é` as `e` + combining acute) stays bound to its base character through the reversal. Without grapheme-cluster awareness, naive reversal would put the accent on the wrong character.
+
+</details>
+
+<details>
+<summary>**What about right-to-left scripts like Arabic?**</summary>
+
+RTL scripts have their own native logical order independent of visual presentation. Reversing them produces correct logical-order reversal but may look "wrong" in the visual flow because the original was already presented right-to-left.
+
+</details>
+
+<details>
+<summary>**Is the reversal lossless?**</summary>
+
+Yes for character mode (reversing twice returns the original). For sentence and line modes, intervening whitespace and punctuation are preserved positionally — a double-reverse is still lossless.
+
+</details>
+
+<details>
+<summary>**Can I reverse very long text?**</summary>
+
+Yes — handles inputs up to ~10 MB. Beyond that, browser memory becomes the bottleneck.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Yes. Once loaded, the page works without network. Open DevTools → Network and confirm zero requests during reversal.
+
+</details>
+
+## Tips
+
+- Use character mode for palindrome checking and pure visual reversal.
+- Use word mode for parody, Yoda-style transpositions, and word-order experiments.
+- For mirror-image visual reversal in design, combine character reversal with a CSS `transform: scaleX(-1)` filter.
+- When working with i18n RTL, prefer your framework's native RTL flag over manual reversal.
+
+## Try it now
+
+The full text-reverser runs in your browser at **[https://ztools.zaions.com/text-reverser](https://ztools.zaions.com/text-reverser)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-reverser)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-reverser.mdx)*

@@ -1,0 +1,119 @@
+---
+id: add-prefix-to-lines
+title: "Add Prefix to Lines — Bulk Line Editor, Free"
+description: "Add a prefix or suffix to every line in text. Bulk line editing for code, lists, configs. Browser-only."
+sidebar_label: "add-prefix-to-lines"
+keywords:
+  - "add prefix to lines"
+  - "bulk line prefix"
+  - "comment out lines"
+  - "add to every line"
+  - "line editor online"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# add-prefix-to-lines
+
+Adding a prefix or suffix to every line in a block of text is a common bulk-edit task — turn 100 names into "Hello, name" lines, comment out 50 lines of code, indent paragraphs, prefix log lines with timestamps. The ZTools Add Prefix to Lines tool adds prefix and/or suffix to every non-empty line, optionally to blank lines too, with configurable line endings and per-line numbering. Faster than opening a code editor for one-off transformations.
+
+<ToolCTA toolId="add-prefix-to-lines" toolName="add-prefix-to-lines" />
+
+## Use cases
+
+### Comment out a block of code
+
+Add "// " prefix to 50 lines. Faster than 50 keystrokes.
+
+### Build SQL VALUES list from a column
+
+Paste 1000 user IDs, prefix "(", suffix ")," — get "(1)," "(2)," ready for INSERT.
+
+### Format a list as Markdown bullets
+
+Prefix "- " to every line.
+
+### Generate an HTML &lt;li&gt; list
+
+Prefix "&lt;li&gt;", suffix "&lt;/li&gt;".
+
+## How it works
+
+1. **Paste text** — Any number of lines.
+2. **Type prefix and / or suffix** — Either or both. Empty allowed for either side.
+3. **Configure** — Skip empty lines, add to all (including blanks), per-line numbering (1., 2., ...), line ending (LF / CRLF).
+4. **Apply** — New text with the modification. Original preserved.
+
+## Examples
+
+**Input:** 3 lines "alice\\nbob\\ncarol", prefix "Hello, "
+
+**Output:** "Hello, alice\\nHello, bob\\nHello, carol".
+
+---
+
+**Input:** Same with suffix "!"
+
+**Output:** "Hello, alice!\\nHello, bob!\\nHello, carol!"
+
+---
+
+**Input:** Numbered prefix "1. ", "2. ", ...
+
+**Output:** "1. alice\\n2. bob\\n3. carol".
+
+---
+
+**Input:** Comment-out: prefix "// "
+
+**Output:** Every line prefixed with the comment marker.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it handle CRLF (Windows) line endings?**</summary>
+
+Yes — auto-detected and preserved. Toggle output to force LF or CRLF.
+
+</details>
+
+<details>
+<summary>**How are blank lines handled?**</summary>
+
+By default skipped. Toggle "include blanks" to also prefix them — useful for code commenting where blank lines need "//" too.
+
+</details>
+
+<details>
+<summary>**Can I prefix every Nth line only?**</summary>
+
+Toggle "every Nth line" — applies prefix to lines 1, N+1, 2N+1, etc.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For SQL VALUES lists, prefix "(" + suffix ")," — then strip the trailing comma manually.
+- For Markdown, "- " (dash + space) is the universal bullet prefix.
+- For commenting code, the "include blanks" toggle preserves layout — without it, blank lines stay uncommented and you lose visual structure.
+- For long batches, paste as JSON or CSV first — the tool can also auto-prefix CSV-row index.
+
+## Try it now
+
+The full add-prefix-to-lines runs in your browser at **[https://ztools.zaions.com/add-prefix-to-lines](https://ztools.zaions.com/add-prefix-to-lines)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/add-prefix-to-lines)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/add-prefix-to-lines.mdx)*

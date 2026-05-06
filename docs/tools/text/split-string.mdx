@@ -1,0 +1,134 @@
+---
+id: split-string
+title: "Split String — Break Text by Separator into Lines (Free)"
+description: "Split a string into lines by any separator — comma, pipe, regex, fixed length. Trim, dedupe, sort options. Free, browser-only."
+sidebar_label: "split-string"
+keywords:
+  - "split string"
+  - "string splitter"
+  - "split by separator"
+  - "csv split tool"
+  - "text splitter"
+  - "split by delimiter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# split-string
+
+A string splitter divides a single input string into a list of substrings using a separator (literal char, multi-char, or regex pattern), or by fixed length, or by character. Inverse of join-strings. Practical uses: parsing comma-separated config values back into a list, breaking long URLs into query-param pairs, splitting CSV rows, exploding email recipient strings, processing log lines, and converting prose lists into per-line items for further manipulation. The ZTools Split String tool supports literal separators (comma, pipe, semicolon, tab, custom), regex separators, fixed-length chunks, and per-character splitting — with optional trim, dedupe, sort, and empty-removal post-processing.
+
+<ToolCTA toolId="split-string" toolName="split-string" />
+
+## Use cases
+
+### Parse env vars / config strings
+
+ENV vars like `ALLOWED_ORIGINS=a.com,b.com,c.com` → list of hostnames for review or copy-paste into a different format.
+
+### Email recipients explode
+
+Long "To:" string with 50 emails → one-per-line list for review, dedupe, or migration to a mailing-list tool.
+
+### CSV cell parsing
+
+A CSV cell containing tag-list `red;green;blue` → split by `;` into separate tag entries for normalisation.
+
+### URL query-param breakdown
+
+Split `?a=1&b=2&c=3` by `&` to inspect each parameter on its own line — helpful for debugging long redirect URLs.
+
+### Fixed-length chunking
+
+Break a 64-char hex hash into 4-char groups for human readability, or split ISBN into ISBN-10/-13 chunks.
+
+## How it works
+
+1. **Paste input string** — Single-line or multi-line; the tool treats the entire input as one string before splitting.
+2. **Pick split mode** — Literal (default), regex, fixed length (every N chars), per character, by whitespace.
+3. **Specify separator** — Common presets (comma, pipe, tab, newline, semicolon) or custom string / regex.
+4. **Post-process options** — Trim each piece, drop empty pieces, dedupe, sort alphabetically/numerically.
+5. **Copy / download** — Clipboard, .txt download, or "convert to JSON array" mode.
+
+## Examples
+
+**Input:** "alice@x.com, bob@x.com,carol@x.com" — split by ","
+
+**Output:** 3 lines: "alice@x.com", "bob@x.com", "carol@x.com" (with optional trim).
+
+---
+
+**Input:** "abcdefgh" — split every 2 chars
+
+**Output:** 4 lines: "ab", "cd", "ef", "gh".
+
+---
+
+**Input:** "key1=v1&key2=v2&key3=v3" — split by "&" then by "="
+
+**Output:** Two-pass split for debugging URL query params.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it support regex separators?**</summary>
+
+Yes — JavaScript regex syntax. Useful for splitting on whitespace runs (`\\s+`), or "any of [,;|]" via `[,;|]`.
+
+</details>
+
+<details>
+<summary>**How do I keep the separator?**</summary>
+
+Use a regex separator with a capturing group: `(,)` — JavaScript's String.split keeps captured groups in the result. Or post-process to re-add separators.
+
+</details>
+
+<details>
+<summary>**What about quoted CSV cells?**</summary>
+
+Naive split-by-comma breaks on cells like `"a, b", c, d` (4 cells when you wanted 3). For RFC-4180 CSV, use a proper CSV parser, not split-by-comma.
+
+</details>
+
+<details>
+<summary>**Can I split into a JSON array?**</summary>
+
+Yes — toggle "JSON array output" and the result is `["item1", "item2", "item3"]` ready to paste into code.
+
+</details>
+
+<details>
+<summary>**How is this different from sed/awk?**</summary>
+
+Same conceptual operation; ZTools is browser-native, no shell access needed, and handles regex/fixed-length/per-character in one UI.
+
+</details>
+
+<details>
+<summary>**Why does my split produce extra empty lines?**</summary>
+
+Trailing/leading separators (e.g. `,a,b,c,`) produce empty pieces. Toggle "drop empty" to remove them.
+
+</details>
+
+## Tips
+
+- Always toggle "trim each piece" + "drop empty" for parsing user-provided strings — covers 90% of edge cases.
+- For CSV specifically, use a real parser (Papa Parse, or the CSV-to-JSON tool); split-by-comma is unsafe for quoted cells.
+- For regex splits, test the pattern in a regex tester first — bad patterns silently produce surprising splits.
+- Pair with join-strings for round-trip transforms (split → modify → re-join).
+- Fixed-length chunking is your friend for human-readable hash/ID display (e.g. UUIDs, credit-card numbers).
+
+## Try it now
+
+The full split-string runs in your browser at **[https://ztools.zaions.com/split-string](https://ztools.zaions.com/split-string)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/split-string)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/split-string.mdx)*

@@ -1,0 +1,113 @@
+---
+id: letter-frequency
+title: "Letter Frequency Counter — Free Online, Browser-Only"
+description: "Count letter frequency in any text. Useful for cryptography, linguistics, scrabble. Browser-only — no signup."
+sidebar_label: "letter-frequency"
+keywords:
+  - "letter frequency counter"
+  - "character frequency analysis"
+  - "cryptanalysis tool online"
+  - "english letter frequency"
+  - "wordle letter analysis"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# letter-frequency
+
+Letter frequency analysis counts how often each letter appears in a text. In English prose, E is the most common letter (~12.7%), followed by T (9.1%), A (8.2%), O (7.5%), I (7.0%) — the famous ETAOIN SHRDLU. Frequencies are foundational to classical cryptography (breaking Caesar / Vigenère ciphers), linguistic analysis (identifying language from a sample), word games (Scrabble strategy, Wordle openers), and typesetting. The ZTools Letter Frequency tool counts case-insensitive occurrences, ranks them, optionally compares to expected English frequencies, and shows a histogram chart.
+
+<ToolCTA toolId="letter-frequency" toolName="letter-frequency" />
+
+## Use cases
+
+### Break a Caesar cipher
+
+In ciphertext where E was shifted, the most-frequent letter probably maps to E. Frequency analysis breaks Caesar in seconds.
+
+### Identify the language of a sample
+
+English vs Spanish vs French have distinct frequency profiles. Compare your sample's top letters to known profiles.
+
+### Scrabble / Wordle strategy
+
+Best Wordle starting words use ETAOIN letters — high information content per guess.
+
+### Linguistic analysis
+
+Compare letter frequencies across genres, time periods, authors. Anomalies signal stylistic shifts.
+
+## How it works
+
+1. **Paste text** — Any length. Tool counts letters case-insensitively by default.
+2. **Configure** — Case-sensitive / case-insensitive, include digits, include punctuation, include whitespace.
+3. **Compute** — Walks once over the text. O(n).
+4. **Display** — Sorted table (letter, count, %), bar chart, comparison to standard English frequencies.
+
+## Examples
+
+**Input:** "The quick brown fox jumps over the lazy dog"
+
+**Output:** O: 4 (10.5%), E: 3 (7.9%), H: 2, R: 2, T: 2, U: 2 — pangram contains every letter at least once.
+
+---
+
+**Input:** 500-word English essay
+
+**Output:** E ~12-14%, T ~9%, A ~8% — close to standard English profile. Significant deviation suggests non-standard text (technical, poetry, etc.).
+
+---
+
+**Input:** Spanish text
+
+**Output:** E and A dominate (~14% and 13%); R, S, N follow. Different from English profile.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is "standard English frequency"?**</summary>
+
+Source-dependent. The classic table (E 12.7%, T 9.1%, ...) comes from a 1939 sample by linguist Frederick Mosteller. Modern texts (especially with code, URLs) shift these numbers slightly.
+
+</details>
+
+<details>
+<summary>**Bigram and trigram frequencies?**</summary>
+
+Out of scope here — for n-gram analysis, use a dedicated linguistic tool. Single-letter frequency is the most-cited.
+
+</details>
+
+<details>
+<summary>**Does case matter for cryptanalysis?**</summary>
+
+Usually not — case-insensitive is standard for frequency-based attacks. Cipher implementations rarely preserve case meaningfully.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For cryptanalysis, also note bigram patterns ("th", "he", "in" are top English bigrams) — single letters alone aren't always enough.
+- Compare your sample to a known reference distribution — the deviation pattern reveals language / cipher.
+- For Wordle openers, ADIEU / AUDIO / AROSE all hit ETAOIN-rich starts.
+- For real cryptanalysis, modern ciphers (AES, RSA) defeat frequency analysis — this tool is for classical ciphers, education, and curiosity.
+
+## Try it now
+
+The full letter-frequency runs in your browser at **[https://ztools.zaions.com/letter-frequency](https://ztools.zaions.com/letter-frequency)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/letter-frequency)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/letter-frequency.mdx)*

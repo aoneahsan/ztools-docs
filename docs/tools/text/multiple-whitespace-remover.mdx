@@ -1,0 +1,122 @@
+---
+id: multiple-whitespace-remover
+title: "Multiple Whitespace Remover — Collapse Spaces, Tabs, Newlines (Free)"
+description: "Remove extra spaces, tabs, and blank lines. Collapse runs of whitespace to single spaces. Cleans pasted text instantly. Free."
+sidebar_label: "multiple-whitespace-remover"
+keywords:
+  - "multiple whitespace remover"
+  - "remove extra spaces"
+  - "collapse whitespace"
+  - "normalize spaces"
+  - "remove blank lines"
+  - "whitespace cleanup"
+  - "free whitespace tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# multiple-whitespace-remover
+
+A multiple whitespace remover collapses consecutive whitespace characters (spaces, tabs, newlines) into single spaces or single newlines, fixing the "double-space" plague in pasted documents, OCR output, and copy-pasted web content. The ZTools Multiple Whitespace Remover offers three independent modes (collapse runs of spaces to one, collapse blank lines to one separator, replace all whitespace with single spaces), preserves intentional formatting like code indentation when configured, and handles the wide range of Unicode whitespace characters that produce invisible "extra" gaps.
+
+<ToolCTA toolId="multiple-whitespace-remover" toolName="multiple-whitespace-remover" />
+
+## Use cases
+
+### Cleaning text copied from PDFs
+
+PDF copy-paste often produces words separated by 2-5 spaces and broken across phantom lines. Run through the whitespace remover for clean readable text.
+
+### Fixing OCR output
+
+OCR engines insert weird whitespace — extra spaces between letters, missing spaces between words, runs of empty lines. The remover normalizes them in one pass.
+
+### Tidying user-submitted form text
+
+A user typed "Hello   world" with three spaces between words. Collapse to single spaces before storing; one less rendering glitch.
+
+### Pre-processing text before search/diff
+
+Two near-identical paragraphs differ only in whitespace runs. Normalize first, then diff — the actual content differences become obvious.
+
+## How it works
+
+1. **Paste your text** — Any size. Source whitespace patterns are detected automatically.
+2. **Pick what to collapse** — "Spaces" only (runs of 2+ spaces → 1 space, but tabs and newlines preserved). "Blank lines" only (multiple empty lines → 1). "All whitespace" (spaces, tabs, newlines all → single spaces).
+3. **Configure preserved patterns** — Optional: preserve code indentation (don't collapse leading whitespace per line), preserve paragraph breaks (one blank line between paragraphs), keep tabs as tabs.
+4. **Read the cleaned output** — Side-by-side preview shows before and after. One-click copy or download.
+
+## Examples
+
+**Input:** "Hello    world\\n\\n\\nGoodbye"
+
+**Output:** "Hello world\\n\\nGoodbye" (collapse spaces + blank lines)
+
+---
+
+**Input:** "Line 1.   Line 2.    Line 3."
+
+**Output:** "Line 1. Line 2. Line 3." (single spaces between sentences)
+
+---
+
+**Input:** PDF-pasted paragraph with random extra spaces
+
+**Output:** Clean paragraph with normal single-space word separation
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between collapsing spaces and collapsing all whitespace?**</summary>
+
+"Spaces only" leaves tabs and newlines alone, so "Hello\\tworld\\n\\nGoodbye" stays multi-line. "All whitespace" treats tab and newline runs as whitespace too, producing "Hello world Goodbye" on one line.
+
+</details>
+
+<details>
+<summary>**Will it remove non-breaking spaces?**</summary>
+
+Yes, by default — non-breaking spaces (U+00A0) are treated as whitespace. Toggle the option if you want to preserve them (some typography uses them deliberately).
+
+</details>
+
+<details>
+<summary>**Does it preserve code indentation?**</summary>
+
+With the "preserve indentation" toggle on, leading whitespace per line is left alone — only internal and trailing whitespace runs are collapsed. Important for Python and YAML.
+
+</details>
+
+<details>
+<summary>**How is this different from the Text Trimmer?**</summary>
+
+Text Trimmer removes whitespace at line/text boundaries. Whitespace Remover collapses internal runs. They're complementary — often you want both.
+
+</details>
+
+<details>
+<summary>**Will it merge paragraphs?**</summary>
+
+Not unless you choose "all whitespace" mode. Default behavior preserves paragraph breaks (one or more blank lines between blocks). The "blank lines" option only collapses 2+ blank lines down to 1.
+
+</details>
+
+## Tips
+
+- For PDF and OCR cleanup, collapse spaces + collapse blank lines is the right combination 90% of the time.
+- For cleaning code, always enable "preserve indentation" — collapsing leading whitespace breaks Python.
+- Combining trimmer + whitespace remover gives professional-clean text in two passes.
+- Watch for non-breaking spaces in copy from Word and rich-text editors — they look like spaces but behave differently.
+
+## Try it now
+
+The full multiple-whitespace-remover runs in your browser at **[https://ztools.zaions.com/multiple-whitespace-remover](https://ztools.zaions.com/multiple-whitespace-remover)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/multiple-whitespace-remover)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/multiple-whitespace-remover.mdx)*

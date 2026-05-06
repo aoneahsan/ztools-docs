@@ -1,0 +1,122 @@
+---
+id: character-counter
+title: "Character Counter — Count Letters, Spaces, Words, Bytes (Free)"
+description: "Count characters with and without spaces, words, sentences, and bytes. Live count for tweets, SMS, essays, and meta tags. Free."
+sidebar_label: "character-counter"
+keywords:
+  - "character counter"
+  - "character count online"
+  - "count letters"
+  - "word counter"
+  - "twitter character counter"
+  - "sms character counter"
+  - "free character count tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# character-counter
+
+A character counter measures the length of a text in characters (with and without spaces), words, sentences, paragraphs, and bytes — updating live as you type so writers can hit exact length limits for tweets, SMS messages, meta tags, essays, and form fields. The ZTools Character Counter handles Unicode correctly (an emoji is one character but multiple bytes), shows reading time at the standard 200-300 wpm range, computes UTF-8 byte length for storage estimates, and supports the most common platform-specific limits (Twitter 280, SMS 160, Google title 60, meta description 160).
+
+<ToolCTA toolId="character-counter" toolName="character-counter" />
+
+## Use cases
+
+### Hitting Twitter, SMS, or LinkedIn character limits
+
+Twitter: 280 chars. SMS: 160 chars (or 70 for non-GSM). LinkedIn headline: 220. The counter shows you're at 274/280 in real time so you can trim with confidence.
+
+### Writing meta titles and descriptions for SEO
+
+Title: 50-60 chars (truncates at ~60). Description: 140-160. The counter shows how much of your draft will actually display in Google SERP.
+
+### Essay and academic word-count requirements
+
+A 500-word essay or 2,500-word article — paste your draft, see the count, trim or expand. Some assignments specify "no more than 1,200 characters" instead.
+
+### Database field length validation
+
+A VARCHAR(255) database field. A "max 500 chars" form. The byte count tells you whether your text fits in storage formats that count bytes (UTF-8) vs characters.
+
+## How it works
+
+1. **Paste or type into the input box** — No size limit beyond browser memory. Counts update on every keystroke without lag.
+2. **Read the live counts** — Characters (with spaces), characters (no spaces), words, sentences, paragraphs, bytes (UTF-8), reading time (at 200/250/300 wpm).
+3. **Compare against platform limits** — Color-coded warnings show when you cross common limits — green at 200/280 chars, yellow at 250/280, red over 280.
+4. **Optionally see character distribution** — Toggle the breakdown for letter / digit / whitespace / punctuation counts — useful for password complexity checks and text fingerprinting.
+
+## Examples
+
+**Input:** "Hello, world!"
+
+**Output:** 13 chars | 12 chars (no spaces) | 2 words | 1 sentence | 13 bytes
+
+---
+
+**Input:** Tweet at 275 chars
+
+**Output:** 275 / 280 ✓ (5 chars left)
+
+---
+
+**Input:** "😀😀😀"
+
+**Output:** 3 chars | 12 bytes
+
+## Frequently asked questions
+
+<details>
+<summary>**How is "character" defined?**</summary>
+
+A Unicode code point. So "a" is 1, "é" is 1, "😀" is 1, but a flag emoji like "🇬🇧" is technically 2 code points combined. The counter follows the JavaScript string-length convention, which matches what most platforms count.
+
+</details>
+
+<details>
+<summary>**Why does my emoji count more than one byte?**</summary>
+
+Characters are not bytes. "a" is 1 byte in UTF-8; "é" is 2 bytes; "😀" is 4 bytes. Twitter counts characters, so emoji are usually 1. Database storage counts bytes, so emoji take more space.
+
+</details>
+
+<details>
+<summary>**How are words counted?**</summary>
+
+A word is a run of non-whitespace separated by whitespace. "Hello, world!" is 2 words. Hyphenated terms ("user-friendly") count as one word. Period-separated abbreviations ("e.g.") count as one.
+
+</details>
+
+<details>
+<summary>**How is reading time calculated?**</summary>
+
+Word count divided by words per minute. Default is 250 wpm (average adult reading speed). 200 wpm for technical content, 300 wpm for fast readers. Reading speeds vary by content complexity.
+
+</details>
+
+<details>
+<summary>**Why do some platforms count differently?**</summary>
+
+Twitter counts each Unicode "extended grapheme cluster" as 1 (so a flag emoji is 1, not 2). Some platforms use UTF-16 code units, where "😀" counts as 2. The counter follows the most common convention; check your platform's docs for exact rules.
+
+</details>
+
+## Tips
+
+- For SMS: 160 GSM characters or 70 UCS-2 characters per segment. Mixing emoji into a message switches to UCS-2 and costs more per segment.
+- Meta description sweet spot: 150-160. Going under wastes space; going over gets truncated mid-sentence.
+- For essays, word count is more reliable than character count — words better correlate with content quality.
+- Reading-time estimates vary widely; treat 250 wpm as average, but technical content often reads at 150-200 wpm.
+
+## Try it now
+
+The full character-counter runs in your browser at **[https://ztools.zaions.com/character-counter](https://ztools.zaions.com/character-counter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/character-counter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/character-counter.mdx)*

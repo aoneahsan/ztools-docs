@@ -1,0 +1,129 @@
+---
+id: ascii-art
+title: "ASCII Art Generator — Convert Text to ASCII Banners Free"
+description: "Generate ASCII-art banners and figlet-style text from any input. 50+ fonts, instant copy. Free, browser-only, perfect for terminals and READMEs."
+sidebar_label: "ascii-art"
+keywords:
+  - "ascii art generator"
+  - "figlet online"
+  - "text to ascii"
+  - "banner generator"
+  - "text banner ascii"
+  - "ascii text art"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ascii-art
+
+ASCII art is text rendered using only printable ASCII characters — large stylised banner letters made of slashes, pipes, and asterisks. It originated with figlet (1991) for adorning email signatures, terminal banners, README headers, MOTD greetings, and source-code comments. The ZTools ASCII Art Generator implements the figlet font format directly in JavaScript with 50+ classic fonts (Standard, Slant, Big, Block, Banner, Doom, Shadow, Small) and copies output to clipboard with one click. Output is plain text — paste into any terminal, code editor, or chat that uses a monospace font.
+
+<ToolCTA toolId="ascii-art" toolName="ascii-art" />
+
+## Use cases
+
+### README headers
+
+Open-source repos commonly start with an ASCII-art banner of the project name. Sets a tone, makes the README memorable in a sea of GitHub repos.
+
+### Terminal MOTD / login banners
+
+Servers display ASCII-art on SSH login. Useful for distinguishing prod-vs-staging at a glance, or just for fun.
+
+### CLI tool branding
+
+When your CLI tool starts up, a one-line ASCII banner immediately communicates which tool the user is in. Common in dev tools (vite, npm, docker compose).
+
+### Plain-text documents
+
+Section dividers in plain-text README, NOTES, or CHANGELOG files where Markdown headings don't render.
+
+## How it works
+
+1. **Type text** — Single line typically; multi-line works but each line renders separately.
+2. **Pick a font** — Standard (default), Slant, Big, Banner3, Doom, Shadow, Small, Block, Bubble, Digital — 50+ available.
+3. **Preview** — Renders instantly in monospace; horizontal scroll for wide outputs.
+4. **Copy or download** — One-click copy to clipboard (raw text), or download .txt file.
+
+## Examples
+
+**Input:** "HELLO" font: Standard
+
+**Output:** Classic 6-row block letters with pipes and underscores — familiar terminal banner look.
+
+---
+
+**Input:** "v2.0" font: Slant
+
+**Output:** Italicised banner — common for version banners in CLI startup output.
+
+---
+
+**Input:** "WARN" font: Doom
+
+**Output:** Heavy/dramatic 6-row letters; good for danger/warning messages in scripts.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is figlet?**</summary>
+
+A 1991 Unix tool that renders text as ASCII-art banners using "FIGcharacter" font files. ZTools is a JavaScript reimplementation of the same algorithm with the same font format.
+
+</details>
+
+<details>
+<summary>**Will the art render correctly in my README?**</summary>
+
+Yes if you wrap it in a Markdown code block (triple backticks). Outside a code block, GitHub collapses whitespace and breaks the alignment.
+
+</details>
+
+<details>
+<summary>**Why does it look broken in chat apps?**</summary>
+
+ASCII art needs a monospace font and preserved whitespace. Slack/Discord render in monospace inside code blocks (single backticks for inline, triple backticks for fenced) — outside those, the proportional font breaks alignment.
+
+</details>
+
+<details>
+<summary>**Can I add color?**</summary>
+
+ASCII art is plain text, but you can wrap it in ANSI color escape sequences for terminal color (e.g. \\x1b[31m for red). Some figlet fonts also support TOIlet-style RGB output.
+
+</details>
+
+<details>
+<summary>**How do I make it smaller?**</summary>
+
+Use the "Small" or "Mini" fonts (3–4 rows tall) for compact banners. Standard is 6 rows; Big is 8.
+
+</details>
+
+<details>
+<summary>**Why is the output truncated?**</summary>
+
+Wide screens are typically 80–120 columns; "HELLO WORLD" in Big font may exceed that. Switch to a smaller font or break the text across lines.
+
+</details>
+
+## Tips
+
+- Stick to single-line inputs for clean banners; multi-line works but visual cohesion suffers.
+- For READMEs, wrap in ```` ``` ```` fenced code blocks so GitHub preserves whitespace.
+- Pick a font ≤ 80 chars wide for terminal compatibility; use the preview to check column count.
+- Combine with a tagline below the banner for a polished look (banner + one-line description).
+- In source-code comments, use small fonts (3–4 rows) so the banner doesn't dominate the file.
+
+## Try it now
+
+The full ascii-art runs in your browser at **[https://ztools.zaions.com/ascii-art](https://ztools.zaions.com/ascii-art)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ascii-art)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/ascii-art.mdx)*

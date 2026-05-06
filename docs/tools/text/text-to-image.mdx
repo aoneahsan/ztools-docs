@@ -1,0 +1,130 @@
+---
+id: text-to-image
+title: "Text to Image — Render Quotes & Snippets as PNG (Free)"
+description: "Render any text as a PNG image with custom font, color, background, and size. Browser-only Canvas — no server, no upload, instant export."
+sidebar_label: "text-to-image"
+keywords:
+  - "text to image"
+  - "text to png"
+  - "quote image generator"
+  - "render text as image"
+  - "code screenshot generator"
+  - "canvas text to image"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-to-image
+
+A text-to-image renderer rasterises typography into a downloadable PNG/JPG — useful for quote graphics, social-media posts, code-snippet screenshots, watermarks, and forum signatures. The ZTools Text to Image uses HTML5 Canvas with full font, alignment, color, padding, and background controls. (This is NOT an AI image generator like DALL·E or Midjourney — it renders the literal characters you type into pixels.) Files are produced on-device with no upload; you keep full ownership of the output.
+
+<ToolCTA toolId="text-to-image" toolName="text-to-image" />
+
+## Use cases
+
+### Quote cards for social media
+
+Twitter / Instagram / LinkedIn quote graphics that read better as images than as text-in-tweet. Pick a brand-consistent font/color and reuse the layout for a recurring series.
+
+### Code-snippet screenshots
+
+Better than a raw screenshot — render the code with monospace font, syntax-styled colors, and a clean background for blog posts or tutorials.
+
+### Watermarks
+
+Generate a transparent PNG with your name or URL, then overlay onto photos or documents to deter unauthorised reuse.
+
+### Forum & email signatures
+
+Some forums strip text formatting but render PNG signatures. Generate once, attach to your profile, looks consistent everywhere.
+
+## How it works
+
+1. **Type or paste text** — Multi-line input; auto-wrap optional or hard-wrap on newlines.
+2. **Pick font + size** — Any system font or any Google Font (loaded on demand via the CSS API).
+3. **Choose colors** — Foreground (text), background (solid or transparent), optional border.
+4. **Set canvas size** — Auto-fit to text or fixed dimensions (e.g. 1080×1080 for Instagram).
+5. **Export PNG / JPG** — Canvas .toBlob() — single click, no roundtrip to a server.
+
+## Examples
+
+**Input:** Quote: "Premature optimization is the root of all evil." Font: Georgia 48px. BG: #faf8f3.
+
+**Output:** Warm-cream quote card, ~640×360 px, ready for Twitter.
+
+---
+
+**Input:** Code snippet (10 lines). Font: JetBrains Mono 16px. BG: #1e1e1e (dark). FG: #d4d4d4.
+
+**Output:** VS Code-style screenshot with proper monospace alignment.
+
+---
+
+**Input:** Watermark: "© Your Brand 2026". BG: transparent. Opacity 40%.
+
+**Output:** 32-bit PNG with alpha channel — overlay onto any image.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this an AI image generator like DALL·E?**</summary>
+
+No. This renders the literal text you type as a PNG/JPG. For AI image generation, use Midjourney, DALL·E, Stable Diffusion, etc.
+
+</details>
+
+<details>
+<summary>**Which fonts are available?**</summary>
+
+Any font installed on your system, plus the entire Google Fonts library loaded on demand via the CSS API. Typing a Google Font name in the picker fetches it.
+
+</details>
+
+<details>
+<summary>**Can I export at higher DPI?**</summary>
+
+Yes — Canvas can render at 2x or 3x device-pixel-ratio for retina-quality exports. Useful for print or high-DPI displays.
+
+</details>
+
+<details>
+<summary>**Are emojis rendered?**</summary>
+
+Yes — modern browsers ship colour emoji fonts (Apple Color Emoji on macOS/iOS, Segoe UI Emoji on Windows, Noto Color Emoji on Android/Chrome OS). Emoji rendering varies by OS.
+
+</details>
+
+<details>
+<summary>**Why does my JPEG have a white background?**</summary>
+
+JPEG has no transparency. Use PNG to keep alpha. JPEG defaults to a white fill.
+
+</details>
+
+<details>
+<summary>**Can I save layouts as templates?**</summary>
+
+Yes — settings persist in your browser's preferences. Reload the tool and the last config is restored.
+
+</details>
+
+## Tips
+
+- Pick fonts at 1.4–1.6× the text size for line height — improves readability dramatically.
+- For Instagram, use 1080×1080 fixed size; for Twitter/X, 1200×675 (16:9).
+- Dark mode reads better with #d4d4d4 text on #1e1e1e background — high contrast without harsh pure-white-on-black.
+- Use 2x device-pixel-ratio export for retina-quality screenshots; 4× wastes file size with no perceived gain.
+- For watermarks, use a 30–40% opacity PNG with diagonal placement and tight letter-spacing.
+
+## Try it now
+
+The full text-to-image runs in your browser at **[https://ztools.zaions.com/text-to-image](https://ztools.zaions.com/text-to-image)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-to-image)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-to-image.mdx)*

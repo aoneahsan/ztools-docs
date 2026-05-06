@@ -1,0 +1,135 @@
+---
+id: text-to-speech
+title: "Text to Speech — Free Browser TTS, Multi-Language Voices"
+description: "Convert text to spoken audio in dozens of languages and voices using the browser Web Speech API. Adjust rate, pitch, volume. Free, no signup."
+sidebar_label: "text-to-speech"
+keywords:
+  - "text to speech"
+  - "tts free"
+  - "browser tts"
+  - "text to audio"
+  - "speak text online"
+  - "accessibility tts"
+  - "web speech api"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-to-speech
+
+A text-to-speech (TTS) tool synthesises spoken audio from written text using a voice engine — letting you listen instead of read, generate voiceovers, proof-listen drafts, or build accessibility experiences. The ZTools Text to Speech runs entirely in the browser using the Web Speech API's SpeechSynthesis interface, exposing every system-installed voice (typically 20–80+ voices spanning 30+ languages on modern OSes), with adjustable rate, pitch, and volume. No audio leaves your device, no API quota, no signup — the synthesiser is the same one your operating system already ships.
+
+<ToolCTA toolId="text-to-speech" toolName="text-to-speech" />
+
+## Use cases
+
+### Proofreading by ear
+
+Reading your own writing silently misses awkward phrasing the brain auto-corrects. Listening surfaces typos, run-on sentences, and rhythm problems that visual proofreading skips. Faster than re-reading carefully.
+
+### Accessibility for low-vision users
+
+Quick TTS for documents, emails, articles when full screen-reader software is overkill. Paste, listen, move on.
+
+### Language learning pronunciation
+
+Hear how a phrase sounds in the target language. Switch voices to compare regional accents (en-US vs en-GB, es-ES vs es-MX). Slower rate helps with new vocabulary.
+
+### Voiceover prototypes
+
+Quick-and-dirty narration for video drafts, presentation timing tests, or e-learning prototypes before recording with a real voice actor.
+
+### Multitasking
+
+Listen to a long article while cooking or commuting. Faster onboarding to long content than reading from start to finish at a desk.
+
+## How it works
+
+1. **Paste or type text** — Up to ~32k characters per utterance is safe across browsers; long inputs are auto-chunked at sentence boundaries.
+2. **Pick a voice** — Dropdown lists every voice your OS exposes via SpeechSynthesis.getVoices() — language, gender, and engine (Google, Microsoft, Apple) shown.
+3. **Adjust rate & pitch** — Rate 0.1–10 (default 1.0); pitch 0–2 (default 1.0). Volume 0–1.
+4. **Press Speak** — SpeechSynthesisUtterance fires; pause/resume/stop controls available mid-speech.
+5. **Optionally record** — On supported browsers, capture the synthesised audio via MediaRecorder for download as .webm/.wav.
+
+## Examples
+
+**Input:** "The quick brown fox jumps over the lazy dog." Voice: en-GB, rate 0.9.
+
+**Output:** Slow, clearly enunciated British English audio — useful for dictation practice.
+
+---
+
+**Input:** Long-form blog draft (~3000 words). Voice: en-US, rate 1.2.
+
+**Output:** Auto-chunked into ~50 utterances at sentence boundaries; total runtime ~12 minutes.
+
+---
+
+**Input:** "こんにちは、今日はいい天気ですね。" Voice: ja-JP.
+
+**Output:** Native Japanese pronunciation; useful for learners who can read kana but want to hear it spoken.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this the same as ElevenLabs / Google Cloud TTS?**</summary>
+
+No — those are paid neural-voice APIs producing studio-quality audio. ZTools uses your browser/OS's built-in synthesiser, which is free and instant but sounds more robotic. Trade-off: quality vs cost.
+
+</details>
+
+<details>
+<summary>**Why are some voices missing?**</summary>
+
+Available voices come from your OS, not from us. Windows ships fewer voices than macOS by default; many languages need an OS-level language pack install. Chrome on Linux often lists fewer voices than Chrome on Windows.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+OS-installed voices work offline; cloud voices (e.g. Chrome's "Google" voices) need a network connection because the synthesis happens server-side.
+
+</details>
+
+<details>
+<summary>**Can I download the audio?**</summary>
+
+Yes on browsers that allow capturing the audio output stream — typically via MediaRecorder. Some browsers block this for cloud-synthesised voices for licensing reasons.
+
+</details>
+
+<details>
+<summary>**Why does it stop after ~250 characters?**</summary>
+
+A known Chrome bug on long utterances — workaround is to chunk at sentence boundaries (the tool does this automatically).
+
+</details>
+
+<details>
+<summary>**Can I add SSML (pauses, emphasis)?**</summary>
+
+The Web Speech API supports a small subset of SSML on some browsers but it is inconsistent. Use commas, periods, and ellipses for natural pauses instead.
+
+</details>
+
+## Tips
+
+- Pick the OS-bundled voices for offline use; they are typically named "Microsoft &lt;Name&gt;", "Apple &lt;Name&gt;" — these don't need network.
+- Lower the rate (0.85–0.9) for proofreading; you'll catch more issues than at default speed.
+- For long documents, split at chapter breaks and queue utterances — avoids the Chrome long-input bug.
+- Test in multiple browsers — voice availability differs significantly between Chrome, Edge, Safari, and Firefox.
+- For production voiceover, use this for timing/pacing prototypes only and re-record with a paid neural voice service.
+
+## Try it now
+
+The full text-to-speech runs in your browser at **[https://ztools.zaions.com/text-to-speech](https://ztools.zaions.com/text-to-speech)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-to-speech)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-to-speech.mdx)*

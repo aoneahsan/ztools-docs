@@ -1,0 +1,126 @@
+---
+id: text-case-converter
+title: "Text Case Converter — UPPER, lower, Title, camelCase, snake_case"
+description: "Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE. Free, instant."
+sidebar_label: "text-case-converter"
+keywords:
+  - "text case converter"
+  - "change case online"
+  - "uppercase converter"
+  - "lowercase converter"
+  - "title case"
+  - "camelcase converter"
+  - "snake_case converter"
+  - "kebab-case converter"
+  - "free case converter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-case-converter
+
+A text case converter is a tool that transforms a string between common letter-case conventions: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE. The ZTools Text Case Converter handles all 9 conventions in one click, intelligently splitting words on spaces, hyphens, underscores, and case boundaries (so `helloWorld_demo` correctly becomes `hello_world_demo` or `hello-world-demo`). Useful for developers renaming variables across naming conventions, content editors fixing inconsistent capitalization, and copywriters formatting headlines.
+
+<ToolCTA toolId="text-case-converter" toolName="text-case-converter" />
+
+## Use cases
+
+### Renaming variables when migrating between languages
+
+JavaScript uses camelCase, Python uses snake_case, Go uses PascalCase for exports. When porting code, paste the variable name, click your target convention, and copy the result. Avoids subtle typos when doing dozens of renames by hand.
+
+### Formatting headlines and titles for consistency
+
+Style guides differ on Title Case vs Sentence case. Paste a headline, switch case, see whether it matches your house style. The converter follows AP-style title case rules (skip articles, prepositions under 4 letters, conjunctions).
+
+### Converting CSV column headers to database-safe identifiers
+
+A spreadsheet column named "First Name (Required)" becomes `first_name_required` in snake_case for SQL columns. Paste each header, convert, paste into your DDL. Saves manual renaming when importing 50-column spreadsheets.
+
+### Generating slug-friendly names for URLs and file paths
+
+Article title "Why JSON Beats XML in 2026" → kebab-case → `why-json-beats-xml-in-2026`. URL-safe and SEO-friendly. Pair with our URL Slug Generator for special-character handling.
+
+## How it works
+
+1. **Paste text into the input pane** — Single word, multi-word phrase, or entire paragraph. Length is unlimited — handles up to ~1 MB without lag.
+2. **Click your target case** — 9 buttons: UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE. Each shows a live preview of the output.
+3. **Word-splitting handles edge cases** — Splits on spaces, hyphens, underscores, AND camelCase boundaries. So `helloWorld` and `hello-world` and `hello world` all produce the same output for any target case.
+4. **Review the output** — Output appears in the right pane with a character count and word count. Whitespace and punctuation are preserved where the convention allows.
+5. **Copy with one click** — Original stays available so you can switch between conventions without re-pasting.
+
+## Examples
+
+**Input:** helloWorld example test
+
+**Output:** camelCase: helloWorldExampleTest | snake_case: hello_world_example_test | kebab-case: hello-world-example-test | PascalCase: HelloWorldExampleTest
+
+---
+
+**Input:** WHY JSON beats XML in 2026
+
+**Output:** Title: Why JSON Beats XML in 2026 | Sentence: Why json beats xml in 2026 | kebab: why-json-beats-xml-in-2026
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between camelCase and PascalCase?**</summary>
+
+camelCase starts lowercase (`firstName`), PascalCase starts uppercase (`FirstName`). JavaScript variables and methods use camelCase; React components and TypeScript classes use PascalCase.
+
+</details>
+
+<details>
+<summary>**How does Title Case decide which words to capitalize?**</summary>
+
+Style guides differ. The converter follows AP style: capitalize all words except articles (a, an, the), short prepositions (of, in, on, at, by, for, to), and short conjunctions (and, or, but, nor) unless they're the first or last word.
+
+</details>
+
+<details>
+<summary>**How does the converter split "compound" words?**</summary>
+
+It splits on spaces, hyphens, underscores, AND case boundaries. So `getUserName`, `get-user-name`, `get_user_name`, and `Get User Name` all produce the same canonical word list.
+
+</details>
+
+<details>
+<summary>**Does it preserve numbers?**</summary>
+
+Yes. `parseInt2` becomes `parse_int_2` in snake_case (digits stay attached to the preceding word).
+
+</details>
+
+<details>
+<summary>**Can I convert back to the original case?**</summary>
+
+Once you convert to a target case and copy, the conversion is one-way (information about the original word boundaries may be lost in some conventions). Keep the original input visible in the left pane if you need it.
+
+</details>
+
+<details>
+<summary>**Is the converter Unicode-aware?**</summary>
+
+Yes — accented characters and non-Latin scripts are handled correctly. UPPER and lower work for German ß, Greek α/Α, Cyrillic, etc.
+
+</details>
+
+## Tips
+
+- For database columns, prefer snake_case — it's the SQL convention and case-insensitive on most engines.
+- For URL slugs, use kebab-case — readable to humans and SEO-friendly.
+- For React component files, use PascalCase — the React convention.
+- For JavaScript constants, use CONSTANT_CASE — the universal "this is a constant" signal.
+
+## Try it now
+
+The full text-case-converter runs in your browser at **[https://ztools.zaions.com/text-case-converter](https://ztools.zaions.com/text-case-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-case-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-case-converter.mdx)*

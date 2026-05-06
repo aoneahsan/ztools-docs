@@ -1,0 +1,124 @@
+---
+id: line-counter
+title: "Line Counter — Count Lines of Text or Code Instantly (Free)"
+description: "Count lines of text, code, or any document. Includes blank-line and non-blank counts, plus character and word totals. Free, online."
+sidebar_label: "line-counter"
+keywords:
+  - "line counter"
+  - "count lines of text"
+  - "count lines of code"
+  - "loc counter"
+  - "line count online"
+  - "free line counter tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# line-counter
+
+A line counter counts the number of lines in any pasted text — total lines, non-blank lines, and lines containing actual content — useful for sizing source files, log analysis, dataset checks, and form validation. The ZTools Line Counter handles any size paste, supports Unix (LF), Windows (CRLF), and Mac classic (CR) line endings transparently, distinguishes blank lines (whitespace-only) from non-blank lines, and shows additional stats — character count, word count, longest line length — to give a complete size picture in one screen.
+
+<ToolCTA toolId="line-counter" toolName="line-counter" />
+
+## Use cases
+
+### Counting lines of code (LOC) for a project
+
+Paste a source file or function, see how many lines it has — separate counts for "physical" lines and "non-blank" lines. Useful for code reviews and complexity tracking.
+
+### Sizing a log file or stack trace
+
+A 50,000-line server log pasted in. The counter shows whether you're looking at 50k errors or 500k. Helpful before piping it through an analyzer.
+
+### Dataset row counts before import
+
+A CSV pasted in: 10,247 lines. Subtract 1 for the header → 10,246 data rows. Confirms the file matches what the source system claimed.
+
+### Verifying form-validation rules
+
+A form allows max 100 lines. Paste a candidate input, count lines, decide whether to trim before submitting. Saves a back-and-forth with the form.
+
+## How it works
+
+1. **Paste the text** — Any size. Line endings (LF, CRLF, CR) are normalized internally for consistent counting.
+2. **Choose what to count** — Total lines (all line breaks), non-blank lines (skip whitespace-only lines), or both.
+3. **Read all stats at once** — Total lines, non-blank lines, blank lines, characters, characters-no-spaces, words, longest line length.
+4. **Optionally find the longest or shortest line** — A side panel highlights the longest and shortest non-blank lines. Useful for finding rogue mega-lines in source code.
+
+## Examples
+
+**Input:** Hello
+
+World
+
+
+**Output:** 4 total lines | 2 non-blank | 1 blank | longest: 5 chars
+
+---
+
+**Input:** 5,000-line CSV
+
+**Output:** 5,000 total | 4,999 data rows (after header) | 0 blank
+
+---
+
+**Input:** Code with comments and blank separators
+
+**Output:** 120 total | 95 non-blank | 25 blank | longest: 87 chars
+
+## Frequently asked questions
+
+<details>
+<summary>**Does the line counter ignore the trailing newline?**</summary>
+
+Behavior is configurable. Some tools count "Hello\\n" as 1 line (strict POSIX); others count it as 2 (the newline implies an empty line after). The counter shows both and lets you pick.
+
+</details>
+
+<details>
+<summary>**How are different line endings handled?**</summary>
+
+LF (\\n) on Unix/Mac, CRLF (\\r\\n) on Windows, CR (\\r) on classic Mac. All three are recognized; mixing them won't double-count.
+
+</details>
+
+<details>
+<summary>**What counts as a blank line?**</summary>
+
+A line containing nothing or only whitespace (spaces, tabs). Configure if needed: strict empty (zero chars) or whitespace-only.
+
+</details>
+
+<details>
+<summary>**How does this differ from `wc -l`?**</summary>
+
+`wc -l` counts newline characters, so a file ending without a final newline counts one less than you'd expect. The web tool shows both interpretations.
+
+</details>
+
+<details>
+<summary>**Can it count specific patterns per line?**</summary>
+
+Not directly — for that, use the Find-and-Replace tool with regex to extract matching lines first, then count those.
+
+</details>
+
+## Tips
+
+- For LOC metrics, "non-blank, non-comment" is the most meaningful number — paste only code (no docs) for that count.
+- When importing CSVs, always subtract the header row to get the actual data row count.
+- Mixed line endings (Windows files edited on Linux) often introduce phantom blank lines — the counter normalizes them.
+- For very large pastes (10MB+), the counter still works but may take a second; consider sampling for log files.
+
+## Try it now
+
+The full line-counter runs in your browser at **[https://ztools.zaions.com/line-counter](https://ztools.zaions.com/line-counter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/line-counter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/line-counter.mdx)*

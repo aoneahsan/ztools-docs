@@ -1,0 +1,122 @@
+---
+id: sentence-counter
+title: "Sentence Counter — Count Sentences, Words & Paragraphs (Free)"
+description: "Count sentences, words, paragraphs, and characters in any text. Average sentence length, longest sentence flagging. Free."
+sidebar_label: "sentence-counter"
+keywords:
+  - "sentence counter"
+  - "count sentences"
+  - "average sentence length"
+  - "sentence analyzer"
+  - "readability tool"
+  - "word counter"
+  - "free sentence count tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sentence-counter
+
+A sentence counter tokenizes a text into sentences using punctuation rules and abbreviation-aware splitting, then reports total sentences, average sentence length, and the longest sentence — useful for readability analysis, editorial reviews, and writing-style audits. The ZTools Sentence Counter recognizes sentence boundaries even with abbreviations ("Dr. Smith arrived. He…" splits correctly), distinguishes between full stops, question marks, and exclamations, computes average words per sentence (a key readability metric), and flags very long sentences (40+ words) as candidates for breaking up.
+
+<ToolCTA toolId="sentence-counter" toolName="sentence-counter" />
+
+## Use cases
+
+### Editorial pass for readability
+
+Long sentences hurt readability. The counter flags any sentence over 30 words; editors break them up for tighter, more scannable prose.
+
+### Academic writing analysis
+
+Average sentence length over 25 words is high; over 30 is dense. The counter lets students and academics check whether their prose is appropriately accessible.
+
+### Style coaching and writing feedback
+
+Coaches share the average sentence-length stat with writers. "Your average is 28 words; aim for 18" is concrete, actionable feedback.
+
+### Translation effort estimation
+
+Translation pricing often counts source words. Sentence count helps estimate per-segment cost and identify documents that'll need significant breaking up before machine translation.
+
+## How it works
+
+1. **Paste your text** — Articles, essays, transcripts, novels — any prose works. Code and structured data are tokenized too but the metrics are less meaningful.
+2. **Tokenizer splits on sentence boundaries** — Looks for periods, question marks, and exclamation points followed by whitespace and capital letters. Recognizes common abbreviations (Dr., Mr., e.g., U.S.) as non-boundaries.
+3. **Read the metrics** — Total sentences, total words, words per sentence (average), longest sentence (with text), shortest sentence, total paragraphs, character count.
+4. **Inspect long sentences** — A panel highlights sentences over 30 words. Click any to jump to its position in the source for editing.
+
+## Examples
+
+**Input:** "Hello. How are you? I'm fine!"
+
+**Output:** 3 sentences | 5 words | avg 1.7 words/sentence
+
+---
+
+**Input:** 5-paragraph essay (500 words)
+
+**Output:** 24 sentences | 500 words | avg 20.8 words/sentence | longest: 41 words
+
+---
+
+**Input:** Academic paragraph with abbreviations
+
+**Output:** Tokenizer correctly handles "U.S. Department of Defense" without splitting on the abbreviation period.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does sentence detection handle abbreviations?**</summary>
+
+A built-in list of common abbreviations (Dr., Mr., Mrs., Ms., Jr., Sr., etc., e.g., i.e., U.S., U.K., a.m., p.m.) prevents false sentence boundaries. The list isn't exhaustive; very rare abbreviations may still cause errors.
+
+</details>
+
+<details>
+<summary>**What's a "good" average sentence length?**</summary>
+
+For general prose: 15-20 words is readable, 20-25 is moderate, 25+ is dense. Hemingway aimed for 12-15. Academic and legal writing runs higher (25-35) by convention. Aim for variety — too uniform a length feels mechanical.
+
+</details>
+
+<details>
+<summary>**Are exclamations and questions counted as sentences?**</summary>
+
+Yes — anything ending in . ! or ? counts. The breakdown shows separate counts so you can see if the text is heavy on questions (interview format) or exclamations (urgent/dramatic).
+
+</details>
+
+<details>
+<summary>**How does this differ from a word counter?**</summary>
+
+Word counter focuses on length; sentence counter focuses on structure. Average sentence length is a key readability signal that word count alone doesn't reveal.
+
+</details>
+
+<details>
+<summary>**Can it handle non-English punctuation?**</summary>
+
+Partially — it recognizes Western sentence terminators and some Asian punctuation (Japanese 。, Chinese ！). For full multi-language support, use a language-specific tokenizer.
+
+</details>
+
+## Tips
+
+- For readability, aim for an average of 15-20 words per sentence in general writing.
+- Vary sentence length — short sentences after long ones add rhythm and emphasis.
+- Sentences over 40 words are almost always candidates for splitting; legal and academic conventions excepted.
+- Combine with the word-frequency tool to find both "what" you're writing about and "how" you structure it.
+
+## Try it now
+
+The full sentence-counter runs in your browser at **[https://ztools.zaions.com/sentence-counter](https://ztools.zaions.com/sentence-counter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sentence-counter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/sentence-counter.mdx)*

@@ -1,0 +1,134 @@
+---
+id: shuffle-lines
+title: "Shuffle Lines — Randomly Reorder Lines of Text Free"
+description: "Randomly reorder lines of text or list items using Fisher–Yates shuffle. Useful for randomising playlists, quiz options, and study cards. Free."
+sidebar_label: "shuffle-lines"
+keywords:
+  - "shuffle lines"
+  - "randomise list"
+  - "random line order"
+  - "fisher yates shuffle"
+  - "shuffle text lines"
+  - "line randomiser"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# shuffle-lines
+
+A line shuffler randomly reorders the lines of any pasted text using a Fisher–Yates uniform-random permutation. Common uses: randomising playlists, shuffling quiz answer options to prevent answer-position bias, scrambling flashcard order for study, generating random subsets, raffle/lottery picking, and A/B test sequencing. The ZTools Shuffle Lines tool uses crypto.getRandomValues() for cryptographically-strong randomness when available, supports trim/dedupe/empty-line-removal pre-processing, and preserves the exact original lines (just in a new order). Pure client-side — your list never leaves the browser.
+
+<ToolCTA toolId="shuffle-lines" toolName="shuffle-lines" />
+
+## Use cases
+
+### Randomising quiz/test options
+
+Multiple-choice answer-position bias is a real test-design issue (correct answer disproportionately at position B/C). Shuffle option order per question to neutralise it.
+
+### Playlist shuffle export
+
+Export a Spotify/YouTube playlist as text, shuffle lines, paste back into a custom-order playlist. Useful when the app's built-in shuffle is biased or non-uniform.
+
+### Flashcard study order
+
+Anki-style spaced repetition is best for retention, but for quick review, randomised order beats fixed order — exposes weak spots faster.
+
+### Raffle / random picking
+
+Paste a list of names, shuffle, take the first N. Auditable randomness for office events, giveaway draws, etc.
+
+### A/B test ordering
+
+For experiments where presentation order matters, shuffle test conditions per participant to control for order effects.
+
+## How it works
+
+1. **Paste lines** — One item per line. Up to ~100,000 lines tested; performance stays fast.
+2. **Pre-process options** — Trim whitespace, remove duplicates, drop empty lines, lowercase before shuffle (toggleable).
+3. **Shuffle** — Fisher–Yates iterates from end to start; each click reshuffles uniformly.
+4. **Optional take-N** — Show first N lines after shuffle — for picking random subsets.
+5. **Copy / download** — Clipboard or .txt download.
+
+## Examples
+
+**Input:** 50-name raffle list
+
+**Output:** Same 50 names, uniformly randomised order. Take first 5 = 5 winners with no bias.
+
+---
+
+**Input:** Multiple-choice options A/B/C/D
+
+**Output:** Repeat per quiz question; answer-position uniform across the test.
+
+---
+
+**Input:** 500-line CSV header excluded
+
+**Output:** Use "skip first line" option to preserve headers while shuffling rows.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the shuffle truly random?**</summary>
+
+Fisher–Yates with crypto.getRandomValues() produces uniform-random permutations indistinguishable from true randomness. For most use cases (raffles, quizzes), it's overkill in the best way.
+
+</details>
+
+<details>
+<summary>**Does it modify line content?**</summary>
+
+No — only the order changes (unless you enable trim/dedupe/lowercase pre-processing, which transforms the lines before shuffle).
+
+</details>
+
+<details>
+<summary>**How is this different from `sort -R` in Unix?**</summary>
+
+Same conceptual operation. ZTools is browser-native, no terminal access needed; also offers pre-processing and take-N in one step.
+
+</details>
+
+<details>
+<summary>**Can I get the same shuffle twice?**</summary>
+
+No without a seeded PRNG (not exposed in this tool). For reproducibility, copy the result; for fresh random, click shuffle again.
+
+</details>
+
+<details>
+<summary>**What's the line limit?**</summary>
+
+~100,000 lines is comfortable. Beyond that, browser memory/UI lag becomes noticeable. For million-line shuffles, do it server-side.
+
+</details>
+
+<details>
+<summary>**Will it preserve column data (CSV)?**</summary>
+
+Yes — each line is treated as opaque. CSV rows shuffle as whole rows. Use the "skip first N" option to keep headers in place.
+
+</details>
+
+## Tips
+
+- For raffles, shuffle once and screen-share the result — auditable, transparent, no one can claim the draw was rigged.
+- For quizzes, generate a different shuffle per student to deter copying from a neighbour.
+- Use "skip first line" for CSVs so the header row stays at the top.
+- For statistical sampling, shuffle then take first N; this is mathematically equivalent to uniform random sample without replacement.
+- Pair with shuffle-words for two-axis text scrambling (rare but useful for specific creative-writing exercises).
+
+## Try it now
+
+The full shuffle-lines runs in your browser at **[https://ztools.zaions.com/shuffle-lines](https://ztools.zaions.com/shuffle-lines)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/shuffle-lines)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/shuffle-lines.mdx)*

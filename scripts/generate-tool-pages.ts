@@ -93,6 +93,16 @@ const TOOLS_TO_PUBLISH = [
   'markdown-to-pdf','number-base','octal-converter','percentage-calculator','rgb-hex','roman-numerals',
   'speed-converter','temperature','temperature-converter','time-unit','typescript-to-js','unit-converter',
   'unix-timestamp','weight','weight-converter','xlsx-to-csv',
+
+  // Batch 7: text category — 39 tools
+  'add-prefix-to-lines','article-rewriter','ascii-art','bionic-reading-converter','character-counter',
+  'duplicate-remover','find-replace','google-fonts-pair-finder','grammar-checker','join-strings',
+  'letter-frequency','line-counter','multiple-whitespace-remover','palindrome-checker','paraphrasing-tool',
+  'pick-random-item','plagiarism-checker','random-text','reading-time-estimator','remove-unicode-font',
+  'repeat-string','sentence-counter','shuffle-letters','shuffle-lines','shuffle-words','split-string',
+  'spoof-unicode-text','text-case-converter','text-reverser','text-sorter','text-summarizer',
+  'text-to-handwriting-converter','text-to-image','text-to-speech','text-to-unicode-font','text-trimmer',
+  'text-truncator','word-frequency','zalgo-text-generator',
 ];
 
 // ---------------------------------------------------------------------------

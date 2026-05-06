@@ -1,0 +1,135 @@
+---
+id: join-strings
+title: "Join Strings — Combine Lines with Custom Separator Free"
+description: "Join lines of text into a single string with any separator (comma, pipe, custom). Optional quoting, prefix, suffix. Free, browser-only."
+sidebar_label: "join-strings"
+keywords:
+  - "join strings"
+  - "concatenate lines"
+  - "lines to csv"
+  - "sql in clause builder"
+  - "string joiner"
+  - "merge lines"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# join-strings
+
+A string joiner concatenates a list of lines (or array elements) into a single string with a chosen separator between elements. It's the inverse of split-string. Daily uses: building SQL `IN (...)` clauses, comma-separated config strings, CSV row reconstruction, JSON-array literal generation from row data, URL query-parameter assembly, and CSV-to-prose conversion for natural-language reports. The ZTools Join Strings tool supports any separator (single char, multi-char, escape sequences like `\\n`, `\\t`), per-element quoting (single, double, backtick), prefix/suffix wrapping, and trim/dedupe/empty-skip pre-processing.
+
+<ToolCTA toolId="join-strings" toolName="join-strings" />
+
+## Use cases
+
+### Build SQL IN clauses
+
+Paste a list of user IDs, get `IN ('id1', 'id2', 'id3', ...)` ready for the WHERE clause. Single-quote each element + comma separator + parens prefix/suffix.
+
+### CSV reconstruction
+
+Joining columns back into a CSV row after manipulation. Comma separator + double-quote each element when contents contain commas.
+
+### Comma-separated config strings
+
+Environment variables like `ALLOWED_HOSTS=a.com,b.com,c.com`. Paste hostnames as lines, join with comma, paste into .env.
+
+### JSON array literal
+
+Build `["item1", "item2", "item3"]` from a list of names. Double-quote, comma-separate, square-bracket prefix/suffix.
+
+### Natural-language list
+
+Convert a list of names into "Alice, Bob, Carol, and Dave" with proper Oxford comma. The tool supports the special "human list" join mode.
+
+## How it works
+
+1. **Paste lines** — One element per line. Up to 100,000 lines.
+2. **Pick separator** — Common (comma, pipe, semicolon, tab, newline) or custom (any string, including escape sequences).
+3. **Optional quoting** — Wrap each element in single quotes, double quotes, or backticks.
+4. **Optional prefix/suffix** — e.g. prefix="(", suffix=")" produces parenthesised output.
+5. **Pre-process** — Trim whitespace, drop empty lines, dedupe, lowercase before join.
+6. **Copy result** — One-click clipboard.
+
+## Examples
+
+**Input:** Lines: alice, bob, carol. Sep: ", ", quote: single, prefix: "(", suffix: ")"
+
+**Output:** ('alice', 'bob', 'carol') — ready for SQL `IN`.
+
+---
+
+**Input:** Lines: 192.168.0.1, 192.168.0.2. Sep: ",", no quote
+
+**Output:** 192.168.0.1,192.168.0.2 — ready for env var.
+
+---
+
+**Input:** Lines: red, green, blue. "Human list" mode
+
+**Output:** red, green, and blue — Oxford comma included.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from manually typing the result?**</summary>
+
+For 5 items, manual is fine. For 50, 500, or 5000, manual is error-prone. The tool also handles edge cases (escape sequences, embedded quotes, trailing commas) you might miss.
+
+</details>
+
+<details>
+<summary>**Can the separator be a tab or newline?**</summary>
+
+Yes — use `\\t` for tab, `\\n` for newline. The tool unescapes these to actual control characters before joining.
+
+</details>
+
+<details>
+<summary>**What about elements that contain the separator?**</summary>
+
+The "quote each element" option wraps elements so embedded separators don't corrupt parsing. For CSV specifically, double-quote with double-quote escaping is the spec.
+
+</details>
+
+<details>
+<summary>**Does it handle trailing newlines correctly?**</summary>
+
+Yes — empty trailing lines are dropped by default (toggleable). Avoids the common bug of an extra empty element appearing in the output.
+
+</details>
+
+<details>
+<summary>**Why is my SQL output not safe to execute?**</summary>
+
+String concatenation is NOT safe against SQL injection. The tool helps build static IN-clauses; for user-provided data, use parameterised queries.
+
+</details>
+
+<details>
+<summary>**Can I escape embedded quotes?**</summary>
+
+Yes — toggle "escape embedded quotes". Single quotes become `''` (SQL standard) or `\\'` (JS), depending on dialect.
+
+</details>
+
+## Tips
+
+- For SQL IN clauses, single-quote + comma + paren-wrap is the safe default; verify against your DB engine's quoting rules.
+- For CSV, use double-quote per RFC 4180 + escape embedded double quotes by doubling.
+- For JSON arrays, prefer JSON.stringify on the actual array — but for quick text-to-JSON, the joiner with double-quote + bracket wrap works.
+- For human-readable lists, "human list" mode handles the Oxford comma and "and" before the last item correctly.
+- Combine with split-strings (the inverse tool) for round-trip transforms.
+
+## Try it now
+
+The full join-strings runs in your browser at **[https://ztools.zaions.com/join-strings](https://ztools.zaions.com/join-strings)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/join-strings)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/join-strings.mdx)*

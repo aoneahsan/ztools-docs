@@ -1,0 +1,134 @@
+---
+id: random-text
+title: "Random Text Generator — Words, Sentences, Paragraphs Free"
+description: "Generate random text — words, sentences, paragraphs, or Lorem Ipsum-style filler. Adjustable length and language. Free, no signup, browser-only."
+sidebar_label: "random-text"
+keywords:
+  - "random text generator"
+  - "random word generator"
+  - "random sentence generator"
+  - "random paragraph"
+  - "lorem ipsum alternative"
+  - "dummy text generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# random-text
+
+A random text generator outputs filler or pseudo-random words, sentences, or paragraphs for design mockups, layout testing, dummy data, performance benchmarks, password seeding, and creative-writing prompts. Unlike Lorem Ipsum (which uses Latin), the ZTools Random Text generator supports English, Lorem Ipsum, technobabble, sci-fi names, fantasy names, and pure random-character strings. Output uses real words from a dictionary (~10,000 common English words) plus optional sentence-structure heuristics for grammatical-feeling output. Configure word count, sentence count, paragraph count, and capitalisation rules.
+
+<ToolCTA toolId="random-text" toolName="random-text" />
+
+## Use cases
+
+### Design mockup filler
+
+Lorem Ipsum is the classic, but English random text is better for showing real word lengths, real ascenders/descenders, and accurate line-break behaviour for English-language designs.
+
+### Database / dummy data seeding
+
+Generate 10,000 sentences for a posts table, 100,000 words for full-text-search testing, etc. Faster than Faker for browser-side seed generation.
+
+### UI stress-testing
+
+Long words break tight layouts; short words leave too much whitespace. Generate "realistic" English text to find edge cases your design must handle.
+
+### Creative-writing prompts
+
+Generate 5 random words and improvise a paragraph using all of them. Old screenwriting / improv exercise.
+
+### Performance benchmarks
+
+Search/autocomplete/render performance tests need representative input. Random English text mimics real input distributions better than synthetic patterns.
+
+## How it works
+
+1. **Pick output unit** — Words, sentences, or paragraphs.
+2. **Pick language / dictionary** — English (common words), Lorem Ipsum (Latin), technobabble, fantasy names, sci-fi names, pure random characters.
+3. **Set length** — Number of words/sentences/paragraphs to generate. Per-unit length distributions (e.g. 5–25 words/sentence) configurable.
+4. **Set capitalisation rules** — Sentence-case (default), all-caps, lower-case, title-case-each-word.
+5. **Generate + copy** — Fresh random output each click; one-click copy to clipboard.
+
+## Examples
+
+**Input:** "3 paragraphs, English, sentence-case"
+
+**Output:** Three paragraphs of 3–6 sentences each, each sentence 5–25 words, capitalised first letter, periods.
+
+---
+
+**Input:** "50 words, fantasy names"
+
+**Output:** "Aelarion, Vornak, Threlissa, Drakemoor..." — usable for D&D character names, fantasy-novel placeholders.
+
+---
+
+**Input:** "10,000 random characters, no spaces"
+
+**Output:** Pure base32-style string for stress-testing input fields, password length limits, etc.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from Lorem Ipsum?**</summary>
+
+Lorem Ipsum uses Latin filler text from Cicero; random text generators use modern dictionaries. Lorem Ipsum is design-tradition-neutral; English random text shows real word distribution for English designs.
+
+</details>
+
+<details>
+<summary>**Is the output reproducible?**</summary>
+
+No — every click rerolls. For reproducible output, copy and save the result; or use seeded RNGs (not exposed here).
+
+</details>
+
+<details>
+<summary>**Can I use it for password generation?**</summary>
+
+No — random text has predictable structure and word frequencies; passwords need uniform random characters with high entropy. Use the Password Generator tool instead.
+
+</details>
+
+<details>
+<summary>**What's the difference between technobabble and real text?**</summary>
+
+Technobabble uses sci-fi / corporate buzzwords ("synergistic blockchain orchestration"); real English uses dictionary words. Different mockup vibes.
+
+</details>
+
+<details>
+<summary>**Does it support non-English languages?**</summary>
+
+English + Latin (Lorem Ipsum) shipped; other dictionaries can be added in future updates. For now, dictionary tools and Faker libraries cover broader localisation.
+
+</details>
+
+<details>
+<summary>**Can I bias word length / vocabulary level?**</summary>
+
+Yes — toggle "common words only" (most-frequent 1000) for ESL-friendly output, or "include rare words" for more variety.
+
+</details>
+
+## Tips
+
+- Use English (not Lorem Ipsum) for English designs — your designers/clients can't accidentally start reading the filler.
+- For database seed data, generate at the size you actually expect to support (e.g. 1M rows) — performance issues hide at small scales.
+- Mix dictionaries: 70% English + 30% technobabble feels like real corporate-blog output for SaaS mockup testing.
+- For UI stress, use longest-word-in-language inputs (e.g. "Pneumonoultramicroscopicsilicovolcanoconiosis") to find layout breakage.
+- Pair with a Markdown renderer for instant fake-blog-post generation.
+
+## Try it now
+
+The full random-text runs in your browser at **[https://ztools.zaions.com/random-text](https://ztools.zaions.com/random-text)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/random-text)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/random-text.mdx)*
