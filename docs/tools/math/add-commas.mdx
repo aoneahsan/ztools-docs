@@ -1,0 +1,126 @@
+---
+id: add-commas
+title: "Add Commas to Numbers — Thousands Separators, Free"
+description: "Format numbers with thousand separators (1,000 / 1.000 / 10,00,000). Multi-locale support. Browser-only."
+sidebar_label: "add-commas"
+keywords:
+  - "add commas to numbers"
+  - "thousands separator online"
+  - "format numbers commas"
+  - "indian number format"
+  - "european number formatter"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# add-commas
+
+Adding commas to numbers inserts thousands separators — 1000 → 1,000 — making large numbers readable. Different locales use different conventions: US/UK use commas (1,000.50), most of Europe uses dots and commas swapped (1.000,50), India groups in 2-2-3 (10,00,000 not 1,000,000), Switzerland uses apostrophes (1'000.50). The ZTools Add Commas tool formats single numbers or whole text blocks (replacing every numeric run), supports per-locale separators, and works with negatives, decimals, and scientific notation.
+
+<ToolCTA toolId="add-commas" toolName="add-commas" />
+
+## Use cases
+
+### Format invoice / report numbers for readability
+
+$1234567 reads as gibberish; $1,234,567 is instantly clear. Format before printing.
+
+### Localise numbers for international audiences
+
+Same dataset shipped to US (1,000.50) and Germany (1.000,50). One pass each — no formatting bugs in spreadsheet exports.
+
+### Clean up scraped / CSV data
+
+Web-scraped tables have unformatted numbers. Add commas across the column for human readability.
+
+### Format Indian-system numbers correctly
+
+10 lakh = 10,00,000 in Indian convention; 1,000,000 in international. Tool handles both.
+
+## How it works
+
+1. **Paste number(s) or text** — Single value or a paragraph with embedded numbers.
+2. **Pick locale** — US/UK (1,000.50), EU (1.000,50), CH (1'000.50), Indian (10,00,000), or custom (pick your own thousands and decimal characters).
+3. **Configure decimals** — Show as-is, round to N decimals, or pad to N decimals.
+4. **Format** — Tool walks the input, formats each numeric run, leaves non-numeric text unchanged.
+
+## Examples
+
+**Input:** 1234567 (US)
+
+**Output:** 1,234,567.
+
+---
+
+**Input:** Same number, EU
+
+**Output:** 1.234.567 (dot separator).
+
+---
+
+**Input:** Same, Indian
+
+**Output:** 12,34,567 (groups of 2-2-3 from right).
+
+---
+
+**Input:** "My salary is 7500 dollars and tax is 2250 dollars"
+
+**Output:** "My salary is 7,500 dollars and tax is 2,250 dollars" — embedded numbers formatted, prose preserved.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does Indian numbering differ?**</summary>
+
+Indian convention groups from the right: last three digits, then twos. So 10,00,000 (10 lakh) not 1,000,000. Common in Indian English / Hindi business writing.
+
+</details>
+
+<details>
+<summary>**What if my decimal separator is the same as thousands?**</summary>
+
+Some niche locales use the same character. Tool warns and asks you to confirm — formatting becomes ambiguous.
+
+</details>
+
+<details>
+<summary>**Negative numbers?**</summary>
+
+Sign placed before the number: −1,234,567. Some locales use parentheses (1,234,567) — toggle "accounting style".
+
+</details>
+
+<details>
+<summary>**Scientific notation?**</summary>
+
+1.5e6 stays as 1.5e6 — formatting digit groups inside scientific notation rarely makes sense. Toggle "expand sci notation" if you want 1500000 → 1,500,000.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For international reports, format per locale where the report will be read — not the writer's locale.
+- For accounting, use 2 decimal places consistently — irregular decimals look unprofessional in financial reports.
+- For Indian audiences, "10 lakh" beats "1 million" for relatability — use Indian numbering when the audience is Indian.
+- When working with code, the decimal separator stays as a dot regardless of locale — formatting is for display only.
+
+## Try it now
+
+The full add-commas runs in your browser at **[https://ztools.zaions.com/add-commas](https://ztools.zaions.com/add-commas)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/add-commas)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/add-commas.mdx)*

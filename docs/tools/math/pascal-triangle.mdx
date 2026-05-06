@@ -1,0 +1,120 @@
+---
+id: pascal-triangle
+title: "Pascal Triangle Generator — N Rows Online, Free"
+description: "Generate Pascal's Triangle to N rows. Highlight binomial coefficients, Fibonacci diagonals, free."
+sidebar_label: "pascal-triangle"
+keywords:
+  - "pascal triangle generator"
+  - "binomial coefficient triangle"
+  - "pascal triangle online"
+  - "pascals triangle calculator"
+  - "n choose k triangle"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pascal-triangle
+
+Pascal's Triangle is a triangular array where each entry is the sum of the two directly above it: row 0 starts with 1, row 1 is 1, 1, row 2 is 1, 2, 1, and so on. Each entry equals the binomial coefficient C(n, k) — also known as "n choose k". The triangle has many number-theoretic properties: rows sum to powers of 2, diagonals form Fibonacci numbers, prime rows have all entries divisible by p. The ZTools Pascal Triangle Generator builds N rows (up to 30) in the browser, highlights selected patterns, and outputs as plain text or LaTeX.
+
+<ToolCTA toolId="pascal-triangle" toolName="pascal-triangle" />
+
+## Use cases
+
+### Compute binomial coefficients
+
+"How many ways to pick 3 from 10?" → row 10, column 3 → 120. Calculator does it instantly.
+
+### Teaching binomial expansion
+
+(a + b)⁵ expands using row 5 of the triangle: a⁵ + 5a⁴b + 10a³b² + 10a²b³ + 5ab⁴ + b⁵. Visual makes it click.
+
+### Spot Fibonacci in the triangle
+
+Sum the shallow diagonals — get 1, 1, 2, 3, 5, 8, 13, ... (Fibonacci sequence). Mind-bending classroom moment.
+
+### Probability calculations
+
+Coin flip outcomes for N flips: row N gives the number of ways to get 0, 1, 2, ..., N heads. Useful for binomial distribution intuition.
+
+## How it works
+
+1. **Pick row count** — 1 to 30. Above 30, numbers exceed JavaScript safe integer range — toggle BigInt for higher rows.
+2. **Generate** — Each row computed iteratively from the previous. C(n, k) = C(n−1, k−1) + C(n−1, k).
+3. **Display** — Triangular layout with consistent column widths. Toggle to monospace or LaTeX output.
+4. **Highlight patterns** — Optional overlays: even/odd (Sierpinski-like fractal), multiples of 3, prime-row pattern.
+
+## Examples
+
+**Input:** First 6 rows
+
+**Output:** 1\\n1 1\\n1 2 1\\n1 3 3 1\\n1 4 6 4 1\\n1 5 10 10 5 1
+
+---
+
+**Input:** Row sums (rows 0-5)
+
+**Output:** 1, 2, 4, 8, 16, 32 — powers of 2. Row n sums to 2^n.
+
+---
+
+**Input:** Shallow diagonal sums
+
+**Output:** 1, 1, 2, 3, 5, 8, 13, 21 — Fibonacci sequence appears.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does the triangle relate to binomials?**</summary>
+
+C(n, k) counts subsets of size k from n elements. Row n column k of the triangle = C(n, k). Equivalent definitions.
+
+</details>
+
+<details>
+<summary>**How big can N be?**</summary>
+
+30 with regular numbers. Beyond, use BigInt mode — supports arbitrary row count, but display becomes unwieldy past row 50.
+
+</details>
+
+<details>
+<summary>**What's the Sierpinski connection?**</summary>
+
+Colour the triangle entries by parity (even/odd). The pattern of odds forms a Sierpinski triangle fractal — visible from row 16 or so.
+
+</details>
+
+<details>
+<summary>**Are there generalisations?**</summary>
+
+Yes — Pascal's pyramid (3D), Pascal's tetrahedron, multinomial coefficients. This tool covers the standard 2D triangle.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For binomial-expansion teaching, plot the triangle alongside (a+b)^n — students see the coefficients literally come from row n.
+- For probability work, row N entries give the count of N-flip outcomes by head count — one step from the binomial PMF.
+- For Fibonacci connection, draw the shallow diagonals and sum them — vivid demo of how patterns emerge from simple rules.
+- For BigInt mode (rows &gt;30), expect display to wrap on narrow screens — view in landscape or download as text.
+
+## Try it now
+
+The full pascal-triangle runs in your browser at **[https://ztools.zaions.com/pascal-triangle](https://ztools.zaions.com/pascal-triangle)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pascal-triangle)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/pascal-triangle.mdx)*

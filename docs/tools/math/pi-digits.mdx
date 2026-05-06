@@ -1,0 +1,119 @@
+---
+id: pi-digits
+title: "Pi Digits — First 10000 Digits Online, Free"
+description: "Show the first N digits of Pi (π). Up to 10,000 digits. Search for substrings. Browser-only — no signup."
+sidebar_label: "pi-digits"
+keywords:
+  - "pi digits online"
+  - "first 1000 digits of pi"
+  - "pi finder tool"
+  - "search pi digits"
+  - "pi digit calculator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# pi-digits
+
+Pi (π) is the ratio of a circle's circumference to its diameter — an irrational number that begins 3.14159265358979... and never repeats. The ZTools Pi Digits tool shows the first N digits (1 to 10,000) of π, lets you search for substrings (e.g. your birthday), shows position-based statistics (which digit appears most often in the first N?), and supports copy / download. Useful for math demos, programming challenges (Project Euler, code-golf), curiosity, and explaining why "memorise digits of π" is a stunt not a skill.
+
+<ToolCTA toolId="pi-digits" toolName="pi-digits" />
+
+## Use cases
+
+### Find your birthday in π
+
+Type "1995-03-15" without dashes (19950315) and search. Position varies but most short strings appear within the first ~10,000 digits.
+
+### Test a programming challenge
+
+"Compute π to N digits" — verify your code against the canonical sequence.
+
+### Math classroom demo
+
+Show students that π's digits never repeat — open the tool, page through.
+
+### Generate "random" digits with statistical properties
+
+π's digits are believed to be normal (uniform distribution) — useful as a low-effort source of pseudo-random sequences for demos.
+
+## How it works
+
+1. **Pick digit count** — Slider from 10 to 10,000.
+2. **Display** — Digits in monospace font, optionally in groups (e.g. blocks of 5 or 10).
+3. **Search** — Find a substring. Tool returns first occurrence position (or "not found").
+4. **Stats** — Per-digit frequency (how often does "7" appear in the first 10,000?). Pi's digits are uniform-looking but not provably random.
+
+## Examples
+
+**Input:** First 50 digits
+
+**Output:** 3.14159265358979323846264338327950288419716939937510
+
+---
+
+**Input:** Search "12345"
+
+**Output:** First occurrence at position 49702 (within the first 100,000 digits, not 10,000).
+
+---
+
+**Input:** Search "your birthday e.g. 0315"
+
+**Output:** Most 4-digit strings appear within the first ~10,000 digits.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is π computed?**</summary>
+
+For tools showing fixed digits, the digits are precomputed and served as static data. Computing π on the fly to 10,000 digits requires arbitrary-precision arithmetic — possible in the browser but slow.
+
+</details>
+
+<details>
+<summary>**Is π normal?**</summary>
+
+Conjectured but unproven. Empirically the digits look uniformly distributed; no proof exists. Don't use π as a cryptographic random source.
+
+</details>
+
+<details>
+<summary>**Why might my search find no match?**</summary>
+
+Short strings (≤ 4 digits) almost always appear within 10,000 digits. Longer strings (≥ 6 digits) might require more digits than the tool stores.
+
+</details>
+
+<details>
+<summary>**Memorise the digits?**</summary>
+
+Pointless beyond ~10. The current world record is 70,000+ digits — fun but not useful. Computers do this better.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser. Searches don't leave the device.
+
+</details>
+
+## Tips
+
+- For demos, the first 50 digits is plenty — beyond that, audiences glaze over.
+- For "find your birthday in π" demos, prepare the search ahead of time; not all strings appear within 10,000 digits.
+- For programming challenges, use a known correct precomputed sequence — don't generate on the fly unless you trust your arbitrary-precision library.
+
+## Try it now
+
+The full pi-digits runs in your browser at **[https://ztools.zaions.com/pi-digits](https://ztools.zaions.com/pi-digits)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/pi-digits)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/pi-digits.mdx)*

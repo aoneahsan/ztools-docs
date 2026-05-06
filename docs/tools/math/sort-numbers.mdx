@@ -1,0 +1,120 @@
+---
+id: sort-numbers
+title: "Sort Numbers Online — Ascending, Descending, Free"
+description: "Sort any list of numbers ascending or descending. Handles decimals, negatives, scientific notation. Browser-only."
+sidebar_label: "sort-numbers"
+keywords:
+  - "sort numbers online"
+  - "numeric sorter"
+  - "ascending descending order"
+  - "list sorter numbers"
+  - "sort decimals negatives"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sort-numbers
+
+Sorting numbers orders them ascending (smallest first) or descending (largest first). Sounds trivial, but the JavaScript default — `arr.sort()` — uses lexicographic order, so [1, 10, 2] sorts to [1, 10, 2] not [1, 2, 10]. The ZTools Sort Numbers tool sorts numerically (not lexicographically), handles decimals / negatives / scientific notation correctly, and supports up to a million values in a millisecond. Output as comma list, line list, or JSON array.
+
+<ToolCTA toolId="sort-numbers" toolName="sort-numbers" />
+
+## Use cases
+
+### Sort a column from a spreadsheet
+
+Pasted a numeric column to verify its range. Sort ascending — first value is min, last is max, instantly visible.
+
+### Identify outliers visually
+
+After sorting, the largest values cluster at one end. Anomalies stand out.
+
+### Prepare data for plotting
+
+A line chart wants x-sorted points. Sort first, then plot.
+
+### Find the median in seconds
+
+For a list of N numbers, median = sorted[N/2] (or average of two middle values for even N). Sort, count, done.
+
+## How it works
+
+1. **Paste numbers** — One per line, comma-separated, or space-separated. Tool detects.
+2. **Pick direction** — Ascending (default) or descending.
+3. **Configure** — Drop duplicates (or keep), drop NaN / non-numeric, configure precision.
+4. **Read sorted output** — Same format as input. Stats panel shows count, min, max for verification.
+
+## Examples
+
+**Input:** [10, 1, 5, 3, 7]
+
+**Output:** Ascending: [1, 3, 5, 7, 10]. Descending: [10, 7, 5, 3, 1].
+
+---
+
+**Input:** [1.5, 1.05, 1.5e3]
+
+**Output:** Ascending: [1.05, 1.5, 1500] — scientific notation handled correctly.
+
+---
+
+**Input:** [−5, 10, 0, −1]
+
+**Output:** Ascending: [−5, −1, 0, 10] — negatives ordered correctly.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my JavaScript sort give wrong order?**</summary>
+
+arr.sort() is lexicographic. arr.sort((a, b) =&gt; a - b) is numeric. This tool always uses the numeric form.
+
+</details>
+
+<details>
+<summary>**Maximum size?**</summary>
+
+Million values sort in &lt;1 second. Beyond that, browser starts struggling.
+
+</details>
+
+<details>
+<summary>**Stability?**</summary>
+
+JavaScript sort is stable since ES2019. Equal values keep their original order.
+
+</details>
+
+<details>
+<summary>**Drop duplicates?**</summary>
+
+Optional toggle — useful when the question is "what unique values exist".
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+Client-side.
+
+</details>
+
+## Tips
+
+- For very large lists, paste as JSON — saves the parse-from-text step.
+- When sort produces unexpected results, check for non-numeric entries (one stray "abc" in 10,000 numbers).
+- For multi-column sort (CSV with primary and secondary key), use the Sort CSV Data tool — this one is single-list.
+- After sorting, also note count and min/max — quick sanity check on the dataset.
+
+## Try it now
+
+The full sort-numbers runs in your browser at **[https://ztools.zaions.com/sort-numbers](https://ztools.zaions.com/sort-numbers)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sort-numbers)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/sort-numbers.mdx)*

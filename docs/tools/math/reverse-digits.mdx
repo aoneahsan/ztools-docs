@@ -1,0 +1,131 @@
+---
+id: reverse-digits
+title: "Reverse Digits Online — Flip Numbers, Free"
+description: "Reverse the digits of any number: 12345 → 54321. Handles decimals, negatives. Browser-only."
+sidebar_label: "reverse-digits"
+keywords:
+  - "reverse digits online"
+  - "reverse number tool"
+  - "palindrome checker number"
+  - "flip digits online"
+  - "reverse integer"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# reverse-digits
+
+Reversing the digits of a number flips its order: 12345 → 54321, 3.14 → 41.3 (reverse of "314"). Common in interview problems ("reverse a number without converting to string"), palindrome checks, and recreational math (Kaprekar's constant: 6174). The ZTools Reverse Digits tool handles integers, decimals, negatives, and bulk lists. Pure-arithmetic mode (the interview-question style) and string-reverse mode both available — pick which you want.
+
+<ToolCTA toolId="reverse-digits" toolName="reverse-digits" />
+
+## Use cases
+
+### Solve the classic interview question
+
+"Reverse a number using arithmetic only (no string conversion)." Tool runs both modes side-by-side so you can verify your code.
+
+### Palindrome detection
+
+A number is a palindrome if reversing leaves it unchanged. 121 → 121 (yes), 1234 → 4321 (no).
+
+### Kaprekar routine demo
+
+For any 4-digit number with non-identical digits, repeatedly: sort digits descending, sort ascending, subtract → eventually reach 6174 (Kaprekar's constant). Reversal is part of the digit-shuffle.
+
+### Generate test data with consistent transformation
+
+Bulk-reverse a column of IDs / numbers for a test fixture.
+
+## How it works
+
+1. **Paste number(s)** — Single value or list. Decimals and negatives supported.
+2. **Pick mode** — Arithmetic (modulo 10 / divide by 10) or string-reverse (treat as digit string).
+3. **Configure** — Preserve sign (default), keep leading zeros (string mode), reverse decimal point (yes/no).
+4. **Read result** — Reversed value(s). Stats: input, output, palindrome flag.
+
+## Examples
+
+**Input:** 12345
+
+**Output:** 54321.
+
+---
+
+**Input:** 120
+
+**Output:** 21 (arithmetic — leading zero of reverse drops) or 021 (string mode).
+
+---
+
+**Input:** −42
+
+**Output:** −24 (sign preserved) or 24- (sign appended) — depends on mode.
+
+---
+
+**Input:** 3.14
+
+**Output:** 41.3 (reverse "314" then place decimal correctly).
+
+---
+
+**Input:** 121 (palindrome check)
+
+**Output:** 121 → 121. Palindrome: yes.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does 120 become 21?**</summary>
+
+In arithmetic reversal, 0 × 100 + 2 × 10 + 1 = 21 (leading zero from "021" drops). In string mode, you can preserve "021" — toggle "keep leading zeros".
+
+</details>
+
+<details>
+<summary>**Negative number handling?**</summary>
+
+−42 → −24 (sign preserved, digits reversed). Some interpretations append the minus instead — toggle the convention.
+
+</details>
+
+<details>
+<summary>**Decimal handling?**</summary>
+
+3.14 reversed: "314" → "413" → 41.3 (decimal placed at the same offset from the end). For exact symmetry, use a palindrome test directly.
+
+</details>
+
+<details>
+<summary>**Maximum size?**</summary>
+
+JavaScript numbers safe up to 2^53. Above, use BigInt for arbitrary-precision integer reversal.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For palindrome detection, the simplest method is reverse + compare — the tool flags it automatically.
+- For BigInt-sized numbers (&gt;2^53), the arithmetic mode silently loses precision. Toggle BigInt mode.
+- For interview prep, run both arithmetic and string mode and verify they match — catches off-by-one errors in your code.
+
+## Try it now
+
+The full reverse-digits runs in your browser at **[https://ztools.zaions.com/reverse-digits](https://ztools.zaions.com/reverse-digits)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/reverse-digits)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/reverse-digits.mdx)*

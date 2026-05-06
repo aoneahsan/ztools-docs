@@ -1,0 +1,120 @@
+---
+id: equation-grapher
+title: "Equation Grapher — Plot Functions Online, Free"
+description: "Graph y = f(x) equations. Plot multiple functions, customize range and grid, export as SVG. Browser-only."
+sidebar_label: "equation-grapher"
+keywords:
+  - "equation grapher online"
+  - "function plotter free"
+  - "graph y=f(x) online"
+  - "math graph tool"
+  - "plot equations browser"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# equation-grapher
+
+An equation grapher plots a function y = f(x) over a range of x values, drawing the curve at all sampled points. Useful for visualising what a formula does, comparing multiple functions, exploring transformations (translation, scaling), and teaching concepts like asymptotes, intersections, and extrema. The ZTools Equation Grapher accepts standard math syntax (sin, cos, log, exp, x², x³, etc.), plots up to 6 functions on the same axes with distinct colours, and exports the chart as SVG for slides or docs.
+
+<ToolCTA toolId="equation-grapher" toolName="equation-grapher" />
+
+## Use cases
+
+### Visualise a function from homework
+
+Plot y = x² − 4x + 3. See zeros at x = 1, x = 3 — confirm with the quadratic formula.
+
+### Compare multiple curves
+
+sin(x), cos(x), tan(x) on one axis. Spot symmetries, intersections, asymptotes.
+
+### Explore transformations
+
+y = x² vs y = (x − 2)² vs y = 2(x − 2)². See how shifting and scaling work geometrically.
+
+### Teach calculus concepts
+
+Plot f(x) and f'(x) together — visual intuition for what derivatives mean.
+
+## How it works
+
+1. **Type equation(s)** — y = sin(x), y = x^2, etc. Up to 6 expressions, one per line.
+2. **Set range** — x range (default −10 to 10), y range (auto-fit by default), grid spacing.
+3. **Configure samples** — How many points to plot (default 500). More = smoother but slower.
+4. **Render + export** — SVG chart with axes, gridlines, legend. Download as SVG / PNG.
+
+## Examples
+
+**Input:** y = x² − 4
+
+**Output:** Parabola opening up, vertex at (0, −4), roots at x = ±2.
+
+---
+
+**Input:** y = sin(x), y = cos(x) on x ∈ [0, 2π]
+
+**Output:** Two waves; sin starts at 0, cos starts at 1; they intersect at x ≈ 0.785 (π/4).
+
+---
+
+**Input:** y = 1/x
+
+**Output:** Hyperbola with asymptote at x = 0; tool draws each branch separately.
+
+## Frequently asked questions
+
+<details>
+<summary>**How does it handle vertical asymptotes?**</summary>
+
+When |y| jumps above the y range, the curve is broken — no vertical line drawn through asymptote. Toggle "connect through ∞" if you want lines anyway (less mathematically honest).
+
+</details>
+
+<details>
+<summary>**Implicit equations (e.g. x² + y² = 1)?**</summary>
+
+Limited support — solve for y: y = ±√(1 − x²) and plot two branches. Tool offers "implicit" mode for circles / ellipses; complex implicit curves need a CAS.
+
+</details>
+
+<details>
+<summary>**Polar plots?**</summary>
+
+Yes — toggle "polar" and use r = f(θ). Useful for spirals and rose curves.
+
+</details>
+
+<details>
+<summary>**Scaling — auto vs manual?**</summary>
+
+Auto fits the y range to the visible function. Manual gives full control. Logarithmic axes available too.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All plotting in browser.
+
+</details>
+
+## Tips
+
+- For educational use, plot the function plus its derivative (numerical differentiation handled internally) — gives students intuition.
+- For comparing transformations, plot the base function plus the variants on one axis; legend keeps them distinguishable.
+- For oscillating functions (sine, cosine), set x range to a multiple of the period (2π for sin) — graph wraps cleanly.
+- For functions with discontinuities, increase sample count to 1000+ — too few samples can miss the discontinuity.
+
+## Try it now
+
+The full equation-grapher runs in your browser at **[https://ztools.zaions.com/equation-grapher](https://ztools.zaions.com/equation-grapher)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/equation-grapher)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/equation-grapher.mdx)*

@@ -1,0 +1,120 @@
+---
+id: random-matrix
+title: "Random Matrix Generator — Configurable, Free Online"
+description: "Generate random matrices of any size with custom value range, integer or float, sparsity. Browser-only."
+sidebar_label: "random-matrix"
+keywords:
+  - "random matrix generator"
+  - "random 2d array online"
+  - "gaussian matrix generator"
+  - "sparse matrix generator"
+  - "numpy matrix generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# random-matrix
+
+Generating a random matrix produces an m × n grid of values drawn from a chosen distribution — uniform integers, uniform floats, normal (Gaussian), or binary. Useful for testing linear-algebra code, seeding ML demos, fixture generation, and exploring matrix properties (determinant of a random 5×5 is rarely 0). The ZTools Random Matrix tool runs in the browser, supports up to 100×100 matrices, and outputs as JSON, CSV, NumPy-syntax string, or LaTeX.
+
+<ToolCTA toolId="random-matrix" toolName="random-matrix" />
+
+## Use cases
+
+### Seed test data for matrix algorithms
+
+Test inverse / decomposition routines. Random matrices catch corner-case bugs that hand-crafted ones miss.
+
+### ML / numerical-methods demos
+
+PCA on a 50×10 random matrix shows the algorithm pipeline without needing a real dataset.
+
+### Generate sparse matrices
+
+Most entries 0, some random — common pattern in graph algorithms (adjacency matrices) and recommender systems.
+
+### Coursework / homework testing
+
+Need to verify a matrix-multiplication algorithm? Generate two random matrices, multiply, compare.
+
+## How it works
+
+1. **Set dimensions** — 1×1 to 100×100. Square or rectangular.
+2. **Pick distribution** — Uniform int [a, b], uniform float [a, b], normal (mean, stddev), binary (Bernoulli p), or sparse (mostly zeros with random non-zeros).
+3. **Configure precision** — Decimals to display. Behind the scenes, full precision; display rounds for readability.
+4. **Generate** — Output as 2D array, CSV, NumPy syntax, or LaTeX.
+
+## Examples
+
+**Input:** 3×3 uniform int [0, 9]
+
+**Output:** [[7, 2, 5], [1, 8, 0], [4, 9, 3]] — sample run.
+
+---
+
+**Input:** 5×5 normal (mean 0, sd 1)
+
+**Output:** [[0.42, −1.13, 0.07, ...], ...] — Gaussian distributed entries.
+
+---
+
+**Input:** 10×10 sparse, density 0.2
+
+**Output:** ~20 non-zero entries scattered across 100 positions.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is the random source good?**</summary>
+
+Math.random by default — fine for demos and tests. Toggle "crypto" for crypto.getRandomValues if your random matrix's seed matters (rarely the case for matrix work).
+
+</details>
+
+<details>
+<summary>**Reproducible (seeded)?**</summary>
+
+Yes — provide a seed, same seed = same matrix. Useful for tests and reproducible demos.
+
+</details>
+
+<details>
+<summary>**Maximum size?**</summary>
+
+100×100 = 10,000 cells, comfortable in browser. Beyond, use NumPy.
+
+</details>
+
+<details>
+<summary>**Output formats?**</summary>
+
+JSON nested array, CSV, NumPy (np.array([...])), MATLAB ([...; ...; ...]), LaTeX.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For testing linear-algebra code, use uniform integers — easier to inspect than floats, less risk of "did I really get 0.30000000000000004?" floating-point distractions.
+- For ML demos, normal distribution mirrors real-world data better than uniform.
+- For sparse matrices, set density 0.05-0.1 (5-10% non-zero) — matches real-world sparsity in graphs.
+- For reproducible tests, always seed — random matrices that differ run-to-run make test failures hard to reproduce.
+
+## Try it now
+
+The full random-matrix runs in your browser at **[https://ztools.zaions.com/random-matrix](https://ztools.zaions.com/random-matrix)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/random-matrix)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/random-matrix.mdx)*

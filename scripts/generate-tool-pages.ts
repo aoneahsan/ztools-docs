@@ -103,6 +103,14 @@ const TOOLS_TO_PUBLISH = [
   'spoof-unicode-text','text-case-converter','text-reverser','text-sorter','text-summarizer',
   'text-to-handwriting-converter','text-to-image','text-to-speech','text-to-unicode-font','text-trimmer',
   'text-truncator','word-frequency','zalgo-text-generator',
+
+  // Batch 8: math category — 34 tools
+  'add-commas','bmi-calculator','calculator','compound-interest-calculator','discount-calculator',
+  'enumerate-integers','equation-grapher','expression-evaluator','fibonacci','fraction','gcd-lcm',
+  'increment-digits','integer-pairs','l-system','look-and-say','matrix-calculator','mortgage-calculator',
+  'number-formatter','number-sum','numbers-to-words','pascal-triangle','percentage-calc','pi-digits',
+  'prime-checker','pythagorean','random-matrix','reverse-digits','roman-numeral','salary-calculator',
+  'sort-numbers','statistics','statistics-calculator','tip-calculator','words-to-numbers',
 ];
 
 // ---------------------------------------------------------------------------

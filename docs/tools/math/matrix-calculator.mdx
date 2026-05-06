@@ -1,0 +1,126 @@
+---
+id: matrix-calculator
+title: "Matrix Calculator — Add, Multiply, Inverse, Transpose, Free"
+description: "Add, subtract, multiply matrices. Compute inverse, transpose, determinant, rank. Up to 10×10. Browser-only."
+sidebar_label: "matrix-calculator"
+keywords:
+  - "matrix calculator online"
+  - "matrix inverse calculator"
+  - "matrix multiplication tool"
+  - "determinant calculator"
+  - "linear algebra calculator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# matrix-calculator
+
+A matrix calculator performs linear-algebra operations: addition, subtraction, scalar multiplication, matrix multiplication, transpose, determinant, inverse, rank, eigenvalues (for symbolic-friendly small matrices). Useful for linear-algebra coursework, computer graphics transform debugging, statistics (covariance matrices), and quick verification of hand calculations. The ZTools Matrix Calculator handles up to 10×10 with arbitrary numeric entries (integers, decimals, fractions if pre-converted), runs in the browser using a numerically-stable LU decomposition for inverse / determinant, and presents results with step-by-step intermediate values when relevant.
+
+<ToolCTA toolId="matrix-calculator" toolName="matrix-calculator" />
+
+## Use cases
+
+### Verify a hand-computed inverse
+
+Linear-algebra homework. Calculator confirms (or shows where the error crept in).
+
+### Multiply transformation matrices for graphics
+
+A 3D engine pipeline: model × view × projection. Calculator multiplies these to verify the combined matrix.
+
+### Solve a linear system
+
+Ax = b → x = A⁻¹ b. Calculator finds the inverse and multiplies; useful for small systems.
+
+### Compute statistics covariance matrix
+
+For PCA, you need eigenvalues / eigenvectors of the covariance matrix. Calculator handles up to 10×10 — enough for most teaching scenarios.
+
+## How it works
+
+1. **Pick dimensions** — 1×1 to 10×10 per matrix. Two-matrix ops (A + B) require matching shapes; multiplication requires inner dimensions to match.
+2. **Enter values** — Spreadsheet-style cells. Tab between cells for fast entry. Decimals, negatives, integers all supported.
+3. **Pick operation** — A+B, A−B, kA, A·B, A^T, det(A), A⁻¹, rank(A). Some ops need only one matrix.
+4. **Read result** — Result matrix displayed with the same precision. For inverse, also shown is det(A) — if it's 0, the matrix is singular and no inverse exists.
+
+## Examples
+
+**Input:** A = [[1,2],[3,4]], det(A)
+
+**Output:** det = (1)(4) − (2)(3) = 4 − 6 = −2.
+
+---
+
+**Input:** Same A, inverse
+
+**Output:** A⁻¹ = (1/det) × [[4,−2],[−3,1]] = [[−2, 1], [1.5, −0.5]].
+
+---
+
+**Input:** A·B for A 2×3, B 3×2
+
+**Output:** Result is 2×2. Calculator handles matrix multiplication with conformable shapes.
+
+---
+
+**Input:** A is singular (det = 0)
+
+**Output:** Inverse undefined. Calculator returns "no inverse — matrix is singular" rather than NaN.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my answer differ slightly from textbook?**</summary>
+
+Floating-point arithmetic — small rounding errors. For exact arithmetic with fractions or symbolic results, use Wolfram Alpha or SymPy.
+
+</details>
+
+<details>
+<summary>**How big can the matrix be?**</summary>
+
+Up to 10×10 in this UI. For larger matrices, use NumPy / Octave / MATLAB — browser UI gets unwieldy.
+
+</details>
+
+<details>
+<summary>**Eigenvalues for non-symmetric matrices?**</summary>
+
+Limited support up to 4×4 — beyond that, characteristic polynomials get unstable to root-find numerically. Use a CAS for general cases.
+
+</details>
+
+<details>
+<summary>**Does it support complex numbers?**</summary>
+
+Real numbers only. Eigenvalues that turn out complex are reported as "complex pair" without computing the values.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All computation in browser.
+
+</details>
+
+## Tips
+
+- For small matrices (2×2 / 3×3), do the calculation by hand once to understand the formula — calculator confirms but doesn't teach.
+- When det = 0, no inverse exists. Check your matrix entries; one row or column is a linear combination of others.
+- For graphics transform debugging, multiply matrices in the right order — matrix multiplication is non-commutative (A·B ≠ B·A).
+- For larger problems, use NumPy: np.linalg.inv(A), np.linalg.det(A), np.linalg.matmul(A, B).
+
+## Try it now
+
+The full matrix-calculator runs in your browser at **[https://ztools.zaions.com/matrix-calculator](https://ztools.zaions.com/matrix-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/matrix-calculator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/matrix-calculator.mdx)*

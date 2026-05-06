@@ -1,0 +1,126 @@
+---
+id: words-to-numbers
+title: "Words to Numbers Converter — Free Online, Multi-Language"
+description: "Convert \"two hundred forty-two\" to 242. Handles English, Spanish, French. Useful for parsing forms and OCR output."
+sidebar_label: "words-to-numbers"
+keywords:
+  - "words to numbers converter"
+  - "spell out number reverse"
+  - "parse number words"
+  - "convert text to digits"
+  - "numerical word parser"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# words-to-numbers
+
+Converting words to numbers translates spelled-out values like "two hundred forty-two" into the numeric form 242. Common in form processing (cheques, contracts, OCR), accessibility (screen-reader output), and bilingual data cleanup. The ZTools Words to Numbers converter handles English (cardinal and ordinal), Spanish, and French up to numbers in the trillions. Decimal expressions ("two and a half"), fractions ("three quarters"), and mixed forms ("two hundred and three thousand four hundred fifty-six") are supported.
+
+<ToolCTA toolId="words-to-numbers" toolName="words-to-numbers" />
+
+## Use cases
+
+### Parse cheque amounts
+
+Cheques have both numeric and written amounts. After OCR, validate that "one hundred fifty" matches "$150". Words-to-numbers does the comparison.
+
+### Clean dictation transcripts
+
+Transcripts say "twenty twenty-six" for years; downstream systems want 2026. Convert.
+
+### Multilingual form processing
+
+A French form has "trois cent vingt"; convert to 320 for analysis.
+
+### Build voice-to-data pipelines
+
+Voice assistant captures "five thousand"; downstream handler wants 5000.
+
+## How it works
+
+1. **Paste text** — Sentence, paragraph, or just a number-word.
+2. **Pick language** — Auto-detect, or force English / Spanish / French.
+3. **Convert** — Tool tokenises, identifies number-words, replaces with digits inline. Non-number words preserved.
+4. **Read result** — Original text with numbers replaced. Edge cases (ambiguous words) flagged.
+
+## Examples
+
+**Input:** "I have two hundred forty-two apples"
+
+**Output:** I have 242 apples.
+
+---
+
+**Input:** "Three thousand four hundred fifty-six dollars"
+
+**Output:** 3456 dollars.
+
+---
+
+**Input:** "Two and a half"
+
+**Output:** 2.5.
+
+---
+
+**Input:** Spanish: "ciento cincuenta"
+
+**Output:** 150.
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it handle ordinals (first, second, third)?**</summary>
+
+Yes — first → 1, twenty-third → 23. Toggle "ordinal mode" if you need them as ordinals (1st, 23rd) rather than cardinals.
+
+</details>
+
+<details>
+<summary>**What about millions / billions?**</summary>
+
+Up to trillions in long-scale (US/UK modern) or short-scale notation. Toggle the scale per language convention.
+
+</details>
+
+<details>
+<summary>**Decimal numbers?**</summary>
+
+"Three point one four" → 3.14. "Half" / "quarter" → 0.5 / 0.25.
+
+</details>
+
+<details>
+<summary>**Edge cases like "a couple"?**</summary>
+
+"A couple" → 2, "a few" → 3, "a dozen" → 12 (toggle "loose match" for these). Strict mode rejects ambiguous words.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All conversion in browser.
+
+</details>
+
+## Tips
+
+- For cheque processing, validate both directions — words → numbers AND numbers → words — and confirm they match.
+- Multilingual? Auto-detect works for clear cases; force the language for short ambiguous strings.
+- For "ten million two hundred thousand" style, the converter parses left-to-right; complex expressions might need pre-cleaning.
+- Combine with a numbers-to-words tool to round-trip and verify accuracy.
+
+## Try it now
+
+The full words-to-numbers runs in your browser at **[https://ztools.zaions.com/words-to-numbers](https://ztools.zaions.com/words-to-numbers)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/words-to-numbers)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/words-to-numbers.mdx)*

@@ -1,0 +1,120 @@
+---
+id: integer-pairs
+title: "Generate Integer Pairs — Cartesian, Range, Free"
+description: "Generate all (i, j) integer pairs in a range. Cartesian product, ordered, distinct. Browser-only."
+sidebar_label: "integer-pairs"
+keywords:
+  - "integer pair generator"
+  - "cartesian product integers"
+  - "tuple generator online"
+  - "enumerate i j pairs"
+  - "integer combinations"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# integer-pairs
+
+Generating integer pairs produces tuples (i, j) where i and j range over integers — useful for grid coordinates, test-case enumeration, combinatorial problems, and data-fixture generation. The ZTools Integer Pairs tool builds the Cartesian product i × j over user-defined ranges, with optional filters (i &lt; j, i + j = constant, distinct, etc.). Output as JSON array of pairs, CSV, or human-readable list. Lazy evaluation handles large ranges without blowing browser memory.
+
+<ToolCTA toolId="integer-pairs" toolName="integer-pairs" />
+
+## Use cases
+
+### Generate grid coordinates
+
+5×5 grid: pairs (0,0), (0,1), ..., (4,4) — 25 cells. Useful for board games, simulation seeds, image processing.
+
+### Test-case enumeration
+
+Test a function f(a, b) for all pairs in [−5, 5] × [−5, 5]. 121 cases. Generator outputs them — feed directly to your test runner.
+
+### Combinatorial problems
+
+"All pairs (i, j) with i + j = 10 and i, j ∈ [1, 10]". Constraint filtering finds them.
+
+### Generate test data for ML
+
+Synthetic feature pairs for regression / classification testing. Predictable ranges, no random surprises.
+
+## How it works
+
+1. **Set ranges** — Range for i (start, end, step). Range for j (separate start, end, step). Or one range used for both.
+2. **Apply filter** — i &lt; j (no duplicates), i + j = constant, GCD(i, j) = 1 (coprime), or custom expression.
+3. **Pick output format** — JSON array of [i, j] pairs, CSV (i,j per row), or "i j" pairs separated by newlines.
+4. **Generate + copy** — For very large outputs (&gt;10k pairs), download as file rather than copy.
+
+## Examples
+
+**Input:** i ∈ [0, 2], j ∈ [0, 2]
+
+**Output:** 9 pairs: (0,0), (0,1), (0,2), (1,0), ..., (2,2).
+
+---
+
+**Input:** i, j ∈ [1, 10] with i &lt; j
+
+**Output:** 45 pairs (10 choose 2): (1,2), (1,3), ..., (9,10).
+
+---
+
+**Input:** i, j ∈ [1, 10] with i + j = 10
+
+**Output:** Pairs where sum is 10: (0, 10), (1, 9), (2, 8), ..., (10, 0). Filter to "i ≤ j" if you want unique combinations.
+
+## Frequently asked questions
+
+<details>
+<summary>**Maximum number of pairs?**</summary>
+
+Browser limit is ~10 million in memory. For more, use a streaming download mode (lazy generation, write directly to file).
+
+</details>
+
+<details>
+<summary>**Can I include negative integers?**</summary>
+
+Yes — set range start to a negative number.
+
+</details>
+
+<details>
+<summary>**Custom step?**</summary>
+
+Yes — non-1 steps are supported (e.g. only even integers).
+
+</details>
+
+<details>
+<summary>**Output ordering?**</summary>
+
+Lexicographic by default — (0,0), (0,1), (0,2), (1,0), ... Can switch to "i first then j" or column-major if needed.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For symmetric problems (where (i,j) = (j,i) doesn't add info), use the i &lt; j filter — halves the output count.
+- For very large ranges, prefer downloading the file — copying 10 million pairs to clipboard freezes the browser.
+- For combinatorial constraints, use the custom expression filter — supports arbitrary boolean conditions on (i, j).
+- For test cases, also generate edge values (0, max, min, off-by-one) explicitly — uniform grids miss boundary bugs.
+
+## Try it now
+
+The full integer-pairs runs in your browser at **[https://ztools.zaions.com/integer-pairs](https://ztools.zaions.com/integer-pairs)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/integer-pairs)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/integer-pairs.mdx)*

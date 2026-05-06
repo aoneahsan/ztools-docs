@@ -1,0 +1,127 @@
+---
+id: statistics
+title: "Statistics Calculator — Mean, Median, SD, Free Online"
+description: "Compute mean, median, mode, range, variance, standard deviation, quartiles, and percentiles for any list of numbers. Browser-only."
+sidebar_label: "statistics"
+keywords:
+  - "statistics calculator online"
+  - "mean median mode calculator"
+  - "standard deviation tool"
+  - "quartile calculator"
+  - "descriptive stats free"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# statistics
+
+A statistics calculator computes summary statistics from a list of numbers — mean (average), median (middle value), mode (most frequent), range (max − min), variance, standard deviation, quartiles (Q1, Q2, Q3), interquartile range, and selected percentiles. The ZTools Statistics Calculator accepts any list (one number per line, comma-separated, or space-separated), runs all computations in the browser, and shows results with a small distribution chart. No upload, no signup, no row limit.
+
+<ToolCTA toolId="statistics" toolName="statistics" />
+
+## Use cases
+
+### Quick descriptive stats for a survey
+
+A 200-row response column. Paste, get mean / median / SD / quartiles instantly — faster than opening Excel for one column.
+
+### Compare two datasets
+
+Stats side by side reveal which has higher central tendency, which is more spread out. Calculator runs both and tabulates.
+
+### Spot outliers
+
+Values more than 1.5 × IQR beyond Q1 / Q3 are conventional outliers. Calculator flags them.
+
+### Verify a textbook problem
+
+Homework gives a list; you computed mean = 14.5. Calculator confirms or contradicts. Useful for self-checking.
+
+## How it works
+
+1. **Paste numbers** — One per line, comma-separated, or space-separated. Tool detects automatically.
+2. **Pick population vs sample** — Variance and SD differ for a population (divide by n) vs a sample (divide by n−1, Bessel's correction). Default: sample.
+3. **Configure precision** — Decimals to display (default 4). Bigger numbers get scientific notation automatically.
+4. **Read results** — Table of statistics + a small histogram showing distribution shape.
+
+## Examples
+
+**Input:** [1, 2, 3, 4, 5]
+
+**Output:** Mean: 3. Median: 3. Mode: none (all unique). Range: 4. Sample SD: 1.5811. Q1: 2. Q3: 4. IQR: 2.
+
+---
+
+**Input:** [10, 20, 20, 30, 40, 100]
+
+**Output:** Mean: 36.67 (skewed by 100). Median: 25 (more representative). Mode: 20. SD: 31.85. The mean-vs-median gap signals skew.
+
+---
+
+**Input:** Outlier detection
+
+**Output:** Q1 = 20, Q3 = 40, IQR = 20. Outlier threshold: &gt; 70 or &lt; −10. Value 100 flagged as outlier.
+
+## Frequently asked questions
+
+<details>
+<summary>**Sample SD vs population SD?**</summary>
+
+Sample SD divides by n−1 (Bessel's correction) — gives an unbiased estimate of the population SD. Population SD divides by n — exact when you have all the data. Default is sample (more common in practice).
+
+</details>
+
+<details>
+<summary>**Mean vs median — which to report?**</summary>
+
+Mean is sensitive to outliers; median isn't. For income, house prices, response times — report median. For symmetric distributions, mean and median are similar; either works.
+
+</details>
+
+<details>
+<summary>**How is the median calculated for even count?**</summary>
+
+Average of the two middle values. For [1,2,3,4], median = (2+3)/2 = 2.5.
+
+</details>
+
+<details>
+<summary>**How is mode reported when multiple modes exist?**</summary>
+
+All values tied for highest frequency. If everything is unique, "no mode" is reported. Multimodal distributions get a list.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All computation in the browser. Numbers never uploaded.
+
+</details>
+
+<details>
+<summary>**Maximum list size?**</summary>
+
+Practical limit is browser memory — millions of values work fine. Quartile computation is O(n log n) (sort).
+
+</details>
+
+## Tips
+
+- When mean and median diverge significantly, the data is skewed — investigate the tail.
+- Always include sample size (n) when reporting any of these stats — without n, they're hard to interpret.
+- For inference (significance tests, confidence intervals), use a dedicated tool — descriptive stats only describe; they don't test hypotheses.
+- Outlier detection at 1.5 × IQR is a convention, not a rule. For strict outliers, use 3 × IQR or domain-specific thresholds.
+
+## Try it now
+
+The full statistics runs in your browser at **[https://ztools.zaions.com/statistics](https://ztools.zaions.com/statistics)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/statistics)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/statistics.mdx)*

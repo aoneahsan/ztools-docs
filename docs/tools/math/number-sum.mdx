@@ -1,0 +1,120 @@
+---
+id: number-sum
+title: "Sum Numbers Online — Add a List, Free, Browser-Only"
+description: "Sum a list of numbers instantly. Handles decimals, negatives, scientific notation. Plus running total. No upload."
+sidebar_label: "number-sum"
+keywords:
+  - "sum numbers online"
+  - "add list of numbers"
+  - "total calculator"
+  - "cumulative sum tool"
+  - "sum csv column"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# number-sum
+
+Summing a list adds every number together — basic arithmetic at scale. Useful for totalling a CSV column, verifying an invoice total, computing cumulative totals, or quickly checking a budget. The ZTools Sum Numbers tool accepts numbers in any common format (line-separated, comma-separated, JSON), runs in the browser, and shows total plus stats (count, mean, min, max, running total per row).
+
+<ToolCTA toolId="number-sum" toolName="number-sum" />
+
+## Use cases
+
+### Total a spreadsheet column
+
+Pasted a column of expenses to verify the spreadsheet's total formula. Sum tool gives a second opinion in 2 seconds.
+
+### Verify an invoice
+
+Multiple line items; a stated total. Sum the line items independently — does it match? Catches typo / formula errors.
+
+### Track running total
+
+Cumulative budget across months: paste month-by-month spend, get cumulative spend at each step.
+
+### Sum filtered data
+
+After filtering a CSV in another tool, paste the filtered column to sum just those rows.
+
+## How it works
+
+1. **Paste numbers** — Any common format. Mixed line / CSV / JSON works.
+2. **Configure** — Skip blanks, skip non-numeric, treat empty as 0, parse percents (50% → 0.5).
+3. **Sum** — Walks values, accumulates total. Floating-point precision handled with care for finance.
+4. **Read** — Total + count + mean + min/max + (optional) cumulative running total per row.
+
+## Examples
+
+**Input:** [1, 2, 3, 4, 5]
+
+**Output:** Sum: 15. Count: 5. Mean: 3. Min: 1. Max: 5.
+
+---
+
+**Input:** ["10.5", "−5", "0.05"]
+
+**Output:** Sum: 5.55. Mixed signs and decimals handled.
+
+---
+
+**Input:** "Q1: 1000\\nQ2: 1200\\nQ3: 950\\nQ4: 1100"
+
+**Output:** Tool extracts numerics: [1000, 1200, 950, 1100]. Sum: 4250 (total annual). Cumulative: [1000, 2200, 3150, 4250].
+
+## Frequently asked questions
+
+<details>
+<summary>**Why might the sum differ slightly from a spreadsheet?**</summary>
+
+Floating-point. JavaScript numbers are double-precision floats — 0.1 + 0.2 = 0.30000000000000004, not 0.3. For exact financial arithmetic, use a decimal library; for everyday sums, the difference is invisible.
+
+</details>
+
+<details>
+<summary>**Can I sum specific rows?**</summary>
+
+Filter your data first (in Excel / a CSV tool), paste only the rows you want.
+
+</details>
+
+<details>
+<summary>**How are non-numeric entries handled?**</summary>
+
+Default: skipped with a warning. Toggle "treat empty as 0" or "fail on non-numeric" depending on use case.
+
+</details>
+
+<details>
+<summary>**Maximum list size?**</summary>
+
+Millions in seconds. Browser memory is the only limit.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For financial work, format input to consistent decimal places to avoid floating-point surprises.
+- For cumulative totals, the "running total per row" output gives every intermediate step — useful for budget tracking.
+- When the total differs from the spreadsheet by a tiny fraction, suspect floating-point — use the Excel ROUND function before summing.
+- For sum of products (a × b summed), use a spreadsheet — this tool sums a single list.
+
+## Try it now
+
+The full number-sum runs in your browser at **[https://ztools.zaions.com/number-sum](https://ztools.zaions.com/number-sum)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/number-sum)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/number-sum.mdx)*

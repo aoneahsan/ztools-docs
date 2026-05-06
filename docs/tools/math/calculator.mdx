@@ -1,0 +1,122 @@
+---
+id: calculator
+title: "Online Calculator — Scientific & Basic Math, Free Browser Calculator"
+description: "Free online calculator. Basic arithmetic plus scientific functions: sin/cos/tan, log, ln, exponents, square root, parentheses. Works offline."
+sidebar_label: "calculator"
+keywords:
+  - "online calculator"
+  - "scientific calculator"
+  - "browser calculator"
+  - "free calculator"
+  - "expression calculator"
+  - "math calculator"
+  - "pemdas calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# calculator
+
+An online calculator performs arithmetic and scientific operations directly in your browser without installing anything, supporting basic math (+, −, ×, ÷), parentheses, exponents, square roots, trigonometric functions (sin, cos, tan), logarithms (log, ln), and common constants (π, e). The ZTools Calculator handles full expression parsing — type "(3 + 4) × sin(45°) ÷ √2" and get the answer in one shot — keeps a running history of recent calculations, supports keyboard shortcuts, and works offline once loaded.
+
+<ToolCTA toolId="calculator" toolName="calculator" />
+
+## Use cases
+
+### Quick math during a meeting or call
+
+Open a tab, type the expression, get the answer. Faster than launching the OS calculator app, and the history shows what you computed in case you need it twice.
+
+### Engineering and physics homework
+
+Trig, logs, and unit conversions in one place. Express a complete formula like "0.5 × 9.81 × t²" and step through values of t without re-typing.
+
+### On-site work without a calculator app
+
+A Chromebook, a borrowed laptop, a kiosk — any browser becomes a scientific calculator. No install, no permissions needed.
+
+### Teaching expression evaluation order
+
+Students see PEMDAS in action by editing parentheses and watching the result change. Useful for learning operator precedence.
+
+## How it works
+
+1. **Type or click an expression** — Numbers, operators, parentheses, function names. Click buttons for touch input or type for keyboard speed.
+2. **The expression is parsed safely** — A math expression parser (not eval) tokenizes the input, applies PEMDAS, and computes the result. Invalid expressions show an error highlighting the bad token.
+3. **Read the answer instantly** — Result appears as you type. Press Enter or click = to commit it to history.
+4. **Reuse history** — Recent results stay in a side panel. Click any past result to insert it into the current expression — useful for chained calculations.
+
+## Examples
+
+**Input:** (3 + 4) × 2
+
+**Output:** 14
+
+---
+
+**Input:** sin(30°) + cos(60°)
+
+**Output:** 1.0
+
+---
+
+**Input:** √144 + log(1000)
+
+**Output:** 15
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this a scientific calculator?**</summary>
+
+Yes — it supports trig (sin, cos, tan, asin, acos, atan), logs (log = log₁₀, ln = natural log), exponents (^), square root (√), constants (π, e), and full expression parsing with parentheses.
+
+</details>
+
+<details>
+<summary>**Does it use degrees or radians for trig?**</summary>
+
+Default is degrees, with a toggle for radians. Use the appropriate mode for your context — most homework uses degrees, most physics uses radians.
+
+</details>
+
+<details>
+<summary>**Can it handle complex numbers or matrices?**</summary>
+
+No — for those use the dedicated Matrix Calculator and Expression Evaluator tools, which support more advanced math.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Yes — once the page loads, all calculation runs in JavaScript in your browser. Install ZTools as a PWA for offline access.
+
+</details>
+
+<details>
+<summary>**How is order of operations handled?**</summary>
+
+Standard PEMDAS: parentheses, exponents, multiplication and division (left-to-right), addition and subtraction (left-to-right). Use parentheses if in doubt — the parser respects them strictly.
+
+</details>
+
+## Tips
+
+- Use Ans (or up-arrow) to reuse the previous result without retyping.
+- For scientific notation, type 6.022e23 — equivalent to 6.022 × 10²³.
+- When mixing degrees and radians, prefer parentheses and explicit conversion — sin(π/6) in radians, sin(30°) in degrees.
+- Use parentheses generously — they're free and prevent operator-precedence bugs.
+
+## Try it now
+
+The full calculator runs in your browser at **[https://ztools.zaions.com/calculator](https://ztools.zaions.com/calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/calculator.mdx)*

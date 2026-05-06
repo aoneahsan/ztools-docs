@@ -1,0 +1,139 @@
+---
+id: expression-evaluator
+title: "Math Expression Evaluator — Free, Browser-Only"
+description: "Evaluate any math expression with parentheses, operators, functions, variables. Like a programmable calculator. Browser-only."
+sidebar_label: "expression-evaluator"
+keywords:
+  - "math expression evaluator"
+  - "formula calculator online"
+  - "algebraic expression solver"
+  - "parse math expression"
+  - "expression parser tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# expression-evaluator
+
+A math expression evaluator parses and computes any algebraic expression: 2 + 3 × (4 − 1), sin(π/4), log(100), x² + 3x + 5 with x = 2. More flexible than a basic calculator because it supports operator precedence, parentheses, named functions (sin, cos, tan, log, ln, sqrt, abs, floor, ceil, round, exp, factorial), and variables you define. The ZTools Expression Evaluator uses a deterministic parser (no eval — safe), runs in the browser, and shows intermediate steps for debugging.
+
+<ToolCTA toolId="expression-evaluator" toolName="expression-evaluator" />
+
+## Use cases
+
+### Quick calculation with parentheses
+
+Evaluate (1 + 0.05)^10 × 1000 — a compound-interest formula. Faster than typing into a basic calc with manual order tracking.
+
+### Plug variables into a formula
+
+Define x = 5, evaluate x² + 3x + 5. Result: 45. Re-evaluate with x = 10: result 135. No re-typing the formula.
+
+### Verify a physics formula
+
+KE = ½mv² with m = 2, v = 3 → 9. Calculator confirms.
+
+### Convert between expression styles
+
+A formula written with text (sin x cos y) gets re-rendered with explicit parens (sin(x) × cos(y)) for clarity.
+
+## How it works
+
+1. **Type expression** — Text input accepting operators (+, −, ×, ÷, ^, %), functions (sin, cos, ...), and variables.
+2. **Define variables** — Optional table of (name, value) pairs. Used for substitution before evaluation.
+3. **Pick angle unit** — Radians (default for math) or degrees (for engineering / school).
+4. **Evaluate** — Parser tokenises → builds AST → evaluates. Result shown with configurable precision.
+
+## Examples
+
+**Input:** 2 + 3 × 4
+
+**Output:** 14 (operator precedence: × before +).
+
+---
+
+**Input:** (2 + 3) × 4
+
+**Output:** 20 (parentheses force order).
+
+---
+
+**Input:** sin(π/4)
+
+**Output:** 0.7071... — equals √2/2. With degrees mode: sin(45°) = 0.7071.
+
+---
+
+**Input:** x² + 3x + 5 with x=2
+
+**Output:** 4 + 6 + 5 = 15.
+
+---
+
+**Input:** 5! × C(4,2)
+
+**Output:** 120 × 6 = 720.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this safe vs eval()?**</summary>
+
+eval() runs arbitrary JavaScript. This evaluator parses tokens against a strict grammar — only known operators / functions / variables get evaluated. No code execution risk.
+
+</details>
+
+<details>
+<summary>**What functions are supported?**</summary>
+
+sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, log (base 10), ln (natural log), exp, sqrt, cbrt, abs, floor, ceil, round, factorial (!), C(n,r), P(n,r), max, min, mod.
+
+</details>
+
+<details>
+<summary>**Does it support symbolic math?**</summary>
+
+No — numeric only. For symbolic algebra (factor, integrate, solve), use Wolfram Alpha or SymPy.
+
+</details>
+
+<details>
+<summary>**Variable scope?**</summary>
+
+Variables persist within a session; clear or redefine as needed.
+
+</details>
+
+<details>
+<summary>**Precision?**</summary>
+
+JavaScript double-precision floats — about 15 significant digits.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All computation in browser.
+
+</details>
+
+## Tips
+
+- Use parentheses generously — even when not strictly required, they improve readability and reduce errors.
+- For engineering work, set angle unit to degrees before any trig calls — radians is the math default.
+- Define commonly-used constants as variables (g = 9.81, c = 299792458) for repeated use.
+- For symbolic results (e.g. π exactly, not 3.14159...), use Wolfram Alpha — this tool returns numeric only.
+
+## Try it now
+
+The full expression-evaluator runs in your browser at **[https://ztools.zaions.com/expression-evaluator](https://ztools.zaions.com/expression-evaluator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/expression-evaluator)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/expression-evaluator.mdx)*

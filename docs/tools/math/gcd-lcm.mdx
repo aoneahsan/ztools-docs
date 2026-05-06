@@ -1,0 +1,122 @@
+---
+id: gcd-lcm
+title: "GCD & LCM Calculator — Greatest Common Divisor, Least Common Multiple (Free)"
+description: "Find GCD and LCM of two or more integers using the Euclidean algorithm. Shows step-by-step work and prime factorization. Free."
+sidebar_label: "gcd-lcm"
+keywords:
+  - "gcd calculator"
+  - "lcm calculator"
+  - "greatest common divisor"
+  - "least common multiple"
+  - "euclidean algorithm"
+  - "gcd lcm tool"
+  - "free math tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# gcd-lcm
+
+A GCD and LCM calculator finds the greatest common divisor (largest integer that divides every input without remainder) and the least common multiple (smallest integer divisible by every input) for two or more integers, using the Euclidean algorithm for fast computation. The ZTools GCD/LCM Calculator handles 2 to 100 inputs, shows the step-by-step Euclidean reduction so students can verify each modulo step, displays the prime factorizations of all inputs, and applies the identity GCD(a,b) × LCM(a,b) = a × b for two-input cases.
+
+<ToolCTA toolId="gcd-lcm" toolName="gcd-lcm" />
+
+## Use cases
+
+### Reducing fractions to lowest terms
+
+Simplify 84/120: GCD(84,120) = 12, so 84/120 = 7/10. The calculator shows the work and the simplified fraction.
+
+### Adding fractions with unlike denominators
+
+To add 1/6 + 1/8, find LCM(6,8) = 24. Then 1/6 = 4/24 and 1/8 = 3/24; sum = 7/24. The calculator gives the LCM in one click.
+
+### Scheduling repeating events
+
+Bus A comes every 12 minutes, Bus B every 15. They'll arrive together every LCM(12,15) = 60 minutes. Useful for cron schedules and recurring meetings.
+
+### Number theory and abstract algebra
+
+Bezout coefficients, Diophantine equations, modular arithmetic — all rely on GCD. The extended Euclidean output supports these tasks.
+
+## How it works
+
+1. **Enter two or more integers** — Comma-separated. Negative inputs are allowed (their absolute value is used). Zero is allowed but special-cased: GCD(0, n) = n; LCM with 0 is 0.
+2. **Euclidean algorithm runs for GCD** — GCD(a, b) = GCD(b, a mod b), recursing until b = 0. For more than two inputs, GCD is computed iteratively: GCD(a,b,c) = GCD(GCD(a,b), c).
+3. **LCM derived from GCD** — LCM(a, b) = |a × b| ÷ GCD(a, b). Iterative for more inputs: LCM(a,b,c) = LCM(LCM(a,b), c).
+4. **Read the result and the work** — GCD, LCM, prime factorizations, and the step-by-step Euclidean reduction. All copyable.
+
+## Examples
+
+**Input:** GCD(48, 60)
+
+**Output:** 12
+
+---
+
+**Input:** LCM(12, 15, 20)
+
+**Output:** 60
+
+---
+
+**Input:** GCD(84, 120)
+
+**Output:** 12, prime factorization: 84 = 2² × 3 × 7, 120 = 2³ × 3 × 5; common = 2² × 3 = 12.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is the Euclidean algorithm different from prime factorization?**</summary>
+
+Both find the GCD. Prime factorization: factor each number and multiply common primes. Euclidean: repeatedly take remainders until zero. Euclidean is dramatically faster for large numbers — it's O(log min(a,b)) vs factorization which can be exponential.
+
+</details>
+
+<details>
+<summary>**What's the relationship between GCD and LCM?**</summary>
+
+For two positive integers: GCD(a,b) × LCM(a,b) = a × b. So if you know one, you can compute the other. Doesn't generalize to three or more numbers.
+
+</details>
+
+<details>
+<summary>**Why is GCD(0, n) defined as n?**</summary>
+
+Because n divides both 0 and n, and no larger integer divides n. The Euclidean algorithm terminates here: GCD(n, 0) = n is the base case.
+
+</details>
+
+<details>
+<summary>**How do I find GCD by hand for big numbers?**</summary>
+
+Repeated subtraction or modulo: GCD(a,b) = GCD(b, a mod b). Example: GCD(252, 105) = GCD(105, 42) = GCD(42, 21) = GCD(21, 0) = 21. Each step is fast.
+
+</details>
+
+<details>
+<summary>**When is the GCD 1?**</summary>
+
+When the numbers are coprime — share no common factor other than 1. Example: GCD(8, 9) = 1. Coprimality is important in cryptography (RSA modular arithmetic).
+
+</details>
+
+## Tips
+
+- GCD distributes over multiplication: GCD(ka, kb) = k × GCD(a, b). Useful for simplifying complex expressions.
+- For three or more numbers, computing pairwise then combining is the standard approach.
+- Coprime ↔ GCD = 1 ↔ LCM = a × b. Three different ways to say the same thing.
+- The extended Euclidean algorithm also returns Bezout coefficients (x, y such that ax + by = GCD), used in modular inverses.
+
+## Try it now
+
+The full gcd-lcm runs in your browser at **[https://ztools.zaions.com/gcd-lcm](https://ztools.zaions.com/gcd-lcm)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/gcd-lcm)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/gcd-lcm.mdx)*

@@ -1,0 +1,122 @@
+---
+id: discount-calculator
+title: "Discount Calculator — Sale Price, Savings, Stacked Coupons (Free)"
+description: "Calculate sale prices, % off, and savings instantly. Stack coupons, factor in tax, see the \"real\" final price. Free shopping calculator."
+sidebar_label: "discount-calculator"
+keywords:
+  - "discount calculator"
+  - "sale price calculator"
+  - "percent off calculator"
+  - "savings calculator"
+  - "coupon stack calculator"
+  - "shopping calculator"
+  - "free discount tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# discount-calculator
+
+A discount calculator computes the sale price after a percentage or fixed-amount discount, shows how much you save, and optionally stacks coupons or adds sales tax to give the actual amount you'll pay at checkout. The ZTools Discount Calculator handles single discounts ("30% off $129"), stacked discounts ("30% off then extra 10% off with code"), fixed-dollar coupons ("$15 off"), and adds sales tax for the post-tax total — preventing the "this looks cheaper than it is" surprise at the register.
+
+<ToolCTA toolId="discount-calculator" toolName="discount-calculator" />
+
+## Use cases
+
+### Shopping during a sale
+
+See the final price of every item you're considering: original $89, 40% off, plus 5% extra with coupon → $50.69 before tax. Helps decide which deal is actually worth the trip.
+
+### Comparing two competing discounts
+
+Store A: 25% off, no tax. Store B: 30% off, 8% tax. Run both through the calculator and compare the actual checkout total — sometimes the higher headline discount is worse.
+
+### Black Friday and Cyber Monday math
+
+Stacked promotions ("30% off + extra 10% off + $20 off orders over $100") compound in tricky ways. The calculator applies them in order so the final price is accurate.
+
+### Wholesale and bulk pricing
+
+A vendor offers "buy 5, get 15% off; buy 10, get 25% off". Plug in quantities to see which tier produces the lowest unit cost.
+
+## How it works
+
+1. **Enter the original price** — The pre-discount listed price. Decimals (e.g., $99.99) work fine.
+2. **Apply the discount** — Pick percentage (e.g., 30%) or fixed amount (e.g., $20 off). The sale price and savings render instantly.
+3. **Stack a second discount if any** — Coupons usually stack on top of the sale price, not the original. The calculator applies them in the order you enter them.
+4. **Add tax for the checkout total** — Optional: enter your local sales tax rate to see the final amount you'll actually pay.
+
+## Examples
+
+**Input:** $129 at 30% off
+
+**Output:** Sale price: $90.30 | You save: $38.70
+
+---
+
+**Input:** $200, 25% off, then $20 coupon, 7% tax
+
+**Output:** After 25% off: $150 | After $20 coupon: $130 | After 7% tax: $139.10
+
+---
+
+**Input:** $45 at 40% off + 10% additional
+
+**Output:** After 40%: $27 | After extra 10%: $24.30
+
+## Frequently asked questions
+
+<details>
+<summary>**Are stacked discounts the same as added discounts?**</summary>
+
+No. "30% + 10%" stacked applies the 10% to the already-discounted price, not the original. So $100 at 30% off = $70, then 10% off = $63 (37% off original), not $60 (40% off).
+
+</details>
+
+<details>
+<summary>**How do I calculate percentage off when only the sale price is shown?**</summary>
+
+Use the formula 1 − (sale ÷ original). $50 sale on $80 original = 1 − 0.625 = 37.5% off. The calculator has a "find % off" mode for this reverse calculation.
+
+</details>
+
+<details>
+<summary>**Should I include tax when comparing prices?**</summary>
+
+Yes, especially when comparing across states or online vs in-store. A 25% off sale in a 9% tax state can cost the same as a 30% off sale in a 0% tax state.
+
+</details>
+
+<details>
+<summary>**Do "buy one get one" (BOGO) deals show up here?**</summary>
+
+A BOGO is effectively 50% off when you buy two of the same item. For 2-for-1 or BOGO 50% off, calculate the per-unit cost and use the discount calculator on that.
+
+</details>
+
+<details>
+<summary>**Why does "20% off" sometimes show as more than "$10 off"?**</summary>
+
+Depends on the original price. 20% off $40 = $8 saved, less than $10. 20% off $60 = $12, more than $10. The calculator does the math so you can pick the better of the two.
+
+</details>
+
+## Tips
+
+- Coupon code stacking order matters — always apply percentage discounts first, then fixed-dollar coupons, then tax.
+- Free shipping thresholds: sometimes adding a small item to hit free shipping beats paying the shipping fee.
+- "Up to X% off" usually means a few items at that level and most at smaller discounts — verify per item.
+- Membership pricing (Costco, Sam's Club) needs the membership fee divided across purchases to find true savings.
+
+## Try it now
+
+The full discount-calculator runs in your browser at **[https://ztools.zaions.com/discount-calculator](https://ztools.zaions.com/discount-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/discount-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/discount-calculator.mdx)*

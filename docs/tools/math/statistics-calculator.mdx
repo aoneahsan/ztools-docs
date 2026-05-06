@@ -1,0 +1,122 @@
+---
+id: statistics-calculator
+title: "Statistics Calculator — Mean, Median, Mode, Standard Deviation (Free)"
+description: "Compute mean, median, mode, range, variance, standard deviation, and quartiles for any dataset. Paste numbers, get full summary. Free."
+sidebar_label: "statistics-calculator"
+keywords:
+  - "statistics calculator"
+  - "mean median mode calculator"
+  - "standard deviation calculator"
+  - "variance calculator"
+  - "descriptive statistics"
+  - "quartile calculator"
+  - "free stats tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# statistics-calculator
+
+A statistics calculator computes descriptive statistics — measures of central tendency (mean, median, mode), spread (range, variance, standard deviation), and position (quartiles, percentiles) — for a list of numerical data points pasted as a comma- or newline-separated list. The ZTools Statistics Calculator accepts any size dataset, computes both sample and population variants of variance/standard deviation, returns sorted output, and visualizes the distribution as a five-number summary so users can quickly see central values and outliers.
+
+<ToolCTA toolId="statistics-calculator" toolName="statistics-calculator" />
+
+## Use cases
+
+### Analyzing test scores or survey data
+
+Paste 50 student scores; instantly see class average, median, the spread (standard deviation), and which scores are outliers. Saves opening Excel for a quick check.
+
+### Quality control measurements
+
+A batch of 200 manufactured parts measured to 4 decimals. Mean and standard deviation reveal whether the process is in spec; outliers flag defects.
+
+### Statistics homework and exam prep
+
+Students paste a textbook dataset, see all the standard descriptive stats, and verify their hand calculations. Helpful for learning where formula mistakes happen.
+
+### A/B test result quick checks
+
+Two groups of conversion data — quickly compute the means and SDs to see if there's a meaningful difference before running a full statistical test.
+
+## How it works
+
+1. **Paste your data** — Numbers separated by commas, spaces, or newlines. Decimals OK. Negative numbers OK. The parser auto-detects the separator.
+2. **The calculator parses and sorts** — Invalid entries are flagged. Sorted ascending for median and quartile calculations.
+3. **Read the descriptive statistics** — Count, sum, min, max, range, mean, median, mode (with multimodal detection), Q1, Q3, IQR, variance, standard deviation (sample + population).
+4. **Inspect the five-number summary** — Min / Q1 / median / Q3 / max — the basis of a box plot. Quickly reveals skew and the spread of the middle 50% of data.
+
+## Examples
+
+**Input:** 12, 15, 17, 18, 22, 24, 27, 30
+
+**Output:** Mean: 20.625 | Median: 20 | Range: 18 | Sample SD: 6.41 | Population SD: 6.00
+
+---
+
+**Input:** 5, 5, 6, 7, 8, 9, 10
+
+**Output:** Mean: 7.14 | Median: 7 | Mode: 5 | SD: 1.95
+
+---
+
+**Input:** 100 random integers 1-100
+
+**Output:** Mean ≈ 50 | SD ≈ 28.9 | Range 1-99
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between sample and population standard deviation?**</summary>
+
+Sample SD divides by (n−1) and is used when your data is a sample of a larger population. Population SD divides by n and is used when you have the entire population. For most real data the sample SD is correct; the calculator shows both.
+
+</details>
+
+<details>
+<summary>**When should I use mean vs median?**</summary>
+
+Mean is the arithmetic average; sensitive to outliers. Median is the middle value; robust to outliers. For income or home prices (skewed by extreme high values), median is more representative. For symmetric data, mean is fine.
+
+</details>
+
+<details>
+<summary>**What does standard deviation tell me?**</summary>
+
+How spread out the data is around the mean. Low SD = values cluster near the mean; high SD = values are far from the mean. For normal distributions, ~68% of data falls within 1 SD of the mean and ~95% within 2 SDs.
+
+</details>
+
+<details>
+<summary>**How are quartiles calculated?**</summary>
+
+Q1 is the median of the lower half of the sorted data; Q3 is the median of the upper half. There are several conventions for handling odd-length data; the calculator uses the "exclusive" method (Excel default).
+
+</details>
+
+<details>
+<summary>**What if my data has no mode?**</summary>
+
+If all values appear with the same frequency, the dataset has no mode (or technically every value is a mode). The calculator notes "no mode" for such data and shows multiple modes when bimodal/multimodal.
+
+</details>
+
+## Tips
+
+- For skewed data, report median + IQR rather than mean + SD — it's more representative.
+- Standard deviation in different units? Use coefficient of variation (SD ÷ mean) for unitless comparison.
+- Outliers are typically points beyond Q1 − 1.5×IQR or Q3 + 1.5×IQR. Investigate them before removing.
+- For small samples (n &lt; 30), inferential statistics (t-tests, confidence intervals) need different formulas than the descriptive stats here.
+
+## Try it now
+
+The full statistics-calculator runs in your browser at **[https://ztools.zaions.com/statistics-calculator](https://ztools.zaions.com/statistics-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/statistics-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/statistics-calculator.mdx)*

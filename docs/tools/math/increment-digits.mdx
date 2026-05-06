@@ -1,0 +1,92 @@
+---
+id: increment-digits
+title: "Increment Digits Online — Free, Browser-Only"
+description: "Increment every digit in a number by 1. 12345 → 23456. Useful for puzzles and tests. Browser-only."
+sidebar_label: "increment-digits"
+keywords:
+  - "increment digits online"
+  - "add 1 to each digit"
+  - "digit increment tool"
+  - "number digit puzzle"
+  - "modify each digit"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# increment-digits
+
+Incrementing each digit of a number adds 1 to every digit independently — 12345 becomes 23456. Digits at 9 wrap to 0 by default (or 10 in non-wrap mode, expanding the number). Useful for puzzles, simple obfuscation, and digit-pattern exercises. The ZTools Increment Digits tool handles both wrap and non-wrap modes, supports negative numbers, and works on lists for bulk operations.
+
+<ToolCTA toolId="increment-digits" toolName="increment-digits" />
+
+## Use cases
+
+### Generate test variants
+
+A number is 12345; need similar test values. Increment digits gives 23456 — same length, different digits.
+
+### Simple obfuscation
+
+Show modified version of a number for visual reference without exposing original. Reversible by decrement.
+
+### Number puzzles
+
+Recreational math: increment digits, observe patterns.
+
+## How it works
+
+1. **Paste number** — Single number or list (one per line).
+2. **Pick wrap mode** — 9 → 0 (wrap, length unchanged) or 9 → 10 (no wrap, length grows by 1 per 9).
+3. **Apply** — Each digit incremented independently.
+
+## Examples
+
+**Input:** 12345 (wrap)
+
+**Output:** 23456.
+
+---
+
+**Input:** 99 (wrap)
+
+**Output:** 00.
+
+---
+
+**Input:** 99 (no wrap)
+
+**Output:** 1010 (each 9 → 10, expanding by 1 char each).
+
+## Frequently asked questions
+
+<details>
+<summary>**Use cases?**</summary>
+
+Mostly recreational / puzzle / curiosity. Not a real cryptographic operation.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Wrap mode preserves length — useful for fixed-width fields.
+- Non-wrap mode grows the number — useful for puzzles where 9→10 carries make sense.
+
+## Try it now
+
+The full increment-digits runs in your browser at **[https://ztools.zaions.com/increment-digits](https://ztools.zaions.com/increment-digits)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/increment-digits)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/increment-digits.mdx)*

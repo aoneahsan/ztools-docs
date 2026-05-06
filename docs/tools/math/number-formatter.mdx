@@ -1,0 +1,126 @@
+---
+id: number-formatter
+title: "Number Formatter — Currency, Percent, Scientific, Free"
+description: "Format numbers as currency ($1,234.56), percent (12.5%), scientific (1.5E+06), or custom. Multi-locale. Browser-only."
+sidebar_label: "number-formatter"
+keywords:
+  - "number formatter online"
+  - "currency formatter"
+  - "percent formatter"
+  - "scientific notation formatter"
+  - "compact number format"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# number-formatter
+
+A number formatter turns a raw number into a styled string — currency ($1,234.56), percent (12.5%), scientific notation (1.50e+06), engineering notation (1.50M), or custom (format-string driven). Useful when downstream systems need a specific shape, when localising for international audiences, or when generating reports with consistent formatting. The ZTools Number Formatter wraps the browser's Intl.NumberFormat API plus a custom format-string engine, supports 100+ locales, and runs entirely client-side.
+
+<ToolCTA toolId="number-formatter" toolName="number-formatter" />
+
+## Use cases
+
+### Generate localised currency strings
+
+Same value, different locales: $1,234.56 (US), £1,234.56 (UK), 1.234,56 € (DE), ¥1,235 (JP). One source, many outputs.
+
+### Format dashboard numbers compactly
+
+"$1,234,567" doesn't fit; "$1.23M" does. Compact notation gives readable summary tiles.
+
+### Format percentages
+
+0.125 → 12.5%. Standard for displaying ratios and conversion rates.
+
+### Scientific notation for engineering
+
+0.000000123 → 1.23 × 10⁻⁷. Easier to read at a glance for orders-of-magnitude work.
+
+## How it works
+
+1. **Paste number** — Single value or list. Tool detects format.
+2. **Pick style** — Decimal (1,234.56), currency, percent, scientific, engineering, or compact (1.23M).
+3. **Configure** — Locale, currency code (USD, GBP, EUR, ...), decimal places, sign style.
+4. **Read output** — Formatted string — ready to paste into a report, UI mockup, or code.
+
+## Examples
+
+**Input:** 1234.56, currency USD
+
+**Output:** $1,234.56 (en-US). $1,234.56 USD (en-CA). USD 1,234.56 (de-DE forced USD).
+
+---
+
+**Input:** 0.125, percent
+
+**Output:** 12.5%.
+
+---
+
+**Input:** 1500000, compact
+
+**Output:** 1.5M (en) / 1,5 Mio. (de) / 150万 (ja). Locale-aware abbreviations.
+
+---
+
+**Input:** 0.0000123, scientific
+
+**Output:** 1.23E-5 / 1.23 × 10⁻⁵.
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the difference between compact and scientific?**</summary>
+
+Compact uses locale abbreviations (M, K, B). Scientific uses powers of 10. Compact is for casual reading; scientific for precision and engineering.
+
+</details>
+
+<details>
+<summary>**How do I choose decimals?**</summary>
+
+Default is 2 (currency) or "as-needed" (decimal). Lock to specific count for consistency in tables. Don't round below the precision you need to communicate.
+
+</details>
+
+<details>
+<summary>**Locale support?**</summary>
+
+All Intl.NumberFormat-supported locales (~100+). Major ones cover ~99% of use cases.
+
+</details>
+
+<details>
+<summary>**Custom format strings?**</summary>
+
+Toggle "custom" to use printf-style format: "%.2f%%" → "12.50%". Familiar to Excel / SQL / Python users.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For dashboards, prefer compact notation — saves space without losing meaning at a glance.
+- For finance / accounting, lock decimal places. "$1,234.5" and "$1,234.50" should never appear in the same report.
+- For percentages, use the percent style not "x × 100 + %" — locale-aware percent style handles RTL languages and unusual locales correctly.
+- When integrating with code, use Intl.NumberFormat directly — this tool is for one-off / prototyping use.
+
+## Try it now
+
+The full number-formatter runs in your browser at **[https://ztools.zaions.com/number-formatter](https://ztools.zaions.com/number-formatter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/number-formatter)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/number-formatter.mdx)*

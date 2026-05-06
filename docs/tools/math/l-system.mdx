@@ -1,0 +1,99 @@
+---
+id: l-system
+title: "L-System Generator — Lindenmayer Fractals, Free"
+description: "Generate L-system fractals. Define rules, iterate, render. Trees, snowflakes, dragon curves. Browser-only."
+sidebar_label: "l-system"
+keywords:
+  - "l-system generator"
+  - "lindenmayer fractal"
+  - "koch snowflake generator"
+  - "fractal grammar tool"
+  - "turtle graphics fractal"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# l-system
+
+L-systems (Lindenmayer systems) are formal grammars that produce fractal patterns through string rewriting. Starting with an axiom (e.g. "F"), each iteration replaces every symbol with a rule (e.g. F → F+F-F-F+F). After N iterations, the resulting string drives a turtle graphics engine to draw the pattern. L-systems model many natural forms — trees, snowflakes, ferns, neural networks. Famous examples: Koch snowflake, Sierpinski triangle, dragon curve, fractal plants. The ZTools L-System Generator lets you define axiom + rules + angle, runs iterations, and renders the result in SVG.
+
+<ToolCTA toolId="l-system" toolName="l-system" />
+
+## Use cases
+
+### Generative art
+
+Tweak rules to produce wildly different fractals. Each combination is unique.
+
+### Teach grammar / formal languages
+
+L-systems are simple context-free grammars. Visual feedback makes the abstract concrete.
+
+### Procedural generation in games
+
+Trees, plants, terrain features procedurally generated via L-systems.
+
+### Mathematical curiosity
+
+See the Koch snowflake, dragon curve, fractal tree all from a few rules.
+
+## How it works
+
+1. **Define axiom** — Starting string (e.g. "F").
+2. **Define rules** — Replacement rules (e.g. F → F+F-F-F+F). Multiple rules per symbol if you want stochastic L-systems.
+3. **Set parameters** — Iterations (5-8 typical), angle (e.g. 90° for Koch), step length.
+4. **Render** — Tool runs iterations, then draws via turtle graphics: F = forward, + = turn left, - = turn right, [ = push state, ] = pop state.
+
+## Examples
+
+**Input:** Koch snowflake: axiom F, rule F → F+F--F+F, angle 60°, 4 iterations
+
+**Output:** Iconic snowflake-edge fractal.
+
+---
+
+**Input:** Dragon curve: axiom FX, rules X→X+YF+, Y→-FX-Y, angle 90°, 12 iterations
+
+**Output:** Self-similar curve resembling a dragon.
+
+---
+
+**Input:** Fractal plant: axiom X, rules X→F+[[X]-X]-F[-FX]+X, F→FF, angle 25°
+
+**Output:** Tree-like plant. Resembles a real fern.
+
+## Frequently asked questions
+
+<details>
+<summary>**How many iterations?**</summary>
+
+Each iteration multiplies string length by the rule's expansion factor. After 8-10 iterations, strings get massive (millions of characters). Tool caps at reasonable rendering.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- Start with classic examples (Koch, dragon, plant) to understand the mechanics.
+- For your own designs, tweak one rule at a time — small changes produce dramatic differences.
+- For posters, use SVG export — vector scales infinitely.
+- L-system rules are notation-sensitive — extra spaces or capitalisation matter.
+
+## Try it now
+
+The full l-system runs in your browser at **[https://ztools.zaions.com/l-system](https://ztools.zaions.com/l-system)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/l-system)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/l-system.mdx)*

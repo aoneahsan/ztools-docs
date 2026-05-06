@@ -1,0 +1,122 @@
+---
+id: fibonacci
+title: "Fibonacci Sequence Generator — Nth Term & Series (Free)"
+description: "Generate the Fibonacci sequence to any length, find the nth Fibonacci number, and see the golden ratio convergence. Free, fast."
+sidebar_label: "fibonacci"
+keywords:
+  - "fibonacci sequence generator"
+  - "fibonacci calculator"
+  - "nth fibonacci"
+  - "golden ratio"
+  - "fibonacci series"
+  - "zeckendorf representation"
+  - "free math tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# fibonacci
+
+A Fibonacci sequence generator produces the famous series in which each number is the sum of the two preceding ones (0, 1, 1, 2, 3, 5, 8, 13, 21…) and computes the nth Fibonacci number directly using either iterative addition or fast-doubling matrix exponentiation. The ZTools Fibonacci Generator supports sequences up to 10,000 terms, computes the nth term up to F(1,000,000) using BigInt arithmetic, displays the golden ratio convergence (F(n+1) ÷ F(n) → φ ≈ 1.618), and shows the Zeckendorf representation of any number as a sum of non-consecutive Fibonacci numbers.
+
+<ToolCTA toolId="fibonacci" toolName="fibonacci" />
+
+## Use cases
+
+### Math homework on sequences and series
+
+Students see the first 30 terms instantly and verify recurrence calculations. The golden ratio convergence becomes visible by row 10 or so.
+
+### Programming exercises and algorithm benchmarks
+
+Compute F(100) without writing a recursion that overflows the stack. Useful for testing memoization, BigInt support, and performance.
+
+### Trading and Fibonacci retracement levels
+
+Traders use Fibonacci ratios (38.2%, 50%, 61.8%) on price charts. The ratios come from the sequence itself; the generator shows where they originate.
+
+### Music, art, and design proportions
+
+The golden ratio appears in compositions and aesthetic ratios. Generate a few terms, compute the ratio, and apply it to layouts (1:1.618 grids).
+
+## How it works
+
+1. **Pick a mode** — "Sequence" generates the first N terms; "Nth term" computes F(n) directly without listing the rest.
+2. **Enter a length or index** — Sequence: 1 to 10,000 terms. Nth term: 0 to 1,000,000.
+3. **The algorithm runs** — For sequences and small N, simple iterative addition. For large N, fast-doubling: F(2n) and F(2n+1) computed from F(n) and F(n+1) — O(log n) instead of O(n).
+4. **Read the result** — The sequence as a copyable list, or the nth term in full BigInt precision. Optional: display each term's ratio to the previous (converges to φ).
+
+## Examples
+
+**Input:** First 10 terms
+
+**Output:** 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+
+---
+
+**Input:** F(50)
+
+**Output:** 12,586,269,025
+
+---
+
+**Input:** F(100)
+
+**Output:** 354,224,848,179,261,915,075
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the formula for Fibonacci numbers?**</summary>
+
+Recursive: F(n) = F(n-1) + F(n-2), with F(0) = 0 and F(1) = 1. Closed-form (Binet's formula): F(n) = (φⁿ − ψⁿ) ÷ √5, where φ = (1+√5)/2 ≈ 1.618 and ψ = (1−√5)/2.
+
+</details>
+
+<details>
+<summary>**Why does the ratio of consecutive terms approach φ?**</summary>
+
+As n grows, F(n+1)/F(n) → φ because Binet's formula is dominated by the φⁿ term (ψⁿ shrinks toward 0 since |ψ| &lt; 1). By F(20)/F(19), the ratio matches φ to 4 decimals.
+
+</details>
+
+<details>
+<summary>**Is Fibonacci really common in nature?**</summary>
+
+Some genuine cases: pinecones, sunflower seed spirals, leaf arrangements (phyllotaxis). Many claimed examples are exaggerated. The sequence does emerge from optimal packing under certain growth rules.
+
+</details>
+
+<details>
+<summary>**How fast can you compute large Fibonacci numbers?**</summary>
+
+Naive recursion: O(2ⁿ) — F(40) takes seconds. Iterative: O(n). Fast-doubling: O(log n) — F(1,000,000) computed in under a second with BigInt arithmetic.
+
+</details>
+
+<details>
+<summary>**What's Zeckendorf's representation?**</summary>
+
+Every positive integer can be uniquely represented as a sum of non-consecutive Fibonacci numbers. E.g., 100 = 89 + 8 + 3 = F(11) + F(6) + F(4). Useful in coding theory and computer science.
+
+</details>
+
+## Tips
+
+- For F(n) where n &gt; 80, JavaScript Number loses precision — always use BigInt.
+- The Fibonacci word, formed by replacing each F(n) with letters, has interesting fractal properties.
+- The Lucas sequence (2, 1, 3, 4, 7, 11…) is Fibonacci's "sibling" — same recurrence, different start.
+- Fibonacci-style heaps and Fibonacci search are real algorithms used in optimization.
+
+## Try it now
+
+The full fibonacci runs in your browser at **[https://ztools.zaions.com/fibonacci](https://ztools.zaions.com/fibonacci)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/fibonacci)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/fibonacci.mdx)*

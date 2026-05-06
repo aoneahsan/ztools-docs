@@ -1,0 +1,122 @@
+---
+id: prime-checker
+title: "Prime Number Checker — Test Primality & Factor Composites (Free)"
+description: "Test whether any number is prime, and if not, see its prime factorization. Handles numbers up to 10^15 with Miller-Rabin. Free."
+sidebar_label: "prime-checker"
+keywords:
+  - "prime checker"
+  - "prime number test"
+  - "primality test"
+  - "prime factorization"
+  - "miller-rabin"
+  - "is prime calculator"
+  - "free prime tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# prime-checker
+
+A prime number checker tests whether a given positive integer is prime — divisible only by 1 and itself — and for composites, returns the full prime factorization. The ZTools Prime Checker uses trial division for small numbers and the deterministic Miller-Rabin primality test for large numbers up to 10¹⁵, making it instant for typical inputs and fast even for 15-digit values that would take a naive algorithm minutes.
+
+<ToolCTA toolId="prime-checker" toolName="prime-checker" />
+
+## Use cases
+
+### Cryptography and number theory study
+
+RSA and other public-key systems rely on the difficulty of factoring large primes. Students experiment with primes of various sizes to understand why a 2048-bit key is hard to crack.
+
+### Math homework — prime factorization
+
+Students enter 360 and see 2³ × 3² × 5. The factorization breakdown teaches the method and verifies hand calculations.
+
+### Programming exercise validation
+
+Algorithm-practice problems often involve primes. Validate "is 982451653 prime?" without writing your own primality test.
+
+### Generating large prime test cases
+
+Need a prime around 10¹²? Increment until the checker says yes. Useful for unit-test fixtures and benchmark inputs.
+
+## How it works
+
+1. **Enter a positive integer** — Any value from 2 up to 10¹⁵ (1 quadrillion). Numbers larger than that are still tested but slower; numbers under 2 are not prime by definition.
+2. **The checker picks an algorithm** — Up to ~10⁶: trial division is fastest. Above that: deterministic Miller-Rabin with carefully chosen witnesses guarantees correctness up to 3.3 × 10¹⁴.
+3. **Read the verdict** — Either "Prime" or "Composite". For composites, the full prime factorization is returned (e.g., 360 = 2³ × 3² × 5).
+4. **See nearby primes** — For composites, the next prime above and the previous prime below are also shown — handy for "find a prime near N" tasks.
+
+## Examples
+
+**Input:** 17
+
+**Output:** Prime
+
+---
+
+**Input:** 360
+
+**Output:** Composite — 2³ × 3² × 5
+
+---
+
+**Input:** 982451653
+
+**Output:** Prime
+
+## Frequently asked questions
+
+<details>
+<summary>**What's the definition of a prime number?**</summary>
+
+A natural number greater than 1 that has exactly two divisors: 1 and itself. So 2, 3, 5, 7, 11, 13… are prime. 1 is not prime by convention; 0 and negative numbers aren't prime by definition.
+
+</details>
+
+<details>
+<summary>**How does the Miller-Rabin test work?**</summary>
+
+It picks random "witnesses" and checks an algebraic identity that all primes satisfy. A composite has a high chance of failing for at least one witness. With carefully chosen deterministic witnesses, the test is provably correct for all integers up to 3.3 × 10¹⁴.
+
+</details>
+
+<details>
+<summary>**Why is 1 not prime?**</summary>
+
+The unique factorization theorem states every integer &gt; 1 has a unique prime factorization. If 1 were prime, you could include any number of 1s in the factorization, breaking uniqueness. So mathematicians defined 1 as neither prime nor composite.
+
+</details>
+
+<details>
+<summary>**How fast can primes be tested?**</summary>
+
+For numbers below 10¹⁵, milliseconds. For arbitrary 1024-bit numbers (RSA key territory), Miller-Rabin still runs in milliseconds with very high probability of correctness.
+
+</details>
+
+<details>
+<summary>**Are there infinitely many primes?**</summary>
+
+Yes — Euclid proved this around 300 BC. The proof is by contradiction: assume a finite list, multiply them, add 1, the result has a prime factor not in the list. The Prime Number Theorem refines this to estimate density.
+
+</details>
+
+## Tips
+
+- For "is this prime?" tests up to 10⁹, trial division up to √n is enough.
+- A number ending in 0, 2, 4, 5, 6, or 8 (other than 2 and 5) is never prime.
+- Sum of digits: divisible by 3 → number divisible by 3 → not prime (except 3 itself).
+- For cryptographic primes (256-bit and up), use a vetted library — never roll your own.
+
+## Try it now
+
+The full prime-checker runs in your browser at **[https://ztools.zaions.com/prime-checker](https://ztools.zaions.com/prime-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/prime-checker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/prime-checker.mdx)*

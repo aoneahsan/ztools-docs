@@ -1,0 +1,104 @@
+---
+id: enumerate-integers
+title: "Enumerate Integers — Generate Sequence in Range, Free"
+description: "List every integer in a range. Configurable step, format, separator. Browser-only — no signup."
+sidebar_label: "enumerate-integers"
+keywords:
+  - "enumerate integers online"
+  - "generate integer range"
+  - "list numbers in range"
+  - "integer sequence tool"
+  - "range list generator"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# enumerate-integers
+
+Enumerating integers produces every integer in a range — 1 to 100, or 1 to 1000 by 5s, or even -10 to 10. Useful for generating test cases, building dropdown options, populating arrays, and quick data fixtures. The ZTools Enumerate Integers tool generates ranges of arbitrary size with configurable step, format (comma list, line list, JSON), and separator.
+
+<ToolCTA toolId="enumerate-integers" toolName="enumerate-integers" />
+
+## Use cases
+
+### Build a dropdown of years
+
+Range 1900-2030 by 1 — 130 entries. Output as &lt;option&gt; elements ready to paste.
+
+### Test case ranges
+
+For loop tests over [-100, 100]; generator outputs the list.
+
+### Pagination URLs
+
+page=1, 2, 3, ..., 100. Generator builds the list.
+
+### Quick array seeding
+
+1000 sequential IDs for test data. Easy to generate.
+
+## How it works
+
+1. **Set range** — Start, end, step. Step can be negative (descending) or non-1 (e.g. multiples of 5).
+2. **Pick format** — Comma list (1, 2, 3), line list, JSON array, range syntax.
+3. **Generate** — Output as text. Copy or download.
+
+## Examples
+
+**Input:** 1 to 10
+
+**Output:** 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+
+---
+
+**Input:** 0 to 100 by 5
+
+**Output:** 0, 5, 10, ..., 100.
+
+---
+
+**Input:** 10 to 1 (descending)
+
+**Output:** 10, 9, 8, ..., 1.
+
+## Frequently asked questions
+
+<details>
+<summary>**Maximum range?**</summary>
+
+Browser memory caps at ~10M entries before clipboard / display gets sluggish. For multi-million ranges, prefer scripted generation.
+
+</details>
+
+<details>
+<summary>**How is this different from number-sequence?**</summary>
+
+Number-sequence supports arithmetic / geometric / Fibonacci / primes. Enumerate-integers is the simplest case (constant step).
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser.
+
+</details>
+
+## Tips
+
+- For dropdowns, output as &lt;option value="N"&gt;N&lt;/option&gt; format — paste-ready.
+- For descending ranges, use negative step.
+- For performance, prefer compact list format (no separator) over JSON for large ranges.
+
+## Try it now
+
+The full enumerate-integers runs in your browser at **[https://ztools.zaions.com/enumerate-integers](https://ztools.zaions.com/enumerate-integers)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/enumerate-integers)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/enumerate-integers.mdx)*

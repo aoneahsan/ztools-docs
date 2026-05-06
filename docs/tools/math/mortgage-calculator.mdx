@@ -1,0 +1,122 @@
+---
+id: mortgage-calculator
+title: "Mortgage Calculator — Monthly Payment, Interest & Amortization (Free)"
+description: "Calculate monthly mortgage payment from loan amount, rate, and term. See total interest, payoff date, and full amortization schedule. Free."
+sidebar_label: "mortgage-calculator"
+keywords:
+  - "mortgage calculator"
+  - "monthly mortgage payment"
+  - "amortization calculator"
+  - "home loan calculator"
+  - "refinance calculator"
+  - "mortgage interest calculator"
+  - "free mortgage tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# mortgage-calculator
+
+A mortgage calculator computes the monthly payment on a fixed-rate home loan using the standard amortization formula, and breaks down each payment into principal vs interest across the full loan term. The ZTools Mortgage Calculator takes loan amount, annual interest rate, and term in years, then returns the monthly payment, total interest paid, total amount paid, and a month-by-month amortization schedule — letting buyers see the true cost of a loan before signing the closing documents.
+
+<ToolCTA toolId="mortgage-calculator" toolName="mortgage-calculator" />
+
+## Use cases
+
+### Shopping for a home within budget
+
+Try $400k vs $450k vs $500k at today's rate. The $50k difference might add $250 to the monthly payment or $90,000 in lifetime interest — numbers that make a big difference at offer time.
+
+### Comparing 15-year vs 30-year mortgages
+
+A 30-year loan has a smaller monthly payment but ~2× the lifetime interest of a 15-year. The calculator shows both side-by-side so the trade-off is visible.
+
+### Deciding whether to refinance
+
+Enter the current loan vs the offered refinance terms. Compare monthly savings against closing costs to see how many months until you break even.
+
+### Planning extra principal payments
+
+Toggle "extra principal $200/mo" — see how many years come off the term and how much total interest you save. Concrete motivation to round up payments.
+
+## How it works
+
+1. **Enter loan amount, rate, and term** — Loan amount is the principal you borrow, not the home price. Rate is the annual percentage rate (APR). Term is years (typically 15 or 30).
+2. **Calculator applies the amortization formula** — Monthly payment = P × r(1+r)ⁿ ÷ ((1+r)ⁿ − 1), where P = principal, r = monthly rate, n = total months. Same formula your bank uses.
+3. **Read monthly payment + summary** — Monthly principal + interest is shown. Add property tax and insurance separately for the full PITI payment. Total interest and total paid are summarized.
+4. **Inspect the amortization table** — Each month shows the split between interest and principal. Early in the loan most of the payment is interest; the ratio flips around the midpoint of the term.
+
+## Examples
+
+**Input:** $400,000 loan, 6.5% rate, 30 years
+
+**Output:** Monthly: $2,528.27 | Total interest: $510,177 | Total paid: $910,178
+
+---
+
+**Input:** $400,000 loan, 6.5% rate, 15 years
+
+**Output:** Monthly: $3,484.85 | Total interest: $227,272 | Total paid: $627,272
+
+---
+
+**Input:** $300,000 loan, 5.0%, 30 years
+
+**Output:** Monthly: $1,610.46 | Total interest: $279,766
+
+## Frequently asked questions
+
+<details>
+<summary>**Does this include property tax and insurance?**</summary>
+
+No — this calculator shows principal and interest only. Property tax, homeowners insurance, HOA dues, and PMI must be added on top to get your full PITI monthly payment. Most lenders escrow these.
+
+</details>
+
+<details>
+<summary>**Why is so much of my early payment going to interest?**</summary>
+
+Mortgage interest accrues on the remaining balance. In month 1 of a $400k 30-year loan at 6.5%, you owe interest on the full $400k — about $2,167. The first month, only ~$361 reduces principal. The ratio gradually flips as the balance shrinks.
+
+</details>
+
+<details>
+<summary>**Should I take a 15-year or 30-year mortgage?**</summary>
+
+15-year: lower total interest (often half), faster equity build, higher monthly payment. 30-year: lower monthly payment, more cash flow flexibility, but ~2× total interest. Pick based on your cash-flow comfort and other investment opportunities.
+
+</details>
+
+<details>
+<summary>**How much does an extra $200/month do?**</summary>
+
+On a $400k 30-year loan at 6.5%, an extra $200/month cuts the loan by ~6 years and saves ~$120,000 in interest. Use the "extra payment" toggle to see your specific scenario.
+
+</details>
+
+<details>
+<summary>**Is the calculation the same for adjustable-rate mortgages (ARM)?**</summary>
+
+No — this calculator assumes a fixed rate for the full term. ARMs reset periodically; you'd need to recalculate at each reset using the new rate and remaining balance.
+
+</details>
+
+## Tips
+
+- A 0.5% rate change on a $400k 30-year loan is ~$130/month and ~$45,000 in lifetime interest. Lock rates carefully.
+- Round-up extra payments (paying $2,600 instead of $2,528) chip away at the principal and shave years off the term.
+- Always compare APR, not just the headline rate — APR includes most lender fees.
+- Even one extra payment per year (13 instead of 12) cuts a 30-year loan to ~26 years.
+
+## Try it now
+
+The full mortgage-calculator runs in your browser at **[https://ztools.zaions.com/mortgage-calculator](https://ztools.zaions.com/mortgage-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/mortgage-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/mortgage-calculator.mdx)*
