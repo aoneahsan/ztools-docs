@@ -1,0 +1,130 @@
+---
+id: roi-calculator
+title: "ROI Calculator — Return on Investment, Annualised, Compound"
+description: "Calculate ROI: simple, annualised, CAGR. Investment cost, gain, holding period. Free, in-browser, no signup."
+sidebar_label: "roi-calculator"
+keywords:
+  - "roi calculator"
+  - "return on investment"
+  - "cagr calculator"
+  - "investment return calculator"
+  - "annualised return"
+  - "free roi calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# roi-calculator
+
+A return-on-investment (ROI) calculator measures the profit of an investment as a percentage of the cost — the simple formula `(net gain / cost) × 100%` — and (more usefully for multi-year holdings) the annualised return / CAGR (compound annual growth rate) `(end value / start value)^(1/years) − 1`, which lets you compare investments held for different periods on equal footing. The ZTools ROI Calculator runs entirely in the browser, supports both simple and CAGR modes, accepts intermediate cash flows for IRR-style scenarios (approximation), and is the right starting point for evaluating real-estate flips, stock holdings, business ventures, and side projects.
+
+<ToolCTA toolId="roi-calculator" toolName="roi-calculator" />
+
+## Use cases
+
+### Comparing two stock holdings
+
+Stock A: bought $5K, sold $7K after 3 years. Stock B: bought $5K, sold $6K after 1 year. Simple ROI says A wins (40% vs 20%); CAGR says B wins (20% vs 11.9%). The right metric depends on the question.
+
+### Real estate flip
+
+Bought house for $200K + $30K rehab; sold for $280K. ROI = ($280K − $230K) / $230K = 21.7%. Annualise by holding period for fair comparison to other investments.
+
+### Side-project or business investment
+
+Initial cost $10K, gross profit over 18 months $14K. ROI = 40% simple; CAGR ≈ 25% annualised.
+
+### Marketing campaign
+
+Spent $5K on ads, attributed $20K in net revenue. Marketing ROI = 300%. Useful for budget allocation.
+
+## How it works
+
+1. **Enter investment cost** — Initial cash outlay. Include all costs (purchase price + fees + improvements).
+2. **Enter end value** — Sale price net of selling costs, OR current value if still holding.
+3. **Enter holding period** — For annualised return / CAGR. Skip for simple ROI.
+4. **Compute** — Simple ROI: (end − cost) / cost. CAGR: (end / cost)^(1/years) − 1. Both shown.
+5. **Interpret** — Compare to benchmarks: stock-market average ~10%, savings ~4%. Your ROI vs alternative use of capital is the real comparison.
+
+## Examples
+
+**Input:** Cost $10K, end value $15K, 3 years
+
+**Output:** Simple ROI 50% · CAGR ≈ 14.5% per year
+
+---
+
+**Input:** Cost $50K (including $5K fees), sold $80K, 5 years
+
+**Output:** Simple ROI 60% · CAGR ≈ 9.86%
+
+---
+
+**Input:** Marketing campaign: spent $5K, generated $20K profit
+
+**Output:** ROI 300%
+
+## Frequently asked questions
+
+<details>
+<summary>**When should I use simple ROI vs CAGR?**</summary>
+
+Simple ROI for "did this make money overall?". CAGR for comparing to other investments — annualises the return so a 1-year and 10-year holding can be fairly compared.
+
+</details>
+
+<details>
+<summary>**Should I include opportunity cost?**</summary>
+
+For sophisticated analysis, yes. The proper comparison is "ROI vs ROI of next-best alternative use of capital". Simple ROI alone can flatter losing investments.
+
+</details>
+
+<details>
+<summary>**How do I handle dividends or rental income?**</summary>
+
+Add total cash distributions to the gain. So end value + dividends − cost = net gain. The calculator supports this via the cash-flow input.
+
+</details>
+
+<details>
+<summary>**Does it handle inflation?**</summary>
+
+Returns nominal ROI. To get real ROI, subtract expected inflation (e.g., 3%) from CAGR.
+
+</details>
+
+<details>
+<summary>**What is a "good" ROI?**</summary>
+
+Depends on risk. Low-risk savings ~4–5% beats inflation. Stock market average ~10% nominal. High-risk angel investments may target 30%+ — but lose 50% of the time.
+
+</details>
+
+<details>
+<summary>**Can it compute IRR?**</summary>
+
+Approximately for equal-period cash flows. True IRR (irregular cash flows over time) needs a more advanced tool.
+
+</details>
+
+## Tips
+
+- Always include all costs (fees, taxes, improvements) — partial cost inputs flatter the ROI.
+- For multi-year holdings, prefer CAGR over simple ROI for fair comparison.
+- Compare to a benchmark (S&P 500 over the same period) — beating it consistently is harder than it looks.
+- Account for risk — a 20% return on volatile crypto and a 20% return on a savings account are not comparable.
+- For business investments, factor in your time as a cost — many "high ROI" side projects pay below minimum wage when time is included.
+
+## Try it now
+
+The full roi-calculator runs in your browser at **[https://ztools.zaions.com/roi-calculator](https://ztools.zaions.com/roi-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/roi-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/roi-calculator.mdx)*

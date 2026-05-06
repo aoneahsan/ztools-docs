@@ -1,0 +1,131 @@
+---
+id: loan-calculator
+title: "Loan Calculator — Payment, Interest, Total Cost for Any Loan"
+description: "Calculate loan payment, total interest, total cost, and amortisation. Compare loan offers side-by-side. Free."
+sidebar_label: "loan-calculator"
+keywords:
+  - "loan calculator"
+  - "loan payment calculator"
+  - "amortisation schedule"
+  - "compare loan offers"
+  - "loan total cost"
+  - "free loan calculator"
+  - "apr calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# loan-calculator
+
+A loan calculator computes the monthly payment, total interest paid over the term, and total cost (principal + interest) for any standard amortising loan — mortgages, auto loans, personal loans, student loans — given principal, annual rate, and term. The ZTools Loan Calculator runs in the browser, supports side-by-side comparison of two or three offers, generates the full amortisation schedule, models extra payments to show interest savings, and surfaces the total-cost-of-credit perspective that monthly-payment thinking alone hides.
+
+<ToolCTA toolId="loan-calculator" toolName="loan-calculator" />
+
+## Use cases
+
+### Comparing two mortgage offers
+
+20-year vs 30-year fixed at slightly different rates. Both monthly payments and total interest matter; calculator shows both.
+
+### Sizing a personal loan
+
+Based on a max monthly payment you can afford, work backward to the maximum principal that fits your budget at quoted rate / term.
+
+### Refinancing analysis
+
+Existing loan at 7% vs refinance offer at 5% with $2,000 closing costs. Calculator computes break-even point in months.
+
+### Auto loan term tradeoff
+
+60-month vs 72-month — longer term lowers payment but increases total interest. See the tradeoff numerically.
+
+## How it works
+
+1. **Enter loan parameters** — Principal, annual rate (APR), term (months or years).
+2. **Compute payment** — Standard amortisation: P × r × (1+r)^n / ((1+r)^n − 1) where r is monthly rate.
+3. **Show totals** — Monthly payment, total interest, total cost.
+4. **Compare offers** — Side-by-side panel: monthly payment, total interest, total cost, break-even point if there are upfront costs.
+5. **Model extra payments** — Add a recurring or one-time prepayment; see new term and interest saved.
+
+## Examples
+
+**Input:** $300,000, 6%, 30 years
+
+**Output:** Monthly $1,799 · Total interest $347,515 · Total $647,515
+
+---
+
+**Input:** Same loan, $200/month extra
+
+**Output:** New term 24 yr 4 mo · Saves $84,000 in interest
+
+---
+
+**Input:** $25,000 auto, 7%, 5 years
+
+**Output:** Monthly $495 · Total interest $4,702
+
+## Frequently asked questions
+
+<details>
+<summary>**What is APR vs interest rate?**</summary>
+
+Interest rate is the cost of borrowing only. APR includes lender fees and closing costs spread over the term. APR is the more honest comparison metric for loan offers.
+
+</details>
+
+<details>
+<summary>**Is monthly payment the right comparison?**</summary>
+
+No — total cost over the loan is what matters. A lower payment over a much longer term often costs vastly more. Always look at total interest.
+
+</details>
+
+<details>
+<summary>**How do I model variable rates?**</summary>
+
+Default is fixed rate. For variable, run the calculator at the initial rate; once the rate adjusts, recompute with the then-outstanding balance and remaining term.
+
+</details>
+
+<details>
+<summary>**Are closing costs included?**</summary>
+
+Not by default. Add them to principal if you want a worst-case "total" or compare offers separately.
+
+</details>
+
+<details>
+<summary>**How are payments allocated to principal vs interest?**</summary>
+
+Each month: interest = balance × monthly rate. Principal = payment − interest. New balance = old balance − principal. Early-life payments are mostly interest; that flips later.
+
+</details>
+
+<details>
+<summary>**Should I always take the longest term for the lowest payment?**</summary>
+
+No — longer terms cost dramatically more total interest. Pick the shortest term you can afford comfortably; aggressive principal reduction beats payment minimisation.
+
+</details>
+
+## Tips
+
+- Compare total interest, not monthly payments.
+- Run the prepayment scenario — a small monthly extra often saves shocking amounts of total interest.
+- For mortgages, consider a 15-year vs 30-year — the rate is usually lower and the total cost dramatically less.
+- Always include closing costs / fees in the comparison — APR captures these.
+- Refinance break-even: divide closing costs by monthly savings — that is months to break even.
+
+## Try it now
+
+The full loan-calculator runs in your browser at **[https://ztools.zaions.com/loan-calculator](https://ztools.zaions.com/loan-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/loan-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/loan-calculator.mdx)*

@@ -1,0 +1,130 @@
+---
+id: video-subtitle-extractor
+title: "Video Subtitle Extractor — Extract SRT / VTT Subtitles"
+description: "Extract embedded subtitles from MKV / MP4 videos to SRT or VTT format. Free, in-browser, no upload."
+sidebar_label: "video-subtitle-extractor"
+keywords:
+  - "extract subtitles"
+  - "subtitle extractor"
+  - "mkv subtitle extractor"
+  - "srt extractor"
+  - "vtt extractor"
+  - "free subtitle tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# video-subtitle-extractor
+
+A video subtitle extractor pulls subtitle tracks (SRT, ASS, VTT) embedded in container formats like MKV and MP4 into standalone subtitle files, letting you edit, translate, re-time, or import them into other video tools. The ZTools Video Subtitle Extractor runs entirely in the browser via FFmpeg.wasm, supports MKV / MP4 / MOV / WebM inputs, lists every subtitle track with language metadata, lets you pick which to extract, and outputs SRT (universal) or VTT (web-friendly) files saved locally.
+
+<ToolCTA toolId="video-subtitle-extractor" toolName="video-subtitle-extractor" />
+
+## Use cases
+
+### Editing subtitles
+
+Found a typo or want to fix translation. Extract the subtitle track; edit in any text editor (it's plain text); re-import into the video.
+
+### Re-timing for re-encoded video
+
+After re-encoding a video at a different frame rate, original subtitles drift out of sync. Extract, re-time using a subtitle editor, re-embed.
+
+### Subtitle translation
+
+Translate the subtitle file into another language (manually, or via translation API). Single text file is far easier to translate than handling video inline.
+
+### Standalone subtitle archive
+
+Some media servers (Plex, Jellyfin) prefer standalone .srt files alongside videos. Extract once, store separately for cleaner library structure.
+
+## How it works
+
+1. **Upload video** — Drag-drop or pick. Tool inspects container metadata to enumerate subtitle tracks.
+2. **Pick subtitle track** — List shows index, language code (eng, spa, jpn), codec, and forced flag. Most videos have 0-3 subtitle tracks; some have 10+.
+3. **Choose output format** — SRT: universal, plain text, fully featured. VTT: web standard for HTML5 video, similar to SRT with optional styling. Pick based on destination.
+4. **Extract** — FFmpeg.wasm reads the track, demuxes the subtitle stream, writes the chosen format.
+5. **Download** — Subtitle file saves locally. Open in any text editor or import into video tools.
+
+## Examples
+
+**Input:** MKV with 3 subtitle tracks (English, Spanish, Japanese)
+
+**Output:** Pick English; download English.srt. Re-run for other languages.
+
+---
+
+**Input:** MP4 with embedded VTT subtitles
+
+**Output:** Direct extraction to .vtt; no transcoding needed.
+
+---
+
+**Input:** MKV with ASS subtitles (anime style with positioning)
+
+**Output:** Convert to SRT (loses positioning) or extract as ASS to preserve all styling.
+
+## Frequently asked questions
+
+<details>
+<summary>**What if my video has no embedded subtitles?**</summary>
+
+You cannot extract what is not there. For videos without embedded subtitles, use speech-to-text on the audio or AI subtitle services to generate them.
+
+</details>
+
+<details>
+<summary>**What is the difference between SRT and VTT?**</summary>
+
+SRT: text-only, universal across players. VTT: web standard, supports CSS styling, used by HTML5 &lt;track&gt;. Functionally similar for most content.
+
+</details>
+
+<details>
+<summary>**How do I re-embed edited subtitles?**</summary>
+
+Use a tool like MKVToolNix (desktop) to remux the video with the new subtitle file. The browser tool extracts; remuxing requires desktop.
+
+</details>
+
+<details>
+<summary>**Why are subtitles slightly off-sync?**</summary>
+
+Frame-rate mismatch between subtitle timing and video playback. Most subtitle editors have re-time tools (shift all by N seconds, or re-time at start + end).
+
+</details>
+
+<details>
+<summary>**Is the video uploaded?**</summary>
+
+No — FFmpeg.wasm processes in-browser. Privacy by design.
+
+</details>
+
+<details>
+<summary>**Can I extract burned-in subtitles?**</summary>
+
+No — burned-in subtitles are part of the video frames, not a separate track. Extracting them requires OCR over each frame; specialised tools exist for this.
+
+</details>
+
+## Tips
+
+- Inspect track metadata first — language tags help when there are multiple options. Extract the right track to save time.
+- SRT is the safest target format for editing; convert to VTT only when serving HTML5 video.
+- For style-rich subtitles (anime, opera), preserve as ASS / SSA — converting to SRT loses styling.
+- After editing, validate the timing in a subtitle editor — most editors flag overlap, gap, or out-of-bound timestamps.
+- For batch extraction across many files, scripted FFmpeg on desktop is faster than per-file browser uploads.
+
+## Try it now
+
+The full video-subtitle-extractor runs in your browser at **[https://ztools.zaions.com/video-subtitle-extractor](https://ztools.zaions.com/video-subtitle-extractor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/video-subtitle-extractor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/video-subtitle-extractor.mdx)*

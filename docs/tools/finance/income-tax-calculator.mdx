@@ -1,0 +1,130 @@
+---
+id: income-tax-calculator
+title: "Income Tax Calculator — Estimate Federal & State Tax (Educational)"
+description: "Estimate annual income tax based on bracketed rates. Federal/national + optional state/regional tier. Free, educational."
+sidebar_label: "income-tax-calculator"
+keywords:
+  - "income tax calculator"
+  - "tax bracket calculator"
+  - "federal tax calculator"
+  - "effective tax rate"
+  - "free tax calculator"
+  - "tax estimator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# income-tax-calculator
+
+An income tax calculator estimates annual income tax liability by applying a bracketed-rate schedule (taxable income falls into one or more brackets, each with its own marginal rate), with optional adjustments for standard deductions and a flat state / regional tier on top. The ZTools Income Tax Calculator runs entirely in the browser, ships with editable bracket templates for common jurisdictions (US, UK, India, EU member states, Pakistan), and is **strictly an educational estimator — actual tax depends on filing status, deductions, credits, capital gains, and many edge cases that vary by jurisdiction; consult a qualified tax professional for any real filing**.
+
+<ToolCTA toolId="income-tax-calculator" toolName="income-tax-calculator" />
+
+## Use cases
+
+### Take-home estimation before a salary negotiation
+
+A new offer comes in at $X gross. Estimate tax to know the rough net before committing.
+
+### Comparing job offers across states / countries
+
+Salary in California vs Texas vs UK — input each, factor in regional tax tiers, see real take-home.
+
+### Quarterly estimated tax payment ballpark
+
+Self-employed individuals project annual income; calculator gives a tax estimate for quarterly payment planning. (Real filings always need a tax professional.)
+
+### Educational purpose
+
+Students learning about progressive taxation see how marginal vs effective rates differ. Useful intro to fiscal policy.
+
+## How it works
+
+1. **Pick a bracket template** — US federal, UK, India, etc. Or enter custom brackets.
+2. **Enter gross income** — Annual taxable income before deductions.
+3. **Apply standard deduction** — Optional: subtract a flat deduction before bracket math.
+4. **Compute tax** — For each bracket: (taxable income in that bracket) × bracket rate. Sum across all brackets to get total federal tax.
+5. **Add regional tax (optional)** — Flat percentage for state / province / region. Sum with federal for total tax.
+
+## Examples
+
+**Input:** US single, $80,000 gross, 2025 brackets, $14,600 standard deduction
+
+**Output:** Taxable $65,400 · Federal tax ~$9,500 · Effective rate ~12% · Marginal rate 22%
+
+---
+
+**Input:** UK, £50,000 gross, default personal allowance
+
+**Output:** Taxable £37,430 · Income tax ~£7,486
+
+---
+
+**Input:** Custom 3-bracket schedule
+
+**Output:** Tax computed bracket-by-bracket; per-bracket allocation visible
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the IRS / HMRC accept this?**</summary>
+
+No — this is an educational estimator. For actual filings, use a qualified tax professional or government-approved software. The calculator does not handle deductions, credits, capital gains, foreign income, dependents, alternative minimum tax, or hundreds of edge cases.
+
+</details>
+
+<details>
+<summary>**What is the difference between marginal and effective tax rate?**</summary>
+
+Marginal rate is the bracket rate on your last dollar earned. Effective rate is total tax / gross income — almost always lower than marginal. Most people overestimate their tax burden by confusing the two.
+
+</details>
+
+<details>
+<summary>**Does it factor Social Security / National Insurance?**</summary>
+
+Not by default — those are separate calculations. Add them manually for full take-home pay (or use the Paycheck Calculator).
+
+</details>
+
+<details>
+<summary>**Are tax brackets up to date?**</summary>
+
+Templates ship with the most recent rates we have. Rates change annually; verify against the current published official schedule before relying on numbers.
+
+</details>
+
+<details>
+<summary>**How are capital gains handled?**</summary>
+
+Most jurisdictions tax them at different rates from ordinary income. The calculator only handles ordinary income brackets; for capital-gains complexity, use specialised software or a CPA.
+
+</details>
+
+<details>
+<summary>**Can I save my settings?**</summary>
+
+Custom bracket schedules can be saved locally in the browser for reuse.
+
+</details>
+
+## Tips
+
+- Use this for ballpark planning, never for actual filing.
+- Verify the bracket template matches the current tax year — rates change annually.
+- For self-employed / freelance, also factor in self-employment tax / NI / employer-equivalent contributions.
+- For high earners or complex situations, hire a CPA — they save more than they cost.
+- Reconcile this estimate with last year's actual return as a sanity check.
+
+## Try it now
+
+The full income-tax-calculator runs in your browser at **[https://ztools.zaions.com/income-tax-calculator](https://ztools.zaions.com/income-tax-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/income-tax-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/income-tax-calculator.mdx)*

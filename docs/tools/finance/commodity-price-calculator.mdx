@@ -1,0 +1,130 @@
+---
+id: commodity-price-calculator
+title: "Commodity Price Calculator — Convert Between Units & Currencies"
+description: "Convert commodity prices between units (oz, kg, ton, barrel, bushel) and currencies. Free, in-browser, no signup."
+sidebar_label: "commodity-price-calculator"
+keywords:
+  - "commodity price calculator"
+  - "commodity converter"
+  - "oz to gram converter"
+  - "bushel to ton converter"
+  - "oil barrel to litre"
+  - "free commodity calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# commodity-price-calculator
+
+A commodity price calculator converts a published commodity quote (e.g., gold at USD per troy ounce, oil at USD per barrel, wheat at USD per bushel) into other units (per gram, per kilogram, per ton, per litre) and other currencies, so traders, importers, exporters, and analysts can compare prices on consistent ground. The ZTools Commodity Price Calculator runs in the browser, includes the standard unit definitions for the major commodities (precious metals, energy, agricultural staples, base metals), supports custom densities for volume↔weight conversions on liquids, and is the canonical "what does that price mean in my unit" sanity-check tool.
+
+<ToolCTA toolId="commodity-price-calculator" toolName="commodity-price-calculator" />
+
+## Use cases
+
+### Comparing global price quotes
+
+A buyer in Europe sees USD/oz vs EUR/g. The calculator converts so the offer can be compared to the local benchmark.
+
+### Import / export costing
+
+A grain shipper paid in USD per bushel needs the per-ton equivalent for European customers. Quick conversion clears the ambiguity.
+
+### Educational analysis
+
+Demonstrating that "oil at $80/bbl" is "$0.50/litre" makes the consumer-level impact concrete.
+
+### Trader price-checking
+
+CTA / hedger wants the price per metric ton from a cents-per-bushel quote. Built-in conversion factors avoid manual error.
+
+## How it works
+
+1. **Pick the commodity** — Gold, silver, platinum, palladium, copper, aluminum, nickel, oil (WTI/Brent), gas, wheat, corn, soybeans, sugar, cotton, coffee.
+2. **Enter the source quote** — Price + unit + currency.
+3. **Pick target unit** — Per gram, kg, oz, troy oz, ton, metric ton, barrel, gallon, litre, bushel.
+4. **Pick target currency** — Major + emerging-market. Apply latest FX rate (manual input keeps the tool free of paid feeds).
+5. **Compute** — Conversion factor lookup + currency conversion. Returns the equivalent quote.
+
+## Examples
+
+**Input:** Gold $2,000/oz → USD/g
+
+**Output:** $2,000 / 31.1035 = $64.30/g
+
+---
+
+**Input:** Oil $80/bbl → USD/litre
+
+**Output:** $80 / 158.987 L = $0.503/L
+
+---
+
+**Input:** Wheat 700 ¢/bu → USD/ton
+
+**Output:** ($7.00 / 27.2155 kg) × 1000 = $257.21/ton
+
+## Frequently asked questions
+
+<details>
+<summary>**Why are commodity units so inconsistent?**</summary>
+
+Historical accident. Gold uses troy ounces (precious-metals tradition since the 13th century). Oil uses 42-gallon barrels (1860s petroleum industry). Grain uses bushels (Imperial volume measure). Modern reform attempts have largely failed.
+
+</details>
+
+<details>
+<summary>**How do volume↔weight conversions work for grain?**</summary>
+
+Each grain has a standard "test weight" — corn ~25.4 kg/bushel, wheat ~27.2 kg/bushel, soybeans ~27.2 kg/bushel. The calculator uses these defaults; override for specific grades.
+
+</details>
+
+<details>
+<summary>**Are the conversion factors exact?**</summary>
+
+For weight (oz, kg, ton) and volume (litre, gallon) yes — defined exactly by international standards. Grain test weights are approximate; oil density varies 5–10% across crude grades.
+
+</details>
+
+<details>
+<summary>**Why does the calculator need manual FX rates?**</summary>
+
+Live FX requires a paid feed. Manual entry keeps the tool free and lets you use whatever benchmark you prefer (interbank, retail, central-bank fixing).
+
+</details>
+
+<details>
+<summary>**Does it handle futures contracts?**</summary>
+
+No — only spot quotes. Futures involve contract specifications (deliverable grade, delivery month, exchange) that vary per contract.
+
+</details>
+
+<details>
+<summary>**Are agricultural conversions standard worldwide?**</summary>
+
+Mostly, but US bushel weights differ from imperial bushels. Always specify which standard the source quote uses.
+
+</details>
+
+## Tips
+
+- Always confirm the unit AND currency of any quote before comparing — half of "price differences" are unit-mismatches.
+- For grains, set the test weight per the source grade — defaults are averages.
+- For oil, specify whether the quote is WTI or Brent — price differences are real.
+- For currency conversions, use the same benchmark across all comparisons (do not mix retail FX with interbank).
+- Build a local snippets file of your frequent commodity quotes — one-click sanity check next time.
+
+## Try it now
+
+The full commodity-price-calculator runs in your browser at **[https://ztools.zaions.com/commodity-price-calculator](https://ztools.zaions.com/commodity-price-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/commodity-price-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/commodity-price-calculator.mdx)*

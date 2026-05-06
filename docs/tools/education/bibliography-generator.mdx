@@ -1,0 +1,131 @@
+---
+id: bibliography-generator
+title: "Bibliography Generator — Build Reference Lists in APA, MLA, Chicago"
+description: "Build, sort, and export full bibliographies in APA 7, MLA 9, Chicago, IEEE. Add multiple sources, copy as Word-ready text."
+sidebar_label: "bibliography-generator"
+keywords:
+  - "bibliography generator"
+  - "reference list generator"
+  - "apa bibliography"
+  - "mla works cited"
+  - "annotated bibliography tool"
+  - "chicago bibliography"
+  - "free bibliography maker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# bibliography-generator
+
+A bibliography generator is the multi-source extension of a citation generator: you add many sources, the tool stores them, and on demand it produces a sorted, correctly-formatted reference list in the style of your choice — ready to paste into the back of an essay or thesis. The ZTools Bibliography Generator runs entirely in the browser, supports APA 7, MLA 9, Chicago 17, IEEE, and Harvard, lets you import sources via DOI / ISBN lookup or manual entry, automatically alphabetises (or numbers, for IEEE), maintains hanging indents, and exports as plain text, BibTeX, RIS, or copy-paste-ready Word formatting.
+
+<ToolCTA toolId="bibliography-generator" toolName="bibliography-generator" />
+
+## Use cases
+
+### Thesis or dissertation reference list
+
+For a 60-source thesis, build the bibliography incrementally as research progresses, then export the final sorted list at submission time. No more end-of-project bibliography panic.
+
+### Annotated bibliography assignment
+
+Add each source with a 100–200 word annotation; export as a full annotated bibliography with citation + summary together — common in graduate coursework.
+
+### Switching between course assignments
+
+The same 30 sources reused across multiple papers in a semester — store once, reformat per assignment's style guide on demand.
+
+### Collaborative research projects
+
+Each team member contributes sources to a shared list; one canonical bibliography assembled at the end avoids duplicate entries and inconsistent formatting.
+
+## How it works
+
+1. **Pick output style** — APA 7, MLA 9, Chicago 17, IEEE, Harvard. Style choice affects sort order, in-text citation format, and field punctuation.
+2. **Add sources** — Manual entry or DOI / ISBN auto-populate. Each source stores raw metadata (CSL JSON internally) so style switches do not lose data.
+3. **Tag and annotate (optional)** — Add tags (chapter, theme) and annotations for annotated bibliographies. Filter / sort by tag during writing.
+4. **Generate the list** — Tool sorts alphabetically (APA / MLA / Chicago / Harvard) or numerically by appearance (IEEE), formats per style rules, and outputs ready-to-paste text.
+5. **Export** — Plain text for Word / Google Docs, BibTeX for LaTeX users, RIS for Zotero / Mendeley import, or HTML for web publishing.
+
+## Examples
+
+**Input:** 3 books + 2 journal articles + 1 website, APA 7
+
+**Output:** Sorted alphabetically by first author surname; 6 entries with hanging indent; in-text citation map (Smith, 2023; Lee & Patel, 2022; OpenAI, 2024).
+
+---
+
+**Input:** Same 6 sources switched to IEEE
+
+**Output:** Numbered [1]–[6] in order of first appearance; bracketed in-text references; commas replace ampersand; italicised book titles only.
+
+---
+
+**Input:** Annotated bibliography in Chicago notes-bibliography
+
+**Output:** Each entry followed by 100-word annotation; bibliography entries hanging-indented; sorted alphabetically.
+
+## Frequently asked questions
+
+<details>
+<summary>**Can I store sources across sessions?**</summary>
+
+Yes — sources persist in browser storage so you can build a bibliography over weeks. Export to BibTeX / RIS for cross-tool backup.
+
+</details>
+
+<details>
+<summary>**How does sort order differ between styles?**</summary>
+
+APA, MLA, Chicago, Harvard: alphabetical by first author surname. IEEE: numbered in order of first citation. Same source list yields very different ordering.
+
+</details>
+
+<details>
+<summary>**What about non-English sources?**</summary>
+
+Foreign-language titles use original language with optional English translation in brackets — supported in APA / Chicago. Diacritics preserved.
+
+</details>
+
+<details>
+<summary>**Can I produce both author-date and notes-bibliography Chicago?**</summary>
+
+Yes. Chicago supports both systems. Pick one when generating; the same metadata produces different in-text formats (parenthetical vs footnote).
+
+</details>
+
+<details>
+<summary>**How do I include the bibliography in LaTeX?**</summary>
+
+Export BibTeX (.bib), import via \\bibliography\{filename\} command, choose a bibliography style (e.g. apa.bst, ieeetr.bst) — done.
+
+</details>
+
+<details>
+<summary>**Is the output guaranteed to match my professor's rubric?**</summary>
+
+Style guides have edge cases. Always proofread before submission — especially capitalisation, italics, and DOI URL formatting.
+
+</details>
+
+## Tips
+
+- Build the bibliography in parallel with research — never as a final step.
+- Prefer DOI lookups over manual entry; metadata accuracy from CrossRef beats hand-typed fields.
+- Use tags / folders to scope sources to a specific paper when you have many sources across overlapping projects.
+- Export BibTeX even if you write in Word; you may need it later for a LaTeX-based journal submission.
+- Save a "master" bibliography across your degree; many students cite the same handful of canonical sources year after year.
+
+## Try it now
+
+The full bibliography-generator runs in your browser at **[https://ztools.zaions.com/bibliography-generator](https://ztools.zaions.com/bibliography-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/bibliography-generator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/bibliography-generator.mdx)*

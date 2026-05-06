@@ -1,0 +1,130 @@
+---
+id: audio-noise-reducer
+title: "Audio Noise Reducer — Remove Background Hiss & Hum"
+description: "Reduce background noise (hiss, hum, fan) from audio files. Spectral noise gate, free, browser-only."
+sidebar_label: "audio-noise-reducer"
+keywords:
+  - "audio noise reducer"
+  - "remove background noise"
+  - "noise gate audio"
+  - "audio cleanup tool"
+  - "free noise reduction"
+  - "audio denoiser"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# audio-noise-reducer
+
+An audio noise reducer suppresses background noise — fan hum, computer whirr, traffic, hiss, room reverb — from a recording, producing a cleaner voice or music track suitable for podcasts, video voice-overs, and shareable recordings. The ZTools Audio Noise Reducer runs entirely in the browser using a Web Audio API spectral noise gate, lets you sample a "noise-only" segment of the recording so the algorithm knows what to remove, supports adjustable strength (light to aggressive), and exports the cleaned audio as MP3 or WAV — without uploading the source file.
+
+<ToolCTA toolId="audio-noise-reducer" toolName="audio-noise-reducer" />
+
+## Use cases
+
+### Podcast / interview cleanup
+
+Recorded in a room with HVAC hum or laptop fan noise. The tool isolates and removes the constant background, leaving voice intact. Listeners notice less fatigue over a 30-minute episode.
+
+### Field-recording cleanup
+
+Outdoor recording with wind / traffic. Spectral noise reduction can recover some intelligibility lost to ambient noise (within limits — heavy noise destroys the underlying audio).
+
+### Voice-memo polish
+
+A voice memo recorded in a coffee shop. Light noise reduction removes the espresso machine without making the voice sound hollow.
+
+### Pre-transcription cleanup
+
+Speech-to-text engines accuracy drops sharply with background noise. A pre-transcription noise reduction can lift accuracy from 70% to 90%+.
+
+## How it works
+
+1. **Upload audio** — MP3 / WAV / OGG / M4A. Tool decodes to PCM in browser memory.
+2. **Identify noise sample** — Mark a 1-3 second region containing only background noise (no voice / music). Tool builds a spectral profile of "what to remove".
+3. **Apply noise gate** — For each FFT frame of the recording, frequencies matching the noise profile are attenuated below a threshold. Threshold is tunable (light / medium / aggressive).
+4. **Preview** — Listen to the result. Aggressive settings can introduce a "watery" artifact (musical noise); back off to medium if too obvious.
+5. **Export** — Download cleaned audio as MP3 or WAV. Original untouched.
+
+## Examples
+
+**Input:** 5-min podcast with HVAC hum, sample 2 sec of silence
+
+**Output:** Hum removed; voice intact. Light artifact only on aggressive setting.
+
+---
+
+**Input:** Interview with laptop fan whirr
+
+**Output:** Fan removed; voice clarity improves measurably; transcription accuracy up.
+
+---
+
+**Input:** Outdoor recording with wind gusts
+
+**Output:** Constant wind component reduced; gust transients harder to remove. Use a wind muff in field for best results.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why do I need to sample noise?**</summary>
+
+The algorithm needs to know what noise looks like spectrally before it can suppress it. Without a sample, it would also attenuate desired audio (music, voice) at the same frequencies.
+
+</details>
+
+<details>
+<summary>**What is "musical noise"?**</summary>
+
+An artifact of aggressive spectral noise reduction — residual noise becomes pitched bursts that sound watery / metallic. Caused by over-suppressing frequencies. Light settings avoid it; aggressive risks it.
+
+</details>
+
+<details>
+<summary>**Can I remove voices in the background?**</summary>
+
+No — voice has a complex, time-varying spectrum, similar to the foreground voice. The algorithm cannot separate two human voices reliably; that requires AI source separation (Demucs, SpleeT) which run on desktop.
+
+</details>
+
+<details>
+<summary>**How much noise can be removed?**</summary>
+
+Constant noise (hum, hiss, fan) ~10-25 dB suppression possible without obvious artifacts. Variable noise (people, music) much harder. Best result: avoid noisy recording in the first place.
+
+</details>
+
+<details>
+<summary>**Is the audio uploaded?**</summary>
+
+No — entirely client-side. Web Audio API processes in browser memory.
+
+</details>
+
+<details>
+<summary>**Why does my voice sound thin after reduction?**</summary>
+
+Aggressive setting attenuated voice frequencies that overlapped with noise frequencies. Reduce strength; or sample a quieter noise segment without voice resonance.
+
+</details>
+
+## Tips
+
+- Always record clean before relying on cleanup. Reduction recovers some quality but never restores what was masked.
+- Sample noise from a 2-3 second silent region with no voice — picking a region with breath or movement contaminates the profile.
+- Start with light reduction; bump up only if needed. Aggressive settings introduce more artifacts than mild noise.
+- For broadcast-quality results, follow noise reduction with EQ + compression to restore tonal balance.
+- Save a backup before processing — irreversible if you overwrite the source.
+
+## Try it now
+
+The full audio-noise-reducer runs in your browser at **[https://ztools.zaions.com/audio-noise-reducer](https://ztools.zaions.com/audio-noise-reducer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/audio-noise-reducer)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-noise-reducer.mdx)*

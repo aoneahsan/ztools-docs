@@ -1,0 +1,130 @@
+---
+id: body-fat-calculator
+title: "Body Fat Calculator — US Navy Method, BMI Method, Skinfolds"
+description: "Estimate body fat percentage with US Navy circumference method, BMI method, or skinfold inputs. Free, in-browser."
+sidebar_label: "body-fat-calculator"
+keywords:
+  - "body fat calculator"
+  - "us navy body fat"
+  - "body fat percentage"
+  - "jackson pollock skinfold"
+  - "free body fat calculator"
+  - "lean body mass calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# body-fat-calculator
+
+A body fat calculator estimates the percentage of your bodyweight that is adipose tissue using one of several proxy methods — circumference-based (US Navy), BMI-based (Deurenberg), or skinfold-based (Jackson-Pollock 3 or 7 site) — none as accurate as DEXA or hydrostatic weighing but useful for tracking direction over time. The ZTools Body Fat Calculator offers all three approaches, runs in the browser without storing personal data, frames every result as an estimate (the Navy method has a typical ±3% error band), and recommends using consistent methodology rather than chasing absolute precision.
+
+<ToolCTA toolId="body-fat-calculator" toolName="body-fat-calculator" />
+
+## Use cases
+
+### Tracking change during a cut
+
+Measure every 2–4 weeks with the same method; the trend is what matters, not the absolute number.
+
+### Setting a body-composition goal
+
+Athletes target sport-specific ranges (bodybuilders 6–10%, endurance runners 8–12% males / 14–20% females).
+
+### Distinguishing weight-loss from muscle-loss
+
+Plateaus on the scale can hide successful body recomposition. Combining weight + body-fat estimates separates the signals.
+
+### Pre-physical-exam preparation
+
+Some military / police applications use the Navy method as a screen — practice with the same inputs ahead of time.
+
+## How it works
+
+1. **Pick a method** — US Navy (waist + neck for men, plus hips for women), BMI-based (Deurenberg), or Jackson-Pollock skinfolds (3 or 7 sites).
+2. **Enter measurements** — For Navy: tape measure with no compression. For skinfolds: standardised pinch sites with a caliper.
+3. **Apply the formula** — Navy: log-based circumference equation per sex. Deurenberg: 1.20·BMI + 0.23·age − 10.8·sex − 5.4. Jackson-Pollock: density equations + Siri body-fat conversion.
+4. **Read the result** — Body-fat %, plus lean body mass, plus the ACE category (essential, athlete, fitness, average, obese).
+5. **Track over time** — Repeat measurements every 2–4 weeks under same conditions. Trend matters more than single readings.
+
+## Examples
+
+**Input:** Male, 30 yr, 180 cm, 80 kg, waist 85 cm, neck 38 cm (Navy)
+
+**Output:** Body fat ≈ 15.7% · LBM ≈ 67.5 kg · category: fitness
+
+---
+
+**Input:** Female, 30 yr, 165 cm, 65 kg, waist 75 cm, hips 95 cm, neck 33 cm (Navy)
+
+**Output:** Body fat ≈ 25% · LBM ≈ 49 kg · category: fitness
+
+---
+
+**Input:** Same male, BMI method (Deurenberg)
+
+**Output:** Body fat ≈ 18% — 2-3% higher than Navy is typical
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the US Navy method?**</summary>
+
+±3–4% on average. The error is consistent within a person measured the same way, so trend-tracking is reliable even when absolute number is not.
+
+</details>
+
+<details>
+<summary>**Which method is most accurate?**</summary>
+
+DEXA scan (clinical) and hydrostatic weighing are most accurate. Among DIY methods, calibrated skinfolds (7-site, experienced operator) ≈ Navy ≈ BMI for most users. None matches DEXA, but trend-tracking is reliable.
+
+</details>
+
+<details>
+<summary>**Why does my smart-scale BIA give a different number?**</summary>
+
+BIA is sensitive to hydration. Same scale at different times of day can show 5%+ swings. Use BIA only if always measured at the same time under same conditions.
+
+</details>
+
+<details>
+<summary>**What is "essential" vs "athlete" body fat?**</summary>
+
+ACE categories: men essential 2–5%, athletes 6–13%, fitness 14–17%, average 18–24%, obese 25%+. Women: essential 10–13%, athletes 14–20%, fitness 21–24%, average 25–31%, obese 32%+. Essential range is the minimum for health.
+
+</details>
+
+<details>
+<summary>**Can the Navy method work for very lean / very heavy people?**</summary>
+
+It loses accuracy at extremes. Bodybuilders below 8% and individuals above 35% should treat it as approximate.
+
+</details>
+
+<details>
+<summary>**Should I aim for the lowest possible body fat?**</summary>
+
+No — below essential ranges harms hormones, immunity, and athletic performance. Most healthy adults sit happily in the 12–25% range.
+
+</details>
+
+## Tips
+
+- Pick one method and stick with it — switching methods muddies the trend.
+- Measure under consistent conditions (morning, fasted, same hydration).
+- For the Navy method, use a non-stretchy tape and do not compress soft tissue.
+- Combine with weight + photos every 4 weeks — three angles tells more than one number.
+- Treat single readings as ±3%; trust the 4–8 week trend.
+
+## Try it now
+
+The full body-fat-calculator runs in your browser at **[https://ztools.zaions.com/body-fat-calculator](https://ztools.zaions.com/body-fat-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/body-fat-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/body-fat-calculator.mdx)*

@@ -1,0 +1,130 @@
+---
+id: math-equation-solver
+title: "Math Equation Solver — Step-by-Step Algebra & Calculus"
+description: "Solve linear, quadratic, and simple system equations with step-by-step output. Free, in-browser, supports symbolic math."
+sidebar_label: "math-equation-solver"
+keywords:
+  - "math equation solver"
+  - "algebra solver"
+  - "quadratic equation solver"
+  - "system of equations solver"
+  - "step by step math solver"
+  - "derivative calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# math-equation-solver
+
+A math equation solver parses an algebraic expression, applies symbolic-manipulation rules, and outputs the variable values that make the expression true, optionally showing each intermediate step so the work is reproducible by hand. The ZTools Math Equation Solver runs entirely in the browser via a symbolic CAS engine, supports linear equations (ax + b = c), quadratics (ax² + bx + c = 0), simple 2-variable systems, factoring, expansion, and basic calculus (derivatives, definite integrals), and surfaces the steps so the tool acts like a tutor rather than a black box — students see how an answer was reached, not just what it is.
+
+<ToolCTA toolId="math-equation-solver" toolName="math-equation-solver" />
+
+## Use cases
+
+### Algebra homework checking
+
+After solving by hand, paste the equation into the solver to verify the answer and compare each step. Catches sign errors and arithmetic slips faster than re-doing the problem from scratch.
+
+### Test prep practice
+
+For SAT / ACT / GRE quant practice, work the problem manually, then run the solver to read the canonical step-by-step solution method — internalises pattern, not just answer.
+
+### Tutoring aid
+
+Tutors run a problem in the solver to confirm there is one clean approach before introducing it to a student, or to compare two methods (factoring vs quadratic formula).
+
+### Engineering calculations
+
+Quick symbolic check before plugging numbers — solve a force or current equation symbolically, simplify, and only then substitute values to avoid premature rounding.
+
+## How it works
+
+1. **Paste the equation** — Standard syntax: x^2 - 5x + 6 = 0, 2x + 3y = 7, d/dx(x^3 + 2x), etc. Equals signs and standard operators supported.
+2. **Solver parses** — Tokenises into AST (abstract syntax tree); identifies variable, equation type (linear, quadratic, system, derivative).
+3. **Applies appropriate method** — Linear: isolate variable. Quadratic: factor or apply formula. System: substitution or elimination. Calculus: power / chain / sum rules.
+4. **Outputs solution + steps** — Shows intermediate algebra so the user can follow each transformation, not just the final answer.
+5. **Verifies (optional)** — Substitutes solution back into the original equation and confirms equality, catching extraneous roots from squaring or radicals.
+
+## Examples
+
+**Input:** x^2 - 5x + 6 = 0
+
+**Output:** x = 2 or x = 3 (factored as (x-2)(x-3))
+
+---
+
+**Input:** 2x + 3y = 7, x - y = 1
+
+**Output:** x = 2, y = 1 (solved by substitution)
+
+---
+
+**Input:** d/dx(3x^4 - 2x + 5)
+
+**Output:** 12x^3 - 2 (power rule applied term-wise)
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it solve word problems?**</summary>
+
+Not directly — translate the word problem into an equation first. The solver handles the math, not the natural-language parsing.
+
+</details>
+
+<details>
+<summary>**Can it factor polynomials?**</summary>
+
+Yes, for low-degree polynomials with integer roots. Higher-degree may return numeric approximations rather than clean factoring.
+
+</details>
+
+<details>
+<summary>**Does it handle integrals?**</summary>
+
+Definite integrals of common forms (polynomial, exponential, basic trig). Indefinite integrals work for elementary functions; non-elementary integrands fall back to numeric approximation.
+
+</details>
+
+<details>
+<summary>**Are imaginary / complex numbers supported?**</summary>
+
+Quadratics with negative discriminant return a + bi form; full complex-number arithmetic supported.
+
+</details>
+
+<details>
+<summary>**Why does the step-by-step explanation differ from my textbook?**</summary>
+
+There are usually multiple valid solution paths. The solver picks the cleanest; your textbook may favour a pedagogically different approach. Both are correct.
+
+</details>
+
+<details>
+<summary>**Is this a substitute for learning?**</summary>
+
+No. Treat it as a check or tutor, not a do-the-homework-for-me machine. Working problems by hand builds the intuition the solver shortcuts past.
+
+</details>
+
+## Tips
+
+- Always solve first by hand — running through the solver is most useful when you already have a candidate answer to compare.
+- Use the step output to learn standard methods; if you cannot follow a step, that is the gap to study.
+- For systems, prefer substitution when one variable's coefficient is 1; elimination when coefficients are mismatched.
+- Check for extraneous solutions when you square both sides — the solver flags them, but verify by hand for exam discipline.
+- For long expressions, simplify first, then solve — fewer terms means fewer arithmetic mistakes.
+
+## Try it now
+
+The full math-equation-solver runs in your browser at **[https://ztools.zaions.com/math-equation-solver](https://ztools.zaions.com/math-equation-solver)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/math-equation-solver)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/math-equation-solver.mdx)*

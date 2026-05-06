@@ -1,0 +1,130 @@
+---
+id: essay-word-counter
+title: "Essay Word Counter — Word, Page & Character Count for Essays"
+description: "Count words, characters, sentences, paragraphs, pages, and reading time for essays. Live updating, free, browser-only."
+sidebar_label: "essay-word-counter"
+keywords:
+  - "essay word counter"
+  - "word count tool"
+  - "words per page calculator"
+  - "essay length counter"
+  - "academic word counter"
+  - "free word counter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# essay-word-counter
+
+An essay word counter measures the length of an academic essay across multiple dimensions — words, characters (with and without spaces), sentences, paragraphs, estimated pages at common formats (12pt double-spaced, single-spaced), and reading time — letting students confirm they are within an instructor's word limit before submission rather than discovering it during grading. The ZTools Essay Word Counter runs entirely in the browser, updates live as you type or paste, supports a target word count with progress bar, and never sends content to a server — privacy by design for unfinished drafts.
+
+<ToolCTA toolId="essay-word-counter" toolName="essay-word-counter" />
+
+## Use cases
+
+### Hitting the assignment word limit
+
+A "1500-word essay" allows ±10% by convention (1350-1650). Live count + progress bar tells you when you have hit minimum, when you are pushing the upper bound, and when to stop.
+
+### Cutting overflow without losing structure
+
+When 1700 words must become 1500, paste each paragraph individually to identify the longest sections and target cuts there rather than slicing uniformly.
+
+### Standardised-test essays
+
+SAT / GRE / TOEFL essays have time limits and rough length expectations. Practice with the counter to internalise pacing — a strong SAT essay is typically 500-700 words written in 50 min.
+
+### Submitting to journals or magazines
+
+Many journals enforce strict word caps (e.g. 8000 words). Live count avoids the rejection-on-format that happens when authors miss limits by a few hundred words.
+
+## How it works
+
+1. **Paste or type** — Text area accepts pasted essay drafts or live typing. No upload, no server roundtrip.
+2. **Tokenise to words** — Splits on whitespace, removes empty tokens; standard whitespace-based word counting matches Word and Google Docs.
+3. **Compute additional metrics** — Characters (with/without spaces), sentences (split on .!? followed by whitespace + capital), paragraphs (double-newline), syllables (heuristic).
+4. **Estimate pages** — At 12pt Times double-spaced, ~250 words/page; single-spaced ~500 words/page. 14pt + larger margins yields ~200/300.
+5. **Estimate reading time** — Average silent reading speed ≈ 250 words/min. 1500-word essay ≈ 6 min reading.
+
+## Examples
+
+**Input:** 1500-word essay pasted
+
+**Output:** Words: 1500. Chars: 8200 (with spaces). Sentences: 78. Paragraphs: 9. Pages: ~6 (double-spaced) or ~3 (single-spaced). Reading time: ~6 min.
+
+---
+
+**Input:** 500-word personal statement
+
+**Output:** Words: 500. Reading time: 2 min. Common admission limit; counter shows 100% on a target of 500.
+
+---
+
+**Input:** 5000-word research paper
+
+**Output:** Words: 5000. ~20 pages double-spaced. Reading time: 20 min. Sentences: ~250.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does my count differ from Microsoft Word?**</summary>
+
+Word's tokenisation is similar but counts hyphenated words and contractions slightly differently. Differences are usually under 1%.
+
+</details>
+
+<details>
+<summary>**Are quotations and citations included?**</summary>
+
+Yes by default. Some style guides exclude block quotations and reference-list entries from the body word count — copy just the body to count those separately.
+
+</details>
+
+<details>
+<summary>**What about footnotes?**</summary>
+
+Depends on style guide. APA usually excludes footnotes; Chicago includes them. Count footnotes separately and confirm with your rubric.
+
+</details>
+
+<details>
+<summary>**How accurate is page estimation?**</summary>
+
+Approximate — actual page count depends on font, size, margins, line spacing. Use ~250 words/page double-spaced as a rule of thumb; check actual layout for final submissions.
+
+</details>
+
+<details>
+<summary>**Is my text private?**</summary>
+
+Yes — entirely client-side. Nothing sent to a server. Closing the tab discards the text.
+
+</details>
+
+<details>
+<summary>**Why count characters?**</summary>
+
+For social-media or SMS-style limits (Twitter / X = 280 chars; SMS = 160). Some scholarship application essays cap at 1000 characters rather than words.
+
+</details>
+
+## Tips
+
+- Most rubrics mean "within 10%" of the stated word count — going significantly over or under both lose marks.
+- Hit the upper bound during the rough draft; revising tightens prose and naturally drops 5-15% — leaving you on target.
+- For timed essays, learn your typing speed (words / min) — knowing you write at 30 wpm tells you 30 min of typing yields ~900 words baseline.
+- Count abstracts separately — most journals enforce a strict 250-word abstract limit independent of the body.
+- Reading-time estimate is useful for presentations: 1 min of speech ≈ 130-150 words.
+
+## Try it now
+
+The full essay-word-counter runs in your browser at **[https://ztools.zaions.com/essay-word-counter](https://ztools.zaions.com/essay-word-counter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/essay-word-counter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/essay-word-counter.mdx)*

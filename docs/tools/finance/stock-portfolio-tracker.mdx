@@ -1,0 +1,130 @@
+---
+id: stock-portfolio-tracker
+title: "Stock Portfolio Tracker — Watchlist & Holdings P&L (Free)"
+description: "Track stock watchlist and portfolio holdings. P&L per position. Educational only — not financial advice. Free."
+sidebar_label: "stock-portfolio-tracker"
+keywords:
+  - "stock portfolio tracker"
+  - "stock watchlist"
+  - "stock pnl tracker"
+  - "free stock tracker"
+  - "portfolio value calculator"
+  - "investment tracker"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# stock-portfolio-tracker
+
+A stock portfolio tracker maintains a watchlist of equities you follow and a holdings table that multiplies your share count by current price to show position value, gain/loss vs cost basis, and total portfolio value. The ZTools Stock Portfolio Tracker runs entirely in the browser, supports manual price entry or public-API pulls, persists your watchlist and holdings locally, and is **for educational and personal-record use only — actual brokerage statements, tax-lot accounting, dividend reinvestment, and corporate actions are out of scope; never substitute calculator output for an authoritative broker statement when filing taxes or making transaction decisions**.
+
+<ToolCTA toolId="stock-portfolio-tracker" toolName="stock-portfolio-tracker" />
+
+## Use cases
+
+### Quick P&L glance
+
+See total gain/loss across all positions in 30 seconds without opening every brokerage tab.
+
+### Watchlist for ideas
+
+Track 10–20 tickers you are researching. See price changes; do not act on them without further analysis.
+
+### Educational tracking
+
+New investors learn how prices move and how percentage moves affect dollar P&L on different position sizes.
+
+### Pre-tax ballpark
+
+Year-end check: total portfolio gain. (Real tax requires lot-level accounting from your broker.)
+
+## How it works
+
+1. **Add tickers** — Type the symbol (AAPL, MSFT, VTI). Watchlist saves locally.
+2. **Pull or enter prices** — API mode pulls from a public quote endpoint. Manual lets you paste a snapshot.
+3. **Add holdings (optional)** — Per ticker: shares owned + cost basis (average buy price).
+4. **Compute P&L** — Position value = shares × current price. Gain = (current − cost) × shares. Percentage gain = gain / (cost × shares).
+5. **View totals** — Grand totals across all positions: cost, value, gain, percentage gain.
+
+## Examples
+
+**Input:** Watchlist: AAPL, MSFT, VTI
+
+**Output:** Three rows with live prices and 24h change
+
+---
+
+**Input:** Holdings: 100 AAPL @ $150 cost, current $180
+
+**Output:** Position $18,000 · Gain $3,000 (+20%)
+
+---
+
+**Input:** Portfolio with 5 stocks
+
+**Output:** Per-row + grand total: cost basis, current value, total gain, total %
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it replace my brokerage account?**</summary>
+
+No. Brokers handle real money, lot-level cost basis, dividend reinvestment, corporate actions, tax forms. The tracker is a personal display tool.
+
+</details>
+
+<details>
+<summary>**Are dividends counted?**</summary>
+
+No by default — only price-change P&L. For total return, manually add dividend totals to the gain field.
+
+</details>
+
+<details>
+<summary>**How does it handle stock splits?**</summary>
+
+It does not — after a split, manually update share count and cost basis to reflect the new structure. Brokers handle this automatically.
+
+</details>
+
+<details>
+<summary>**Can I export to a spreadsheet?**</summary>
+
+Yes — CSV export of watchlist + holdings + current values.
+
+</details>
+
+<details>
+<summary>**Are prices real-time?**</summary>
+
+Public APIs are usually 15-min delayed for free tiers. For trading-grade real-time data, use a brokerage app.
+
+</details>
+
+<details>
+<summary>**What about ETF / mutual fund tracking?**</summary>
+
+ETFs work the same as stocks — single ticker. Mutual funds price once daily after market close, supported via the same flow.
+
+</details>
+
+## Tips
+
+- Use as a quick-glance overview, not for trade decisions.
+- For taxes, get year-end statements from your broker — they are the authoritative source.
+- Update cost basis when you make new purchases; otherwise the gain calculation becomes meaningless.
+- Diversify — single-ticker portfolios concentrate risk regardless of how good the company looks.
+- Avoid reacting to daily noise — long-term P&L is what matters; daily moves are mostly noise.
+
+## Try it now
+
+The full stock-portfolio-tracker runs in your browser at **[https://ztools.zaions.com/stock-portfolio-tracker](https://ztools.zaions.com/stock-portfolio-tracker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/stock-portfolio-tracker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/stock-portfolio-tracker.mdx)*

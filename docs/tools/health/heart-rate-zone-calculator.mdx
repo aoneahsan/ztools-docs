@@ -1,0 +1,130 @@
+---
+id: heart-rate-zone-calculator
+title: "Heart Rate Zone Calculator — Target Zones for Cardio Training"
+description: "Calculate heart rate training zones (Z1–Z5) using max-HR and Karvonen (HRR) methods. Free, in-browser."
+sidebar_label: "heart-rate-zone-calculator"
+keywords:
+  - "heart rate zone calculator"
+  - "training zone calculator"
+  - "karvonen formula"
+  - "max heart rate"
+  - "tanaka formula"
+  - "free hr zone calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# heart-rate-zone-calculator
+
+A heart rate zone calculator computes the target beats-per-minute ranges for the five training zones — recovery (Z1), endurance (Z2), tempo (Z3), threshold (Z4), VO₂max (Z5) — using either the simple maximum-heart-rate formula (220 − age, or the Tanaka improvement 208 − 0.7·age) or the Karvonen method that adjusts for resting heart rate (HRR-based). The ZTools Heart Rate Zone Calculator surfaces both methods, lets you enter a measured max-HR if known (more accurate than predicted), and explains zone-by-zone what each range produces physiologically — so users train with intent rather than chasing arbitrary heart-rate targets.
+
+<ToolCTA toolId="heart-rate-zone-calculator" toolName="heart-rate-zone-calculator" />
+
+## Use cases
+
+### Designing a polarised training plan
+
+80/20 polarised training: 80% in Z1–Z2, 20% in Z4–Z5, almost nothing in Z3. Calculator gives the exact bpm range for each zone.
+
+### Endurance base-building
+
+Long aerobic runs sit in Z2. Knowing the exact range prevents "creeping up" into Z3 where most amateurs accidentally train.
+
+### High-intensity interval programming
+
+Z5 intervals need clear targets. Calculator gives the upper bpm so intervals match the intended stimulus.
+
+### Recovery-day pacing
+
+Easy days should stay in Z1. Calculator gives a hard ceiling so recovery is real.
+
+## How it works
+
+1. **Enter age and resting HR** — Age for max-HR estimation. Resting HR (measure on waking) for Karvonen method.
+2. **Optional measured max-HR** — If you have done a true max-HR test, enter it — overrides the predicted value (which has ±10–12 bpm error).
+3. **Compute zones** — Max-HR method: zones are 50–60%, 60–70%, 70–80%, 80–90%, 90–100% of max-HR. Karvonen: HRR = max − resting; zones are RHR + (HRR × pct).
+4. **Read the ranges** — Each zone shows lower / upper bpm and a one-line description (recovery, endurance, tempo, threshold, VO₂max).
+5. **Use during training** — Wear a chest strap or wrist monitor; aim for the target range during the prescribed effort.
+
+## Examples
+
+**Input:** Age 30, resting HR 60
+
+**Output:** Predicted max ≈ 187 (Tanaka). Z2 (60–70%): 112–131 bpm (max-HR) or 136–149 bpm (Karvonen)
+
+---
+
+**Input:** Age 40, measured max 180, RHR 55
+
+**Output:** Z4 (80–90%): 144–162 bpm (max-HR) or 155–168 bpm (Karvonen) — Karvonen produces tighter, higher zones
+
+---
+
+**Input:** Age 50, RHR 70
+
+**Output:** Predicted max 173 (Tanaka). Z2 RHR-based: 132–142 bpm
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is the 220 − age formula?**</summary>
+
+Standard error is ±10–12 bpm. Tanaka (208 − 0.7·age) is slightly more accurate. Both are population averages — individual max-HRs can deviate by 20+ bpm.
+
+</details>
+
+<details>
+<summary>**Should I do a max-HR test?**</summary>
+
+For serious endurance athletes, yes — a graded test under medical supervision, or a self-administered hill-repeat protocol, gives a much better max number.
+
+</details>
+
+<details>
+<summary>**Is Karvonen better than max-HR-percent?**</summary>
+
+Karvonen accounts for individual fitness (lower RHR shifts zones up). It is generally preferred by serious athletes; max-HR-percent is fine for beginners.
+
+</details>
+
+<details>
+<summary>**Why does my Z2 feel hard?**</summary>
+
+Either max-HR is overestimated, RHR is wrong, or you are in Z3 thinking it is Z2. True Z2 should feel "all-day pace" — easy enough to talk in full sentences.
+
+</details>
+
+<details>
+<summary>**Are five zones standard?**</summary>
+
+Roughly yes — 5-zone (Polar, Garmin) and 7-zone (Coggan power) frameworks both circulate. 5-zone is the simplest and most teachable.
+
+</details>
+
+<details>
+<summary>**Do zones shift with caffeine, sleep, stress?**</summary>
+
+Yes — heart rate response varies day-to-day. Use perceived exertion alongside HR; if HR is elevated for the same effort, ease back.
+
+</details>
+
+## Tips
+
+- Spend most volume in Z1–Z2 — the "polarised" model has the strongest evidence.
+- Use a chest strap, not just a wrist monitor — wrist optical accuracy degrades during running.
+- Recheck zones every 6 months — fitness changes shift the ranges.
+- On hot days, expect higher HR for the same effort — do not push to "hit the number".
+- Combine HR with perceived exertion; both signals together beat either alone.
+
+## Try it now
+
+The full heart-rate-zone-calculator runs in your browser at **[https://ztools.zaions.com/heart-rate-zone-calculator](https://ztools.zaions.com/heart-rate-zone-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/heart-rate-zone-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/heart-rate-zone-calculator.mdx)*

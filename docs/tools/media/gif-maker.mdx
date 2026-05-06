@@ -1,0 +1,130 @@
+---
+id: gif-maker
+title: "GIF Maker — Build Animated GIFs from Images or Frames"
+description: "Build animated GIFs from a sequence of images or recorded frames. Set FPS, loop, dimensions. Free, browser-only."
+sidebar_label: "gif-maker"
+keywords:
+  - "gif maker"
+  - "animated gif maker"
+  - "create gif online"
+  - "free gif creator"
+  - "gif from images"
+  - "gif builder tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# gif-maker
+
+A GIF maker assembles multiple still images into a looping animated GIF, with control over frame rate (frames-per-second), output dimensions, and loop behaviour — useful for screenshot animations, slideshows, simple animated avatars, frame-by-frame demos, and tutorial micro-clips. The ZTools GIF Maker runs entirely in the browser using gif.js (a Worker-based GIF encoder), accepts JPG / PNG / WebP frames, lets you reorder frames, set per-frame duration, and exports the final GIF directly to your device — no upload needed.
+
+<ToolCTA toolId="gif-maker" toolName="gif-maker" />
+
+## Use cases
+
+### Multi-screenshot tutorials
+
+Take 4-6 screenshots showing a UI flow (login → setup → success). Combine into a 4-second GIF that auto-plays in chat or docs without forcing readers to click through.
+
+### Frame-by-frame animation
+
+Hand-drawn animations, cell-shaded sequences, stop-motion: combine frames into a GIF. Authentic "made by hand" texture vs computer-generated animation.
+
+### Before / after comparison
+
+Two images alternating — before / after of a design, edit, or transformation. Loop emphasises the contrast better than side-by-side static.
+
+### Simple animated avatar
+
+A few frames combined into a looping avatar for forums, Slack, or social profiles. GIF format supported by all major platforms.
+
+## How it works
+
+1. **Upload frames** — Drag-drop multiple images, or pick a folder. Tool loads them in upload order; reorder by drag in the UI if needed.
+2. **Set per-frame duration** — Same duration for all frames (e.g. 200 ms each → 5 fps), or per-frame (slower / faster on specific frames).
+3. **Pick output dimensions** — Default = first frame's dimensions. Resize down for smaller files (most GIFs benefit from 480px wide or smaller).
+4. **Configure loop** — Loop forever (default), play once, or play N times. Forever is the convention for autoplay in chat and docs.
+5. **Encode** — gif.js processes in a Web Worker (does not freeze the page). Progress bar shows encoding status.
+
+## Examples
+
+**Input:** 6 screenshots, 500 ms per frame, 480px wide
+
+**Output:** 3-second loop, ~500 KB - 1.5 MB GIF.
+
+---
+
+**Input:** 24 hand-drawn frames at 12 fps
+
+**Output:** 2-second smooth animation, ~2-5 MB depending on detail.
+
+---
+
+**Input:** Before / after: 2 images at 1.5 sec each
+
+**Output:** 3-second alternating loop emphasising the change.
+
+## Frequently asked questions
+
+<details>
+<summary>**What frame rate should I use?**</summary>
+
+8-12 fps for tutorials and screenshots; 15-24 fps for smooth animation; 30 fps only when motion is fast and necessary. Higher FPS = much larger file.
+
+</details>
+
+<details>
+<summary>**Why do my colours look wrong?**</summary>
+
+GIF uses a 256-colour palette. Photos with gradients and skin tones suffer; flat-colour graphics are fine. For higher quality, use WebM / MP4 instead.
+
+</details>
+
+<details>
+<summary>**How do I make smaller GIFs?**</summary>
+
+Reduce dimensions. Reduce frames (cut every other one). Reduce colour palette. Shorter duration. Each step compounds size reduction.
+
+</details>
+
+<details>
+<summary>**Can I add text to the GIF?**</summary>
+
+Pre-render text on the source frames in your image editor; the GIF maker just sequences frames. For overlaid captions, use a video editor and convert to GIF after.
+
+</details>
+
+<details>
+<summary>**Is the GIF uploaded?**</summary>
+
+No — entirely client-side. Frames and output stay in browser memory; download saves to your device.
+
+</details>
+
+<details>
+<summary>**How long can the GIF be?**</summary>
+
+Practically: under 30 seconds. Longer GIFs balloon in size and lose viewer attention. Most great GIFs are under 10 seconds.
+
+</details>
+
+## Tips
+
+- Optimise source images before GIF assembly — smaller / lower-detail frames produce drastically smaller GIFs.
+- Hold the first and last frames slightly longer (300-500 ms) for readability when looping.
+- Test the loop seamlessly — the last frame should transition cleanly back to the first.
+- For UI tutorials, screenshot at 1x DPI not Retina — saves 4x the file size with no real loss.
+- Verify in the destination platform; chat apps and READMEs render GIFs differently.
+
+## Try it now
+
+The full gif-maker runs in your browser at **[https://ztools.zaions.com/gif-maker](https://ztools.zaions.com/gif-maker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/gif-maker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/gif-maker.mdx)*

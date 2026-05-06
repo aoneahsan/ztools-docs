@@ -1,0 +1,131 @@
+---
+id: ideal-weight-calculator
+title: "Ideal Weight Calculator — Devine, Robinson, Hamwi, BMI-based"
+description: "Estimate ideal body weight using Devine, Robinson, Hamwi, Miller, and BMI-based formulas. Compare side-by-side. Free."
+sidebar_label: "ideal-weight-calculator"
+keywords:
+  - "ideal weight calculator"
+  - "devine formula"
+  - "robinson formula"
+  - "hamwi formula"
+  - "ideal body weight"
+  - "free ideal weight calculator"
+  - "bmi range"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# ideal-weight-calculator
+
+An ideal weight calculator estimates a target bodyweight from height (and sometimes frame size) using historical clinical equations — Devine (1974), Robinson (1983), Hamwi (1964), Miller (1983) — plus a modern BMI-range approach (18.5–24.9). The ZTools Ideal Weight Calculator runs all five formulas at once so you see the spread (typically 4–6 kg between equations for the same person), supports metric and imperial inputs, and explicitly notes that "ideal weight" is a clinical-prescribing convention (originally for drug-dose calculations) rather than a true health target — body composition matters more than absolute weight, and "ideal" depends on age, build, and lifestyle.
+
+<ToolCTA toolId="ideal-weight-calculator" toolName="ideal-weight-calculator" />
+
+## Use cases
+
+### Setting realistic weight goals
+
+Someone wanting to lose weight gets a sane target range rather than an arbitrary "look like the magazine" number.
+
+### Clinical drug dosing
+
+Some hospital drug dosages use Devine-formula ideal body weight (especially in renal calculations). The calculator shows the exact value clinicians use.
+
+### Comparing equations
+
+See how differently the historical formulas treat the same person — gives perspective on the "right answer".
+
+### Setting weight ranges for body comp goals
+
+Lean athletes may sit above the BMI-based range while having low body fat. The spread between formulas frames realistic ranges.
+
+## How it works
+
+1. **Enter height and sex** — Most formulas use height and sex only. Optionally enter age and frame size for variants.
+2. **Run formulas** — Devine: 50 + 2.3·(height inches − 60) for men. Robinson, Hamwi, Miller use similar height-based offsets with sex-specific constants.
+3. **BMI range method** — BMI 18.5 to 24.9 multiplied by height² gives a healthy weight range, not a single number.
+4. **Compare** — Side-by-side display of all five results plus the BMI range.
+5. **Interpret in context** — Use the spread as a target range, with body composition (body-fat %) and how you feel as additional inputs.
+
+## Examples
+
+**Input:** Male, 180 cm
+
+**Output:** Devine 75.0 · Robinson 72.6 · Hamwi 78.3 · Miller 73.4 · BMI range 60–81 kg
+
+---
+
+**Input:** Female, 165 cm
+
+**Output:** Devine 56.6 · Robinson 56.2 · Hamwi 59.2 · Miller 57.8 · BMI range 50–68 kg
+
+---
+
+**Input:** Male, 175 cm with large frame
+
+**Output:** Same baseline + ~10% upward adjustment for frame-size variants
+
+## Frequently asked questions
+
+<details>
+<summary>**Why do the formulas disagree?**</summary>
+
+Different studies, different populations, different decades. Devine was for drug dosing in 1974; BMI-range is a 1990s WHO classification. None is "right"; they bracket a reasonable range.
+
+</details>
+
+<details>
+<summary>**Is "ideal weight" a real health target?**</summary>
+
+Not really — body composition (lean mass vs fat) and metabolic health markers matter more than absolute weight. Use ideal-weight estimates as ballpark targets, not goals.
+
+</details>
+
+<details>
+<summary>**Why does Devine still matter?**</summary>
+
+Some hospital drug-dose protocols (especially renal) use it. Not because it is a health-target gold standard — because it is a stable computational reference.
+
+</details>
+
+<details>
+<summary>**Should very muscular people use these formulas?**</summary>
+
+No — bodybuilders / lifters often weigh well above "ideal" while being lean and healthy. BMI methods especially mislabel them. Use body-fat % instead.
+
+</details>
+
+<details>
+<summary>**What about children?**</summary>
+
+These formulas are for adults. Pediatric weight assessment uses growth-percentile charts, not adult ideal-weight equations.
+
+</details>
+
+<details>
+<summary>**Is BMI itself useful?**</summary>
+
+For population-level screening, yes. For individuals, only as one signal among several. Many lean athletes are "overweight" by BMI; many "normal" BMI individuals have unhealthy body comp.
+
+</details>
+
+## Tips
+
+- Treat the formulas' spread as a healthy range, not five competing single answers.
+- Combine ideal weight with body-fat % and waist-to-height ratio for a fuller picture.
+- For drug dosing, use the formula your local clinical guidelines specify (often Devine).
+- For health goals, prioritise body composition, fitness markers, and how you feel over absolute weight.
+- Recompute when height changes (rare for adults) or when you want to re-anchor the goal range.
+
+## Try it now
+
+The full ideal-weight-calculator runs in your browser at **[https://ztools.zaions.com/ideal-weight-calculator](https://ztools.zaions.com/ideal-weight-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/ideal-weight-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/ideal-weight-calculator.mdx)*

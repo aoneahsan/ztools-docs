@@ -1,0 +1,130 @@
+---
+id: voice-recorder
+title: "Voice Recorder — Browser Audio Capture, Free, MP3 / WebM"
+description: "Record voice memos, interviews, podcasts in the browser. Pause, resume, download MP3 / WebM. No upload, no sign-up."
+sidebar_label: "voice-recorder"
+keywords:
+  - "voice recorder"
+  - "online voice recorder"
+  - "browser voice recorder"
+  - "free audio recorder"
+  - "mp3 recorder online"
+  - "voice memo tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# voice-recorder
+
+A voice recorder captures audio from a connected microphone and saves it to a local file, used for voice memos, interview recording, podcast drafts, language practice, and dictation. The ZTools Voice Recorder runs entirely in the browser via the MediaRecorder API, supports pause / resume / stop, displays a real-time waveform and elapsed-time indicator, lets you choose input device when multiple mics are connected, and exports MP3 (via lamejs encoding) or WebM, downloaded directly to your device with no upload anywhere.
+
+<ToolCTA toolId="voice-recorder" toolName="voice-recorder" />
+
+## Use cases
+
+### Interview recording
+
+Journalists, researchers, and HR recording interviews for transcription. Pause / resume during breaks; download a single file at end. Combine with speech-to-text tool for automated transcript.
+
+### Voice memo / dictation
+
+Capture an idea or draft a paragraph by speaking instead of typing. Often faster for long-form thought; revisit and refine in writing later.
+
+### Podcast draft / monologue
+
+Solo podcast or YouTube voiceover draft. Record, listen, re-record sections without juggling multi-track DAW software for a first pass.
+
+### Language-learning practice
+
+Learners record themselves speaking, then compare to native-speaker references. Self-monitoring improves pronunciation faster than passive listening.
+
+## How it works
+
+1. **Grant microphone permission** — Browser asks once; permission persists per-domain. Tool surfaces a clear "Mic ready" indicator before recording.
+2. **Choose input device (optional)** — When multiple mics are connected (built-in + USB + headset), pick which one. Default = system default.
+3. **Start recording** — Click record. Waveform animates in real time as you speak; elapsed time displays. Pause / resume supported mid-recording.
+4. **Stop and review** — Click stop. Inline player lets you scrub through and verify before downloading.
+5. **Download** — Choose MP3 (smaller, universal) or WebM (native, smaller for browser-recorded). File saves directly to your device.
+
+## Examples
+
+**Input:** 30-minute interview at 128 kbps MP3
+
+**Output:** ~28 MB file. CD-quality enough for transcription and podcast use.
+
+---
+
+**Input:** 5-minute voice memo
+
+**Output:** WebM ≈ 1.5 MB; MP3 at 128 kbps ≈ 5 MB. Both lossy but transparent for spoken word.
+
+---
+
+**Input:** Pause / resume during breaks
+
+**Output:** Single output file; pauses do not split the recording.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why MP3 over WebM?**</summary>
+
+MP3 is universally supported (every player on every platform). WebM is smaller for the same quality but some older players reject it. Choose MP3 for sharing; WebM for storage efficiency.
+
+</details>
+
+<details>
+<summary>**What bitrate should I use?**</summary>
+
+128 kbps for spoken word (transparent for voice). 192 kbps for podcast quality. 320 kbps for music. Higher bitrate = larger file, no audible improvement for voice.
+
+</details>
+
+<details>
+<summary>**Is my recording private?**</summary>
+
+Yes — entirely client-side. The audio Blob lives in browser memory until you download. No server, no upload.
+
+</details>
+
+<details>
+<summary>**Can I record long sessions?**</summary>
+
+Up to ~2 hours reliably; longer risks browser memory exhaustion. For multi-hour recordings, use a desktop app (Audacity) or split into multiple files.
+
+</details>
+
+<details>
+<summary>**How do I get rid of background noise?**</summary>
+
+Use the audio-noise-reducer tool after recording. Real-time noise suppression is available in some browsers (Chrome) under media constraints.
+
+</details>
+
+<details>
+<summary>**Can I record system audio (not just mic)?**</summary>
+
+No — voice recorder is mic-only. For system audio, use the screen-recorder tool with "share audio" enabled.
+
+</details>
+
+## Tips
+
+- Record a 5-second test first — verify level, no clipping, no static. Saves re-recording a 30-minute interview that turned out unusable.
+- Use a real microphone (USB or XLR) for anything you intend to publish. Built-in laptop mics introduce echo and noise that no post-production fully removes.
+- Speak 6-12 inches from the mic — too close = breath and pop noise; too far = thin and echoey.
+- Record in a small soft room (carpet, curtains) — bare-wall rooms reverberate badly.
+- For interviews, both parties speak into their own mics if possible; one shared mic produces uneven volume.
+
+## Try it now
+
+The full voice-recorder runs in your browser at **[https://ztools.zaions.com/voice-recorder](https://ztools.zaions.com/voice-recorder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/voice-recorder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/voice-recorder.mdx)*

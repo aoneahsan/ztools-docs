@@ -1,0 +1,131 @@
+---
+id: qr-code-scanner
+title: "QR Code Scanner — Decode QR Codes from Camera or Image"
+description: "Scan QR codes via webcam or upload image. Decode URL, text, Wi-Fi, vCard. Free, browser-only, instant."
+sidebar_label: "qr-code-scanner"
+keywords:
+  - "qr code scanner"
+  - "qr scanner online"
+  - "decode qr code"
+  - "free qr scanner"
+  - "qr reader online"
+  - "qr code decoder"
+  - "webcam qr scanner"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# qr-code-scanner
+
+A QR code scanner reads QR (Quick Response) codes — square 2D barcodes that encode URLs, plain text, Wi-Fi credentials, vCard contacts, payment instructions, and more — using either a live camera feed or an uploaded image, decoding the embedded data in milliseconds. The ZTools QR Code Scanner runs entirely in the browser using a WebAssembly QR decoder and getUserMedia for live camera access, supports both modes, identifies the data type (URL, text, Wi-Fi, vCard, etc.) and offers context-aware actions like "open URL" or "copy text".
+
+<ToolCTA toolId="qr-code-scanner" toolName="qr-code-scanner" />
+
+## Use cases
+
+### Quick URL navigation
+
+Posters, packaging, or print ads with QR codes. Scan; visit the URL on your phone or laptop without retyping. Ubiquitous since restaurant menus went QR.
+
+### Wi-Fi credential transfer
+
+Guest at a friend's house. Scan their Wi-Fi QR (generated from network name + password); device joins automatically. No verbal password sharing.
+
+### Contact card import
+
+Conference networking. Scan a vCard QR from a business card; phone offers to add the contact directly to address book.
+
+### Payment / Bitcoin address
+
+Scan a payment QR (Venmo, PayPal, crypto wallet) instead of typing a long address — eliminates typo risk on irreversible transactions.
+
+## How it works
+
+1. **Pick mode** — Camera (live scan) or upload (still image). Camera mode requests webcam permission once.
+2. **Camera mode** — Point camera at the QR; the decoder samples frames continuously. As soon as a code is in focus and stable, it decodes — usually within 1-2 seconds.
+3. **Upload mode** — Drop or pick an image (JPG / PNG / WebP). Decoder scans the image once. Useful when the QR is on screen elsewhere or in a saved photo.
+4. **Identify data type** — Decoded payload classified: URL (http/https), text, Wi-Fi (WIFI:T:WPA;S:…;P:…), vCard (BEGIN:VCARD), email (mailto:), phone (tel:), geo location (geo:).
+5. **Take action** — For URLs: open. For text: copy. For Wi-Fi: copy SSID + password. For vCard: download as .vcf for import.
+
+## Examples
+
+**Input:** QR encoding "https://ztools.zaions.com"
+
+**Output:** Type: URL. Action: Open URL.
+
+---
+
+**Input:** Wi-Fi QR encoding network "HomeNet" with WPA password
+
+**Output:** Type: Wi-Fi. Display: SSID + password (masked); copy to clipboard.
+
+---
+
+**Input:** vCard QR for "John Smith / Acme / john@acme.com"
+
+**Output:** Type: Contact. Action: Download .vcf for address-book import.
+
+## Frequently asked questions
+
+<details>
+<summary>**What types of QR data does it decode?**</summary>
+
+All standard payloads: plain text, URL, email, phone, SMS, Wi-Fi credentials, vCard contacts, geo coordinates, calendar events, Bitcoin / payment URIs. The decoder reads any standard QR; classification afterward.
+
+</details>
+
+<details>
+<summary>**Is the camera feed uploaded?**</summary>
+
+No — entirely client-side. Frames are processed by the decoder in browser memory; nothing transmitted to any server.
+
+</details>
+
+<details>
+<summary>**Why does it sometimes fail to scan?**</summary>
+
+Common causes: QR is too small / blurry / damaged; insufficient lighting; reflective surface; partial occlusion. Move closer, improve light, hold steady.
+
+</details>
+
+<details>
+<summary>**Can it scan barcodes (EAN / UPC)?**</summary>
+
+No — this tool reads QR codes only. Linear barcodes (1D) require a different decoder. Use the barcode-scanner tool for those.
+
+</details>
+
+<details>
+<summary>**Are scanned QRs safe to open?**</summary>
+
+Read the URL before opening. Malicious QRs can lead to phishing pages, malware downloads, or auto-payment scams. The tool decodes and shows the destination so you can verify.
+
+</details>
+
+<details>
+<summary>**Does it work on phones?**</summary>
+
+Yes — webcam permission grants rear-camera access on mobile browsers. Scanning works on iOS Safari, Chrome on Android, etc.
+
+</details>
+
+## Tips
+
+- Hold the camera 4-8 inches from the QR; closer or farther blurs the image.
+- Make sure the entire QR is in the frame — partial scans fail.
+- Even lighting matters more than bright lighting. Avoid direct flash that creates glare.
+- For damaged QRs, try cropping the image and uploading rather than live-camera scan; the decoder has more time to retry.
+- Always preview the decoded URL before clicking — QRs are a phishing vector.
+
+## Try it now
+
+The full qr-code-scanner runs in your browser at **[https://ztools.zaions.com/qr-code-scanner](https://ztools.zaions.com/qr-code-scanner)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/qr-code-scanner)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/qr-code-scanner.mdx)*

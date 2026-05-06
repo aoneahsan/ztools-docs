@@ -1,0 +1,130 @@
+---
+id: macronutrient-calculator
+title: "Macronutrient Calculator — Protein, Carbs, Fat from Calories & Goals"
+description: "Calculate daily protein, carbs, and fat targets from calorie intake and goal (cut, maintain, bulk). Free, in-browser."
+sidebar_label: "macronutrient-calculator"
+keywords:
+  - "macronutrient calculator"
+  - "macro calculator"
+  - "protein carbs fat split"
+  - "iifym calculator"
+  - "free macro calculator"
+  - "nutrition target calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# macronutrient-calculator
+
+A macronutrient calculator splits a daily calorie target into protein, carbohydrate, and fat targets based on goals, body composition, and training type — protein anchored by lean mass (1.6–2.2 g/kg for active people, higher during cuts), fat by minimum endocrine needs (~0.6–1.0 g/kg), and carbohydrates filling the remainder. The ZTools Macronutrient Calculator runs entirely in the browser, supports goal-specific protein recommendations (cut: 2.0–2.4 g/kg of lean body mass; maintenance: 1.6 g/kg; bulk: 1.8 g/kg), separates fat into "minimum healthy" vs "preferred", and surfaces the math so users see why each number lands where it does.
+
+<ToolCTA toolId="macronutrient-calculator" toolName="macronutrient-calculator" />
+
+## Use cases
+
+### Diet-phase macro targets
+
+Someone in a 500 kcal cut needs higher protein than maintenance to preserve lean mass. Calculator shows the bumped protein target explicitly.
+
+### Bulking macro targets
+
+Lean bulks favour modest protein (1.8 g/kg) and abundant carbs to fuel training. Calculator suggests carbs as the largest macro by gram count.
+
+### Endurance vs strength training
+
+Endurance athletes lean carb-heavier; strength athletes protein-heavier. Calculator preset adapts.
+
+### Educating clients about macros
+
+Personal trainers explain "400 g of carbs" in context — what that means in real food (oats, rice, fruit).
+
+## How it works
+
+1. **Enter daily calories** — From the Calorie / TDEE Calculator, or set manually.
+2. **Enter weight + body-fat % (optional)** — Lean body mass = weight × (1 − bf%). Used for protein targets.
+3. **Pick goal** — Cut, maintain, bulk. Each adjusts protein and fat distribution.
+4. **Compute** — Protein: g/kg × LBM (or weight if no body-fat). Fat: 25–35% of calories or 0.6–1.0 g/kg minimum, whichever is higher. Carbs: remainder.
+5. **Convert to grams + meal split** — Per-meal split for 3–6 meals/day. Easier to plan than one daily total.
+
+## Examples
+
+**Input:** 2,000 kcal, 65 kg, 22% bf, maintenance
+
+**Output:** Protein 102 g · Fat 67 g · Carbs 230 g (LBM ≈ 50.7 kg, P at 2 g/kg LBM)
+
+---
+
+**Input:** 2,500 kcal, 80 kg, 18% bf, lean bulk
+
+**Output:** Protein 130 g · Fat 80 g · Carbs 340 g
+
+---
+
+**Input:** 1,600 kcal, 65 kg, 25% bf, cut
+
+**Output:** Protein 130 g · Fat 50 g · Carbs 130 g — high protein to preserve LBM
+
+## Frequently asked questions
+
+<details>
+<summary>**How much protein do I really need?**</summary>
+
+For sedentary adults, ~0.8 g/kg/day. For active people, 1.6 g/kg. For cutting (preserve lean mass under deficit), 2.2–2.4 g/kg of LBM. Above 2.5 g/kg shows diminishing returns.
+
+</details>
+
+<details>
+<summary>**Can fat be too low?**</summary>
+
+Yes — sub-0.6 g/kg risks hormone disruption (testosterone, oestrogen, vitamin absorption). Default minimum is 25% of calories, never below 50 g/day for adults.
+
+</details>
+
+<details>
+<summary>**Are carbs essential?**</summary>
+
+Not strictly — the body produces glucose from protein and fat. But athletic performance benefits from carbs, and most people sustain diets better with them. Low-carb / keto is a personal choice, not a metabolic mandate.
+
+</details>
+
+<details>
+<summary>**Why use lean body mass for protein and not total weight?**</summary>
+
+Adipose tissue is metabolically less protein-demanding. For very lean people, total weight ≈ LBM, so the difference is small. For higher body-fat individuals, LBM-based targets prevent over-prescribing.
+
+</details>
+
+<details>
+<summary>**Should I eat the same macros every day?**</summary>
+
+For most goals, daily consistency is fine. Some athletes "carb cycle" (high on training days, low on rest) — works for some, not necessary for most.
+
+</details>
+
+<details>
+<summary>**How do I hit these numbers?**</summary>
+
+Track for 2–4 weeks via an app. Most users vastly under- or over-shoot protein without tracking. After learning, eyeballing becomes accurate.
+
+</details>
+
+## Tips
+
+- Hit protein first; fat as a secondary minimum; carbs fill the remainder.
+- Spread protein across 3–5 meals — synthesis benefits from regular distribution.
+- For cuts, hold protein high — losing muscle on a deficit is the #1 mistake.
+- For bulks, hold fat at 25–30% — going too high "just because calories" hurts food volume / satiety.
+- Track a few weeks until estimation feels natural — then loosen.
+
+## Try it now
+
+The full macronutrient-calculator runs in your browser at **[https://ztools.zaions.com/macronutrient-calculator](https://ztools.zaions.com/macronutrient-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/macronutrient-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/macronutrient-calculator.mdx)*

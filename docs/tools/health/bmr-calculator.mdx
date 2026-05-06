@@ -1,0 +1,131 @@
+---
+id: bmr-calculator
+title: "BMR Calculator — Basal Metabolic Rate (Mifflin-St Jeor Equation)"
+description: "Estimate your basal metabolic rate (BMR) — calories burned at complete rest. Mifflin-St Jeor + Katch-McArdle. Free."
+sidebar_label: "bmr-calculator"
+keywords:
+  - "bmr calculator"
+  - "basal metabolic rate"
+  - "mifflin-st jeor"
+  - "harris-benedict"
+  - "katch-mcardle"
+  - "free bmr calculator"
+  - "metabolism calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# bmr-calculator
+
+A BMR (basal metabolic rate) calculator estimates the calories your body burns at complete rest in 24 hours just to keep vital organs running — heart, lungs, brain, kidneys, basic cell maintenance — and is the foundation of every calorie-target calculation. The ZTools BMR Calculator offers the Mifflin-St Jeor equation (the modern default), Harris-Benedict (legacy), and Katch-McArdle (for users who know their body-fat percentage), shows the formula and intermediate numbers so the result is transparent, and runs entirely in your browser without storing personal data.
+
+<ToolCTA toolId="bmr-calculator" toolName="bmr-calculator" />
+
+## Use cases
+
+### Foundation for daily calorie planning
+
+BMR is the floor your TDEE builds on. Knowing it helps choose realistic deficits (never below BMR for sustained dieting).
+
+### Comparing equations
+
+Curious how Mifflin-St Jeor vs Harris-Benedict vs Katch-McArdle differ for the same person. See all three side-by-side.
+
+### Tracking BMR change over time
+
+Significant weight changes shift BMR. Recalculate quarterly to keep targets honest.
+
+### Educational reference
+
+Nutrition students and personal trainers reference the underlying equations and can teach the math from this tool.
+
+## How it works
+
+1. **Enter biometrics** — Sex, age, height, weight in metric or imperial.
+2. **Optional body-fat %** — Required for Katch-McArdle: BMR = 370 + 21.6 × lean body mass (kg).
+3. **Pick equation** — Mifflin-St Jeor (default), Harris-Benedict (legacy), Katch-McArdle (with body-fat).
+4. **Compute** — Returns BMR in kcal/day plus the intermediate numbers (so the math is auditable).
+5. **Compare equations** — Side-by-side results for the same input — typical spread is 50–150 kcal/day.
+
+## Examples
+
+**Input:** Female, 30 yr, 165 cm, 65 kg
+
+**Output:** Mifflin-St Jeor ≈ 1,381 · Harris-Benedict ≈ 1,455 · ~5% spread
+
+---
+
+**Input:** Male, 25 yr, 180 cm, 80 kg, 18% body fat
+
+**Output:** Katch-McArdle ≈ 1,803 · Mifflin-St Jeor ≈ 1,830 · ~30 kcal difference
+
+---
+
+**Input:** Female, 50 yr, 160 cm, 70 kg
+
+**Output:** Mifflin-St Jeor ≈ 1,289 kcal/day
+
+## Frequently asked questions
+
+<details>
+<summary>**Is BMR the same as RMR?**</summary>
+
+Almost. BMR is measured under strict conditions (overnight fast, total rest, room temperature, just-awake). RMR (resting metabolic rate) is the same idea under less strict conditions and runs ~10% higher. The equations here estimate BMR.
+
+</details>
+
+<details>
+<summary>**Why do men have higher BMR than women on average?**</summary>
+
+Greater lean body mass — muscle and organs are metabolically more active than fat. Adjusting for body composition narrows the gap considerably.
+
+</details>
+
+<details>
+<summary>**What lowers BMR?**</summary>
+
+Aging (~2% per decade after 30), severe caloric restriction (adaptive thermogenesis), loss of lean mass, certain medications, hypothyroidism.
+
+</details>
+
+<details>
+<summary>**Can I increase my BMR?**</summary>
+
+Building lean mass (~10–15 kcal per kg of muscle per day). High-intensity training has a small post-exercise effect. Most "boost your metabolism" claims overstate the effect.
+
+</details>
+
+<details>
+<summary>**Should I eat below BMR?**</summary>
+
+Generally no for sustained periods — long-term sub-BMR intake risks lean mass loss and metabolic adaptation. Brief medically supervised very-low-calorie diets are exceptions.
+
+</details>
+
+<details>
+<summary>**Why does Katch-McArdle give different results?**</summary>
+
+It accounts for lean body mass directly rather than using sex/height/age proxies. More accurate for very lean or very heavy individuals.
+
+</details>
+
+## Tips
+
+- Treat BMR as a baseline, not a goal — daily targets should be TDEE-based.
+- Recalculate after significant weight change (5+ kg) — old BMR estimates drift.
+- For lean / muscular individuals, prefer Katch-McArdle if body-fat % is known.
+- BMR-based maintenance underestimates intake for active people — always add an activity multiplier.
+- BMR is an estimate; metabolic ward studies put equation accuracy at ~10%. Calibrate against real-world adherence.
+
+## Try it now
+
+The full bmr-calculator runs in your browser at **[https://ztools.zaions.com/bmr-calculator](https://ztools.zaions.com/bmr-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/bmr-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/bmr-calculator.mdx)*

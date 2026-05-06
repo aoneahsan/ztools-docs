@@ -1,0 +1,131 @@
+---
+id: speech-to-text
+title: "Speech to Text — Free Voice Transcription in Browser"
+description: "Convert voice to text live in browser. 100+ languages, punctuation, free, no sign-up. Uses Web Speech API."
+sidebar_label: "speech-to-text"
+keywords:
+  - "speech to text"
+  - "voice to text"
+  - "dictation tool"
+  - "free voice typing"
+  - "browser dictation"
+  - "web speech api"
+  - "voice transcription"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# speech-to-text
+
+A speech-to-text tool transcribes spoken audio into written text in real time, supporting dictation, meeting transcription, voice notes, accessibility, and language practice — replacing typing with speaking, often 3-4x faster for free-form thought. The ZTools Speech to Text uses the Web Speech API natively in supported browsers (Chrome, Edge, Safari), supports 100+ languages, automatic punctuation in many of them, runs in real time as you speak, and outputs editable text — no sign-up, no upload, no per-minute charge.
+
+<ToolCTA toolId="speech-to-text" toolName="speech-to-text" />
+
+## Use cases
+
+### Dictation drafting
+
+Speaking is ~150 wpm; typing is ~40-60 wpm. Long-form drafts (essays, blog posts, emails) draft 3x faster by speaking first, editing the transcript second.
+
+### Meeting notes (live)
+
+During a one-on-one or interview, dictate key points instead of typing — eyes stay on the speaker, attention stays with the conversation, transcript captures what was said.
+
+### Accessibility
+
+Users with motor impairments, RSI, or visual impairment can produce written text by speaking. Faster and less painful than alternative input methods.
+
+### Language-learning practice
+
+Speak in a target language; the transcript surfaces pronunciation issues — words the engine misheard signal pronunciation problems to fix.
+
+## How it works
+
+1. **Grant microphone access** — Browser asks once; permission persists per-domain.
+2. **Pick language** — 100+ supported. Wrong language = nonsense output. Set before starting.
+3. **Click start** — Speak naturally. The engine streams text into the output area as you speak (interim results in italics, finalized results in normal text).
+4. **Pause to add punctuation** — Most engines auto-punctuate based on pauses + intonation. Some require explicit "comma", "period", "new paragraph" commands.
+5. **Stop and edit** — Click stop; output text is editable. Correct misrecognitions, fix proper nouns, finalise punctuation.
+
+## Examples
+
+**Input:** 5 minutes of dictation in English
+
+**Output:** ~600-700 words transcribed; ~95% accuracy for clear speakers in quiet environments.
+
+---
+
+**Input:** Spanish dictation
+
+**Output:** Transcribed in Spanish with diacritics. Engine handles language-specific phonemes correctly.
+
+---
+
+**Input:** Technical content with many proper nouns
+
+**Output:** Lower accuracy on technical jargon (~85%); manual correction needed. Train yourself to spell unusual terms.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which browsers support this?**</summary>
+
+Chrome, Edge, Safari (iOS / macOS) implement Web Speech API natively. Firefox does not (as of 2026). Chrome has the broadest language support.
+
+</details>
+
+<details>
+<summary>**Is my voice uploaded?**</summary>
+
+Browser-dependent. Chrome / Edge use Google's speech servers (audio sent for processing). Safari uses on-device recognition (no upload). Use Safari for highly sensitive content.
+
+</details>
+
+<details>
+<summary>**How accurate is it?**</summary>
+
+95-98% for clear speech in quiet rooms in English. Drops for: accented speech, technical jargon, noisy environments, mumbling. Most errors are correctable in seconds during review.
+
+</details>
+
+<details>
+<summary>**Why does my speech sometimes drop?**</summary>
+
+Web Speech API has a built-in timeout (varies by browser). For long sessions, restart automatically when the engine stops. Some tools handle this; some require a manual restart.
+
+</details>
+
+<details>
+<summary>**Can I dictate punctuation manually?**</summary>
+
+In some browsers / languages, yes — say "comma", "period", "question mark", "new paragraph". Others auto-punctuate from intonation. Test your browser.
+
+</details>
+
+<details>
+<summary>**Does it work offline?**</summary>
+
+Safari's on-device mode does. Chrome / Edge typically do not — the audio is sent to a cloud service. For offline transcription, use Whisper (locally-runnable AI model).
+
+</details>
+
+## Tips
+
+- Speak clearly at normal pace — too fast or too quiet drops accuracy noticeably.
+- Use a real microphone for long sessions — built-in laptop mics introduce noise that degrades recognition.
+- For long dictation, save partial output every few minutes — browser timeouts can drop sessions.
+- Train yourself to say "new paragraph" and "comma" — explicit commands often beat auto-punctuation.
+- Always proofread before publishing — homophones (their/there/they're) consistently slip through.
+
+## Try it now
+
+The full speech-to-text runs in your browser at **[https://ztools.zaions.com/speech-to-text](https://ztools.zaions.com/speech-to-text)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/speech-to-text)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/speech-to-text.mdx)*

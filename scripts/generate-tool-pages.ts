@@ -130,6 +130,28 @@ const TOOLS_TO_PUBLISH = [
   'mobile-seo-checker','open-graph-debugger','page-speed-analyzer','redirect-chain-checker',
   'robots-txt-validator','seo-checker','seo-content-analyzer','seo-score-calculator','serp-preview',
   'sitemap-xml-generator','structured-data-validator','twitter-card-validator',
+
+  // Batch 12: health + education + finance + media — 61 tools
+  // Health (18)
+  'blood-alcohol-calculator','bmr-calculator','body-fat-calculator','calorie-calculator',
+  'heart-rate-zone-calculator','ideal-weight-calculator','intermittent-fasting-timer','macronutrient-calculator',
+  'meal-planner','one-rep-max-calculator','ovulation-calculator','pregnancy-due-date-calculator',
+  'protein-intake-calculator','running-pace-calculator','sleep-calculator','tdee-calculator-advanced',
+  'water-intake-calculator','workout-timer',
+  // Education (16)
+  'bibliography-generator','citation-generator','essay-word-counter','flashcard-maker','gpa-calculator',
+  'grade-calculator','math-equation-solver','note-taking-app','periodic-table','plagiarism-detector-academic',
+  'pomodoro-study-timer','quiz-maker','research-paper-outline-generator','study-planner',
+  'text-similarity-checker','typing-speed-test',
+  // Finance (15)
+  'commodity-price-calculator','crypto-price-tracker','emi-calculator','gold-rate-calculator',
+  'income-tax-calculator','jewelry-metal-calculator','loan-calculator','palladium-rate-calculator',
+  'paycheck-calculator','platinum-rate-calculator','roi-calculator','savings-goal-calculator',
+  'silver-rate-calculator','sip-calculator','stock-portfolio-tracker',
+  // Media (14)
+  'audio-cutter','audio-format-converter','audio-joiner','audio-noise-reducer','gif-maker',
+  'image-to-text-ocr','qr-code-scanner','screen-recorder','speech-to-text','video-compressor',
+  'video-subtitle-extractor','video-thumbnail-generator','video-to-gif','voice-recorder',
 ];
 
 // ---------------------------------------------------------------------------

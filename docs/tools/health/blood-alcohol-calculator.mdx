@@ -1,0 +1,131 @@
+---
+id: blood-alcohol-calculator
+title: "Blood Alcohol Calculator — Estimate BAC from Drinks (Widmark)"
+description: "Estimate blood alcohol concentration (BAC) using the Widmark formula. Educational only — never use to decide if safe to drive."
+sidebar_label: "blood-alcohol-calculator"
+keywords:
+  - "blood alcohol calculator"
+  - "bac calculator"
+  - "widmark formula"
+  - "alcohol clearance time"
+  - "educational bac"
+  - "free bac calculator"
+  - "standard drinks"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# blood-alcohol-calculator
+
+A blood alcohol calculator estimates blood alcohol concentration (BAC) from drinks consumed using the Widmark formula — adjusting for weight, sex (different body water percentages), time elapsed (alcohol metabolises at ~0.015% BAC/hour), and alcohol mass per drink. **This is for educational reference only — never use a calculator to decide whether you are safe to drive. The only safe BAC for driving is 0.00. Variability between individuals and the cost of getting it wrong make algorithmic estimation insufficient for any real-world legal or safety decision.**
+
+<ToolCTA toolId="blood-alcohol-calculator" toolName="blood-alcohol-calculator" />
+
+## Use cases
+
+### Education about alcohol metabolism
+
+Health and DUI-prevention educators show how a few drinks impact BAC and how long alcohol takes to clear.
+
+### Researching legal BAC limits
+
+Different jurisdictions have different limits (commonly 0.05%, 0.08%). The calculator provides reference numbers for context.
+
+### Demonstration during alcohol-awareness sessions
+
+Show that "just one drink" already raises BAC measurably; "I am fine to drive" intuition is unreliable.
+
+### Personal awareness only
+
+Individuals curious about alcohol's timeline. Not a tool for decisions about driving.
+
+## How it works
+
+1. **Enter biometrics** — Sex, weight (Widmark factor: 0.68 male, 0.55 female on average — sex differs because of body composition).
+2. **Enter drinks** — Number, type (beer 5%, wine 12%, spirits 40%), volume per drink. Or pure alcohol grams if known.
+3. **Enter time elapsed since first drink** — Body metabolises ~7 g of alcohol per hour (≈ 0.015% BAC/hour).
+4. **Compute Widmark BAC** — BAC% = (grams alcohol / (weight kg × Widmark factor)) − (0.015 × hours).
+5. **Compare to legal limits** — Reference numbers shown — but never use this estimate as the basis for a driving decision.
+
+## Examples
+
+**Input:** Male, 80 kg, 2 standard beers, 1 hour elapsed
+
+**Output:** ~0.034% BAC (well below 0.08% but not zero)
+
+---
+
+**Input:** Female, 60 kg, 3 glasses of wine over 2 hours
+
+**Output:** ~0.066% BAC — close to 0.08% legal limit
+
+---
+
+**Input:** Same as above + 1 more hour rest
+
+**Output:** ~0.051% BAC — alcohol does not clear quickly
+
+## Frequently asked questions
+
+<details>
+<summary>**Can I rely on this to know if I can drive?**</summary>
+
+**No.** Variability between individuals (food, hydration, medications, body composition, genetics) and rounding makes estimates unreliable for any safety-critical decision. The only safe BAC for driving is 0.00.
+
+</details>
+
+<details>
+<summary>**Why does food matter?**</summary>
+
+Food slows alcohol absorption — peak BAC arrives later and is lower for the same total drinks. The calculator does not factor food, so estimates may be high for fed conditions.
+
+</details>
+
+<details>
+<summary>**How fast does BAC drop?**</summary>
+
+Roughly 0.015% per hour, regardless of "remedies" (coffee, water, food). Time is the only thing that lowers BAC.
+
+</details>
+
+<details>
+<summary>**Why does sex matter?**</summary>
+
+Body water percentage differs (males ~58%, females ~49%) so the same alcohol distributes into a smaller volume in females, producing higher BAC for the same drinks.
+
+</details>
+
+<details>
+<summary>**Are "standard drinks" universal?**</summary>
+
+No — definitions vary by country (US 14 g, UK 8 g, Australia 10 g). Set the right gram-per-drink value for your jurisdiction.
+
+</details>
+
+<details>
+<summary>**What about medications or health conditions?**</summary>
+
+Many medications interact with alcohol metabolism unpredictably. Liver disease and other conditions also affect clearance. Estimates do not account for these.
+
+</details>
+
+## Tips
+
+- Treat the result as illustrative, not actionable for safety decisions.
+- Plan transport before drinking — never decide afterward based on "feel" or estimates.
+- Drink water alongside alcohol — slows absorption, reduces hangover, does not lower BAC.
+- Different beverages have very different alcohol content — read the label.
+- For any DUI-related question, consult a lawyer or licensed clinician — algorithm output is not legal evidence.
+
+## Try it now
+
+The full blood-alcohol-calculator runs in your browser at **[https://ztools.zaions.com/blood-alcohol-calculator](https://ztools.zaions.com/blood-alcohol-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/blood-alcohol-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/blood-alcohol-calculator.mdx)*

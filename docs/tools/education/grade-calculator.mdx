@@ -1,0 +1,130 @@
+---
+id: grade-calculator
+title: "Grade Calculator — Final Grade & Required Score Tools"
+description: "Calculate course grade from weighted assignments and the score needed on the final to hit a target letter grade. Free, instant."
+sidebar_label: "grade-calculator"
+keywords:
+  - "grade calculator"
+  - "final grade calculator"
+  - "weighted grade calculator"
+  - "final exam grade calculator"
+  - "class grade calculator"
+  - "what do i need on final"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# grade-calculator
+
+A grade calculator computes a current course grade from a list of weighted assessments — homework, quizzes, midterms, projects, final exam — and answers the most-asked student question: "what do I need on the final to get a B?" The ZTools Grade Calculator runs entirely in the browser, supports any number of categories with custom weights, lets you flag scores that are not yet known, and computes both the current grade based on completed work and the minimum score needed on remaining assessments to land at any chosen target letter grade. No sign-up, no ads, results recompute instantly as you type.
+
+<ToolCTA toolId="grade-calculator" toolName="grade-calculator" />
+
+## Use cases
+
+### Pre-final-exam score targeting
+
+Course is 70% complete. Plug in current category averages and weights, set target = 90% (A-), and read the exact score needed on the final. Tells you whether to study harder or whether the final is mathematically out of reach.
+
+### Mid-semester reality check
+
+After each major assessment, recompute current grade. If trending below target, identify which category (homework? exams?) is dragging the average and where to invest study time.
+
+### Pass / fail check
+
+For courses with a pass threshold (60% or 70%), determine whether you can mathematically still pass given remaining weight, and what minimum score on each remaining piece keeps you above the line.
+
+### Negotiating extra credit
+
+When a teacher offers extra credit worth 2% of the final grade, see whether it shifts the letter grade enough to be worth the time before saying yes.
+
+## How it works
+
+1. **List categories** — Homework, quizzes, midterm 1, midterm 2, project, final exam, etc. Each row gets a weight (must sum to 100%).
+2. **Enter current scores** — For completed work, enter percentage earned in each category (or leave blank for upcoming pieces).
+3. **Compute current grade** — Sum of (score × weight) ÷ sum of completed weights = current weighted average.
+4. **Pick target letter grade** — A (90%), A- (87%), B+ (83%), B (80%) … (cutoffs match your syllabus).
+5. **Solve for needed score** — Given remaining weight, solve target = (current_pts + needed×remaining_weight) / 100. Output: minimum score on the final/remaining work.
+
+## Examples
+
+**Input:** Current grade 82% with 70% of course graded, target 90%, final = 30%
+
+**Output:** Need 90% – ((0.7×82)/(?)) → solve → need ≈ 109% on the final → A is impossible mathematically
+
+---
+
+**Input:** Homework 25% (avg 95), Midterm 30% (88), Final 45% remaining; want B (80%)
+
+**Output:** Need ≥ 70% on the final
+
+---
+
+**Input:** Three quizzes 30% (avg 70), one project 30% (90), final 40%; target C (70%)
+
+**Output:** Need ≥ 56% on the final
+
+## Frequently asked questions
+
+<details>
+<summary>**What if my weights do not add to 100%?**</summary>
+
+The calculator normalises proportionally for the current-grade output, but always validates whole-course math against 100%. Confirm your syllabus weights add up.
+
+</details>
+
+<details>
+<summary>**How do I handle dropped lowest scores?**</summary>
+
+Compute the category average using only the kept scores, then enter that average in the appropriate row.
+
+</details>
+
+<details>
+<summary>**My professor curves grades — does that change the math?**</summary>
+
+Curves apply after the raw weighted grade is computed. Use the calculator to find raw target, then assume the curve nudges thresholds down.
+
+</details>
+
+<details>
+<summary>**Can I get above 100% with extra credit?**</summary>
+
+Yes. Add an "extra credit" row with weight = 0% and the points earned; the calculator adds that bonus on top of the base grade.
+
+</details>
+
+<details>
+<summary>**What is the difference between weighted and points-based grades?**</summary>
+
+Weighted: each category has a fixed % of total grade. Points-based: total points earned ÷ total points possible. Both produce the same result if categories are sized correctly.
+
+</details>
+
+<details>
+<summary>**Why does my needed final score look impossible?**</summary>
+
+Because mathematically it is. The calculator is honest: if the remaining weight cannot move the average enough, the target letter grade is unreachable. Pick the next-highest grade and re-solve.
+
+</details>
+
+## Tips
+
+- Run the calculator after every graded item — early warning beats late panic.
+- If needed-final-score exceeds 100%, consider whether withdraw / pass-fail is allowed before the deadline.
+- Keep the syllabus PDF open while entering weights; faculty sometimes change weights mid-semester and post updates.
+- For multi-section courses, weights and cutoffs vary by instructor — never copy a friend's grade math.
+- Save the screenshot of your final calculation; useful when grades dispute opens.
+
+## Try it now
+
+The full grade-calculator runs in your browser at **[https://ztools.zaions.com/grade-calculator](https://ztools.zaions.com/grade-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/grade-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/grade-calculator.mdx)*

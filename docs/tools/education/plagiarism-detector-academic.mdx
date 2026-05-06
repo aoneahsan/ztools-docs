@@ -1,0 +1,130 @@
+---
+id: plagiarism-detector-academic
+title: "Plagiarism Detector — Heuristic Originality Check for Drafts"
+description: "Heuristic plagiarism check: highlights repeated phrases, shows duplicate-content patterns. Pre-Turnitin self-check."
+sidebar_label: "plagiarism-detector-academic"
+keywords:
+  - "plagiarism detector"
+  - "plagiarism checker free"
+  - "originality check"
+  - "pre-turnitin check"
+  - "duplicate content checker"
+  - "self plagiarism check"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# plagiarism-detector-academic
+
+A plagiarism detector compares a piece of writing against a corpus of existing text and flags spans that closely resemble sources, helping students self-check originality before submitting and helping educators triage suspect work. The ZTools Plagiarism Detector is a heuristic, browser-only tool: it analyses internal duplication (repeated phrases, copy-paste patterns), surfaces common idiomatic shortcuts, and gives a structural originality score — useful as a pre-submission self-check, but not a substitute for institutional services like Turnitin or iThenticate which compare against private + published corpora a browser tool cannot access.
+
+<ToolCTA toolId="plagiarism-detector-academic" toolName="plagiarism-detector-academic" />
+
+## Use cases
+
+### Pre-submission self-check
+
+Before turning in an essay, run it through the detector to catch unintentional copy-paste from notes (which originally came from sources). Cleans up forgotten quotation marks and missing citations.
+
+### Group writing review
+
+For collaboratively-written documents, identify sections that look mass-pasted from a single team member's sources rather than synthesised, suggesting edits before submission.
+
+### Editing for voice consistency
+
+Flags abrupt changes in writing style or vocabulary, which often indicate either AI-pasted text or a switch in author. Helps polish a unified voice.
+
+### Teacher triage tool
+
+For first-pass review on a stack of essays, the detector surfaces high-internal-repetition cases worth checking more carefully with institutional tools.
+
+## How it works
+
+1. **Paste the document** — Text area accepts the full essay or paper. No upload, all client-side.
+2. **Tokenise to n-grams** — Splits into sliding 5-9 word phrases (n-grams), normalised (lowercase, punctuation removed).
+3. **Compute repetition profile** — Counts how often each n-gram repeats; high-frequency n-grams either repeat naturally (style) or signal copy-paste from a single source.
+4. **Detect common phrases** — Compares against a small embedded corpus of high-frequency English idioms — flags filler, not plagiarism.
+5. **Surface structural flags** — Heuristic originality score, list of suspicious spans, and recommendations: add citation, rewrite in own words, or accept (idiom).
+
+## Examples
+
+**Input:** Essay with 3 spans copy-pasted from notes
+
+**Output:** Detector flags 3 spans as "high internal duplication"; recommends adding citation or rewording.
+
+---
+
+**Input:** Original 1500-word essay
+
+**Output:** Originality score 92%; minor repeats are common idioms ("on the other hand", "in conclusion") — accepted.
+
+---
+
+**Input:** Mostly-AI-generated draft
+
+**Output:** Detector cannot directly identify AI text — but flags unusually low style variance and repetitive sentence structure as signal.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this as accurate as Turnitin?**</summary>
+
+No. Turnitin compares against a private corpus of millions of student papers + published books + the web. A browser tool cannot replicate that. This is a self-check, not an audit.
+
+</details>
+
+<details>
+<summary>**Does it work for AI-generated text?**</summary>
+
+Indirectly — AI text often has uniform style and reduced vocabulary diversity. The detector surfaces structural cues but cannot confirm AI origin without specialised AI-detection models.
+
+</details>
+
+<details>
+<summary>**Will it false-positive on quotations?**</summary>
+
+Quoted material with proper quotation marks is downweighted. Unmarked quotations (forgot the quotes) get flagged — exactly the use case for self-checking.
+
+</details>
+
+<details>
+<summary>**What about paraphrasing?**</summary>
+
+Light paraphrasing (synonym swaps) often still leaves n-gram overlap; the detector flags it. Heavy paraphrasing (full rewrite of structure) typically passes.
+
+</details>
+
+<details>
+<summary>**Is my text uploaded?**</summary>
+
+No — entirely client-side. Privacy by design. The browser tab is the entire compute environment.
+
+</details>
+
+<details>
+<summary>**What is a "good" originality score?**</summary>
+
+For self-check purposes, 85%+ is usually fine; below 70% warrants careful review. Institutional thresholds vary widely by department.
+
+</details>
+
+## Tips
+
+- Use this tool first; only escalate to Turnitin or instructor review if the self-check shows real concerns.
+- Always cite sources for ideas you read — not just for quoted passages. Paraphrased thought still belongs to the original author.
+- When in doubt, cite. A paper with too many citations is corrected; a paper with too few risks academic-integrity action.
+- Run the detector on each section independently; problems often concentrate in one paragraph copy-pasted from notes.
+- For thesis-level work, submit to Turnitin via your institution before final submission — heuristic tools are not enough at that stakes level.
+
+## Try it now
+
+The full plagiarism-detector-academic runs in your browser at **[https://ztools.zaions.com/plagiarism-detector-academic](https://ztools.zaions.com/plagiarism-detector-academic)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/plagiarism-detector-academic)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/plagiarism-detector-academic.mdx)*

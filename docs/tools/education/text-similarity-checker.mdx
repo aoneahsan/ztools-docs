@@ -1,0 +1,112 @@
+---
+id: text-similarity-checker
+title: "Text Similarity Checker — Free, Browser-Only"
+description: "Compare two texts for similarity. Cosine, Jaccard, Levenshtein metrics. No upload, no signup."
+sidebar_label: "text-similarity-checker"
+keywords:
+  - "text similarity checker"
+  - "plagiarism check tool"
+  - "compare two texts online"
+  - "cosine similarity calculator"
+  - "levenshtein distance tool"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# text-similarity-checker
+
+Text similarity measures how close two pieces of text are. Different metrics capture different aspects: Levenshtein (edit distance — number of single-char changes to transform one into the other), Jaccard (word-set overlap — independent of order), Cosine (vector-space angle — accounts for term frequency). Useful for plagiarism / duplicate detection, near-duplicate finding in documents, and similarity-based search. The ZTools Text Similarity Checker runs all three metrics in the browser, displays the score (0-1) for each, and highlights the matching / different parts.
+
+<ToolCTA toolId="text-similarity-checker" toolName="text-similarity-checker" />
+
+## Use cases
+
+### Detect near-duplicate articles
+
+Two scraped articles — are they the same content with minor edits? Cosine similarity &gt; 0.9 suggests yes.
+
+### Compare draft revisions
+
+How much did the revision change? Levenshtein gives a precise edit distance.
+
+### Plagiarism check at the paragraph level
+
+Paragraph A vs paragraph B — Jaccard score reveals significant word overlap.
+
+### Find similar customer-support tickets
+
+New ticket has cosine similarity &gt; 0.7 with an old resolved one — surface the resolution.
+
+## How it works
+
+1. **Paste text A and text B** — Two text areas. Any size up to several MB.
+2. **Compute metrics** — Levenshtein (edit distance), normalized to 0-1; Jaccard (intersection / union of word sets); Cosine (TF vectors of term frequencies).
+3. **Display** — Each metric with score + interpretation. Highlighted diff showing matching tokens.
+
+## Examples
+
+**Input:** "hello world" vs "hello world!"
+
+**Output:** Levenshtein 0.92 (1 edit). Jaccard 1.0 (same word set). Cosine 0.99.
+
+---
+
+**Input:** Two paraphrased paragraphs
+
+**Output:** Levenshtein low (~0.4 — many edits). Jaccard moderate (~0.6 — some shared words). Cosine moderate (~0.7 — similar topic).
+
+---
+
+**Input:** Identical text
+
+**Output:** All metrics = 1.0.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which metric for plagiarism?**</summary>
+
+Cosine — captures topic + word frequency. Levenshtein flags too many false negatives on paraphrased content.
+
+</details>
+
+<details>
+<summary>**Will it detect AI-generated text?**</summary>
+
+No — these are similarity metrics between two texts, not AI-detection. Use a dedicated AI detector for that (and they're unreliable).
+
+</details>
+
+<details>
+<summary>**Maximum text size?**</summary>
+
+Levenshtein is O(n*m) — slows down for million-char texts. Jaccard / cosine are O(n+m) — handle large inputs.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All client-side.
+
+</details>
+
+## Tips
+
+- For short text, Levenshtein is most informative.
+- For long documents, cosine + Jaccard scale better; ignore Levenshtein.
+- For semantic similarity (paraphrases), embedding-based tools (sentence-transformers) beat simple word-overlap metrics.
+- For plagiarism detection at scale, dedicated services (Turnitin, Grammarly) compare against vast corpora — this tool is for pairwise comparison only.
+
+## Try it now
+
+The full text-similarity-checker runs in your browser at **[https://ztools.zaions.com/text-similarity-checker](https://ztools.zaions.com/text-similarity-checker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-similarity-checker)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/text-similarity-checker.mdx)*

@@ -1,0 +1,130 @@
+---
+id: quiz-maker
+title: "Quiz Maker — Create & Share Multiple-Choice Quizzes Free"
+description: "Build multiple-choice quizzes with timer, scoring, and shareable links. Free, browser-only, no sign-up needed."
+sidebar_label: "quiz-maker"
+keywords:
+  - "quiz maker"
+  - "quiz creator"
+  - "multiple choice quiz maker"
+  - "free quiz maker online"
+  - "classroom quiz tool"
+  - "training quiz builder"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# quiz-maker
+
+A quiz maker is a tool for authoring multiple-choice / true-false / short-answer questions, organising them into a single quiz, and presenting them to learners with automatic scoring and feedback — common for classroom assessments, training material, and self-test study aids. The ZTools Quiz Maker runs entirely in the browser, supports multiple-choice (single + multi-select), true / false, fill-in-the-blank, and matching question types, lets you add explanations to surface after each answer, configures optional timer and randomised question order, and produces a shareable read-only link for sending to students or trainees.
+
+<ToolCTA toolId="quiz-maker" toolName="quiz-maker" />
+
+## Use cases
+
+### Classroom formative assessment
+
+Teacher builds a 10-question quiz on this week's reading, shares the link, students self-grade with instant feedback. Fast pulse-check on comprehension before next lesson.
+
+### Training program completion check
+
+Corporate training: 20-question quiz at end of each module, 80% threshold to mark complete. Fully self-serve — no LMS required.
+
+### Self-study practice quizzes
+
+Student converts chapter notes into a quiz, takes it before the exam, focuses re-study on missed questions. Active testing &gt; passive re-reading.
+
+### Friend / family trivia
+
+Build a pop-culture or birthday trivia quiz, share the link at gathering or via chat — works on phones, tablets, laptops.
+
+## How it works
+
+1. **Create a quiz** — Name, optional description, optional timer (e.g. 10 min), optional pass mark (e.g. 70%).
+2. **Add questions** — Pick type (multiple-choice / true-false / fill-in-blank). Type the prompt, the options, and mark correct answer(s). Add optional explanation shown after answer.
+3. **Configure delivery** — Randomise question order, shuffle answer order, lock back-button (one shot), reveal correct answer immediately or only at end.
+4. **Share the quiz** — Tool generates a shareable link encoding the quiz definition (or stored locally). Recipients open and complete in any browser.
+5. **View results** — Quiz-takers see their score + per-question feedback at the end. Author sees completion analytics if hosted.
+
+## Examples
+
+**Input:** 10 multiple-choice questions, 20-min timer, randomised order
+
+**Output:** Each take presents the same 10 questions but in random order; timer starts on first question; final score with explanations.
+
+---
+
+**Input:** True/false quiz with 20 questions, 60% pass mark
+
+**Output:** Auto-graded; learner sees pass/fail badge + per-question correctness.
+
+---
+
+**Input:** Mixed-type quiz: 5 MCQ + 3 fill-in-blank + 2 matching
+
+**Output:** Tool grades MCQ + matching automatically; fill-in-blank uses fuzzy match (case-insensitive, trimmed).
+
+## Frequently asked questions
+
+<details>
+<summary>**How is fill-in-the-blank graded?**</summary>
+
+Author lists accepted answers; matching is case-insensitive and trims whitespace. For ambiguous answers, list multiple variants ("color", "colour").
+
+</details>
+
+<details>
+<summary>**Can quizzes be timed per question?**</summary>
+
+Yes — set a per-question timer (e.g. 30 sec each) for fast-paced practice; or a single overall timer for exam-style runs.
+
+</details>
+
+<details>
+<summary>**How is data stored?**</summary>
+
+Quiz definitions stored in browser local storage; shareable links encode the quiz JSON for portability. No server, no account.
+
+</details>
+
+<details>
+<summary>**Do I get analytics on who took the quiz?**</summary>
+
+For locally-shared quizzes, no — privacy by design. For classroom use, take screenshots or have students email scores.
+
+</details>
+
+<details>
+<summary>**Can I import questions from a spreadsheet?**</summary>
+
+Yes — paste TSV (one question per row, options in subsequent columns). Speeds up large quiz creation.
+
+</details>
+
+<details>
+<summary>**Is the quiz accessible on mobile?**</summary>
+
+Yes — responsive design, large tappable answer areas. Works in any modern browser.
+
+</details>
+
+## Tips
+
+- Write distractors (wrong answers) that test specific misconceptions — 4 plausible options test understanding far better than 3 obvious wrongs + 1 right.
+- Add explanations to every question — quizzes that teach (not just test) are better learning tools.
+- Randomise both question and answer order on every retake; pure recall of position is not the goal.
+- For exam practice, set a timer matching the real exam's pacing (e.g. 1.5 min/question).
+- Aim for 10–25 questions per quiz; longer than 25 and learners disengage; shorter than 10 and the test is too narrow.
+
+## Try it now
+
+The full quiz-maker runs in your browser at **[https://ztools.zaions.com/quiz-maker](https://ztools.zaions.com/quiz-maker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/quiz-maker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/quiz-maker.mdx)*

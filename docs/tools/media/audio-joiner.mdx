@@ -1,0 +1,130 @@
+---
+id: audio-joiner
+title: "Audio Joiner — Merge Multiple Audio Files into One"
+description: "Merge MP3 / WAV / OGG audio files into a single track. Drag-reorder, optional crossfades, free, browser-only."
+sidebar_label: "audio-joiner"
+keywords:
+  - "audio joiner"
+  - "merge audio files"
+  - "mp3 joiner"
+  - "combine audio online"
+  - "free audio merger"
+  - "audio concatenator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# audio-joiner
+
+An audio joiner concatenates multiple audio files into a single output track, optionally with crossfades between segments, useful for podcast assembly, mixtape creation, audio-book chapter merging, and combining recorded segments into a single deliverable. The ZTools Audio Joiner runs entirely in the browser using Web Audio API + FFmpeg.wasm, supports MP3 / WAV / OGG / M4A inputs, drag-to-reorder, optional 0.5-3 second crossfades on segment boundaries, and exports a single combined file in your chosen format.
+
+<ToolCTA toolId="audio-joiner" toolName="audio-joiner" />
+
+## Use cases
+
+### Podcast episode assembly
+
+Combine intro music + interview + outro music into a single MP3 episode file. Crossfades smooth the transitions; final file ready for upload.
+
+### Audiobook chapter merging
+
+Multiple recorded chapters stitched into a single long file for distribution. Or split a long audiobook into per-CD-length segments — companion to the audio-cutter tool.
+
+### Music mixtape
+
+Combine tracks for a workout playlist, road trip, or party. Crossfades produce a continuous-mix feel without DJ software.
+
+### Voice memo consolidation
+
+Several short voice memos on the same topic combined into a single sequential file for sharing or archiving.
+
+## How it works
+
+1. **Upload audio files** — Drop multiple files; they load in order. Drag to reorder before joining.
+2. **Set crossfade (optional)** — 0 sec = hard cut; 0.5-1 sec = gentle blend; 2-3 sec = DJ-style mix. Default depends on use case (podcast: 0.3 sec; music: 1-2 sec).
+3. **Pick output format** — MP3 (universal), WAV (lossless), OGG / M4A. Bitrate setting for lossy formats.
+4. **Encode** — Tool decodes each file, applies crossfades, concatenates, re-encodes the result. Progress shown.
+5. **Download** — Single combined file saves locally. Original files untouched.
+
+## Examples
+
+**Input:** Intro 10s + interview 30 min + outro 15s, 0.5 sec crossfades
+
+**Output:** Single 30:25 MP3 with smooth transitions.
+
+---
+
+**Input:** 12 song tracks, 1.5 sec crossfades
+
+**Output:** Continuous mixtape ~50 minutes, ~70 MB at 192 kbps.
+
+---
+
+**Input:** 4 voice memos, hard cut (0 crossfade)
+
+**Output:** Sequential file with audible breaks at boundaries — appropriate for distinct memos.
+
+## Frequently asked questions
+
+<details>
+<summary>**Will the formats be normalised?**</summary>
+
+Optional. The tool can normalise loudness across segments (so the intro is not louder than the body), or leave levels as-is. Normalisation matters for music; less for voice.
+
+</details>
+
+<details>
+<summary>**What if input formats differ?**</summary>
+
+Mixed inputs (MP3 + WAV + OGG) are decoded to PCM internally, then re-encoded to the chosen output. Lossy → lossy involves generation loss; minimise by using high source bitrates.
+
+</details>
+
+<details>
+<summary>**Can I trim before joining?**</summary>
+
+Trim each file separately with the audio-cutter tool, then join. Or join first and trim the result. Either workflow works.
+
+</details>
+
+<details>
+<summary>**How big a file can I produce?**</summary>
+
+Browser memory limits matter. Up to ~2 hours of joined output is realistic on modern laptops. For multi-hour audiobooks, desktop tools (Audacity) handle better.
+
+</details>
+
+<details>
+<summary>**Are the files uploaded?**</summary>
+
+No — entirely client-side. All processing in browser memory; nothing transmitted.
+
+</details>
+
+<details>
+<summary>**How do crossfades work?**</summary>
+
+The tail of segment N fades out while the head of segment N+1 fades in over the configured duration. Both play simultaneously in the overlap region.
+
+</details>
+
+## Tips
+
+- Use consistent bitrate / sample rate across input files when possible — mismatches cause re-encoding artifacts.
+- For podcast, set 0.3-0.5 sec crossfades; for music, 1.5-3 sec depending on tempo.
+- Listen to the boundaries before publishing — abrupt cuts and bad crossfades are immediately audible.
+- Normalise volume across segments for podcast / audiobook; preserve dynamics for music.
+- For long files, split the export into smaller chunks and rejoin in a dedicated DAW if quality matters.
+
+## Try it now
+
+The full audio-joiner runs in your browser at **[https://ztools.zaions.com/audio-joiner](https://ztools.zaions.com/audio-joiner)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/audio-joiner)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-joiner.mdx)*

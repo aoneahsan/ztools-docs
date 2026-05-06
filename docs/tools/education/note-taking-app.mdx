@@ -1,0 +1,131 @@
+---
+id: note-taking-app
+title: "Note-Taking App — Markdown Notes with Search & Tags"
+description: "Free in-browser note-taking with markdown formatting, tags, search, and local storage. Private — no sign-up, no upload."
+sidebar_label: "note-taking-app"
+keywords:
+  - "note taking app"
+  - "markdown notes"
+  - "online note app"
+  - "free notes app"
+  - "browser notes"
+  - "private notes app"
+  - "note app no signup"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# note-taking-app
+
+A note-taking app stores short and long-form text notes in a searchable, taggable database, optionally with markdown formatting (headings, lists, code blocks, links), so lecture notes, meeting summaries, and reading highlights stay accessible across sessions and devices instead of scattered across paper notebooks and chat threads. The ZTools Note-Taking App runs entirely in the browser, supports markdown rendering, tag-based filtering, full-text search, sortable note list, and persists in browser storage — your notes survive tab closes, browser restarts, and even system reboots, with zero server-side storage and zero account required.
+
+<ToolCTA toolId="note-taking-app" toolName="note-taking-app" />
+
+## Use cases
+
+### Lecture notes
+
+During class, type notes with headings per topic, bullet lists per concept, code blocks for formulas. Tags by course (e.g. #cs101, #week5) keep notes findable across the semester.
+
+### Reading highlights and summaries
+
+After each book chapter, a 200-word summary + key quotes + reaction. Tag by book + theme; search across the year-long reading list to find a quote on demand.
+
+### Meeting recap
+
+During a meeting, capture action items, decisions, and follow-ups. Markdown checklist format for action items; tag with project + people.
+
+### Personal knowledge base
+
+A persistent place to store recipes, troubleshooting recipes, gift ideas, contact details. Search beats memory after a year of accumulated notes.
+
+## How it works
+
+1. **Create a new note** — Title (auto-generated from first line if blank), body (markdown supported), optional tags (#tag).
+2. **Format with markdown** — # Heading, **bold**, *italic*, - list, 1. ordered, [link](url), `code`, ```code blocks```, &gt; blockquote.
+3. **Tag and organise** — Tags are inline (#chemistry) or assigned in the sidebar. Notes can have many tags; the sidebar filters by tag.
+4. **Search** — Full-text search over title + body; matches highlighted in results; combined with tag filter for narrow scopes.
+5. **Persist locally** — Notes saved to browser local storage (IndexedDB for larger libraries). Export to JSON for backup or migration.
+
+## Examples
+
+**Input:** ## Lecture: Logistic regression\\n- Sigmoid: 1/(1+e^-x)\\n- Cross-entropy loss\\n#cs229 #week3
+
+**Output:** Renders headings, bullet list, code-style formula; tags surface in the #cs229 filter list.
+
+---
+
+**Input:** Search "logistic"
+
+**Output:** Matches all notes containing the word; preview shows context snippet around the match.
+
+---
+
+**Input:** Filter: #book-club
+
+**Output:** Lists every note tagged #book-club, sorted by date — instant reading-list overview.
+
+## Frequently asked questions
+
+<details>
+<summary>**Are notes synced across devices?**</summary>
+
+No — notes are stored locally on the device that wrote them. Privacy by design. Export to JSON to back up or copy to another device.
+
+</details>
+
+<details>
+<summary>**What is markdown?**</summary>
+
+A lightweight formatting syntax (created by John Gruber, 2004) that lets you mark up plain text with simple symbols and have it render as formatted HTML. # for headings, ** for bold, etc.
+
+</details>
+
+<details>
+<summary>**How much can I store?**</summary>
+
+Browser local storage typically allows ~5MB; IndexedDB supports much more (effectively limited by disk). Tens of thousands of notes are realistic.
+
+</details>
+
+<details>
+<summary>**Can I attach images?**</summary>
+
+Yes — paste an image URL or use markdown image syntax. Embedded base64 images are stored inline; external URLs require internet to display.
+
+</details>
+
+<details>
+<summary>**Can I export notes?**</summary>
+
+Yes — export single notes as markdown files or the entire collection as JSON. Importable back into the app or into other tools (Obsidian, Notion).
+
+</details>
+
+<details>
+<summary>**What happens if I clear browser data?**</summary>
+
+Notes are deleted. Always export periodically — local storage is great for privacy but not durable in the way a cloud service is.
+
+</details>
+
+## Tips
+
+- Use a tag taxonomy from day one — #project-x, #meeting, #idea — much harder to retrofit a thousand untagged notes later.
+- Daily-notes pattern: one note per day with date as title, captures everything that comes up. Searchable by date even years later.
+- Markdown discipline pays off — you can paste notes into other markdown tools (Obsidian, Notion, README files) without reformatting.
+- Periodic JSON export → cloud drive backup gives you durability without giving up local-only privacy.
+- Short titles + rich body beats long titles. Search treats body content the same as titles.
+
+## Try it now
+
+The full note-taking-app runs in your browser at **[https://ztools.zaions.com/note-taking-app](https://ztools.zaions.com/note-taking-app)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/note-taking-app)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/note-taking-app.mdx)*

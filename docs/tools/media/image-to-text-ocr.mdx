@@ -1,0 +1,131 @@
+---
+id: image-to-text-ocr
+title: "Image to Text OCR — Extract Text from Images Free"
+description: "Extract text from photos, screenshots, scanned PDFs using OCR (Tesseract). 100+ languages, free, no upload."
+sidebar_label: "image-to-text-ocr"
+keywords:
+  - "image to text"
+  - "ocr online"
+  - "free ocr tool"
+  - "extract text from image"
+  - "tesseract ocr"
+  - "photo to text converter"
+  - "screenshot to text"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# image-to-text-ocr
+
+An image-to-text OCR (Optical Character Recognition) tool reads text from images — photographed documents, screenshots, scanned pages, signs, screenshots of articles — and outputs editable plain text, replacing manual retyping that takes minutes per page. The ZTools Image to Text OCR runs entirely in the browser using Tesseract.js (the WebAssembly port of the open-source Tesseract OCR engine), supports 100+ languages, recognises printed and clear handwritten text, and outputs plain text or formatted output ready for pasting — all without uploading the image.
+
+<ToolCTA toolId="image-to-text-ocr" toolName="image-to-text-ocr" />
+
+## Use cases
+
+### Scanned-document conversion
+
+A photographed receipt, invoice, or printed article. OCR converts the image to searchable / editable text in seconds, eliminating manual retyping.
+
+### Screenshot text extraction
+
+Quote text from a screenshot, error message, or social-media post when copy-paste is not available. OCR pulls the words instantly.
+
+### Translation prep
+
+Photograph foreign-language signs, menus, or labels; OCR gets the text out, then paste into a translator. Two-step pipeline solves the no-text-input problem.
+
+### Accessibility / reading aid
+
+Convert photographed printed material to text, then to speech via screen reader. Independent reading for users with low vision or print disability.
+
+## How it works
+
+1. **Upload an image** — JPG, PNG, BMP, WebP. Higher resolution + sharp focus = better recognition. Photographs of monitors / printed pages work; tilted / dim photos lose accuracy.
+2. **Pick recognition language** — 100+ supported (English, Spanish, French, German, Chinese, Arabic, etc.). Wrong language = garbled output, so always set this first.
+3. **OCR engine processes** — Tesseract.js scans line by line, identifies character shapes against trained models, assembles words and lines.
+4. **Review and edit** — OCR is ~95-99% accurate on clean printed text; lower on handwriting or low-resolution. Output is editable; correct any obvious errors before using.
+5. **Copy or download** — Plain text copies to clipboard or downloads as .txt. Paste into your destination.
+
+## Examples
+
+**Input:** Photograph of printed letter (clear, well-lit)
+
+**Output:** ~98% accurate text; a few words may need correction for OCR quirks (rn → m, l → 1).
+
+---
+
+**Input:** Screenshot of an error dialog
+
+**Output:** ~99% accurate; perfect for crisp on-screen text.
+
+---
+
+**Input:** Photograph of a handwritten note (clear writing)
+
+**Output:** ~70-85% accurate; depends heavily on handwriting clarity. Cursive performs worse.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate is OCR?**</summary>
+
+Printed text on clean backgrounds: 95-99%. Photographs of printed material: 90-95%. Handwriting: 70-90% depending on clarity. Always proofread OCR output before relying on it.
+
+</details>
+
+<details>
+<summary>**Why does it sometimes confuse rn / m / l / 1 / 0 / O?**</summary>
+
+Visual similarity. The OCR engine guesses based on shape; some characters are nearly identical at low resolution. Higher-resolution input fixes most of these.
+
+</details>
+
+<details>
+<summary>**How do I improve accuracy?**</summary>
+
+Sharp focus. Even lighting (no shadows). Straight orientation (rotate before OCR). Plain background. High contrast (black ink on white). Higher resolution beats stronger algorithms.
+
+</details>
+
+<details>
+<summary>**Is the image uploaded?**</summary>
+
+No — Tesseract.js runs entirely in the browser. The image never leaves your device. Privacy by design, even for sensitive documents.
+
+</details>
+
+<details>
+<summary>**Does it preserve formatting?**</summary>
+
+Basic line breaks and paragraph structure, yes. Tables, columns, and rich formatting are usually lost — OCR sees text, not layout. For PDFs with structure, specialised PDF-OCR tools work better.
+
+</details>
+
+<details>
+<summary>**How long does it take?**</summary>
+
+5-15 seconds for a typical document image. Larger images or complex pages can take 30+ seconds. The first run is slower (model loading); subsequent runs cache the model.
+
+</details>
+
+## Tips
+
+- Photograph in even, indirect light — direct flash creates glare and shadow that ruin OCR.
+- Rotate the image to upright orientation before OCR; tilted text loses 5-10% accuracy.
+- Crop to just the text area; surrounding clutter (margins, edges) confuses the engine.
+- For multilingual documents, run OCR twice with different language settings and merge — single-language runs miss embedded foreign words.
+- Always proofread OCR output before submitting (resumes, applications, legal). Auto-corrected nonsense slips through quietly.
+
+## Try it now
+
+The full image-to-text-ocr runs in your browser at **[https://ztools.zaions.com/image-to-text-ocr](https://ztools.zaions.com/image-to-text-ocr)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-to-text-ocr)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/image-to-text-ocr.mdx)*

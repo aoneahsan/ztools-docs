@@ -1,0 +1,131 @@
+---
+id: calorie-calculator
+title: "Calorie Calculator — Daily Calorie Needs by Goal & Activity"
+description: "Calculate daily calorie needs based on age, sex, weight, height, activity level, and goal (lose, maintain, gain). Free."
+sidebar_label: "calorie-calculator"
+keywords:
+  - "calorie calculator"
+  - "daily calorie needs"
+  - "tdee calculator"
+  - "weight loss calorie target"
+  - "mifflin-st jeor"
+  - "free calorie calculator"
+  - "maintenance calories"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# calorie-calculator
+
+A calorie calculator estimates the daily caloric intake a person needs to maintain, lose, or gain weight by combining the Mifflin-St Jeor basal metabolic rate (BMR) equation with an activity-level multiplier and a goal-driven adjustment (typically a 500 kcal/day deficit for ~0.5 kg/week loss or a 250–500 kcal surplus for lean gain). The ZTools Calorie Calculator runs entirely in the browser, supports both metric and imperial units, exposes the underlying math so the result is auditable, and explicitly frames the output as an educational estimate — actual needs vary with body composition, NEAT, medical conditions, and adherence; calibrate by tracking 2–3 weeks of intake against real weight change.
+
+<ToolCTA toolId="calorie-calculator" toolName="calorie-calculator" />
+
+## Use cases
+
+### Setting a starting calorie target for weight loss
+
+Someone wanting to lose ~0.5 kg/week subtracts a 500 kcal/day deficit from maintenance. The calculator surfaces both numbers explicitly so the deficit is intentional and not blind.
+
+### Planning a lean bulk
+
+Lifters add a modest 250–500 kcal/day surplus to maintenance. Hits the sweet spot of muscle gain without excessive fat gain.
+
+### Setting maintenance after a cut
+
+After a successful diet, the maintenance number anchors the post-diet eating plan and reduces rebound risk.
+
+### Coaching clients on energy balance
+
+Personal trainers explain the energy-in vs energy-out concept with concrete numbers tied to the client's own anthropometrics.
+
+## How it works
+
+1. **Enter biometrics** — Sex, age, height, weight. Both metric (kg, cm) and imperial (lb, ft/in) accepted.
+2. **Compute BMR (Mifflin-St Jeor)** — Men: 10·kg + 6.25·cm − 5·age + 5. Women: 10·kg + 6.25·cm − 5·age − 161. Most accurate widely-used equation.
+3. **Apply activity multiplier** — 1.2 sedentary, 1.375 light, 1.55 moderate, 1.725 very active, 1.9 extremely active. Result = TDEE (total daily energy expenditure).
+4. **Apply goal adjustment** — Lose ~0.5 kg/wk: TDEE − 500. Maintain: TDEE. Gain lean: TDEE + 250 to +500.
+5. **Calibrate over 2–3 weeks** — Track intake AND weight. Adjust target up or down by 100–200 kcal/day if real change differs from prediction.
+
+## Examples
+
+**Input:** Female, 30 yr, 165 cm, 65 kg, moderate activity, maintain
+
+**Output:** BMR ≈ 1,381 kcal · TDEE ≈ 2,141 kcal/day
+
+---
+
+**Input:** Male, 25 yr, 180 cm, 80 kg, very active, lean gain
+
+**Output:** BMR ≈ 1,830 kcal · TDEE ≈ 3,157 kcal · target ≈ 3,400 kcal/day
+
+---
+
+**Input:** Same male, lose 0.5 kg/wk
+
+**Output:** Target ≈ 2,657 kcal/day (TDEE − 500)
+
+## Frequently asked questions
+
+<details>
+<summary>**Is this medical advice?**</summary>
+
+No — this is an educational estimate using widely cited equations. People with medical conditions, pregnancy, eating disorders, or a need for precise nutrition should consult a registered dietitian or physician.
+
+</details>
+
+<details>
+<summary>**Why Mifflin-St Jeor over Harris-Benedict?**</summary>
+
+Mifflin-St Jeor (1990) is more accurate for modern populations. Harris-Benedict (1919) overestimates by ~5% for many people due to changes in average body composition.
+
+</details>
+
+<details>
+<summary>**Why does my real weight change not match the prediction?**</summary>
+
+Activity multipliers are rough buckets. Tracking intake is imperfect (label inaccuracies, untracked bites). Water and glycogen cause day-to-day fluctuations. Calibrate over 2–3 weeks, not days.
+
+</details>
+
+<details>
+<summary>**What is a safe deficit?**</summary>
+
+300–500 kcal/day for most adults gives ~0.3–0.5 kg/week loss while preserving lean mass. Deficits above 1,000 kcal/day risk muscle loss, fatigue, and rebound.
+
+</details>
+
+<details>
+<summary>**Should I eat back exercise calories?**</summary>
+
+If your activity multiplier already includes exercise, no. If you used "sedentary" then logged each workout separately, eat back ~50–75% of the burn (gym tracker estimates run high).
+
+</details>
+
+<details>
+<summary>**Does this account for body composition?**</summary>
+
+Indirectly — leaner people burn slightly more than the equation predicts; fatter individuals slightly less. For high precision, use Katch-McArdle (requires body-fat %).
+
+</details>
+
+## Tips
+
+- Calibrate for 2 full weeks before adjusting the target — single-week changes are mostly water.
+- Track intake honestly — bites and beverages are the #1 source of "but I am eating my target" misses.
+- Weigh yourself every morning under the same conditions; track the 7-day rolling average, not daily numbers.
+- For goals over 12 weeks, recompute monthly — TDEE drops as bodyweight drops.
+- If progress stalls, the fix is usually accuracy of tracking, not lower calories — verify before slashing.
+
+## Try it now
+
+The full calorie-calculator runs in your browser at **[https://ztools.zaions.com/calorie-calculator](https://ztools.zaions.com/calorie-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/calorie-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/calorie-calculator.mdx)*

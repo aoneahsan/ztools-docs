@@ -1,0 +1,131 @@
+---
+id: one-rep-max-calculator
+title: "One-Rep Max Calculator — Estimate 1RM from Sub-Maximal Lifts"
+description: "Estimate one-rep max (1RM) from any rep × weight set using Epley, Brzycki, Lombardi, O'Conner, Wathan formulas. Free."
+sidebar_label: "one-rep-max-calculator"
+keywords:
+  - "one rep max calculator"
+  - "1rm calculator"
+  - "epley formula"
+  - "brzycki formula"
+  - "strength calculator"
+  - "free 1rm calculator"
+  - "lifting percentage table"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# one-rep-max-calculator
+
+A one-rep max (1RM) calculator estimates the maximum weight you could lift for a single repetition based on a sub-maximal set (e.g., 100 kg × 5 reps) using formulas like Epley, Brzycki, Lombardi, O'Conner, and Wathan — useful for programming training percentages without actually testing 1RM (which is fatiguing, time-consuming, and somewhat injury-prone). The ZTools 1RM Calculator runs all five formulas at once for comparison, supports kg and lb, generates a full percentage table (50% through 100% of estimated 1RM in 5% steps), and notes that all formulas lose accuracy beyond ~10 reps — pick a 3–8 rep set for the most reliable estimate.
+
+<ToolCTA toolId="one-rep-max-calculator" toolName="one-rep-max-calculator" />
+
+## Use cases
+
+### Program design without max-testing
+
+Lifters set training percentages (5×5 at 80%, 3×3 at 90%) without doing a true 1RM test. Calculator gives the working numbers.
+
+### Progress tracking
+
+After a 4–8 week training block, recompute estimated 1RM from a heavy AMRAP set. Direct measure of strength change.
+
+### Coaching novice lifters
+
+Coaches use estimates rather than testing because novice 1RMs change weekly and testing wastes a session.
+
+### Comparing formulas
+
+Different formulas suit different rep ranges. Side-by-side view shows the spread (~3–5 kg between formulas typically).
+
+## How it works
+
+1. **Enter weight × reps** — A real set you completed near failure. Best for 3–8 reps; 1–2 reps gives accuracy ≈ true 1RM, 10+ reps overestimates.
+2. **Compute via 5 formulas** — Epley: w × (1 + 0.0333 × r). Brzycki: w / (1.0278 − 0.0278 × r). Lombardi, O'Conner, Wathan have similar shapes.
+3. **Average or pick** — Default returns the average of all five. Pick a single formula if you have a preference.
+4. **Generate percentage table** — Estimated 1RM × 50% through 100% in 5% steps for programming.
+5. **Refresh after each block** — Recompute from a heavy AMRAP every 4–8 weeks; track progression.
+
+## Examples
+
+**Input:** 100 kg × 5 reps
+
+**Output:** Epley 116.7 · Brzycki 112.5 · Lombardi 114.9 · average ≈ 114 kg estimated 1RM
+
+---
+
+**Input:** 80 kg × 8 reps
+
+**Output:** Estimated 1RM ≈ 100 kg (5 formulas average)
+
+---
+
+**Input:** 60 kg × 12 reps
+
+**Output:** Estimated 1RM ≈ 84 kg — note: 12 reps is at the edge of formula accuracy
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate are these estimates?**</summary>
+
+Within 5% for most lifters at 3–8 rep sets. 1–2 rep sets give near-true 1RM. Beyond 10 reps, all formulas overestimate (training factor matters more than maximal strength at high reps).
+
+</details>
+
+<details>
+<summary>**Which formula should I use?**</summary>
+
+Epley is the most common; Brzycki is more conservative for high reps. The average across formulas hedges against single-formula bias.
+
+</details>
+
+<details>
+<summary>**Should I retest 1RM?**</summary>
+
+For competitive lifters, occasionally yes. For most, estimates suffice and avoid risk. If you do test, follow proper warmup, ramp-up, and have a spotter.
+
+</details>
+
+<details>
+<summary>**Do estimates work for all lifts?**</summary>
+
+Best for compound lifts (squat, bench, deadlift, overhead press). Isolation lifts (curls, tricep extensions) have different fatigue profiles; estimates run high.
+
+</details>
+
+<details>
+<summary>**Why does my 1RM seem to fluctuate?**</summary>
+
+Sleep, food, hydration, stress all affect daily strength by ±5%. Single-day estimates are snapshots, not absolutes.
+
+</details>
+
+<details>
+<summary>**How often should I recompute?**</summary>
+
+After each training block (4–8 weeks). More frequently for novices; less for advanced lifters.
+
+</details>
+
+## Tips
+
+- Use 3–8 rep sets for the most reliable estimates.
+- Rest 3–5 minutes before the test set — fatigue inflates rep count and overestimates 1RM.
+- Same lift, same equipment for tracking — comparing barbell squat to leg-press 1RM is meaningless.
+- Recompute after every block; use the new number to set the next block's percentages.
+- Conservative beats heroic — programming 5% under estimated 1RM rarely costs progress; 5% over costs missed reps.
+
+## Try it now
+
+The full one-rep-max-calculator runs in your browser at **[https://ztools.zaions.com/one-rep-max-calculator](https://ztools.zaions.com/one-rep-max-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/one-rep-max-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/one-rep-max-calculator.mdx)*

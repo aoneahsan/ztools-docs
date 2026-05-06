@@ -1,0 +1,131 @@
+---
+id: study-planner
+title: "Study Planner — Schedule Subjects, Sessions & Exam Prep"
+description: "Plan study sessions across subjects with daily / weekly schedules, exam countdowns, and progress tracking. Free, in-browser."
+sidebar_label: "study-planner"
+keywords:
+  - "study planner"
+  - "study schedule maker"
+  - "exam study plan"
+  - "student planner online"
+  - "free study planner"
+  - "weekly study schedule"
+  - "study timetable"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# study-planner
+
+A study planner is a structured schedule that allocates specific time blocks to specific subjects or tasks across days and weeks leading up to exams or deadlines, replacing the unrealistic "I will study a lot tomorrow" intent with concrete, finishable sessions. The ZTools Study Planner runs entirely in the browser, lets you list subjects with priority + estimated hours, generates a daily / weekly schedule respecting your available study windows, tracks completion of each block, supports exam countdowns with auto-allocation against the exam date, and persists everything in browser storage so closing the tab does not lose your plan.
+
+<ToolCTA toolId="study-planner" toolName="study-planner" />
+
+## Use cases
+
+### Final-exam prep over 4 weeks
+
+Five exams, 80 hours of material total, 4 weeks until first exam. Planner allocates ~20 hours / week across subjects in priority order, weighted by exam date proximity.
+
+### Weekly course load
+
+During semester, plan 15 hours / week of study across 5 courses. Daily 1-2 hour blocks per subject; weekend catch-up sessions for trailing topics.
+
+### Standardised-test prep (SAT, GRE)
+
+Months out from test day, allocate practice tests + content review + flashcard time. Countdown view shows progress vs schedule.
+
+### Group-project deadline tracking
+
+Project broken into milestones; each milestone gets its own block in the planner. Avoids the night-before sprint by spreading load.
+
+## How it works
+
+1. **List subjects + priorities** — Subject name, total estimated hours, exam / deadline date, priority (1 highest).
+2. **Set available study windows** — Per day: which hours are available (e.g. weekdays 7-9pm, weekends 10am-4pm).
+3. **Auto-generate schedule** — Planner allocates blocks across windows by priority + deadline proximity. Higher-priority subjects get earlier and more frequent slots.
+4. **Mark blocks done** — After each session, mark complete. Planner shows progress bar per subject (hours done vs total).
+5. **Adjust on the fly** — Missed a session? Re-run the auto-allocator on remaining time; it redistributes the unfinished hours into upcoming windows.
+
+## Examples
+
+**Input:** 5 subjects, 80 total hours, 4 weeks, 20 study hours/week
+
+**Output:** Schedule: 4 hours / day Mon-Fri; 50 hours allocated to top 2 subjects (most weight), 30 across remaining 3.
+
+---
+
+**Input:** GRE prep: 100 hours over 12 weeks
+
+**Output:** ~8 hours/week — split into 4 sessions of 2 hours; weekly practice test on Sunday.
+
+---
+
+**Input:** Missed 6 hours this week
+
+**Output:** Replan adds ~1 extra hour / day for the next 6 days to catch up before falling behind further.
+
+## Frequently asked questions
+
+<details>
+<summary>**How accurate are the time estimates?**</summary>
+
+Most students underestimate by 30-50% on first plan. After 1-2 weeks of tracked sessions, recalibrate — the planner shows actual vs estimated hours per subject.
+
+</details>
+
+<details>
+<summary>**What if a subject takes longer than planned?**</summary>
+
+Adjust total estimated hours up; planner reallocates remaining time. Better to update the plan than to silently fall behind.
+
+</details>
+
+<details>
+<summary>**How do I handle multiple exam dates?**</summary>
+
+Each subject has its own deadline. Planner front-loads earlier-dated subjects without ignoring later ones — the priority weighting handles this.
+
+</details>
+
+<details>
+<summary>**Is this just a calendar?**</summary>
+
+No — a calendar shows time. A planner allocates time-to-subject by priority and reflows when life intervenes. Calendars complement planners, they do not replace them.
+
+</details>
+
+<details>
+<summary>**Should I include breaks?**</summary>
+
+Yes — for blocks longer than 60 minutes, factor in a 10-15 min break (Pomodoro-style). The planner can model breaks; otherwise, account for them mentally.
+
+</details>
+
+<details>
+<summary>**Why not just list to-dos?**</summary>
+
+To-do lists do not constrain time. A planner forces you to confront whether the to-do can fit in the available hours — usually exposing wishful thinking early.
+
+</details>
+
+## Tips
+
+- Replan weekly. Plans built today rarely survive contact with reality past 5-7 days.
+- Schedule the hardest subject first in the day — willpower and focus deplete with hours awake.
+- Leave 10-15% of weekly time as buffer — illness, social commitments, broken assumptions all happen.
+- Track actual hours, not just check-marks. Hours of distracted "studying" do not count the same as deep-focus hours.
+- Print the weekly plan and tape it where you sit to study — visible commitment beats hidden intent.
+
+## Try it now
+
+The full study-planner runs in your browser at **[https://ztools.zaions.com/study-planner](https://ztools.zaions.com/study-planner)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/study-planner)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/study-planner.mdx)*

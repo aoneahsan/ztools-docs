@@ -1,0 +1,131 @@
+---
+id: flashcard-maker
+title: "Flashcard Maker — Build, Study & Review with Spaced Repetition"
+description: "Create flashcard decks with front/back text, study with spaced repetition, mark known/unknown. Free, browser-only."
+sidebar_label: "flashcard-maker"
+keywords:
+  - "flashcard maker"
+  - "flashcard generator"
+  - "study flashcards"
+  - "spaced repetition app"
+  - "free flashcard tool"
+  - "vocabulary flashcards"
+  - "online flashcards"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# flashcard-maker
+
+A flashcard maker is a digital deck builder where each card has a question (front) and an answer (back), letting learners test recall actively rather than re-reading notes — the most efficient evidence-based study technique for memorising vocabulary, formulas, dates, and definitions. The ZTools Flashcard Maker runs entirely in the browser, supports text + simple formatting on both sides, lets you tag cards by subject, run study sessions in random or spaced-repetition order, and persists decks in browser storage so a deck built today is still there next week — no sign-up, no sync server, no upload.
+
+<ToolCTA toolId="flashcard-maker" toolName="flashcard-maker" />
+
+## Use cases
+
+### Language vocabulary
+
+Front: foreign word; back: English meaning + example sentence. Drill in random order daily, mark known words to drop them out of rotation, focus on the still-unknowns.
+
+### Medical / legal definitions
+
+High-stakes professional exams (USMLE, bar) require thousands of definitions. Build subject decks (cardiology, contracts), study by deck, track progress per topic.
+
+### Math formulas
+
+Front: scenario or formula name; back: formula + when to apply. Active recall builds reflexive recognition during timed exams.
+
+### Children's spelling and times tables
+
+Parents build small decks (10–20 cards) per week; kids self-study using random shuffle, with simple known / unknown buttons replacing red-pen correction.
+
+## How it works
+
+1. **Create a deck** — Name it (e.g. "GRE vocabulary", "Chapter 4 history"). Decks group cards for focused study sessions.
+2. **Add cards** — Each card has a front (prompt) and back (answer). Optional: tags, hint text, image link.
+3. **Pick study mode** — Random shuffle (basic), known-only (review), unknown-only (focused), or spaced repetition (cards reappear at expanding intervals).
+4. **Self-grade** — For each card, mark "Got it" or "Missed". Spaced-repetition algorithm uses these marks to schedule next review (5 min, 1 day, 3 days, 1 week, …).
+5. **Review stats** — See accuracy per card, retention curve over time, and which cards remain in the "still hard" bucket — drives where to study next.
+
+## Examples
+
+**Input:** Deck: SAT vocab. Cards: ephemeral / lasting briefly. ubiquitous / everywhere.
+
+**Output:** Study session: cards shuffled, each shown front-only, flip to reveal back, mark known/unknown. Unknown cards reappear next session.
+
+---
+
+**Input:** Spaced repetition over 30 days
+
+**Output:** New card seen day 1, again day 2, day 4, day 8, day 16. Mastered cards drop out; struggled cards return to short interval.
+
+---
+
+**Input:** Math deck: chain rule / d/dx[f(g(x))] = f'(g(x))·g'(x).
+
+**Output:** Active recall vs re-reading: studies show ~50% better retention at 1 week.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is spaced repetition?**</summary>
+
+A study schedule where the interval between reviews of a given card grows the more times you successfully recall it (1 day → 3 days → 1 week → 1 month). Optimal for long-term retention.
+
+</details>
+
+<details>
+<summary>**Why active recall over re-reading?**</summary>
+
+Re-reading creates familiarity, not memory. Active recall (testing yourself) forces retrieval and strengthens the memory trace. Decades of cognitive-psychology research support this.
+
+</details>
+
+<details>
+<summary>**Can I import existing decks?**</summary>
+
+Paste tab-separated front/back lines; the tool creates a card per line. Useful for migrating from Anki, Quizlet, or text files.
+
+</details>
+
+<details>
+<summary>**Are decks synced across devices?**</summary>
+
+No — decks live in browser storage on the device that created them. Export to JSON to back up or move between devices.
+
+</details>
+
+<details>
+<summary>**How many cards per session?**</summary>
+
+Cognitive science suggests 20–40 cards per session for new material; up to 100 for review of well-known cards. More than that, attention drops.
+
+</details>
+
+<details>
+<summary>**Do I need to grade myself honestly?**</summary>
+
+Yes — the spaced-repetition schedule depends on accurate self-grading. Marking "Got it" when you guessed leads to forgotten cards on the test.
+
+</details>
+
+## Tips
+
+- Make cards short — one fact per card. Long cards split into multiple small ones.
+- Use the front for the prompt you will face on the exam; the back is what you need to recall, not extra context.
+- Review daily for 10–20 minutes, not weekly for 2 hours — spaced repetition amplifies short consistent sessions.
+- Tag by subject and chapter so you can study just the topic from yesterday's lecture.
+- Export decks before clearing browser data; otherwise the work is lost.
+
+## Try it now
+
+The full flashcard-maker runs in your browser at **[https://ztools.zaions.com/flashcard-maker](https://ztools.zaions.com/flashcard-maker)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/flashcard-maker)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/education/flashcard-maker.mdx)*

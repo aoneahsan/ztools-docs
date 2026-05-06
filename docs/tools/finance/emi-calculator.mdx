@@ -1,0 +1,131 @@
+---
+id: emi-calculator
+title: "EMI Calculator — Equated Monthly Installment for Loans (Free)"
+description: "Calculate EMI (equated monthly installment) for any loan: principal, rate, tenure. Amortisation schedule. Free."
+sidebar_label: "emi-calculator"
+keywords:
+  - "emi calculator"
+  - "loan emi calculator"
+  - "monthly installment calculator"
+  - "home loan emi"
+  - "amortisation calculator"
+  - "free emi calculator"
+  - "loan calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# emi-calculator
+
+An EMI (equated monthly installment) calculator computes the fixed monthly payment for a loan — given principal, annual interest rate, and tenure in months — using the standard amortisation formula `P × r × (1+r)^n / ((1+r)^n − 1)`, where `r` is the monthly rate and `n` is the number of months. The ZTools EMI Calculator runs entirely in the browser, generates the full amortisation schedule (principal vs interest split each month), shows total interest paid over the loan life, and supports prepayment scenarios so users see how an extra payment shaves months off the term.
+
+<ToolCTA toolId="emi-calculator" toolName="emi-calculator" />
+
+## Use cases
+
+### Pre-loan affordability check
+
+Before applying for a home loan, calculate the EMI at quoted rates. If it exceeds 35–40% of monthly income, it is too high; renegotiate principal or tenure.
+
+### Comparing loan offers
+
+Bank A offers 8.5% for 20 years; Bank B 8.2% for 25 years. EMI alone misleads; total interest tells the full story.
+
+### Prepayment planning
+
+A windfall of $5,000 — does it save more if applied to a 7% mortgage or a 24% credit card? Run both scenarios through the prepayment view.
+
+### Auto and personal loan budgeting
+
+Decide loan term based on monthly cash-flow constraint. Calculator surfaces how much extra interest a longer term costs.
+
+## How it works
+
+1. **Enter principal, rate, tenure** — Principal in any currency. Rate as annual percentage. Tenure in months or years.
+2. **Compute EMI** — Formula: P × r × (1+r)^n / ((1+r)^n − 1). Returns fixed monthly payment.
+3. **Generate amortisation schedule** — Per-month breakdown: opening balance, EMI, interest portion, principal portion, closing balance. Early months are interest-heavy; later months principal-heavy.
+4. **Show totals** — Total interest, total amount paid (principal + interest).
+5. **Model prepayment** — Optionally add a one-time or recurring extra payment; recompute the new tenure / total interest.
+
+## Examples
+
+**Input:** Principal $200,000, 8% annual, 240 months (20 yr)
+
+**Output:** EMI ≈ $1,673 · Total interest ≈ $201,612 · Total paid ≈ $401,612
+
+---
+
+**Input:** Same loan, $20,000 prepayment in year 5
+
+**Output:** New tenure ≈ 16 yr 8 mo · saves ~$45,000 in interest
+
+---
+
+**Input:** Auto loan: $30,000, 6%, 60 months
+
+**Output:** EMI ≈ $580 · Total interest ≈ $4,799
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is EMI fixed when interest is calculated on declining balance?**</summary>
+
+The amortisation formula computes the unique EMI that, if paid each month at the contracted rate, exactly pays off the loan over the term. Interest each month declines (smaller balance), principal portion grows accordingly — but the total is fixed.
+
+</details>
+
+<details>
+<summary>**Why is most of my early EMI going to interest?**</summary>
+
+Because interest is on the (large) outstanding balance. As balance drops, interest drops, and more of each constant EMI goes to principal. This is normal amortisation, not a "scam".
+
+</details>
+
+<details>
+<summary>**Should I prepay or invest?**</summary>
+
+Compare the loan rate (after-tax if interest is tax-deductible) to the expected after-tax investment return. Prepay when loan rate &gt; expected return; invest when lower. High-interest debt (credit cards) almost always wins for prepayment.
+
+</details>
+
+<details>
+<summary>**Does the calculator handle floating rates?**</summary>
+
+Default is fixed-rate. For floating rates, recompute EMI at each rate-reset date with the then-outstanding balance and remaining tenure.
+
+</details>
+
+<details>
+<summary>**What about prepayment penalties?**</summary>
+
+The calculator does not factor them — read your loan agreement. In some jurisdictions, prepayment is free; in others it carries a fee.
+
+</details>
+
+<details>
+<summary>**Is the math the same as for a US-style mortgage?**</summary>
+
+Yes — EMI is the same formula globally. Naming differs (US: "monthly payment"; India: "EMI"), but the math is identical.
+
+</details>
+
+## Tips
+
+- Aim to keep total EMIs below 40% of net monthly income; high ratios are stressful.
+- Check the amortisation schedule — first-year prepayments save dramatically more interest than late-year prepayments.
+- Compare offers by total interest, not just monthly EMI; longer tenures often hide huge total cost.
+- Keep an emergency fund before aggressively prepaying — losing your liquidity for slightly faster payoff is risky.
+- Recompute when rate changes (floating loans) to know the new EMI and remaining cost.
+
+## Try it now
+
+The full emi-calculator runs in your browser at **[https://ztools.zaions.com/emi-calculator](https://ztools.zaions.com/emi-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/emi-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/emi-calculator.mdx)*

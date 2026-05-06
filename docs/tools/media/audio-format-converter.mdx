@@ -1,0 +1,131 @@
+---
+id: audio-format-converter
+title: "Audio Format Converter — MP3, WAV, OGG, FLAC, M4A"
+description: "Convert audio between MP3, WAV, OGG, FLAC, M4A, AAC. Choose bitrate. Free, browser-only, no upload."
+sidebar_label: "audio-format-converter"
+keywords:
+  - "audio format converter"
+  - "mp3 converter"
+  - "wav to mp3"
+  - "flac converter"
+  - "audio converter online"
+  - "free audio converter"
+  - "aac to mp3"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# audio-format-converter
+
+An audio format converter transcodes a file from one audio format to another — MP3 ↔ WAV ↔ OGG ↔ FLAC ↔ M4A / AAC — letting you match output to a destination's requirements (web upload, podcast platform, audio editor, lossless archive). The ZTools Audio Format Converter runs entirely in the browser via FFmpeg.wasm, supports all major formats, lets you pick output bitrate (96 / 128 / 192 / 256 / 320 kbps for lossy formats), preserves metadata where possible, and downloads the converted file directly without server upload.
+
+<ToolCTA toolId="audio-format-converter" toolName="audio-format-converter" />
+
+## Use cases
+
+### Podcast platform requirements
+
+Some platforms accept only MP3 at specific bitrates. Recorded in WAV; convert to MP3 at 128 kbps stereo before upload. Done in 30 seconds.
+
+### Phone ringtone format
+
+iOS expects M4R / M4A; Android accepts MP3 / OGG. Convert your trimmed clip to the target format.
+
+### Lossless archive
+
+Original recording in MP3; convert to FLAC for archival (lossless re-compression). Or originally lossless WAV → FLAC for ~50% size reduction without quality loss.
+
+### Compatibility with old devices
+
+Older car stereos may reject newer formats (OPUS, AAC). Convert to MP3 for universal playback.
+
+## How it works
+
+1. **Upload source file** — Drag-drop or pick. Tool loads file into FFmpeg.wasm in browser memory.
+2. **Pick target format** — MP3 (universal lossy), WAV (universal lossless, large), OGG (open lossy), FLAC (open lossless), M4A / AAC (Apple-friendly lossy), OPUS (modern lossy).
+3. **Pick bitrate (lossy formats)** — Voice: 96-128 kbps transparent. Music: 192-256 kbps transparent. Audiophile: 320 kbps. Lossless formats have no bitrate setting.
+4. **Encode** — FFmpeg.wasm processes; progress shown. Single-pass for speed.
+5. **Download** — Output saves to your device. File renamed with target extension.
+
+## Examples
+
+**Input:** 50 MB WAV (CD-quality, 5 min) → MP3 192 kbps
+
+**Output:** ~7 MB MP3. Transparent for music; 7x size reduction.
+
+---
+
+**Input:** MP3 at 128 kbps → WAV
+
+**Output:** WAV is larger (~10x) but does not regain lost quality. Lossy → lossless does not undo prior compression.
+
+---
+
+**Input:** WAV → FLAC
+
+**Output:** Same audio quality, ~50% file size. Useful for archives.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between lossy and lossless?**</summary>
+
+Lossless (WAV, FLAC, ALAC): bit-perfect reconstruction; large files. Lossy (MP3, AAC, OGG, OPUS): smaller files via psychoacoustic discarding; quality grades by bitrate.
+
+</details>
+
+<details>
+<summary>**Why does MP3 → MP3 lose quality?**</summary>
+
+Decoding to PCM and re-encoding goes through the lossy codec twice. Generation loss compounds. Avoid re-encoding lossy → same lossy when possible.
+
+</details>
+
+<details>
+<summary>**What bitrate is "transparent"?**</summary>
+
+For voice: 96 kbps MP3 / 64 kbps OPUS is transparent. For music: 192-256 kbps MP3 / 128-192 kbps AAC is transparent for most listeners. Above that = diminishing returns.
+
+</details>
+
+<details>
+<summary>**Should I use MP3 or AAC?**</summary>
+
+AAC at the same bitrate sounds noticeably better than MP3 (especially below 192 kbps). MP3 is more universally supported. iTunes / Apple ecosystem prefers AAC; legacy devices prefer MP3.
+
+</details>
+
+<details>
+<summary>**Why use OPUS?**</summary>
+
+OPUS is the modern open-source codec — better quality than MP3 / AAC at very low bitrates (32-96 kbps); used in WhatsApp voice messages, Discord, Zoom. Less universal compatibility.
+
+</details>
+
+<details>
+<summary>**Is the audio uploaded?**</summary>
+
+No — FFmpeg.wasm processes entirely in the browser. The file never leaves your device.
+
+</details>
+
+## Tips
+
+- Always work from the highest-quality source. WAV / FLAC source → MP3 export beats MP3 source → MP3 re-export.
+- Match bitrate to content: 128 kbps suffices for podcasts; 192-256 kbps for music; 320 kbps only for high-fidelity needs.
+- Use FLAC for personal archive, MP3 / AAC for sharing.
+- Verify the output plays correctly — bitrate / sample-rate mismatches sometimes break older players.
+- For voice content, OPUS at 64 kbps is dramatically smaller than MP3 with no audible difference.
+
+## Try it now
+
+The full audio-format-converter runs in your browser at **[https://ztools.zaions.com/audio-format-converter](https://ztools.zaions.com/audio-format-converter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/audio-format-converter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-format-converter.mdx)*

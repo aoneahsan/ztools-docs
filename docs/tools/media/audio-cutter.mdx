@@ -1,0 +1,131 @@
+---
+id: audio-cutter
+title: "Audio Cutter — Trim & Cut MP3 / WAV / OGG in Browser"
+description: "Trim, cut, and split audio files visually in the browser. Drag handles on waveform, export MP3 / WAV. Free, no upload."
+sidebar_label: "audio-cutter"
+keywords:
+  - "audio cutter"
+  - "mp3 cutter"
+  - "audio trimmer"
+  - "online audio cutter"
+  - "free audio editor"
+  - "mp3 trim tool"
+  - "audio splitter"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# audio-cutter
+
+An audio cutter is a tool for trimming the start and end of an audio file, removing dead air, mistakes, or unwanted sections, producing a cleaner clip ready for sharing or further editing. The ZTools Audio Cutter runs entirely in the browser using the Web Audio API, displays a visual waveform, lets you drag handles to set start / end markers, supports preview before export, and outputs MP3 / WAV / OGG directly to your device — no server upload required for files up to several minutes long.
+
+<ToolCTA toolId="audio-cutter" toolName="audio-cutter" />
+
+## Use cases
+
+### Podcast clip extraction
+
+Pull a 60-second highlight from a 45-minute podcast for social-media promo. Visual waveform makes finding the right section fast.
+
+### Ringtone creation
+
+Trim a song down to a 30-second loop for a phone ringtone. iOS / Android both accept M4A / MP3 ringtones at this length.
+
+### Voice-memo cleanup
+
+Recorded a 10-minute voice memo but only the last 2 minutes matter. Cut the dead intro and silence, share a tight clip.
+
+### Audiobook / lecture excerpts
+
+Pull a quotable passage from an hour-long audiobook for a presentation, blog post, or share with a colleague.
+
+## How it works
+
+1. **Upload an audio file** — Drag-and-drop or file picker. Common formats supported: MP3, WAV, OGG, M4A, FLAC.
+2. **Wait for waveform to render** — Audio decodes in-browser; waveform draws across the timeline. Time-stamps shown beneath.
+3. **Drag start and end handles** — Pinch the segment to keep. Preview button plays only the selected region so you can verify.
+4. **Pick output format** — Same as input (re-encoding only the trimmed segment) or convert at export. MP3 / WAV / OGG common targets.
+5. **Download** — Tool exports the trimmed segment as a new file. Original is untouched in your filesystem.
+
+## Examples
+
+**Input:** 5-minute MP3, trim to 0:30 - 1:30
+
+**Output:** 60-second clip. File ~1 MB at 128 kbps. Sharable via email or chat.
+
+---
+
+**Input:** 45-minute podcast, extract 12:00 - 13:00
+
+**Output:** One-minute clip; original untouched; quick social-media post.
+
+---
+
+**Input:** WAV recording with 30 seconds of silence at start
+
+**Output:** Drag start to 0:30; export 4:30 of clean audio.
+
+## Frequently asked questions
+
+<details>
+<summary>**How precise can I cut?**</summary>
+
+Sub-second precision. The waveform renders to ~10 ms resolution; the drag handles snap finely. For frame-accurate cuts, zoom in on the waveform.
+
+</details>
+
+<details>
+<summary>**Will the file lose quality?**</summary>
+
+If you cut and export to the same format and bitrate, lossy formats (MP3) re-encode and lose some quality. Cut to WAV for lossless, or accept minor degradation for lossy targets.
+
+</details>
+
+<details>
+<summary>**How big a file can I cut?**</summary>
+
+Browser-memory limits matter. Up to ~30-minute MP3 (a few hundred MB decoded) is fine on modern laptops. Larger files may need desktop tools (Audacity).
+
+</details>
+
+<details>
+<summary>**Can I cut multiple segments and join them?**</summary>
+
+For multi-segment cuts, use the audio-joiner tool after producing individual clips. Or use desktop DAW software for complex multi-cut workflows.
+
+</details>
+
+<details>
+<summary>**Is my audio uploaded?**</summary>
+
+No — entirely client-side. File never leaves your device. Privacy by design.
+
+</details>
+
+<details>
+<summary>**What about fade-in / fade-out?**</summary>
+
+Basic fade controls included. For complex envelopes (multi-point fades, EQ), step up to a DAW like Audacity (free) or Reaper.
+
+</details>
+
+## Tips
+
+- Always preview the trim before downloading — small misjudgments cost re-export.
+- Add a 0.1-0.3 second fade-in / fade-out on cut edges to avoid clicks; abrupt cuts pop audibly.
+- For voice clips, leave 0.2 seconds of silence at start so playback hardware does not chew the first phoneme.
+- Cut to WAV during multi-step editing; convert to MP3 only for final delivery to avoid generation loss.
+- Save the cut points (start / end timestamps) in a doc — easier to re-cut later than to re-find the section.
+
+## Try it now
+
+The full audio-cutter runs in your browser at **[https://ztools.zaions.com/audio-cutter](https://ztools.zaions.com/audio-cutter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/audio-cutter)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-cutter.mdx)*

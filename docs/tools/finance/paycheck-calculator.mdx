@@ -1,0 +1,131 @@
+---
+id: paycheck-calculator
+title: "Paycheck Calculator — Take-Home Pay After Tax & Deductions"
+description: "Estimate take-home paycheck after federal/state tax, FICA / NI, and pre-tax deductions. Hourly + salary modes. Free."
+sidebar_label: "paycheck-calculator"
+keywords:
+  - "paycheck calculator"
+  - "take home pay calculator"
+  - "net pay calculator"
+  - "401k impact"
+  - "hourly to net"
+  - "free paycheck calculator"
+  - "salary to take home"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# paycheck-calculator
+
+A paycheck calculator estimates take-home pay (net pay) from gross wages by subtracting federal / state income tax, payroll taxes (Social Security + Medicare in the US, National Insurance in the UK, comparable in other countries), and pre-tax deductions (401(k), health-insurance premium, HSA / FSA contributions). The ZTools Paycheck Calculator runs in the browser, supports both salaried and hourly inputs, lets you toggle pay frequency (weekly, biweekly, semi-monthly, monthly), and is **an educational estimator only — actual pay depends on local tax rules, filing status, dependants, and many edge cases; verify any number with your employer's payroll provider before making financial decisions**.
+
+<ToolCTA toolId="paycheck-calculator" toolName="paycheck-calculator" />
+
+## Use cases
+
+### Job-offer evaluation
+
+A $90K offer in California vs $85K in Texas — federal tax is similar, but California state tax + cost-of-living shifts the real take-home meaningfully.
+
+### Side-gig take-home check
+
+A consultant invoices $5K/month — what lands in the bank after self-employment tax and quarterly estimates? Calculator approximates.
+
+### 401(k) contribution planning
+
+Increasing 401(k) from 5% to 10% — what is the actual take-home reduction? Often less than expected due to tax savings.
+
+### Hourly-to-annual translation
+
+$25/hour at 40 hours/week — net annual after taxes? Calculator shows both before and after deductions.
+
+## How it works
+
+1. **Pick pay type and frequency** — Salaried (annual amount) or hourly (rate + hours). Pay frequency: weekly, biweekly, semi-monthly, monthly.
+2. **Enter gross pay per period** — For salaried, the calculator divides annual into per-period.
+3. **Enter pre-tax deductions** — 401(k) %, health-insurance premium, HSA/FSA, commuter benefits — anything pre-tax.
+4. **Apply taxes** — Federal tax via brackets, state tax via flat % or local schedule, FICA / NI / equivalent payroll tax.
+5. **Show net pay** — Gross − pre-tax deductions − taxes = take-home. Annualised view also shown.
+
+## Examples
+
+**Input:** Salary $80,000, US, single, 5% 401(k), no state tax
+
+**Output:** Gross/biweekly $3,077 · 401(k) $154 · Federal $290 · FICA $223 · Net ~$2,410
+
+---
+
+**Input:** Hourly $25 × 40 hr/week, US single, 0% 401(k)
+
+**Output:** Gross/biweekly $2,000 · Net ~$1,580
+
+---
+
+**Input:** UK £50,000 salaried, default personal allowance
+
+**Output:** Gross/month £4,167 · Income tax £616 · NI £375 · Net ~£3,176
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is my actual paycheck different from the calculator?**</summary>
+
+Many reasons: pre-tax deductions you did not enter (insurance, HSA), additional withholdings (e.g., supplemental income), state-specific items, post-tax deductions (Roth 401(k)), bonuses. Treat as a ballpark.
+
+</details>
+
+<details>
+<summary>**How is FICA calculated?**</summary>
+
+US Social Security: 6.2% on wages up to the annual wage base. Medicare: 1.45% on all wages, plus 0.9% additional Medicare tax above thresholds. Total: 7.65% for most workers, employer matches.
+
+</details>
+
+<details>
+<summary>**Does pre-tax deduction reduce my take-home dollar-for-dollar?**</summary>
+
+No — it reduces taxable income too. So $100 pre-tax 401(k) reduces take-home by ~$70–80 depending on bracket. Effective "cost" of saving is less than the amount saved.
+
+</details>
+
+<details>
+<summary>**Should I use Roth or traditional 401(k)?**</summary>
+
+Depends on your tax bracket now vs in retirement. The calculator can model traditional (pre-tax) easily; Roth (post-tax) reduces take-home but produces tax-free retirement withdrawals.
+
+</details>
+
+<details>
+<summary>**Are bonuses taxed differently?**</summary>
+
+In the US, supplemental wages are withheld at flat 22% for the first $1M. Actual tax owed at year-end matches your normal bracket — overwithholding is refunded.
+
+</details>
+
+<details>
+<summary>**Will it tell me if my employer is withholding correctly?**</summary>
+
+It is an estimate. For real verification, check your year-end pay stubs vs filed taxes; significant mismatches warrant a payroll inquiry.
+
+</details>
+
+## Tips
+
+- Treat the result as a ballpark — actual paycheck has many fine-grained inputs.
+- For job-offer comparisons, use the same calculator for both offers — apples to apples.
+- Pre-tax retirement savings cost less than they save — the tax break makes contributions more affordable than they look.
+- Verify state / local tax rates for your specific jurisdiction.
+- After a major tax-law change, recompute — withholding tables shift annually.
+
+## Try it now
+
+The full paycheck-calculator runs in your browser at **[https://ztools.zaions.com/paycheck-calculator](https://ztools.zaions.com/paycheck-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/paycheck-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/paycheck-calculator.mdx)*

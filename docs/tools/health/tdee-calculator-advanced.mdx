@@ -1,0 +1,130 @@
+---
+id: tdee-calculator-advanced
+title: "TDEE Calculator — Total Daily Energy Expenditure with Activity Detail"
+description: "Calculate Total Daily Energy Expenditure (TDEE) with detailed activity breakdown: steps, workouts, NEAT. Free, in-browser."
+sidebar_label: "tdee-calculator-advanced"
+keywords:
+  - "tdee calculator"
+  - "total daily energy expenditure"
+  - "neat calculator"
+  - "advanced calorie calculator"
+  - "free tdee"
+  - "mifflin-st jeor activity"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# tdee-calculator-advanced
+
+A TDEE (total daily energy expenditure) calculator estimates the calories you actually burn in a 24-hour day across BMR, the thermic effect of food, structured exercise, and non-exercise activity thermogenesis (NEAT — fidgeting, walking around, standing, household activity), giving the calorie target everything else (deficits, surpluses, macros) is built on. The ZTools advanced TDEE calculator separates the four contributors so users can adjust each one rather than picking a single coarse "moderately active" multiplier — this matters because NEAT can vary by 1,000 kcal/day between similar-build people, making blanket multipliers inaccurate for many users.
+
+<ToolCTA toolId="tdee-calculator-advanced" toolName="tdee-calculator-advanced" />
+
+## Use cases
+
+### Refining targets after multiplier-based estimate fails
+
+Someone whose weight does not match a coarse-multiplier prediction breaks down the components and finds, say, low NEAT — adjusts target by 200–300 kcal accordingly.
+
+### Step-counter integration
+
+Wearable users plug in their typical daily steps; the calculator weights NEAT specifically based on steps, more accurate than the activity-bucket approach.
+
+### Coaching for stalled clients
+
+Personal trainers identify which TDEE component is over- or under-estimated when client progress stalls — usually NEAT.
+
+### Athletic populations
+
+Endurance athletes have high structured-exercise burn that bucket multipliers underestimate; the explicit-component breakdown accommodates this.
+
+## How it works
+
+1. **Enter biometrics** — Same as BMR (sex, age, height, weight, optional body-fat %).
+2. **Estimate BMR** — Mifflin-St Jeor by default; Katch-McArdle if body-fat % is known.
+3. **Add TEF (thermic effect of food)** — ~10% of intake on average; ~25% for protein, 5–10% for carbs, 0–3% for fat. Defaults to 10% of TDEE for simplicity.
+4. **Add structured exercise** — Per-session inputs: type, duration, intensity. Calorie estimates use MET tables.
+5. **Add NEAT** — Daily-steps-based estimate (~0.04 kcal/step/kg of bodyweight) plus standing/sitting hours adjustment.
+
+## Examples
+
+**Input:** Female, 30 yr, 165 cm, 65 kg, 8000 steps/day, 3× 45 min strength/week
+
+**Output:** BMR 1,381 + TEF 200 + Exercise 100 (avg/day) + NEAT 230 ≈ 1,911 kcal/day
+
+---
+
+**Input:** Same individual, sedentary 2000 steps/day, no exercise
+
+**Output:** BMR 1,381 + TEF 170 + NEAT 50 ≈ 1,601 kcal/day — shows the 300 kcal NEAT swing
+
+---
+
+**Input:** Male endurance athlete, 80 kg, 12,000 steps + 1h running 5×/week
+
+**Output:** TDEE ≈ 3,200 kcal/day
+
+## Frequently asked questions
+
+<details>
+<summary>**Why split TDEE into components?**</summary>
+
+Because activity-bucket multipliers vary by ±15–20% for similar-build people. Splitting BMR / TEF / exercise / NEAT lets you adjust each independently when reality differs from prediction.
+
+</details>
+
+<details>
+<summary>**How accurate are MET-based exercise estimates?**</summary>
+
+MET tables are population averages; real burn varies by ±20%. Wearable estimates are similarly noisy. Use MET as a starting point and calibrate.
+
+</details>
+
+<details>
+<summary>**What is NEAT and why does it vary so much?**</summary>
+
+Non-exercise activity thermogenesis — fidgeting, posture, walking incidentally, climbing stairs. Personality and habits drive a 1,000 kcal/day spread between desk-bound and naturally-active people of similar build.
+
+</details>
+
+<details>
+<summary>**Should I eat back wearable-reported calorie burn?**</summary>
+
+Wearables overestimate exercise burn by ~25–50% on average. If your TDEE input already covers exercise, do not eat them back; if not, eat back ~50–60%.
+
+</details>
+
+<details>
+<summary>**How often should I recompute TDEE?**</summary>
+
+After 4–8 weeks of consistent tracking — by then you have real-world calibration data.
+
+</details>
+
+<details>
+<summary>**Does TDEE drop as I lose weight?**</summary>
+
+Yes — BMR drops with body mass, NEAT may drop, and adaptive thermogenesis kicks in for sustained deficits. Recalculate every 5 kg.
+
+</details>
+
+## Tips
+
+- Start with the coarse calculator, then refine here once you have 2–3 weeks of real data.
+- Track steps with a phone or wearable — NEAT is the most variable component and the easiest to monitor.
+- For exercise, prefer time × intensity over wearable burn — the former is more reproducible.
+- Recompute TDEE after every 5 kg of weight change.
+- When stalled, audit each component before adjusting the deficit — usually NEAT or tracking accuracy is the issue.
+
+## Try it now
+
+The full tdee-calculator-advanced runs in your browser at **[https://ztools.zaions.com/tdee-calculator-advanced](https://ztools.zaions.com/tdee-calculator-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/tdee-calculator-advanced)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/tdee-calculator-advanced.mdx)*

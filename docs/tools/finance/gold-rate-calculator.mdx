@@ -1,0 +1,131 @@
+---
+id: gold-rate-calculator
+title: "Gold Rate Calculator — Value of Gold Jewelry by Weight & Karat"
+description: "Calculate gold value by weight (grams or tola) and karat (24K, 22K, 18K, 14K). Live rate inputs. Free, in-browser."
+sidebar_label: "gold-rate-calculator"
+keywords:
+  - "gold rate calculator"
+  - "gold value calculator"
+  - "gold price calculator"
+  - "karat purity calculator"
+  - "22k gold value"
+  - "tola gold rate"
+  - "free gold calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# gold-rate-calculator
+
+A gold rate calculator computes the metal value of a piece of gold by combining its weight, its purity (karat — fraction of pure gold by weight), and the current gold spot price per gram or per ounce, giving the raw "melt value" before jeweller's margin or making charges. The ZTools Gold Rate Calculator runs entirely in the browser, supports gram / tola / ounce weights, all common karats (24K = 99.9%, 22K = 91.6%, 18K = 75%, 14K = 58.3%, 10K = 41.7%), local-currency rate inputs, and surfaces both the pure-gold value and the gross piece value so users see exactly how karat affects worth — useful for buying, selling, insuring, or estimating an inheritance.
+
+<ToolCTA toolId="gold-rate-calculator" toolName="gold-rate-calculator" />
+
+## Use cases
+
+### Selling jewelry to a buyer
+
+A gold buyer offers $X per gram. Calculate the melt value of a 22K, 12 g chain at today's spot rate; compare to the offer to see how much margin the buyer is taking.
+
+### Estimating an inheritance or collection
+
+A box of family pieces of varying karats. Weigh each, enter karat, sum melt values to get a baseline before approaching an appraiser.
+
+### Pre-purchase comparison
+
+A jeweller quotes a price for a 22K bracelet. Use the calculator to back out melt value vs making charges so the markup is transparent.
+
+### Insurance valuation
+
+For policy renewals, melt value plus a markup approximation gives a defensible insurance number for plain pieces.
+
+## How it works
+
+1. **Enter spot gold price** — Per gram or per troy ounce in your local currency. Update from any public commodity feed.
+2. **Pick weight unit** — Grams (international standard), tola (1 tola = 11.6638 g, common in India / Pakistan / Middle East), troy ounce (31.1035 g, used in commodity markets).
+3. **Enter karat** — Determines purity factor: 24K = 1.000, 22K = 0.9167, 18K = 0.7500, 14K = 0.5833, 10K = 0.4167.
+4. **Compute melt value** — weight × purity × spot price = pure-gold value in the piece.
+5. **Add margins (optional)** — Making charges, GST/VAT, and jeweller markup on top of melt value to estimate retail.
+
+## Examples
+
+**Input:** 12 g of 22K gold at $80/g spot
+
+**Output:** 12 × 0.9167 × $80 = $880 melt value
+
+---
+
+**Input:** 1 tola (11.66 g) of 24K at $80/g
+
+**Output:** 11.66 × 1.0 × $80 = $933 melt value
+
+---
+
+**Input:** 20 g of 18K at $80/g
+
+**Output:** 20 × 0.75 × $80 = $1,200
+
+## Frequently asked questions
+
+<details>
+<summary>**Why does melt value differ from buyer offers?**</summary>
+
+Buyers take a margin (10–25% typically) to cover refining, testing, and profit. The melt-value figure is the upper bound; expect to receive less when selling.
+
+</details>
+
+<details>
+<summary>**What is the difference between gram and tola?**</summary>
+
+1 tola = 11.6638 grams. Tola is common in South Asia and the Middle East; grams everywhere else. Always confirm which unit a quote uses.
+
+</details>
+
+<details>
+<summary>**How is karat related to fineness?**</summary>
+
+Karat is the older system (24 parts). Fineness (millesimal) is the modern system (parts per thousand). 22K = 916.7 fineness; 18K = 750 fineness; 14K = 583.3 fineness.
+
+</details>
+
+<details>
+<summary>**Does the calculator show retail price?**</summary>
+
+Only if you enter making charges and taxes. Spot-based melt value is a wholesale concept; retail adds craftsmanship, store overhead, and markup.
+
+</details>
+
+<details>
+<summary>**Are gemstones included?**</summary>
+
+No — the calculator handles plain gold weight. Gemstones require separate appraisal.
+
+</details>
+
+<details>
+<summary>**Is the spot rate updated automatically?**</summary>
+
+You enter the current rate. Spot prices fluctuate by the second; pulling them automatically would require an API. Manual entry keeps the calculator currency-flexible and free.
+
+</details>
+
+## Tips
+
+- Always weigh on a calibrated jewelry scale — kitchen scales accumulate error.
+- Verify karat before trusting a stamp — independent acid tests cost a few dollars and prevent costly mistakes.
+- For sales, expect 70–90% of melt value depending on local market and buyer reputation.
+- For purchases, ask the jeweller to break out melt value vs making charges — opaque pricing hides high markups.
+- Track historical spot prices for resale timing — gold cycles over months and years.
+
+## Try it now
+
+The full gold-rate-calculator runs in your browser at **[https://ztools.zaions.com/gold-rate-calculator](https://ztools.zaions.com/gold-rate-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/gold-rate-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/gold-rate-calculator.mdx)*

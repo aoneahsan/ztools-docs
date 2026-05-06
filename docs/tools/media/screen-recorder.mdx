@@ -1,0 +1,131 @@
+---
+id: screen-recorder
+title: "Screen Recorder — Record Tab, Window, or Full Screen Free"
+description: "Browser screen recorder: capture tab, window, or full screen with optional mic + system audio. Download WebM, no upload."
+sidebar_label: "screen-recorder"
+keywords:
+  - "screen recorder"
+  - "browser screen recorder"
+  - "free screen recorder"
+  - "online screen recorder"
+  - "webm screen recorder"
+  - "tab recorder"
+  - "screen capture tool"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# screen-recorder
+
+A screen recorder captures the contents of a screen, window, or browser tab as a video file, optionally mixing in microphone and system audio, and saves it locally — useful for tutorials, bug reproductions, asynchronous walkthroughs, and lecture capture. The ZTools Screen Recorder runs entirely in the browser using the Screen Capture API and MediaRecorder API, requires no extension or installation, supports tab / window / full-screen sources, optional microphone and system-audio overlay, real-time recording-time display, and downloads a WebM (or MP4 where supported) file directly to your device — no server upload, no account.
+
+<ToolCTA toolId="screen-recorder" toolName="screen-recorder" />
+
+## Use cases
+
+### Bug reproduction for engineering
+
+A user encounters a UI glitch. Recording 30-60 seconds of the failing flow + console output produces a reproducible artifact that beats five back-and-forth chat messages and saves engineering hours.
+
+### Async tutorial / walkthrough
+
+Onboarding new team member to a tool. 5-minute screen + voice recording covers what would take a 30-minute live call. The recording is reusable, pause-able, and time-zone-friendly.
+
+### Class / lecture capture
+
+Educators record screen + voice during a presentation; students who missed the live class watch later. Especially useful for technical demos where the screen content is the lesson.
+
+### Customer-support video reply
+
+Instead of typing 200 words explaining where a button is, record a 20-second walkthrough. Higher comprehension, faster ticket resolution, customers prefer the human touch.
+
+## How it works
+
+1. **Pick the recording source** — Browser dialog asks: entire screen, application window, or browser tab. Tab is cleanest for app demos; full screen for cross-app workflows.
+2. **(Optional) Enable audio** — Microphone for narration, "share audio" checkbox for system audio (e.g. video playback). Both can mix into the same recording.
+3. **Click record + perform actions** — A small recording-time indicator runs. Browser also shows a stop-sharing toolbar so you do not forget you are recording.
+4. **Stop recording** — Click stop in the tool or in the browser toolbar. Tool finalises the WebM video and presents it for review.
+5. **Download** — Click download to save the file locally. Convert to MP4 with the format converter tool if your destination requires it.
+
+## Examples
+
+**Input:** 60-second tab recording at 30fps, narration on
+
+**Output:** WebM file ~10-20 MB depending on visual complexity; opens in any modern player.
+
+---
+
+**Input:** 5-minute full-screen tutorial with system audio
+
+**Output:** ~40-80 MB WebM; covers a multi-app workflow with sound.
+
+---
+
+**Input:** Bug repro: 20 seconds of failing UI + console
+
+**Output:** Lightweight clip (~3 MB) attachable to a Linear / Jira ticket without deferring to file-host.
+
+## Frequently asked questions
+
+<details>
+<summary>**Why WebM instead of MP4?**</summary>
+
+WebM is the format MediaRecorder produces natively in browsers. Most modern players support it; if your target requires MP4, convert with the format-converter tool. WebM avoids licensing complexity for browser-based recording.
+
+</details>
+
+<details>
+<summary>**Can I record audio without video?**</summary>
+
+Use the voice-recorder tool — built specifically for audio-only capture with finer control over input device and gain.
+
+</details>
+
+<details>
+<summary>**Will this record other tabs or my whole screen?**</summary>
+
+Only what you explicitly select in the browser's permission dialog. Browser-level enforcement: the tool cannot capture more than you grant.
+
+</details>
+
+<details>
+<summary>**Is the recording uploaded anywhere?**</summary>
+
+No — entirely local. The MediaRecorder writes to a Blob in browser memory, downloaded to your device. Nothing touches a server.
+
+</details>
+
+<details>
+<summary>**Can I record for hours?**</summary>
+
+Limited by browser memory. Recordings over 30 minutes risk the browser running out of memory; for long captures, use desktop apps (OBS, native screen recorders).
+
+</details>
+
+<details>
+<summary>**Why no audio in my recording?**</summary>
+
+You did not check "share audio" on the source dialog (system audio), or did not grant microphone permission (mic). Restart and verify both prompts.
+
+</details>
+
+## Tips
+
+- Close other tabs and notifications before recording — viewers see them all.
+- For tutorials, scroll slower than feels natural — viewers process at half the speed of the recorder.
+- Test 5 seconds first, stop, play back, then start the real recording — saves re-records.
+- Use a quiet room and a real microphone for narration — laptop mics produce echo and ambient noise that distract.
+- Keep clips under 90 seconds when sharing async — long recordings rarely get watched in full.
+
+## Try it now
+
+The full screen-recorder runs in your browser at **[https://ztools.zaions.com/screen-recorder](https://ztools.zaions.com/screen-recorder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/screen-recorder)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/screen-recorder.mdx)*

@@ -1,0 +1,130 @@
+---
+id: video-compressor
+title: "Video Compressor — Reduce Video Size in Browser, Free"
+description: "Compress MP4 / WebM / MOV videos in browser via FFmpeg. Resize, lower bitrate. No upload, free."
+sidebar_label: "video-compressor"
+keywords:
+  - "video compressor"
+  - "compress video online"
+  - "reduce video size"
+  - "free video compressor"
+  - "mp4 compressor"
+  - "video size reducer"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# video-compressor
+
+A video compressor reduces the file size of a video by lowering bitrate, resolution, frame rate, or by re-encoding with a more efficient codec, making the video easier to email, upload, or share over slow connections without changing the underlying content. The ZTools Video Compressor runs entirely in the browser via FFmpeg.wasm, supports MP4 / WebM / MOV inputs, lets you target output size or specific bitrate, optionally resizes resolution (1080p → 720p halves file size at the same quality), and downloads the compressed file with no server upload.
+
+<ToolCTA toolId="video-compressor" toolName="video-compressor" />
+
+## Use cases
+
+### Email attachment limit
+
+Gmail / Outlook cap attachments around 25 MB. A 200 MB phone video compresses to 20 MB at 720p without visible quality loss.
+
+### Upload to platform with size cap
+
+Slack, Discord, WhatsApp, and many forms enforce per-file limits. Compress before upload to avoid the failed-upload surprise.
+
+### Mobile data conservation
+
+Sharing a video over cellular costs your viewer data. A compressed version (1080p → 720p, lower bitrate) cuts download size 50-70% with little visible difference.
+
+### Storage cleanup
+
+Old phone videos at 4K eat gigabytes. Compress to 1080p for storage; original quality unnecessary for personal viewing on phone screens.
+
+## How it works
+
+1. **Upload video** — Drag-drop or file picker. MP4 / WebM / MOV / AVI all supported. Tool loads into FFmpeg.wasm.
+2. **Pick compression target** — Target file size (e.g. "under 25 MB"), or target bitrate (e.g. 1500 kbps), or simple preset (low / medium / high).
+3. **Optionally resize** — Reduce resolution (1080p → 720p / 480p). Quality drops are usually invisible on phone-screen viewing but cut file size dramatically.
+4. **Encode** — FFmpeg.wasm re-encodes the video; progress shown. Two-pass encoding (slower) yields better quality at the same size.
+5. **Download** — Compressed video saves to device. Original untouched.
+
+## Examples
+
+**Input:** 4K 60fps phone video, 200 MB → 1080p 30fps preset
+
+**Output:** ~30 MB. Acceptable for messaging and most uploads.
+
+---
+
+**Input:** 1080p 5-min recording, 80 MB → 720p target 20 MB
+
+**Output:** ~18 MB output. Visible quality drop minor for screen-only viewing.
+
+---
+
+**Input:** Long 4K screen recording, 1 GB → 1080p 800 kbps
+
+**Output:** ~150-200 MB. Fits Google Drive / cloud sharing easily.
+
+## Frequently asked questions
+
+<details>
+<summary>**How much can I compress without visible loss?**</summary>
+
+50-70% reduction is usually invisible if the original was over-bitrated (most phone videos are). Higher reductions start showing artifacts (blocking, blur in motion).
+
+</details>
+
+<details>
+<summary>**Should I lower resolution or bitrate first?**</summary>
+
+Resolution drop (1080p → 720p) is usually less visible than aggressive bitrate drop. Reduce resolution first; tune bitrate second.
+
+</details>
+
+<details>
+<summary>**What codec is best?**</summary>
+
+H.264 (AVC): universal compatibility. H.265 (HEVC): smaller files at same quality but limited browser / hardware support. AV1: best compression but very slow encoding. Default: H.264.
+
+</details>
+
+<details>
+<summary>**Why is the output not much smaller?**</summary>
+
+If the original was already heavily compressed, recompression yields little. Source bitrate matters — 4K at 25 Mbps compresses dramatically; 1080p at 5 Mbps already compresses little.
+
+</details>
+
+<details>
+<summary>**Is the video uploaded?**</summary>
+
+No — FFmpeg.wasm processes entirely in the browser. The file never leaves your device.
+
+</details>
+
+<details>
+<summary>**How long does compression take?**</summary>
+
+Roughly real-time playback (1 minute of video = ~1 minute to compress on a typical laptop). Longer videos benefit from desktop tools.
+
+</details>
+
+## Tips
+
+- Always work from the highest-quality source you have. Compressing a compressed video produces visible artifacts.
+- Match output resolution to viewing target — 1080p for desktop, 720p for phone, 480p for messaging.
+- For 4K originals you only need to view at 1080p, downscale once and keep the smaller version.
+- Two-pass encoding (where supported) gives noticeably better quality at the same target size; worth the extra time.
+- Test playback before deleting the original — quality issues sometimes appear only on certain devices.
+
+## Try it now
+
+The full video-compressor runs in your browser at **[https://ztools.zaions.com/video-compressor](https://ztools.zaions.com/video-compressor)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/video-compressor)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/video-compressor.mdx)*

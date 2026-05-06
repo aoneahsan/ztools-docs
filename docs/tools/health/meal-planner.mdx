@@ -1,0 +1,107 @@
+---
+id: meal-planner
+title: "Meal Planner Online — Weekly Plan, Free, Browser-Only"
+description: "Plan meals for the week. Add recipes, generate shopping list, track macros. Browser-only — no signup."
+sidebar_label: "meal-planner"
+keywords:
+  - "meal planner online"
+  - "weekly meal plan tool"
+  - "free meal planner"
+  - "shopping list generator from meals"
+  - "macro meal planner"
+last_update:
+  date: 2026-05-06
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# meal-planner
+
+A meal planner organizes weekly meals — breakfast, lunch, dinner, snacks across 7 days — with associated recipes, ingredients, and (optional) macro nutrition tracking. Useful for healthy eating goals, grocery budgeting, reducing decision fatigue, and accommodating dietary restrictions across a family. The ZTools Meal Planner runs in the browser with localStorage persistence, supports custom recipes (or paste from web), generates a consolidated shopping list, and tracks weekly macros (calories, protein, carbs, fat) when nutrition data is available.
+
+<ToolCTA toolId="meal-planner" toolName="meal-planner" />
+
+## Use cases
+
+### Plan a healthy eating week
+
+Reduce ad-hoc food choices. Pre-plan meals; shop once; cook to plan.
+
+### Family meal coordination
+
+Different family members' preferences and schedules. Plan breakfasts / lunches / dinners separately.
+
+### Macro / calorie target
+
+Tracking 2000 cal / 150g protein. Plan meals; verify the week hits the target.
+
+### Grocery budget
+
+Plan first; shop list is automatic. Avoids impulse buys + waste.
+
+## How it works
+
+1. **Set up week** — 7 days × meal slots (breakfast, lunch, dinner, snacks).
+2. **Add recipes** — Custom recipes with ingredient list, prep time, optional nutrition info.
+3. **Drag-drop into slots** — Mix and match across days. Repeat meals if desired.
+4. **Generate shopping list** — Aggregates ingredients across all planned meals. Quantities summed; duplicates merged.
+
+## Examples
+
+**Input:** Week with 21 meals planned + snacks
+
+**Output:** Shopping list: ~40 unique ingredients with summed quantities. Macros calculated weekly.
+
+---
+
+**Input:** Same recipe used 3 times
+
+**Output:** Ingredients × 3 in the shopping list. No need to scale manually.
+
+## Frequently asked questions
+
+<details>
+<summary>**Recipe database?**</summary>
+
+No — bring your own recipes. For broader recipe libraries, use Paprika, Yummly, etc. This tool is the planning layer.
+
+</details>
+
+<details>
+<summary>**Macro accuracy?**</summary>
+
+Depends on the nutrition data you enter per recipe. For accuracy, use USDA FoodData Central or Cronometer to look up values.
+
+</details>
+
+<details>
+<summary>**Family-size scaling?**</summary>
+
+Per-recipe servings. Tool multiplies ingredients accordingly when planning for 2 vs 4 people.
+
+</details>
+
+<details>
+<summary>**Privacy?**</summary>
+
+All in browser. localStorage persists the plan.
+
+</details>
+
+## Tips
+
+- Plan 5-6 meals + 2-3 leftovers — fully fresh is exhausting; full leftovers gets boring.
+- Shop the list, then cook — separating planning from execution reduces choice fatigue.
+- For macros, batch-cook proteins on Sunday — fast assembly during the week.
+- For family planning, color-code per-person meals — easy visual at a glance.
+
+## Try it now
+
+The full meal-planner runs in your browser at **[https://ztools.zaions.com/meal-planner](https://ztools.zaions.com/meal-planner)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/meal-planner)
+
+---
+
+*Last updated: 2026-05-06 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/meal-planner.mdx)*

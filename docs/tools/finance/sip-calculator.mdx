@@ -1,0 +1,130 @@
+---
+id: sip-calculator
+title: "SIP Calculator — Mutual Fund Systematic Investment Plan Returns"
+description: "Calculate future value of monthly SIP investments at expected return. Mutual funds / index funds. Free, in-browser."
+sidebar_label: "sip-calculator"
+keywords:
+  - "sip calculator"
+  - "systematic investment plan"
+  - "mutual fund sip"
+  - "monthly investment calculator"
+  - "future value annuity"
+  - "free sip calculator"
+last_update:
+  date: 2026-05-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# sip-calculator
+
+A SIP (systematic investment plan) calculator estimates the future value of a recurring monthly investment in a mutual fund or index fund using the future-value-of-annuity formula `FV = P × [((1+r)^n − 1) / r] × (1+r)`, where `P` is the monthly contribution, `r` the monthly return, and `n` the number of months. The ZTools SIP Calculator runs in the browser, lets you compare multiple expected return scenarios (conservative 8% / moderate 12% / aggressive 15%), shows the principal-vs-returns split visually, and is for educational planning — actual mutual-fund returns vary, past performance does not predict future performance, and tax / fee impact is not included.
+
+<ToolCTA toolId="sip-calculator" toolName="sip-calculator" />
+
+## Use cases
+
+### Long-term retirement planning
+
+Person investing $500/month for 30 years at 12% expected return — calculator shows ~$1.5M end value, with $180K contributions and $1.32M returns from compounding.
+
+### Goal-based saving
+
+Targeting $100,000 in 10 years at 10% expected return — calculator works backward to required monthly SIP.
+
+### Comparing scenarios
+
+Side-by-side 8% / 12% / 15% to see how return assumptions dramatically swing end value over decades.
+
+### Educational impact illustration
+
+Showing students or new investors how compounding works on real numbers — visceral demonstration of why starting early matters.
+
+## How it works
+
+1. **Enter monthly investment** — How much you can invest each month (your SIP amount).
+2. **Enter expected annual return** — Your assumption — equity index funds historically returned ~10–12% over very long periods, but past performance is not a guarantee.
+3. **Enter tenure** — Number of years you plan to invest.
+4. **Compute future value** — Future-value-of-annuity formula. Monthly compounding. Returns total invested + total returns + grand total.
+5. **Visualise** — Stacked bar showing principal vs returns across time. Optional comparison of 3 scenarios.
+
+## Examples
+
+**Input:** $500/month, 12% annual, 30 years
+
+**Output:** Invested $180,000 · Returns ~$1.32M · End value ~$1.5M
+
+---
+
+**Input:** $1,000/month, 10% annual, 20 years
+
+**Output:** Invested $240,000 · Returns ~$485K · End value ~$725K
+
+---
+
+**Input:** Goal: $100K in 10 years at 10%
+
+**Output:** Required SIP ≈ $483/month
+
+## Frequently asked questions
+
+<details>
+<summary>**Are these returns guaranteed?**</summary>
+
+No. Returns are an assumption. Equity returns vary widely over short periods. Long horizons (20+ years) historically smooth out, but past performance does not guarantee future results.
+
+</details>
+
+<details>
+<summary>**What return rate should I use?**</summary>
+
+Conservative: 8%. Moderate: 10–12% (broad equity index historical average). Aggressive: 15% (rarely sustainable long-term). Run multiple scenarios.
+
+</details>
+
+<details>
+<summary>**Does it factor inflation?**</summary>
+
+No — by default, the future value is in nominal currency. To see "real" purchasing power, deflate by expected inflation (e.g., subtract 3% from your return assumption to approximate real return).
+
+</details>
+
+<details>
+<summary>**Are taxes included?**</summary>
+
+No — the calculator shows pre-tax future value. Capital-gains and other taxes vary by jurisdiction and product structure (e.g., tax-advantaged accounts vs taxable). Plan accordingly.
+
+</details>
+
+<details>
+<summary>**What about fund fees?**</summary>
+
+Not included by default. Subtract the expense ratio from your return assumption — a 1% expense ratio on a 10% return reduces compound growth meaningfully over decades.
+
+</details>
+
+<details>
+<summary>**Can I model variable contributions?**</summary>
+
+The calculator assumes fixed monthly amounts. For step-up SIPs (increasing contributions yearly), use the "annual increase" option if available; otherwise approximate by averaging.
+
+</details>
+
+## Tips
+
+- Start early — a 10-year head start often beats double the contribution started later.
+- Run conservative AND aggressive scenarios; reality usually lies between.
+- Subtract expected inflation and fees to think in real terms.
+- Stay consistent — monthly contributions through bear markets are when SIPs build the most value.
+- Rebalance and review yearly, but resist the urge to time the market.
+
+## Try it now
+
+The full sip-calculator runs in your browser at **[https://ztools.zaions.com/sip-calculator](https://ztools.zaions.com/sip-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sip-calculator)
+
+---
+
+*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/sip-calculator.mdx)*
