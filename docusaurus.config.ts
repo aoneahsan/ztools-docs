@@ -45,7 +45,6 @@ const config: Config = {
   // Fail the build on broken links/markdown — keeps CI honest. Bumped from
   // 'warn' to 'throw' after audit confirmed clean state on 2026-05-06.
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',
@@ -121,6 +120,10 @@ const config: Config = {
   // ```mermaid ... ``` fenced blocks. See docusaurus.io/docs/markdown-features/diagrams
   markdown: {
     mermaid: true,
+    // Docusaurus v4 moves onBrokenMarkdownLinks under markdown.hooks.
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
   },
 
   themes: [
