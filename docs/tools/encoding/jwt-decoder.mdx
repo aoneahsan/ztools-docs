@@ -2,7 +2,7 @@
 id: jwt-decoder
 title: "JWT Decoder — Inspect Header, Payload, Signature (Client-side)"
 description: "Paste a JSON Web Token, get human-readable header and payload claims. Highlights expiration, algorithm, audience. 100% client-side — never sent."
-sidebar_label: "jwt-decoder"
+sidebar_label: "JWT Decoder"
 keywords:
   - "jwt decoder"
   - "jwt parser"
@@ -19,11 +19,11 @@ last_update:
 
 import ToolCTA from '@site/src/components/ToolCTA';
 
-# jwt-decoder
+# JWT Decoder
 
 A JSON Web Token (JWT) is a compact, URL-safe credential containing a JSON object signed by the issuer. It is the dominant token format for OAuth 2.0, OpenID Connect, and most modern API authentication. The ZTools JWT Decoder splits a token at its two dots, Base64URL-decodes the header and payload, and pretty-prints the JSON claims with a human-readable interpretation of standard fields (`exp`, `iat`, `nbf` shown as local timestamps, `aud` highlighted, algorithm flagged if `none`). Decoding is purely structural — verifying the signature requires the issuer's public key and is intentionally NOT done in this tool because pasting your secret into a web page is bad practice.
 
-<ToolCTA toolId="jwt-decoder" toolName="jwt-decoder" />
+<ToolCTA toolId="jwt-decoder" toolName="JWT Decoder" />
 
 ## Use cases
 
@@ -117,7 +117,7 @@ No. Opaque tokens (sometimes called "reference tokens") have no internal structu
 
 ## Try it now
 
-The full jwt-decoder runs in your browser at **[https://ztools.zaions.com/jwt-decoder](https://ztools.zaions.com/jwt-decoder)** — no signup, no upload, no data leaves your device.
+The full JWT Decoder runs in your browser at **[https://ztools.zaions.com/jwt-decoder](https://ztools.zaions.com/jwt-decoder)** — no signup, no upload, no data leaves your device.
 
 [Open the tool ↗](https://ztools.zaions.com/jwt-decoder)
 

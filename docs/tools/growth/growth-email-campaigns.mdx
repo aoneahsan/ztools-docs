@@ -1,0 +1,145 @@
+---
+id: growth-email-campaigns
+title: "Email Campaigns — Send Newsletters via Your Own SMTP"
+description: "Build newsletters from templates and lists, preview them, then send through your own SMTP, Resend, or Mailgun account. ZTools Growth Suite, with send history."
+sidebar_label: "Email Campaigns"
+keywords:
+  - "send newsletters with your own SMTP"
+  - "bring your own key email campaign tool"
+  - "newsletter tool with Resend and Mailgun"
+  - "send email campaigns through your own provider"
+  - "newsletter builder with send history"
+  - "email campaign templates and lists tool"
+  - "encrypted per-user SMTP credentials newsletter"
+  - "Growth Suite email newsletter tool"
+last_update:
+  date: 2026-06-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Email Campaigns
+
+Email Campaigns is a newsletter tool that lets you build emails from reusable templates and contact lists, preview them, send them through your own email provider, and keep a searchable send history. It is a paid Growth Suite tool in ZTools, usable on the Free plan with a low monthly send cap and unlocked further on Pro and Ultimate, with a 30-day trial. It is bring-your-own-key: you connect your own SMTP, Resend, or Mailgun credentials (encrypted per user), so every message leaves through your account and your sending domain. ZTools never owns the sender relationship, and provider usage bills to you, not to ZTools.
+
+:::info Paid feature — Growth Suite
+Email Campaigns is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::
+
+<ToolCTA toolId="growth-email-campaigns" toolName="Email Campaigns" />
+
+## Use cases
+
+### Monthly product newsletter for a SaaS founder
+
+A solo SaaS founder sends a monthly product update to roughly 1,800 trial and paid users. They build the issue from a saved template, pull the list exported from their app, preview it on desktop and mobile, then send it through their existing Resend account so replies land in their own support inbox. The send history confirms which issues went out and when.
+
+### Course launch announcement for an online educator
+
+An independent course creator announces a new cohort to people who opted in through a landing page. They duplicate last launch’s template, swap the dates and enrollment link, send a preview to themselves and a colleague, then dispatch the announcement via their own Mailgun domain. Because the mail uses their authenticated domain, replies and unsubscribes route back to the educator, not to ZTools.
+
+### Local studio re-engaging past clients
+
+A yoga studio owner imports a list of former members who consented to email and sends a seasonal we-miss-you offer. They write one issue, preview the rendering, and send through the studio’s own SMTP server so the message comes from the studio’s address. The studio stays responsible for honoring unsubscribes and emailing only people who actually opted in.
+
+### Agency sending updates from each client’s domain
+
+A small marketing agency manages newsletters for three clients. For each client they store that client’s own SMTP or Resend credentials, encrypted per user, and build issues in separate templates. Sending through each client’s provider keeps deliverability tied to the client’s own domain reputation, and the agency reviews send history per client to confirm delivery and timing.
+
+## How it works
+
+1. **Connect your email provider** — In settings, add your own SMTP, Resend, or Mailgun credentials. They are encrypted per user and used only to relay your messages; ZTools never sends from its own domain on your behalf.
+2. **Build a contact list** — Import or paste the recipients you have permission to email, or reuse a saved list. Keep it to people who genuinely opted in, since consent and unsubscribe handling remain your responsibility.
+3. **Design the newsletter from a template** — Start from a saved template or a blank issue, add your copy, links, and images, and adjust the layout. Save it as a reusable template so future sends start consistent.
+4. **Preview and send a test** — Preview the rendered email and send a test to yourself before the real send, checking links, images, and how the layout looks across desktop and mobile email clients.
+5. **Send through your account** — Trigger the send; messages relay through your connected provider and count against your plan’s monthly send cap. Any provider usage or overage bills to you, not to ZTools.
+6. **Review send history** — Open the history log to confirm which campaigns were sent, to which list, and when. Use it to track activity, though it cannot confirm inbox placement or opens.
+
+## Examples
+
+**Input:** Template ’Monthly Update’ + list ’Trial users (1,840)’ + connected Resend key, send triggered
+
+**Output:** 1,840 emails relayed through your Resend account from your own domain; a send-history entry records the campaign name, list, recipient count, and timestamp.
+
+---
+
+**Input:** Free plan, monthly send cap reached, attempt to send a 1,200-recipient issue
+
+**Output:** The send is blocked until the next cycle or a plan upgrade; the draft and template are preserved so you can send once capacity resets or you move to Pro or Ultimate.
+
+---
+
+**Input:** Blank issue + company SMTP credentials + preview to two test addresses
+
+**Output:** Two preview emails delivered to your test inboxes showing exact rendering; no list recipients are contacted until you confirm the real send.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is Email Campaigns free, and what does it cost?**</summary>
+
+It is part of the paid Growth Suite. You can use it on the Free plan with a low monthly send cap, which suits small or occasional newsletters. Pro and Ultimate raise the monthly send allowance for larger or more frequent campaigns. A 30-day trial lets you evaluate the paid tiers before committing.
+
+</details>
+
+<details>
+<summary>**Whose email account actually sends the messages?**</summary>
+
+Yours. Email Campaigns is bring-your-own-key: you connect your own SMTP, Resend, or Mailgun credentials, and every message leaves through your account from your sending domain. Your credentials are encrypted per user. Any provider usage or overage bills to you directly, since ZTools never owns the sender relationship or fronts the sending account.
+
+</details>
+
+<details>
+<summary>**Can ZTools guarantee my emails land in the inbox?**</summary>
+
+No. Deliverability and inbox placement depend on your sending domain’s reputation and authentication — SPF, DKIM, and DMARC — which you control. ZTools relays your message through your provider but cannot guarantee inboxing or keep mail out of spam. Proper domain authentication and a clean, engaged list do more for placement than any tool setting.
+
+</details>
+
+<details>
+<summary>**Who is responsible for consent and unsubscribes?**</summary>
+
+You are. The tool does not police your list or verify consent. You are responsible for emailing only people who opted in, honoring unsubscribe requests, and complying with laws such as CAN-SPAM and GDPR. Email Campaigns helps you compose and send, but legal compliance for your list and content stays with you.
+
+</details>
+
+<details>
+<summary>**What does the send history actually show?**</summary>
+
+It records which campaigns you sent, to which list, the recipient count, and the timestamp, so you can confirm activity and review past issues. It reflects what was dispatched through your provider, not whether each individual message reached the inbox or was opened — that visibility lives in your email provider’s own analytics.
+
+</details>
+
+<details>
+<summary>**Which email providers can I connect?**</summary>
+
+You can connect a standard SMTP server or a Resend or Mailgun account using your own credentials. This means the tool works with the provider you already trust for deliverability, and you are not locked into a sending service chosen by ZTools. You configure the provider once in settings and reuse it across campaigns.
+
+</details>
+
+<details>
+<summary>**What happens if I hit my monthly send cap?**</summary>
+
+Sending pauses once you reach your plan’s cap, and your drafts, templates, and lists are preserved. You can resume at the next billing cycle or upgrade to Pro or Ultimate for a higher monthly send allowance. The cap counts messages relayed through your provider during the current period.
+
+</details>
+
+## Tips
+
+- Authenticate your sending domain with SPF, DKIM, and DMARC before your first real campaign — it does more for inbox placement than anything inside the tool.
+- Always send a preview to yourself and one colleague on a different email client; rendering differs noticeably between Gmail, Outlook, and Apple Mail.
+- Save your best-performing layout as a template so each new issue starts consistent and you only edit the copy and links.
+- Warm up a new sending domain gradually with smaller, engaged segments before emailing your whole list, to protect your domain reputation.
+- Keep a working unsubscribe link and a real reply-to address in every issue to stay compliant and reduce spam complaints.
+- Check the send history right after each campaign to confirm the send completed and the counts match your list before assuming it went out.
+
+## Try it now
+
+The full Email Campaigns is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth-email-campaigns](https://ztools.zaions.com/growth-email-campaigns)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+
+[Open the tool ↗](https://ztools.zaions.com/growth-email-campaigns)
+
+---
+
+*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-email-campaigns.mdx)*

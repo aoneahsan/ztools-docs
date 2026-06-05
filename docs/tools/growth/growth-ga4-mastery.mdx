@@ -1,0 +1,143 @@
+---
+id: growth-ga4-mastery
+title: "GA4 Mastery: AI Narrative Reports From Nine GA4 Analyses"
+description: "Run nine prebuilt deep-dive prompts over your GA4 data and get a written insight report. Paid Growth Suite tool; bring your own GA4 OAuth and LLM key."
+sidebar_label: "GA4 Mastery"
+keywords:
+  - "ga4 ai narrative report"
+  - "automated google analytics 4 insights"
+  - "prebuilt ga4 analysis prompts"
+  - "bring your own key ga4 reporting tool"
+  - "ga4 funnel and retention analysis report"
+  - "ai written analytics summary from ga4"
+  - "ga4 acquisition engagement segment analysis"
+last_update:
+  date: 2026-06-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# GA4 Mastery
+
+GA4 Mastery is a reporting tool that runs nine curated, prebuilt deep-analysis prompts against your Google Analytics 4 data and returns a written narrative report of the key insights. Part of ZTools’ paid Growth Suite, it covers acquisition, engagement, retention, funnels, segments, and more without you writing a single query. It is bring-your-own-key: you connect read-only GA4 OAuth and your own LLM key, both encrypted per user, so model usage bills to your provider, not to us. The Free tier includes a low monthly cap with a 30-day trial; Pro and Ultimate raise the limits.
+
+:::info Paid feature — Growth Suite
+GA4 Mastery is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::
+
+<ToolCTA toolId="growth-ga4-mastery" toolName="GA4 Mastery" />
+
+## Use cases
+
+### Weekly stakeholder summary
+
+A growth lead at a B2B SaaS company needs a Monday email summarizing last week’s GA4 numbers for the leadership channel. Instead of rebuilding the same Explorations every week, they run the acquisition and engagement analyses, then paste the narrative into Slack. The report flags that organic sessions rose while signup-page engagement fell, giving the team a concrete thread to investigate before the standup.
+
+### Diagnosing a checkout funnel dip
+
+An ecommerce manager sees checkout revenue dipping but cannot tell where shoppers leave. They run the funnel and engagement analyses across the last 28 days. The narrative points to a steep drop between add-to-cart and shipping-info on mobile, with a note that one campaign source skews the average. They now have a starting hypothesis to confirm in GA4 Explorations before briefing the dev team.
+
+### Retention check for a content site
+
+A solo newsletter operator wants to know whether new readers come back. They run the retention and segment analyses on their GA4 property. The report describes weak week-two return rates for paid-social visitors versus strong return rates for referral traffic, and suggests segments worth isolating. The operator uses this to decide where to spend the next month’s promotion budget, then verifies the segments themselves.
+
+### Agency client onboarding audit
+
+A freelance analyst onboarding a new client connects the client’s read-only GA4 OAuth and runs the full set of nine analyses in one sitting. The narrative reports become the backbone of a first-week audit document, covering acquisition channels, engagement quality, and retention. Because the client supplies their own LLM key, the analyst keeps usage costs transparent and avoids holding the client’s credentials beyond the encrypted connection.
+
+## How it works
+
+1. **Connect GA4** — Sign in and grant read-only Google OAuth so the tool can query your GA4 property. The connection is scoped to analytics reading only and is encrypted and stored per user.
+2. **Add your LLM key** — Paste your own large language model API key. It is encrypted per user and used only to write the report narrative, so model usage bills directly to your provider account.
+3. **Pick an analysis** — Choose one of the nine prebuilt analyses, such as acquisition, engagement, retention, funnels, or segments. Each is a fixed prompt designed to pull the relevant GA4 dimensions and metrics.
+4. **Set the date range** — Select the reporting window, for example the last 7, 28, or 90 days. The tool fetches the matching data from your property and prepares it for the analysis prompt.
+5. **Generate the report** — Run the analysis. Your connected model reads the fetched GA4 data and returns a written narrative highlighting trends, outliers, and possible causes, which you can copy or save for later.
+6. **Sanity-check before acting** — Read the report as an interpretation, not a verdict. Confirm the numbers and any flagged drop in GA4 Explorations before you change spend, ship a fix, or brief stakeholders.
+
+## Examples
+
+**Input:** Analysis: Acquisition. Date range: last 28 days. Property: marketing site GA4.
+
+**Output:** A narrative noting organic search drove the most new users while a paid-social campaign had high sessions but low engaged sessions, with a callout that one referral spike came from a single newsletter.
+
+---
+
+**Input:** Analysis: Funnel. Steps: view_item, add_to_cart, begin_checkout, purchase. Range: last 14 days.
+
+**Output:** A report describing the largest drop-off between add_to_cart and begin_checkout on mobile, with the desktop funnel holding up, and a suggestion to inspect the mobile checkout entry point.
+
+---
+
+**Input:** Analysis: Retention. Cohorts: weekly new users. Range: last 90 days.
+
+**Output:** A summary stating week-one return rates are stable but week-four retention is declining for newer cohorts, with two segments flagged as worth isolating for a deeper look.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is GA4 Mastery free, and what does it cost?**</summary>
+
+GA4 Mastery is part of the paid Growth Suite. You can use it on the Free plan with a low monthly cap on report runs, and there is a 30-day trial. Pro and Ultimate raise the monthly limits. Note that connecting your own LLM key means model usage is billed by your provider, separate from any ZTools plan.
+
+</details>
+
+<details>
+<summary>**Do I need my own API keys?**</summary>
+
+Yes. This is a bring-your-own-key tool. You connect a read-only Google OAuth for GA4 and supply your own large language model API key. Both are encrypted per user. The model usage that powers each report bills directly to your LLM provider account, so you control and see those costs, not us.
+
+</details>
+
+<details>
+<summary>**How accurate are the reports?**</summary>
+
+The reports are AI-written interpretations of your real GA4 data, so they can phrase a correlation as if it were a cause, or over-read a small sample. Always sanity-check the numbers and any flagged change in GA4 Explorations before you base a decision on them. The tool surfaces insights to investigate, not conclusions to act on blindly.
+
+</details>
+
+<details>
+<summary>**Can I write my own custom queries or SQL?**</summary>
+
+No. Coverage is the nine curated, prebuilt analyses, such as acquisition, engagement, retention, funnels, and segments. You cannot run arbitrary custom SQL or define your own ad-hoc questions. If your need falls outside those nine, use GA4 Explorations or BigQuery directly; this tool is built for fast, repeatable narrative summaries of common analyses.
+
+</details>
+
+<details>
+<summary>**What data does it access, and is it safe?**</summary>
+
+It uses read-only GA4 OAuth, so it can read your analytics data but cannot modify your property. Your OAuth connection and LLM key are encrypted per user. To generate a report, the tool does send the relevant GA4 data to the language model you connected, so your data reaches your chosen LLM provider as part of the analysis.
+
+</details>
+
+<details>
+<summary>**Does the quality of insight vary?**</summary>
+
+Yes. Output quality depends on the language model you connect and how completely your GA4 is set up. A capable model plus well-defined events and conversions yields sharper narratives; missing events, unfiltered internal traffic, or sampling can produce vague or misleading summaries. Clean GA4 configuration is the biggest lever on report usefulness.
+
+</details>
+
+<details>
+<summary>**Which analyses are included?**</summary>
+
+There are nine prebuilt analyses spanning acquisition, engagement, retention, funnels, segments, and related areas of a GA4 property. Each one is a fixed, curated prompt that fetches the matching dimensions and metrics for your chosen date range, then returns a written narrative. The set is fixed rather than user-extensible.
+
+</details>
+
+## Tips
+
+- Run the same analysis on two date ranges, such as last 28 days versus the prior 28, to make trend changes obvious in the narrative.
+- Clean your GA4 first: filter internal traffic, confirm key events, and mark conversions. The reports are only as good as the underlying configuration.
+- Connect a stronger reasoning model when you want sharper cause-and-effect language; a smaller model is fine for quick weekly summaries and saves on your provider bill.
+- Treat every flagged drop as a hypothesis. Re-create it in GA4 Explorations before you change budget or brief stakeholders.
+- For agency work, ask clients to add their own LLM key so usage costs stay on their account and you avoid holding extra credentials.
+
+## Try it now
+
+The full GA4 Mastery is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth-ga4-mastery](https://ztools.zaions.com/growth-ga4-mastery)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+
+[Open the tool ↗](https://ztools.zaions.com/growth-ga4-mastery)
+
+---
+
+*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-ga4-mastery.mdx)*

@@ -1,0 +1,132 @@
+---
+id: serial-number-generator
+title: "Serial Number Generator — Sequential & Random, Free"
+description: "Generate sequential or random serial numbers with prefix, suffix, zero-padding, start, step, and count. Copy, download, or turn them into barcodes. Free."
+sidebar_label: "Serial Number Generator"
+keywords:
+  - "serial number generator"
+  - "sequential number generator"
+  - "random serial generator"
+  - "generate serial numbers"
+  - "unique id generator"
+  - "zero padded numbers"
+  - "bulk serial numbers"
+  - "ticket code generator"
+last_update:
+  date: 2026-06-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Serial Number Generator
+
+A serial number generator produces a list of unique identifiers following a pattern — a prefix, a numeric part, and an optional suffix — either counting up in sequence or drawn at random. The ZTools Serial Number Generator builds these lists with a custom prefix and suffix, zero-padding to a fixed width, and a chosen start, step, and count for sequential runs, or a set number of digits for random ones. Random values are de-duplicated within a batch and use the browser’s secure random generator. You can copy the whole list, download it as a text file, or send it straight to the Bulk Barcode Generator — all without anything leaving your device.
+
+<ToolCTA toolId="serial-number-generator" toolName="Serial Number Generator" />
+
+## Use cases
+
+### Create a run of product serials
+
+Generate SN-00001 through SN-00500 with a five-digit zero-padded counter, then export the list and feed it into the bulk generator to print a sheet of matching barcodes for a manufacturing run.
+
+### Issue ticket or voucher codes
+
+Produce a batch of random eight-digit codes with a TICKET- prefix for an event or promotion. Random values resist guessing better than sequential ones, and the tool removes any duplicates within the batch.
+
+### Seed test data
+
+Developers and QA need realistic-looking IDs. Generate a few hundred sequential or random serials to populate a database, a CSV fixture, or a load test without hand-typing them.
+
+### Number assets or inventory
+
+Create ASSET-0001 upward for laptops, tools, or furniture, download the text list for your asset register, and bulk-generate the matching labels in one more step.
+
+## How it works
+
+1. **Set prefix and suffix** — Add an optional fixed prefix (e.g. SN-) and suffix that wrap every serial.
+2. **Pick a mode** — Sequential counts from a start value by a step; Random draws values with a chosen number of digits.
+3. **Configure the run** — Set the count, the zero-pad width, and (for sequential) the start and step.
+4. **Generate** — The tool builds the list, de-duplicating random values and capping very large runs.
+5. **Use the list** — Copy all, download a .txt, or open the Bulk Barcode Generator to turn them into codes.
+
+## Examples
+
+**Input:** Prefix SN-, start 1, step 1, count 5, pad 5
+
+**Output:** SN-00001, SN-00002, SN-00003, SN-00004, SN-00005
+
+---
+
+**Input:** Prefix TKT-, random, 6 digits, count 3
+
+**Output:** TKT-481920, TKT-006273, TKT-739154
+
+---
+
+**Input:** Start 1000, step 10, count 4, pad 0
+
+**Output:** 1000, 1010, 1020, 1030
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between sequential and random serials?**</summary>
+
+Sequential serials count up from a start value by a fixed step, so they’re predictable and ordered. Random serials are drawn independently (and de-duplicated within the batch), which makes them harder to guess.
+
+</details>
+
+<details>
+<summary>**How does zero-padding work?**</summary>
+
+Zero-padding fixes the width of the numeric part by adding leading zeros — width 5 turns 1 into 00001 — so all serials line up neatly and sort correctly.
+
+</details>
+
+<details>
+<summary>**How many serials can I generate?**</summary>
+
+Up to 10,000 per run. If you request more, the tool generates the maximum and tells you the list was capped.
+
+</details>
+
+<details>
+<summary>**Are random serials guaranteed unique?**</summary>
+
+They’re de-duplicated within a single batch using the browser’s secure random generator. Across separate batches, uniqueness isn’t guaranteed — generate one larger batch if you need a single unique set.
+
+</details>
+
+<details>
+<summary>**Can I turn the serials into barcodes?**</summary>
+
+Yes. Use “Make barcodes” to open the Bulk Barcode Generator, paste the list, choose a symbology, and export ZIP / PDF / Excel.
+
+</details>
+
+<details>
+<summary>**Does anything get uploaded?**</summary>
+
+No. Serials are generated entirely in your browser; nothing is sent to a server.
+
+</details>
+
+## Tips
+
+- Set a zero-pad width that fits your largest number so every serial has the same length and sorts correctly.
+- Use a clear prefix (SN-, TKT-, ASSET-) to tell different runs apart at a glance.
+- For codes people shouldn’t guess (vouchers, tickets), pick Random with more digits rather than Sequential.
+- Generate once as a large batch when you need guaranteed in-set uniqueness, then split it as needed.
+- Pair this with the Bulk Barcode Generator to go from a numbering scheme to printed labels in two steps.
+
+## Try it now
+
+The full Serial Number Generator runs in your browser at **[https://ztools.zaions.com/serial-number-generator](https://ztools.zaions.com/serial-number-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/serial-number-generator)
+
+---
+
+*Last updated: 2026-06-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/serial-number-generator.mdx)*

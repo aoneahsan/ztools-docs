@@ -1,0 +1,152 @@
+---
+id: dynamic-qr
+title: "Dynamic QR Code Generator with Scan Analytics — Free"
+description: "Create editable QR codes you can re-point anytime without reprinting, and track scans by country, device, and date — no IP logging, free with a sign-in."
+sidebar_label: "Dynamic QR Code & Scan Analytics"
+keywords:
+  - "dynamic qr code generator"
+  - "editable qr code"
+  - "qr code with analytics"
+  - "trackable qr code"
+  - "change qr code destination"
+  - "qr code scan tracking"
+  - "free dynamic qr code"
+  - "qr code redirect"
+last_update:
+  date: 2026-06-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Dynamic QR Code & Scan Analytics
+
+A dynamic QR code is a QR code whose printed image never changes but whose destination URL you can edit at any time, because the code encodes a short redirect link instead of the final address. ZTools’ Dynamic QR tool creates these editable codes, stores a short link like qr.zaions.com/abc1234, and 302-redirects every scan to whatever destination you currently point it to. Because each scan passes through that redirect, the tool can also record privacy-friendly analytics — which country, region, and device the scan came from, and when — without ever storing the visitor’s IP address. Sign-in is free and keeps your codes private to you.
+
+<ToolCTA toolId="dynamic-qr" toolName="Dynamic QR Code & Scan Analytics" />
+
+## Use cases
+
+### Fix a typo after printing
+
+You printed 5,000 flyers and the linked landing page has a broken path. With a static QR you would reprint everything. With a dynamic QR you edit the destination in seconds and every existing printed code instantly points to the corrected URL — no reprint, no waste.
+
+### Reusable signage and packaging
+
+Put one dynamic QR on reusable signage, product packaging, or a business card. Point it at this month’s promotion, then re-point it next month to a new campaign. The same physical code serves many destinations over its life, so artwork and print runs are paid for once.
+
+### Measure real-world campaign reach
+
+Compare two posters in two cities by giving each its own dynamic code. The scan analytics show how many people scanned each, in which countries and on what device type, and how scans trend day by day — turning a printed code into a measurable channel.
+
+### A/B test offers behind one code
+
+Run the same printed code while swapping the destination between two landing pages on different days. Because the code is dynamic, you change the target without touching the print, then read the day-by-day scan timeline to see which period performed better.
+
+### Retire or pause a link safely
+
+If an event ends or an offer expires, pause the code so scans fall back to your homepage instead of a dead link, or delete it entirely. Visitors never hit a 404, and you stay in control of where an old printed code leads.
+
+## How it works
+
+1. **Sign in** — Sign in with Google (free) so your codes and their analytics stay private and scoped to your account.
+2. **Enter a destination** — Give the code a label and the destination URL you want people to land on. You can change this destination later at any time.
+3. **Create the code** — ZTools allocates a short, unguessable slug and stores it, then shows the styled QR for the short redirect URL.
+4. **Download and print** — Download the QR as a PNG and place it on print, packaging, slides, or the web. The printed image is now permanent.
+5. **Re-point anytime** — Edit the destination whenever you need to. The redirect worker picks up the change within about a minute for new scans.
+6. **Watch the analytics** — Open Analytics on any code to see total scans, top countries, device and browser breakdowns, and a day-by-day timeline.
+
+## Examples
+
+**Input:** Destination: https://example.com/spring (then later changed to /summer)
+
+**Output:** Short URL qr.zaions.com/k7Qm2pA stays the same; scans redirect to /spring, then to /summer after the edit
+
+---
+
+**Input:** 120 scans across a week from three countries
+
+**Output:** Timeline of daily scans, “Top countries” bar chart, and Mobile/Desktop/Tablet split
+
+---
+
+**Input:** Event ended — code paused
+
+**Output:** New scans redirect to the fallback (your homepage) instead of an expired page
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between a static and a dynamic QR code?**</summary>
+
+A static QR encodes the final URL directly, so the destination is fixed forever once printed. A dynamic QR encodes a short redirect link, so you can change where it points anytime without reprinting — and because scans pass through the redirect, you also get scan analytics.
+
+</details>
+
+<details>
+<summary>**Can I change the destination after I print the code?**</summary>
+
+Yes. That is the whole point of a dynamic QR. Edit the destination in the dashboard and every existing printed code redirects to the new target on the next scan (changes propagate within about a minute).
+
+</details>
+
+<details>
+<summary>**What data do the scan analytics collect?**</summary>
+
+Only coarse location (country, region, city, derived at the edge), device type, operating system, browser, and the time of the scan. ZTools does not store visitors’ IP addresses or precise GPS location.
+
+</details>
+
+<details>
+<summary>**Why do I need to sign in?**</summary>
+
+Sign-in (free, Google) ties each dynamic code to your account so only you can edit its destination or see its analytics. Without an owner, anyone could change where your printed codes lead.
+
+</details>
+
+<details>
+<summary>**Is the dynamic QR free?**</summary>
+
+Yes. Creating dynamic codes, editing destinations, and viewing scan analytics are free. The redirect runs on a free-tier serverless worker and the data lives in a free-tier database.
+
+</details>
+
+<details>
+<summary>**What happens if I delete or pause a code?**</summary>
+
+A paused or deleted code stops redirecting to your destination; scans fall back to a safe default (your site) instead of an error page. Deleting is permanent and cannot be undone.
+
+</details>
+
+<details>
+<summary>**Can I style the dynamic QR with colors and a logo?**</summary>
+
+The dashboard downloads a clean, high-error-correction PNG that scans reliably. For custom colors, dot shapes, gradients, frames, and logos, paste the short URL into the QR Code Studio and design it there.
+
+</details>
+
+<details>
+<summary>**Will old printed codes keep working if the destination changes?**</summary>
+
+Yes. The printed code only ever contains the short redirect URL, which never changes. Editing the destination updates what that short URL resolves to, so previously printed codes automatically follow the new target.
+
+</details>
+
+## Tips
+
+- Use a clear label per code (e.g. “Lobby poster — Q2”) so you can tell codes apart at a glance in the dashboard.
+- Test a code with your phone right after creating it, before mass-printing, to confirm it redirects correctly.
+- Re-point expiring campaign codes to a relevant evergreen page instead of deleting them, so old prints stay useful.
+- For branded print, design the short URL in QR Code Studio with High error correction so a logo overlay still scans.
+- Give each placement (city, channel, poster) its own code to compare reach in the analytics.
+- Pause rather than delete during gaps — you keep the code, its history, and the option to reactivate it later.
+
+## Try it now
+
+The full Dynamic QR Code & Scan Analytics runs at **[https://ztools.zaions.com/dynamic-qr](https://ztools.zaions.com/dynamic-qr)** — the generator works entirely in your browser; only dynamic codes use a lightweight serverless redirect, so you can edit the destination later and see scan counts.
+
+[Open the tool ↗](https://ztools.zaions.com/dynamic-qr)
+
+---
+
+*Last updated: 2026-06-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/dynamic-qr.mdx)*

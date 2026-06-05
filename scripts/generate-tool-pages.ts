@@ -6,11 +6,15 @@
  * them and emits Docusaurus MDX so we never duplicate content between
  * the two projects.
  *
- * Edit `TOOLS_TO_PUBLISH` below to control which tools appear on the docs
- * site. We keep the cadence at 15-20 tools per batch for quality control.
+ * Coverage is automatic: every tool that has enriched content in a
+ * `batch*.ts` file AND metadata (in `toolsData.ts` for the free core, or
+ * `growthSuiteTools.ts` for the paid Growth Suite) gets a page. There is no
+ * hand-maintained allowlist — add a tool's content batch in the app and it
+ * appears here on the next run, with no drift. Paid Growth Suite tools are
+ * rendered with a clear paid/BYOK notice instead of the browser-only claim.
  */
 
-import {readFileSync, writeFileSync, mkdirSync, existsSync, rmSync} from 'node:fs';
+import {readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync} from 'node:fs';
 import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -23,158 +27,8 @@ const DOCS_ROOT = join(__dirname, '..', 'docs');
 const ZTOOLS_REPO = join(__dirname, '..', '..', 'ztools');
 const ZTOOLS_DATA = join(ZTOOLS_REPO, 'src', 'data', 'toolContent');
 const ZTOOLS_TOOLS_DATA = join(ZTOOLS_REPO, 'src', 'data', 'toolsData.ts');
+const ZTOOLS_GROWTH_DATA = join(ZTOOLS_REPO, 'src', 'data', 'growthSuiteTools.ts');
 const APP_URL = 'https://ztools.zaions.com';
-
-// ---------------------------------------------------------------------------
-// Cohort: top 20 tools to publish in the first wave.
-// Mirrors batch-01 / batch-02 from the SEO content sequence — they're the
-// foundation tools, highest search demand, broadest appeal.
-// ---------------------------------------------------------------------------
-const TOOLS_TO_PUBLISH = [
-  // Batch 1 (init): foundation — 20 tools
-  'json-formatter','password-generator','base64','url-encoder','qr-generator',
-  'lorem-ipsum','color-picker','regex-tester','hash-generator','jwt-decoder',
-  'uuid-generator','word-counter','markdown-html','image-compressor','merge-pdf',
-  'json-minifier','diff-checker','image-resizer','favicon-generator','cron-expression',
-
-  // Batch 2: generator category — 58 tools
-  'api-documentation-generator','barcode-generator-advanced','bio-generator','border-radius','box-shadow',
-  'color-mixer','color-palette','color-palette-generator-advanced','color-shades-generator','credit-card-generator',
-  'css-background-pattern-generator','css-border-radius-generator','css-box-shadow-generator','css-checkbox-generator',
-  'css-clip-path-generator','css-cubic-bezier-generator','css-glassmorphism-generator','css-gradient-generator',
-  'css-loader-generator','css-switch-generator','css-text-glitch-generator','css-triangle-generator',
-  'dendrite-fractal','dummy-data','email-template-generator','fake-data','fake-iban-generator','fractal-tree',
-  'gradient-generator','hashtag-generator','hilbert-curve','htaccess-generator','invoice-generator',
-  'mac-address-generator','meta-tag-generator','mock-api','number-sequence','open-graph-meta-generator',
-  'pythagoras-fractal','random-color-generator','random-number','random-string','react-native-shadow-generator',
-  'regex-builder','robots-txt-generator','safe-app-identifier-generator','safe-file-name-generator',
-  'safe-folder-name-generator','schema-markup-generator','sierpinski-triangle','sitemap-generator',
-  'sql-query-generator','string-generator','svg-blob-generator','svg-pattern-generator','table-generator',
-  'twitter-card-generator','url-slug-generator',
-
-  // Batch 3: image category — 56 tools
-  'add-border-jpg','add-text-to-gif','background-remover','base64-image','blur-image','cartoon-effect-generator',
-  'change-gif-speed','change-jpg-quality','change-png-colors','convert-png-to-webp','convert-webp-to-png',
-  'crop-webp','duplicate-image-finder','extract-gif-frames','grayscale-jpg','heic-converter',
-  'image-average-color-finder','image-base64','image-border-tool','image-color-extractor','image-compress-tool',
-  'image-crop-tool','image-cropper','image-filters','image-filters-effect','image-format-batch-converter',
-  'image-rotate-flip','image-upscaler','image-watermark','instagram-filters-advanced','instagram-post-generator',
-  'passport-photo-maker','photo-censor','photo-collage-maker-advanced','pixelate-image','pixelate-jpg',
-  'pixelate-webp','remove-gif-background','remove-webp-background','replace-webp-colors','reverse-gif',
-  'reverse-image-search','rotate-png','sharpen-image','smart-image-optimizer','social-media-image-resizer',
-  'svg-optimizer','svg-png','transparent-jpg','transparent-png-maker','transparent-webp','tweet-generator',
-  'tweet-to-image-converter','universal-image-converter','vimeo-thumbnail-grabber','youtube-thumbnail-grabber',
-
-  // Batch 4: utility category — 43 tools
-  'age-calculator','alarm-clock','aspect-ratio-calculator','barcode-scanner-advanced','billable-hours',
-  'bulk-url-checker','code-beautifier','code-minifier','code-to-image-converter','coin-flipper',
-  'color-contrast-checker','countdown-timer','credit-card-validator','date-calculator','date-difference-calculator',
-  'device-info','dice-roller','digital-clock','dns-lookup-tool','email-validator','emoji-picker',
-  'file-hash-calculator','iban-validator','invoice-generator-pro','ip-lookup','memento-mori-calendar',
-  'notepad-online','password-strength-checker','phone-number-validator','pomodoro','random-name-generator',
-  'receipt-generator','scientific-calculator','stopwatch-timer','subnet-calculator','timer','timezone',
-  'twitter-ad-revenue-generator','url-validator','user-agent','vin-decoder','whois-lookup','world-clock-converter',
-
-  // Batch 5: data category — 41 tools
-  'analyze-json','array-operations','change-csv-delimiter','column-extractor','count-binary-ones',
-  'count-binary-zeros','css-specificity','csv-column-mapper','csv-parser','csv-to-text-columns','csv-viewer',
-  'data-cleaner','diff-merger','find-duplicate-items','find-list-length','find-unique-items','grep-tool',
-  'hex-to-image','html-entity-counter','invert-binary-bits','js-object-to-json','json-path-finder',
-  'json-schema-generator','json-to-single-line-string','json-tree-viewer','json-viewer','list-dedup',
-  'list-randomizer','list-shuffler','list-sorter','obfuscate-json','reverse-hex','shuffle-binary-bits',
-  'sort-csv-data','sql-formatter','sql-to-json','xml-formatter','xml-minifier','xml-validator',
-  'yaml-to-json','yaml-validator',
-
-  // Batch 6: conversion category — 40 tools
-  'ascii-art-to-image','ascii-to-decimal','binary-to-negabinary','bytes-to-ascii','color-converter-advanced',
-  'csv-json','csv-to-xlsx','currency-converter','data-storage-converter','decimal-to-ascii','docx-to-pdf',
-  'dog-age-converter','heic-to-jpg','hex-to-text-converter','html-entities','ip-address-converter','ip-to-hex',
-  'js-to-json','js-to-typescript','json-to-csv','json-to-js','json-yaml','length','length-converter',
-  'markdown-to-pdf','number-base','octal-converter','percentage-calculator','rgb-hex','roman-numerals',
-  'speed-converter','temperature','temperature-converter','time-unit','typescript-to-js','unit-converter',
-  'unix-timestamp','weight','weight-converter','xlsx-to-csv',
-
-  // Batch 7: text category — 39 tools
-  'add-prefix-to-lines','article-rewriter','ascii-art','bionic-reading-converter','character-counter',
-  'duplicate-remover','find-replace','google-fonts-pair-finder','grammar-checker','join-strings',
-  'letter-frequency','line-counter','multiple-whitespace-remover','palindrome-checker','paraphrasing-tool',
-  'pick-random-item','plagiarism-checker','random-text','reading-time-estimator','remove-unicode-font',
-  'repeat-string','sentence-counter','shuffle-letters','shuffle-lines','shuffle-words','split-string',
-  'spoof-unicode-text','text-case-converter','text-reverser','text-sorter','text-summarizer',
-  'text-to-handwriting-converter','text-to-image','text-to-speech','text-to-unicode-font','text-trimmer',
-  'text-truncator','word-frequency','zalgo-text-generator',
-
-  // Batch 8: math category — 34 tools
-  'add-commas','bmi-calculator','calculator','compound-interest-calculator','discount-calculator',
-  'enumerate-integers','equation-grapher','expression-evaluator','fibonacci','fraction','gcd-lcm',
-  'increment-digits','integer-pairs','l-system','look-and-say','matrix-calculator','mortgage-calculator',
-  'number-formatter','number-sum','numbers-to-words','pascal-triangle','percentage-calc','pi-digits',
-  'prime-checker','pythagorean','random-matrix','reverse-digits','roman-numeral','salary-calculator',
-  'sort-numbers','statistics','statistics-calculator','tip-calculator','words-to-numbers',
-
-  // Batch 9: encoding category — 24 tools
-  'ascii85-encoder-decoder','atbash-cipher','barcode-generator','base32-encoder','binary-text','binary-to-utf8',
-  'caesar-cipher','hex-to-utf8','html-encoder','jwt-encoder-decoder','md5-hash-generator','morse-code',
-  'punycode','quoted-printable-encoder','rot13','sql-encoder','string-encoder','string-escaper',
-  'unicode-to-utf8','utf8-to-binary','utf8-to-hex','utf8-validator','vigenere-cipher','xml-encoder',
-
-  // Batch 10: pdf category — 23 tools
-  'compress-pdf-advanced','delete-pdf-pages','excel-to-pdf','extract-pdf-pages','flatten-pdf','image-to-pdf',
-  'organize-pdf','pdf-bookmark-manager','pdf-form-filler','pdf-ocr-text-extraction','pdf-page-reorder',
-  'pdf-reader','pdf-to-excel','pdf-to-image','pdf-to-text-extractor','pdf-to-word','protect-pdf','rotate-pdf',
-  'sign-pdf','split-pdf','unlock-pdf','watermark-pdf','word-to-pdf',
-
-  // Batch 11: seo category — 20 tools
-  'alt-text-generator','breadcrumb-schema-generator','canonical-url-checker','heading-structure-checker',
-  'hreflang-tag-generator','internal-link-analyzer','keyword-density-analyzer','meta-tags-analyzer',
-  'mobile-seo-checker','open-graph-debugger','page-speed-analyzer','redirect-chain-checker',
-  'robots-txt-validator','seo-checker','seo-content-analyzer','seo-score-calculator','serp-preview',
-  'sitemap-xml-generator','structured-data-validator','twitter-card-validator',
-
-  // Batch 12: health + education + finance + media — 61 tools
-  // Health (18)
-  'blood-alcohol-calculator','bmr-calculator','body-fat-calculator','calorie-calculator',
-  'heart-rate-zone-calculator','ideal-weight-calculator','intermittent-fasting-timer','macronutrient-calculator',
-  'meal-planner','one-rep-max-calculator','ovulation-calculator','pregnancy-due-date-calculator',
-  'protein-intake-calculator','running-pace-calculator','sleep-calculator','tdee-calculator-advanced',
-  'water-intake-calculator','workout-timer',
-  // Education (16)
-  'bibliography-generator','citation-generator','essay-word-counter','flashcard-maker','gpa-calculator',
-  'grade-calculator','math-equation-solver','note-taking-app','periodic-table','plagiarism-detector-academic',
-  'pomodoro-study-timer','quiz-maker','research-paper-outline-generator','study-planner',
-  'text-similarity-checker','typing-speed-test',
-  // Finance (15)
-  'commodity-price-calculator','crypto-price-tracker','emi-calculator','gold-rate-calculator',
-  'income-tax-calculator','jewelry-metal-calculator','loan-calculator','palladium-rate-calculator',
-  'paycheck-calculator','platinum-rate-calculator','roi-calculator','savings-goal-calculator',
-  'silver-rate-calculator','sip-calculator','stock-portfolio-tracker',
-  // Media (14)
-  'audio-cutter','audio-format-converter','audio-joiner','audio-noise-reducer','gif-maker',
-  'image-to-text-ocr','qr-code-scanner','screen-recorder','speech-to-text','video-compressor',
-  'video-subtitle-extractor','video-thumbnail-generator','video-to-gif','voice-recorder',
-
-  // Batch 13: design + productivity + developer + extractor + legal — 55 tools (FINAL)
-  // Design (14)
-  'app-icon-generator','business-card-designer','collage-maker','color-blindness-simulator',
-  'email-signature-generator','icon-generator-svg','logo-maker','meme-generator',
-  'pattern-generator-advanced','photo-editor','poster-maker','social-media-banner-maker','whiteboard',
-  'youtube-thumbnail-maker',
-  // Productivity (14)
-  'checklist-maker','cover-letter-generator','daily-planner-advanced','decision-wheel-spinner',
-  'eisenhower-matrix-maker','flowchart-maker','goal-tracker','habit-tracker','kanban-board',
-  'meeting-cost-calculator','meeting-notes-generator','mind-map-maker','project-timeline-maker','resume-builder',
-  // Developer (10)
-  'api-response-mocker','cron-job-generator','css-flexbox-generator','css-grid-generator',
-  'git-command-generator','html-to-markdown-converter','json-to-typescript','markdown-editor',
-  'pixel-to-rem-converter','sql-formatter-pro',
-  // Extractor (10)
-  'date-time-extractor','domain-extractor','email-extractor','hashtag-mention-extractor',
-  'ip-address-extractor','keyword-extractor','lead-extractor','number-extractor',
-  'phone-number-extractor','url-extractor',
-  // Legal (7)
-  'contract-template-generator','cookie-policy-generator','disclaimer-generator','eula-generator',
-  'privacy-policy-generator','return-refund-policy-generator','terms-of-service-generator',
-];
 
 // ---------------------------------------------------------------------------
 // Types mirror the ToolContent shape from the ztools app data files.
@@ -198,14 +52,18 @@ interface ToolContent {
   author: string;
 }
 
-type ToolMeta = {id: string; name: string; category: string; description?: string};
+type ToolMeta = {id: string; name: string; category: string; description?: string; isPaid: boolean};
 
 // ---------------------------------------------------------------------------
 // Load all enriched content via dynamic ESM imports.
 // ---------------------------------------------------------------------------
 async function loadContent(): Promise<Record<string, ToolContent>> {
   const merged: Record<string, ToolContent> = {};
-  const files = Array.from({length: 35}, (_, i) => `batch${String(i + 1).padStart(2, '0')}.ts`);
+  // Discover every batch*.ts dynamically so a new content batch in the app is
+  // picked up automatically — no hardcoded count to drift out of date.
+  const files = readdirSync(ZTOOLS_DATA)
+    .filter((f) => /^batch\d+\.ts$/.test(f))
+    .sort();
 
   for (const file of files) {
     const path = join(ZTOOLS_DATA, file);
@@ -219,21 +77,36 @@ async function loadContent(): Promise<Record<string, ToolContent>> {
 }
 
 // ---------------------------------------------------------------------------
-// Read tool metadata (name, category) from toolsData.ts via regex parsing.
-// We don't need the full module — just per-id name and category.
+// Read tool metadata (name, category) from the app data via regex parsing.
+// We don't need the full module — just per-id name and category. Paid tools
+// live in their own file and carry category 'growth'.
 // ---------------------------------------------------------------------------
-function loadToolMeta(): Record<string, ToolMeta> {
-  const src = readFileSync(ZTOOLS_TOOLS_DATA, 'utf-8');
-  const meta: Record<string, ToolMeta> = {};
-  // Match { ... id: 'foo' ... name: 'Foo' ... category: 'data' ... description: '...' }
+// Capture a single-quoted field value, tolerating escaped quotes (e.g.
+// `title: 'Pascal\'s Triangle'`), then unescape \' \" \\ back to literals.
+function field(block: string, key: string): string | undefined {
+  const m = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`).exec(block);
+  return m ? m[1].replace(/\\(['"\\])/g, '$1') : undefined;
+}
+
+function parseMeta(src: string, meta: Record<string, ToolMeta>): void {
+  // Match { ... id: 'foo' ... title/name: 'Foo' ... category: 'data' ... }
   const blockRegex = /\{[^{}]*?id:\s*'([^']+)'[^{}]*?\}/gs;
   for (const match of src.matchAll(blockRegex)) {
     const block = match[0];
     const id = match[1];
-    const name = /name:\s*'([^']+)'/.exec(block)?.[1] ?? id;
-    const category = /category:\s*'([^']+)'/.exec(block)?.[1] ?? 'misc';
-    const desc = /description:\s*'([^']+)'/.exec(block)?.[1];
-    meta[id] = {id, name, category, description: desc};
+    // App data files use `title:`; fall back to `name:` then the id.
+    const name = field(block, 'title') ?? field(block, 'name') ?? id;
+    const category = field(block, 'category') ?? 'misc';
+    const desc = field(block, 'description');
+    meta[id] = {id, name, category, description: desc, isPaid: category === 'growth'};
+  }
+}
+
+function loadToolMeta(): Record<string, ToolMeta> {
+  const meta: Record<string, ToolMeta> = {};
+  parseMeta(readFileSync(ZTOOLS_TOOLS_DATA, 'utf-8'), meta);
+  if (existsSync(ZTOOLS_GROWTH_DATA)) {
+    parseMeta(readFileSync(ZTOOLS_GROWTH_DATA, 'utf-8'), meta);
   }
   return meta;
 }
@@ -259,7 +132,7 @@ const escapeMdx = (s: string) =>
     .replace(/>/g, '&gt;')
     .replace(/!\[/g, '\\![')
     .replace(/\]\(/g, '\\]\\(');
-const yamlString = (s: string) => `"${s.replace(/"/g, '\\"')}"`;
+const yamlString = (s: string) => `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
 
 // ---------------------------------------------------------------------------
 // Render one tool as MDX.
@@ -289,6 +162,17 @@ function renderToolMdx(id: string, content: ToolContent, meta: ToolMeta): string
 
   const tips = content.tips.map((t) => `- ${escapeMdx(t)}`).join('\n');
 
+  // Honest paid/free framing: Growth Suite tools are paid + BYOK + call
+  // external services, so they never carry the browser-only privacy claim.
+  const paidNotice = meta.isPaid
+    ? `\n:::info Paid feature — Growth Suite\n${meta.name} is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.\n:::\n`
+    : '';
+  const tryItBody = meta.isPaid
+    ? `The full ${meta.name} is part of the ZTools Growth Suite at **[${url}](${url})** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).`
+    : id === 'dynamic-qr'
+      ? `The full ${meta.name} runs at **[${url}](${url})** — the generator works entirely in your browser; only dynamic codes use a lightweight serverless redirect, so you can edit the destination later and see scan counts.`
+      : `The full ${meta.name} runs in your browser at **[${url}](${url})** — no signup, no upload, no data leaves your device.`;
+
   return `---
 id: ${id}
 title: ${yamlString(content.distinctTitle)}
@@ -306,7 +190,7 @@ import ToolCTA from '@site/src/components/ToolCTA';
 # ${meta.name}
 
 ${escapeMdx(content.intro)}
-
+${paidNotice}
 <ToolCTA toolId="${id}" toolName=${yamlString(meta.name)} />
 
 ## Use cases
@@ -331,7 +215,7 @@ ${tips}
 
 ## Try it now
 
-The full ${meta.name} runs in your browser at **[${url}](${url})** — no signup, no upload, no data leaves your device.
+${tryItBody}
 
 [Open the tool ↗](${url})
 
@@ -358,10 +242,14 @@ function renderHub(byCategory: Map<string, Array<{id: string; meta: ToolMeta}>>)
     })
     .join('\n\n');
 
+  const total = Array.from(byCategory.values()).reduce((n, t) => n + t.length, 0);
+  const catCount = byCategory.size;
+  const hasGrowth = byCategory.has('growth');
+
   return `---
 id: index
-title: All ZTools — 520+ Free Browser-Only Tools
-description: Browse the full ZTools catalog. Every tool runs in your browser — no signup, no upload, no data leaves your device.
+title: ${yamlString(`All ZTools — ${total} developer & creator tools`)}
+description: ${yamlString(`Browse the full ZTools catalog — ${total} tools across ${catCount} categories. Most run entirely in your browser (no signup, no upload, no data leaves your device); the Growth Suite adds AI-assisted SEO tools that need a sign-in and your own API key.`)}
 sidebar_label: All tools
 sidebar_position: 0
 slug: /tools
@@ -369,9 +257,7 @@ slug: /tools
 
 # All ZTools
 
-ZTools is a free, browser-only collection of **520+ developer & creator tools**. Every tool listed here is documented with use cases, examples, and FAQs.
-
-This index is the **first wave** — top 20 highest-demand tools. The rest land in subsequent batches; track progress on the [GitHub repo](https://github.com/aoneahsan-ztools-docs).
+ZTools is a collection of **${total} developer & creator tools** across ${catCount} categories, each documented with use cases, examples, and FAQs. The vast majority run **entirely in your browser** — no signup, no upload, no data leaves your device.${hasGrowth ? ` A small **Growth Suite** adds AI-assisted SEO/AEO tools that require a sign-in and your own provider API key (BYOK, with optional paid tiers); those pages are clearly marked.` : ''}
 
 ${sections}
 
@@ -399,16 +285,12 @@ async function main() {
   let written = 0;
   let skipped = 0;
 
-  for (const id of TOOLS_TO_PUBLISH) {
+  // Every enriched tool that resolves metadata gets a page — no allowlist.
+  for (const id of Object.keys(allContent).sort()) {
     const content = allContent[id];
     const m = meta[id];
-    if (!content) {
-      console.warn(`  ⚠ Skipping ${id}: no enriched content found`);
-      skipped++;
-      continue;
-    }
     if (!m) {
-      console.warn(`  ⚠ Skipping ${id}: no metadata found`);
+      console.warn(`  ⚠ Skipping ${id}: enriched content exists but no metadata found`);
       skipped++;
       continue;
     }
@@ -442,7 +324,7 @@ slug: /tools/${cat}
 
 # ${cat[0].toUpperCase()}${cat.slice(1)} tools
 
-${tools.length} tool${tools.length === 1 ? '' : 's'} in this category.
+${cat === 'growth' ? ':::info Paid — Growth Suite\nThese tools require a ZTools account and your own provider API key (BYOK), with optional paid tiers. They call external AI/SEO services, so unlike the rest of ZTools they are not browser-only.\n:::\n\n' : ''}${tools.length} tool${tools.length === 1 ? '' : 's'} in this category.
 
 ${items}
 `,

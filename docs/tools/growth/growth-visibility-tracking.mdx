@@ -1,0 +1,144 @@
+---
+id: growth-visibility-tracking
+title: "AI Visibility Tracking: See Which AI Bots Crawl You"
+description: "Track how often GPTBot, ClaudeBot and PerplexityBot fetch your pages with a tiny pixel. Per-bot, per-day counts in ZTools’ paid Growth Suite, 30-day trial."
+sidebar_label: "AI Visibility Tracking"
+keywords:
+  - "AI crawler tracking pixel"
+  - "track GPTBot and ClaudeBot visits"
+  - "monitor AI bot crawl activity per day"
+  - "PerplexityBot user-agent log"
+  - "see which AI bots crawl my site"
+  - "AI visibility tracking dashboard"
+  - "Google-Extended crawl monitoring"
+last_update:
+  date: 2026-06-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# AI Visibility Tracking
+
+AI Visibility Tracking is a pixel-based monitoring tool that counts how often AI crawlers — such as GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, and Google-Extended — request your pages, broken down per user-agent per day. It ships in ZTools’ paid Growth Suite: usable on the Free plan for a small, capped number of tracked sites, with higher caps on Pro and Ultimate, plus a 30-day trial. There is no API key to manage — you simply paste one lightweight pixel snippet into your site’s HTML. Because it measures only requests that actually load that pixel, treat its numbers as a representative sample of bot interest, not a complete server log.
+
+:::info Paid feature — Growth Suite
+AI Visibility Tracking is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::
+
+<ToolCTA toolId="growth-visibility-tracking" toolName="AI Visibility Tracking" />
+
+## Use cases
+
+### Confirm AI crawlers reach new articles
+
+A content marketer at a B2B SaaS company publishes three pillar guides and wants proof they are being fetched by AI bots, not just Googlebot. They add the pixel to the article template and, within a week, the dashboard shows GPTBot and PerplexityBot hits climbing per day — concrete signal that the pages entered AI crawl paths, rather than guessing from raw server logs they cannot easily filter.
+
+### Compare bot interest across client sites
+
+An independent SEO consultant manages eight client domains and needs a single view of which ones AI crawlers actually visit. With the Growth Suite pixel on each site, they open the per-user-agent breakdown and spot that one client gets steady ClaudeBot traffic while another sees almost none — a starting point for a robots.txt and internal-linking audit, backed by daily counts instead of hunches.
+
+### Watch for Google-Extended after an llms.txt change
+
+A documentation lead ships an llms.txt file and relaxes a few robots.txt rules, hoping AI systems pick up the new reference pages. They use the daily per-bot chart to watch whether Google-Extended and GPTBot requests rise in the days afterward. The pixel will not prove the pages were indexed or cited, but a rising fetch count is the first observable step they can actually see.
+
+### Spot a sudden drop in crawler activity
+
+An engineering team accidentally tightens a CDN firewall rule that blocks some bot user-agents. Because the pixel dashboard was already running, the per-day lines for PerplexityBot and ChatGPT-User flatten to near zero, prompting the team to investigate. Without the pixel they might have noticed weeks later; with it, the gap between a normal week and zero is visible the next morning.
+
+## How it works
+
+1. **Add a tracked site and generate its pixel** — In the Growth Suite dashboard, register the domain you want to monitor and copy the unique one-line pixel snippet it produces for that specific site.
+2. **Paste the snippet into your pages** — Drop it into a shared layout, template, or footer partial so every page you care about loads the same tracking pixel on each request, with no per-page editing.
+3. **Let crawlers fetch your pages** — When an AI bot or human browser requests a page, the pixel URL is hit and that request — including its user-agent string and timestamp — is logged.
+4. **Bots are classified by user-agent** — Each incoming hit is matched against known AI agent strings such as GPTBot, ClaudeBot, and PerplexityBot, then bucketed under that crawler for the day.
+5. **Read the per-bot, per-day dashboard** — Open the chart to see counts for each AI crawler over time, compare user-agents side by side, and export the underlying daily numbers for your own records.
+6. **Act on what you see** — Use rising or flat lines to guide robots.txt, llms.txt, and internal-linking decisions — remembering the counts are a sample of loaded pixels, not a full server log.
+
+## Examples
+
+**Input:** A blog adds the pixel to its article template, then publishes ’GEO checklist 2026’.
+
+**Output:** Over 7 days the dashboard shows, for that URL, GPTBot: 41 hits, PerplexityBot: 18, ClaudeBot: 9, Google-Extended: 6 — visible per-day proof the article entered AI crawl paths.
+
+---
+
+**Input:** Comparing two client domains in the per-user-agent view for the same week.
+
+**Output:** Client A: ClaudeBot 73, GPTBot 64; Client B: ClaudeBot 2, GPTBot 5 — flagging that Client B’s content is barely being fetched by AI bots.
+
+---
+
+**Input:** Filtering the dashboard to ChatGPT-User after a Reddit thread links the site.
+
+**Output:** ChatGPT-User requests rise from roughly 0/day to 27/day for two days, then settle — consistent with people asking ChatGPT about the linked page.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is AI Visibility Tracking free, and what does it cost?**</summary>
+
+You can use it on the Free plan to monitor a small, capped number of tracked sites, which is enough to try it on one project. Higher site limits, longer data retention, and the full per-bot history live on the paid Pro and Ultimate tiers inside the Growth Suite. A 30-day trial lets you evaluate the paid caps before you commit to a plan.
+
+</details>
+
+<details>
+<summary>**Does it capture every AI bot visit to my site?**</summary>
+
+No, and this matters. It only counts requests that actually load the tracking pixel. If a crawler ignores the pixel URL, or a page is missing the snippet, that visit is never recorded. Treat the numbers as a representative sample of AI crawler interest, not a complete server-side log of every request your origin received.
+
+</details>
+
+<details>
+<summary>**Do I need an API key or to bring my own key for this tool?**</summary>
+
+No API key is required here — you only add one small pixel snippet to your site, so there is no external provider usage that bills back to you for this tool. Some other Growth Suite tools are bring-your-own-key and do bill your own LLM or analytics provider for usage; in those tools your keys are encrypted per user. This pixel tracker has no such key to manage.
+
+</details>
+
+<details>
+<summary>**If I see GPTBot hits, does that mean ChatGPT will cite me?**</summary>
+
+No. A recorded hit only proves that a bot fetched the page at that moment. It does not prove the content was stored, indexed, used for training, or cited in any AI answer. The pixel measures crawl activity — an earlier step in the funnel — not downstream visibility, which depends on each AI system’s own ranking and citation logic.
+
+</details>
+
+<details>
+<summary>**How does it know a request came from a specific AI bot?**</summary>
+
+It reads the User-Agent string each request sends and matches it against known AI crawler signatures like GPTBot, ClaudeBot, and PerplexityBot. Because user-agent strings are self-reported and can be spoofed, a labeled hit reflects what the client claimed to be, not a verified identity. It is a practical signal, not a guarantee of the requester’s true origin.
+
+</details>
+
+<details>
+<summary>**Will the pixel slow my site or collect visitor data?**</summary>
+
+The snippet is a single lightweight request that loads asynchronously, so its impact on page speed is minimal. It logs request metadata such as user-agent, timestamp, and page URL to classify crawlers; it is built for bot measurement, not for profiling individual human visitors. Review the snippet and your own privacy policy before deploying it on pages with regulated traffic.
+
+</details>
+
+<details>
+<summary>**Can I track more than one website?**</summary>
+
+Yes. Each site you register gets its own pixel and its own dashboard view, and the per-user-agent breakdown can be compared across them. The number of simultaneously tracked sites is what the plan tiers gate: a small cap on Free, more on Pro, and the most on Ultimate. The 30-day trial unlocks the higher caps so you can test multi-site tracking first.
+
+</details>
+
+## Tips
+
+- Put the snippet in a shared layout or footer partial, not individual pages — a single missing include is the most common reason a real crawler hit goes uncounted.
+- Cross-check the pixel’s counts against your server access logs occasionally; the gap between them tells you how much crawl activity is bypassing the pixel entirely.
+- Compare per-bot trends before and after editing robots.txt or shipping an llms.txt file, so you can see which change actually moved crawler behavior.
+- Watch ChatGPT-User and PerplexityBot separately from GPTBot and ClaudeBot — user-triggered fetches and bulk crawls tell you different things about how people and systems reach your content.
+- Treat a sudden flatline to zero as an infrastructure alert: it usually means a CDN, firewall, or robots rule started blocking bots, not that interest vanished overnight.
+- Use the 30-day trial to baseline normal per-day counts first; anomalies are only meaningful once you know what an ordinary week of crawling looks like.
+
+## Try it now
+
+The full AI Visibility Tracking is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth-visibility-tracking](https://ztools.zaions.com/growth-visibility-tracking)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+
+[Open the tool ↗](https://ztools.zaions.com/growth-visibility-tracking)
+
+---
+
+*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-visibility-tracking.mdx)*

@@ -1,0 +1,135 @@
+---
+id: growth-analytics-chat
+title: "Analytics Chat: Plain-English Questions on GA4 Data"
+description: "Ask plain-English questions about your Google Analytics 4 data and get answers grounded in your real numbers. Part of ZTools Growth Suite; bring your own keys."
+sidebar_label: "Analytics Chat"
+keywords:
+  - "ask questions about google analytics 4 data"
+  - "natural language GA4 analytics tool"
+  - "chat with your GA4 data using your own LLM key"
+  - "plain english google analytics 4 queries"
+  - "BYOK analytics assistant for GA4"
+  - "explain GA4 traffic drop in plain language"
+  - "read-only GA4 OAuth analytics chat tool"
+last_update:
+  date: 2026-06-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Analytics Chat
+
+Analytics Chat is a paid ZTools Growth Suite tool that lets you ask plain-English questions about your Google Analytics 4 data and returns answers grounded in your real numbers. It connects through your own read-only Google OAuth to pull GA4 metrics, then uses your own LLM key to write the explanation — both keys stay yours and are encrypted per-user, and nothing is resold. You can use it on the Free plan with a low monthly question cap, or raise the limit on Pro and Ultimate, with a 30-day trial. Treat its replies as an interpretation of your data: useful for direction, but verify any figure before you act.
+
+:::info Paid feature — Growth Suite
+Analytics Chat is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::
+
+<ToolCTA toolId="growth-analytics-chat" toolName="Analytics Chat" />
+
+## Use cases
+
+### Explain a sudden traffic drop
+
+Your sessions fell 28% week over week and you need to know why before the Monday standup. Ask ’Why did organic sessions drop last week versus the prior week, broken down by landing page and country?’ The tool pulls the GA4 numbers and points to the segments that moved most, so you start your investigation with named pages instead of a blank dashboard.
+
+### Brief a non-technical stakeholder
+
+A founder wants the gist of last month’s performance without learning the GA4 interface. Ask for the top three conversion paths and how returning users compared to new ones, then paste the plain-language summary into a status note. Because the answer cites the metrics it used, you can sanity-check each figure against the report before sending it upward.
+
+### Audit a campaign’s landing pages
+
+After a paid push, you want to see which landing pages converted and which leaked users. Ask ’Compare engagement rate and conversions for /lp-spring versus /lp-summer over the campaign window.’ The tool returns the side-by-side numbers and flags the weaker page, giving your next creative test a concrete starting hypothesis rather than a hunch.
+
+### Spot-check a weekly metric for a report
+
+You write a Friday recap and keep re-deriving the same numbers by hand. Ask for active users, average engagement time, and the top five events for the last seven days, then drop the verified figures into your template. The recurring question takes seconds, and you still confirm each number in GA4 because the answer is an interpretation, not a system of record.
+
+## How it works
+
+1. **Connect Google Analytics 4** — Authorize the tool with read-only Google OAuth and pick the GA4 property you want to query. The connection can only read reporting data; it cannot change settings or write to your account.
+2. **Add your LLM key** — Paste your own large language model API key. It is encrypted per-user and used only to phrase the answer; the underlying usage bills to your provider account, not to ZTools.
+3. **Ask your question** — Type a plain-English question and name the metric and date range explicitly. Clear phrasing such as ’engagement rate by channel for last 30 days’ reduces the chance the model misreads your intent.
+4. **The tool fetches your real GA4 data** — Your question is translated into a GA4 reporting query, which returns the actual figures from your property. The numbers come from Google’s Data API, bounded by GA4 sampling and reporting delays.
+5. **Read, verify, and act** — Your LLM writes an explanation grounded in the returned numbers and shows which metrics it used. Cross-check any figure that drives a decision in the GA4 report before you act on it.
+
+## Examples
+
+**Input:** Why did organic search sessions fall last week compared with the week before? Break it down by landing page.
+
+**Output:** Organic sessions dropped 18% week over week (4,210 to 3,452). Most of the decline came from /blog/pricing-guide (down 1,140 sessions) and /features (down 380); the rest of the site was roughly flat.
+
+---
+
+**Input:** Compare new versus returning users for the last 30 days and their average engagement time.
+
+**Output:** New users: 12,840 with 48s average engagement time. Returning users: 5,360 with 2m 11s. Returning visitors engaged about 2.7x longer, suggesting your repeat audience is your stickier segment.
+
+---
+
+**Input:** What were my top five events yesterday and which one grew most versus the prior day?
+
+**Output:** Top events yesterday: page_view, scroll, session_start, click, form_submit. form_submit grew the most, up 34% versus the prior day, while page_view was nearly unchanged.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is Analytics Chat free, or what does it cost?**</summary>
+
+It is part of the paid ZTools Growth Suite. You can use it on the Free plan with a low monthly cap on questions, which is enough to try it on real data. Pro and Ultimate raise the question limit for heavier use, and there is a 30-day trial so you can evaluate it before committing to a paid plan.
+
+</details>
+
+<details>
+<summary>**How accurate are the answers?**</summary>
+
+Answers are the LLM’s interpretation of your GA4 data, not an authoritative report. The model can misread an ambiguous question, and it is bounded by GA4’s own data model, sampling, and reporting delays. Always verify any number in GA4 before you act on it, and phrase your metric and date range explicitly to reduce misreads.
+
+</details>
+
+<details>
+<summary>**Whose keys does it use, and who pays for the LLM usage?**</summary>
+
+You bring your own keys: a read-only Google OAuth connection to GA4 and your own LLM API key. Both are encrypted per-user and stay yours; nothing is resold. The language-model usage bills to your own provider account at their rates, not to ZTools, so you keep direct control over and visibility into that spend.
+
+</details>
+
+<details>
+<summary>**Can it change my Google Analytics settings or data?**</summary>
+
+No. The Google connection is read-only, so the tool can fetch reporting data but cannot edit your GA4 configuration, create events, or write anything back to your account. It is built for asking questions about existing data, not for managing or modifying your Analytics property.
+
+</details>
+
+<details>
+<summary>**Which data sources does it support?**</summary>
+
+It works with Google Analytics 4 properties that you authorize through OAuth. It does not connect to Universal Analytics, ad platforms, or other analytics tools, and it can only read the metrics and dimensions GA4 itself exposes. If a number is not available in your GA4 reports, the tool cannot invent it.
+
+</details>
+
+<details>
+<summary>**How do I get the most reliable answers?**</summary>
+
+Be explicit. Name the exact metric, the comparison, and the date range in your question, for example ’conversions by source for the last 14 days versus the previous 14.’ Vague prompts give the model room to guess. For anything that informs a decision, treat the reply as a lead and confirm the figure in GA4.
+
+</details>
+
+## Tips
+
+- Always include an explicit date range and comparison window in your question — ’last 30 days versus the prior 30’ — so the model does not assume the wrong period.
+- Name metrics the way GA4 names them (engagement rate, average engagement time, conversions) to cut down on ambiguity and misreads.
+- Ask one question at a time. Bundling several metrics and segments into a single prompt makes it harder to verify which number maps to which part of the answer.
+- Before sharing any figure upward, open the same report in GA4 and confirm it — the tool is a fast first pass, not the source of record.
+- Keep an eye on your own LLM provider dashboard; since usage bills to your key, heavy questioning is your cost to monitor, not a hidden ZTools charge.
+
+## Try it now
+
+The full Analytics Chat is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth-analytics-chat](https://ztools.zaions.com/growth-analytics-chat)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+
+[Open the tool ↗](https://ztools.zaions.com/growth-analytics-chat)
+
+---
+
+*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-analytics-chat.mdx)*

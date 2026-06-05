@@ -1,0 +1,152 @@
+---
+id: code-decoder
+title: "Universal Barcode & QR Decoder — Free Online ZXing Reader"
+description: "Decode QR codes, Data Matrix, Aztec, PDF417, EAN, UPC, Code 128 and more from any image or URL. Full ZXing output, parsed results, 100% in-browser."
+sidebar_label: "Universal Barcode & QR Decoder"
+keywords:
+  - "barcode decoder online"
+  - "qr code decoder from image"
+  - "zxing decoder online"
+  - "read qr code from picture"
+  - "data matrix decoder"
+  - "pdf417 reader online"
+  - "decode barcode from url"
+  - "qr code reader no app"
+last_update:
+  date: 2026-06-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Universal Barcode & QR Decoder
+
+A barcode and QR decoder is a tool that reads the data encoded inside a 1D or 2D code from a still image — no camera needed. The ZTools Universal Barcode & QR Decoder reads QR Code, Micro QR, Data Matrix, Aztec, PDF417, MaxiCode, EAN-13/8, UPC-A/E, Code 128, Code 39, Code 93, ITF, Codabar, and RSS from an uploaded file, a pasted screenshot, or an image URL. It is powered by the open-source ZXing engine and runs entirely in your browser, so the image never leaves your device. Beyond the decoded text, it shows the full developer output — barcode format, parsed result type, raw bytes, number of bits, result points, and metadata such as error-correction level — the same fields the classic ZXing decoder page exposes.
+
+<ToolCTA toolId="code-decoder" toolName="Universal Barcode & QR Decoder" />
+
+## Use cases
+
+### Read a code from a screenshot or saved image
+
+You have a QR code in a PDF, an email, or a screenshot but no phone handy. Drop the image in (or paste it with Ctrl/Cmd+V) and the decoder returns the URL, Wi-Fi credentials, or text instantly — then offers a one-click action to open the link or save the contact.
+
+### Inspect a barcode like a developer
+
+When building or debugging a barcode pipeline, you need more than the text — you need the exact format, raw bytes, bit count, and error-correction level. The technical-details panel surfaces all of it, so you can confirm a QR was generated at ECC level H or that an EAN-13 carries the expected check digit.
+
+### Decode several codes in one image
+
+A label sheet or catalogue page can hold many codes at once. Turn on "Decode multiple" and the tool finds each code in turn, masking the ones it has already read and rescanning until none remain — returning a list of every result it located.
+
+### Recover hard-to-read or inverted codes
+
+Faded receipts, white-on-black QR codes, and noisy scans often defeat a quick phone scan. "Try harder" spends extra effort on detection, and "Try inverted" automatically retries on a colour-flipped copy, recovering codes a casual scan would miss.
+
+### Decode without exposing private data
+
+Tickets, boarding passes (Aztec/PDF417), and ID codes contain sensitive data you should not paste into a random website. Because every byte is processed locally in your browser, nothing is uploaded — the decode happens on your machine and stays there.
+
+## How it works
+
+1. **Provide an image** — Upload a file (up to 10 MB), drag and drop it, paste a copied image with Ctrl/Cmd+V, or enter an image URL.
+2. **Choose options (optional)** — Toggle Try Harder, Try Inverted, Pure Barcode, or Decode Multiple; optionally restrict to specific formats or set a character set.
+3. **The engine binarizes the image** — ZXing converts the picture to a luminance map, then a binary bitmap, and runs the multi-format reader across it.
+4. **A code is located and decoded** — Finder patterns (2D) or bar/space patterns (1D) are detected, error-correction is applied, and the payload bytes are recovered.
+5. **The result is parsed** — The decoded text is classified — URL, email, phone, SMS, geo, Wi-Fi, contact, calendar event, product, or ISBN — and contextual actions are offered.
+6. **Review and act** — Copy the text, open the link, save the contact (.vcf), add the event (.ics), or expand the technical panel for raw bytes, bits, points, and metadata.
+
+## Examples
+
+**Input:** A QR code image containing https://ztools.zaions.com
+
+**Output:** Format: QR Code · Parsed type: URI · an "Open link" button plus copy. Technical panel shows ECC level and result points.
+
+---
+
+**Input:** A photo of a retail EAN-13 barcode (e.g. 4006381333931)
+
+**Output:** Format: EAN-13 · Parsed type: Product · a "Look up" search action. Number of bits and raw bytes shown in technical details.
+
+---
+
+**Input:** A Wi-Fi QR: WIFI:S:HomeNet;T:WPA;P:secret123;;
+
+**Output:** Parsed type: Wi-Fi Network · fields for SSID, Security, and Password, each copyable — no app or camera required.
+
+## Frequently asked questions
+
+<details>
+<summary>**Which barcode formats can it decode?**</summary>
+
+QR Code, Micro QR, Data Matrix, Aztec, PDF417, MaxiCode, EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF, Codabar, and RSS/GS1 DataBar — all the formats the ZXing engine supports.
+
+</details>
+
+<details>
+<summary>**Does the image get uploaded to a server?**</summary>
+
+No. Decoding runs entirely in your browser using the ZXing JavaScript engine. The image is read into a canvas locally and never transmitted, which makes the tool safe for tickets, IDs, and other private codes.
+
+</details>
+
+<details>
+<summary>**Can it read a code from an image URL?**</summary>
+
+Yes, if the image host allows cross-origin access. Browsers block reading pixels from servers that do not send CORS headers, so for those images you should download the file and upload it instead — the tool tells you when this happens.
+
+</details>
+
+<details>
+<summary>**How do I decode several codes in one picture?**</summary>
+
+Open Decode options and enable "Decode multiple". The tool reads one code, masks its area, and rescans until no more codes are found, then lists every result it located.
+
+</details>
+
+<details>
+<summary>**It says no code was found — what can I do?**</summary>
+
+Use a sharper, well-lit, and cropped image; make sure the whole code is visible with some quiet-zone margin; enable "Try harder"; and if the code is light-on-dark, leave "Try inverted" on. Pure Barcode helps when the image is already a clean, cropped code.
+
+</details>
+
+<details>
+<summary>**What is the difference between this and the scanner?**</summary>
+
+This decoder reads codes from still images (upload, paste, or URL) and needs no camera or permissions. The QR & Barcode Scanner uses your live camera. Both share the same decode engine and parsed-result actions.
+
+</details>
+
+<details>
+<summary>**What do the technical details mean?**</summary>
+
+Raw bytes are the exact bytes the code carries; number of bits is their length in bits; result points are the pixel coordinates of the detected finder patterns or bar endpoints; metadata includes values like the error-correction level and orientation reported by the decoder.
+
+</details>
+
+<details>
+<summary>**Is it free and does it need an account?**</summary>
+
+Yes, it is free with no sign-up. Because it is client-side there are no usage limits, and it works the same in the browser, the Android app, and the desktop.
+
+</details>
+
+## Tips
+
+- Crop tightly around the code and keep a small white margin (the "quiet zone") — it dramatically improves detection.
+- Paste straight from a screenshot tool with Ctrl/Cmd+V; you do not have to save the file first.
+- Leave "Try harder" and "Try inverted" on for tricky images — they cost a little speed but recover far more codes.
+- Restrict to a specific format when you know what you are reading; it speeds up decoding and avoids false matches.
+- For boarding passes and tickets, expect Aztec or PDF417 — the technical panel confirms the exact format.
+- If an image URL fails to load, the host is blocking cross-origin reads; download the image and upload it instead.
+
+## Try it now
+
+The full Universal Barcode & QR Decoder runs in your browser at **[https://ztools.zaions.com/code-decoder](https://ztools.zaions.com/code-decoder)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/code-decoder)
+
+---
+
+*Last updated: 2026-06-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/code-decoder.mdx)*

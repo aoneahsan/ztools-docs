@@ -1,0 +1,151 @@
+---
+id: growth-page-speed
+title: "Page Speed Scan — Core Web Vitals Audit (Growth Suite)"
+description: "Run a Google PageSpeed Insights audit for desktop and mobile, then get a fix-first Core Web Vitals action list instead of a raw metric dump. No API key."
+sidebar_label: "Page Speed Scan"
+keywords:
+  - "core web vitals audit tool"
+  - "pagespeed insights checker no api key"
+  - "mobile and desktop page speed test"
+  - "lighthouse lab vs crux field data"
+  - "fix-first web performance action list"
+  - "largest contentful paint checker online"
+  - "interaction to next paint audit"
+last_update:
+  date: 2026-06-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Page Speed Scan
+
+Page Speed Scan is a web performance auditing tool that runs a Google PageSpeed Insights check across desktop and mobile, then sorts the results into a prioritized, fix-first action list instead of a raw metric dump. It is part of ZTools’ paid Growth Suite, usable on the Free tier with a monthly run cap and more headroom on Pro and Ultimate, with a 30-day trial. No API key is required — ZTools calls the public PageSpeed Insights API for you, so you only paste a URL and pick a strategy. You get both Lighthouse lab estimates and, when your URL has enough real traffic, field data from the Chrome User Experience Report (CrUX).
+
+:::info Paid feature — Growth Suite
+Page Speed Scan is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::
+
+<ToolCTA toolId="growth-page-speed" toolName="Page Speed Scan" />
+
+## Use cases
+
+### Pre-launch performance gate for a redesigned landing page
+
+Before pushing a redesigned landing page live, a small agency runs Page Speed Scan on the staging URL for both mobile and desktop. The action list flags a 1.8 MB hero image and a render-blocking font as the top two items, so they compress the image and preload the font, then re-scan to confirm Largest Contentful Paint moved into the green before the client sign-off call.
+
+### Triaging a slow mobile category page
+
+An e-commerce owner notices mobile bounce climbing on a category page. They scan the URL, see that mobile field data (CrUX) reports a poor Interaction to Next Paint while the lab score looks acceptable, and the fix-first list points at heavy third-party tag scripts. They defer two non-critical tags and rescan to watch the lab estimate respond before shipping.
+
+### Turning ’make it faster’ into a concrete dev ticket
+
+A content marketer auditing why a competitor outranks them scans their own article and the competitor’s public URL. Seeing the competitor’s Total Blocking Time roughly half of theirs, they hand the action list’s ’reduce unused JavaScript’ item to their developer with a measurable before-and-after target, replacing a vague ’make it faster’ request with a specific, trackable task.
+
+### Monthly health check across key pages
+
+A SaaS team runs Page Speed Scan on their five highest-traffic pages at the start of each month. They log the mobile and desktop scores in a sheet, watch which Core Web Vitals drift after each release, and use the grouped action list to decide whether a performance task earns a slot in the next sprint instead of guessing where the regression came from.
+
+## How it works
+
+1. **Paste the public URL to audit** — Enter the full public URL — a live page or a publicly reachable staging URL. The page must be accessible to Google’s servers, since the scan runs through the PageSpeed Insights API.
+2. **Choose a strategy** — Pick mobile, desktop, or both. Mobile uses a throttled, lower-powered profile that usually scores worse, so scan it first if most of your traffic arrives on phones.
+3. **Page Speed Scan calls the API for you** — ZTools calls the public PageSpeed Insights API — no API key needed — and waits while Lighthouse runs its controlled lab test inside Google’s environment for the page you submitted.
+4. **Review Core Web Vitals and diagnostics** — Results return as Core Web Vitals (LCP, CLS, INP) plus lab diagnostics. Where your URL has enough real traffic, field data from CrUX is shown alongside the lab estimate.
+5. **Work the fix-first action list** — Findings are regrouped into a prioritized action list — highest-impact opportunities first — so you act on items that move the metrics instead of scrolling a raw diagnostic dump.
+6. **Apply a fix and re-scan** — Change one thing on your site, then re-run the scan to see how the lab estimate responds. Field data updates more slowly because it reflects 28 days of real visitors.
+
+## Examples
+
+**Input:** https://example.com/pricing — strategy: mobile
+
+**Output:** Mobile performance estimate 64/100. Core Web Vitals: LCP 4.1s (poor), CLS 0.02 (good), INP 210ms (needs improvement). Action list top items: serve the hero image in a next-gen format (high LCP impact), eliminate two render-blocking stylesheets, defer an unused analytics bundle.
+
+---
+
+**Input:** https://shop.example.com/category/shoes — strategy: both
+
+**Output:** Desktop 91 (good), Mobile 58 (poor). CrUX field data available on mobile: real-user LCP at the 75th percentile is 3.6s. Action list: reduce unused JavaScript from a large third-party tag, properly size images, preconnect to the font host.
+
+---
+
+**Input:** https://newsite.example.org — strategy: desktop
+
+**Output:** Desktop 88 (good). No field data yet (not enough real-user traffic). Lab diagnostics: minify CSS, enable text compression, avoid an enormous network payload (2.4 MB).
+
+## Frequently asked questions
+
+<details>
+<summary>**Is Page Speed Scan free, or what does it cost?**</summary>
+
+Page Speed Scan is part of ZTools’ paid Growth Suite. You can use it on the Free tier with a monthly run cap, and the cap rises on the Pro and Ultimate plans, which also unlock the rest of the Growth Suite. A 30-day trial lets you try it before committing. There is no separate per-scan charge — the limit is simply the monthly run count for your plan.
+
+</details>
+
+<details>
+<summary>**Do I need a Google API key or any key of my own?**</summary>
+
+No. Page Speed Scan does not require you to bring your own key. ZTools calls the public Google PageSpeed Insights API on your behalf, so you only paste a URL and pick a strategy. This is not a BYOK tool, which means there is no provider account to connect and no external usage that bills to you outside your ZTools plan.
+
+</details>
+
+<details>
+<summary>**Are these scores what my real users experience?**</summary>
+
+Not exactly. The Lighthouse score is a lab estimate run in a controlled, throttled environment — it is directional guidance, not a measurement of your actual visitors. When your URL has enough real traffic, PageSpeed Insights also surfaces field data from the Chrome User Experience Report (CrUX), which reflects real users over the past 28 days and is the closer-to-reality number to trust.
+
+</details>
+
+<details>
+<summary>**If I apply every recommended fix, will my score jump to 100?**</summary>
+
+No. The action list is prioritized guidance, not a guarantee. Applying a recommended fix does not promise a specific score change — results depend on your hosting, third-party scripts, traffic, and how the change interacts with the rest of the page. Re-scan after each change to see how the lab estimate actually responds rather than assuming a fixed gain.
+
+</details>
+
+<details>
+<summary>**What’s the difference between the desktop and mobile scans?**</summary>
+
+Mobile is tested on a throttled, lower-powered profile with a slower simulated network, so it usually scores worse than desktop for the same page. If most of your visitors are on phones, the mobile result matters more. Scanning both side by side reveals where a page is fine on desktop but struggling on real mobile hardware.
+
+</details>
+
+<details>
+<summary>**Can I scan a staging or password-protected page?**</summary>
+
+The scan runs through Google’s servers, so the URL must be publicly reachable. A public staging URL works, but a page behind a login, IP allowlist, or password will fail because Google cannot fetch it. To audit a protected page, expose a temporary public preview URL or test the equivalent live page instead.
+
+</details>
+
+<details>
+<summary>**Why does field (CrUX) data sometimes not appear?**</summary>
+
+CrUX only reports when a URL has accumulated enough real Chrome users to form a meaningful sample over the trailing 28 days. New pages, low-traffic pages, and freshly launched sites often show only the Lighthouse lab estimate until enough real visits build up. That absence is expected behaviour, not an error in the scan.
+
+</details>
+
+<details>
+<summary>**Does Page Speed Scan keep my pages or send my data anywhere?**</summary>
+
+To run an audit, ZTools sends the URL you submit to Google’s PageSpeed Insights API — that call is required for the scan to work, so this is not an offline, on-device tool. ZTools keeps your scan history tied to your account so you can compare runs over time; it does not publish your pages or share your URLs beyond that Google API call.
+
+</details>
+
+## Tips
+
+- Scan mobile first — it runs on a throttled, low-powered profile and almost always exposes problems the desktop run hides.
+- Re-run after each fix one at a time, not all at once, so you can tell which change actually moved the lab estimate.
+- Trust field (CrUX) data over the lab score whenever it is present — it reflects real visitors, while Lighthouse is a controlled estimate.
+- Tackle the top one or two action-list items before the long tail; the highest-impact opportunities usually dominate the score.
+- Use a public staging URL to gate a redesign before launch, then run a final live-URL scan once it ships.
+- Log monthly scores for your key pages in a sheet to catch Core Web Vitals regressions that creep in after releases.
+
+## Try it now
+
+The full Page Speed Scan is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth-page-speed](https://ztools.zaions.com/growth-page-speed)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+
+[Open the tool ↗](https://ztools.zaions.com/growth-page-speed)
+
+---
+
+*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-page-speed.mdx)*

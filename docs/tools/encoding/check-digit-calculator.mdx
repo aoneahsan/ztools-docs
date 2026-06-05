@@ -1,0 +1,130 @@
+---
+id: check-digit-calculator
+title: "Check Digit Calculator — EAN, UPC, GTIN, Luhn, Free"
+description: "Calculate or verify check digits for EAN-13/8, UPC-A, GTIN-14, ISBN-10/13, Luhn and MSI Plessey codes instantly in your browser. Free, no signup."
+sidebar_label: "Check Digit Calculator"
+keywords:
+  - "check digit calculator"
+  - "ean 13 check digit"
+  - "upc check digit"
+  - "gtin check digit"
+  - "luhn algorithm calculator"
+  - "isbn check digit"
+  - "msi check digit"
+  - "barcode check digit"
+last_update:
+  date: 2026-06-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Check Digit Calculator
+
+A check digit is a single extra digit added to a number so a scanner or system can detect typos and misreads by recomputing it from the other digits. The ZTools Check Digit Calculator computes that digit for the common schemes — GS1 mod-10 (used by EAN-13, EAN-8, UPC-A, GTIN-14/ITF-14 and ISBN-13), the Luhn algorithm (credit cards, IMEI), MSI Plessey mod-10 and mod-11, and ISBN-10 mod-11 — and can also verify a complete code by checking whether its last digit matches. It runs entirely in the browser, ignores spaces and dashes, and shows the result instantly as you type.
+
+<ToolCTA toolId="check-digit-calculator" toolName="Check Digit Calculator" />
+
+## Use cases
+
+### Complete a barcode number
+
+You have the first 12 digits of an EAN-13 from a supplier and need the 13th. Enter the 12 digits, pick EAN-13, and the calculator returns the GS1 mod-10 check digit plus the full 13-digit code ready to barcode.
+
+### Validate scanned or typed codes
+
+Switch to Verify mode and paste a full UPC-A or GTIN. The tool recomputes the expected check digit from the body and tells you whether the code is valid — catching transcription errors before they reach your system.
+
+### Check card-like numbers with Luhn
+
+Test whether a card number, IMEI, or loyalty number passes the Luhn checksum. Luhn doesn’t prove a number is real, but it catches the single-digit and adjacent-transposition typos that account for most input mistakes.
+
+### Finish an ISBN
+
+Compute the ISBN-13 check digit (GS1 mod-10) for a new title, or the ISBN-10 check character — which can be “X” — when working with older catalog data.
+
+## How it works
+
+1. **Pick a scheme** — Choose EAN-13, EAN-8, UPC-A, GTIN-14, ISBN-10/13, Luhn, or MSI mod-10/11.
+2. **Choose compute or verify** — Compute returns the check digit for base digits; Verify checks a full code’s last digit.
+3. **Type the digits** — Enter the number — spaces and dashes are ignored. Length hints tell you how many digits each scheme expects.
+4. **Read the result** — See the check digit and the completed code, or a valid / invalid verdict with the expected versus found digit.
+
+## Examples
+
+**Input:** EAN-13, base 590123412345
+
+**Output:** Check digit 7 → full code 5901234123457
+
+---
+
+**Input:** UPC-A, verify 036000291452
+
+**Output:** Valid — last digit 2 matches the computed check digit
+
+---
+
+**Input:** Luhn, base 7992739871
+
+**Output:** Check digit 3 → 79927398713
+
+## Frequently asked questions
+
+<details>
+<summary>**What is a check digit?**</summary>
+
+It is a digit derived from the other digits of a code using a fixed formula. Scanners and systems recompute it; if it doesn’t match, the code was likely misread or mistyped, so it’s rejected.
+
+</details>
+
+<details>
+<summary>**Which schemes does this calculator support?**</summary>
+
+GS1 mod-10 (EAN-13, EAN-8, UPC-A, GTIN-14/ITF-14, ISBN-13), the Luhn algorithm, MSI Plessey mod-10 and mod-11, and ISBN-10 mod-11.
+
+</details>
+
+<details>
+<summary>**How do I verify an existing code?**</summary>
+
+Switch to Verify mode, choose the scheme, and paste the full code including its check digit. The tool recomputes the expected digit from the rest and tells you whether they match.
+
+</details>
+
+<details>
+<summary>**Why does ISBN-10 sometimes show an X?**</summary>
+
+ISBN-10 uses mod-11, whose check value can be 10. That value is written as the letter X, which is why some ISBN-10 codes end in X.
+
+</details>
+
+<details>
+<summary>**Does a valid Luhn digit mean a card is real?**</summary>
+
+No. Luhn only confirms the number is internally consistent and free of common typos. It does not verify that an account exists or is active.
+
+</details>
+
+<details>
+<summary>**What about Code 128’s checksum?**</summary>
+
+Code 128 uses an internal mod-103 checksum over its encoded symbols, which the barcode generator computes automatically. It isn’t a user-facing check digit, so it isn’t part of this calculator.
+
+</details>
+
+## Tips
+
+- Spaces and dashes are ignored, so you can paste codes formatted with separators.
+- Use Verify mode to QA a spreadsheet of codes before importing them into a POS or inventory system.
+- For a new retail product, compute the EAN-13 check digit here, then generate the barcode in the Barcode Studio.
+- Remember GS1 mod-10 covers EAN, UPC, GTIN and ISBN-13 — they all share the same check-digit math.
+
+## Try it now
+
+The full Check Digit Calculator runs in your browser at **[https://ztools.zaions.com/check-digit-calculator](https://ztools.zaions.com/check-digit-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/check-digit-calculator)
+
+---
+
+*Last updated: 2026-06-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/check-digit-calculator.mdx)*

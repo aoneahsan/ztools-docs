@@ -1,0 +1,142 @@
+---
+id: growth-brand-visibility
+title: "AI Brand Visibility: Track How ChatGPT Describes You"
+description: "See how ChatGPT, Gemini, Claude and Perplexity describe your brand side by side, with citations and sentiment. BYOK, paid Growth Suite, free tier capped."
+sidebar_label: "AI Brand Visibility"
+keywords:
+  - "ai brand visibility tracker"
+  - "how chatgpt describes my brand"
+  - "monitor brand mentions in ai chat engines"
+  - "llm brand sentiment monitoring tool"
+  - "track brand across chatgpt gemini claude perplexity"
+  - "ai search brand monitoring byok"
+  - "competitor benchmark in ai answers"
+last_update:
+  date: 2026-06-05
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# AI Brand Visibility
+
+AI Brand Visibility is a monitoring tool that asks the major AI chat engines — ChatGPT, Gemini, Claude, and Perplexity — how they describe your brand, runs those queries in parallel, and returns each answer with its source citations and a sentiment read, plus an optional competitor benchmark. It ships in ZTools’ paid Growth Suite: usable on the Free plan under a low monthly cap, with more headroom on Pro and Ultimate after a 30-day trial. It runs on your own API keys (an OpenAI key at minimum), so every query bills to your provider account; your keys are encrypted per-user and never shared. Results are a point-in-time snapshot, not a guarantee.
+
+:::info Paid feature — Growth Suite
+AI Brand Visibility is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::
+
+<ToolCTA toolId="growth-brand-visibility" toolName="AI Brand Visibility" />
+
+## Use cases
+
+### Pre-meeting investor sanity check
+
+A seed-stage founder is about to send a fundraising deck and wants to know what an investor will see if they ask ChatGPT about the company. They run AI Brand Visibility, read how each engine summarizes the product and which sources it cites, and spot that Perplexity is pulling an outdated tagline from a stale press release, so they fix the source before the meeting.
+
+### Category comparison for content planning
+
+A marketing lead for a project-management SaaS turns on the competitor benchmark and asks all four engines to compare her product against two named rivals. She gets each model’s framing of strengths and gaps side by side, notices Gemini omits her free tier entirely, and uses that gap to brief the content team on which comparison page to publish next.
+
+### Reputation monitoring after an incident
+
+After a public outage, a support manager checks whether the AI engines are repeating a negative narrative. He reads the sentiment on each answer and the citations behind it, finds that Claude still references a months-old complaint thread, and prioritizes a fresh status-page post to give the models a more current source to draw from.
+
+### Monthly agency reporting
+
+A boutique agency runs the tool monthly for a retail client across ChatGPT, Gemini, Claude, and Perplexity, exports each answer with its citations, and pastes the side-by-side into a client report. Because results are a snapshot, they label every capture with its date and treat shifts between months as directional signal rather than a scoreboard.
+
+## How it works
+
+1. **Add your API key** — Paste at least an OpenAI key (and optionally Gemini, Claude, or Perplexity keys) into your encrypted vault; keys are wrapped per-user with HKDF and AES-GCM and never shared with anyone.
+2. **Enter your brand and prompts** — Give the tool your brand name and the questions you care about, such as ’What is [brand]?’ or ’Is [brand] trustworthy?’, plus any competitors you want benchmarked alongside it.
+3. **Run the engines in parallel** — The tool fires your prompts at the selected AI chat engines at the same time, so you get a full multi-engine read in one pass instead of querying each provider manually one by one.
+4. **Read answers, citations, and sentiment** — Each engine returns its description with the sources it cited and a sentiment read, laid out side by side so you can compare framing across models and spot stale or incorrect sources fast.
+5. **Save the snapshot and re-run later** — Export or store the capture with its date, then run it again next week or month; because model output shifts over time, comparing dated snapshots shows you the direction of change.
+
+## Examples
+
+**Input:** Brand: ’Northwind CRM’. Prompt: ’What is Northwind CRM and who is it for?’ Engines: ChatGPT + Perplexity.
+
+**Output:** ChatGPT: ’Northwind CRM is a sales CRM aimed at small B2B teams…’ (sentiment: positive; cites northwind.com and a 2023 review). Perplexity: ’Northwind is a contact manager…’ (sentiment: neutral; cites an outdated listing).
+
+---
+
+**Input:** Brand: ’PixelForge’. Competitor benchmark ON vs ’Canva’ and ’Figma’. Prompt: ’Compare these design tools.’
+
+**Output:** Each engine returns a side-by-side framing; Gemini lists PixelForge’s strengths but omits its free tier, while Claude describes it as ’newer, with a smaller community.’
+
+---
+
+**Input:** Brand: ’LedgerLite’. Prompt: ’Is LedgerLite secure?’ Engines: all four.
+
+**Output:** Three engines answer ’no specific security incidents found’ with neutral sentiment; one cites a forum thread and reads slightly negative.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is AI Brand Visibility free, and what does it cost?**</summary>
+
+It is part of ZTools’ paid Growth Suite. You can use it on the Free plan under a low monthly cap, and Pro and Ultimate raise that cap for more frequent or larger runs. A 30-day trial lets you test the paid headroom first. Separately, your actual AI queries bill to your own provider account through your API key, independent of the ZTools plan.
+
+</details>
+
+<details>
+<summary>**Do I need my own API key?**</summary>
+
+Yes. The tool is bring-your-own-key and requires at least an OpenAI key, with optional keys for Gemini, Claude, and Perplexity. Every query you run bills to your own provider account, so you control spend directly. Your keys are encrypted per-user with HKDF-derived keys and AES-GCM, and are never shared with other users or with ZTools staff.
+
+</details>
+
+<details>
+<summary>**Are the results accurate and permanent?**</summary>
+
+No. The output reflects what each model says at query time, which is not necessarily accurate and not how every user will see your brand. LLM answers are non-deterministic and change as models update, so the same prompt can return different text tomorrow. Treat it as a monitoring signal and a point-in-time snapshot, not a guarantee or a definitive scoreboard.
+
+</details>
+
+<details>
+<summary>**Which AI engines does it query?**</summary>
+
+It queries the major AI chat engines — ChatGPT, Gemini, Claude, and Perplexity — in parallel, so you get a multi-engine read in a single pass. You can run a subset based on which provider keys you have added. Coverage depends on each provider’s API being available and your key having access to the relevant model.
+
+</details>
+
+<details>
+<summary>**Can I compare my brand against competitors?**</summary>
+
+Yes. The optional competitor benchmark asks the engines to describe or compare named rivals alongside your brand, returning each model’s framing of strengths and gaps side by side. It surfaces how the AI positions you relative to others, but it reflects the models’ framing — not verified market share or an objective ranking.
+
+</details>
+
+<details>
+<summary>**What do the citations and sentiment read show?**</summary>
+
+Each answer comes with the sources the model cited and a sentiment read indicating whether the framing leans positive, neutral, or negative. Citations help you trace where a model got an idea — a stale press release or an old forum thread, for example — so you can refresh the source. Sentiment is the model’s tone, not an audited score.
+
+</details>
+
+<details>
+<summary>**Does my brand data stay private?**</summary>
+
+Your API keys are encrypted per-user and never shared. The tool does, however, send your prompts to the AI providers you configure (OpenAI, Google, Anthropic, Perplexity), because querying their models is the whole point — so your prompts leave ZTools to reach those APIs under your own account. Review each provider’s data-use policy for how they handle requests.
+
+</details>
+
+## Tips
+
+- Run the same prompt set on a fixed cadence — weekly or monthly — and always label captures with their date, so you are comparing dated snapshots rather than reacting to normal model variance.
+- Add keys for all four engines, not just OpenAI, to catch cases where one model is carrying a stale source the others have already dropped.
+- Read the citations before the answer text; a wrong description almost always traces back to one outdated source you can refresh on your own site.
+- Use neutral, literal prompts (’What is [brand]?’, ’Is [brand] reliable?’) that mirror how real users ask, instead of leading questions that bias the model’s framing.
+- Turn the competitor benchmark on sparingly — each added rival multiplies the queries that bill to your provider account, so benchmark only the two or three names that actually matter.
+
+## Try it now
+
+The full AI Brand Visibility is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth-brand-visibility](https://ztools.zaions.com/growth-brand-visibility)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+
+[Open the tool ↗](https://ztools.zaions.com/growth-brand-visibility)
+
+---
+
+*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-brand-visibility.mdx)*

@@ -1,0 +1,143 @@
+---
+id: bulk-barcode-generator
+title: "Bulk Barcode & QR Generator — CSV to ZIP/PDF, Free"
+description: "Generate hundreds of barcodes or QR codes from a list or CSV, then export a ZIP of images, a multi-page PDF, or an Excel sheet — free, browser-only."
+sidebar_label: "Bulk Barcode & QR Generator"
+keywords:
+  - "bulk barcode generator"
+  - "csv to barcode"
+  - "batch qr code generator"
+  - "generate multiple barcodes"
+  - "barcode zip download"
+  - "barcode pdf sheet"
+  - "mass barcode generator"
+  - "barcode from list"
+last_update:
+  date: 2026-06-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Bulk Barcode & QR Generator
+
+A bulk barcode generator turns a list of values — pasted text or an uploaded CSV — into many barcodes or QR codes in one pass, then packages them for download. The ZTools Bulk Barcode & QR Generator reads one value per line (or the first column of a CSV), renders each as a barcode (via the bwip-js engine, 30+ symbologies) or a QR code, and exports the whole batch as a ZIP of PNG or SVG files, a multi-page PDF laid out in a printable grid, or an Excel sheet listing every value. Everything runs in your browser, so your product list never leaves your device, and batches are capped to stay responsive.
+
+<ToolCTA toolId="bulk-barcode-generator" toolName="Bulk Barcode & QR Generator" />
+
+## Use cases
+
+### Label a product catalog
+
+Export a CSV of SKUs from your inventory system, paste the column here, pick EAN-13 or Code 128, and download a ZIP of print-ready images — one barcode per SKU — instead of generating them one at a time.
+
+### Print a sheet of asset tags
+
+Generate Code 128 barcodes for a list of internal asset IDs and export the multi-page PDF grid. Each code prints with its value underneath, ready to cut into labels for laptops, tools, or equipment.
+
+### Event badges and tickets
+
+Turn a guest list or ticket-ID list into QR codes in bulk, then download the ZIP and drop each image into your badge template. Scanners at the door read them with the QR & Barcode Scanner tool.
+
+### Warehouse bin and shelf labels
+
+Feed a list of bin locations (A-01, A-02, …) and export a PDF grid of Data Matrix or Code 128 labels. Small 2D codes pack location data into a compact square that fits narrow shelf edges.
+
+### Hand off values to a designer
+
+Export the Excel sheet so a colleague has every value in a spreadsheet, plus the ZIP of vector SVGs they can place in any layout tool without quality loss at print size.
+
+## How it works
+
+1. **Choose code type** — Pick Barcode (then a symbology) or QR code. Barcode options include scale, height, and human-readable text.
+2. **Add your values** — Paste one value per line, or upload a CSV / TXT file — the first column of each row is used.
+3. **Check the count** — The tool shows how many valid values it parsed and warns if the batch was capped.
+4. **Preview the first code** — A live preview of the first value confirms the symbology and styling before you export.
+5. **Export the batch** — Download a ZIP of PNGs or SVGs, a multi-page PDF grid, or an Excel sheet — whichever fits your workflow.
+
+## Examples
+
+**Input:** SKU-0001, SKU-0002, SKU-0003 (Code 128)
+
+**Output:** bulk-codes-png.zip with 001-SKU-0001.png … 003-SKU-0003.png
+
+---
+
+**Input:** 150 URLs, QR code, PDF export
+
+**Output:** A multi-page A4 PDF, 3 codes per row, value printed under each
+
+---
+
+**Input:** A CSV with a header row and a SKU column
+
+**Output:** One barcode per data row (first column), header lines that aren’t valid values are skipped
+
+## Frequently asked questions
+
+<details>
+<summary>**How many codes can I generate at once?**</summary>
+
+Batches are capped (currently 200 codes) so rendering stays fast and your browser tab stays responsive. If you paste more, the tool uses the first 200 and tells you how many were skipped.
+
+</details>
+
+<details>
+<summary>**What input formats are supported?**</summary>
+
+A plain list (one value per line) or a CSV / TXT file. For CSV, the first column of each row is used as the code value; empty lines are ignored.
+
+</details>
+
+<details>
+<summary>**Which barcode types can I bulk-generate?**</summary>
+
+Any of the 30+ symbologies in the Barcode Studio — Code 128, EAN/UPC, ITF-14, MSI, plus 2D codes like Data Matrix, PDF417, Aztec, and QR.
+
+</details>
+
+<details>
+<summary>**What export formats are available?**</summary>
+
+A ZIP of PNG images, a ZIP of SVG (vector) images, a multi-page PDF grid with values printed underneath, and an Excel sheet listing every value.
+
+</details>
+
+<details>
+<summary>**Does my data leave my device?**</summary>
+
+No. Parsing, rendering, and packaging all happen in your browser. Your list and the generated files are never uploaded anywhere.
+
+</details>
+
+<details>
+<summary>**Why did some values fail to encode?**</summary>
+
+Some symbologies require a specific format — EAN-13 needs the right digit count, for example. Values that don’t fit the chosen symbology can’t be encoded; switch symbology or fix the values.
+
+</details>
+
+<details>
+<summary>**Can I make serial numbers to feed this tool?**</summary>
+
+Yes — use the Serial Number Generator to create a sequential or random list, copy it, and paste it here, then export the whole run as barcodes.
+
+</details>
+
+## Tips
+
+- Use SVG export for print — vector codes stay crisp at any size, unlike PNG.
+- For shelf or cable labels where space is tight, choose a 2D symbology (Data Matrix) to pack data into a small square.
+- Clean your CSV so the first column holds exactly the value you want encoded — extra columns are ignored, header rows are skipped if they aren’t valid.
+- Generate serials in the Serial Number Generator, then paste them here to barcode an entire run.
+- Verify one printed sample with a real scanner before printing the whole batch, especially for retail EAN/UPC codes.
+
+## Try it now
+
+The full Bulk Barcode & QR Generator runs in your browser at **[https://ztools.zaions.com/bulk-barcode-generator](https://ztools.zaions.com/bulk-barcode-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/bulk-barcode-generator)
+
+---
+
+*Last updated: 2026-06-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/encoding/bulk-barcode-generator.mdx)*
