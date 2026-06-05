@@ -17,28 +17,28 @@
     "build:full": "yarn generate:tools && yarn build"
   },
   "dependencies": {
-    "@amplitude/analytics-browser": "^2.42.5",
+    "@amplitude/analytics-browser": "^2.43.0",
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/plugin-google-gtag": "^3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-mermaid": "^3.10.1",
-    "@easyops-cn/docusaurus-search-local": "^0.55.1",
+    "@easyops-cn/docusaurus-search-local": "^0.55.2",
     "@mdx-js/react": "^3.1.1",
-    "@sentry/react": "^10.55.0",
+    "@sentry/react": "^10.56.0",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.1",
     "@docusaurus/tsconfig": "3.10.1",
     "@docusaurus/types": "3.10.1",
     "@types/node": "^25.9.1",
-    "@types/react": "^19.2.15",
+    "@types/react": "^19.2.17",
     "dotenv": "^17.4.2",
-    "tsx": "^4.22.3",
+    "tsx": "^4.22.4",
     "typescript": "~6.0.3"
   },
   "browserslist": {
