@@ -72,3 +72,12 @@ All user-facing "share" actions follow the global contract: **web** (any browser
 `.gitignore` stays current with the project structure — ignore only recoverable artifacts (build/`dist`/`www`/`node_modules`/logs/caches/IDE), never lose source. Custom rules always present: `*.ignore.*`, `project-record-ignore/`. This is a **PUBLIC** repo -> secrets/`.env`/keystores are NEVER tracked.
 Full rule + private/public protocol: `~/.claude/rules/project-config.md`.
 Gitignore Last Verified: 2026-06-24
+
+
+## Sub-agents & Skills — Main-Context-First (IRON-SOLID)
+Default/built-in sub-agents (`general-purpose`, `Explore`, `Plan`, `claude`, `fork`, …) do NOT have
+access to `/skills`, so delegating to them silently SKIPS the skills RULE #0 requires. Do all
+skill-relevant work in the **MAIN context**; use a sub-agent ONLY when a **custom** agent exists in
+`.claude/agents/` for that job; a default `Explore`/`Plan` agent is allowed ONLY for read-only,
+no-skill search/exploration. When a relevant skill is missing, **install/enable it** rather than
+proceeding skill-less. (Owner directive 2026-07-11; full text in `~/.claude/CLAUDE.md`.)
