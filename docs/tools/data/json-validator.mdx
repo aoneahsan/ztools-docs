@@ -1,0 +1,125 @@
+---
+id: json-validator
+title: "JSON Validator — Check JSON Syntax, Find Errors by Line"
+description: "Paste JSON and instantly see whether it is valid. Invalid JSON shows the exact line, column, and a caret at the syntax error. 100% browser-side, no upload."
+sidebar_label: "JSON Validator"
+keywords:
+  - "json validator"
+  - "validate json online"
+  - "check json syntax"
+  - "json syntax checker"
+  - "json error line number"
+  - "is my json valid"
+  - "json lint"
+  - "rfc 8259 validator"
+last_update:
+  date: 2026-07-23
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# JSON Validator
+
+A JSON validator checks whether a piece of text is well-formed JSON and, when it is not, tells you exactly where and why it breaks. The ZTools JSON Validator parses your input with the browser's native `JSON.parse`, so it enforces the strict JSON specification (RFC 8259) — no trailing commas, no comments, no single quotes, no unquoted keys. Valid JSON gets a clear green confirmation; invalid JSON gets a friendly message plus the exact 1-based line and column of the syntax error, the offending line reprinted with a caret pointing at the character, and a plain-language hint about the likely cause. It runs entirely in your browser, handles large payloads without freezing, and never uploads your data. Where a JSON formatter is about making valid JSON readable, the validator is about the prior question: is this JSON valid at all, and if not, what do I fix?
+
+<ToolCTA toolId="json-validator" toolName="JSON Validator" />
+
+## Use cases
+
+### Finding the syntax error in an API payload
+
+When an API rejects your request body with a vague "invalid JSON" message, paste the body here to get the precise line and column of the problem. The caret under the offending character turns "somewhere in this 200-line payload" into "the trailing comma on line 47" in seconds.
+
+### Validating config before you ship it
+
+Paste a `package.json`, a `tsconfig.json`, or any JSON config to confirm it parses before you commit or deploy. Catching a stray comment or a duplicated bracket locally is far cheaper than a failed build or a service that refuses to start.
+
+### Checking JSON copied from logs or a chat
+
+JSON pasted from a terminal, a log line, or a chat message often arrives with smart quotes, truncation, or an escaped wrapper. The validator flags exactly what makes it non-conformant so you can clean it up rather than guessing which character the parser choked on.
+
+### Teaching or learning the JSON grammar
+
+Because it enforces strict RFC 8259 and explains each failure in plain language, the validator is a quick way to see why JavaScript-style JSON — trailing commas, comments, unquoted keys — is rejected, and what the conformant form looks like instead.
+
+## How it works
+
+1. **Paste your JSON** — Drop the text into the input. Validation runs as you type; there is no separate "validate" button to press.
+2. **Read the status** — A green badge means the input is valid, well-formed JSON. A red state means there is a syntax error to fix.
+3. **Jump to the error** — For invalid JSON, the tool reports the exact 1-based line and column of the first syntax error so you can go straight to it in your source.
+4. **See the caret and the hint** — The offending line is reprinted with a caret under the exact character, plus a plain-language hint about the likely cause — a missing comma, an extra bracket, a trailing comma, or a smart quote.
+5. **Fix and re-check** — Correct the source, paste again, and confirm the green badge. Repeat until the whole payload validates.
+
+## Examples
+
+**Input:** \{ "name": "ztools", "tools": 575, \}
+
+**Output:** Invalid — trailing comma before the closing brace. Error reported at the line/column of the comma with a caret pointing at it.
+
+---
+
+**Input:** \{ "enabled": true, "count": 3 \}
+
+**Output:** Valid JSON — green confirmation, no errors.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from the JSON Formatter?**</summary>
+
+They open the same tool, but with a different focus. The JSON Validator answers "is this valid, and where is the error?"; the JSON Formatter additionally pretty-prints and minifies valid JSON. Both use the same native parser, so the validation is identical — pick the entry point that matches your task.
+
+</details>
+
+<details>
+<summary>**Which JSON standard does it enforce?**</summary>
+
+The strict JSON specification (RFC 8259), because it uses the browser's native `JSON.parse`. That means no trailing commas, no comments, no single-quoted strings, and no unquoted keys — the same rules a real JSON parser in your backend applies.
+
+</details>
+
+<details>
+<summary>**Does it show where the error is?**</summary>
+
+Yes. Invalid JSON reports the exact 1-based line and column of the first syntax error, reprints the offending line with a caret under the character, and adds a plain-language hint about the likely cause.
+
+</details>
+
+<details>
+<summary>**Is my JSON sent to a server?**</summary>
+
+No. Validation happens entirely in your browser with no upload and no third-party script, so even sensitive payloads stay on your machine.
+
+</details>
+
+<details>
+<summary>**Can it validate a JSON schema, not just syntax?**</summary>
+
+It validates JSON syntax and structure — whether the text is well-formed JSON. It does not check a document against a JSON Schema definition (types, required fields, patterns); that is a separate kind of validation.
+
+</details>
+
+<details>
+<summary>**Will it handle large JSON files?**</summary>
+
+Yes. It parses large payloads without freezing the interface, so you can validate sizeable API responses or config files comfortably.
+
+</details>
+
+## Tips
+
+- If the parser points at a line that looks fine, check the line just before it — a missing comma or bracket is often reported at the next token.
+- Trailing commas and `//` comments are the two most common reasons valid-looking JSON fails; the hint will name them.
+- Paste JSON straight from a failing API request body to find the exact character your backend rejected.
+- Once it validates, switch to formatting to pretty-print or minify the now-confirmed-valid JSON.
+
+## Try it now
+
+The full JSON Validator runs in your browser at **[https://ztools.zaions.com/json-validator](https://ztools.zaions.com/json-validator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/json-validator)
+
+---
+
+*Last updated: 2026-07-23 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/data/json-validator.mdx)*

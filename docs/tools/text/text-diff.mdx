@@ -1,0 +1,127 @@
+---
+id: text-diff
+title: "Text Diff Checker — Compare Two Texts, Highlight Changes Online"
+description: "Paste two versions of a document and see every added, removed, and changed line highlighted. Word-level diff, unified or side-by-side, browser-only."
+sidebar_label: "Text Diff Checker"
+keywords:
+  - "text diff checker"
+  - "compare two texts online"
+  - "text comparison tool"
+  - "diff two documents"
+  - "find differences between texts"
+  - "word level diff"
+  - "unified diff online"
+  - "side by side text compare"
+last_update:
+  date: 2026-07-23
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Text Diff Checker
+
+A text diff checker compares two versions of the same writing and marks exactly what changed between them — added lines in green, removed lines in red, and modified lines with the specific words that differ highlighted inside them. The ZTools Text Diff Checker runs a real line-level longest-common-subsequence pass and then a word-level pass inside each modified line, so a one-word edit in a long paragraph shows as one word changed, not the whole line rewritten. It offers a unified view and a side-by-side view, optional ignore-case and ignore-whitespace matching, and export of a patch-style unified diff. Everything runs in your browser via a `useMemo`/`useDeferredValue` pipeline — no text is uploaded, no CDN is called, and typing stays responsive on large inputs. It is built for prose and plain text — drafts, essays, translations, contract redlines, config files — where you care about wording rather than code review workflows.
+
+<ToolCTA toolId="text-diff" toolName="Text Diff Checker" />
+
+## Use cases
+
+### Comparing two drafts of a document
+
+Paste yesterday's draft on the left and today's on the right to see every sentence you added, cut, or reworded. Word-level highlighting means a single reworded phrase stands out instead of the whole paragraph turning red, so you can review the actual edits at a glance before sending the newer version on.
+
+### Checking what an editor or collaborator changed
+
+When a document comes back from a co-author or an editor, drop the original and the returned copy in to surface every silent change. This catches edits that a "track changes" pass missed — reordered lines, a swapped number, a quietly deleted clause — without needing the file to be in any particular format.
+
+### Reviewing a translation against its source revision
+
+Compare two revisions of a translated text to confirm that a source-text update was actually carried through. Ignore-whitespace matching keeps reflowed line breaks from showing as false changes, so you only see the wording that genuinely moved.
+
+### Diffing config or note files without git
+
+For a plain-text config, an `.env` sketch, or a set of meeting notes that is not under version control, paste the two states to get a clean unified diff you can copy into a ticket or a message — a lightweight stand-in for `git diff` when the file never lived in a repository.
+
+## How it works
+
+1. **Paste the original text** — Put the earlier version in the left (or top) panel. There is no length field to configure — the tool sizes itself to whatever you paste.
+2. **Paste the changed text** — Put the newer version in the right (or bottom) panel. The diff recomputes automatically as you type or paste; there is no "compare" button to wait on.
+3. **Choose unified or side-by-side** — Switch views with the segmented control. Unified stacks changes in one column; side-by-side aligns the two versions row-for-row for line-by-line reading.
+4. **Tune the matching** — Toggle ignore-case and ignore-whitespace when trivial differences (capitalisation, trailing spaces, reflowed breaks) are adding noise you do not care about.
+5. **Read the highlighted result** — Additions, deletions, and modifications are colour-coded, with the exact changed words marked inside modified lines. A running count summarises how many lines were added, removed, and changed.
+6. **Copy or download the diff** — Export a patch-style unified diff to paste into a ticket, a code review, or a message — the full result is always available even when only a capped number of rows is rendered on screen.
+
+## Examples
+
+**Input:** Left: "Sugar is sweet"
+Right: "Honey is sweet"
+
+**Output:** One modified line; the word "Sugar" marked removed and "Honey" marked added, the rest of the line unchanged.
+
+---
+
+**Input:** Left: 4 lines · Right: 5 lines (one line inserted in the middle)
+
+**Output:** Four unchanged lines plus one green "added" line at the insertion point — not four "changed" lines below it.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between this and the Diff Checker?**</summary>
+
+They share the same underlying line-and-word diff engine. The Text Diff Checker is framed for prose and plain text — drafts, translations, notes, contract wording — while the Diff Checker leans toward code, JSON, and git-style review. Use whichever matches how you think about your comparison; the output is the same quality either way.
+
+</details>
+
+<details>
+<summary>**Is my text uploaded anywhere?**</summary>
+
+No. The comparison runs entirely in your browser — nothing is sent to a server and no third-party script is loaded. You can disconnect from the internet and it still works.
+
+</details>
+
+<details>
+<summary>**Does word-level highlighting work inside long lines?**</summary>
+
+Yes. Within each modified line the tool runs a second, word-level pass, so a single reworded word in a long paragraph is highlighted on its own rather than marking the entire line as changed.
+
+</details>
+
+<details>
+<summary>**Can I ignore capitalisation or whitespace differences?**</summary>
+
+Yes. Ignore-case and ignore-whitespace toggles let you suppress differences you do not care about, which is useful for comparing text that was reflowed or re-cased without meaningful edits.
+
+</details>
+
+<details>
+<summary>**Can I export the result?**</summary>
+
+Yes — you can copy or download a patch-style unified diff. That format pastes cleanly into tickets, code reviews, and chat.
+
+</details>
+
+<details>
+<summary>**Is there a size limit?**</summary>
+
+There is no hard cap you configure. Very large inputs render a limited number of rows on screen for performance, but the complete diff is always available through copy and download.
+
+</details>
+
+## Tips
+
+- Turn on ignore-whitespace first when comparing text that was re-wrapped — it removes the most common source of false "changes".
+- Use side-by-side view for reading two versions in parallel, and unified view for a compact change list to paste elsewhere.
+- For a quick sanity check, load the built-in sample texts to see how additions, deletions, and word-level edits are rendered.
+- Copy the unified diff into a ticket instead of screenshotting — reviewers can read the exact wording change rather than a picture of it.
+
+## Try it now
+
+The full Text Diff Checker runs in your browser at **[https://ztools.zaions.com/text-diff](https://ztools.zaions.com/text-diff)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-diff)
+
+---
+
+*Last updated: 2026-07-23 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-diff.mdx)*

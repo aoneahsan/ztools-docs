@@ -1,0 +1,127 @@
+---
+id: color-picker-advanced
+title: "Advanced Color Picker — Alpha, CMYK/HSV, Contrast, PNG Export"
+description: "Fine-tune any color with per-channel H/S/L, R/G/B, and alpha sliders. Read HEX, RGB, HSL, HSV, CMYK, check WCAG contrast, and export the swatch as PNG."
+sidebar_label: "Advanced Color Picker"
+keywords:
+  - "advanced color picker"
+  - "color picker with alpha"
+  - "rgba hsla color picker"
+  - "cmyk color picker online"
+  - "color contrast checker wcag"
+  - "eyedropper color picker"
+  - "hex rgb hsl converter"
+  - "color swatch png export"
+last_update:
+  date: 2026-07-23
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Advanced Color Picker
+
+An advanced color picker lets you not just choose a color but fine-tune it channel by channel and read it in every format you might need. The ZTools Advanced Color Picker shows a large live swatch over a checkerboard so transparency is visible, accepts a visual pick, a smart text field that parses HEX, `rgb()`, `rgba()`, `hsl()`, and `hsla()`, and the browser's native EyeDropper on Chromium browsers for sampling any pixel on screen. Beyond the basics it adds per-channel H/S/L, R/G/B, and alpha sliders for precise adjustment, extra formats (HSV and print-oriented CMYK), a WCAG contrast/readability check against any background, generated variations (lighter, darker, complement), a recent-colors history, copy-all-formats, and export of the swatch as a PNG. It runs fully client-side — colors never leave your browser — and is aimed at the moment you need to adjust and export a specific color, not only sample one.
+
+<ToolCTA toolId="color-picker-advanced" toolName="Advanced Color Picker" />
+
+## Use cases
+
+### Dialing in a color with an alpha channel
+
+When you need a semi-transparent overlay or a subtle tint, the alpha slider plus the checkerboard-backed swatch let you see the real transparency as you adjust it, and copy the resulting `rgba()`/`hsla()` value directly — no guessing at an opacity percentage.
+
+### Converting a screen color into print CMYK
+
+Sample a color from anywhere on screen with the eyedropper, then read its CMYK approximation alongside HEX and RGB. It is a fast bridge from a web color to the print-oriented value a layout or a print shop expects, without opening a full design suite.
+
+### Checking contrast before you commit a color
+
+Enter a background color and the tool reports the WCAG contrast ratio for text on that background, so you can nudge lightness with the H/S/L sliders until the pair passes AA or AAA. This turns "does this look readable?" into a measured number before the color ships.
+
+### Building a small set of related shades
+
+From one base color, generate lighter, darker, and complementary variations to seed a mini palette, keep recent colors on hand as you iterate, and export the chosen swatch as a PNG to drop into a mockup or a handoff note.
+
+## How it works
+
+1. **Set the base color** — Pick visually with the native color input, type any HEX/rgb/rgba/hsl/hsla value into the smart field, or use the eyedropper (Chromium) to sample a pixel anywhere on screen.
+2. **Read every format** — HEX, RGB, and HSL are shown up front, each with its own copy button. HSV and CMYK are available in the advanced panel for design and print work.
+3. **Fine-tune per channel** — Open the advanced panel to adjust H/S/L, R/G/B, and alpha with individual sliders — precise control the visual picker alone cannot give.
+4. **Check readability** — Provide a background color to get the WCAG contrast ratio, so you can confirm text on that color meets AA or AAA before using it.
+5. **Explore variations** — Generate lighter, darker, and complementary versions of the current color, and keep a running list of recent colors as you experiment.
+6. **Copy or export** — Copy all formats at once, or download the current swatch as a PNG to paste into a design file, a ticket, or a style handoff.
+
+## Examples
+
+**Input:** Type: rgba(59, 130, 246, 0.5)
+
+**Output:** A half-transparent blue rendered over the checkerboard; HEX/RGB/HSL/HSV/CMYK all updated, alpha slider at 50%.
+
+---
+
+**Input:** Base #3B82F6, background #FFFFFF
+
+**Output:** Contrast ratio reported for the color on white, with a pass/fail against WCAG AA/AAA thresholds.
+
+## Frequently asked questions
+
+<details>
+<summary>**How is this different from the basic Color Picker?**</summary>
+
+The basic Color Picker focuses on visually picking a color and reading standard formats including OKLCH. The Advanced Color Picker adds per-channel H/S/L, R/G/B, and alpha sliders for fine-tuning, extra formats (HSV, CMYK), a WCAG contrast check, generated variations, recent colors, and PNG export of the swatch — it is built for adjusting and exporting a specific color, not only sampling one.
+
+</details>
+
+<details>
+<summary>**Does the eyedropper work in every browser?**</summary>
+
+The screen eyedropper uses the browser's native EyeDropper API, which is available on Chromium browsers (Chrome, Edge, and similar). Where it is not available you can still pick visually or type any color value into the smart field.
+
+</details>
+
+<details>
+<summary>**Which color formats does it output?**</summary>
+
+HEX, RGB, and HSL up front, plus HSV and CMYK in the advanced panel, and it accepts HEX, rgb(), rgba(), hsl(), and hsla() as input. Each primary format has its own copy button, and you can copy all formats at once.
+
+</details>
+
+<details>
+<summary>**Can it handle transparency?**</summary>
+
+Yes. There is a dedicated alpha slider and the swatch sits over a checkerboard so partial transparency is visible, and the copied rgba()/hsla() values include the alpha you set.
+
+</details>
+
+<details>
+<summary>**Can I check accessibility contrast?**</summary>
+
+Yes. Enter a background color and the tool reports the WCAG contrast ratio, so you can verify that text on your color meets AA or AAA before you use it.
+
+</details>
+
+<details>
+<summary>**Are my colors saved or uploaded?**</summary>
+
+Colors are processed entirely in your browser and nothing is uploaded. The recent-colors list is a convenience within your session — no color data leaves your device.
+
+</details>
+
+## Tips
+
+- Use the alpha slider plus the checkerboard swatch to judge transparency accurately — a solid preview hides how a tint actually reads.
+- When a color needs to pass accessibility, set the background and adjust the L (lightness) slider while watching the contrast ratio update live.
+- Copy all formats at once when handing a color to a teammate so they get HEX, RGB, and HSL together and can use whichever their stack prefers.
+- Generate the complement and a lighter/darker pair to bootstrap a small, coherent palette from a single brand color.
+- Export the swatch as a PNG to drop an exact color chip into a mockup or a handoff document.
+
+## Try it now
+
+The full Advanced Color Picker runs in your browser at **[https://ztools.zaions.com/color-picker-advanced](https://ztools.zaions.com/color-picker-advanced)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/color-picker-advanced)
+
+---
+
+*Last updated: 2026-07-23 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/utility/color-picker-advanced.mdx)*
