@@ -1,0 +1,132 @@
+---
+id: image-steganography
+title: "Image Steganography — Hide Secret Text Inside a PNG (In-Browser)"
+description: "Hide a secret message inside a PNG image, or reveal one, using LSB steganography. Runs entirely in your browser — nothing is uploaded. Optional passphrase obfuscation."
+sidebar_label: "Image Steganography"
+keywords:
+  - "image steganography"
+  - "hide text in image"
+  - "lsb steganography"
+  - "hide message in png"
+  - "steganography online"
+  - "reveal hidden message image"
+  - "secret message image"
+  - "png steganography tool"
+last_update:
+  date: 2026-07-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Image Steganography
+
+Image steganography is the practice of hiding a secret message inside an ordinary-looking image so that its very existence is concealed. This tool hides UTF-8 text in the least-significant bits (LSB) of a cover image’s red, green and blue channels — changes far too small for the eye to see — and outputs a normal-looking PNG. It can also reverse the process to reveal a message hidden by this tool. Everything runs entirely in your browser with the Canvas API; your image and message are never uploaded. PNG output is required because it is lossless — a JPEG re-compresses pixels and would destroy the hidden bits. An optional passphrase applies light XOR obfuscation; it is honestly not real encryption, so encrypt sensitive text separately if secrecy matters.
+
+<ToolCTA toolId="image-steganography" toolName="Image Steganography" />
+
+## Use cases
+
+### Add a hidden ownership watermark
+
+Embed your name, a contact, or a license note invisibly inside an image you publish. Unlike a visible watermark it does not mar the picture, and you can later reveal it from the exact PNG to demonstrate provenance — provided the file wasn’t re-compressed.
+
+### Send a low-profile note
+
+Share a short message where a plain text file would draw attention: the recipient uses the same tool to reveal it. Because the image looks unremarkable, the fact that any message exists is concealed — the core idea of steganography.
+
+### Teach or learn how LSB steganography works
+
+Students and hobbyists can watch the capacity meter, hide a message, then reveal it, to understand exactly how bits are tucked into pixel channels and why lossy formats break the technique — a hands-on complement to a security course.
+
+### Puzzle, ARG, or scavenger-hunt clues
+
+Game and puzzle makers can hide the next clue inside an image asset. Players who know to look can extract it, while the image still works as ordinary artwork for everyone else.
+
+## How it works
+
+1. **Choose Hide or Reveal** — A single toggle switches between hiding a new message and revealing an existing one; switching modes clears the current state.
+2. **Hide: pick a cover image + type your message** — Drop in any image and type the secret text. A live capacity meter shows how many bytes the image can hold (about width × height × 3 ÷ 8) and warns if your message is too long.
+3. **Bits are embedded in the LSBs** — The message is UTF-8 encoded, prefixed with a length header, and written into the least-significant bit of each RGB channel (alpha is left untouched), producing a near-identical image.
+4. **Download a PNG** — The result is exported as a lossless PNG. Any later resize or JPEG re-compression elsewhere will destroy the hidden data, so keep the PNG as-is.
+5. **Reveal: upload a stego PNG** — In Reveal mode, the tool reads the length header from the LSBs, extracts exactly that many bytes, and decodes the text — showing a friendly message if no valid hidden data is found.
+
+## Examples
+
+**Input:** Cover: a 1920×1080 photo · Message: "Meet at 6" (9 bytes)
+
+**Output:** A visually-identical PNG. Capacity meter: 9 / 777,596 bytes used.
+
+---
+
+**Input:** Reveal mode: the exported PNG above
+
+**Output:** Hidden message: "Meet at 6".
+
+---
+
+**Input:** Reveal mode: an ordinary photo with no hidden data
+
+**Output:** "No hidden message found — this doesn’t look like a valid stego image."
+
+## Frequently asked questions
+
+<details>
+<summary>**Is my image or message uploaded?**</summary>
+
+No. Both the image and your text are processed entirely in your browser using the Canvas API. Nothing is sent to any server.
+
+</details>
+
+<details>
+<summary>**Why must the output be a PNG?**</summary>
+
+Steganography here relies on exact pixel bits. PNG is lossless, so the hidden bits survive. JPEG (and other lossy formats) re-compress the image and would destroy the message — so the tool only outputs PNG.
+
+</details>
+
+<details>
+<summary>**Is the passphrase real encryption?**</summary>
+
+No — it is honestly a light repeating-key XOR that obfuscates the bytes. It raises the bar slightly but is not secure. For genuine secrecy, encrypt your text with a real tool first, then hide the ciphertext.
+
+</details>
+
+<details>
+<summary>**How much text can I hide?**</summary>
+
+Roughly width × height × 3 ÷ 8 bytes (minus a small header). The live capacity meter shows the exact limit for your chosen image and blocks messages that don’t fit.
+
+</details>
+
+<details>
+<summary>**Will the hidden data survive editing?**</summary>
+
+Only if the PNG is left exactly as exported. Resizing, cropping, filtering, or re-saving as JPEG will alter the pixel bits and destroy the message. Share and store the original PNG unchanged.
+
+</details>
+
+<details>
+<summary>**Can someone tell a message is hidden?**</summary>
+
+Not by eye — LSB changes are invisible. But steganalysis tools can sometimes detect statistical anomalies. This is concealment, not guaranteed undetectability.
+
+</details>
+
+## Tips
+
+- Keep the exported PNG unchanged — any re-compression or resize elsewhere erases the hidden message.
+- Use a large, detailed cover image for longer messages; the capacity meter shows the exact byte budget.
+- For real secrecy, encrypt your text with a dedicated tool first, then hide the ciphertext here.
+- Reveal only works on a PNG made with a compatible LSB scheme — a random photo will report no message.
+- Alpha (transparency) is left untouched, so fully-transparent PNGs still carry the message in their RGB bits.
+
+## Try it now
+
+The full Image Steganography runs in your browser at **[https://ztools.zaions.com/image-steganography](https://ztools.zaions.com/image-steganography)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-steganography)
+
+---
+
+*Last updated: 2026-07-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-steganography.mdx)*

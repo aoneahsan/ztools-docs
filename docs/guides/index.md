@@ -1,7 +1,7 @@
 ---
 id: index
 title: ZTools Guides — How-To Tutorials
-description: Long-form how-to guides covering common workflows across multiple ZTools tools.
+description: Task-oriented how-to guides for ZTools — getting the most out of the tools, browsing categories, and installing the extension, Android app, and PWA.
 sidebar_label: Guides overview
 sidebar_position: 0
 slug: /guides
@@ -9,20 +9,21 @@ slug: /guides
 
 # Guides
 
-Task-oriented walkthroughs for common workflows. Each guide spans one or more tools and produces a concrete outcome — clean JSON, a compressed image, a working QR code, a polished password.
+Short, task-oriented walkthroughs for getting set up and working efficiently with ZTools.
 
 ## Available guides
 
-More guides land each batch. The first wave covers the highest-traffic workflows:
-
-- **How to format messy JSON** — *coming in next batch*
-- **How to compress an image without losing quality** — *coming in next batch*
-- **How to generate a strong password (and why most generators are bad)** — *coming in next batch*
+- **[Get the most out of ZTools](/docs/guides/get-the-most-from-ztools)** — search, direct URLs, favorites, history, cloud sync, theming, and sharing.
+- **[Browse tools by category](/docs/guides/browse-by-category)** — how the 570+ tools are organized across 20 categories, and the fastest ways to find one.
+- **[Install the browser extension](/docs/guides/browser-extension)** — quick tool access from any tab (Chrome, Edge, Brave, Firefox).
+- **[Install the Android app](/docs/guides/android-app)** — the native app from Google Play, plus where iOS stands.
+- **[Use the Growth Suite with your own API key (BYOK)](/docs/guides/growth-suite-byok)** — how the paid AI SEO tools work and what leaves your browser.
+- **[Install ZTools as an app (PWA)](/docs/guides/install-as-app)** — a standalone app window on desktop and mobile, with an honest note on offline use.
 
 ## Suggest a guide
 
-Open an issue on [GitHub](https://github.com/aoneahsan/ztools-docs/issues/new) describing the workflow you want documented. We prioritize guides by demand.
+Open an issue on [GitHub](https://github.com/aoneahsan/ztools-docs/issues/new) describing the workflow you want documented.
 
 ---
 
-*Last updated: 2026-05-06*
+*Last updated: 2026-07-22*

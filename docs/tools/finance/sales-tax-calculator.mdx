@@ -1,0 +1,142 @@
+---
+id: sales-tax-calculator
+title: "Sales Tax Calculator — Add or Reverse Combined Rate"
+description: "Calculate US sales tax by adding a combined state and local rate to a price, or reverse a tax-inclusive total to find the pre-tax amount. Free tool."
+sidebar_label: "Sales Tax Calculator"
+keywords:
+  - "sales tax calculator"
+  - "reverse sales tax calculator"
+  - "combined sales tax rate"
+  - "add sales tax to price"
+  - "tax inclusive price calculator"
+  - "us state sales tax"
+  - "pre-tax price calculator"
+last_update:
+  date: 2026-07-08
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Sales Tax Calculator
+
+A sales tax calculator is a tool that works out the tax on a purchase by multiplying the amount by the combined sales tax rate — the state base rate plus any local city, county, or district taxes. It also runs in reverse: given a tax-inclusive total, it divides by one plus the rate to recover the original pre-tax price and the tax portion. This calculator starts from approximate statewide base rates as a convenience, but localities add their own tax, so your real combined rate may be higher. Five states — Alaska, Delaware, Montana, New Hampshire, and Oregon — levy no statewide sales tax. It is an estimate rather than tax advice, it does not track product-specific exemptions or exact local district rates, and it runs in your browser.
+
+<ToolCTA toolId="sales-tax-calculator" toolName="Sales Tax Calculator" />
+
+## Use cases
+
+### Add tax to a price before you buy
+
+Shelf and online prices in the US usually exclude sales tax, so the amount at checkout is higher than the sticker. Entering the price and your combined rate shows the tax and the final total, which is handy for staying on budget or checking a receipt. Because local rates vary by address, confirm your exact combined rate for where the sale actually takes place before treating the total as final.
+
+### Reverse a tax-inclusive total
+
+Sometimes you have a total that already includes tax — a cash receipt or an all-in quote — and need the pre-tax price for an expense report or bookkeeping. Reverse mode divides the total by one plus the rate to split it into the base amount and the tax. This is the correct method; simply subtracting the rate from the total overstates the tax and understates the base price.
+
+### Compare the tax bite across states
+
+Because statewide base rates range from zero to over 7 percent, the same purchase costs noticeably more in one state than another. Running the numbers helps with decisions like where to make a large purchase or how to compare quotes. The tool uses statewide base rates only, though, so it cannot capture the local add-ons that often make the real difference between two nearby areas.
+
+### Estimate tax for invoices and quotes
+
+Freelancers and small businesses that add sales tax to an invoice can compute the line quickly by entering the subtotal and rate. The result is an estimate to help you draft the document. Your actual obligation depends on your registered rate, where you have nexus, and whether the specific product or service is taxable — none of which this general calculator determines.
+
+### Teach how percentages and tax work
+
+The add and reverse modes make a clear teaching example for how a percentage is applied and then undone. Students can see why recovering a pre-tax price is a division by one plus the rate, not a subtraction, and can experiment with different rates to build intuition. It is a learning aid for the arithmetic, not a tool for actual tax filing or compliance.
+
+## How it works
+
+1. **Choose add or reverse mode** — Add tax to a pre-tax price, or reverse a total that already includes tax to recover the original price.
+2. **Enter the amount** — Type the pre-tax price in add mode, or the tax-inclusive total in reverse mode.
+3. **Set your combined rate** — Start from the statewide base rate the tool suggests, then adjust it to your true combined state-plus-local rate.
+4. **Read the tax and total** — Add mode shows the tax and final total; reverse mode shows the tax and the recovered pre-tax price.
+5. **Verify locally if it matters** — For a real purchase or filing, confirm the exact combined rate for the transaction’s address, since local taxes are not built in.
+
+## Examples
+
+**Input:** $100.00, combined rate 8.25% (add mode)
+
+**Output:** Tax $8.25 — total $108.25
+
+---
+
+**Input:** $108.25 total, rate 8.25% (reverse mode)
+
+**Output:** Pre-tax $100.00 — tax $8.25
+
+---
+
+**Input:** $59.99 in Oregon (no statewide sales tax)
+
+**Output:** Tax $0.00 — total $59.99
+
+## Frequently asked questions
+
+<details>
+<summary>**How is sales tax calculated?**</summary>
+
+Multiply the pre-tax amount by the combined sales tax rate — the state base rate plus any local taxes. For a $50 item at 7 percent, the tax is $3.50 and the total is $53.50.
+
+</details>
+
+<details>
+<summary>**How does reverse (tax-inclusive) mode work?**</summary>
+
+It divides the tax-inclusive total by one plus the rate. For a $53.50 total at 7 percent, $53.50 ÷ 1.07 = $50.00 pre-tax, leaving $3.50 of tax. Subtracting 7 percent of $53.50 would overstate the tax.
+
+</details>
+
+<details>
+<summary>**Are the built-in rates exact?**</summary>
+
+No. The tool uses approximate statewide base rates as a starting point. Cities, counties, and special districts add their own sales tax, so your actual combined rate is often higher. Always confirm the local rate for the address.
+
+</details>
+
+<details>
+<summary>**Which states have no sales tax?**</summary>
+
+Five states levy no statewide sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon. Note that some localities in Alaska still impose their own local sales tax.
+
+</details>
+
+<details>
+<summary>**Does it handle exempt items like groceries or clothing?**</summary>
+
+No. Many states tax groceries, clothing, or other categories differently, or exempt them entirely. This tool applies one flat rate and does not model product-specific exemptions or reduced rates.
+
+</details>
+
+<details>
+<summary>**Can I use it for another country’s VAT or GST?**</summary>
+
+The arithmetic is the same — apply a rate, or reverse a tax-inclusive total — so you can enter any rate you like. The built-in base rates and the list of no-tax states are US-specific, however.
+
+</details>
+
+<details>
+<summary>**Is my data uploaded?**</summary>
+
+No. The calculation runs entirely in your browser and nothing is sent to a server or saved.
+
+</details>
+
+## Tips
+
+- Look up your exact combined rate by street address, since two nearby addresses can differ.
+- Use reverse mode for receipts that show only a total, without a separate tax line.
+- Remember to divide, not subtract, when removing tax from a tax-inclusive total.
+- Check whether the item is taxable in your state — some categories are exempt or taxed at a special rate.
+- For business filing, rely on your registered rate and a tax professional, not a general estimate.
+
+## Try it now
+
+The full Sales Tax Calculator runs in your browser at **[https://ztools.zaions.com/sales-tax-calculator](https://ztools.zaions.com/sales-tax-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/sales-tax-calculator)
+
+---
+
+*Last updated: 2026-07-08 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/sales-tax-calculator.mdx)*

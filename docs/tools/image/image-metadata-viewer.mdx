@@ -1,0 +1,132 @@
+---
+id: image-metadata-viewer
+title: "Image Metadata Viewer & Remover — EXIF, GPS, IPTC (No Upload)"
+description: "View every EXIF, GPS, IPTC and XMP tag embedded in a JPG, PNG or HEIC, then download a clean copy with all metadata stripped. 100% in your browser — no upload."
+sidebar_label: "Image Metadata Viewer & Remover"
+keywords:
+  - "image metadata viewer"
+  - "exif viewer"
+  - "remove exif data"
+  - "strip gps from photo"
+  - "exif remover online"
+  - "iptc xmp viewer"
+  - "photo metadata"
+  - "clear image metadata"
+last_update:
+  date: 2026-07-04
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Image Metadata Viewer & Remover
+
+An image metadata viewer is a tool that reads the hidden EXIF, IPTC, XMP and GPS data embedded inside a photo — camera make and model, lens, exposure, ISO, the exact date it was taken, orientation, editing software, and often the precise GPS coordinates — and displays it in plain, grouped sections. This one also removes that metadata: it re-draws the image to a canvas and re-encodes it so the downloaded copy carries no embedded tags. Everything runs entirely in your browser using the exifr library and the Canvas API — your photo is never uploaded to a server, so it is safe for sensitive images. Use it to check what a photo reveals about you before you share it, or to strip location and camera data from images you publish.
+
+<ToolCTA toolId="image-metadata-viewer" toolName="Image Metadata Viewer & Remover" />
+
+## Use cases
+
+### Check what a photo reveals before posting
+
+Before uploading a holiday photo to a forum or marketplace listing, open it here to see whether it embeds GPS coordinates that pin your home or hotel. Many phones geotag by default; this shows the exact latitude/longitude as a clickable map link so you can decide to strip it first.
+
+### Strip location + camera data from published images
+
+A blogger or shop owner publishing product and lifestyle shots can download a clean copy with all EXIF/GPS/IPTC removed, so competitors and scrapers can’t read the camera serial, editing history, or where the photo was taken — without installing desktop software.
+
+### Verify a photo’s capture date and device
+
+When you need to confirm when and with what a picture was actually taken (insurance claim, marketplace dispute, archival), the Dates and Camera sections surface the original DateTimeOriginal, make/model and lens — the fields that survive most edits — so you read the source data instead of guessing.
+
+### Audit an image export pipeline
+
+A developer or designer can drop exported assets in to confirm their build step actually stripped metadata (or preserved a color profile) as intended, catching a mis-configured export that silently ships camera serials or GPS to production.
+
+## How it works
+
+1. **Select an image** — Drop in or choose a JPG, PNG, WebP, HEIC or TIFF. The file is read locally as an object URL — it never leaves your device.
+2. **Metadata is parsed in-browser** — The exifr library (loaded on demand) parses EXIF, IPTC, XMP, ICC and GPS blocks and returns the raw tags without contacting any server.
+3. **Read the grouped report** — Tags are organised into Camera, Exposure, Location, Dates and Image sections, with an "Other metadata" catch-all so nothing embedded is hidden. GPS renders as a clickable OpenStreetMap link.
+4. **Download a clean copy (optional)** — Click "Download clean copy" to re-encode the image with all metadata removed. Choose PNG for lossless output, or JPEG/WebP with a quality slider when a smaller file matters.
+5. **Copy the report** — Copy a formatted plain-text report or the raw JSON (in Advanced settings) to paste into a ticket, listing, or archive record.
+
+## Examples
+
+**Input:** A phone photo taken with location services on
+
+**Output:** Camera: Apple iPhone 15 Pro · Exposure: ƒ/1.78, 1/120s, ISO 400 · Location: 48.8583, 2.2945 (map link) · Date taken: 2026-05-02 14:31.
+
+---
+
+**Input:** A PNG exported from a design tool
+
+**Output:** "No embedded EXIF/GPS found — this image is already clean or was stripped by the source app." Only the pixel dimensions and (if present) color profile are shown.
+
+---
+
+**Input:** Any image → Download clean copy (PNG)
+
+**Output:** A visually-identical PNG with zero EXIF/IPTC/XMP/GPS tags.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is my photo uploaded anywhere?**</summary>
+
+No. The image is read and parsed entirely in your browser with the Canvas API and the exifr library. Nothing is sent to a server, which is why it is safe for private or sensitive photos.
+
+</details>
+
+<details>
+<summary>**Does removing metadata change the picture?**</summary>
+
+It re-encodes the pixels. Choosing PNG is lossless (identical pixels, no metadata). Choosing JPEG or WebP re-compresses, which is essentially imperceptible at high quality but not bit-for-bit identical. The tool states this before you download.
+
+</details>
+
+<details>
+<summary>**What metadata can it show?**</summary>
+
+EXIF (camera, lens, exposure, ISO, orientation, dates), GPS coordinates and altitude, IPTC (captions, credits), XMP (editing history), and ICC color-profile presence — grouped into readable sections plus an "Other" catch-all.
+
+</details>
+
+<details>
+<summary>**Why does my image show no metadata?**</summary>
+
+Many apps (social networks, messengers, design tools) strip metadata on export or upload, and screenshots never had any. A "no metadata found" result simply means the file is already clean.
+
+</details>
+
+<details>
+<summary>**Can it read HEIC photos from an iPhone?**</summary>
+
+Yes — exifr reads EXIF/GPS from HEIC/HEIF as well as JPEG, PNG, WebP and TIFF. The clean-copy export re-encodes to PNG/JPEG/WebP, which every browser can display.
+
+</details>
+
+<details>
+<summary>**Does it strip metadata from the original file?**</summary>
+
+No — your original is untouched. "Download clean copy" creates a new, metadata-free file; you keep the original with its data intact.
+
+</details>
+
+## Tips
+
+- Always check the Location section before posting photos publicly — phone cameras geotag by default.
+- Use PNG for the clean copy when you need pixel-perfect output; use JPEG/WebP only when file size matters.
+- The raw-JSON view (Advanced settings) is handy for pasting exact tag values into a bug report or archive.
+- Metadata removal is one-way in the exported file — keep your original if you might need the EXIF later.
+- A screenshot of a photo is an easy manual way to drop all metadata, but this tool keeps full resolution.
+
+## Try it now
+
+The full Image Metadata Viewer & Remover runs in your browser at **[https://ztools.zaions.com/image-metadata-viewer](https://ztools.zaions.com/image-metadata-viewer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/image-metadata-viewer)
+
+---
+
+*Last updated: 2026-07-04 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-metadata-viewer.mdx)*

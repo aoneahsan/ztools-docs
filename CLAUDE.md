@@ -1,6 +1,6 @@
 # ZTools Docs — Project Guide (CLAUDE.md)
 
-**Last Updated**: 2026-05-29
+**Last Updated**: 2026-07-22
 
 ## Task Speed Over Docs (IRON-SOLID — BEHAVIORAL)
 
@@ -17,8 +17,8 @@ Docusaurus 3 documentation site for the **ZTools** utility suite (parent app: `z
 
 ## What this is
 
-- Docusaurus 3.10.1 static site, React 19, TypeScript 6, yarn 4.14.1 (Corepack).
-- **536 per-tool MDX pages** auto-generated across 19 categories from the sibling `../ztools/` app's content data files — single source of truth, no app/docs drift.
+- Docusaurus 3.10.2 static site, React 19, TypeScript ~6 (fleet pin). **Yarn Berry** — there is **no `packageManager` pin** in `package.json`; `yarn` resolves to the globally-installed Yarn 4.x, driven by `.yarnrc.yml` (`nodeLinker: node-modules`), and the lockfile is Berry format (metadata v10). (Not classic Yarn 1.x — a Berry lockfile can't install under 1.x. CI provisions Berry via `corepack prepare yarn@stable`.)
+- **572 per-tool MDX pages** auto-generated across 20 categories from the sibling `../ztools/` app's content data files — single source of truth, no app/docs drift. The parent app is **v2.26.0** with **575 tools** (565 core + 10 Growth Suite); 3 tools lack enriched content in the app data, so 572 get a documented page.
 - Generator: `scripts/generate-tool-pages.ts`, run via `yarn generate:tools` (full pipeline: `yarn build:full`).
 - `@docusaurus/faster` (Rspack) build, local search (`@easyops-cn/docusaurus-search-local`), Mermaid diagrams, strict CI (`onBrokenLinks: 'throw'`).
 - Env-gated observability: GA4 (IP-anonymized), Microsoft Clarity, Amplitude, Sentry — each ships only when its env var is set. Disclosure at `/docs/privacy`.
@@ -36,9 +36,13 @@ yarn build:full       # generate:tools + build
 
 > Never run dev/preview/watch servers (`yarn start`, `yarn serve`) — author runs those.
 
+## Deployment
+
+Public repo → **GitHub Pages** at custom domain `ztools-docs.zaions.com` (pinned by `static/CNAME`, copied verbatim into `build/`). CI: `.github/workflows/deploy.yml` builds (`yarn build`) and deploys via the official `upload-pages-artifact` + `deploy-pages` flow on every push to `main`; optional analytics keys are injected from repo secrets. CI does **not** run `generate:tools` — the `docs/tools/` pages are committed (the sibling `../ztools` app isn't in CI). Owner-only setup (DNS CNAME + repo Pages custom-domain/HTTPS) is in `docs/MANUAL-TASKS.md`.
+
 ## Known local-build quirk
 
-Docs siblings using `@docusaurus/faster` (Rspack) can fail `yarn build` LOCALLY when the 01-code parent has gitlinks without a `.gitmodules` (eager `git submodule status` exits 128). CI / standalone clones are unaffected. As of 2026-05-29 the local build PASSED; if it ever fails with that exact submodule error and typecheck is clean, treat it as the known local-only quirk — do NOT modify the workspace.
+Docs siblings using `@docusaurus/faster` (Rspack) can fail `yarn build` LOCALLY when the parent workspace has gitlinks without a `.gitmodules` (eager `git submodule status` exits 128). CI / standalone clones are unaffected. As of 2026-07-22 the local build PASSED (typecheck + build both green, 593 pages); if it ever fails with that exact submodule error and typecheck is clean, treat it as the known local-only quirk — do NOT modify the workspace.
 
 ---
 

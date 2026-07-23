@@ -1,0 +1,142 @@
+---
+id: crypto-tax-calculator
+title: "Crypto Tax Calculator — 2025 FIFO Capital Gains Estimate"
+description: "Estimate 2025 US federal crypto capital gains with FIFO lot accounting, splitting short- and long-term. Reconcile with your 1099s. Free, in-browser."
+sidebar_label: "Crypto Tax Calculator"
+keywords:
+  - "crypto tax calculator"
+  - "fifo crypto tax"
+  - "cryptocurrency capital gains"
+  - "2025 crypto tax"
+  - "bitcoin tax calculator"
+  - "crypto gain loss calculator"
+  - "crypto cost basis fifo"
+last_update:
+  date: 2026-07-08
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Crypto Tax Calculator
+
+A crypto tax calculator is a tool that estimates the 2025 US federal capital gains tax on cryptocurrency you sold, using FIFO (First-In, First-Out) lot accounting. Because the IRS treats crypto as property, each sale is a taxable disposal: the tool matches the units you sold to your oldest unsold purchase lots first, then computes the gain as proceeds minus cost basis. Units held more than a year are long-term and taxed at 0/15/20%; units held a year or less are short-term and taxed as ordinary income. It estimates tax by stacking those gains on your other taxable income. It runs in your browser and is an estimate, not tax advice.
+
+<ToolCTA toolId="crypto-tax-calculator" toolName="Crypto Tax Calculator" />
+
+## Use cases
+
+### See the tax impact of a year of trading
+
+If you bought and sold the same coin several times, working out the taxable gain by hand is tedious. Enter your buy lots and sell events and the calculator applies FIFO matching to produce an estimated total gain, split into short- and long-term. It gives you a quick sense of the bill before you sit down with full tax software.
+
+### See how much is short-term vs long-term
+
+The rate difference between short- and long-term crypto gains is large, because short-term gains are taxed as ordinary income. FIFO decides which lots are sold, and therefore how much of your gain qualifies for the lower long-term rate. Seeing the split makes it clear how much your holding period is costing or saving you at tax time.
+
+### Understand which units FIFO sells first
+
+Under FIFO, a sale draws from your oldest unsold units first, which are often your lowest-cost and longest-held. That usually means a larger gain but a better chance of the long-term rate. Walking through the lot matching shows exactly which purchases were assigned to each sale, so the resulting gain is transparent rather than a black-box number.
+
+### Cross-check an exchange 1099
+
+Exchanges issue 1099 forms, but they may not know the cost basis of coins you moved in from another wallet, so their gain figures can be off. Running your own buy and sell records through FIFO gives you an independent estimate to compare against the 1099, helping you spot missing basis before you file rather than after.
+
+### Decide whether to hold for long-term treatment
+
+If some of your units are approaching the one-year mark, waiting to sell can shift a gain from ordinary rates to the long-term 0/15/20% rates. Enter a sale dated before and after the anniversary of the matching lot to see the difference, which can be substantial on a large position and inform whether a short delay is worth it.
+
+## How it works
+
+1. **Add your purchase lots** — For each buy, enter the date, number of units, and total cost including fees. These become the cost-basis lots FIFO draws from, oldest first.
+2. **Add your sales** — For each sell, enter the date, units sold, and proceeds received. The tool matches them against your oldest open lots to compute each gain.
+3. **Enter income and filing status** — Provide your other taxable income and filing status so the gains can be stacked on top and mapped to the right rate bands.
+4. **Let FIFO match the lots** — The calculator assigns each sale to the earliest unsold units, splits the resulting gain into short-term and long-term by holding period, and totals each.
+5. **Read the estimated tax** — You get total short-term gain (ordinary rate), total long-term gain (0/15/20%), and a combined federal tax estimate you can compare with your 1099s.
+
+## Examples
+
+**Input:** Buy 1 BTC Jan 2023 for $20,000; sell 1 BTC Mar 2025 for $50,000
+
+**Output:** $30,000 long-term gain
+
+---
+
+**Input:** Buy 2 ETH Jan 2025 for $5,000; sell 1 ETH Jun 2025 for $3,500
+
+**Output:** $1,000 short-term gain
+
+---
+
+**Input:** Buy 1 SOL at $50, then 1 SOL at $150; sell 1 SOL for $200
+
+**Output:** $150 gain from the $50 lot
+
+## Frequently asked questions
+
+<details>
+<summary>**What is FIFO and why does it matter?**</summary>
+
+FIFO stands for First-In, First-Out: when you sell units, they are matched to your oldest unsold purchases first. It is a common default method, and it determines each sale's cost basis and holding period — which in turn set the gain and whether it is short- or long-term.
+
+</details>
+
+<details>
+<summary>**How does the IRS treat cryptocurrency?**</summary>
+
+As property, not currency. That means selling, trading one coin for another, or spending crypto is a taxable disposal, and you owe capital gains tax on the difference between proceeds and cost basis. This tool covers the sale side; it does not handle crypto received as income.
+
+</details>
+
+<details>
+<summary>**Does it handle staking, mining, or airdrop income?**</summary>
+
+No. Rewards from staking, mining, airdrops, and interest are generally ordinary income at their value when received, and are outside this calculator. It only estimates capital gains from selling units you already hold. Report income items separately.
+
+</details>
+
+<details>
+<summary>**What about wash sales and the $3,000 loss limit?**</summary>
+
+The tool does not model either. It does not apply the wash-sale rule, the $3,000 annual net capital loss deduction, or loss carryovers. If you have realized losses, work out the netting with your tax software or preparer; enter figures here only for a rough gains estimate.
+
+</details>
+
+<details>
+<summary>**Can it use HIFO or specific identification instead of FIFO?**</summary>
+
+No. It uses FIFO only. Methods like HIFO (Highest-In, First-Out) or specific identification (SpecID) can lower your gain but require you to identify specific lots at the time of sale and keep detailed records. If you use those, this estimate will differ from your actual result.
+
+</details>
+
+<details>
+<summary>**Does it include state crypto tax?**</summary>
+
+No. It estimates US federal capital gains only. States vary widely — some tax crypto gains as ordinary income and some not at all — so add your state's own tax separately for a complete picture.
+
+</details>
+
+<details>
+<summary>**Is my transaction data uploaded anywhere?**</summary>
+
+No. All matching and tax math run in your browser. The buy and sell details you enter are not transmitted to a server or stored.
+
+</details>
+
+## Tips
+
+- Include fees in your cost basis and subtract them from proceeds for a truer gain.
+- Keep records of coins transferred between wallets so no cost basis goes missing.
+- Remember every crypto-to-crypto trade is a taxable disposal, not just crypto-to-cash.
+- Compare this FIFO estimate with your exchange 1099 and investigate any large gap.
+- Handle staking, mining, and airdrop income separately — it is not capital gains.
+
+## Try it now
+
+The full Crypto Tax Calculator runs in your browser at **[https://ztools.zaions.com/crypto-tax-calculator](https://ztools.zaions.com/crypto-tax-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/crypto-tax-calculator)
+
+---
+
+*Last updated: 2026-07-08 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/crypto-tax-calculator.mdx)*

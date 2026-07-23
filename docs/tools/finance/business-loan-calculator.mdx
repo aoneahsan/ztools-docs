@@ -1,0 +1,142 @@
+---
+id: business-loan-calculator
+title: "Business Loan Calculator — Payment & Amortization Schedule"
+description: "Calculate a business loan’s fixed monthly payment, total interest, and full amortization schedule from principal, annual rate, and term. Free, in-browser."
+sidebar_label: "Business Loan Calculator"
+keywords:
+  - "business loan calculator"
+  - "loan amortization schedule"
+  - "monthly loan payment"
+  - "amortizing loan formula"
+  - "loan interest calculator"
+  - "total interest paid"
+  - "small business loan"
+last_update:
+  date: 2026-07-08
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Business Loan Calculator
+
+A business loan calculator is a tool that works out the fixed monthly payment on an amortizing loan and builds the full repayment schedule behind it. Amortizing means every payment is the same size, but the split between interest and principal shifts over time: early payments are mostly interest, and later ones are mostly principal. From three inputs — the loan amount (principal), the annual interest rate, and the term in months or years — it applies the standard amortization formula to find the payment, then lists each month’s interest, principal, and remaining balance. It is an estimate, not a loan offer, and runs entirely in your browser.
+
+<ToolCTA toolId="business-loan-calculator" toolName="Business Loan Calculator" />
+
+## Use cases
+
+### Compare loan offers on equal terms
+
+Lenders quote rates, fees, and terms differently, which makes offers hard to compare. Entering each one here reduces them to the numbers that matter — the monthly payment and the total interest over the life of the loan. Seeing a lower rate but longer term next to a higher rate but shorter term often reveals which is genuinely cheaper overall.
+
+### Check the payment fits your cash flow
+
+Before committing, you need to know the monthly payment will sit comfortably alongside rent, payroll, and other outgoings. The calculator gives that figure instantly, so you can test whether a given loan amount is affordable at your current revenue, or whether a longer term is needed to bring the payment down to a level your cash flow can absorb.
+
+### See the true cost of a longer term
+
+A longer term lowers the monthly payment but usually raises the total interest you pay, because the balance is outstanding for longer. By changing only the term you can watch the payment fall while the total interest climbs, making the trade-off explicit and helping you pick a term that balances a comfortable payment against the overall cost of borrowing.
+
+### Understand where your money goes each month
+
+The amortization schedule shows that early payments barely dent the principal because most of each one covers interest. Following the schedule month by month makes it clear why a loan’s balance falls slowly at first and faster later, and how much you would still owe if you wanted to refinance or repay early partway through the term.
+
+### Plan around a specific monthly budget
+
+If you already know the payment you can afford, you can adjust the loan amount and term until the calculator’s monthly figure lands on your budget. Working backwards like this helps you approach a lender with a realistic borrowing amount already in mind, rather than being anchored to whatever headline figure they first suggest.
+
+## How it works
+
+1. **Enter the loan amount** — Type the principal — the amount you are borrowing, before any interest is added.
+2. **Enter the annual interest rate** — Add the nominal annual rate as a percentage; the tool converts it to a monthly rate internally.
+3. **Enter the term** — Give the repayment period in months or years, which becomes the number of scheduled payments.
+4. **Calculate the payment** — The tool applies the amortization formula payment = P·r / (1 − (1+r)^-n) to find the fixed monthly amount.
+5. **Review the schedule** — See the monthly payment, total interest, total repaid, and a month-by-month table of interest, principal, and remaining balance.
+
+## Examples
+
+**Input:** $50,000 at 8% for 5 years
+
+**Output:** $1,013.82/month; ~$10,829 total interest
+
+---
+
+**Input:** $50,000 at 8% for 10 years
+
+**Output:** $606.66/month; ~$22,799 total interest
+
+---
+
+**Input:** $120,000 at 6.5% for 7 years
+
+**Output:** $1,781.87/month; ~$29,677 total interest
+
+## Frequently asked questions
+
+<details>
+<summary>**How is the monthly payment calculated?**</summary>
+
+It uses the standard amortization formula: payment = P·r / (1 − (1+r)^-n), where P is the principal, r is the monthly interest rate (annual rate ÷ 12), and n is the number of monthly payments. The result is a fixed payment that clears the balance over the term.
+
+</details>
+
+<details>
+<summary>**What is an amortization schedule?**</summary>
+
+It is a month-by-month table showing how each fixed payment splits between interest and principal, and the balance remaining after each one. Interest is charged on the outstanding balance, so as the balance falls, more of each payment goes to principal.
+
+</details>
+
+<details>
+<summary>**Why is early interest so high?**</summary>
+
+Interest each month is the rate applied to the remaining balance, which is largest at the start. So early payments are mostly interest and only slightly reduce the principal; the balance — and therefore the interest portion — falls faster later in the term.
+
+</details>
+
+<details>
+<summary>**What does this calculator NOT include?**</summary>
+
+It models a plain fixed-rate amortizing loan. It ignores any fees you do not enter (origination, closing, or servicing fees), variable or introductory rates, balloon payments, prepayment or extra payments, and late charges. Add those separately when judging the true cost.
+
+</details>
+
+<details>
+<summary>**Can I model extra or early payments?**</summary>
+
+Not directly — this tool assumes the scheduled payment every month. Extra payments would shorten the term and cut total interest, but that goes beyond the fixed-schedule math shown here.
+
+</details>
+
+<details>
+<summary>**Is the rate I enter the APR?**</summary>
+
+The tool treats your figure as the nominal annual rate and divides it by 12. A true APR also folds in certain fees, so if your lender quotes an APR that bundles fees, the payment here may differ slightly from the lender’s.
+
+</details>
+
+<details>
+<summary>**Is this a loan offer or financial advice?**</summary>
+
+No. It is an educational estimate. Actual terms, fees, and approval come from a lender, and any borrowing decision should be checked with a qualified financial professional.
+
+</details>
+
+## Tips
+
+- Match the rate period to the term unit — enter an annual rate with a term in years or months; the tool handles the monthly conversion.
+- Add known fees to the principal if the lender rolls them into the loan, so the payment reflects them.
+- Compare total interest, not just the monthly payment, when weighing a longer term against a shorter one.
+- Re-run with a slightly higher rate to stress-test affordability before you sign anything.
+- Remember a variable-rate loan can change over time — this fixed-rate estimate is only a baseline for it.
+
+## Try it now
+
+The full Business Loan Calculator runs in your browser at **[https://ztools.zaions.com/business-loan-calculator](https://ztools.zaions.com/business-loan-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/business-loan-calculator)
+
+---
+
+*Last updated: 2026-07-08 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/finance/business-loan-calculator.mdx)*

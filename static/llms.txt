@@ -1,6 +1,6 @@
 # ZTools
 
-> ZTools is a free, browser-only collection of 520+ developer & creator tools — JSON formatters, password generators, image compressors, regex testers, QR generators, PDF tools, and more. All processing happens in the user's browser. No signup, no upload, no data leaves the device.
+> ZTools is a free collection of 570+ developer & creator tools — JSON formatters, password generators, image compressors, regex testers, QR generators, PDF tools, and more. The vast majority run entirely in the user's browser (no signup, no upload, no data leaves the device); a small paid Growth Suite adds AI-assisted SEO tools that need a sign-in and the user's own API key.
 
 ## Key URLs
 
@@ -11,7 +11,7 @@
 
 ## Highlights
 
-- 520+ tools across 19 categories (Text, PDF, Image, Data, Generator, Encoding, Conversion, SEO, Math, Health, Education, Finance, Productivity, Media, Design, Developer, Extractor, Legal, Utility)
+- 570+ tools across 20 categories (Text, PDF, Image, Data, Generator, Encoding, Conversion, SEO, Math, Health, Education, Finance, Productivity, Media, Design, Developer, Extractor, Legal, Utility, Growth)
 - Browser-only processing — Canvas, Web Audio, SubtleCrypto, Web Speech, IndexedDB
 - Free, no signup, no email gate, no paywall
 - Open-source documentation

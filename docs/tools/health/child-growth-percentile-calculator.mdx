@@ -1,0 +1,138 @@
+---
+id: child-growth-percentile-calculator
+title: "Child Growth Percentile Calculator (WHO, 0–5 Years)"
+description: "Estimate a child’s weight-for-age and height-for-age percentiles (0–5 years) using simplified WHO growth standards. Free, in-browser, boys and girls."
+sidebar_label: "Child Growth Percentile Calculator"
+keywords:
+  - "child growth percentile calculator"
+  - "baby growth chart"
+  - "who growth standards"
+  - "weight for age percentile"
+  - "height for age percentile"
+  - "infant growth calculator"
+  - "child percentile boys girls"
+last_update:
+  date: 2026-07-08
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Child Growth Percentile Calculator
+
+A child growth percentile calculator is a tool that estimates where a child’s weight and height fall compared with other children of the same age and sex, expressed as a percentile from the WHO Child Growth Standards. A 50th-percentile weight means about half of children that age weigh more and half weigh less. This calculator uses a simplified WHO reference for ages 0 to 5 years (0–60 months), interpolates between key age points, and reports an estimated percentile plus a plain-language band for weight-for-age and height-for-age. It is a screening aid only — a pediatrician’s growth chart is the clinical source of truth. All math runs in your browser.
+
+<ToolCTA toolId="child-growth-percentile-calculator" toolName="Child Growth Percentile Calculator" />
+
+## Use cases
+
+### Sense-check a home measurement between visits
+
+Between well-child appointments, parents often weigh and measure at home and wonder how it compares. Entering the age, sex, and measurement gives a rough percentile so you can see whether your child is tracking near where they were, without waiting for the next clinic visit. Persistent large jumps up or down are worth raising with your pediatrician.
+
+### Understand what a percentile actually means
+
+Percentiles confuse many parents — a lower number is not a "bad grade." This tool pairs the number with an explanation: the 15th–85th range is typical, and a child who consistently follows their own curve is usually doing fine even at the 20th or 80th percentile.
+
+### Compare weight-for-age and height-for-age together
+
+Looking at both measurements side by side is more informative than either alone. A child near the same percentile for weight and height is proportionate; a large gap between the two may simply reflect build, but a widening gap over time is a useful thing to mention at a check-up.
+
+### Prepare for a pediatric appointment
+
+Bringing an approximate percentile and your recent home measurements to an appointment helps you ask focused questions. The clinician will use full WHO or CDC charts and the child’s history to give the definitive assessment.
+
+## How it works
+
+1. **Select the child’s sex** — Boys and girls have different WHO reference values, so choose the correct one.
+2. **Enter the age** — Give the age in years and months; the tool converts it to total months (0–60) and interpolates between reference ages.
+3. **Enter weight, height, or both** — Add weight in kg and/or length/height in cm — at least one is needed. Use lying-down length for under-2s and standing height for ages 2+.
+4. **Read the estimated percentile** — For each measurement, the tool interpolates the WHO percentile row and estimates where the child falls, showing the number and a band.
+5. **Interpret with the guidance notes** — Use the on-page explanation — 15th–85th is typical, consistency over time matters more than one reading, and below 3rd or above 97th is worth discussing with a pediatrician.
+
+## Examples
+
+**Input:** Boy, 12 months, 9.6 kg
+
+**Output:** ≈ 50th percentile (weight-for-age)
+
+---
+
+**Input:** Girl, 24 months, 85.7 cm
+
+**Output:** ≈ 50th percentile (height-for-age)
+
+---
+
+**Input:** Boy, 6 months, 6.4 kg
+
+**Output:** ≈ 3rd percentile (weight-for-age)
+
+## Frequently asked questions
+
+<details>
+<summary>**What age range does this cover?**</summary>
+
+It uses a simplified WHO reference for 0 to 5 years (0–60 months). For older children you would use age-appropriate WHO or CDC charts, which this tool does not include.
+
+</details>
+
+<details>
+<summary>**Is a low percentile bad?**</summary>
+
+Not by itself. A child at the 10th percentile who consistently follows that curve is usually healthy. What matters more is a sudden change in the curve. Percentiles below the 3rd or above the 97th are worth a pediatrician’s review.
+
+</details>
+
+<details>
+<summary>**How accurate is this compared with a clinic chart?**</summary>
+
+It is an estimate. The tool stores WHO percentile rows at key ages and interpolates between them, so results can differ from full clinical charts computed from LMS parameters. Use it as a screen, not a diagnosis.
+
+</details>
+
+<details>
+<summary>**Should I measure length or height?**</summary>
+
+Measure recumbent length (lying down) for children under 2 and standing height for ages 2 and older, matching how the WHO standards were built.
+
+</details>
+
+<details>
+<summary>**Why do boys and girls use different values?**</summary>
+
+Typical growth differs by sex, so the WHO Child Growth Standards publish separate reference values. Selecting the correct sex is important for a meaningful estimate.
+
+</details>
+
+<details>
+<summary>**Is any of my child’s data uploaded?**</summary>
+
+No. Everything is calculated in your browser; nothing is transmitted or stored.
+
+</details>
+
+<details>
+<summary>**My child was born preterm — does that matter?**</summary>
+
+Yes. These standards use a term-birth reference population. For preterm infants, clinicians often use corrected age or specialized charts, so results here may not apply — ask your pediatrician.
+
+</details>
+
+## Tips
+
+- Weigh and measure at a consistent time and with consistent clothing (or none) for comparable readings.
+- Focus on the trend across visits rather than a single percentile.
+- Use the same measuring method each time — length vs height changes results near age 2.
+- Bring your home numbers to appointments so the clinician can plot them on full charts.
+- Do not adjust feeding based on this tool alone; discuss any concern with a pediatrician first.
+
+## Try it now
+
+The full Child Growth Percentile Calculator runs in your browser at **[https://ztools.zaions.com/child-growth-percentile-calculator](https://ztools.zaions.com/child-growth-percentile-calculator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/child-growth-percentile-calculator)
+
+---
+
+*Last updated: 2026-07-08 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/child-growth-percentile-calculator.mdx)*

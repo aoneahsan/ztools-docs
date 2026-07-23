@@ -1,0 +1,138 @@
+---
+id: contraction-timer
+title: "Contraction Timer with 5-1-1 Rule Alert (Free, Private)"
+description: "Time labor contractions with one tap — track each duration and interval, see rolling averages, and get a 5-1-1 alert. Free, in-browser, saved locally."
+sidebar_label: "Contraction Timer"
+keywords:
+  - "contraction timer"
+  - "5 1 1 rule"
+  - "labor contraction timer"
+  - "contraction counter"
+  - "time contractions"
+  - "when to go to hospital labor"
+  - "free contraction timer"
+last_update:
+  date: 2026-07-08
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Contraction Timer
+
+A contraction timer is a tool that records how long each labor contraction lasts and how far apart they are, so you can see a pattern emerge over time. You tap to start when a contraction begins and stop when it ends; the timer logs the duration and the interval measured from the start of one contraction to the start of the next, then shows rolling averages. It also watches for the common 5-1-1 pattern — contractions about 5 minutes apart, lasting about 1 minute each, sustained for roughly 1 hour — and flags it. The log is saved in your browser so a reload does not lose it. This is an informational aid, not medical advice.
+
+<ToolCTA toolId="contraction-timer" toolName="Contraction Timer" />
+
+## Use cases
+
+### Track early labor at home
+
+In early labor, contractions are irregular and it is hard to judge progress by feel. Tapping start and stop for each one builds an objective record of duration and spacing, making it easier to see whether contractions are getting longer, stronger, and closer together — the signs that labor is progressing.
+
+### Know when the 5-1-1 pattern appears
+
+Many providers use the 5-1-1 rule as a general guide for when to make contact. Because judging "5 minutes apart for an hour" in the moment is difficult, the timer computes it for you and shows an alert when the last hour of contractions matches the pattern, so you can act on your provider’s instructions.
+
+### Give your provider accurate numbers
+
+When you call your provider or arrive at the hospital, they will ask how long and how frequent your contractions are. A saved log of durations, intervals, and averages lets you answer precisely instead of estimating, which helps them assess where you are.
+
+### Time other recurring intervals
+
+The same start/stop-and-log mechanic works for any repeating timed event — practice breathing rounds, for example — though the 5-1-1 alert is specific to the labor pattern and can simply be ignored outside that context.
+
+## How it works
+
+1. **Tap Start when a contraction begins** — The large timer starts counting the duration of the current contraction.
+2. **Tap End when it stops** — The tool saves that contraction’s duration and computes the interval from the previous contraction’s start.
+3. **Repeat for each contraction** — Every completed contraction is added to the log with its start time, duration, and interval.
+4. **Watch the rolling averages** — Average duration and average interval update as you go, so you can see the pattern developing.
+5. **React to the 5-1-1 alert** — If the last hour matches ~5 minutes apart, ~1 minute long, the tool shows a prominent alert to consider contacting your provider — follow their instructions.
+
+## Examples
+
+**Input:** Contraction lasting 55 s, 5 minutes after the previous start
+
+**Output:** Logged: 55s duration, 05:00 interval
+
+---
+
+**Input:** Six contractions in the last hour averaging 52 s, 4:50 apart
+
+**Output:** 5-1-1 alert shown
+
+---
+
+**Input:** Reload the page mid-session
+
+**Output:** Previous completed contractions are still listed
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the 5-1-1 rule?**</summary>
+
+It is a common guideline: consider contacting your provider when contractions are about 5 minutes apart, each lasting about 1 minute, sustained for at least 1 hour. It is a general rule of thumb, and your provider may give you different instructions.
+
+</details>
+
+<details>
+<summary>**How is the interval measured?**</summary>
+
+From the start of one contraction to the start of the next (start-to-start), which is the standard way frequency is reported. The duration is measured from your start tap to your end tap.
+
+</details>
+
+<details>
+<summary>**Will I lose my log if I close the tab?**</summary>
+
+Completed contractions are saved in your browser’s local storage, so they survive a reload. A contraction that is still in progress when you reload is not saved. Clearing the log with Reset removes the saved data.
+
+</details>
+
+<details>
+<summary>**Is my data private?**</summary>
+
+Yes. Everything is timed and stored locally in your browser — nothing is uploaded to any server.
+
+</details>
+
+<details>
+<summary>**Does the 5-1-1 alert mean I am in labor?**</summary>
+
+No. It only means your recent contractions match a common pattern. It is not a diagnosis. Whether and when to go to the hospital is your provider’s call based on your specific situation.
+
+</details>
+
+<details>
+<summary>**Should I use this instead of calling my provider?**</summary>
+
+No. If you have any concern — bleeding, reduced fetal movement, your waters breaking, severe pain, or a preterm or high-risk pregnancy — contact your provider right away regardless of what the timer shows.
+
+</details>
+
+<details>
+<summary>**Can I use it for something other than contractions?**</summary>
+
+The start/stop logging works for any recurring interval, but the 5-1-1 alert is specific to labor and can be ignored in other uses.
+
+</details>
+
+## Tips
+
+- Start and stop as close to the real beginning and end of each contraction as you can for accurate timing.
+- Keep the tab open during a session; the in-progress timer is not saved across a reload, only completed contractions.
+- Note the rolling averages, not just single contractions, to judge the overall pattern.
+- Have your provider’s number ready and follow their guidance, not just the 5-1-1 alert.
+- Use Reset to clear the log between sessions so old contractions do not affect the averages.
+
+## Try it now
+
+The full Contraction Timer runs in your browser at **[https://ztools.zaions.com/contraction-timer](https://ztools.zaions.com/contraction-timer)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/contraction-timer)
+
+---
+
+*Last updated: 2026-07-08 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/health/contraction-timer.mdx)*

@@ -1,6 +1,6 @@
 # ZTools Documentation
 
-Open-source documentation for **[ZTools](https://ztools.zaions.com)** — a free, browser-only collection of 520+ developer & creator tools. Built with [Docusaurus 3](https://docusaurus.io).
+Open-source documentation for **[ZTools](https://ztools.zaions.com)** — a free collection of 570+ developer & creator tools. Built with [Docusaurus 3](https://docusaurus.io).
 
 🌐 **Live site:** [ztools-docs.zaions.com](https://ztools-docs.zaions.com)
 🛠 **App:** [ztools.zaions.com](https://ztools.zaions.com)
@@ -69,12 +69,11 @@ ztools-docs/
 
 ## Add a new tool to the docs
 
-The docs roll out 15-20 tools per batch to keep quality high. To add a tool:
+Coverage is automatic — there is no allowlist. A tool gets a page as soon as it has both enriched content and metadata in the app:
 
-1. Make sure the tool has rich content in the ZTools app: `../ztools/src/data/toolContent/batchNN.ts`
-2. Add the tool's `id` to `TOOLS_TO_PUBLISH` in `scripts/generate-tool-pages.ts`
-3. Run `yarn generate:tools && yarn build` to verify
-4. Commit + push — GitHub Actions deploys to `ztools-docs.zaions.com`
+1. Add the tool's rich content to a `../ztools/src/data/toolContent/batchNN.ts` file, and make sure it has metadata in `toolsData.ts` (core) or `growthSuiteTools.ts` (Growth Suite).
+2. Run `yarn generate:tools && yarn build` to regenerate and verify.
+3. Commit + push — GitHub Actions deploys to `ztools-docs.zaions.com`.
 
 ---
 
