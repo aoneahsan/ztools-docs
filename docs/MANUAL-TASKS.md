@@ -1,13 +1,22 @@
-# Manual / User-Only Tasks — ZTools Docs
-> The ONE place for everything only you (the human) can do. Fixed path: docs/MANUAL-TASKS.md.
-> Global spec: ~/.claude/rules/manual-tasks.md.   Last updated: 2026-07-22
+# Manual / User-Only Tasks — Ztools Docs
+
+> The ONE place for everything only you (the human) can do. Fixed path: `docs/MANUAL-TASKS.md`.
+> Global spec: `~/.claude/rules/manual-tasks.md`. Excluded from the published site (see
+> `docusaurus.config.ts` → `docs.exclude`) because this repo is public.
+> Last updated: 2026-07-25
 
 ## ⏳ Pending manual tasks
-| # | Task | Why only you | Detailed runbook | Status |
-|---|------|--------------|------------------|--------|
-| 1 | Point DNS + configure GitHub Pages for `ztools-docs.zaions.com` | Only you control the `zaions.com` DNS zone and the repo's Settings. Add a DNS **CNAME** record `ztools-docs` → `aoneahsan.github.io`, then in the repo **Settings → Pages** set source to **GitHub Actions**, set the custom domain to `ztools-docs.zaions.com`, and **Enforce HTTPS** once the cert provisions. `static/CNAME` already ships the domain in `build/`; the `deploy.yml` workflow handles the build + publish. | GitHub Pages custom-domain docs | ☐ Not started |
+
+| # | Task | Why only you | Status |
+|---|------|--------------|--------|
+| 1 | **Add DNS.** In Hostinger, add a `CNAME` record `ztools-docs` → `aoneahsan.github.io` on `zaions.com`. | Only you control the `zaions.com` DNS zone. | ☐ Not started |
+| 2 | **Configure GitHub Pages.** Repo **Settings → Pages**: source = **GitHub Actions**, custom domain = `ztools-docs.zaions.com`, then **Enforce HTTPS** once the certificate provisions. | Repo settings are owner-only. | ☐ Not started |
+
+`static/CNAME` already ships `ztools-docs.zaions.com` inside `build/`, and `.github/workflows/deploy-pages.yml` builds and
+publishes on every push to `main` — these steps are all that remain.
 
 ## ✅ Completed manual tasks
+
 | # | Task | Resolution | Date |
 |---|------|-----------|------|
-| — | Confirm tracked `.env.x` is OK in this PUBLIC repo | **ACCEPTED.** `.env.x` holds only `DOTENVX_PROJECT_ID` (a non-secret dotenvx project id designed to be committed) — no credential is exposed. Kept tracked via `!.env.x` in `.gitignore`; safe for the public repo. | 2026-07-22 |
+| — | — | — | — |
