@@ -241,7 +241,7 @@ const config: Config = {
           title: 'Product',
           items: [
             {label: 'Open ZTools', href: APP_URL},
-            {label: 'Privacy', href: `${APP_URL}/privacy`},
+            {label: 'Privacy', href: `${APP_URL}/privacy-policy`},
             {label: 'Terms', href: `${APP_URL}/terms`},
             {label: 'Support the project', href: 'https://aoneahsan.com/payment?project-id=ztools&project-identifier=com.zaions.ztools'},
           ],
