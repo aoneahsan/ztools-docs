@@ -1,6 +1,6 @@
 # ZTools
 
-> ZTools is a free collection of 570+ developer & creator tools — JSON formatters, password generators, image compressors, regex testers, QR generators, PDF tools, and more. The vast majority run entirely in the user's browser (no signup, no upload, no data leaves the device); a small paid Growth Suite adds AI-assisted SEO tools that need a sign-in and the user's own API key.
+> ZTools is a free collection of 580+ developer & creator tools — JSON formatters, password generators, image compressors, regex testers, QR generators, PDF tools, and more. The vast majority run entirely in the user's browser (no signup, no upload, no data leaves the device); a small paid Growth Suite adds AI-assisted SEO tools that need a sign-in and the user's own API key.
 
 ## Key URLs
 
@@ -11,11 +11,12 @@
 
 ## Highlights
 
-- 570+ tools across 20 categories (Text, PDF, Image, Data, Generator, Encoding, Conversion, SEO, Math, Health, Education, Finance, Productivity, Media, Design, Developer, Extractor, Legal, Utility, Growth)
-- Browser-only processing — Canvas, Web Audio, SubtleCrypto, Web Speech, IndexedDB
-- Free, no signup, no email gate, no paywall
+- 580+ tools across 20 categories (Text, PDF, Image, Data, Generator, Encoding, Conversion, SEO, Math, Health, Education, Finance, Productivity, Media, Design, Developer, Extractor, Legal, Utility, Growth)
+- Browser-first processing — Canvas, Web Audio, SubtleCrypto, Web Speech, IndexedDB; a few heavy tools can process a file on the ZTools server (uploaded temporarily, deleted after processing)
+- Machine-readable tool registry with each tool's real URL: https://ztools.zaions.com/tools-registry.json
+- Free tools need no signup and no email gate; the Growth Suite has paid plans
 - Open-source documentation
-- Mobile apps (Android shipped, iOS pending)
+- Android app on Google Play; no iOS app
 - Privacy-first by design
 
 ## Documentation structure
@@ -40,7 +41,7 @@ Ahsan Mahmood — solo developer, Pakistan-based.
 
 The documentation site optionally uses up to four third-party tools — Google Analytics 4 (page traffic, IP-anonymized), Microsoft Clarity (anonymized recordings + heatmaps), Amplitude (page views + downloads, no form/element capture), and Sentry (10%-sampled error reports, no session replay, no PII). Each is gated by an env var; absent secrets mean the corresponding tool's script does not ship. Full disclosure: https://ztools-docs.zaions.com/docs/privacy.
 
-The main app at ztools.zaions.com processes everything browser-side; tool inputs never reach a server.
+The main app at ztools.zaions.com processes most tools browser-side. Server-backed tools upload the file temporarily and delete it after processing; see https://ztools.zaions.com/privacy-policy.
 
 ## License
 

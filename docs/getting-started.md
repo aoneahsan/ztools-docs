@@ -14,7 +14,7 @@ ZTools is built around one principle: **zero friction**. Open the app, pick a to
 
 Visit **[ztools.zaions.com](https://ztools.zaions.com)** — works in any modern browser (Chrome, Firefox, Safari, Edge, Brave). No install required.
 
-Mobile? Both **[Android](https://play.google.com/store/apps/details?id=com.zaions.ztools)** and a coming-soon iOS build are wrapped via Capacitor and ship the same tools.
+Mobile? The **[Android app](https://play.google.com/store/apps/details?id=com.zaions.ztools)** ships the same tools. There is no iOS app; on iPhone and iPad use the web app.
 
 ## 2. Find a tool
 
@@ -22,7 +22,7 @@ Three discovery paths:
 
 - **Search** — top-of-page search box, fuzzy match on tool name + description + category.
 - **Browse** — the home page groups tools by category (Text, Image, PDF, Data, etc.).
-- **Direct URL** — every tool has a stable URL: `ztools.zaions.com/<tool-id>`. Bookmark your favorites.
+- **Direct URL** — every tool has its own stable address, linked from its page in these docs. Bookmark your favorites.
 
 ## 3. Use the tool
 
@@ -33,7 +33,7 @@ Each tool follows a similar pattern:
 3. **Output area** — result appears live as you type, or after clicking the action button.
 4. **Copy / download** — one-click copy or download for the result.
 
-For tools that handle files (image compression, PDF merge, etc.), files stay on your device. The browser does the work.
+For most tools that handle files (image compression, PDF merge, etc.), files stay on your device and the browser does the work. A few heavy tools offer server processing; their pages say so, and the file is deleted right after processing.
 
 ## 4. Save your work
 
@@ -43,7 +43,7 @@ ZTools doesn't require an account, but signing in unlocks:
 - **History** — last 50 inputs across all tools.
 - **Cloud sync** — favorites and preferences sync across devices.
 
-Sign-in uses Google OAuth via the [Chrome Identity API](https://developer.chrome.com/docs/extensions/reference/identity) or Firebase Auth on web. Your tool inputs are never sent to any server.
+Sign-in uses Google OAuth via the [Chrome Identity API](https://developer.chrome.com/docs/extensions/reference/identity) or Firebase Auth on web. Sign-in itself never sends your tool inputs anywhere.
 
 ## 5. Customize the experience
 

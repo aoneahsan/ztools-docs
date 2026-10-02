@@ -13,7 +13,7 @@ The [Getting Started](/docs/getting-started) page covers the basics. This guide 
 ## Find a tool in seconds
 
 - **Search** — the search box (top of the app, and on this docs site) fuzzy-matches tool name, description, and category. Start typing and hit Enter on the first result.
-- **Direct URL** — every tool has a stable address: `ztools.zaions.com/<tool-id>`. Bookmark the ones you use daily.
+- **Direct URL** — every tool has its own stable address, linked from its docs page. Bookmark the ones you use daily.
 - **Browse by category** — see [Browse tools by category](/docs/guides/browse-by-category).
 
 ## Sign in only when it pays off

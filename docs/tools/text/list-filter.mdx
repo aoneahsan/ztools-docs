@@ -1,0 +1,140 @@
+---
+id: list-filter
+title: "List Filter — Filter Lines by Contains, Starts With, Ends With"
+description: "Paste a list and keep only the lines that match: contains, starts with, ends with, exact match, or empty and non-empty lines."
+sidebar_label: "List Filter"
+keywords:
+  - "list filter"
+  - "filter lines by text"
+  - "filter list online"
+  - "remove blank lines"
+  - "starts with filter"
+  - "ends with filter"
+  - "exact match filter"
+  - "text line filter"
+last_update:
+  date: 2026-07-25
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# List Filter
+
+A list filter keeps only the lines of a list that match a rule you choose, and discards the rest. The ZTools List Filter takes one item per line and offers six match types: contains, starts with, ends with, exact match, empty lines, and non-empty lines — with an optional case-sensitive toggle. It is the plain-text equivalent of a spreadsheet filter or a grep command, for the very common situation where your data is a pasted column rather than a file you can pipe. Filtering happens in your browser as you type, with no upload and no dependency on any service.
+
+<ToolCTA href="https://ztools.zaions.com/list-filter" toolName="List Filter" kind="browser" />
+
+## Use cases
+
+### Pulling one domain out of a pasted email list
+
+Paste a column of addresses exported from a spreadsheet and filter by "ends with" your domain to isolate internal recipients from external ones. This is far quicker than writing a formula, and it works on a list you have simply copied out of a message or a report.
+
+### Cleaning blank lines out of pasted data
+
+Copying from a PDF, a rendered table or a chat message routinely introduces empty lines. The non-empty filter strips them in one pass, giving you a clean list ready to paste into a form, a config file or another tool.
+
+### Isolating matching entries in a log or export
+
+When you have a few hundred lines and want only those mentioning a particular id, status or path, the contains filter gets there immediately — useful when the data is already on your clipboard and moving it into a terminal or an editor would be the slow part.
+
+### Checking whether an exact value is present
+
+Exact match answers "is this precise string in the list?" without the false positives that a substring search produces — so "user" does not match "username", and a value that exists as part of a longer entry is not mistaken for the entry itself.
+
+## How it works
+
+1. **Paste your list** — Enter your items one per line in the input field. Any list you can copy — a spreadsheet column, an export, a block of log lines — works.
+2. **Choose a filter type** — Pick contains, starts with, ends with, exact match, empty lines or non-empty lines. The last two need no filter text.
+3. **Enter the text to match** — Type the string to match against. For the empty and non-empty filters this field is not used.
+4. **Set case sensitivity** — Leave the case-sensitive box unchecked to match regardless of capitalisation, or tick it when the difference matters — for example when filtering identifiers or codes.
+5. **Copy the filtered list** — The matching lines appear in the output field, ready to copy straight into wherever they need to go.
+
+## Examples
+
+**Input:** List: alice@example.com, bob@other.org, carol@example.com
+Filter: ends with "@example.com"
+
+**Output:** alice@example.com
+carol@example.com
+
+---
+
+**Input:** List with several blank lines · Filter: non-empty lines
+
+**Output:** Every line that has content, with the blanks removed and the original order preserved.
+
+---
+
+**Input:** List: user, username, users · Filter: exact match "user"
+
+**Output:** user
+
+## Frequently asked questions
+
+<details>
+<summary>**Does it keep the original order?**</summary>
+
+Yes. Filtering only removes lines that do not match; the ones that survive stay in the order you pasted them.
+
+</details>
+
+<details>
+<summary>**Can I invert the filter to remove matches instead of keeping them?**</summary>
+
+Not directly — the filters keep what matches. The empty and non-empty filters are the built-in exception, since non-empty is effectively "remove the blanks". For anything else, filter to see the matches, then remove them from your source list.
+
+</details>
+
+<details>
+<summary>**Does it support regular expressions?**</summary>
+
+No. The six match types are literal string comparisons. If you need pattern matching, a regex tester is the right tool — this one is deliberately simple so the result is predictable.
+
+</details>
+
+<details>
+<summary>**Is my list uploaded anywhere?**</summary>
+
+No. Filtering runs entirely in your browser with no network request, so a list containing internal data does not leave your machine.
+
+</details>
+
+<details>
+<summary>**What counts as an empty line?**</summary>
+
+A line with no content. Note that a line containing only spaces or tabs looks empty but is not — if those are surviving your filter, remove the whitespace first with the Text Trimmer.
+
+</details>
+
+<details>
+<summary>**How large a list can it handle?**</summary>
+
+Ordinary pasted lists — hundreds or thousands of lines — filter instantly. It is built for clipboard-sized data rather than as a replacement for command-line tools on very large files.
+
+</details>
+
+<details>
+<summary>**How is this different from sorting or deduplicating a list?**</summary>
+
+Filtering decides which lines to keep. Sorting changes their order and deduplication removes repeats — ZTools has a List Sorter and a List Deduplicator for those, and the three are often used one after another.
+
+</details>
+
+## Tips
+
+- Run the non-empty filter first when pasting from a PDF or a chat message; removing blanks up front makes every later filter cleaner.
+- Use exact match rather than contains when a value can appear inside a longer entry, or you will collect false positives.
+- Leave case sensitivity off for anything human-entered, and turn it on for identifiers, codes and keys where capitalisation carries meaning.
+- Chain tools: filter here, then deduplicate or sort the result to get from a messy paste to a clean list in a few steps.
+
+## Try it now
+
+The full List Filter runs in your browser at **[https://ztools.zaions.com/list-filter](https://ztools.zaions.com/list-filter)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/list-filter)
+
+---
+
+*Last updated: 2026-07-25 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/list-filter.mdx)*

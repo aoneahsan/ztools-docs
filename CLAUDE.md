@@ -1,104 +1,55 @@
 # ZTools Docs — Project Guide (CLAUDE.md)
 
-**Last Updated**: 2026-07-22
+**Last Updated**: 2026-10-02
 
-## Task Speed Over Docs (IRON-SOLID — BEHAVIORAL)
+Docusaurus 3 documentation site for **ZTools** (parent app `https://ztools.zaions.com`, Play Store
+`com.zaions.ztools`). This repo is only the docs; the app lives in the private sibling repo at `../ztools/`.
+Fleet rules load from `~/.claude/rules/` and are not repeated here.
 
-Finish the real task fast + correctly FIRST; docs/trackers/sync are a footnote (≤~20% of effort) — never let recording outpace the fix. HARD STOP when doc work outpaces the change → ship, then ONE line if anything. No new summary/status/completion files unless asked; edit/delete over add; delete stale docs. Full rule: `~/.claude/CLAUDE.md`. (Est. 2026-06-19)
+| Fact | Value |
+|---|---|
+| Live docs | https://ztools-docs.zaions.com (GitHub Pages, `static/CNAME`) |
+| Repo | `git@github.com:aoneahsan/ztools-docs.git` — **PUBLIC**, branch `main`, remote **`origin`** |
+| Stack | Docusaurus 3.10 + `@docusaurus/faster`, React 19, TypeScript ~6, Yarn 4 (`.yarnrc.yml`, `nodeLinker: node-modules`) |
+| Deploy | Push to `main` → `.github/workflows/deploy-pages.yml` builds and publishes. CI does not run the generator; `docs/tools/` is committed |
+| Secrets | None in this repo, ever. Only `.env.example`; analytics keys are Actions secrets |
+| Owner-only steps | `docs/MANUAL-TASKS.md` (excluded from the published site) |
 
-Docusaurus 3 documentation site for the **ZTools** utility suite (parent app: `ztools.zaions.com`, Play Store `com.zaions.ztools`). This repo is **only the docs** — the ZTools app source lives in a separate (currently private) repo.
+## Tool pages — one source, real URLs
 
-- Live docs: https://ztools-docs.zaions.com
-- Parent app: https://ztools.zaions.com
-- Repo: `git@github.com:aoneahsan/ztools-docs.git` (remote name is `o`), branch `main`
-- License: MIT (docs site source)
-
----
-
-## What this is
-
-- Docusaurus 3.10.2 static site, React 19, TypeScript ~6 (fleet pin). **Yarn Berry** — there is **no `packageManager` pin** in `package.json`; `yarn` resolves to the globally-installed Yarn 4.x, driven by `.yarnrc.yml` (`nodeLinker: node-modules`), and the lockfile is Berry format (metadata v10). (Not classic Yarn 1.x — a Berry lockfile can't install under 1.x. CI provisions Berry via `corepack prepare yarn@stable`.)
-- **572 per-tool MDX pages** auto-generated across 20 categories from the sibling `../ztools/` app's content data files — single source of truth, no app/docs drift. The parent app is **v2.26.0** with **575 tools** (565 core + 10 Growth Suite); 3 tools lack enriched content in the app data, so 572 get a documented page.
-- Generator: `scripts/generate-tool-pages.ts`, run via `yarn generate:tools` (full pipeline: `yarn build:full`).
-- `@docusaurus/faster` (Rspack) build, local search (`@easyops-cn/docusaurus-search-local`), Mermaid diagrams, strict CI (`onBrokenLinks: 'throw'`).
-- Env-gated observability: GA4 (IP-anonymized), Microsoft Clarity, Amplitude, Sentry — each ships only when its env var is set. Disclosure at `/docs/privacy`.
-- Full favicon / OG / PWA manifest set. Brand: warm amber `#ffa840` on charcoal/cream, dark-mode default.
+- `yarn generate:tools` (`scripts/generate-tool-pages.ts`) writes one MDX page per tool into `docs/tools/`.
+  Never hand-edit a generated page; change the app's data and regenerate.
+- **Identity comes from `../ztools/dist/tools-registry.json`**, emitted by the app's build (`yarn build` in
+  `../ztools`). Content comes from `../ztools/src/data/toolContent/batch*.ts`.
+- 🔴 **A tool's app link is `https://ztools.zaions.com` + its `route`, never `/<id>`.** Ids and routes differ
+  for many tools; linking by id published 404 links until 2026-10-02.
+- **Link gate:** the generator stops, writing nothing, when content has no registry row or a tool's route has
+  no built page in `../ztools/dist`. Do not weaken it. Registry tools without content are listed as a warning.
+- Paid (Growth Suite) and server-backed tools get their own wording through `ToolCTA`'s `kind` prop — they
+  never carry the "no signup, no upload" line.
+- Counts on the hub pages are computed by the generator. Hand-written pages say "580+".
 
 ## Commands
 
 ```bash
 yarn install
-yarn generate:tools   # regenerate MDX from ../ztools content data
-yarn typecheck        # tsc — must be clean
-yarn build            # Rspack production build into build/
+yarn generate:tools   # needs a fresh ../ztools build
+yarn typecheck
+yarn build            # onBrokenLinks: 'throw' — the build is the internal link checker
 yarn build:full       # generate:tools + build
 ```
 
-> Never run dev/preview/watch servers (`yarn start`, `yarn serve`) — author runs those.
-
-## Deployment
-
-Public repo → **GitHub Pages** at custom domain `ztools-docs.zaions.com` (pinned by `static/CNAME`, copied verbatim into `build/`). CI: `.github/workflows/deploy.yml` builds (`yarn build`) and deploys via the official `upload-pages-artifact` + `deploy-pages` flow on every push to `main`; optional analytics keys are injected from repo secrets. CI does **not** run `generate:tools` — the `docs/tools/` pages are committed (the sibling `../ztools` app isn't in CI). Owner-only setup (DNS CNAME + repo Pages custom-domain/HTTPS) is in `docs/MANUAL-TASKS.md`.
+Never run `yarn start` / `yarn serve` unprompted.
 
 ## Known local-build quirk
 
-Docs siblings using `@docusaurus/faster` (Rspack) can fail `yarn build` LOCALLY when the parent workspace has gitlinks without a `.gitmodules` (eager `git submodule status` exits 128). CI / standalone clones are unaffected. As of 2026-07-22 the local build PASSED (typecheck + build both green, 593 pages); if it ever fails with that exact submodule error and typecheck is clean, treat it as the known local-only quirk — do NOT modify the workspace.
+`@docusaurus/faster` can fail `yarn build` locally with a `git submodule status` exit 128 when the parent
+workspace has gitlinks without `.gitmodules`. CI and standalone clones are unaffected. If typecheck is clean
+and that exact error appears, it is this quirk; do not change the workspace.
 
----
+## Content rules for hand-written pages
 
-## Portfolio Info File — Weekly Update Rule
-- Canonical portfolio info file: `/home/ahsan/Documents/ahsan-notebook/static/assets/personal/projects-info-as-portfolio-item/apps/ZTOOLS-DOCS_portfolio-info_<YYYY-MM-DD>.md`
-- Update at least once per week (and on any material change). Keep the last-updated date in the filename.
-- Keep a max-10-entry update history inside the file. On each refresh: prepend today's row, delete the previous dated file, write the new one.
-- Tracker: `/home/ahsan/Documents/01-code/docs/tracking/portfolio-info-files-update-tracker.json`
-- Last applied: 2026-05-29
-
-## Package Manager Hierarchy: nvm → npm (global) → yarn (local) (IRON-SOLID)
-
-Three tiers, each tool ONLY for its tier — for the best, most reproducible dev results:
-- **`nvm`** → install/update Node.js (which bundles `npm`): `nvm install --lts`. Use nvm to get/update `npm` itself.
-- **`npm`** → ALL global packages: `npm install -g yarn` (install yarn globally if missing) + `npm install -g <pkg>` (every other global CLI).
-- **`yarn`** → ALL local project work: `yarn`, `yarn add <pkg>`, `yarn add -D <pkg>` inside the project.
-
-❌ NEVER use `npm`/`pnpm` for LOCAL installs. NEVER use `pnpm` at all. ✅ Only `yarn.lock` in the project — delete `package-lock.json` and `pnpm-lock.yaml`.
-
-## Package Upgrades: Use `npm-check-updates`
-For dependency upgrades use `npx -y npm-check-updates -u && yarn install` (latest STABLE), NOT `yarn upgrade --latest`. Full rule in global `~/.claude/CLAUDE.md`. Last applied: 2026-05-29
-
-## SEO + AEO + Ranking
-Diagnostic + fix playbook: `~/.claude/rules/seo-aeo-ranking.md`. This site is the origin example for that playbook. robots.txt allows all major AI bots; `llms.txt` shipped; per-tool 1000+ word MDX with FAQ/HowTo. Last applied: 2026-05-06
-
-## Share Feature — Web + Mobile Contract (IRON-SOLID)
-
-All user-facing "share" actions follow the global contract: **web** (any browser, incl. mobile web) opens an in-app `WebShareModal` — a social grid (X, Facebook, LinkedIn, WhatsApp, Telegram, Reddit, Email web-intents) + a copy-link button; **native** (Capacitor) uses the OS share sheet via `@capacitor/share`. The web-vs-native split is decided at button-click via `Capacitor.isNativePlatform()`. ❌ Never use `navigator.share` as the primary web path with a silent clipboard fallback. **Full spec: `~/.claude/rules/share-feature.md`.**
-
-## Gitignore Hygiene (IRON-SOLID)
-`.gitignore` stays current with the project structure — ignore only recoverable artifacts (build/`dist`/`www`/`node_modules`/logs/caches/IDE), never lose source. Custom rules always present: `*.ignore.*`, `project-record-ignore/`. This is a **PUBLIC** repo -> secrets/`.env`/keystores are NEVER tracked.
-Full rule + private/public protocol: `~/.claude/rules/project-config.md`.
-Gitignore Last Verified: 2026-06-24
-
-
-## Sub-agents & Skills — Main-Context-First (IRON-SOLID)
-Default/built-in sub-agents (`general-purpose`, `Explore`, `Plan`, `claude`, `fork`, …) do NOT have
-access to `/skills`, so delegating to them silently SKIPS the skills RULE #0 requires. Do all
-skill-relevant work in the **MAIN context**; use a sub-agent ONLY when a **custom** agent exists in
-`.claude/agents/` for that job; a default `Explore`/`Plan` agent is allowed ONLY for read-only,
-no-skill search/exploration. When a relevant skill is missing, **install/enable it** rather than
-proceeding skill-less. (Owner directive 2026-07-11; full text in `~/.claude/CLAUDE.md`.)
-
-<!-- RULE:main-context-model-workflow v2026-07-16 -->
-## Main-Context + Skills + Model Workflow (IRON-SOLID — CRITICAL)
-1. **NO default/built-in sub-agents** (`general-purpose`, `Explore`, `Plan`, `claude`, `fork`, …) for ANY work in
-   this project — they cannot invoke /skills, which RULE #0 makes mandatory. Do ALL work (planning, implementation,
-   review, exploration) in the MAIN context. A sub-agent is allowed ONLY when a CUSTOM agent exists in
-   `.claude/agents/` for that exact job.
-2. **Skills always:** before any task, scan the available-skills list and invoke EVERY relevant skill; if a needed
-   skill is missing, download/enable/install it (or use the nearest installed equivalent and say so) — never
-   proceed skill-less.
-3. **Model workflow:** PLAN and REVIEW on **Fable 5**; EXECUTE the approved plan on **Opus 4.8**. Plans in
-   `~/.claude/plans/`; multi-phase features keep a resumable tracker (`docs/features/<slug>/00-tracker.json`),
-   resumed rather than re-planned from zero.
-
-Global records (rules, policy, audit reports) live in the `ahsan-notebook` repo at
-`static/assets/claude-code/`; the `~/.claude/…` paths are symlinks into it. Full text: `~/.claude/CLAUDE.md`.
-(Owner directives 2026-07-11 / 2026-07-14; fleet-rolled 2026-07-16.)
+- State limits next to claims: most tools run in the browser; a few can use the server; the Growth Suite has
+  paid plans; there is no iOS app.
+- Check every `ztools.zaions.com/...` deep link against the registry or the app's built pages before adding it.
+- Portfolio info for this site lives in the notebook, not here.

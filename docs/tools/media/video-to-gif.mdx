@@ -1,7 +1,7 @@
 ---
 id: video-to-gif
 title: "Video to GIF — Convert MP4 to Animated GIF, Free"
-description: "Convert MP4 / WebM / MOV video to animated GIF. Set start/end, FPS, dimensions. Browser-only, no upload."
+description: "Turn a short part of an MP4, WebM or MOV video into an animated GIF. Pick the start, length, frame rate and width, in your browser or on our server for cleaner colours."
 sidebar_label: "Video to GIF Converter"
 keywords:
   - "video to gif"
@@ -11,7 +11,7 @@ keywords:
   - "online gif maker"
   - "animated gif from video"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -19,9 +19,9 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Video to GIF Converter
 
-A video-to-GIF converter extracts a short segment from a video file and produces an animated GIF — a widely-supported looping image format ideal for chat reactions, documentation animations, README demos, and social-media short clips. The ZTools Video to GIF runs entirely in the browser using FFmpeg.wasm and the Canvas API, lets you pick the start and end timestamps from the original video, configure frame rate (10-30 fps) and output dimensions, and download the GIF — without uploading the source video to any server.
+A video-to-GIF converter takes a short segment of a video file and produces an animated GIF — a widely supported looping image format ideal for chat reactions, documentation animations, README demos, and social-media clips. The ZTools Video to GIF has two modes. On this device, it plays the chosen segment in your browser, captures the frames on a canvas and encodes the GIF with gif.js: 8 to 30 fps, up to 800 px wide and 300 frames, and nothing is uploaded. On our server, ffmpeg builds a colour palette for your clip in two passes, which gives cleaner colours and finishes faster: up to 15 seconds, 5 to 20 fps and 640 px wide. The server mode needs a free Google sign-in and deletes your video right after processing.
 
-<ToolCTA toolId="video-to-gif" toolName="Video to GIF Converter" />
+<ToolCTA href="https://ztools.zaions.com/video-to-gif" toolName="Video to GIF Converter" kind="server" />
 
 ## Use cases
 
@@ -43,11 +43,11 @@ Show a single UI interaction (a 2-second click + animation) inline in documentat
 
 ## How it works
 
-1. **Upload video** — Drag-and-drop MP4 / WebM / MOV / AVI. Tool decodes locally via FFmpeg.wasm.
-2. **Set start / end timestamps** — Scrub through the video; mark the segment. Keep clips under 10 seconds for reasonable file size.
-3. **Configure output** — Frame rate (lower = smaller file, choppier; 12-15 fps is a sensible default). Dimensions (resize down to control size).
-4. **Encode** — FFmpeg.wasm processes in-browser; progress bar shows status. Single-pass for speed; two-pass for higher quality at same size.
-5. **Download** — Output GIF file saves locally. Inspect file size; iterate on FPS / dimensions if too large.
+1. **Add a video** — MP4, WebM, MOV and more. The server mode takes files up to 100 MB.
+2. **Choose where to make the GIF** — "On this device" captures the frames in your browser with no upload. "On our server" uses ffmpeg with a two-pass colour palette and needs a free Google sign-in.
+3. **Set the segment** — Pick where the clip starts and how long it runs. Keep clips under 10 seconds for a reasonable file size; the server mode takes up to 15 seconds.
+4. **Configure output** — Frame rate (lower = smaller file, choppier; 10-15 fps is a sensible default) and width (a smaller width gives a much smaller file).
+5. **Download** — Save the GIF, check its size, and lower the frame rate or width if it is too large.
 
 ## Examples
 
@@ -72,7 +72,7 @@ Show a single UI interaction (a 2-second click + animation) inline in documentat
 <details>
 <summary>**Why does my GIF look terrible?**</summary>
 
-GIFs use a 256-colour palette per frame, which struggles with photographic content (gradients, skin tones). Reduce dimensions, drop frame rate, or accept the constraint. For high-quality animation, use WebM or MP4.
+GIFs use a 256-colour palette per frame, which struggles with photographic content (gradients, skin tones). The server mode builds a palette for your clip, which helps. Otherwise reduce dimensions, drop the frame rate, or use WebM or MP4 for high-quality animation.
 
 </details>
 
@@ -93,14 +93,14 @@ GIF: universal autoplay, perfect for README and chat. WebM/MP4: 10x smaller, bet
 <details>
 <summary>**How long can the GIF be?**</summary>
 
-Up to about 30 seconds practically. Longer GIFs balloon in size and lose viewer attention. Most great GIFs are under 10 seconds.
+On this device, up to 300 frames (for example, 20 seconds at 15 fps); on our server, up to 15 seconds. Longer GIFs balloon in size and lose viewer attention; most great GIFs are under 10 seconds.
 
 </details>
 
 <details>
 <summary>**Is the video uploaded?**</summary>
 
-No — FFmpeg.wasm decodes and encodes entirely in the browser. The original video never leaves your device.
+Only in the "On our server" mode, which sends it over HTTPS to our own processing server; the server deletes the video and the GIF right after processing. The "On this device" mode never uploads anything.
 
 </details>
 
@@ -121,10 +121,10 @@ Not directly — render the GIF first, then overlay text in a separate tool. Or 
 
 ## Try it now
 
-The full Video to GIF Converter runs in your browser at **[https://ztools.zaions.com/video-to-gif](https://ztools.zaions.com/video-to-gif)** — no signup, no upload, no data leaves your device.
+The full Video to GIF Converter runs at **[https://ztools.zaions.com/video-to-gif](https://ztools.zaions.com/video-to-gif)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
 [Open the tool ↗](https://ztools.zaions.com/video-to-gif)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/video-to-gif.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/video-to-gif.mdx)*

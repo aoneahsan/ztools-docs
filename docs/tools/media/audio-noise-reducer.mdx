@@ -1,7 +1,7 @@
 ---
 id: audio-noise-reducer
 title: "Audio Noise Reducer — Remove Background Hiss & Hum"
-description: "Reduce background noise (hiss, hum, fan) from audio files. Spectral noise gate, free, browser-only."
+description: "Reduce steady background noise (hiss, hum, fan) in audio files: a filter-and-gate chain in your browser, or a stronger FFT denoiser on our server (free Google sign-in)."
 sidebar_label: "Audio Noise Reducer"
 keywords:
   - "audio noise reducer"
@@ -11,7 +11,7 @@ keywords:
   - "free noise reduction"
   - "audio denoiser"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -19,112 +19,112 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Audio Noise Reducer
 
-An audio noise reducer suppresses background noise — fan hum, computer whirr, traffic, hiss, room reverb — from a recording, producing a cleaner voice or music track suitable for podcasts, video voice-overs, and shareable recordings. The ZTools Audio Noise Reducer runs entirely in the browser using a Web Audio API spectral noise gate, lets you sample a "noise-only" segment of the recording so the algorithm knows what to remove, supports adjustable strength (light to aggressive), and exports the cleaned audio as MP3 or WAV — without uploading the source file.
+An audio noise reducer suppresses steady background noise — fan hum, computer whirr, traffic rumble, hiss — in a recording, producing a cleaner voice track for podcasts, video voice-overs and shareable recordings. The ZTools Audio Noise Reducer has two modes. On this device, it runs a high-pass filter and a smoothed noise gate with the Web Audio API, driven by one strength control (with the individual filters in advanced settings), lets you compare the original and the result side by side, and exports a 16-bit WAV; nothing is uploaded. On our server, ffmpeg's FFT denoiser removes noise frequency by frequency at light, medium or strong settings, with a low-rumble filter that is on by default, and saves WAV, MP3, M4A or FLAC. The server mode takes files up to 100 MB and 30 minutes, needs a free Google sign-in, and deletes your file right after processing.
 
-<ToolCTA toolId="audio-noise-reducer" toolName="Audio Noise Reducer" />
+<ToolCTA href="https://ztools.zaions.com/tools/audio-noise-reducer" toolName="Audio Noise Reducer" kind="server" />
 
 ## Use cases
 
 ### Podcast / interview cleanup
 
-Recorded in a room with HVAC hum or laptop fan noise. The tool isolates and removes the constant background, leaving voice intact. Listeners notice less fatigue over a 30-minute episode.
+Recorded in a room with HVAC hum or laptop fan noise. Removing the constant background leaves the voice easier to listen to over a long episode.
 
 ### Field-recording cleanup
 
-Outdoor recording with wind / traffic. Spectral noise reduction can recover some intelligibility lost to ambient noise (within limits — heavy noise destroys the underlying audio).
+Outdoor recording with wind / traffic. Noise reduction can recover some intelligibility lost to steady ambient noise (within limits — heavy noise destroys the underlying audio).
 
 ### Voice-memo polish
 
-A voice memo recorded in a coffee shop. Light noise reduction removes the espresso machine without making the voice sound hollow.
+A voice memo recorded near a noisy appliance. Light noise reduction lowers the drone without making the voice sound hollow.
 
 ### Pre-transcription cleanup
 
-Speech-to-text engines accuracy drops sharply with background noise. A pre-transcription noise reduction can lift accuracy from 70% to 90%+.
+Speech-to-text accuracy drops with background noise. Cleaning a noisy recording first can help the transcript, especially for steady hum and hiss.
 
 ## How it works
 
-1. **Upload audio** — MP3 / WAV / OGG / M4A. Tool decodes to PCM in browser memory.
-2. **Identify noise sample** — Mark a 1-3 second region containing only background noise (no voice / music). Tool builds a spectral profile of "what to remove".
-3. **Apply noise gate** — For each FFT frame of the recording, frequencies matching the noise profile are attenuated below a threshold. Threshold is tunable (light / medium / aggressive).
-4. **Preview** — Listen to the result. Aggressive settings can introduce a "watery" artifact (musical noise); back off to medium if too obvious.
-5. **Export** — Download cleaned audio as MP3 or WAV. Original untouched.
+1. **Add an audio file** — MP3, WAV, OGG, Opus, FLAC, AAC or M4A. The server mode also takes a video with sound.
+2. **Choose where to process it** — "On this device" cleans it in your browser with no upload. "On our server" uses a stronger FFT denoiser and needs a free Google sign-in.
+3. **Pick the strength** — Start with medium. Strong removes more noise but can make voices sound thin or watery.
+4. **Preview** — Listen to the result next to the original. Back off the strength if the voice starts to sound processed.
+5. **Export** — On this device: a 16-bit WAV. On our server: WAV, MP3, M4A or FLAC. The original file is never changed.
 
 ## Examples
 
-**Input:** 5-min podcast with HVAC hum, sample 2 sec of silence
+**Input:** 5-min podcast with HVAC hum
 
-**Output:** Hum removed; voice intact. Light artifact only on aggressive setting.
+**Output:** Hum much lower; voice intact at medium strength.
 
 ---
 
 **Input:** Interview with laptop fan whirr
 
-**Output:** Fan removed; voice clarity improves measurably; transcription accuracy up.
+**Output:** Fan noise reduced; the voice stands out more clearly.
 
 ---
 
 **Input:** Outdoor recording with wind gusts
 
-**Output:** Constant wind component reduced; gust transients harder to remove. Use a wind muff in field for best results.
+**Output:** Steady wind reduced; sudden gusts are harder to remove. Use a wind muff in the field for best results.
 
 ## Frequently asked questions
 
 <details>
-<summary>**Why do I need to sample noise?**</summary>
+<summary>**What noise can it remove?**</summary>
 
-The algorithm needs to know what noise looks like spectrally before it can suppress it. Without a sample, it would also attenuate desired audio (music, voice) at the same frequencies.
+Steady noise: hum, hiss, fans, air conditioning, distant traffic. Changing noise (people talking, music, clattering) is much harder and stays partly audible.
 
 </details>
 
 <details>
 <summary>**What is "musical noise"?**</summary>
 
-An artifact of aggressive spectral noise reduction — residual noise becomes pitched bursts that sound watery / metallic. Caused by over-suppressing frequencies. Light settings avoid it; aggressive risks it.
+An artifact of aggressive noise reduction — residual noise becomes pitched bursts that sound watery / metallic. Caused by over-suppressing frequencies. Light settings avoid it; strong settings risk it.
 
 </details>
 
 <details>
 <summary>**Can I remove voices in the background?**</summary>
 
-No — voice has a complex, time-varying spectrum, similar to the foreground voice. The algorithm cannot separate two human voices reliably; that requires AI source separation (Demucs, SpleeT) which run on desktop.
+No — a voice has a complex, time-varying spectrum, similar to the foreground voice. Separating two human voices requires AI source separation, which this tool does not do.
 
 </details>
 
 <details>
-<summary>**How much noise can be removed?**</summary>
+<summary>**Which mode removes more noise?**</summary>
 
-Constant noise (hum, hiss, fan) ~10-25 dB suppression possible without obvious artifacts. Variable noise (people, music) much harder. Best result: avoid noisy recording in the first place.
+The server mode: its FFT denoiser works frequency by frequency, while the on-device mode filters low rumble and gates quiet passages.
 
 </details>
 
 <details>
 <summary>**Is the audio uploaded?**</summary>
 
-No — entirely client-side. Web Audio API processes in browser memory.
+Only in the "On our server" mode, which sends it over HTTPS to our own processing server; the server deletes the file and the result right after processing. The "On this device" mode never uploads anything.
 
 </details>
 
 <details>
 <summary>**Why does my voice sound thin after reduction?**</summary>
 
-Aggressive setting attenuated voice frequencies that overlapped with noise frequencies. Reduce strength; or sample a quieter noise segment without voice resonance.
+A strong setting also removed voice frequencies that overlapped with the noise. Lower the strength and try again.
 
 </details>
 
 ## Tips
 
 - Always record clean before relying on cleanup. Reduction recovers some quality but never restores what was masked.
-- Sample noise from a 2-3 second silent region with no voice — picking a region with breath or movement contaminates the profile.
-- Start with light reduction; bump up only if needed. Aggressive settings introduce more artifacts than mild noise.
+- Start with light or medium reduction; go stronger only if needed. Strong settings introduce more artifacts than mild noise.
+- Keep the rumble filter on for traffic or air-conditioning noise below the voice range.
 - For broadcast-quality results, follow noise reduction with EQ + compression to restore tonal balance.
-- Save a backup before processing — irreversible if you overwrite the source.
+- Keep the original file — a cleaned version cannot be turned back.
 
 ## Try it now
 
-The full Audio Noise Reducer runs in your browser at **[https://ztools.zaions.com/audio-noise-reducer](https://ztools.zaions.com/audio-noise-reducer)** — no signup, no upload, no data leaves your device.
+The full Audio Noise Reducer runs at **[https://ztools.zaions.com/tools/audio-noise-reducer](https://ztools.zaions.com/tools/audio-noise-reducer)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
-[Open the tool ↗](https://ztools.zaions.com/audio-noise-reducer)
+[Open the tool ↗](https://ztools.zaions.com/tools/audio-noise-reducer)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-noise-reducer.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-noise-reducer.mdx)*

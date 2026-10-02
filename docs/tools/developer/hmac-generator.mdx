@@ -1,0 +1,132 @@
+---
+id: hmac-generator
+title: "HMAC Generator — SHA-256, SHA-512, SHA-3 & More, Online"
+description: "Generate a keyed HMAC signature from a message and secret across 9 hash algorithms, with hex, Base64 or Base64-URL output. Browser-only."
+sidebar_label: "HMAC Generator"
+keywords:
+  - "hmac generator"
+  - "hmac sha256 online"
+  - "hmac sha512"
+  - "generate hmac signature"
+  - "webhook signature verify"
+  - "hmac base64"
+  - "api request signing"
+  - "hmac sha3"
+last_update:
+  date: 2026-07-25
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# HMAC Generator
+
+An HMAC generator produces a Hash-based Message Authentication Code — a signature computed from a message *and* a shared secret key, which proves both that the message is unaltered and that it came from someone holding that key. The ZTools HMAC Generator runs crypto-js in your browser and supports nine algorithms: HMAC-SHA256, SHA512, SHA384, SHA1, SHA224, SHA3-256, SHA3-512, MD5 and RIPEMD160. Output can be hexadecimal, Base64 or Base64-URL, so it matches whatever encoding the API you are working against expects. Neither the message nor the key leaves your browser.
+
+<ToolCTA href="https://ztools.zaions.com/hmac-generator" toolName="HMAC Generator" kind="browser" />
+
+## Use cases
+
+### Verifying an incoming webhook signature
+
+Most webhook providers sign each payload with a shared secret and send the result in a header. When your handler rejects a delivery, paste the raw request body and your signing secret here to compute the expected signature yourself, then compare it to the header. If they match, your verification code has a bug; if not, your secret or payload handling is wrong.
+
+### Signing an API request during development
+
+APIs that authenticate with a signed request need an HMAC over a canonical string of the method, path, timestamp and body. Generating that signature by hand lets you build a working request in curl or Postman before you have written any signing code, which separates "my signing is wrong" from "my request is wrong".
+
+### Matching another implementation byte for byte
+
+Two HMAC implementations that disagree usually differ in encoding rather than in the algorithm. Being able to switch between hex, Base64 and Base64-URL against a fixed message and key isolates that difference in seconds instead of through trial and error in code.
+
+### Checking a signature after a secret rotation
+
+After rotating a signing secret, confirm that a sample payload produces the signature the receiving side expects under the new key — before you discover the mismatch through failed deliveries in production.
+
+## How it works
+
+1. **Pick the algorithm** — Choose from HMAC-SHA256, SHA512, SHA384, SHA1, SHA224, SHA3-256, SHA3-512, MD5 or RIPEMD160. SHA-256 is the most common choice in modern APIs.
+2. **Enter the secret key** — Paste the shared secret. It is used only to compute the HMAC in your browser and is never transmitted.
+3. **Enter the message** — Paste the exact bytes being signed — for a webhook, that is the raw request body, before any JSON parsing or re-serialisation.
+4. **Choose the output encoding** — Select hexadecimal, Base64 or Base64-URL to match the format the other system uses. The same signature looks completely different in each.
+5. **Generate and compare** — The signature is computed immediately. Compare it against the value you received, character for character.
+
+## Examples
+
+**Input:** Algorithm: HMAC-SHA256 · Key: "key" · Message: "The quick brown fox jumps over the lazy dog"
+
+**Output:** f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8
+
+---
+
+**Input:** The same key and message, output switched from hex to Base64
+
+**Output:** 97vIP0MFOCSxMpjmqm+xQ+9NWaFJRhdZl0edvC0aPNg=
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between an HMAC and a plain hash?**</summary>
+
+A plain hash depends only on the message, so anyone can compute it. An HMAC also depends on a secret key, so only holders of that key can produce or verify it. That is what makes it useful for authentication rather than just integrity.
+
+</details>
+
+<details>
+<summary>**Are my key and message sent to a server?**</summary>
+
+No. crypto-js is bundled with the page and everything is computed in your browser. There is no network request involved in generating a signature.
+
+</details>
+
+<details>
+<summary>**Why does my computed signature not match the one in the webhook header?**</summary>
+
+Almost always the message bytes differ. Sign the raw request body exactly as received — parsing JSON and re-serialising it changes whitespace and key order, and therefore changes the signature. Check the encoding and any prefix the provider adds to the header value too.
+
+</details>
+
+<details>
+<summary>**Is HMAC-MD5 or HMAC-SHA1 safe to use?**</summary>
+
+MD5 and SHA-1 are broken for collision resistance, and HMAC constructions built on them have held up better than the bare hashes — but there is no reason to choose them for anything new. They are included here because existing systems still use them and you sometimes have to interoperate. Use SHA-256 or stronger for new work.
+
+</details>
+
+<details>
+<summary>**When should I use Base64-URL instead of Base64?**</summary>
+
+When the signature travels in a URL or a JWT. Base64-URL replaces the "+" and "/" characters and drops padding, so the value survives being placed in a query string or path segment unescaped.
+
+</details>
+
+<details>
+<summary>**Does the key need to be a particular length?**</summary>
+
+No. HMAC accepts a key of any length — internally it pads short keys and hashes over-long ones. A key at least as long as the hash output is a sensible target for real use.
+
+</details>
+
+<details>
+<summary>**Should I compare signatures with a normal string comparison?**</summary>
+
+Not in production code. Use a constant-time comparison so that timing differences cannot leak information about the expected value. Comparing by eye on this page is fine; comparing with == in a request handler is not.
+
+</details>
+
+## Tips
+
+- Start from the published HMAC-SHA256 test vector above to confirm the tool matches your implementation before debugging your own key and message.
+- When debugging a webhook, always sign the raw body — capture it before any middleware parses it.
+- If the signature is right but verification still fails, check whether the provider prefixes the header value with the algorithm name.
+- Switch encodings before assuming the algorithm is wrong; hex versus Base64 is the most frequent mismatch.
+
+## Try it now
+
+The full HMAC Generator runs in your browser at **[https://ztools.zaions.com/hmac-generator](https://ztools.zaions.com/hmac-generator)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/hmac-generator)
+
+---
+
+*Last updated: 2026-07-25 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/hmac-generator.mdx)*

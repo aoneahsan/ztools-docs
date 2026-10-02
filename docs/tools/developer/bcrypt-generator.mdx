@@ -1,0 +1,138 @@
+---
+id: bcrypt-generator
+title: "Bcrypt Generator — Hash & Verify Passwords Online, Free"
+description: "Generate bcrypt hashes with a salt cost from 4 to 16 rounds, hash a whole list at once, and verify a plaintext against an existing hash."
+sidebar_label: "Bcrypt Generator"
+keywords:
+  - "bcrypt generator"
+  - "bcrypt hash online"
+  - "bcrypt password hash"
+  - "verify bcrypt hash"
+  - "bcrypt salt rounds"
+  - "password hash generator"
+  - "bcrypt cost factor"
+  - "hash password online"
+last_update:
+  date: 2026-07-25
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Bcrypt Generator
+
+A bcrypt generator turns a password or string into a bcrypt hash — a deliberately slow, salted one-way value designed so that a stolen database cannot be turned back into passwords. The ZTools Bcrypt Generator runs bcryptjs entirely in your browser: choose a salt cost between 4 and 16 rounds, hash a single string or a whole list one-per-line, and verify any plaintext against a hash you already have. Because bcrypt generates a fresh random salt each time, hashing the same password twice produces two different hashes, and both still verify — that is the point of the algorithm, not a bug. Nothing you type is uploaded or logged.
+
+<ToolCTA href="https://ztools.zaions.com/bcrypt" toolName="Bcrypt Generator" kind="browser" />
+
+## Use cases
+
+### Seeding a development or test database
+
+Applications store bcrypt hashes, not passwords, so a seed file needs real hashes. Generate one for each test account at the same cost your application uses, paste them into your fixtures, and your login flow works locally without you ever having to run the app to create a user.
+
+### Checking whether a password matches a stored hash
+
+Paste an existing hash and the plaintext you think produced it to get a straight match or no-match answer. This is the fastest way to confirm a support report — that a specific password really does authenticate against a specific stored record — without adding logging to a production login path.
+
+### Choosing a cost factor for your application
+
+The cost is a work factor: each extra round roughly doubles the time to compute a hash, for attackers and for your login endpoint alike. Generating hashes at several costs on your own hardware shows you the real timing trade-off, so you can pick the highest cost your login latency budget tolerates rather than copying a number from a blog post.
+
+### Migrating a list of accounts
+
+The batch mode takes one string per line and returns a hash for each, so a set of temporary credentials for a migration or a workshop can be prepared in a single pass instead of one at a time.
+
+## How it works
+
+1. **Set the salt cost** — Drag the rounds slider between 4 and 16. The tool shows a speed indication for the value you pick, so the cost of the choice is visible before you commit to it.
+2. **Enter what you want to hash** — Type or paste a single string into the input field, or switch to the batch field and enter multiple strings one per line.
+3. **Generate** — bcryptjs runs in your browser and returns a complete bcrypt hash string, which embeds the algorithm version, the cost, and the random salt alongside the digest.
+4. **Copy the result** — Copy any generated hash straight into a seed file, a fixture, or a database record. Batch results are listed row by row against their inputs.
+5. **Verify when you need to** — Paste a hash and a candidate plaintext into the verify field to get a match or no-match answer, computed with bcrypt.compare rather than by re-hashing and comparing strings.
+
+## Examples
+
+**Input:** Text: "correct horse battery staple" · Cost: 10
+
+**Output:** $2a$10$… — a 60-character bcrypt string beginning with the version and cost.
+
+---
+
+**Input:** The same password hashed twice at the same cost
+
+**Output:** Two completely different hashes — and both verify against that password.
+
+---
+
+**Input:** Verify: hash "$2a$10$…" against "wrong password"
+
+**Output:** No match.
+
+## Frequently asked questions
+
+<details>
+<summary>**Is my password sent anywhere?**</summary>
+
+No. bcryptjs is bundled with the page and runs in your browser. There is no API call, no upload and no logging — you can confirm this by opening your browser network tab while generating a hash.
+
+</details>
+
+<details>
+<summary>**Why does the same password give a different hash every time?**</summary>
+
+bcrypt generates a new random salt for each hash and stores it inside the output string. Two hashes of one password will differ, and both will verify correctly. A scheme that produced identical hashes would let an attacker spot repeated passwords across a leaked database.
+
+</details>
+
+<details>
+<summary>**What cost factor should I use?**</summary>
+
+High enough that hashing is slow for an attacker, low enough that your login endpoint stays responsive. Generate at several costs here to see the real timing on your own hardware, then pick accordingly — the right number depends on your server, not on a universal default.
+
+</details>
+
+<details>
+<summary>**Can I get the original password back from a hash?**</summary>
+
+No. bcrypt is one-way by design. The only way to test a candidate password is to verify it against the hash, which is exactly what the verify field does.
+
+</details>
+
+<details>
+<summary>**Should I hash real production passwords here?**</summary>
+
+Hash test and development values. A password you actually use should be typed only into the service it belongs to — that is general good practice for any field on any site, regardless of what this page does with it.
+
+</details>
+
+<details>
+<summary>**Does bcrypt have a password length limit?**</summary>
+
+Yes. bcrypt only considers roughly the first 72 bytes of input, so text beyond that does not affect the hash. This matters if you are hashing long strings rather than typical passwords.
+
+</details>
+
+<details>
+<summary>**What is the difference between this and a SHA-256 hash?**</summary>
+
+SHA-256 is a fast general-purpose hash — being fast is a liability for passwords, because it makes brute-force guessing cheap. bcrypt is deliberately slow and salted. Use the Hash Generator for checksums and integrity, and bcrypt for passwords.
+
+</details>
+
+## Tips
+
+- The cost is stored inside the hash, so you can raise it for new passwords without breaking existing ones — re-hash each user at the new cost when they next log in successfully.
+- Use batch mode to prepare an entire fixture set in one pass instead of generating hashes one at a time.
+- When a hash from your database refuses to verify, check for whitespace copied along with it — a trailing newline is the single most common cause.
+- Test at the cost your production application uses, not the default, or the timing you observe will not reflect what your users experience.
+
+## Try it now
+
+The full Bcrypt Generator runs in your browser at **[https://ztools.zaions.com/bcrypt](https://ztools.zaions.com/bcrypt)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/bcrypt)
+
+---
+
+*Last updated: 2026-07-25 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/developer/bcrypt-generator.mdx)*

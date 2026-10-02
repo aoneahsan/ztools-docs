@@ -1,0 +1,138 @@
+---
+id: text-wrapper
+title: "Text Wrapper — Wrap or Unwrap Text at a Line Width"
+description: "Wrap text to a fixed line width by word or character, with paragraph preservation and indentation — or unwrap it back into continuous lines."
+sidebar_label: "Text Wrapper"
+keywords:
+  - "text wrapper"
+  - "wrap text online"
+  - "unwrap text"
+  - "remove line breaks"
+  - "word wrap tool"
+  - "line width formatter"
+  - "wrap text 80 characters"
+  - "hard wrap text"
+last_update:
+  date: 2026-07-25
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Text Wrapper
+
+A text wrapper reflows a block of text so that no line exceeds a width you choose, and unwraps it again by joining the hard line breaks back together. The ZTools Text Wrapper wraps at any column — 80 by default — either by word, which never splits a word across lines, or by character, which fills every line exactly. It can preserve paragraph breaks while reflowing the lines inside them, add a fixed indent to each line, and optionally break words that are longer than the line width itself. Unwrapping reverses the process, which is what you need when text arrives with hard breaks baked in from an email or a plain-text file.
+
+<ToolCTA href="https://ztools.zaions.com/text-wrapper" toolName="Text Wrapper" kind="browser" />
+
+## Use cases
+
+### Formatting a commit message or a code comment
+
+Many projects wrap commit bodies and block comments at 72 or 80 columns so they read correctly in a terminal and in git log. Writing the text freely and wrapping it afterwards is far less disruptive than fighting your editor's wrapping while you are still composing.
+
+### Undoing hard line breaks from a pasted email or PDF
+
+Text copied from an email client or a PDF often carries a hard break at the end of every line. Pasted into a word processor or a web form it reads as a broken column. Unwrapping joins those lines back into continuous paragraphs so the text reflows properly for its new home.
+
+### Preparing plain-text output for a fixed-width display
+
+A terminal, a receipt printer, a code block or an old-fashioned plain-text README all assume a fixed column count. Wrapping to that width in advance means the content arrives already correct instead of being cut off or reflowed unpredictably at the destination.
+
+### Indenting a quoted block
+
+The indent option adds a consistent leading space to every line, which is exactly what a quoted block or a nested plain-text section needs — applied uniformly rather than line by line.
+
+## How it works
+
+1. **Paste your text** — Enter or paste the text to reformat. It can be a single paragraph or a whole document with multiple paragraphs.
+2. **Set the line width** — Enter the maximum characters per line. 80 is the default and the most common convention; 72 is typical for commit messages and email.
+3. **Choose word or character wrap** — Word wrap breaks only between words and keeps every word intact — right for prose. Character wrap fills each line to the exact width regardless of word boundaries.
+4. **Set the options** — Preserve paragraphs keeps blank-line separations intact while reflowing within each block. Add line indent prefixes every line with a fixed indent. Break long words splits any word longer than the line width instead of letting it overflow.
+5. **Wrap, or unwrap instead** — Wrap reformats to your settings; unwrap joins hard-wrapped lines back into continuous ones. Copy the result when it looks right.
+
+## Examples
+
+**Input:** A 200-character paragraph · Width 40 · Word wrap
+
+**Output:** Five or six lines, each 40 characters or fewer, with every word intact and breaks falling between words.
+
+---
+
+**Input:** Text with a hard break at the end of every line · Unwrap
+
+**Output:** Continuous paragraphs, with the hard breaks removed and paragraph separations kept.
+
+---
+
+**Input:** Width 20 · Character wrap · a 30-character word
+
+**Output:** The word split across two lines at exactly 20 characters.
+
+## Frequently asked questions
+
+<details>
+<summary>**What is the difference between word wrap and character wrap?**</summary>
+
+Word wrap only breaks between words, so no word is ever split — lines come out slightly under the width. Character wrap fills each line to exactly the width, splitting words wherever the limit falls. Word wrap is right for anything a person reads; character wrap is for fixed-width output where exact alignment matters more.
+
+</details>
+
+<details>
+<summary>**How do I get rid of line breaks in pasted text?**</summary>
+
+Use unwrap. It joins the hard-wrapped lines back into continuous text while keeping paragraph separations, which is what you want after pasting from an email or a PDF.
+
+</details>
+
+<details>
+<summary>**Which line width should I use?**</summary>
+
+80 characters is the general convention for plain text and code comments; 72 is common for commit message bodies and email so quoting does not push lines over. If a specific tool or style guide names a number, use that.
+
+</details>
+
+<details>
+<summary>**What does "preserve paragraphs" do?**</summary>
+
+It keeps blank-line separations between paragraphs while still reflowing the lines inside each one. With it off, the whole text is treated as one continuous block and paragraph structure is lost.
+
+</details>
+
+<details>
+<summary>**What happens to a word longer than the line width?**</summary>
+
+With "break long words" on it is split at the width. With it off, word wrap leaves it intact and that one line overflows — which is usually the right choice for a long URL you do not want broken.
+
+</details>
+
+<details>
+<summary>**Does wrapping change the words themselves?**</summary>
+
+No. Only whitespace and line breaks change. Unwrapping and re-wrapping at a different width returns the same text reflowed, not rewritten.
+
+</details>
+
+<details>
+<summary>**Is my text uploaded?**</summary>
+
+No. Wrapping and unwrapping run entirely in your browser with no network request and no dependency on any external service.
+
+</details>
+
+## Tips
+
+- Unwrap first, then wrap, when text arrives with breaks at an unwanted width — going straight to wrap leaves the original breaks in place and gives a ragged result.
+- Turn "break long words" off when your text contains long URLs; a split URL stops being clickable.
+- Use 72 rather than 80 for commit message bodies, so that quoting and indentation in tooling do not push lines past 80.
+- Character wrap is the right choice for fixed-width output such as receipts or terminal boxes, where every line must be exactly the same length.
+
+## Try it now
+
+The full Text Wrapper runs in your browser at **[https://ztools.zaions.com/text-wrapper](https://ztools.zaions.com/text-wrapper)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/text-wrapper)
+
+---
+
+*Last updated: 2026-07-25 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/text/text-wrapper.mdx)*

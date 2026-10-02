@@ -1,18 +1,18 @@
 ---
 id: speech-to-text
-title: "Speech to Text — Free Voice Transcription in Browser"
-description: "Convert voice to text live in browser. 100+ languages, punctuation, free, no sign-up. Uses Web Speech API."
+title: "Speech to Text — Live Dictation or File Transcription, Free"
+description: "Dictate live with your browser's speech recognition, or transcribe audio and video files with Whisper on our server (free Google sign-in). Export text, SRT or VTT."
 sidebar_label: "Speech to Text"
 keywords:
   - "speech to text"
   - "voice to text"
   - "dictation tool"
   - "free voice typing"
-  - "browser dictation"
-  - "web speech api"
+  - "audio to text"
+  - "transcribe audio"
   - "voice transcription"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -20,95 +20,95 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Speech to Text
 
-A speech-to-text tool transcribes spoken audio into written text in real time, supporting dictation, meeting transcription, voice notes, accessibility, and language practice — replacing typing with speaking, often 3-4x faster for free-form thought. The ZTools Speech to Text uses the Web Speech API natively in supported browsers (Chrome, Edge, Safari), supports 100+ languages, automatic punctuation in many of them, runs in real time as you speak, and outputs editable text — no sign-up, no upload, no per-minute charge.
+A speech-to-text tool turns spoken words into written text for dictation, meeting notes, voice memos, interviews and accessibility. The ZTools Speech to Text has two modes. Live microphone uses your browser's built-in Web Speech API (Chrome, Edge, Safari) and shows the text as you speak; in Chrome and Edge the audio is sent to the browser maker's speech service. Transcribe a file sends an audio or video recording (up to 15 minutes and 100 MB) to our own processing server, where the Whisper speech model detects the language, transcribes it or translates it into English, and returns text with timestamps that you can download as TXT, SRT or VTT. The file mode needs a free Google sign-in, and the server deletes the recording right after processing.
 
-<ToolCTA toolId="speech-to-text" toolName="Speech to Text" />
+<ToolCTA href="https://ztools.zaions.com/speech-to-text" toolName="Speech to Text" kind="server" />
 
 ## Use cases
 
 ### Dictation drafting
 
-Speaking is ~150 wpm; typing is ~40-60 wpm. Long-form drafts (essays, blog posts, emails) draft 3x faster by speaking first, editing the transcript second.
+Speaking is ~150 wpm; typing is ~40-60 wpm. Long-form drafts (essays, blog posts, emails) go faster when you speak first and edit the transcript second.
 
 ### Meeting notes (live)
 
-During a one-on-one or interview, dictate key points instead of typing — eyes stay on the speaker, attention stays with the conversation, transcript captures what was said.
+During a one-on-one or interview, dictate key points instead of typing — eyes stay on the speaker, attention stays with the conversation.
+
+### Interview and lecture transcripts
+
+Record an interview, lecture or voice note, then transcribe the file with timestamps and download subtitles for the video.
 
 ### Accessibility
 
 Users with motor impairments, RSI, or visual impairment can produce written text by speaking. Faster and less painful than alternative input methods.
 
-### Language-learning practice
-
-Speak in a target language; the transcript surfaces pronunciation issues — words the engine misheard signal pronunciation problems to fix.
-
 ## How it works
 
-1. **Grant microphone access** — Browser asks once; permission persists per-domain.
-2. **Pick language** — 100+ supported. Wrong language = nonsense output. Set before starting.
-3. **Click start** — Speak naturally. The engine streams text into the output area as you speak (interim results in italics, finalized results in normal text).
-4. **Pause to add punctuation** — Most engines auto-punctuate based on pauses + intonation. Some require explicit "comma", "period", "new paragraph" commands.
-5. **Stop and edit** — Click stop; output text is editable. Correct misrecognitions, fix proper nouns, finalise punctuation.
+1. **Pick a mode** — "Live microphone" types as you speak. "Transcribe a file" turns a recording into text on our server.
+2. **Live: allow the microphone and pick the language** — The browser asks once. Choose the language you will speak, press start, and the text appears as you talk.
+3. **File: sign in and add a recording** — MP3, WAV, OGG, Opus, FLAC, AAC, M4A or a video (MP4, MOV, MKV, WebM, AVI), up to 100 MB and 15 minutes.
+4. **File: choose the language and result** — Let Whisper detect the spoken language or pick it, and choose text in that language or an English translation.
+5. **Copy or download** — Copy the text, or download a file transcript as timestamped text, SRT or VTT subtitles.
 
 ## Examples
 
-**Input:** 5 minutes of dictation in English
+**Input:** 5 minutes of live dictation in English
 
-**Output:** ~600-700 words transcribed; ~95% accuracy for clear speakers in quiet environments.
+**Output:** Several hundred words; clear speech in a quiet room needs few corrections.
 
 ---
 
-**Input:** Spanish dictation
+**Input:** Spanish lecture recording (file mode)
 
-**Output:** Transcribed in Spanish with diacritics. Engine handles language-specific phonemes correctly.
+**Output:** Spanish transcript with timestamps, or an English translation of it; download as SRT to caption the video.
 
 ---
 
 **Input:** Technical content with many proper nouns
 
-**Output:** Lower accuracy on technical jargon (~85%); manual correction needed. Train yourself to spell unusual terms.
+**Output:** Jargon and names are the most common errors in both modes; proofread them.
 
 ## Frequently asked questions
 
 <details>
-<summary>**Which browsers support this?**</summary>
+<summary>**Which browsers support live mode?**</summary>
 
-Chrome, Edge, Safari (iOS / macOS) implement Web Speech API natively. Firefox does not (as of 2026). Chrome has the broadest language support.
+Chrome, Edge and Safari implement the Web Speech API; Firefox does not. The file mode works in any modern browser.
 
 </details>
 
 <details>
 <summary>**Is my voice uploaded?**</summary>
 
-Browser-dependent. Chrome / Edge use Google's speech servers (audio sent for processing). Safari uses on-device recognition (no upload). Use Safari for highly sensitive content.
+In live mode it depends on the browser: Chrome and Edge send the audio to their makers' speech services, while Safari may recognise speech on the device. In file mode the recording goes over HTTPS to our own processing server, which deletes it right after processing.
 
 </details>
 
 <details>
 <summary>**How accurate is it?**</summary>
 
-95-98% for clear speech in quiet rooms in English. Drops for: accented speech, technical jargon, noisy environments, mumbling. Most errors are correctable in seconds during review.
+Clear speech in a quiet room transcribes well in both modes. Accents, jargon, background noise and several people talking at once lower accuracy, so review the text before using it.
 
 </details>
 
 <details>
-<summary>**Why does my speech sometimes drop?**</summary>
+<summary>**Why does live dictation sometimes stop?**</summary>
 
-Web Speech API has a built-in timeout (varies by browser). For long sessions, restart automatically when the engine stops. Some tools handle this; some require a manual restart.
+Browsers end a live recognition session after a pause or a time limit. Press start again to continue; for long recordings, record first and use the file mode.
 
 </details>
 
 <details>
-<summary>**Can I dictate punctuation manually?**</summary>
+<summary>**How long does file transcription take?**</summary>
 
-In some browsers / languages, yes — say "comma", "period", "question mark", "new paragraph". Others auto-punctuate from intonation. Test your browser.
+It depends on the length of the recording and how busy the server is; it can take about as long as the recording itself. Files can be up to 15 minutes.
 
 </details>
 
 <details>
 <summary>**Does it work offline?**</summary>
 
-Safari's on-device mode does. Chrome / Edge typically do not — the audio is sent to a cloud service. For offline transcription, use Whisper (locally-runnable AI model).
+Live mode works offline only where the browser recognises speech on the device. The file mode needs an internet connection to reach our server.
 
 </details>
 
@@ -116,16 +116,16 @@ Safari's on-device mode does. Chrome / Edge typically do not — the audio is se
 
 - Speak clearly at normal pace — too fast or too quiet drops accuracy noticeably.
 - Use a real microphone for long sessions — built-in laptop mics introduce noise that degrades recognition.
-- For long dictation, save partial output every few minutes — browser timeouts can drop sessions.
-- Train yourself to say "new paragraph" and "comma" — explicit commands often beat auto-punctuation.
+- For long sessions, record the audio and use the file mode instead of dictating live.
+- In file mode, pick the spoken language yourself when a recording starts with music or silence; automatic detection listens to the opening seconds.
 - Always proofread before publishing — homophones (their/there/they're) consistently slip through.
 
 ## Try it now
 
-The full Speech to Text runs in your browser at **[https://ztools.zaions.com/speech-to-text](https://ztools.zaions.com/speech-to-text)** — no signup, no upload, no data leaves your device.
+The full Speech to Text runs at **[https://ztools.zaions.com/speech-to-text](https://ztools.zaions.com/speech-to-text)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
 [Open the tool ↗](https://ztools.zaions.com/speech-to-text)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/speech-to-text.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/speech-to-text.mdx)*

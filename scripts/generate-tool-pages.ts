@@ -6,12 +6,14 @@
  * them and emits Docusaurus MDX so we never duplicate content between
  * the two projects.
  *
- * Coverage is automatic: every tool that has enriched content in a
- * `batch*.ts` file AND metadata (in `toolsData.ts` for the free core, or
- * `growthSuiteTools.ts` for the paid Growth Suite) gets a page. There is no
- * hand-maintained allowlist — add a tool's content batch in the app and it
- * appears here on the next run, with no drift. Paid Growth Suite tools are
- * rendered with a clear paid/BYOK notice instead of the browser-only claim.
+ * Tool identity (name, category, and above all the tool's real URL) comes
+ * from `../ztools/dist/tools-registry.json`, which the app's build emits from
+ * its own catalog. A tool's address is its `route`, never `/<id>` — the two
+ * differ for many tools, and linking by id sends readers to a 404.
+ *
+ * Coverage is automatic: every registry tool with enriched content gets a
+ * page. The run fails when content has no registry row or when a tool's
+ * route has no built page in the app, so a wrong link cannot be published.
  */
 
 import {readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync} from 'node:fs';
@@ -26,8 +28,8 @@ const __dirname = dirname(__filename);
 const DOCS_ROOT = join(__dirname, '..', 'docs');
 const ZTOOLS_REPO = join(__dirname, '..', '..', 'ztools');
 const ZTOOLS_DATA = join(ZTOOLS_REPO, 'src', 'data', 'toolContent');
-const ZTOOLS_TOOLS_DATA = join(ZTOOLS_REPO, 'src', 'data', 'toolsData.ts');
-const ZTOOLS_GROWTH_DATA = join(ZTOOLS_REPO, 'src', 'data', 'growthSuiteTools.ts');
+const ZTOOLS_DIST = join(ZTOOLS_REPO, 'dist');
+const ZTOOLS_REGISTRY = join(ZTOOLS_DIST, 'tools-registry.json');
 const APP_URL = 'https://ztools.zaions.com';
 
 // ---------------------------------------------------------------------------
@@ -52,7 +54,25 @@ interface ToolContent {
   author: string;
 }
 
-type ToolMeta = {id: string; name: string; category: string; description?: string; isPaid: boolean};
+type ToolMeta = {
+  id: string;
+  name: string;
+  category: string;
+  description?: string;
+  route: string;
+  isPaid: boolean;
+  usesServer: boolean;
+};
+
+interface RegistryTool {
+  id: string;
+  title: string;
+  description?: string;
+  category: string;
+  route: string;
+  isPaid?: boolean;
+  usesServer?: boolean;
+}
 
 // ---------------------------------------------------------------------------
 // Load all enriched content via dynamic ESM imports.
@@ -77,38 +97,37 @@ async function loadContent(): Promise<Record<string, ToolContent>> {
 }
 
 // ---------------------------------------------------------------------------
-// Read tool metadata (name, category) from the app data via regex parsing.
-// We don't need the full module — just per-id name and category. Paid tools
-// live in their own file and carry category 'growth'.
+// Read tool identity from the app's built registry.
 // ---------------------------------------------------------------------------
-// Capture a single-quoted field value, tolerating escaped quotes (e.g.
-// `title: 'Pascal\'s Triangle'`), then unescape \' \" \\ back to literals.
-function field(block: string, key: string): string | undefined {
-  const m = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`).exec(block);
-  return m ? m[1].replace(/\\(['"\\])/g, '$1') : undefined;
-}
-
-function parseMeta(src: string, meta: Record<string, ToolMeta>): void {
-  // Match { ... id: 'foo' ... title/name: 'Foo' ... category: 'data' ... }
-  const blockRegex = /\{[^{}]*?id:\s*'([^']+)'[^{}]*?\}/gs;
-  for (const match of src.matchAll(blockRegex)) {
-    const block = match[0];
-    const id = match[1];
-    // App data files use `title:`; fall back to `name:` then the id.
-    const name = field(block, 'title') ?? field(block, 'name') ?? id;
-    const category = field(block, 'category') ?? 'misc';
-    const desc = field(block, 'description');
-    meta[id] = {id, name, category, description: desc, isPaid: category === 'growth'};
-  }
-}
-
 function loadToolMeta(): Record<string, ToolMeta> {
+  if (!existsSync(ZTOOLS_REGISTRY)) {
+    throw new Error(
+      `Missing ${ZTOOLS_REGISTRY}. Run \`yarn build\` in ../ztools first — the registry is a build output.`,
+    );
+  }
+  const registry = JSON.parse(readFileSync(ZTOOLS_REGISTRY, 'utf-8')) as {tools: RegistryTool[]};
   const meta: Record<string, ToolMeta> = {};
-  parseMeta(readFileSync(ZTOOLS_TOOLS_DATA, 'utf-8'), meta);
-  if (existsSync(ZTOOLS_GROWTH_DATA)) {
-    parseMeta(readFileSync(ZTOOLS_GROWTH_DATA, 'utf-8'), meta);
+  for (const t of registry.tools) {
+    meta[t.id] = {
+      id: t.id,
+      name: t.title,
+      category: t.category,
+      description: t.description,
+      route: t.route,
+      isPaid: Boolean(t.isPaid),
+      usesServer: Boolean(t.usesServer),
+    };
   }
   return meta;
+}
+
+/** True when the app's build contains a prerendered page for this route. */
+function routeIsBuilt(route: string): boolean {
+  const rel = route.replace(/^\/+|\/+$/g, '');
+  return (
+    /^\/[a-z0-9][a-z0-9\-/]*$/.test(route) &&
+    (existsSync(join(ZTOOLS_DIST, `${rel}.html`)) || existsSync(join(ZTOOLS_DIST, rel, 'index.html')))
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -138,7 +157,7 @@ const yamlString = (s: string) => `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\
 // Render one tool as MDX.
 // ---------------------------------------------------------------------------
 function renderToolMdx(id: string, content: ToolContent, meta: ToolMeta): string {
-  const url = `${APP_URL}/${id}`;
+  const url = `${APP_URL}${meta.route}`;
   const ghEdit = `https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/${meta.category}/${id}.mdx`;
 
   const useCases = content.useCases
@@ -171,7 +190,9 @@ function renderToolMdx(id: string, content: ToolContent, meta: ToolMeta): string
     ? `The full ${meta.name} is part of the ZTools Growth Suite at **[${url}](${url})** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).`
     : id === 'dynamic-qr'
       ? `The full ${meta.name} runs at **[${url}](${url})** — the generator works entirely in your browser; only dynamic codes use a lightweight serverless redirect, so you can edit the destination later and see scan counts.`
-      : `The full ${meta.name} runs in your browser at **[${url}](${url})** — no signup, no upload, no data leaves your device.`;
+      : meta.usesServer
+        ? `The full ${meta.name} runs at **[${url}](${url})**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.`
+        : `The full ${meta.name} runs in your browser at **[${url}](${url})** — no signup, no upload, no data leaves your device.`;
 
   return `---
 id: ${id}
@@ -191,7 +212,7 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 ${escapeMdx(content.intro)}
 ${paidNotice}
-<ToolCTA toolId="${id}" toolName=${yamlString(meta.name)} />
+<ToolCTA href="${url}" toolName=${yamlString(meta.name)} kind="${meta.isPaid ? 'paid' : meta.usesServer ? 'server' : 'browser'}" />
 
 ## Use cases
 
@@ -278,22 +299,30 @@ async function main() {
   console.log(`  ${Object.keys(meta).length} tools with metadata\n`);
 
   const toolsDir = join(DOCS_ROOT, 'tools');
-  if (existsSync(toolsDir)) rmSync(toolsDir, {recursive: true, force: true});
-  mkdirSync(toolsDir, {recursive: true});
 
   const byCategory = new Map<string, Array<{id: string; meta: ToolMeta}>>();
   let written = 0;
-  let skipped = 0;
 
-  // Every enriched tool that resolves metadata gets a page — no allowlist.
+  // Gates run before anything is written, so a failed run changes nothing.
+  const orphanContent = Object.keys(allContent).filter((id) => !meta[id]);
+  const unbuiltRoutes = Object.values(meta).filter((m) => !routeIsBuilt(m.route));
+  const noContent = Object.keys(meta).filter((id) => !allContent[id]);
+  if (noContent.length > 0) {
+    console.warn(`  ⚠ ${noContent.length} registry tool(s) have no enriched content and get no page: ${noContent.join(', ')}`);
+  }
+  if (orphanContent.length > 0 || unbuiltRoutes.length > 0) {
+    for (const id of orphanContent) console.error(`  ✗ content for "${id}" has no registry row`);
+    for (const m of unbuiltRoutes) console.error(`  ✗ "${m.id}" links to ${m.route}, which the app build does not contain`);
+    throw new Error('Link gate failed — no page was written.');
+  }
+
+  if (existsSync(toolsDir)) rmSync(toolsDir, {recursive: true, force: true});
+  mkdirSync(toolsDir, {recursive: true});
+
+  // Every enriched tool in the registry gets a page — no allowlist.
   for (const id of Object.keys(allContent).sort()) {
     const content = allContent[id];
     const m = meta[id];
-    if (!m) {
-      console.warn(`  ⚠ Skipping ${id}: enriched content exists but no metadata found`);
-      skipped++;
-      continue;
-    }
 
     const dir = join(toolsDir, m.category);
     mkdirSync(dir, {recursive: true});
@@ -336,7 +365,6 @@ ${items}
   writeFileSync(join(toolsDir, 'index.mdx'), renderHub(byCategory), 'utf-8');
 
   console.log(`\n✓ Wrote ${written} tool MDX files across ${byCategory.size} categories.`);
-  if (skipped > 0) console.log(`  (${skipped} skipped — see warnings above)`);
 }
 
 main().catch((err) => {

@@ -1,7 +1,7 @@
 ---
 id: image-upscaler
-title: "Image Upscaler — Enlarge Photos 2x/4x with AI-style Smoothing"
-description: "Upscale low-resolution images 2x or 4x with smart smoothing. Bicubic, Lanczos, plus AI-style detail recovery. Free, in-browser."
+title: "Image Upscaler — Enlarge Photos 2x/4x, with AI Upscaling on Our Server"
+description: "Enlarge images 2x, 3x or 4x with smooth interpolation in your browser, or with Real-ESRGAN AI upscaling on our server (free Google sign-in). PNG, JPG or WebP output."
 sidebar_label: "Image Upscaler (AI)"
 keywords:
   - "image upscaler"
@@ -11,7 +11,7 @@ keywords:
   - "image enlarge 2x 4x"
   - "free image upscaler"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -19,81 +19,81 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Image Upscaler (AI)
 
-An image upscaler enlarges a small image to a larger pixel size while attempting to preserve or recover detail — useful when an old photo, a thumbnail, or a downscaled asset is the only source you have but the destination needs a higher resolution (a print, a large web banner, an upscaled video, a presentation slide). The ZTools Image Upscaler offers classical algorithms (bicubic, Lanczos) plus an AI-style detail-aware mode that runs a small neural network in the browser, allowing 2x and 4x upscale, edge-preserving smoothing, and noise / artifact suppression on the way up — all without uploading the original photo to any server.
+An image upscaler enlarges a small image to a larger pixel size while trying to keep it sharp — useful when an old photo, a thumbnail, or a downscaled asset is the only source you have but the destination needs a higher resolution (a print, a large web banner, a presentation slide). The ZTools Image Upscaler has two modes. On this device, it enlarges the image 2x, 3x, 4x or to a custom width with smooth interpolation and an optional sharpen pass; nothing is uploaded, but no new detail is added. On our server, it runs Real-ESRGAN, an AI super-resolution model, at 2x or 4x: it rebuilds edges and texture far better than interpolation, needs a free Google sign-in, and the server deletes your image right after processing.
 
-<ToolCTA toolId="image-upscaler" toolName="Image Upscaler (AI)" />
+<ToolCTA href="https://ztools.zaions.com/tools/image-upscaler" toolName="Image Upscaler (AI)" kind="server" />
 
 ## Use cases
 
 ### Restoring old family photos
 
-A 600 px scan from a printed photo album. Upscale 4x for printing or framing without the muddy interpolation that classical bicubic produces.
+A 600 px scan from a printed photo album. Upscale 4x with the AI mode for printing or framing, without the muddy look that plain interpolation produces.
 
 ### Recovering low-res screenshots
 
-A screenshot taken on an old monitor needs to land on a 4K display. Upscale 2x with edge-aware mode to keep text crisp.
+A screenshot taken on an old monitor needs to land on a 4K display. Upscale 2x with the AI mode to keep text edges crisper than interpolation does.
 
 ### Stock photo enlargement
 
-A licensed image at 1500 px wide needs to fill a 3000 px banner. Upscale 2x; check for artifacts; touch up if needed.
+A licensed image at 1000 px wide needs to fill a 2000 px banner. Upscale 2x; check for artifacts; touch up if needed.
 
 ### E-commerce product photo standardisation
 
-Some product shots arrive at 800 px; the marketplace wants 2000 px. Batch-upscale the small ones to meet the catalogue standard.
+Some product shots arrive at 800 px; the marketplace wants 2000 px. Upscale the small ones one at a time to meet the catalogue standard.
 
 ## How it works
 
-1. **Upload image** — JPG, PNG, WebP. Recommended source resolution at least 200 px on the short side; below that, results soften noticeably.
-2. **Pick scale** — 2x (most common, fastest) or 4x (slower, biggest jump). Custom percentage also supported.
-3. **Choose algorithm** — Bicubic (fast, smoother), Lanczos (sharper, slight ringing on edges), AI-style (best detail, slowest).
-4. **Optional cleanup** — Pre-clean noise / JPG artifacts before upscale to avoid magnifying them. Optional post-sharpen for crisp output.
-5. **Export** — PNG (lossless, larger) or JPG (smaller, lossy). Original aspect ratio preserved.
+1. **Add your image** — JPG, PNG, WebP and more. The AI mode takes up to 15 MB, and up to 1 megapixel for 2x or 0.5 megapixel for 4x. Sources under about 200 px on the short side soften noticeably.
+2. **Choose where to process it** — "On this device" enlarges it in your browser with no upload. "On our server" runs the Real-ESRGAN AI model and needs a free Google sign-in.
+3. **Pick the scale** — On this device: 2x, 3x, 4x or a custom width, with low, medium or high smoothing. On our server: 2x or 4x.
+4. **Optional sharpen** — On this device, a mild sharpen pass after enlarging makes edges crisper. Transparency is kept in both modes.
+5. **Export** — PNG (lossless, larger), JPG or WebP (smaller, lossy). The aspect ratio is kept.
 
 ## Examples
 
-**Input:** 500x500 thumbnail → 2000x2000 (4x, AI-style)
+**Input:** 500x500 thumbnail → 2000x2000 (4x, AI on our server)
 
-**Output:** Detail-aware 2000x2000 with cleaner edges than bicubic
-
----
-
-**Input:** 1200x800 photo → 2400x1600 (2x, Lanczos)
-
-**Output:** Sharp 2x upscale, slight ringing on high-contrast edges
+**Output:** Rebuilt edges and texture, clearly sharper than interpolation
 
 ---
 
-**Input:** 800x600 screenshot of UI → 1600x1200 (2x)
+**Input:** 1200x800 photo → 2400x1600 (2x, on this device)
 
-**Output:** Upscaled UI with edge-preserved text
+**Output:** Smooth 2x enlargement; edges stay soft unless you add the sharpen pass
+
+---
+
+**Input:** 800x600 screenshot of UI → 1600x1200 (2x, AI on our server)
+
+**Output:** Upscaled UI with crisper text edges
 
 ## Frequently asked questions
 
 <details>
 <summary>**Will upscaling restore real detail?**</summary>
 
-No — it cannot invent information that was never captured. AI-style upscalers infer plausible detail based on training data; they look better but are guesses, not truth. Treat upscaling as visual smoothing, not forensic restoration.
+No — it cannot recover information that was never captured. The AI mode infers plausible detail from what it learned in training, so it looks much sharper, but the new detail is a guess, not truth. The on-device mode only smooths the existing pixels. Treat upscaling as visual enhancement, not forensic restoration.
 
 </details>
 
 <details>
-<summary>**Which algorithm should I pick?**</summary>
+<summary>**Which mode should I pick?**</summary>
 
-For photographs, AI-style usually wins. For UI screenshots and line art, Lanczos with light sharpen often beats AI. Bicubic is the safe default — fast and predictable.
+For photos, the AI mode on our server usually looks best. On this device is instant, private and limited only by your device memory, which suits UI screenshots, line art and large images.
 
 </details>
 
 <details>
 <summary>**Why does the upscaled image look muddy?**</summary>
 
-Source was already noisy or heavily JPG-compressed. Pre-clean before upscaling, or accept that low-quality input cannot be magic-fixed.
+The source was already noisy or heavily JPG-compressed. The AI mode suppresses some JPG artifacts, but low-quality input cannot be fully fixed.
 
 </details>
 
 <details>
 <summary>**What is the maximum size?**</summary>
 
-Limited by your device memory. A modern laptop comfortably upscales 4 MP images to 4x; phones may stop at 2x for large inputs.
+On this device, your device memory is the limit: a modern laptop handles 4 MP images at 4x, while phones may stop at 2x for large inputs. The AI mode accepts up to 1 megapixel at 2x or 0.5 megapixel at 4x, because AI upscaling is heavy.
 
 </details>
 
@@ -105,26 +105,26 @@ No — and please respect copyright. The tool magnifies what is there; if a wate
 </details>
 
 <details>
-<summary>**Is the model uploaded to a server?**</summary>
+<summary>**Is my image uploaded to a server?**</summary>
 
-No — the AI mode uses a small ONNX model that runs in your browser via WebAssembly. Source image never leaves your device.
+Only in the "On our server" mode, which sends it over HTTPS to our own processing server; the server deletes the image and the result right after processing. The "On this device" mode never uploads anything.
 
 </details>
 
 ## Tips
 
-- Always start by cleaning JPG artifacts and noise — upscaling magnifies them otherwise.
+- Clean JPG artifacts and noise first when you can — upscaling magnifies them.
 - For prints, upscale to 300 DPI of the printed size, not just "bigger".
-- Compare 2x AI vs 2x Lanczos with a quick A/B preview — different photos prefer different algorithms.
+- Compare the AI result with the on-device result — different photos prefer different approaches.
 - Keep the original. You may want to re-upscale later with a better model.
-- After upscaling, run a small unsharp-mask pass for crisper output before export.
+- On this device, turn on the sharpen pass for crisper output before export.
 
 ## Try it now
 
-The full Image Upscaler (AI) runs in your browser at **[https://ztools.zaions.com/image-upscaler](https://ztools.zaions.com/image-upscaler)** — no signup, no upload, no data leaves your device.
+The full Image Upscaler (AI) runs at **[https://ztools.zaions.com/tools/image-upscaler](https://ztools.zaions.com/tools/image-upscaler)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
-[Open the tool ↗](https://ztools.zaions.com/image-upscaler)
+[Open the tool ↗](https://ztools.zaions.com/tools/image-upscaler)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-upscaler.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/image-upscaler.mdx)*

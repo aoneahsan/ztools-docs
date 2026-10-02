@@ -18,7 +18,7 @@ const FEATURED_TOOLS = [
 
 const PILLARS = [
   {
-    label: '570+ tools',
+    label: '580+ tools',
     text: 'Every developer & creator utility, from JSON formatter to QR generator to PDF merger.',
   },
   {
@@ -31,7 +31,7 @@ const PILLARS = [
   },
   {
     label: 'No friction',
-    text: 'No signup, no email gate, no paywall. Open the URL, paste, ship.',
+    text: 'The free tools need no signup and no email gate. Open the URL, paste, ship.',
   },
 ];
 
@@ -48,7 +48,7 @@ export default function Home(): React.ReactElement {
           <div className={styles.heroInner}>
             <p className={styles.eyebrow}>ZTools docs · v0.1</p>
             <h1 className={styles.title}>
-              570+ tools.<br />
+              580+ tools.<br />
               <span className={styles.titleAccent}>One browser tab.</span>
             </h1>
             <p className={styles.subtitle}>

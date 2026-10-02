@@ -1,0 +1,138 @@
+---
+id: factorial
+title: "Factorial Calculator — n!, Double Factorial, Subfactorial"
+description: "Calculate n!, double factorial n!!, subfactorial !n and primorial n# with step-by-step working and arbitrary-precision results."
+sidebar_label: "Factorial Calculator"
+keywords:
+  - "factorial calculator"
+  - "n factorial"
+  - "double factorial calculator"
+  - "subfactorial derangement"
+  - "primorial calculator"
+  - "factorial step by step"
+  - "large factorial exact"
+  - "10 factorial"
+last_update:
+  date: 2026-07-25
+  author: Ahsan Mahmood
+---
+
+import ToolCTA from '@site/src/components/ToolCTA';
+
+# Factorial Calculator
+
+A factorial calculator computes n! — the product of every whole number from 1 up to n — along with the related functions that appear alongside it in combinatorics. The ZTools Factorial Calculator handles four: the factorial n!, the double factorial n!! (every other number down from n), the subfactorial !n (derangements — permutations where nothing stays in its original position), and the primorial n# (the product of primes up to n). It uses mathjs arbitrary-precision arithmetic so large results stay exact rather than collapsing to a floating-point approximation, and it shows the step-by-step expansion so you can follow the working rather than just copy an answer.
+
+<ToolCTA href="https://ztools.zaions.com/factorial" toolName="Factorial Calculator" kind="browser" />
+
+## Use cases
+
+### Working through a combinatorics problem
+
+Counting arrangements, permutations and combinations all reduce to factorials. Seeing the expanded product rather than just the final number makes it much easier to check that you set the problem up correctly — most errors in these questions are in the setup, not the arithmetic.
+
+### Computing derangements with the subfactorial
+
+The classic "nobody draws their own name" problem is a derangement count, written !n. Computing it directly avoids the standard mistake of reaching for n! and then trying to subtract the wrong thing, and it gives you a number you can sanity-check against the familiar n!/e approximation.
+
+### Checking a program's output against exact arithmetic
+
+Factorials overflow quickly: in IEEE double-precision, results stop being exact well before n = 20, and 171! overflows entirely. Comparing your program's answer against an arbitrary-precision result here shows immediately whether you have hit a precision limit or a genuine logic bug.
+
+### Teaching how fast factorial growth is
+
+Factorial growth outruns exponential growth, and the step-by-step expansion makes that concrete in a way a single large number does not. Stepping n up one at a time shows the result gaining digits at an accelerating rate.
+
+## How it works
+
+1. **Choose the function** — Select factorial (n!), double factorial (n!!), subfactorial (!n) or primorial (n#) from the dropdown.
+2. **Enter a non-negative integer** — Type the value of n. Factorials are defined for non-negative integers only, and the field validates that.
+3. **Calculate** — The result is computed with mathjs bignumber arithmetic, so large values stay exact instead of being rounded to a floating-point approximation.
+4. **Read the working** — The steps panel shows the expansion for the function you chose, so you can see where the number came from rather than taking it on trust.
+5. **Reuse earlier results** — Previous calculations are kept in a history list, which makes comparing several values of n straightforward.
+
+## Examples
+
+**Input:** Factorial · n = 10
+
+**Output:** 3,628,800
+
+---
+
+**Input:** Double factorial · n = 9
+
+**Output:** 945
+
+---
+
+**Input:** Subfactorial · n = 4
+
+**Output:** 9
+
+## Frequently asked questions
+
+<details>
+<summary>**Why is 0! equal to 1?**</summary>
+
+There is exactly one way to arrange nothing — the empty arrangement. Defining 0! = 1 also keeps the identity n! = n × (n−1)! working at n = 1, and keeps combinatorial formulas correct at their boundaries rather than requiring special cases.
+
+</details>
+
+<details>
+<summary>**What is a double factorial?**</summary>
+
+n!! multiplies every second number descending from n: 9!! is 9 × 7 × 5 × 3 × 1. It is not the factorial applied twice, which is a common misreading — (3!)! would be 720, while 3!! is 3.
+
+</details>
+
+<details>
+<summary>**What does the subfactorial count?**</summary>
+
+Derangements: permutations in which no element remains in its original position. !4 = 9 means that of the 24 ways to arrange four items, 9 move every single one. It is the answer to the "nobody gets their own gift" version of a Secret Santa problem.
+
+</details>
+
+<details>
+<summary>**What is a primorial?**</summary>
+
+n# is the product of all prime numbers up to n — so 10# is 2 × 3 × 5 × 7 = 210. It plays a similar role for primes that the factorial plays for all integers, and appears in number theory and in some cryptographic constructions.
+
+</details>
+
+<details>
+<summary>**Can it handle very large numbers?**</summary>
+
+It uses arbitrary-precision arithmetic, so results stay exact well past the point where standard floating-point breaks down. Very large inputs still take time to compute and produce results with a great many digits, and the tool caps the plain factorial at n = 170 for practical display.
+
+</details>
+
+<details>
+<summary>**Why does my code give a different answer for 21!?**</summary>
+
+Almost certainly floating-point precision. A JavaScript number is exact only up to 2^53, which 21! exceeds — so the last digits are wrong even though nothing looks like it failed. Use a BigInt or an arbitrary-precision library.
+
+</details>
+
+<details>
+<summary>**Is there a factorial of a negative or fractional number?**</summary>
+
+Not with this tool. The factorial extends to non-integers through the gamma function, but it is undefined for negative integers. This calculator covers non-negative integers only.
+
+</details>
+
+## Tips
+
+- Read the step expansion when a combinatorics answer looks wrong — the error is usually in how the problem was set up, and the working makes that visible.
+- Compare !n against n!/e rounded to the nearest integer; they agree for every n ≥ 1, which is a quick sanity check on a derangement count.
+- If a program disagrees with the exact result somewhere around n = 18–20, you are looking at a floating-point limit, not a bug in your loop.
+- Double factorial and "factorial of a factorial" are different things — n!! steps down by two, it does not apply the factorial twice.
+
+## Try it now
+
+The full Factorial Calculator runs in your browser at **[https://ztools.zaions.com/factorial](https://ztools.zaions.com/factorial)** — no signup, no upload, no data leaves your device.
+
+[Open the tool ↗](https://ztools.zaions.com/factorial)
+
+---
+
+*Last updated: 2026-07-25 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/math/factorial.mdx)*

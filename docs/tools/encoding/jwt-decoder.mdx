@@ -23,7 +23,7 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 A JSON Web Token (JWT) is a compact, URL-safe credential containing a JSON object signed by the issuer. It is the dominant token format for OAuth 2.0, OpenID Connect, and most modern API authentication. The ZTools JWT Decoder splits a token at its two dots, Base64URL-decodes the header and payload, and pretty-prints the JSON claims with a human-readable interpretation of standard fields (`exp`, `iat`, `nbf` shown as local timestamps, `aud` highlighted, algorithm flagged if `none`). Decoding is purely structural — verifying the signature requires the issuer's public key and is intentionally NOT done in this tool because pasting your secret into a web page is bad practice.
 
-<ToolCTA toolId="jwt-decoder" toolName="JWT Decoder" />
+<ToolCTA href="https://ztools.zaions.com/jwt-decoder" toolName="JWT Decoder" kind="browser" />
 
 ## Use cases
 

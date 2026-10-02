@@ -1,7 +1,7 @@
 ---
 id: background-remover
-title: "Background Remover — Cut Out Photo Backgrounds Free, In-Browser"
-description: "Remove the background from any photo automatically. Get a transparent PNG in seconds. 100% in-browser, no upload, no signup, no watermark."
+title: "Background Remover — Cut Out Photo Backgrounds with AI, Free"
+description: "Remove the background from a photo with AI and download a full-size transparent PNG. Free with a Google sign-in; your photo is deleted right after processing."
 sidebar_label: "AI Background Remover"
 keywords:
   - "background remover"
@@ -10,9 +10,9 @@ keywords:
   - "free background removal"
   - "remove bg"
   - "cutout tool"
-  - "in-browser background removal"
+  - "ai background remover"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -20,35 +20,35 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # AI Background Remover
 
-A background remover detects the main subject of a photo and erases everything behind it, producing a transparent PNG cutout that you can drop onto a new background, a product page, or a presentation slide. The ZTools Background Remover runs entirely in your browser using a client-side segmentation model — your image never leaves your device, the result has no watermark, the output is a clean transparent PNG, and you can fine-tune the edge with brush-based add/erase strokes if the auto cut misses a strand of hair or a thin earring.
+A background remover detects the main subject of a photo and erases everything behind it, producing a transparent PNG cutout you can drop onto a new background, a product page or a presentation slide. The ZTools Background Remover sends your photo to our own processing server, where an AI segmentation model cuts out the subject in a few seconds; the server deletes the photo and the cutout right after sending the result back. You get a watermark-free PNG at the original size, with an optional solid background (white, black, light grey, blue or green) added when you download. It needs a free Google sign-in.
 
-<ToolCTA toolId="background-remover" toolName="AI Background Remover" />
+<ToolCTA href="https://ztools.zaions.com/background-remover" toolName="AI Background Remover" kind="server" />
 
 ## Use cases
 
 ### E-commerce product photos
 
-Sellers on Etsy, eBay, Amazon, and Shopify need clean white-or-transparent backgrounds to meet listing rules. Shoot the product on any backdrop, run it through the remover, and drop the cutout onto any required background colour in seconds.
+Sellers on Etsy, eBay, Amazon, and Shopify need clean white-or-transparent backgrounds to meet listing rules. Shoot the product on any backdrop, run it through the remover, and download it on white or keep the transparency for your own backdrop.
 
 ### Profile picture cleanup
 
-Replace the cluttered hostel-room background in your LinkedIn headshot with a clean colour or blurred office. Auto-segmentation handles the hair line; brush strokes fix any glasses-frame gaps.
+Replace the cluttered hostel-room background in your LinkedIn headshot with a clean colour. The model handles the hair line; for a blurred-office look, place the transparent PNG on that photo in any image editor.
 
 ### Marketing graphics and social posts
 
-Designers need subject cutouts for hero banners, Instagram carousels, and pitch decks. Skip the Photoshop pen-tool detour — auto cutouts handle 90% of cases in 5 seconds.
+Designers need subject cutouts for hero banners, Instagram carousels, and pitch decks. Skip the Photoshop pen-tool detour: the automatic cut handles most photos in a few seconds.
 
 ### Passport and ID-style photos
 
-Many countries require a specific solid background for ID photos. Remove the original, paste onto the regulation colour (white, light blue, or red), and export at the required pixel size.
+Many countries require a specific solid background for ID photos. Download the cutout on white, or place the transparent PNG on the exact colour your country requires, then resize it to the required pixel size.
 
 ## How it works
 
-1. **Upload your photo** — JPG, PNG, WebP, HEIC. Drag-and-drop or paste from clipboard. Up to ~25 MB per file.
-2. **Auto-segmentation runs in your browser** — A neural model identifies the foreground subject (person, product, animal, vehicle) and produces an alpha mask in 2–6 seconds depending on device.
-3. **Refine the edge if needed** — Switch to the brush tool to add or remove regions — useful for fine hair, glasses, jewellery, or motion blur the auto pass missed.
-4. **Pick a new background or keep transparency** — Solid colour, gradient, or another image. Or just export the transparent PNG.
-5. **Download** — Transparent PNG (default), JPG with chosen background, or WebP. Original resolution preserved unless you pick a smaller export size.
+1. **Sign in and add your photo** — Sign in with Google, then drop or pick a PNG, JPG, WebP, GIF (first frame), BMP or TIFF image of up to 20 MB and 40 megapixels.
+2. **Pick the quality** — Balanced gives the cleanest edges in a few seconds. Fast returns a rougher cut in about a second.
+3. **Our server cuts out the subject** — The photo travels over HTTPS to our processing server, where a neural model finds the foreground subject (person, product, animal, vehicle) and returns a transparent PNG. The server then deletes both files.
+4. **Choose a background** — Keep it transparent, or pick white, black, light grey, blue or green. The colour is painted in your browser when you download.
+5. **Download** — A PNG at the original resolution, with no watermark.
 
 ## Examples
 
@@ -66,28 +66,35 @@ Many countries require a specific solid background for ID photos. Remove the ori
 
 **Input:** Two people, only one wanted
 
-**Output:** Brush-erase the second person, then export
+**Output:** Transparent PNG with both people
 
 ## Frequently asked questions
 
 <details>
 <summary>**Does my photo upload to a server?**</summary>
 
-No. Segmentation runs in your browser using a client-side model — the file never leaves your device. Faster, private, no quota.
+Yes. The AI model is too heavy to run well in a browser, so the photo goes over HTTPS to our own processing server, not to a third-party service. The server deletes the photo and the cutout right after sending the result back, and keeps only a request record with no image data.
+
+</details>
+
+<details>
+<summary>**Why do I need to sign in?**</summary>
+
+Because the work runs on our server, a free Google sign-in and a quick bot check keep it available for everyone. Each account has a daily limit.
 
 </details>
 
 <details>
 <summary>**Why is the edge fuzzy on hair?**</summary>
 
-Auto models trade speed for perfect alpha. For portraits with fine flyaway hair, expand the canvas, run the auto pass, then use the soft brush at low opacity to clean the silhouette.
+Segmentation models produce a soft mask where the subject and the background blend. Use Balanced rather than Fast, and upload the largest, sharpest version of the photo you have.
 
 </details>
 
 <details>
 <summary>**Output is too large — how do I shrink it?**</summary>
 
-Pick a smaller export size before download, or run the result through the Image Compressor. PNG with transparency is naturally larger than JPG; if you do not need transparency, export as JPG with a flat background.
+PNG with transparency is naturally larger than JPG. If you do not need transparency, pick a solid background, then compress the download with the Image Compressor.
 
 </details>
 
@@ -101,31 +108,31 @@ Yes — but for vector logos and screenshots, the magic-wand colour-key tools (T
 <details>
 <summary>**Why does the cutout look soft compared to a Photoshop pen path?**</summary>
 
-Auto segmentation produces probability masks, not vector paths. For broadcast-quality cutouts, refine in Photoshop after the auto pass — the auto result is usually 90% there and saves 10–15 minutes per image.
+Auto segmentation produces probability masks, not vector paths. For broadcast-quality cutouts, refine the edge in an image editor after the automatic pass.
 
 </details>
 
 <details>
 <summary>**Is there a batch mode?**</summary>
 
-Yes — drop a folder of images and the tool processes them sequentially with the same settings. Ideal for product catalogues with consistent lighting.
+No. The tool takes one photo at a time, and each photo counts once toward the daily limit.
 
 </details>
 
 ## Tips
 
 - Shoot against a contrasting background when possible — the model finds edges faster and cleaner.
-- Hair detail matters? Increase canvas size before running auto so the model has more pixels to work with around the silhouette.
-- For e-commerce, after removing background, paste onto pure #FFFFFF and export JPG quality 90 — fastest load, smallest file, most marketplace-compatible.
+- Hair detail matters? Upload the original photo rather than a resized copy, so the model has more pixels around the silhouette.
+- For e-commerce, download on white, then compress the file for the fastest-loading, most marketplace-compatible image.
 - Save the transparent PNG as your master and re-composite onto different backgrounds rather than re-cutting each time.
-- Use the shadow toggle to preserve a subtle ground shadow — products feel grounded rather than floating.
+- Try Fast for a quick preview, then run Balanced for the final cut.
 
 ## Try it now
 
-The full AI Background Remover runs in your browser at **[https://ztools.zaions.com/background-remover](https://ztools.zaions.com/background-remover)** — no signup, no upload, no data leaves your device.
+The full AI Background Remover runs at **[https://ztools.zaions.com/background-remover](https://ztools.zaions.com/background-remover)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
 [Open the tool ↗](https://ztools.zaions.com/background-remover)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/background-remover.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/image/background-remover.mdx)*

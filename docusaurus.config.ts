@@ -33,7 +33,7 @@ const clarityScript = (id: string) => `
 
 const config: Config = {
   title: 'ZTools Documentation',
-  tagline: '570+ free developer & creator tools — every page documented.',
+  tagline: '580+ free developer & creator tools — every page documented.',
   favicon: 'img/favicon.ico',
 
   url: SITE_URL,
@@ -82,14 +82,14 @@ const config: Config = {
     {tagName: 'meta', attributes: {property: 'og:image:type', content: 'image/png'}},
     {tagName: 'meta', attributes: {property: 'og:image:width', content: '1800'}},
     {tagName: 'meta', attributes: {property: 'og:image:height', content: '945'}},
-    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'ZTools — 570+ free developer & creator tools, every one documented'}},
+    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'ZTools — 580+ free developer & creator tools, every one documented'}},
 
     // ----- Twitter / X card ----------------------------------------------
     {tagName: 'meta', attributes: {name: 'twitter:card', content: 'summary_large_image'}},
     {tagName: 'meta', attributes: {name: 'twitter:site', content: '@aoneahsan'}},
     {tagName: 'meta', attributes: {name: 'twitter:creator', content: '@aoneahsan'}},
     {tagName: 'meta', attributes: {name: 'twitter:image', content: `${SITE_URL}/img/social-card.png`}},
-    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'ZTools — 570+ free developer & creator tools, every one documented'}},
+    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'ZTools — 580+ free developer & creator tools, every one documented'}},
 
     // Clarity — emitted only when CLARITY_PROJECT_ID env var is set
     ...(CLARITY_PROJECT_ID
@@ -203,7 +203,7 @@ const config: Config = {
     announcementBar: {
       id: 'launch-2026-05',
       content:
-        '🎉 ZTools docs — 570+ tools, each with its own documentation page. <a href="/docs/intro">Get started →</a>',
+        '🎉 ZTools docs — 580+ tools, each with its own documentation page. <a href="/docs/intro">Get started →</a>',
       backgroundColor: '#ffa840',
       textColor: '#0a0a0a',
       isCloseable: true,

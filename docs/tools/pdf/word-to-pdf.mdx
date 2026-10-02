@@ -1,7 +1,7 @@
 ---
 id: word-to-pdf
-title: "Word to PDF Converter — DOCX to PDF, In-Browser, Free"
-description: "Convert Microsoft Word (.docx) to PDF preserving headings, lists, tables, images, and formatting. 100% in-browser — no upload, no watermark."
+title: "Word to PDF Converter — DOCX and DOC to PDF, Free"
+description: "Convert Word (.docx, .doc) to PDF with the exact layout on our server (LibreOffice, free Google sign-in), or to a simplified PDF in your browser with no upload. No watermark."
 sidebar_label: "Word to PDF Converter"
 keywords:
   - "word to pdf"
@@ -9,10 +9,10 @@ keywords:
   - "convert word to pdf"
   - "word to pdf online"
   - "free word to pdf"
-  - "docx to pdf no upload"
+  - "doc to pdf"
   - "word document to pdf"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -20,105 +20,105 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Word to PDF Converter
 
-A Word-to-PDF converter takes a Microsoft Word `.docx` file and renders it as a standardized PDF — preserving headings, paragraphs, lists, tables, images, hyperlinks, and most font styling. The ZTools Word to PDF tool reads the DOCX (which is internally a ZIP of XML files), maps Word styles to PDF text and graphic primitives, and emits a PDF via `pdf-lib`. Runs entirely in the browser; no upload, no watermark, no email required.
+A Word-to-PDF converter takes a Microsoft Word document and renders it as a standard PDF that looks the same on every device. The ZTools Word to PDF tool has two modes. On our server, LibreOffice opens the DOCX, DOC, ODT or RTF (up to 30 MB) and prints it to PDF with the original layout: fonts, page breaks, tables, headers and footers, images and links; macros never run, and the server deletes your file right after processing. It needs a free Google sign-in. On this device, the DOCX is read in your browser and rebuilt as a simpler PDF that keeps headings, bold and italic text, lists and images but simplifies complex layout; nothing is uploaded. Neither mode adds a watermark.
 
-<ToolCTA toolId="word-to-pdf" toolName="Word to PDF Converter" />
+<ToolCTA href="https://ztools.zaions.com/word-to-pdf" toolName="Word to PDF Converter" kind="server" />
 
 ## Use cases
 
 ### Producing a final PDF from a draft contract or report
 
-PDF is the universal "no further edits" format. Convert your final DOCX, attach to email or upload to your DMS, knowing the recipient sees exactly what you intended — fonts, page breaks, and all.
+PDF is the universal "no further edits" format. Convert your final DOCX with the server mode, attach it to an email or upload it to your DMS, and the recipient sees the layout you intended — fonts, page breaks and all.
 
 ### Submitting a resume as PDF (the standard for ATS systems)
 
 Recruiters and applicant-tracking systems prefer PDF over DOCX (consistent rendering, no accidental edits). Convert your DOCX resume before submitting to job boards or HR portals.
 
-### Creating a print-ready document from a Word draft
+### Converting an old .doc file
 
-Word's built-in print → PDF varies by OS and Word version. A tool that produces consistent PDFs across all OSes ensures your printed page matches your screen view.
+Legacy Word files from years ago still open in the server mode, which accepts .doc as well as .docx, so there is no need to re-save them first.
 
 ### Generating PDFs for archival or compliance reasons
 
-Some industries (legal, finance, healthcare) require PDF/A or archival PDFs for record-keeping. Convert DOCX outputs of templates to PDF for auditable records.
+Some industries (legal, finance, healthcare) keep records as PDF. Convert the DOCX output of a template to PDF for a fixed record.
 
 ## How it works
 
-1. **Drag-drop your DOCX file** — File loads into browser memory; nothing uploaded.
-2. **Choose page settings** — Page size (default: from the DOCX itself; override to A4/Letter/Legal). Orientation (default: from DOCX). Margins (preserved from DOCX or override).
-3. **Click Convert** — The tool unzips the DOCX, parses the document.xml, walks every paragraph and run, maps to PDF primitives, and emits a complete PDF.
-4. **Preview and download** — Side-by-side preview shows original DOCX rendering and converted PDF — spot-check before download.
-5. **Open in any PDF reader** — Standard PDF — works in Adobe Reader, Preview, Chrome, Firefox, all modern viewers.
+1. **Add your Word file** — DOCX, DOC, ODT or RTF up to 30 MB for the server mode; DOCX for the on-device mode. Password-protected files must be unlocked first.
+2. **Choose where to convert** — "On our server" keeps the exact layout and needs a free Google sign-in. "On this device" converts in your browser with no upload, with a simplified layout.
+3. **Set the page (on this device)** — Pick the page size (A4, Letter and more) and orientation. The server mode uses the page setup saved in the document.
+4. **Convert** — The server prints the document with LibreOffice; the on-device mode maps headings, runs, lists and images into a PDF.
+5. **Download and check** — Open the PDF in any reader and check the page breaks before sending it.
 
 ## Examples
 
-**Input:** 5-page DOCX resume with custom fonts and bullet lists
+**Input:** 5-page DOCX resume in Calibri with bullet lists (on our server)
 
-**Output:** PDF preserving fonts (where embedded), bullet styling, page breaks, hyperlinks
+**Output:** PDF with the same line and page breaks, bullet styling and clickable links
 
 ---
 
-**Input:** 30-page DOCX report with embedded images and tables
+**Input:** 30-page DOCX report with images and tables (on this device)
 
-**Output:** PDF with all text formatting, tables, and images preserved at original resolution
+**Output:** Readable PDF with the headings, text, lists and images; complex table layouts are simplified
 
 ## Frequently asked questions
 
 <details>
 <summary>**Will fonts be preserved?**</summary>
 
-Standard fonts (Arial, Calibri, Times New Roman, Cambria, Helvetica) render identically because they're in every PDF reader. Custom fonts must be embedded in the DOCX (Word: File → Options → Save → Embed fonts) for guaranteed preservation; otherwise the tool substitutes a similar fallback.
+On our server, documents in Arial, Times New Roman, Courier New, Calibri or Cambria keep their line and page breaks, because the server has metric-compatible versions of those fonts. Other fonts are replaced by a similar one unless they are embedded in the DOCX (Word: File → Options → Save → Embed fonts).
 
 </details>
 
 <details>
 <summary>**Are hyperlinks clickable in the resulting PDF?**</summary>
 
-Yes — DOCX hyperlinks are preserved as PDF link annotations.
+In the server mode, yes — links in the document become PDF links.
 
 </details>
 
 <details>
 <summary>**Will my DOCX be uploaded?**</summary>
 
-No. Conversion runs entirely in your browser. Disconnect from the internet after page load and the tool still works.
+Only in the "On our server" mode, which sends it over HTTPS to our own processing server; the server deletes the document and the PDF right after processing and never runs its macros. The "On this device" mode never uploads anything.
 
 </details>
 
 <details>
 <summary>**Are tables preserved?**</summary>
 
-Yes — including row/column structure, borders, and cell alignment.
+On our server, yes — row and column structure, borders and cell alignment. On this device, tables are simplified.
 
 </details>
 
 <details>
 <summary>**Are page breaks honored?**</summary>
 
-Yes — manual page breaks (Ctrl+Enter in Word) and section breaks both produce the expected PDF page boundaries.
+On our server, yes — manual page breaks and section breaks produce the same PDF page boundaries as in Word.
 
 </details>
 
 <details>
 <summary>**Can I convert a `.doc` file (older Word format)?**</summary>
 
-Not directly — convert the `.doc` to `.docx` first using Word or LibreOffice (File → Save As → .docx), then convert the DOCX here.
+Yes, in the server mode. The on-device mode reads .docx only.
 
 </details>
 
 ## Tips
 
 - Embed fonts in your DOCX (File → Options → Save → "Embed fonts in the file") for guaranteed font fidelity in the PDF.
-- For consistent margins, set them in the DOCX itself rather than overriding at conversion.
+- Use the server mode whenever the layout matters: contracts, resumes, forms.
 - For multi-section documents (different headers per section), use Word's section breaks before converting.
 - After conversion, run PDF Compressor if the output is image-heavy.
 
 ## Try it now
 
-The full Word to PDF Converter runs in your browser at **[https://ztools.zaions.com/word-to-pdf](https://ztools.zaions.com/word-to-pdf)** — no signup, no upload, no data leaves your device.
+The full Word to PDF Converter runs at **[https://ztools.zaions.com/word-to-pdf](https://ztools.zaions.com/word-to-pdf)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
 [Open the tool ↗](https://ztools.zaions.com/word-to-pdf)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/word-to-pdf.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/word-to-pdf.mdx)*

@@ -24,7 +24,7 @@ Package id: `com.zaions.ztools`.
 
 ## iOS
 
-An iOS build is ready in code but not yet published — it's waiting on an Apple Developer account. Until then, iPhone and iPad users can use the web app at [ztools.zaions.com](https://ztools.zaions.com), or add it to the home screen (see [Install ZTools as an app](/docs/guides/install-as-app)).
+There is no iOS app. iPhone and iPad users can use the web app at [ztools.zaions.com](https://ztools.zaions.com), or add it to the home screen (see [Install ZTools as an app](/docs/guides/install-as-app)).
 
 ## Next
 

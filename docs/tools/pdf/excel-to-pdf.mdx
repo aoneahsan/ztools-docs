@@ -1,7 +1,7 @@
 ---
 id: excel-to-pdf
 title: "Excel to PDF Converter — XLSX to PDF Preserving Layout (Free)"
-description: "Convert Excel (.xlsx) workbooks to PDF preserving cell formatting, borders, charts, and page layout. No upload, no watermark, in-browser."
+description: "Convert Excel (.xlsx, .xls) to PDF with its formatting, charts and page setup on our server (free Google sign-in), or turn a sheet into a table PDF in your browser. No watermark."
 sidebar_label: "Excel to PDF Converter"
 keywords:
   - "excel to pdf"
@@ -11,7 +11,7 @@ keywords:
   - "free excel to pdf"
   - "spreadsheet to pdf"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -19,9 +19,9 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Excel to PDF Converter
 
-An Excel-to-PDF converter renders a Microsoft Excel `.xlsx` workbook as a PDF — preserving cell values, formatting, borders, fonts, charts, and page layout. The ZTools Excel to PDF tool reads the XLSX (internally a ZIP of XML files), renders each visible worksheet to a PDF page using `pdf-lib`, and applies print-area, scaling, and orientation settings from the workbook itself. Useful for sharing financial reports, schedules, and any spreadsheet where editability isn't needed and consistent rendering across viewers is.
+An Excel-to-PDF converter renders a spreadsheet as a PDF that looks the same for everyone and cannot be edited by accident. The ZTools Excel to PDF tool has two modes. On our server, LibreOffice opens the XLSX, XLS or ODS workbook (up to 30 MB) and prints it using the workbook's own page setup: cell formatting, borders, fonts, charts, print areas and page breaks; macros never run, and the server deletes your file right after processing. It needs a free Google sign-in. On this device, you pick one sheet of an XLSX or CSV file and it becomes a clean table PDF with the page size and orientation you choose; nothing is uploaded, but cell styling and charts are not carried over.
 
-<ToolCTA toolId="excel-to-pdf" toolName="Excel to PDF Converter" />
+<ToolCTA href="https://ztools.zaions.com/excel-to-pdf" toolName="Excel to PDF Converter" kind="server" />
 
 ## Use cases
 
@@ -31,7 +31,7 @@ PDF locks the values; XLSX invites accidental edits. Convert before sending so t
 
 ### Printing complex Excel layouts with consistent page breaks
 
-Browser-based or OS-based "Print to PDF" varies in how it handles Excel print areas. A dedicated converter respects the workbook's print settings exactly.
+The server mode prints with the workbook's own print areas and page setup, so the PDF pages match what you set up in Excel.
 
 ### Submitting spreadsheet outputs to systems that only accept PDF
 
@@ -43,44 +43,44 @@ Fill in the invoice template each month, convert to PDF, email. Recipients can't
 
 ## How it works
 
-1. **Drag-drop your XLSX file** — File loads into browser memory.
-2. **Choose worksheet scope** — All visible sheets, only the active sheet, or a custom selection. Hidden sheets are excluded by default.
-3. **Configure page settings** — Honor workbook print settings (recommended) or override: page size, orientation, scaling (fit-to-page, actual size, or custom percentage).
-4. **Click Convert** — The tool renders each cell to PDF text with the workbook's font, color, and border styles; charts are rendered as embedded images at sufficient DPI.
-5. **Preview and download** — Side-by-side preview shows the workbook and the resulting PDF; verify page breaks and chart placement before download.
+1. **Add your spreadsheet** — XLSX, XLS or ODS up to 30 MB for the server mode; XLSX or CSV for the on-device mode. Password-protected files must be unlocked first.
+2. **Choose where to convert** — "On our server" keeps the formatting, charts and page setup and needs a free Google sign-in. "On this device" builds a table PDF in your browser with no upload.
+3. **Set the page (on this device)** — Pick the sheet, the page size and the orientation. The server mode uses the page setup saved in the workbook.
+4. **Convert** — The server prints every sheet that has content with LibreOffice; the on-device mode lays out the chosen sheet as a table.
+5. **Download and check** — Open the PDF and check the page breaks and chart placement before sending it.
 
 ## Examples
 
-**Input:** 3-sheet financial workbook (Income, Balance Sheet, Cash Flow)
+**Input:** 3-sheet financial workbook (Income, Balance Sheet, Cash Flow), on our server
 
-**Output:** Multi-page PDF: 3 sheets, fonts and borders preserved, charts as crisp embedded images
+**Output:** Multi-page PDF with the fonts, borders and charts from the workbook
 
 ---
 
-**Input:** Monthly invoice from Excel template
+**Input:** CSV export of a customer list, on this device
 
-**Output:** Single-page PDF matching the print preview exactly
+**Output:** A clean, paginated table PDF with a header row
 
 ## Frequently asked questions
 
 <details>
 <summary>**Are charts preserved?**</summary>
 
-Yes — charts are rendered as embedded images at 300 DPI for print quality. Chart styling (colors, legends, axes) is preserved.
+In the server mode, yes — charts are drawn into the PDF by LibreOffice. The on-device mode exports cell values only.
 
 </details>
 
 <details>
 <summary>**Will my XLSX be uploaded?**</summary>
 
-No. Conversion happens entirely in your browser. Disconnect from the internet after page load and the tool still works.
+Only in the "On our server" mode, which sends it over HTTPS to our own processing server; the server deletes the workbook and the PDF right after processing and never runs its macros. The "On this device" mode never uploads anything.
 
 </details>
 
 <details>
 <summary>**Will all sheets be in the PDF?**</summary>
 
-By default: all visible sheets. Hidden sheets are skipped. You can override to include only the active sheet or a custom selection.
+On our server, the sheets that have content are printed in order, following each sheet's print area. On this device, you choose one sheet per PDF.
 
 </details>
 
@@ -94,30 +94,30 @@ PDFs hold values, not formulas. The PDF shows the calculated output of every for
 <details>
 <summary>**Are conditional-formatting colors preserved?**</summary>
 
-Yes — the rendered cell colors at conversion time are baked into the PDF.
+In the server mode, yes — the cell colours at conversion time are baked into the PDF.
 
 </details>
 
 <details>
 <summary>**Can I convert `.xls` (old Excel format)?**</summary>
 
-Convert to `.xlsx` first (Excel: File → Save As → Excel Workbook), then convert. The `.xls` binary format isn't supported directly.
+Yes, in the server mode. The on-device mode reads .xlsx and .csv only.
 
 </details>
 
 ## Tips
 
-- Set your print area in Excel before converting — the PDF will respect it.
+- Set your print area in Excel before converting — the server mode respects it.
 - For multi-sheet workbooks, use the print-preview pane in Excel first to verify each sheet's layout.
-- For very wide sheets, set scaling to "fit all columns on one page" before converting.
-- After conversion, run PDF Compressor if the output is large (charts produce big PDFs at high DPI).
+- For very wide sheets, set scaling to "fit all columns on one page" in Excel before converting.
+- After conversion, run PDF Compressor if the output is large.
 
 ## Try it now
 
-The full Excel to PDF Converter runs in your browser at **[https://ztools.zaions.com/excel-to-pdf](https://ztools.zaions.com/excel-to-pdf)** — no signup, no upload, no data leaves your device.
+The full Excel to PDF Converter runs at **[https://ztools.zaions.com/excel-to-pdf](https://ztools.zaions.com/excel-to-pdf)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
 [Open the tool ↗](https://ztools.zaions.com/excel-to-pdf)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/excel-to-pdf.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/pdf/excel-to-pdf.mdx)*

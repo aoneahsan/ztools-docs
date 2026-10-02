@@ -1,7 +1,7 @@
 ---
 id: video-subtitle-extractor
-title: "Video Subtitle Extractor — Extract SRT / VTT Subtitles"
-description: "Extract embedded subtitles from MKV / MP4 videos to SRT or VTT format. Free, in-browser, no upload."
+title: "Video Subtitle Extractor — Extract or Generate SRT / VTT Subtitles"
+description: "Pull the subtitle tracks out of an MKV or MP4, or generate subtitles from speech with Whisper, as SRT or VTT. Runs on our server (free Google sign-in); edit SRT/VTT files in your browser."
 sidebar_label: "Video Subtitle Extractor"
 keywords:
   - "extract subtitles"
@@ -9,9 +9,10 @@ keywords:
   - "mkv subtitle extractor"
   - "srt extractor"
   - "vtt extractor"
+  - "generate subtitles"
   - "free subtitle tool"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -19,23 +20,23 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Video Subtitle Extractor
 
-A video subtitle extractor pulls subtitle tracks (SRT, ASS, VTT) embedded in container formats like MKV and MP4 into standalone subtitle files, letting you edit, translate, re-time, or import them into other video tools. The ZTools Video Subtitle Extractor runs entirely in the browser via FFmpeg.wasm, supports MKV / MP4 / MOV / WebM inputs, lists every subtitle track with language metadata, lets you pick which to extract, and outputs SRT (universal) or VTT (web-friendly) files saved locally.
+A video subtitle extractor pulls subtitle tracks embedded in container formats like MKV and MP4 out into standalone subtitle files, so you can edit, translate, re-time, or import them into other video tools. The ZTools Video Subtitle Extractor works with a video in two ways, both on our own processing server: it extracts every text subtitle track already inside the video (MKV, MP4, MOV or WebM, up to 100 MB) as SRT or WebVTT, or it generates subtitles from what is said, using the Whisper speech model on up to 15 minutes of audio. The video mode needs a free Google sign-in, and the server deletes your video right after processing. Its "Edit a subtitle file" mode opens an existing .srt or .vtt file in your browser, with no upload.
 
-<ToolCTA toolId="video-subtitle-extractor" toolName="Video Subtitle Extractor" />
+<ToolCTA href="https://ztools.zaions.com/tools/video-subtitle-extractor" toolName="Video Subtitle Extractor" kind="server" />
 
 ## Use cases
 
 ### Editing subtitles
 
-Found a typo or want to fix translation. Extract the subtitle track; edit in any text editor (it's plain text); re-import into the video.
+Found a typo or want to fix a translation. Extract the subtitle track, edit it here or in any text editor (it's plain text), then re-import it into the video.
 
-### Re-timing for re-encoded video
+### Subtitles for a video that has none
 
-After re-encoding a video at a different frame rate, original subtitles drift out of sync. Extract, re-time using a subtitle editor, re-embed.
+A talk, lesson or interview with no captions. Generate subtitles from the speech, review them, and upload the SRT alongside the video.
 
 ### Subtitle translation
 
-Translate the subtitle file into another language (manually, or via translation API). Single text file is far easier to translate than handling video inline.
+Translate the subtitle file into another language (manually, or via a translation tool). A single text file is far easier to translate than handling video inline.
 
 ### Standalone subtitle archive
 
@@ -43,36 +44,36 @@ Some media servers (Plex, Jellyfin) prefer standalone .srt files alongside video
 
 ## How it works
 
-1. **Upload video** — Drag-drop or pick. Tool inspects container metadata to enumerate subtitle tracks.
-2. **Pick subtitle track** — List shows index, language code (eng, spa, jpn), codec, and forced flag. Most videos have 0-3 subtitle tracks; some have 10+.
-3. **Choose output format** — SRT: universal, plain text, fully featured. VTT: web standard for HTML5 video, similar to SRT with optional styling. Pick based on destination.
-4. **Extract** — FFmpeg.wasm reads the track, demuxes the subtitle stream, writes the chosen format.
-5. **Download** — Subtitle file saves locally. Open in any text editor or import into video tools.
+1. **Choose "From a video" and sign in** — The video modes run on our server and need a free Google sign-in. To fix an existing .srt or .vtt file instead, choose "Edit a subtitle file".
+2. **Pick how to get the subtitles** — "Extract tracks inside the video" reads the subtitle tracks already in the file. "Generate from speech" transcribes what is said with Whisper.
+3. **Add the video** — MKV, MP4, MOV or WebM up to 100 MB for extraction; audio or video up to 15 minutes for generated subtitles.
+4. **Choose the format** — SRT: universal, plain text. WebVTT: the web standard for HTML5 video, similar to SRT with optional styling.
+5. **Download** — Each text track (or the generated subtitles) downloads as its own file, named with the language when the video records one.
 
 ## Examples
 
 **Input:** MKV with 3 subtitle tracks (English, Spanish, Japanese)
 
-**Output:** Pick English; download English.srt. Re-run for other languages.
+**Output:** Three downloads: video.eng.srt, video.spa.srt and video.jpn.srt.
 
 ---
 
-**Input:** MP4 with embedded VTT subtitles
+**Input:** MP4 with an embedded text subtitle track
 
-**Output:** Direct extraction to .vtt; no transcoding needed.
+**Output:** One .srt or .vtt file, ready to edit.
 
 ---
 
-**Input:** MKV with ASS subtitles (anime style with positioning)
+**Input:** Recorded lecture with no subtitle track
 
-**Output:** Convert to SRT (loses positioning) or extract as ASS to preserve all styling.
+**Output:** Generate from speech: timed SRT subtitles of what the speaker says.
 
 ## Frequently asked questions
 
 <details>
 <summary>**What if my video has no embedded subtitles?**</summary>
 
-You cannot extract what is not there. For videos without embedded subtitles, use speech-to-text on the audio or AI subtitle services to generate them.
+Use "Generate from speech", which transcribes the audio with the Whisper model and returns timed subtitles you can download as SRT or VTT.
 
 </details>
 
@@ -84,47 +85,47 @@ SRT: text-only, universal across players. VTT: web standard, supports CSS stylin
 </details>
 
 <details>
-<summary>**How do I re-embed edited subtitles?**</summary>
+<summary>**Why can some tracks not be extracted?**</summary>
 
-Use a tool like MKVToolNix (desktop) to remux the video with the new subtitle file. The browser tool extracts; remuxing requires desktop.
+DVD and Blu-ray subtitles are pictures of text, not text. The tool lists them but cannot turn them into SRT; that would need OCR on every frame. Styled ASS subtitles are converted to SRT or VTT, which drops their positioning and styling.
 
 </details>
 
 <details>
-<summary>**Why are subtitles slightly off-sync?**</summary>
+<summary>**How do I re-embed edited subtitles?**</summary>
 
-Frame-rate mismatch between subtitle timing and video playback. Most subtitle editors have re-time tools (shift all by N seconds, or re-time at start + end).
+Use a tool like MKVToolNix (desktop) to remux the video with the new subtitle file, or upload the .srt alongside the video on platforms that accept one.
 
 </details>
 
 <details>
 <summary>**Is the video uploaded?**</summary>
 
-No — FFmpeg.wasm processes in-browser. Privacy by design.
+In the "From a video" modes, yes: it goes over HTTPS to our own processing server, which deletes the video and the subtitles right after processing. Editing a subtitle file happens in your browser and uploads nothing.
 
 </details>
 
 <details>
 <summary>**Can I extract burned-in subtitles?**</summary>
 
-No — burned-in subtitles are part of the video frames, not a separate track. Extracting them requires OCR over each frame; specialised tools exist for this.
+No — burned-in subtitles are part of the video frames, not a separate track. "Generate from speech" can create new subtitles from the audio instead.
 
 </details>
 
 ## Tips
 
-- Inspect track metadata first — language tags help when there are multiple options. Extract the right track to save time.
+- Check the language tags on the downloads — they tell multiple tracks apart.
 - SRT is the safest target format for editing; convert to VTT only when serving HTML5 video.
-- For style-rich subtitles (anime, opera), preserve as ASS / SSA — converting to SRT loses styling.
+- Generated subtitles need a proofread: names, jargon and overlapping speakers are the usual errors.
 - After editing, validate the timing in a subtitle editor — most editors flag overlap, gap, or out-of-bound timestamps.
-- For batch extraction across many files, scripted FFmpeg on desktop is faster than per-file browser uploads.
+- For batch extraction across many files, scripted FFmpeg on desktop is faster than one upload at a time.
 
 ## Try it now
 
-The full Video Subtitle Extractor runs in your browser at **[https://ztools.zaions.com/video-subtitle-extractor](https://ztools.zaions.com/video-subtitle-extractor)** — no signup, no upload, no data leaves your device.
+The full Video Subtitle Extractor runs at **[https://ztools.zaions.com/tools/video-subtitle-extractor](https://ztools.zaions.com/tools/video-subtitle-extractor)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
-[Open the tool ↗](https://ztools.zaions.com/video-subtitle-extractor)
+[Open the tool ↗](https://ztools.zaions.com/tools/video-subtitle-extractor)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/video-subtitle-extractor.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/video-subtitle-extractor.mdx)*

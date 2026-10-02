@@ -23,7 +23,7 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 A text diff checker compares two versions of the same writing and marks exactly what changed between them — added lines in green, removed lines in red, and modified lines with the specific words that differ highlighted inside them. The ZTools Text Diff Checker runs a real line-level longest-common-subsequence pass and then a word-level pass inside each modified line, so a one-word edit in a long paragraph shows as one word changed, not the whole line rewritten. It offers a unified view and a side-by-side view, optional ignore-case and ignore-whitespace matching, and export of a patch-style unified diff. Everything runs in your browser via a `useMemo`/`useDeferredValue` pipeline — no text is uploaded, no CDN is called, and typing stays responsive on large inputs. It is built for prose and plain text — drafts, essays, translations, contract redlines, config files — where you care about wording rather than code review workflows.
 
-<ToolCTA toolId="text-diff" toolName="Text Diff Checker" />
+<ToolCTA href="https://ztools.zaions.com/text-diff" toolName="Text Diff Checker" kind="browser" />
 
 ## Use cases
 

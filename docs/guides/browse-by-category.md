@@ -1,6 +1,6 @@
 ---
 title: Browse tools by category
-description: How ZTools organizes 570+ tools into 20 categories, and the fastest ways to find the right one.
+description: How ZTools organizes 580+ tools into 20 categories, and the fastest ways to find the right one.
 tags: [guide, navigation, categories]
 sidebar_label: Browse by category
 sidebar_position: 2
@@ -8,7 +8,7 @@ sidebar_position: 2
 
 # Browse tools by category
 
-ZTools groups its 570+ tools into 20 categories so you can drill down by the kind of job you're doing. The [All tools](/docs/tools) hub lists every category with its tools.
+ZTools groups its 580+ tools into 20 categories so you can drill down by the kind of job you're doing. The [All tools](/docs/tools) hub lists every category with its tools.
 
 ## The categories
 

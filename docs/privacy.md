@@ -35,7 +35,7 @@ GA4 is configured with **IP anonymization on** — your IP address is truncated 
 
 ## What's NOT tracked (across all four tools)
 
-- ❌ **Your inputs to ZTools tools.** This is the main app at `ztools.zaions.com`, not the docs. Tool inputs are processed in your browser and never leave your device.
+- ❌ **Your inputs to ZTools tools.** This is the main app at `ztools.zaions.com`, not the docs. The docs site never sees them. In the app, most tools process inputs in your browser; the few server-backed tools are covered by the app's own [privacy policy](https://ztools.zaions.com/privacy-policy).
 - ❌ **Personally identifying information.** No email, no name, no account ID — the docs site has no signup.
 - ❌ **Form submissions.** Site has no forms; Amplitude form interactions explicitly disabled.
 - ❌ **Element-level interactions.** Amplitude `elementInteractions` disabled.

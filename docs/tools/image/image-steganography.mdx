@@ -23,7 +23,7 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 Image steganography is the practice of hiding a secret message inside an ordinary-looking image so that its very existence is concealed. This tool hides UTF-8 text in the least-significant bits (LSB) of a cover image’s red, green and blue channels — changes far too small for the eye to see — and outputs a normal-looking PNG. It can also reverse the process to reveal a message hidden by this tool. Everything runs entirely in your browser with the Canvas API; your image and message are never uploaded. PNG output is required because it is lossless — a JPEG re-compresses pixels and would destroy the hidden bits. An optional passphrase applies light XOR obfuscation; it is honestly not real encryption, so encrypt sensitive text separately if secrecy matters.
 
-<ToolCTA toolId="image-steganography" toolName="Image Steganography" />
+<ToolCTA href="https://ztools.zaions.com/image-steganography" toolName="Image Steganography" kind="browser" />
 
 ## Use cases
 

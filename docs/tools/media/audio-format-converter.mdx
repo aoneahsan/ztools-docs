@@ -1,7 +1,7 @@
 ---
 id: audio-format-converter
 title: "Audio Format Converter — MP3, WAV, OGG, FLAC, M4A"
-description: "Convert audio between MP3, WAV, OGG, FLAC, M4A, AAC. Choose bitrate. Free, browser-only, no upload."
+description: "Convert audio to MP3, M4A, AAC, OGG, Opus, FLAC or WAV with a chosen bitrate on our server (free Google sign-in), or to WAV and WebM in your browser with no upload."
 sidebar_label: "Audio Format Converter"
 keywords:
   - "audio format converter"
@@ -12,7 +12,7 @@ keywords:
   - "free audio converter"
   - "aac to mp3"
 last_update:
-  date: 2026-05-05
+  date: 2026-09-11
   author: Ahsan Mahmood
 ---
 
@@ -20,15 +20,15 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Audio Format Converter
 
-An audio format converter transcodes a file from one audio format to another — MP3 ↔ WAV ↔ OGG ↔ FLAC ↔ M4A / AAC — letting you match output to a destination's requirements (web upload, podcast platform, audio editor, lossless archive). The ZTools Audio Format Converter runs entirely in the browser via FFmpeg.wasm, supports all major formats, lets you pick output bitrate (96 / 128 / 192 / 256 / 320 kbps for lossy formats), preserves metadata where possible, and downloads the converted file directly without server upload.
+An audio format converter transcodes a file from one audio format to another — MP3 ↔ WAV ↔ OGG ↔ FLAC ↔ M4A / AAC — so it matches what a destination accepts (a podcast platform, an audio editor, a lossless archive). The ZTools Audio Format Converter has two modes. On this device, it decodes the file with the Web Audio API and saves it as WAV (16- or 24-bit) or as the compressed format your browser can record (usually WebM, sometimes Ogg or M4A); nothing is uploaded. On our server, ffmpeg converts it to MP3, M4A, AAC, OGG, Opus, FLAC or WAV at 96 to 320 kbps, in mono or stereo, with an optional trim, and can take the sound out of a video. The server mode needs a free Google sign-in and deletes your file right after processing.
 
-<ToolCTA toolId="audio-format-converter" toolName="Audio Format Converter" />
+<ToolCTA href="https://ztools.zaions.com/audio-format-converter" toolName="Audio Format Converter" kind="server" />
 
 ## Use cases
 
 ### Podcast platform requirements
 
-Some platforms accept only MP3 at specific bitrates. Recorded in WAV; convert to MP3 at 128 kbps stereo before upload. Done in 30 seconds.
+Some platforms accept only MP3 at specific bitrates. Recorded in WAV; convert to MP3 at 128 kbps stereo before upload.
 
 ### Phone ringtone format
 
@@ -36,19 +36,19 @@ iOS expects M4R / M4A; Android accepts MP3 / OGG. Convert your trimmed clip to t
 
 ### Lossless archive
 
-Original recording in MP3; convert to FLAC for archival (lossless re-compression). Or originally lossless WAV → FLAC for ~50% size reduction without quality loss.
+Originally lossless WAV → FLAC shrinks the file without losing any quality, which suits an archive.
 
 ### Compatibility with old devices
 
-Older car stereos may reject newer formats (OPUS, AAC). Convert to MP3 for universal playback.
+Older car stereos may reject newer formats (Opus, AAC). Convert to MP3 for universal playback.
 
 ## How it works
 
-1. **Upload source file** — Drag-drop or pick. Tool loads file into FFmpeg.wasm in browser memory.
-2. **Pick target format** — MP3 (universal lossy), WAV (universal lossless, large), OGG (open lossy), FLAC (open lossless), M4A / AAC (Apple-friendly lossy), OPUS (modern lossy).
-3. **Pick bitrate (lossy formats)** — Voice: 96-128 kbps transparent. Music: 192-256 kbps transparent. Audiophile: 320 kbps. Lossless formats have no bitrate setting.
-4. **Encode** — FFmpeg.wasm processes; progress shown. Single-pass for speed.
-5. **Download** — Output saves to your device. File renamed with target extension.
+1. **Add an audio file** — MP3, WAV, OGG, Opus, FLAC, AAC or M4A. The server mode also takes a video and keeps its sound; files up to 100 MB and 30 minutes.
+2. **Choose where to convert** — "On this device" converts in your browser with no upload. "On our server" offers every format below and needs a free Google sign-in.
+3. **Pick the target format** — MP3 (universal lossy), WAV (universal lossless, large), OGG and Opus (open lossy), FLAC (open lossless), M4A / AAC (Apple-friendly lossy).
+4. **Pick bitrate and channels** — Voice: 96-128 kbps. Music: 192-256 kbps. Lossless formats have no bitrate setting. Choose mono for voice-only recordings.
+5. **Download** — The converted file downloads with the new extension.
 
 ## Examples
 
@@ -66,7 +66,7 @@ Older car stereos may reject newer formats (OPUS, AAC). Convert to MP3 for unive
 
 **Input:** WAV → FLAC
 
-**Output:** Same audio quality, ~50% file size. Useful for archives.
+**Output:** Same audio quality in a noticeably smaller file. Useful for archives.
 
 ## Frequently asked questions
 
@@ -99,16 +99,16 @@ AAC at the same bitrate sounds noticeably better than MP3 (especially below 192 
 </details>
 
 <details>
-<summary>**Why use OPUS?**</summary>
+<summary>**Why can the on-device mode not make MP3?**</summary>
 
-OPUS is the modern open-source codec — better quality than MP3 / AAC at very low bitrates (32-96 kbps); used in WhatsApp voice messages, Discord, Zoom. Less universal compatibility.
+Browsers cannot encode MP3 by themselves. The on-device mode saves WAV or the compressed format your browser supports; use the server mode for MP3, FLAC, AAC and the rest.
 
 </details>
 
 <details>
 <summary>**Is the audio uploaded?**</summary>
 
-No — FFmpeg.wasm processes entirely in the browser. The file never leaves your device.
+Only in the "On our server" mode, which sends it over HTTPS to our own processing server; the server deletes the file and the result right after processing. The "On this device" mode never uploads anything.
 
 </details>
 
@@ -118,14 +118,14 @@ No — FFmpeg.wasm processes entirely in the browser. The file never leaves your
 - Match bitrate to content: 128 kbps suffices for podcasts; 192-256 kbps for music; 320 kbps only for high-fidelity needs.
 - Use FLAC for personal archive, MP3 / AAC for sharing.
 - Verify the output plays correctly — bitrate / sample-rate mismatches sometimes break older players.
-- For voice content, OPUS at 64 kbps is dramatically smaller than MP3 with no audible difference.
+- For voice content, Opus at 64 kbps is dramatically smaller than MP3 with no audible difference.
 
 ## Try it now
 
-The full Audio Format Converter runs in your browser at **[https://ztools.zaions.com/audio-format-converter](https://ztools.zaions.com/audio-format-converter)** — no signup, no upload, no data leaves your device.
+The full Audio Format Converter runs at **[https://ztools.zaions.com/audio-format-converter](https://ztools.zaions.com/audio-format-converter)**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.
 
 [Open the tool ↗](https://ztools.zaions.com/audio-format-converter)
 
 ---
 
-*Last updated: 2026-05-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-format-converter.mdx)*
+*Last updated: 2026-09-11 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/media/audio-format-converter.mdx)*
