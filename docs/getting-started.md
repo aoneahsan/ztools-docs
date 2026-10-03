@@ -43,7 +43,7 @@ ZTools doesn't require an account, but signing in unlocks:
 - **History** — last 50 inputs across all tools.
 - **Cloud sync** — favorites and preferences sync across devices.
 
-Sign-in uses Google OAuth via the [Chrome Identity API](https://developer.chrome.com/docs/extensions/reference/identity) or Firebase Auth on web. Sign-in itself never sends your tool inputs anywhere.
+Sign-in uses your Google account on the web app and the Android app; the session is kept by Supabase Auth. The browser extension has no sign-in. Sign-in itself never sends your tool inputs anywhere.
 
 ## 5. Customize the experience
 
