@@ -29,7 +29,7 @@ A Firefox build is maintained alongside the Chrome one. If it isn't yet listed f
 
 ## Privacy
 
-The extension is built to the same browser-only principle as the app: tools run on your device. It requests the minimum permissions needed to work. See the app's [privacy policy](https://ztools.zaions.com/privacy) for the full disclosure.
+The extension opens ZTools tool pages. Processing depends on the tool you choose: many tasks run in your browser, while AI and some other tools send input to a server or provider. Read the app's [privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input.
 
 ## Next
 

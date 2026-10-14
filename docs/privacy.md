@@ -1,99 +1,48 @@
 ---
 id: privacy
 title: Privacy & Analytics — ZTools Documentation
-description: How ZTools docs uses Google Analytics 4. What's tracked, what isn't, how to opt out.
+description: How optional analytics and error monitoring work on the ZTools documentation site, and what you can do to limit them.
 sidebar_label: Privacy
 sidebar_position: 98
 ---
 
 # Privacy & Analytics
 
-This documentation site (`ztools-docs.zaions.com`) uses up to four third-party tools — **Google Analytics 4** (page traffic), **Microsoft Clarity** (anonymized session recordings + heatmaps), **Amplitude** (product analytics), and **Sentry** (error monitoring). Any combination may be active depending on which env-driven secrets are set in CI. This page tells you exactly what each one collects, what they don't, and how to opt out.
+This page covers the ZTools documentation site at `ztools-docs.zaions.com`. Depending on its build configuration, the site may use analytics and error-monitoring services. For data you enter into the ZTools app, read the separate [app privacy policy](https://ztools.zaions.com/privacy-policy).
 
-## Tools at a glance
+## 🔎 Which services can run on the docs site? {#which-services-can-run-on-the-docs-site}
 
-| Tool | What it does | When active |
-|---|---|---|
-| Google Analytics 4 | Aggregate page traffic, referrers, country (no city), device class | When `GA_MEASUREMENT_ID` build secret is set |
-| Microsoft Clarity | Anonymized session recordings + click/scroll heatmaps | When `CLARITY_PROJECT_ID` is set |
-| Amplitude | Page views, file downloads, attribution. NO form/element interactions. | When `AMPLITUDE_API_KEY` is set |
-| Sentry | Frontend JS error reports + 10% transaction perf samples | When `SENTRY_DSN` is set |
+Each service is optional. The site's source code enables it only when its corresponding build setting has a value.
 
-If a tool's secret isn't configured, **its script doesn't ship at all** — nothing to opt out from.
-
-## What's tracked
-
-| Field | Why |
+| Service | What the site's code enables |
 |---|---|
-| Page URL viewed | Identify the most-read pages so I prioritize doc improvements |
-| Referrer (where you came from) | See whether traffic is from Google, ChatGPT, Reddit, direct, etc. |
-| Browser, OS, device class | Spot rendering issues by device |
-| Country (city-level **disabled**) | Know roughly where readers are |
-| Session duration + pages-per-session | Measure how useful the docs are |
+| Google Analytics 4 | Page traffic measurement when `GA_MEASUREMENT_ID` is set. The Docusaurus configuration requests IP anonymization. |
+| Microsoft Clarity | Session recordings and heatmaps when `CLARITY_PROJECT_ID` is set. What appears in a recording also depends on the Clarity project's masking settings. |
+| Amplitude | Page views, sessions, attribution, and file downloads when `AMPLITUDE_API_KEY` is set. Form and element interaction autocapture are disabled in the site's configuration. |
+| Sentry | Browser error reports and sampled performance traces when `SENTRY_DSN` is set. Trace sampling is configured at 10%; session replay is disabled. |
 
-GA4 is configured with **IP anonymization on** — your IP address is truncated before storage. Google never sees your full IP for this site.
+An unset Google Analytics or Clarity setting omits its script from the build. An unset Amplitude or Sentry setting leaves its SDK uninitialized. The docs still work without these services.
 
-## What's NOT tracked (across all four tools)
+## 📋 What information can reach these services? {#what-information-can-reach-these-services}
 
-- ❌ **Your inputs to ZTools tools.** This is the main app at `ztools.zaions.com`, not the docs. The docs site never sees them. In the app, most tools process inputs in your browser; the few server-backed tools are covered by the app's own [privacy policy](https://ztools.zaions.com/privacy-policy).
-- ❌ **Personally identifying information.** No email, no name, no account ID — the docs site has no signup.
-- ❌ **Form submissions.** Site has no forms; Amplitude form interactions explicitly disabled.
-- ❌ **Element-level interactions.** Amplitude `elementInteractions` disabled.
-- ❌ **Cross-site cookies.** GA4 + Amplitude use first-party cookies only.
-- ❌ **Sentry session replay.** `replaysSessionSampleRate: 0` — no DOM replay capture.
-- ❌ **Sentry default PII.** `sendDefaultPii: false` — request headers / cookies not sent on errors.
-- ❌ **Search-input URLs in Sentry breadcrumbs.** Strip query string + hash from navigation breadcrumbs to avoid leaking what you typed into the search bar.
+When enabled, these services can receive details about a visit, such as viewed URLs, referrers, browser and device information, events, and error context. A request to a provider can also expose your network address to that provider. Clarity can record page interactions and content, subject to its masking settings. The repository doesn't show each provider's account settings.
 
-## How to opt out
+The code asks Google Analytics to anonymize IP addresses and tells Amplitude's SDK not to include an IP address in its tracking options. Neither setting proves that every provider excludes city data or never receives a full network address. Sentry replay is disabled, and one navigation-breadcrumb field is reduced to a pathname; other error context may still be sent. Avoid putting private information in a docs URL.
 
-Three options, listed easiest to hardest:
+This page describes visits to the docs site. It does not describe processing of files, prompts, or other inputs in the [ZTools app](https://ztools.zaions.com/privacy-policy).
 
-### 1. Browser-level Do Not Track
+## ⚙️ How can I limit analytics? {#how-can-i-limit-analytics}
 
-Most modern browsers respect a "Do Not Track" or equivalent tracking-prevention setting. ZTools docs respects whatever your browser tells it.
+The docs site has no built-in analytics switch, and its code does not act on a browser's Do Not Track signal. You can use browser tracking protection or a content blocker to limit requests to these services. Google also offers a [browser add-on for Analytics opt-out](https://tools.google.com/dlpage/gaoptout). Whether a browser setting or blocker stops a request depends on your setup.
 
-- **Firefox** → Preferences → Privacy & Security → Enhanced Tracking Protection: Strict
-- **Brave** → Shields up (default)
-- **Safari** → Preferences → Privacy → Prevent cross-site tracking
-- **Chrome** → Settings → Privacy and security → Send a "Do Not Track" request
+## 🗓️ How long is data kept? {#how-long-is-data-kept}
 
-### 2. Google Analytics opt-out add-on
+Retention depends on the enabled provider and its account settings. Those settings have not been verified for this site, so this page does not promise a fixed deletion date. To ask about docs analytics data, email [aoneahsan@gmail.com](mailto:aoneahsan@gmail.com).
 
-Install the official [GA Opt-out browser add-on](https://tools.google.com/dlpage/gaoptout) — works for any GA-using site, not just this one.
+## 🔗 Where can I check the configuration? {#where-can-i-check-the-configuration}
 
-### 3. Block tracking domains at the DNS / network level
+The public repository shows the [build settings](https://github.com/aoneahsan/ztools-docs/blob/main/docusaurus.config.ts) and [client-side initialization](https://github.com/aoneahsan/ztools-docs/blob/main/src/clientModules/third-party-analytics.ts). Provider account settings and build secrets are not public there.
 
-Block these hosts via DNS resolver, browser extension, or `/etc/hosts`:
+For app data handling, read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy); for a question about this docs site, email [aoneahsan@gmail.com](mailto:aoneahsan@gmail.com).
 
-- GA4: `googletagmanager.com`, `google-analytics.com`
-- Clarity: `clarity.ms`, `c.clarity.ms`
-- Amplitude: `api2.amplitude.com`, `cdn.amplitude.com`
-- Sentry: `o*.ingest.sentry.io` (the `o*` is a per-org subdomain)
-
-uBlock Origin's default lists already block most of these. NextDNS,
-AdGuard DNS, or Pi-hole at the network level catch them all.
-
-## Why use analytics at all?
-
-Honest answer: I want to know which docs pages help most so I can spend time on the right improvements. Without aggregate traffic data, I'm guessing.
-
-If a privacy-respecting alternative (Plausible, Simple Analytics, server-side first-party analytics) becomes practical to self-host, I'll switch. GA4 is the pragmatic starting point.
-
-## Data retention
-
-- **GA4 default**: 14 months. After that, data is automatically deleted from Google's servers.
-- **No off-Google sharing**: I don't sell or share this data with third parties. It exists only in the GA4 console and is used solely for site improvement.
-
-## Source code
-
-The GA integration is open-source and reviewable: see [docusaurus.config.ts](https://github.com/aoneahsan/ztools-docs/blob/main/docusaurus.config.ts) for the exact configuration. The Measurement ID is injected from a GitHub Actions secret at build time, never committed to the repo.
-
-## Questions?
-
-Email: [aoneahsan@gmail.com](mailto:aoneahsan@gmail.com)
-WhatsApp: [+92 304 6619706](https://wa.me/923046619706)
-GitHub issue: [github.com/aoneahsan/ztools-docs/issues](https://github.com/aoneahsan/ztools-docs/issues)
-
----
-
-*Last updated: 2026-05-06*
+*Last updated: 2026-10-14*

@@ -1,20 +1,20 @@
 ---
 id: getting-started
 title: Getting Started with ZTools
-description: How to use ZTools — open any tool, run it locally in your browser, save results. No signup, no upload.
+description: Find a ZTools tool, check how it processes your work, and start in the web or Android app.
 sidebar_label: Getting started
 sidebar_position: 2
 ---
 
 # Getting Started
 
-ZTools is built around one principle: **zero friction**. Open the app, pick a tool, paste your input, get the output. No account, no payment, no email opt-in.
+A different site for every small job makes it harder to keep moving. Open ZTools, find a tool in one catalog, and check its input, processing, and account requirements before you begin.
 
 ## 1. Open the app
 
-Visit **[ztools.zaions.com](https://ztools.zaions.com)** — works in any modern browser (Chrome, Firefox, Safari, Edge, Brave). No install required.
+Open [ZTools](https://ztools.zaions.com) in a modern browser. Many tools are available without signing in; account and plan requirements vary by feature.
 
-Mobile? The **[Android app](https://play.google.com/store/apps/details?id=com.zaions.ztools)** ships the same tools. There is no iOS app; on iPhone and iPad use the web app.
+ZTools is also available on [Android](https://play.google.com/store/apps/details?id=com.zaions.ztools). Features can vary by platform. There is no iOS app; on iPhone and iPad use the web app.
 
 ## 2. Find a tool
 
@@ -33,17 +33,17 @@ Each tool follows a similar pattern:
 3. **Output area** — result appears live as you type, or after clicking the action button.
 4. **Copy / download** — one-click copy or download for the result.
 
-For most tools that handle files (image compression, PDF merge, etc.), files stay on your device and the browser does the work. A few heavy tools offer server processing; their pages say so, and the file is deleted right after processing.
+Processing depends on the tool. Many tasks run in your browser; AI and some file tasks send input to a server or provider. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input.
 
 ## 4. Save your work
 
 ZTools doesn't require an account, but signing in unlocks:
 
 - **Favorites** — save frequently-used tools for quick access.
-- **History** — last 50 inputs across all tools.
-- **Cloud sync** — favorites and preferences sync across devices.
+- **History** — review activity saved by the app when that feature is available for your account.
+- **Sync** — signed-in favorites and some account preferences can sync across devices.
 
-Sign-in uses your Google account on the web app and the Android app; the session is kept by Supabase Auth. The browser extension has no sign-in. Sign-in itself never sends your tool inputs anywhere.
+Google sign-in uses Supabase Auth on web and Android. Signing in doesn't change a tool's processing path; read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input.
 
 ## 5. Customize the experience
 
@@ -54,15 +54,11 @@ The Palette icon in the top header opens a theme customizer with:
 - **Font size, scaling, border radius** — accessibility-first sliders.
 - **Panel background** — solid or translucent.
 
-Preferences persist locally; signed-in users get cross-device sync.
+Appearance preferences persist on your device. Signed-in favorites and some account preferences can sync across devices.
 
 ## 6. Share results
 
-Most tools have a **Share** button that:
-
-- Copies a deep-link URL with your input pre-filled (where the input fits in a URL).
-- Generates a shareable image of the output (for visual tools like color picker, QR generator).
-- Falls back to plain text copy.
+Some tools offer a Share action. When one is available, review what that tool includes before you send the link or result.
 
 ## What's next
 
@@ -72,4 +68,4 @@ Most tools have a **Share** button that:
 
 ---
 
-*Last updated: 2026-05-06*
+*Last updated: 2026-10-14*

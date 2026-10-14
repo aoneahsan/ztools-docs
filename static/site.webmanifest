@@ -1,7 +1,7 @@
 {
   "name": "ZTools Documentation",
   "short_name": "ZTools Docs",
-  "description": "520+ free, browser-only developer & creator tools — every page documented.",
+  "description": "ZTools documentation: find digital tools in one place and learn how each task works.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
