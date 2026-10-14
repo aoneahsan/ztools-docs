@@ -27,7 +27,7 @@ Fleet rules load from `~/.claude/rules/` and are not repeated here.
   no built page in `../ztools/dist`. Do not weaken it. Registry tools without content are listed as a warning.
 - Paid (Growth Suite) and server-backed tools get their own wording through `ToolCTA`'s `kind` prop — they
   never carry the "no signup, no upload" line.
-- Counts on the hub pages are computed by the generator. Hand-written pages say "580+".
+- Counts on the hub pages are computed by the generator. Hand-written pages use evergreen wording; the current app registry has 579 tool IDs, but its count can change.
 
 ## Commands
 

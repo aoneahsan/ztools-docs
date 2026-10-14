@@ -20,12 +20,11 @@
   <text x="240" y="135" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#ffa840" letter-spacing="4">ZTOOLS · DOCS</text>
 
   <!-- Headline -->
-  <text x="80" y="320" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="88" font-weight="800" fill="#fafafa" letter-spacing="-3">520+ tools.</text>
-  <text x="80" y="430" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="88" font-weight="800" fill="#ffa840" letter-spacing="-3" font-style="italic">One browser tab.</text>
+  <text x="80" y="315" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="66" font-weight="800" fill="#fafafa" letter-spacing="-2">Useful digital tools</text>
+  <text x="80" y="408" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="78" font-weight="800" fill="#ffa840" letter-spacing="-2">in one place.</text>
 
   <!-- Subline -->
-  <text x="80" y="510" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="500" fill="#a3a3a3">Free, browser-only developer &amp; creator tools.</text>
-  <text x="80" y="548" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="500" fill="#a3a3a3">Every tool documented · No signup · No upload.</text>
+  <text x="80" y="500" font-family="-apple-system, system-ui, sans-serif" font-size="28" font-weight="500" fill="#a3a3a3">Tool pages and task guides.</text>
 
   <!-- Footer URL -->
   <text x="80" y="595" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="500" fill="#737373">ztools-docs.zaions.com</text>

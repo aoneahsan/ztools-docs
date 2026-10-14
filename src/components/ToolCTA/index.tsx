@@ -11,9 +11,9 @@ interface ToolCTAProps {
 }
 
 const LEAD: Record<ToolKind, string> = {
-  browser: 'in your browser. No signup, no upload.',
-  paid: 'in the ZTools Growth Suite. Sign-in required.',
-  server: 'on ZTools. Server processing needs a Google sign-in.',
+  browser: 'in ZTools.',
+  paid: 'in Growth Suite. Sign-in required.',
+  server: 'in ZTools. This tool may process input on a server.',
 };
 
 export default function ToolCTA({href, toolName, kind = 'browser'}: ToolCTAProps): React.ReactElement {
@@ -22,7 +22,7 @@ export default function ToolCTA({href, toolName, kind = 'browser'}: ToolCTAProps
       <div className={styles.body}>
         <p className={styles.kicker}>Try it now</p>
         <p className={styles.lead}>
-          Run <strong>{toolName}</strong> {LEAD[kind]}
+          Open <strong>{toolName}</strong> {LEAD[kind]}
         </p>
       </div>
       <a className={styles.button} href={href} target="_blank" rel="noopener">

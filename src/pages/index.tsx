@@ -8,30 +8,30 @@ const APP_URL = 'https://ztools.zaions.com';
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 
 const FEATURED_TOOLS = [
-  {path: 'data/json-formatter', name: 'JSON Formatter', tag: 'Most-used'},
-  {path: 'generator/password-generator', name: 'Password Generator', tag: 'Crypto-RNG'},
-  {path: 'encoding/qr-generator', name: 'QR Generator', tag: 'Browser-only'},
-  {path: 'image/image-compressor', name: 'Image Compressor', tag: 'Lossless'},
-  {path: 'utility/regex-tester', name: 'Regex Tester', tag: 'Live preview'},
-  {path: 'pdf/merge-pdf', name: 'PDF Merger', tag: 'No upload'},
+  {path: 'data/json-formatter', name: 'JSON Formatter', tag: 'Format JSON'},
+  {path: 'generator/password-generator', name: 'Password Generator', tag: 'Generate passwords'},
+  {path: 'encoding/qr-generator', name: 'QR Generator', tag: 'Make QR codes'},
+  {path: 'image/image-compressor', name: 'Image Compressor', tag: 'Compress images'},
+  {path: 'utility/regex-tester', name: 'Regex Tester', tag: 'Test patterns'},
+  {path: 'pdf/merge-pdf', name: 'PDF Merger', tag: 'Merge PDFs'},
 ];
 
 const PILLARS = [
   {
-    label: '580+ tools',
-    text: 'Every developer & creator utility, from JSON formatter to QR generator to PDF merger.',
+    label: 'Tools in one place',
+    text: 'Find a JSON formatter, QR generator, PDF tool, and more without visiting a different site for each job.',
   },
   {
-    label: 'Browser-only',
-    text: 'Tools run on your device. Files never upload. Zero analytics on your inputs.',
+    label: 'Clear processing boundaries',
+    text: 'Many tools work in your browser. AI and some other features send input to a server or provider.',
   },
   {
     label: 'Open documentation',
-    text: 'Every tool documented with use cases, examples, and FAQs. Source on GitHub.',
+    text: 'Read use cases, examples, and FAQs for the tools in this catalog. The docs source is on GitHub.',
   },
   {
-    label: 'No friction',
-    text: 'The free tools need no signup and no email gate. Open the URL, paste, ship.',
+    label: 'A place to start',
+    text: 'Many tools are ready without sign-in. Growth Suite needs an account and has plan limits.',
   },
 ];
 
@@ -46,25 +46,23 @@ export default function Home(): React.ReactElement {
         {/* HERO */}
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <p className={styles.eyebrow}>ZTools docs · v0.1</p>
+            <p className={styles.eyebrow}>ZTools docs</p>
             <h1 className={styles.title}>
-              580+ tools.<br />
-              <span className={styles.titleAccent}>One browser tab.</span>
+              Useful tools.<br />
+              <span className={styles.titleAccent}>One place.</span>
             </h1>
             <p className={styles.subtitle}>
-              ZTools is a free, browser-only collection of developer & creator
-              tools. This site documents every one of them — use cases,
-              examples, FAQs, and the honest framing the marketing pages skip.
+              ZTools brings everyday digital tools together, from JSON formatting to QR codes and PDF work. Many run in your browser; AI and some other tools use a server or provider. Find use cases, examples, and FAQs to help you choose your next tool.
             </p>
             <div className={styles.actions}>
-              <Link to="/docs/intro" className={styles.btnPrimary}>
+              <Link to="/docs/tools" className={styles.btnPrimary}>
+                Browse tools
+              </Link>
+              <Link to="/docs/intro" className={styles.btnGhost}>
                 Get started
               </Link>
-              <Link to="/docs/tools" className={styles.btnGhost}>
-                Browse all tools →
-              </Link>
               <a href={APP_URL} className={styles.btnGhost} target="_blank" rel="noopener">
-                Open the app ↗
+                Open ZTools
               </a>
             </div>
           </div>
@@ -90,11 +88,9 @@ export default function Home(): React.ReactElement {
         {/* FEATURED TOOLS */}
         <section className={styles.featured}>
           <header className={styles.sectionHeader}>
-            <p className={styles.sectionEyebrow}>Featured</p>
-            <h2 className={styles.sectionTitle}>Start with the most-used tools</h2>
+            <h2 className={styles.sectionTitle}>Start with a tool</h2>
             <p className={styles.sectionLead}>
-              Each links to its full documentation page. Click any to read the
-              use cases, examples, and FAQs.
+              Choose a tool to read its use cases, examples, and FAQs.
             </p>
           </header>
           <div className={styles.toolGrid}>
@@ -115,33 +111,21 @@ export default function Home(): React.ReactElement {
         {/* PHILOSOPHY */}
         <section className={styles.philosophy}>
           <div>
-            <p className={styles.sectionEyebrow}>Philosophy</p>
+            <p className={styles.sectionEyebrow}>How ZTools works</p>
             <h2 className={styles.sectionTitle}>
-              Free as in <em>actually</em> free
+              The tool for the next job is nearby
             </h2>
           </div>
           <div className={styles.philosophyText}>
             <p>
-              Most "free online tools" charge in attention, data, or both. They
-              upload your files to inspect them, run analytics on your inputs,
-              gate features behind email signup, and bury the actual product
-              under three layers of ads.
+              Small digital jobs can send you through several sites. ZTools keeps the tools together. Find a JSON formatter, make a QR code, or move on to the next task in one catalog.
             </p>
             <p>
-              ZTools is the opposite: <strong>browser-only processing</strong>,
-              no signup gate, no analytics on your tool inputs (only on
-              navigation, opt-out documented). The full documentation site
-              you're reading is open-source on{' '}
-              <a href={GH_REPO} target="_blank" rel="noopener">
-                GitHub
-              </a>{' '}
-              — fork it, audit it, fix typos.
+              Processing depends on the tool. Many work in your browser; AI and some other features may send the input you provide to ZTools or another provider. Some tools also need an account or connection.
             </p>
             <p>
-              When a tool has limits — JPG can't store transparency, GIF
-              transparency is 1-bit, regex performance degrades on certain
-              patterns — the docs say so. Honest framing earns more trust than
-              marketing copy.
+              Each listed tool has use cases, examples, and FAQs. The docs source is on{' '}
+              <a href={GH_REPO} target="_blank" rel="noopener">GitHub</a>, where you can review the pages and suggest a correction.
             </p>
           </div>
         </section>
@@ -151,10 +135,11 @@ export default function Home(): React.ReactElement {
           <p className={styles.sectionEyebrow}>Built by</p>
           <h2 className={styles.authorName}>Ahsan Mahmood</h2>
           <p className={styles.authorBio}>
-            Solo developer behind ZTools and several other side projects. Based
-            in Pakistan; ships code every day. Reach me at{' '}
+            Ahsan Mahmood built ZTools. He's a developer based in Pakistan. For questions, email{' '}
             <a href="mailto:aoneahsan@gmail.com">aoneahsan@gmail.com</a>{' '}
-            or{' '}
+            or use the contact links below.
+          </p>
+          <p className={styles.authorBio}>
             <a href="https://wa.me/923046619706" target="_blank" rel="noopener">WhatsApp +92 304 6619706</a>.
           </p>
           <p className={styles.authorBio}>

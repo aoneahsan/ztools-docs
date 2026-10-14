@@ -33,7 +33,7 @@ const clarityScript = (id: string) => `
 
 const config: Config = {
   title: 'ZTools Documentation',
-  tagline: '580+ free developer & creator tools — every page documented.',
+  tagline: 'Useful digital tools in one place, with tool pages and task guides.',
   favicon: 'img/favicon.ico',
 
   url: SITE_URL,
@@ -52,7 +52,6 @@ const config: Config = {
   },
 
   headTags: [
-    {tagName: 'link', attributes: {rel: 'canonical', href: SITE_URL}},
     {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood'}},
 
     // ----- Favicons + iOS / Android home-screen icons ---------------------
@@ -82,14 +81,14 @@ const config: Config = {
     {tagName: 'meta', attributes: {property: 'og:image:type', content: 'image/png'}},
     {tagName: 'meta', attributes: {property: 'og:image:width', content: '1800'}},
     {tagName: 'meta', attributes: {property: 'og:image:height', content: '945'}},
-    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'ZTools — 580+ free developer & creator tools, every one documented'}},
+    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'ZTools Docs: useful digital tools in one place.'}},
 
     // ----- Twitter / X card ----------------------------------------------
     {tagName: 'meta', attributes: {name: 'twitter:card', content: 'summary_large_image'}},
     {tagName: 'meta', attributes: {name: 'twitter:site', content: '@aoneahsan'}},
     {tagName: 'meta', attributes: {name: 'twitter:creator', content: '@aoneahsan'}},
     {tagName: 'meta', attributes: {name: 'twitter:image', content: `${SITE_URL}/img/social-card.png`}},
-    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'ZTools — 580+ free developer & creator tools, every one documented'}},
+    {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'ZTools Docs: useful digital tools in one place.'}},
 
     // Clarity — emitted only when CLARITY_PROJECT_ID env var is set
     ...(CLARITY_PROJECT_ID
@@ -203,13 +202,13 @@ const config: Config = {
     announcementBar: {
       id: 'launch-2026-05',
       content:
-        '🎉 ZTools docs — 580+ tools, each with its own documentation page. <a href="/docs/intro">Get started →</a>',
+        'Find the tool for your next task. <a href="/docs/tools">Browse tools →</a>',
       backgroundColor: '#ffa840',
       textColor: '#0a0a0a',
       isCloseable: true,
     },
     metadata: [
-      {name: 'keywords', content: 'developer tools, online tools, free tools, browser tools, ztools, json formatter, password generator, qr generator, image compressor, regex tester, base64, color picker'},
+      {name: 'keywords', content: 'ZTools, online tools, browser tools, developer tools, creator tools, JSON formatter, password generator, QR code generator, image compressor'},
       {name: 'twitter:card', content: 'summary_large_image'},
     ],
     colorMode: {defaultMode: 'dark', respectPrefersColorScheme: true},
@@ -270,7 +269,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} ZTools by Ahsan Mahmood / Zaions. Browser-only. Privacy-first.`,
+      copyright: `© ${new Date().getFullYear()} ZTools by Ahsan Mahmood.`,
     },
     prism: {
       theme: prismThemes.oneLight,
