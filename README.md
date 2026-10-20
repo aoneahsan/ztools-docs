@@ -1,121 +1,73 @@
 # ZTools Documentation
 
-Open-source documentation for **[ZTools](https://ztools.zaions.com)** — a free collection of 580+ developer & creator tools. Built with [Docusaurus 3](https://docusaurus.io).
+Public documentation for [ZTools](https://ztools.zaions.com), covering 579 tools in 20 categories. The site
+uses Docusaurus 3 and publishes at [ztools-docs.zaions.com](https://ztools-docs.zaions.com).
 
-🌐 **Live site:** [ztools-docs.zaions.com](https://ztools-docs.zaions.com)
-🛠 **App:** [ztools.zaions.com](https://ztools.zaions.com)
-📦 **App on Play Store:** [com.zaions.ztools](https://play.google.com/store/apps/details?id=com.zaions.ztools)
+- [Open ZTools](https://ztools.zaions.com)
+- [Browse the docs](https://ztools-docs.zaions.com)
+- [Get the Android app](https://play.google.com/store/apps/details?id=com.zaions.ztools)
 
----
+## What this repository contains
 
-## What this repo is
+This repository holds the public docs site. Each tool page includes use cases, examples and FAQs. Generated
+tool pages come from the private sibling app's rich content and its build-time registry, so links use the real
+application route.
 
-A Docusaurus site documenting every ZTools tool with use cases, examples, FAQs, and tips. Per-tool MDX pages are generated from the ZTools app's own data — its content files and the tool registry its build emits — so each page links to the tool's real address.
-
-## What this repo is NOT
-
-The ZTools app itself is in a separate (currently private) repo. This is **just the docs**.
-
----
+The application, backend, Android source and browser extension live in the private sibling repository. No app
+secrets or private source belong here.
 
 ## Run locally
 
 ```bash
-yarn install
-cp .env.example .env  # fill in any analytics keys you want active locally (all optional)
-yarn generate:tools   # Read ../ztools content + dist/tools-registry.json, emit MDX into docs/tools/
-yarn build            # Production build into build/
-yarn start            # Local dev server (we typically skip this — author runs ./build serving)
+yarn install --immutable
+yarn generate:tools
+yarn typecheck
+yarn build
+yarn serve
 ```
 
-> The generator (`scripts/generate-tool-pages.ts`) needs the **ZTools app repo** at `../ztools/` with a fresh build. Without it the generator stops; the committed `docs/tools/` pages still build on their own.
+The generator needs `../ztools/` and a fresh `../ztools/dist/tools-registry.json`. Without those inputs, the
+committed tool pages can still build, but they cannot be regenerated.
 
-### Environment variables
+All docs-site integrations are optional: Google Analytics 4, Microsoft Clarity, Amplitude and Sentry. Their
+variable names are in `.env.example`; values belong in local environment storage or GitHub Actions secrets.
+Unset variables leave the corresponding integration out of the build. See the
+[docs privacy page](https://ztools-docs.zaions.com/docs/privacy).
 
-Four optional integrations: GA4, Microsoft Clarity, Amplitude, Sentry. All gated by env vars defined in `.env.example`. Locally: copy to `.env` and fill values. CI: stored as GitHub Actions repo secrets and forwarded by `.github/workflows/deploy-pages.yml`. Empty / unset = tool's script never ships. See [`/docs/privacy`](https://ztools-docs.zaions.com/docs/privacy) for what each tool captures.
+## Repository map
 
----
+| Path | Purpose |
+|---|---|
+| `docs/tools/` | Generated tool pages; never edit by hand |
+| `docs/guides/` | Handwritten task guides |
+| `blog/` | Release notes and project updates |
+| `src/pages/index.tsx` | Documentation home |
+| `src/components/ToolCTA/` | Links from docs pages to the app |
+| `scripts/generate-tool-pages.ts` | Registry and content generator |
+| `static/` | CNAME, images, robots.txt and llms.txt |
+| `.github/workflows/deploy-pages.yml` | GitHub Pages build and deploy |
 
-## Project structure
+## Add or update a tool page
 
-```
-ztools-docs/
-├── docs/
-│   ├── intro.md
-│   ├── getting-started.md
-│   ├── tools/                  # Generated — do NOT hand-edit
-│   │   ├── index.mdx
-│   │   ├── data/json-formatter.mdx
-│   │   └── ...
-│   ├── guides/                 # Hand-edited long-form
-│   └── changelog.md
-├── blog/                       # Release notes, dev journal
-├── src/
-│   ├── components/ToolCTA/     # "Try it now" button on each tool page
-│   ├── pages/index.tsx         # Custom homepage
-│   └── css/custom.css          # Theme
-├── static/
-│   ├── img/logo.svg
-│   ├── robots.txt              # Allows AI crawlers (GPTBot, ClaudeBot, etc.)
-│   └── llms.txt                # Machine-readable site overview
-├── scripts/
-│   └── generate-tool-pages.ts  # Reads ../ztools/src/data/toolContent/*.ts
-├── docusaurus.config.ts
-├── sidebars.ts
-└── package.json
-```
+1. Update the tool metadata and rich content in `../ztools/`.
+2. Build the app so its registry and static routes are current.
+3. Run `yarn generate:tools && yarn typecheck && yarn build` here.
+4. Review the generated diff and the exact build in a controlled browser.
+5. Push `main`; GitHub Pages publishes the verified source.
 
----
+A tool needs both metadata and rich content. The generator fails when an app route, registry row or content
+record is missing.
 
-## Add a new tool to the docs
+## Processing boundaries
 
-Coverage is automatic — there is no allowlist. A tool gets a page as soon as it has both enriched content and metadata in the app:
+Many tools work in the browser. Some send input to a server or provider, and Growth tools require an account
+and have plan limits. Each generated page names the tool's current setup. The app's
+[privacy policy](https://ztools.zaions.com/privacy-policy) explains application data processing.
 
-1. Add the tool's rich content to a `../ztools/src/data/toolContent/batchNN.ts` file, and make sure it has metadata in `toolsData.ts` (core) or `growthSuiteTools.ts` (Growth Suite).
-2. Run `yarn generate:tools && yarn build` to regenerate and verify.
-3. Commit + push — GitHub Actions deploys to `ztools-docs.zaions.com`.
+## License and contact
 
----
+The docs site source is MIT licensed. Documentation content follows the ZTools app's
+[terms](https://ztools.zaions.com/terms).
 
-## Deployment
-
-**Hosting:** GitHub Pages with custom domain `ztools-docs.zaions.com`.
-**CI:** GitHub Actions — `.github/workflows/deploy.yml` runs on push to `main`.
-
-The `static/CNAME` file pins the custom domain. DNS: CNAME `ztools-docs` → `aoneahsan.github.io`.
-
----
-
-## SEO & AEO
-
-This site follows the global SEO playbook at `~/.claude/rules/seo-aeo-ranking.md`:
-
-- ✅ AI crawlers allowed in `robots.txt` (GPTBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended, Bingbot, Applebot, CCBot)
-- ✅ `sitemap.xml` auto-generated by Docusaurus
-- ✅ `llms.txt` at site root with project overview for AI agents
-- ✅ Per-page JSON-LD via Docusaurus default
-- ✅ Open Graph + Twitter Card meta per page
-- ✅ Per-tool 1000+ words with intro, use cases, how-it-works, examples, FAQ, tips
-- ✅ Bidirectional links: docs → app, app → docs, both → GitHub
-
----
-
-## License
-
-MIT for the docs site source code (`src/`, `scripts/`, configs).
-Documentation content reuses the ZTools app's tool content — see the [main app's terms](https://ztools.zaions.com/terms).
-
----
-
-## Author
-
-**Ahsan Mahmood** — solo developer, Pakistan-based.
-
-- 📧 [aoneahsan@gmail.com](mailto:aoneahsan@gmail.com)
-- 📱 [WhatsApp / call: +92 304 6619706](https://wa.me/923046619706)
-- 🌐 [aoneahsan.com](https://aoneahsan.com)
-- 💼 [LinkedIn](https://linkedin.com/in/aoneahsan)
-- 🐙 [GitHub](https://github.com/aoneahsan)
-- 📦 [NPM](https://npmjs.com/~aoneahsan)
-
-[Support the project](https://aoneahsan.com/payment?project-id=ztools&project-identifier=com.zaions.ztools) if ZTools saved you time.
+Ahsan Mahmood · [aoneahsan.com](https://aoneahsan.com) ·
+[aoneahsan@gmail.com](mailto:aoneahsan@gmail.com)

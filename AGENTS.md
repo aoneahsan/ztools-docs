@@ -1,55 +1,49 @@
-# ZTools Docs — Project Guide (AGENTS.md)
+# ZTools docs — project guide (AGENTS.md)
 
-**Last Updated**: 2026-10-02
+**Last updated:** 2026-10-20. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
+identical except this heading. Change both together. Fleet law auto-loads from `~/.claude/rules/`.
 
-Docusaurus 3 documentation site for **ZTools** (parent app `https://ztools.zaions.com`, Play Store
-`com.zaions.ztools`). This repo is only the docs; the app lives in the private sibling repo at `../ztools/`.
-Fleet rules load from `~/.claude/rules/` and are not repeated here.
+## Repository and publication
 
-| Fact | Value |
-|---|---|
-| Live docs | https://ztools-docs.zaions.com (GitHub Pages, `static/CNAME`) |
-| Repo | `git@github.com:aoneahsan/ztools-docs.git` — **PUBLIC**, branch `main`, remote **`origin`** |
-| Stack | Docusaurus 3.10 + `@docusaurus/faster`, React 19, TypeScript ~6, Yarn 4 (`.yarnrc.yml`, `nodeLinker: node-modules`) |
-| Deploy | Push to `main` → `.github/workflows/deploy-pages.yml` builds and publishes. CI does not run the generator; `docs/tools/` is committed |
-| Secrets | None in this repo, ever. Only `.env.example`; analytics keys are Actions secrets |
-| Owner-only steps | `docs/MANUAL-TASKS.md` (excluded from the published site) |
+This public Docusaurus repository documents ZTools at https://ztools-docs.zaions.com. Repository
+`aoneahsan/ztools-docs`, branch `main`, remote `origin`. A push to `main` runs
+`.github/workflows/deploy-pages.yml`; build and controlled-browser verification must pass before the push.
+No secrets or private repository links belong here.
 
-## Tool pages — one source, real URLs
-
-- `yarn generate:tools` (`scripts/generate-tool-pages.ts`) writes one MDX page per tool into `docs/tools/`.
-  Never hand-edit a generated page; change the app's data and regenerate.
-- **Identity comes from `../ztools/dist/tools-registry.json`**, emitted by the app's build (`yarn build` in
-  `../ztools`). Content comes from `../ztools/src/data/toolContent/batch*.ts`.
-- 🔴 **A tool's app link is `https://ztools.zaions.com` + its `route`, never `/<id>`.** Ids and routes differ
-  for many tools; linking by id published 404 links until 2026-10-02.
-- **Link gate:** the generator stops, writing nothing, when content has no registry row or a tool's route has
-  no built page in `../ztools/dist`. Do not weaken it. Registry tools without content are listed as a warning.
-- Paid (Growth Suite) and server-backed tools get their own wording through `ToolCTA`'s `kind` prop — they
-  never carry the "no signup, no upload" line.
-- Counts on the hub pages are computed by the generator. Hand-written pages use evergreen wording; the current app registry has 579 tool IDs, but its count can change.
+The private app is the sibling `../ztools/`. Its fresh build emits `../ztools/dist/tools-registry.json`.
+The docs generator combines that registry with the app's rich tool content and commits the generated MDX.
+Current verified registry: 579 tools in 20 categories.
 
 ## Commands
 
 ```bash
-yarn install
-yarn generate:tools   # needs a fresh ../ztools build
+yarn install --immutable
+yarn generate:tools   # requires a fresh ../ztools build
 yarn typecheck
-yarn build            # onBrokenLinks: 'throw' — the build is the internal link checker
-yarn build:full       # generate:tools + build
+yarn build
+yarn serve            # only when browser verification is requested
 ```
 
-Never run `yarn start` / `yarn serve` unprompted.
+`yarn build:full` runs the generator and build. Docusaurus treats broken internal links as errors.
 
-## Known local-build quirk
+## Content and generator contracts
 
-`@docusaurus/faster` can fail `yarn build` locally with a `git submodule status` exit 128 when the parent
-workspace has gitlinks without `.gitmodules`. CI and standalone clones are unaffected. If typecheck is clean
-and that exact error appears, it is this quirk; do not change the workspace.
+- Never hand-edit `docs/tools/`; change app metadata/content or `scripts/generate-tool-pages.ts`, then regenerate.
+- A tool link uses the registry's `route`, never `/<id>`. The generator stops before writing if content,
+  registry and built routes disagree.
+- Counts on generated hubs come from the registry. Handwritten pages use evergreen wording.
+- Many tools run in the browser; others send input to a server or provider. Growth tools require sign-in and
+  have plan limits. State the boundary for the named tool rather than making a catalog-wide privacy claim.
+- Public content follows the approved ZTools Story Bible and final packets in `../ztools/docs/story/`.
+- `docs/MANUAL-TASKS.md` is private operational material excluded from the published build.
+- Optional analytics/error services are controlled by CI secrets. Keep only `.env.example` in Git.
 
-## Content rules for hand-written pages
+## Context record
 
-- State limits next to claims: most tools run in the browser; a few can use the server; the Growth Suite has
-  paid plans; there is no iOS app.
-- Check every `ztools.zaions.com/...` deep link against the registry or the app's built pages before adding it.
-- Portfolio info for this site lives in the notebook, not here.
+| Field | Value |
+|---|---|
+| Last optimized | 2026-10-20 |
+| Next routine optimization eligible | 2026-11-19 |
+| Guide bytes | 02442 |
+| Covered subtree | public docs repository, generator, Docusaurus config and Pages workflow |
+| Gitignore last verified | 2026-10-20 — dependencies, build output, caches and environment values ignored |
