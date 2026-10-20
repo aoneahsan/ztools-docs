@@ -1,28 +1,41 @@
 ---
-title: Use the Growth Suite with your own API key (BYOK)
-description: How the paid ZTools Growth Suite works — bring-your-own-key AI SEO tools, the free shared tier, and what leaves your browser.
-tags: [guide, growth-suite, ai, byok, seo]
-sidebar_label: Growth Suite (BYOK)
+title: Use Growth Suite tools
+description: See which ZTools Growth Suite tools need an account, provider key, or shared AI allowance, and what happens when you run them.
+tags: [guide, growth-suite, ai, seo]
+sidebar_label: Growth Suite setup
 sidebar_position: 5
 ---
 
-# Use the Growth Suite with your own API key (BYOK)
+# Use Growth Suite tools
 
-The [Growth Suite](/docs/tools/growth) is ZTools' paid set of AI-assisted SEO / AEO / analytics tools. Unlike the free tools, **Growth Suite tools call external AI services to do their work** — so they are not browser-only, and they need a ZTools account.
+## What does Growth Suite cover?
 
-## Two ways to power them
+Growth Suite brings SEO, analytics, and AI tools into ZTools. Sign in to use them. Each tool has a plan limit and its own setup. Check both before running it.
 
-1. **Bring your own key (BYOK)** — add your own provider API key (OpenAI, Google Gemini, Anthropic, or Perplexity) in your account settings. Your key is encrypted per-user and stored so the tools call the provider directly on your behalf. You pay the provider for what you use; ZTools adds no markup.
-2. **Free shared tier** — signed-in users without their own key get a small free daily allowance of AI requests, shared across the AI tools. It's meant for trying things out, not heavy use.
+## What do I need to start?
 
-## Plans
+Open the [Growth Suite catalog](/docs/tools/growth), choose a tool, and sign in to ZTools. Check that tool's current allowance and any connection or provider key it asks for. Website Audit, Keyword Research, and Page Speed Scan are examples of Growth tools that don't ask you for an AI provider key.
 
-A generous **Free** tier, plus **Pro** and **Ultimate** paid plans (and team plans) raise the monthly per-feature caps. Pick the plan that matches how much you run.
+## When do I need an AI provider key?
 
-## What leaves your browser
+Five Growth tools currently offer a shared daily AI path when your allowance is available. They also offer own-key routes. The shared path doesn't supply every provider response in every Growth tool:
 
-Be clear-eyed about this: when you run a Growth Suite tool, the content you submit (and, with BYOK, your request via your key) is sent to the AI/SEO provider. That's the trade for AI-assisted output. The free, browser-only tools are unaffected — they still keep your data on your device.
+| Growth action | Shared AI path | Own-key path and connection |
+|---|---|---|
+| AI Brand Visibility | One shared result, when the route is available | Your configured provider keys supply their respective results, including Gemini, Claude, and Perplexity. |
+| AI Article Writer | Shared AI request | Use a configured AI provider key instead. |
+| Analytics Chat | Shared AI request | Use a configured AI provider key instead. You can paste analytics data; a Google connection is needed to pull live GA4 data. |
+| GA4 Mastery | Shared AI request | Use a configured AI provider key instead. Connect a Google account and choose a GA4 property for report data. |
+| GSC Mastery | Shared AI request | Use a configured AI provider key instead. Connect a Google account and choose a Search Console site for report data. |
 
-## Get started
+## What limits apply?
 
-Open the [Growth Suite](/docs/tools/growth) to see the tools, then sign in at [ztools.zaions.com](https://ztools.zaions.com) and add a key or use the free allowance.
+Growth tools have plan limits, including limits on the Free plan. Your ZTools account shows the allowance available for the action you choose. If a limit is used up, check the plan details in the app before trying again.
+
+## Where does my input go?
+
+A Growth action may send a URL, prompt, text, or connected analytics data to ZTools, an external data service, or an AI provider. The destination depends on the tool and the setup you choose. Some tools use Google account connections to fetch analytics data; the Growth Suite as a whole isn't browser-only.
+
+## How do I open a Growth tool?
+
+Browse the [Growth Suite catalog](/docs/tools/growth), then open the tool you need in [ZTools](https://ztools.zaions.com). Sign in, check its setup and allowance, and run it when you're ready.

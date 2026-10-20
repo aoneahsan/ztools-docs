@@ -181,18 +181,14 @@ function renderToolMdx(id: string, content: ToolContent, meta: ToolMeta): string
 
   const tips = content.tips.map((t) => `- ${escapeMdx(t)}`).join('\n');
 
-  // Honest paid/free framing: Growth Suite tools are paid + BYOK + call
-  // external services, so they never carry the browser-only privacy claim.
   const paidNotice = meta.isPaid
-    ? `\n:::info Paid feature — Growth Suite\n${meta.name} is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.\n:::\n`
+    ? `\n:::info Growth Suite\n${meta.name} is part of Growth Suite. Sign in to see its current allowance and any connection or provider key it needs. Limits vary by plan; a limited Free plan is available.\n:::\n`
     : '';
   const tryItBody = meta.isPaid
-    ? `The full ${meta.name} is part of the ZTools Growth Suite at **[${url}](${url})** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).`
-    : id === 'dynamic-qr'
-      ? `The full ${meta.name} runs at **[${url}](${url})** — the generator works entirely in your browser; only dynamic codes use a lightweight serverless redirect, so you can edit the destination later and see scan counts.`
-      : meta.usesServer
-        ? `The full ${meta.name} runs at **[${url}](${url})**. It can process your file on the ZTools server: the file is uploaded temporarily and deleted right after processing, and that mode needs a Google sign-in.`
-        : `The full ${meta.name} runs in your browser at **[${url}](${url})** — no signup, no upload, no data leaves your device.`;
+    ? `Open ${meta.name} at **[${url}](${url})**. Sign in to check its allowance and setup requirements.`
+    : meta.usesServer
+      ? `Open ${meta.name} at **[${url}](${url})**. This tool may send input to a server for processing.`
+      : `Open ${meta.name} at **[${url}](${url})** to use the tool.`;
 
   return `---
 id: ${id}
@@ -256,7 +252,7 @@ function renderHub(byCategory: Map<string, Array<{id: string; meta: ToolMeta}>>)
       const items = tools
         .map(
           (t) =>
-            `- [**${t.meta.name}**](/docs/tools/${cat}/${t.id}) — ${(t.meta.description ?? '').replace(/\n/g, ' ')}`,
+            `- [**${t.meta.name}**](/docs/tools/${cat}/${t.id}) — ${(t.meta.description ?? '').replace(/\n/g, ' ').trim()}`,
         )
         .join('\n');
       return `## ${cat[0].toUpperCase()}${cat.slice(1)}\n\n${items}`;
@@ -269,22 +265,22 @@ function renderHub(byCategory: Map<string, Array<{id: string; meta: ToolMeta}>>)
 
   return `---
 id: index
-title: ${yamlString(`All ZTools — ${total} developer & creator tools`)}
-description: ${yamlString(`Browse the full ZTools catalog — ${total} tools across ${catCount} categories. Most run entirely in your browser (no signup, no upload, no data leaves your device); the Growth Suite adds AI-assisted SEO tools that need a sign-in and your own API key.`)}
+title: ${yamlString(`Explore ZTools — ${total} tools in ${catCount} categories`)}
+description: ${yamlString(`Browse ${total} ZTools tools across ${catCount} categories. Many work in your browser; some use a server or provider. Growth tools require sign-in and have plan limits.`)}
 sidebar_label: All tools
 sidebar_position: 0
 slug: /tools
 ---
 
-# All ZTools
+# Explore ZTools
 
-ZTools is a collection of **${total} developer & creator tools** across ${catCount} categories, each documented with use cases, examples, and FAQs. The vast majority run **entirely in your browser** — no signup, no upload, no data leaves your device.${hasGrowth ? ` A small **Growth Suite** adds AI-assisted SEO/AEO tools that require a sign-in and your own provider API key (BYOK, with optional paid tiers); those pages are clearly marked.` : ''}
+A different site for each small job adds up. Find your next tool in a catalog of ${total} tools across ${catCount} categories, with use cases, examples, and FAQs for each one. Many tools work in your browser; others use a server or provider to process a request.${hasGrowth ? ` Growth Suite brings SEO, analytics, and AI tools into the same catalog. Sign in to check each tool's allowance and setup; some AI actions offer a shared daily allowance or a choice to use your own provider key.` : ''}
 
 ${sections}
 
 ---
 
-*Last updated: ${new Date().toISOString().slice(0, 10)} · [Open the app](${APP_URL}) · [GitHub](https://github.com/aoneahsan/ztools-docs)*
+[Open the app](${APP_URL}) · [GitHub](https://github.com/aoneahsan/ztools-docs)
 `;
 }
 
@@ -339,13 +335,14 @@ async function main() {
   for (const [cat, tools] of byCategory) {
     // Use absolute slug paths — relative paths break because the category
     // index URL has no trailing slash so `./tool-id` collapses one level.
-    const items = tools.map((t) => `- [${t.meta.name}](/docs/tools/${cat}/${t.id}) — ${(t.meta.description ?? '').slice(0, 100)}`).join('\n');
+    const items = tools.map((t) => `- [${t.meta.name}](/docs/tools/${cat}/${t.id}) — ${(t.meta.description ?? '').trim().slice(0, 100).trimEnd()}`).join('\n');
     const indexFile = join(toolsDir, cat, 'index.mdx');
     writeFileSync(
       indexFile,
       `---
 id: index
 title: ${yamlString(`${cat[0].toUpperCase()}${cat.slice(1)} tools — ZTools`)}
+description: ${yamlString(cat === 'growth' ? 'Browse ZTools Growth Suite tools for SEO, analytics, and AI. Sign-in and plan limits apply.' : `Browse ZTools ${cat} tools, with use cases and examples for each one.`)}
 sidebar_label: ${yamlString(`${cat[0].toUpperCase()}${cat.slice(1)} tools`)}
 sidebar_position: 0
 slug: /tools/${cat}
@@ -353,7 +350,7 @@ slug: /tools/${cat}
 
 # ${cat[0].toUpperCase()}${cat.slice(1)} tools
 
-${cat === 'growth' ? ':::info Paid — Growth Suite\nThese tools require a ZTools account and your own provider API key (BYOK), with optional paid tiers. They call external AI/SEO services, so unlike the rest of ZTools they are not browser-only.\n:::\n\n' : ''}${tools.length} tool${tools.length === 1 ? '' : 's'} in this category.
+${cat === 'growth' ? ":::info Growth Suite\nGrowth Suite tools require a ZTools account and have plan limits. Some AI actions offer a shared daily allowance or a choice to use your own provider key. Other tools use external data services, so input handling varies by action.\n:::\n\n" : ''}${tools.length} tool${tools.length === 1 ? '' : 's'} in this category.
 
 ${items}
 `,

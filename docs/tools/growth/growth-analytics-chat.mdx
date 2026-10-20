@@ -1,18 +1,15 @@
 ---
 id: growth-analytics-chat
-title: "Analytics Chat: Plain-English Questions on GA4 Data"
-description: "Ask plain-English questions about your Google Analytics 4 data and get answers grounded in your real numbers. Part of ZTools Growth Suite; bring your own keys."
+title: "Analytics Chat — Ask About Supplied Data"
+description: "Ask about a connected GA4 report or analytics data you paste. Choose shared AI or your own provider key to explain what the supplied data shows."
 sidebar_label: "Analytics Chat"
 keywords:
   - "ask questions about google analytics 4 data"
-  - "natural language GA4 analytics tool"
-  - "chat with your GA4 data using your own LLM key"
+  - "ask questions about supplied analytics data"
   - "plain english google analytics 4 queries"
-  - "BYOK analytics assistant for GA4"
   - "explain GA4 traffic drop in plain language"
-  - "read-only GA4 OAuth analytics chat tool"
 last_update:
-  date: 2026-06-05
+  date: 2026-10-14
   author: Ahsan Mahmood
 ---
 
@@ -20,116 +17,106 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Analytics Chat
 
-Analytics Chat is a paid ZTools Growth Suite tool that lets you ask plain-English questions about your Google Analytics 4 data and returns answers grounded in your real numbers. It connects through your own read-only Google OAuth to pull GA4 metrics, then uses your own LLM key to write the explanation — both keys stay yours and are encrypted per-user, and nothing is resold. You can use it on the Free plan with a low monthly question cap, or raise the limit on Pro and Ultimate, with a 30-day trial. Treat its replies as an interpretation of your data: useful for direction, but verify any figure before you act.
+Connect a Google Analytics 4 property and pull its current default report for the last 28 days, or paste analytics data into the chat. Ask about the data you supplied. ZTools sends attached or pasted data to your chosen AI route for an explanation. Your question doesn't build a new GA4 query. Shared AI uses the daily allowance, and your own key may incur provider charges. Your plan's monthly Analytics Chat limit also applies. Check figures against their source before acting.
 
-:::info Paid feature — Growth Suite
-Analytics Chat is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::info Growth Suite
+Analytics Chat is part of Growth Suite. Sign in to see its current allowance and any connection or provider key it needs. Limits vary by plan; a limited Free plan is available.
 :::
 
 <ToolCTA href="https://ztools.zaions.com/growth/analytics-chat" toolName="Analytics Chat" kind="paid" />
 
 ## Use cases
 
-### Explain a sudden traffic drop
+### Ask about a pulled GA4 report
 
-Your sessions fell 28% week over week and you need to know why before the Monday standup. Ask ’Why did organic sessions drop last week versus the prior week, broken down by landing page and country?’ The tool pulls the GA4 numbers and points to the segments that moved most, so you start your investigation with named pages instead of a blank dashboard.
+Connect a GA4 property, pull its current default report for the last 28 days, and ask a question about those rows. Confirm any figure in GA4.
 
-### Brief a non-technical stakeholder
+### Ask about pasted data
 
-A founder wants the gist of last month’s performance without learning the GA4 interface. Ask for the top three conversion paths and how returning users compared to new ones, then paste the plain-language summary into a status note. Because the answer cites the metrics it used, you can sanity-check each figure against the report before sending it upward.
+Paste a GA4 or Search Console excerpt into the chat when you don't want to connect a property. The AI explains only what you supplied.
 
-### Audit a campaign’s landing pages
+### Prepare a status note
 
-After a paid push, you want to see which landing pages converted and which leaked users. Ask ’Compare engagement rate and conversions for /lp-spring versus /lp-summer over the campaign window.’ The tool returns the side-by-side numbers and flags the weaker page, giving your next creative test a concrete starting hypothesis rather than a hunch.
-
-### Spot-check a weekly metric for a report
-
-You write a Friday recap and keep re-deriving the same numbers by hand. Ask for active users, average engagement time, and the top five events for the last seven days, then drop the verified figures into your template. The recurring question takes seconds, and you still confirm each number in GA4 because the answer is an interpretation, not a system of record.
+Copy a useful explanation into your own note after checking it against the source report. The tool doesn't build a new GA4 query from your wording.
 
 ## How it works
 
-1. **Connect Google Analytics 4** — Authorize the tool with read-only Google OAuth and pick the GA4 property you want to query. The connection can only read reporting data; it cannot change settings or write to your account.
-2. **Add your LLM key** — Paste your own large language model API key. It is encrypted per-user and used only to phrase the answer; the underlying usage bills to your provider account, not to ZTools.
-3. **Ask your question** — Type a plain-English question and name the metric and date range explicitly. Clear phrasing such as ’engagement rate by channel for last 30 days’ reduces the chance the model misreads your intent.
-4. **The tool fetches your real GA4 data** — Your question is translated into a GA4 reporting query, which returns the actual figures from your property. The numbers come from Google’s Data API, bounded by GA4 sampling and reporting delays.
-5. **Read, verify, and act** — Your LLM writes an explanation grounded in the returned numbers and shows which metrics it used. Cross-check any figure that drives a decision in the GA4 report before you act on it.
+1. **Connect GA4 or prepare data** — Optionally connect a Google account with access to a GA4 property. You can also paste analytics data without that connection.
+2. **Choose an AI route** — Choose shared AI while signed in, or use a provider key you've connected. Shared requests use the daily allowance; own-key calls may be billed by your provider.
+3. **Supply data and ask** — Pull the default last-28-days GA4 report or paste data, then ask a question about it.
+4. **Read the fixed report** — The pull uses the app's fixed GA4 report; your question does not translate into a new GA4 Data API query.
+5. **Verify the explanation** — Read the AI answer and verify its figures in GA4 or in the pasted source before sharing it.
 
 ## Examples
 
-**Input:** Why did organic search sessions fall last week compared with the week before? Break it down by landing page.
+**Input:** Pull a GA4 property's default last-28-days report, then ask which supplied row is largest.
 
-**Output:** Organic sessions dropped 18% week over week (4,210 to 3,452). Most of the decline came from /blog/pricing-guide (down 1,140 sessions) and /features (down 380); the rest of the site was roughly flat.
-
----
-
-**Input:** Compare new versus returning users for the last 30 days and their average engagement time.
-
-**Output:** New users: 12,840 with 48s average engagement time. Returning users: 5,360 with 2m 11s. Returning visitors engaged about 2.7x longer, suggesting your repeat audience is your stickier segment.
+**Output:** An AI explanation based on the attached rows.
 
 ---
 
-**Input:** What were my top five events yesterday and which one grew most versus the prior day?
+**Input:** Paste a Search Console table and ask what changed.
 
-**Output:** Top events yesterday: page_view, scroll, session_start, click, form_submit. form_submit grew the most, up 34% versus the prior day, while page_view was nearly unchanged.
+**Output:** An AI reading of the pasted table.
 
 ## Frequently asked questions
 
 <details>
-<summary>**Is Analytics Chat free, or what does it cost?**</summary>
+<summary>**Is Analytics Chat free, and what does it cost?**</summary>
 
-It is part of the paid ZTools Growth Suite. You can use it on the Free plan with a low monthly cap on questions, which is enough to try it on real data. Pro and Ultimate raise the question limit for heavier use, and there is a 30-day trial so you can evaluate it before committing to a paid plan.
+Analytics Chat is available within the Free plan's monthly question limit. Paid Growth plans may raise it. A shared AI answer uses the daily allowance; a request through your own provider key may create a separate provider charge.
 
 </details>
 
 <details>
 <summary>**How accurate are the answers?**</summary>
 
-Answers are the LLM’s interpretation of your GA4 data, not an authoritative report. The model can misread an ambiguous question, and it is bounded by GA4’s own data model, sampling, and reporting delays. Always verify any number in GA4 before you act on it, and phrase your metric and date range explicitly to reduce misreads.
+The answer is an AI reading of the report you pulled or data you pasted. It may misread a label or number; verify important figures in the source.
 
 </details>
 
 <details>
-<summary>**Whose keys does it use, and who pays for the LLM usage?**</summary>
+<summary>**Which keys or connections do I need?**</summary>
 
-You bring your own keys: a read-only Google OAuth connection to GA4 and your own LLM API key. Both are encrypted per-user and stay yours; nothing is resold. The language-model usage bills to your own provider account at their rates, not to ZTools, so you keep direct control over and visibility into that spend.
-
-</details>
-
-<details>
-<summary>**Can it change my Google Analytics settings or data?**</summary>
-
-No. The Google connection is read-only, so the tool can fetch reporting data but cannot edit your GA4 configuration, create events, or write anything back to your account. It is built for asking questions about existing data, not for managing or modifying your Analytics property.
+To pull live GA4 data, connect a Google account with access to the property. You can also paste analytics data without connecting GA4. For the explanation, choose shared AI if your account has allowance, or connect your own AI provider key. Attached or pasted data goes to the selected AI provider. For shared AI, ZTools sends it from its server; FilesHub supplies connection credentials.
 
 </details>
 
 <details>
-<summary>**Which data sources does it support?**</summary>
+<summary>**Can it change my analytics property?**</summary>
 
-It works with Google Analytics 4 properties that you authorize through OAuth. It does not connect to Universal Analytics, ad platforms, or other analytics tools, and it can only read the metrics and dimensions GA4 itself exposes. If a number is not available in your GA4 reports, the tool cannot invent it.
+No. The chat reads data you pull or paste and writes an explanation; it does not edit your GA4 property.
 
 </details>
 
 <details>
-<summary>**How do I get the most reliable answers?**</summary>
+<summary>**What data sources does it support?**</summary>
 
-Be explicit. Name the exact metric, the comparison, and the date range in your question, for example ’conversions by source for the last 14 days versus the previous 14.’ Vague prompts give the model room to guess. For anything that informs a decision, treat the reply as a lead and confirm the figure in GA4.
+You can pull the app's default GA4 report for a connected property. You may also paste analytics data, including Search Console rows. The chat does not connect directly to other data sources or build new GA4 queries from your question.
+
+</details>
+
+<details>
+<summary>**How can I get a useful answer?**</summary>
+
+Attach or paste the exact data you want read, ask one focused question, and verify the reply against that source.
 
 </details>
 
 ## Tips
 
-- Always include an explicit date range and comparison window in your question — ’last 30 days versus the prior 30’ — so the model does not assume the wrong period.
-- Name metrics the way GA4 names them (engagement rate, average engagement time, conversions) to cut down on ambiguity and misreads.
-- Ask one question at a time. Bundling several metrics and segments into a single prompt makes it harder to verify which number maps to which part of the answer.
-- Before sharing any figure upward, open the same report in GA4 and confirm it — the tool is a fast first pass, not the source of record.
-- Keep an eye on your own LLM provider dashboard; since usage bills to your key, heavy questioning is your cost to monitor, not a hidden ZTools charge.
+- State which attached or pasted rows you mean and the comparison you want.
+- Use the metric names in your source table so the AI can follow them.
+- Ask one question at a time and check the answer against the supplied data.
+- Before sharing a figure, confirm it in the source report.
+- Check the daily AI allowance for shared requests or your provider dashboard for own-key charges.
 
 ## Try it now
 
-The full Analytics Chat is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth/analytics-chat](https://ztools.zaions.com/growth/analytics-chat)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+Open Analytics Chat at **[https://ztools.zaions.com/growth/analytics-chat](https://ztools.zaions.com/growth/analytics-chat)**. Sign in to check its allowance and setup requirements.
 
 [Open the tool ↗](https://ztools.zaions.com/growth/analytics-chat)
 
 ---
 
-*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-analytics-chat.mdx)*
+*Last updated: 2026-10-14 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-analytics-chat.mdx)*

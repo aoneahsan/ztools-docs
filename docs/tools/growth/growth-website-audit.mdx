@@ -1,7 +1,7 @@
 ---
 id: growth-website-audit
 title: "Website SEO, AEO & GEO Audit — Three Scores, One Report"
-description: "Audit any URL for SEO, AEO, and GEO in one report: three heuristic score cards plus a prioritized, fix-first checklist. No API key needed for the core scan."
+description: "Audit a public URL or pasted HTML for SEO, answer-ready structure, and generative-search signals. Review three directional scores and suggested changes."
 sidebar_label: "Website Audit (SEO + AEO + GEO)"
 keywords:
   - "seo aeo geo audit tool"
@@ -10,9 +10,8 @@ keywords:
   - "website seo score checker by url"
   - "ai search visibility audit"
   - "on-page seo and aeo report"
-  - "check if page is cited by chatgpt"
 last_update:
-  date: 2026-06-05
+  date: 2026-10-14
   author: Ahsan Mahmood
 ---
 
@@ -20,123 +19,113 @@ import ToolCTA from '@site/src/components/ToolCTA';
 
 # Website Audit (SEO + AEO + GEO)
 
-Website Audit (SEO + AEO + GEO) is an automated tool that fetches one URL and returns three heuristic score cards — classic SEO, AEO (answer-engine readiness for systems like ChatGPT), and GEO (generative-engine visibility) — plus a prioritized, fix-first task list. It ships in the paid ZTools Growth Suite, but you can run it on the Free tier with a small monthly cap, with higher caps on Pro ($9/mo) and Ultimate ($14/mo) and a 30-day trial. No API key is required for the core scan. It reads on-page and technical signals only, so treat the scores as directional guidance to prioritize fixes, not a ranking guarantee or an off-site backlink audit.
+Enter a public URL or paste HTML to check titles, headings, metadata, links, and other signals the scanner can read. Website Audit groups its findings into SEO, AEO, and GEO scores, then lists suggested fixes. You don't need an AI provider key for this scan. URL mode fetches the page through ZTools' URL proxy; Paste HTML mode analyzes the text you provide without fetching that page. Your plan's monthly audit limit applies. These heuristic scores don't measure private analytics, backlinks, or future rankings.
 
-:::info Paid feature — Growth Suite
-Website Audit (SEO + AEO + GEO) is part of the paid ZTools **Growth Suite**. It needs a free ZTools account and runs on metered plans — a limited Free tier, plus Pro and Ultimate for higher caps. Several Growth tools let you bring your own provider API key (BYOK). Unlike the free, browser-only tools, Growth Suite tools call external services to do their work.
+:::info Growth Suite
+Website Audit (SEO + AEO + GEO) is part of Growth Suite. Sign in to see its current allowance and any connection or provider key it needs. Limits vary by plan; a limited Free plan is available.
 :::
 
 <ToolCTA href="https://ztools.zaions.com/growth/audit" toolName="Website Audit (SEO + AEO + GEO)" kind="paid" />
 
 ## Use cases
 
-### Pre-publish check for a new blog post
+### Check a page before publishing
 
-Before hitting publish on a long-form guide, paste the staging URL to confirm the title tag, meta description, single H1, heading order, image alt text, and internal links are all in place. The AEO card flags whether your intro answers the target question in the first sentence — the part answer engines tend to quote — so you fix structure before the post goes live, not weeks after.
-
-### Triage a page that ranks but isn’t cited by AI
-
-Your product comparison page sits on page one of Google yet never shows up in ChatGPT or Perplexity answers. Run the GEO and AEO cards to see whether the page lacks an FAQ block, clear definitions, or extractable Q&A passages. The fix-first list tells you which passage-level changes to make so the content becomes quotable, not just rankable.
+Before publishing a reachable preview page, run Website Audit to check its title, description, headings, canonical tag, image alt text, and internal links. You can paste its HTML if the preview URL cannot be fetched. Fix confirmed issues, then run it again after publication.
 
 ### Hand a client a clear before/after
 
-As a freelancer auditing a small-business homepage, generate one report you can screenshot into a proposal: three scores plus a numbered list of concrete fixes like ’add meta description,’ ’compress hero image,’ or ’add Organization schema.’ You skip the manual checklist and give the client plain priorities instead of a 40-tab spreadsheet they will never open.
+Run an audit of a public client page and share the three directional scores with the issues the scanner found. Check each issue on the live page before turning it into a work item.
 
-### Catch technical regressions after a redeploy
+### Check a page after a site change
 
-After a theme update or framework migration, audit your key landing pages to catch silent breakages — a canonical pointing at staging, a noindex left on, a meta description truncated by a CMS field limit, or new render-blocking markup. Because the scan reads the live page, it surfaces what actually shipped rather than what the CMS preview promised.
+After a site change, scan a public page again or paste its HTML to spot changed metadata or headings. Compare the findings with the page itself before attributing a score change to the release.
 
 ## How it works
 
-1. **Enter a URL** — Paste any public page URL into the audit field and start the scan. The tool fetches the live HTML and technical signals it can read from that single page, without needing access to your analytics or server.
-2. **On-page SEO analysis** — It checks title tag, meta description, heading hierarchy, image alt text, canonical, robots directives, Open Graph tags, and internal linking, scoring each signal and noting what is missing or misconfigured.
-3. **AEO scoring** — The page is evaluated for answer-engine readiness: definition-first intros, FAQ blocks, scannable headings, and structured Q&A passages that AI assistants can extract and quote when responding to a user question.
-4. **GEO scoring** — It assesses generative-engine visibility signals — schema coverage, clarity, citable passages, and content depth — that influence whether systems like ChatGPT, Perplexity, and Google AI Overviews surface your page.
-5. **Prioritized fix list** — Findings are merged into one fix-first checklist ordered by likely impact, so you start with the changes most likely to move all three scores instead of guessing where to begin.
+1. **Enter a URL or paste HTML** — Enter a public URL for ZTools to fetch, or paste HTML for the scanner to analyze without fetching the page.
+2. **Review the SEO score** — The SEO score checks the title, meta description, headings, canonical tag, Open Graph metadata, image alt text, and internal links it can find in the supplied HTML. It does not inspect robots directives.
+3. **Review the AEO score** — The AEO score checks detected FAQ or article schema, question-style headings, and text structure. It does not test whether an assistant will quote the page.
+4. **Review the GEO score** — The GEO score checks detectable authorship, citations, date metadata, schema, and semantic markup. It does not measure actual appearances in AI answers.
+5. **Check the suggested fixes** — Review the issues and suggestions under each score, then confirm them on the page before changing it. The scores do not predict ranking changes.
 
 ## Examples
 
-**Input:** https://example.com/blog/best-crm-for-startups
+**Input:** A public page with no meta description
 
-**Output:** SEO 78/100, AEO 54/100, GEO 49/100. Top fixes: add an FAQ section, rewrite the intro to define ’best CRM for startups’ in the first sentence, add FAQPage schema, shorten the 71-character title.
-
----
-
-**Input:** https://example.com/ (homepage, recently redeployed)
-
-**Output:** SEO 61/100. Flags: meta description missing, two H1 tags detected, canonical points to a staging subdomain, hero image 1.8 MB. AEO and GEO low due to thin extractable text.
+**Output:** The SEO findings flag the missing description.
 
 ---
 
-**Input:** https://example.com/pricing
+**Input:** A public page with no FAQPage or Question schema
 
-**Output:** AEO 67/100, GEO 58/100. Suggestions: expose machine-readable pricing details, convert the plan grid into labeled text, add a short ’How much does it cost?’ Q&A block.
+**Output:** The AEO findings flag the missing schema.
 
 ## Frequently asked questions
 
 <details>
 <summary>**Is it free, or what does it cost?**</summary>
 
-The core audit needs no API key, and you can run it on the ZTools Free tier with a small monthly cap on audits. If you need more runs, Pro is $9/mo and Ultimate is $14/mo, both with higher caps, and there is a 30-day Pro/Ultimate trial. The Growth Suite is a paid product; the Free tier lets you try it within limits before upgrading.
+You can run Website Audit on the Free plan within its monthly audit limit. Paid Growth plans may raise that limit; check the current plan comparison for your account. The scan doesn't use an AI provider key or add a separate AI-provider charge.
 
 </details>
 
 <details>
 <summary>**What does the audit NOT do?**</summary>
 
-It is an automated heuristic score from on-page and technical signals it can fetch from the URL — not a ranking guarantee and not a full off-site backlink audit. It cannot read your private analytics, Search Console data, or competitor internals. Treat the three scores as directional guidance to prioritize fixes, not a promise of position changes.
+The audit reads one URL or pasted HTML and returns heuristic scores. It cannot read private analytics, backlinks, or competitor data, and its scores do not predict rankings.
 
 </details>
 
 <details>
 <summary>**Do I need an API key or to bring my own key?**</summary>
 
-No. The core audit requires no API key — you paste a URL and run it. If you later connect optional integrations such as a PageSpeed or analytics source, any keys you provide are stored encrypted per user, and usage against that external provider would bill to your own account, not to ZTools.
+No key is needed for Website Audit. In URL mode, ZTools' proxy fetches a public page. In Paste HTML mode, the scanner analyzes the HTML you enter without fetching a URL.
 
 </details>
 
 <details>
 <summary>**What is the difference between SEO, AEO, and GEO?**</summary>
 
-Classic SEO covers traditional ranking signals like titles, metadata, and crawlability. AEO (answer-engine optimization) measures how easily an AI assistant can extract and quote your page when answering a question. GEO (generative-engine optimization) measures broader visibility across generative systems like ChatGPT, Perplexity, and AI Overviews. The tool scores all three separately.
+SEO checks on-page search signals. AEO checks answer-oriented structure, such as question headings and schema. GEO checks other readable signals, including authorship, dates, and cited sources. These labels describe the scanner's heuristics, not measured search-engine outcomes.
 
 </details>
 
 <details>
 <summary>**Can it audit a page behind login or on staging?**</summary>
 
-It can only fetch publicly reachable URLs. Pages behind authentication, IP allowlists, or aggressive bot blocking may return incomplete results. For staging, make the URL reachable or use a temporary public preview so the scanner can read the same HTML a search crawler would.
+URL mode needs a page the ZTools proxy can reach without signing in. If a preview is private, use Paste HTML mode with markup you are allowed to provide; it analyzes that text without fetching the page.
 
 </details>
 
 <details>
 <summary>**Does running the audit change my site or guarantee rankings?**</summary>
 
-No. It only reads your page; it never edits your site, and it makes no ranking guarantees. Search and AI visibility depend on many off-page factors the tool cannot see, including backlinks and domain authority. It tells you which on-page and technical fixes to make first, in priority order.
+No. The audit reads the URL or HTML you provide and cannot edit your site or guarantee search rankings. Its findings are checks to verify, not a priority order proven by impact.
 
 </details>
 
 <details>
 <summary>**How current are the scoring rules?**</summary>
 
-Scoring reflects widely documented on-page and structured-data practices, including answer-engine and generative-engine readiness signals. Research such as the Princeton GEO study (KDD 2024) finds that adding sources, statistics, and clear FAQ-style passages tends to raise AI citation rates, which informs the AEO and GEO checks.
+The current scores are based on checks in ZTools' scanner. Re-run after a change to compare the signals it can read. Search systems may change independently of this tool.
 
 </details>
 
 ## Tips
 
-- Lead every key page with a one-sentence literal definition of its topic — answer engines often quote the first sentence as the answer block.
-- Add an FAQ section with genuine questions and concise answers; it tends to lift the AEO and GEO cards the most for content pages.
-- Re-run the audit right after a redeploy or CMS migration to catch silent regressions like a stray noindex or a canonical pointing at staging.
-- Fix in the order the list gives you — it is sorted by likely impact, so the top items usually move more than one score at once.
-- Pair this with off-site work like backlinks, mentions, and an llms.txt file; the audit covers on-page and technical signals only, so it cannot see your link profile.
+- Put a clear answer near the question it addresses, then check whether the scan recognizes the structure.
+- Add useful questions and answers for readers when the page calls for them; don't add FAQ markup only to raise a score.
+- Re-run the audit after a site change and check the current page against its findings.
+- Confirm each suggested fix on the live page before prioritizing it.
+- Use other sources for backlinks and actual search performance; this scan reads one page.
 
 ## Try it now
 
-The full Website Audit (SEO + AEO + GEO) is part of the ZTools Growth Suite at **[https://ztools.zaions.com/growth/audit](https://ztools.zaions.com/growth/audit)** — sign in and pick the plan that fits your limits (several Growth tools use your own provider API key, BYOK).
+Open Website Audit (SEO + AEO + GEO) at **[https://ztools.zaions.com/growth/audit](https://ztools.zaions.com/growth/audit)**. Sign in to check its allowance and setup requirements.
 
 [Open the tool ↗](https://ztools.zaions.com/growth/audit)
 
 ---
 
-*Last updated: 2026-06-05 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-website-audit.mdx)*
+*Last updated: 2026-10-14 · Author: Ahsan Mahmood · [Edit this page on GitHub](https://github.com/aoneahsan/ztools-docs/edit/main/docs/tools/growth/growth-website-audit.mdx)*

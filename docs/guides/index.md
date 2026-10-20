@@ -13,11 +13,11 @@ Short, task-oriented walkthroughs for getting set up and working efficiently wit
 
 ## Available guides
 
-- **[Get the most out of ZTools](/docs/guides/get-the-most-from-ztools)** — search, direct URLs, favorites, history, cloud sync, theming, and sharing.
-- **[Browse tools by category](/docs/guides/browse-by-category)** — how the 580+ tools are organized across 20 categories, and the fastest ways to find one.
+- **[Get the most out of ZTools](/docs/guides/get-the-most-from-ztools)** — find tools and review account, appearance, and sharing options.
+- **[Browse tools by category](/docs/guides/browse-by-category)** — see the current categories and find a tool for your task.
 - **[Install the browser extension](/docs/guides/browser-extension)** — quick tool access from any tab (Chrome, Edge, Brave, Firefox).
 - **[Install the Android app](/docs/guides/android-app)** — the native app from Google Play, plus where iOS stands.
-- **[Use the Growth Suite with your own API key (BYOK)](/docs/guides/growth-suite-byok)** — how the paid AI SEO tools work and what leaves your browser.
+- **[Use Growth Suite tools](/docs/guides/growth-suite-byok)** — check each tool's account, plan, provider-key, and processing requirements.
 - **[Install ZTools as an app (PWA)](/docs/guides/install-as-app)** — a standalone app window on desktop and mobile, with an honest note on offline use.
 
 ## Suggest a guide
@@ -26,4 +26,4 @@ Open an issue on [GitHub](https://github.com/aoneahsan/ztools-docs/issues/new) d
 
 ---
 
-*Last updated: 2026-07-22*
+*Last updated: 2026-10-14*

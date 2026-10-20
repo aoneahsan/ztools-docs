@@ -1,6 +1,6 @@
 ---
 title: Browse tools by category
-description: How ZTools organizes 580+ tools into 20 categories, and the fastest ways to find the right one.
+description: Find ZTools tools by category and check each tool's route, processing, and plan requirements.
 tags: [guide, navigation, categories]
 sidebar_label: Browse by category
 sidebar_position: 2
@@ -8,7 +8,7 @@ sidebar_position: 2
 
 # Browse tools by category
 
-ZTools groups its 580+ tools into 20 categories so you can drill down by the kind of job you're doing. The [All tools](/docs/tools) hub lists every category with its tools.
+ZTools groups tools by task, from Text and PDF to Developer and Growth. Open the [All tools](/docs/tools) catalog to see the current category pages and tool links.
 
 ## The categories
 
@@ -20,11 +20,11 @@ Each category has its own index page — for example [Encoding tools](/docs/tool
 
 1. **Category pages** — start at [All tools](/docs/tools), pick a category, scan the list.
 2. **Search** — the search box matches on name, description, and category. It's usually the fastest path when you already know what you want.
-3. **Direct URL** — the docs live at `ztools-docs.zaions.com/docs/tools/<category>/<tool-id>`, and the app itself at `ztools.zaions.com/<tool-id>`.
+3. **Direct link** — open a tool from its docs page or the app catalog. Use the listed link; a tool's app route isn't always its ID.
 
-## Free vs. Growth Suite
+## Access and processing
 
-Most categories are free and browser-only. The **Growth** category is the paid [Growth Suite](/docs/tools/growth) — AI-assisted SEO tools that need a sign-in and (for several of them) your own provider API key. Those pages are clearly marked. See [Use the Growth Suite with your own API key](/docs/guides/growth-suite-byok).
+Many tools can be used without signing in. Growth Suite tools require an account and have plan limits; some actions also need a provider key or connection. Processing varies by tool. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input, then see [Use Growth Suite tools](/docs/guides/growth-suite-byok).
 
 ## Next
 
