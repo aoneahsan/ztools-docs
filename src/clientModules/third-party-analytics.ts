@@ -95,8 +95,16 @@ if (typeof window !== 'undefined') {
             }
             return breadcrumb;
           },
-          // Drop PII headers / cookies from any captured request.
-          sendDefaultPii: false,
+          // Keep Sentry's automatic user and network identity collection off.
+          dataCollection: {
+            userInfo: false,
+            cookies: false,
+            httpHeaders: false,
+            httpBodies: [],
+            urlQueryParams: false,
+            stackFrameVariables: false,
+            frameContextLines: 0,
+          },
         });
       })
       .catch((err) => {

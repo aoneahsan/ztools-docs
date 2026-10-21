@@ -3,6 +3,8 @@
 Public documentation for [ZTools](https://ztools.zaions.com), covering 579 tools in 20 categories. The site
 uses Docusaurus 3 and publishes at [ztools-docs.zaions.com](https://ztools-docs.zaions.com).
 
+The 2026-10-21 maintenance pass regenerated all 579 tool pages, passed typecheck/build and controlled desktop/mobile Chrome, and updated the GitHub Pages workflow to current action majors. The workspace fleet tracker records the deployment run.
+
 - [Open ZTools](https://ztools.zaions.com)
 - [Browse the docs](https://ztools-docs.zaions.com)
 - [Get the Android app](https://play.google.com/store/apps/details?id=com.zaions.ztools)
