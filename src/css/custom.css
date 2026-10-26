@@ -44,6 +44,9 @@
   --ifm-button-border-radius: 999px;
 
   --docusaurus-highlighted-code-line-bg: rgba(255, 168, 64, 0.12);
+
+  /* Text on a primary-filled control (the /sitemap and /feed buttons): white on the light theme's dark orange. */
+  --ztools-cta-ink: #ffffff;
 }
 
 [data-theme='dark'] {
@@ -59,6 +62,8 @@
   --ifm-background-surface-color: #141414;
 
   --docusaurus-highlighted-code-line-bg: rgba(255, 168, 64, 0.18);
+
+  --ztools-cta-ink: #0a0a0a;
 }
 
 /* Tighten heading letter-spacing for the display font */

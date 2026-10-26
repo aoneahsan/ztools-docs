@@ -1,12 +1,15 @@
-// This file is not used by "docusaurus start/build" commands.
-// It is here to improve your IDE experience (type-checking, autocompletion...),
-// and can also run the package.json "typecheck" script manually.
+// `yarn typecheck` runs this; `docusaurus start/build` do not read it.
+// It includes plugins/ and src/ so the site-pages plugin and every component are checked, not only the config.
 {
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
+    // @docusaurus/tsconfig sets baseUrl relative to its own folder; restating it here makes @site/* resolve from this one.
     "baseUrl": ".",
     "ignoreDeprecations": "6.0",
-    "strict": true
+    "strict": true,
+    "types": ["node", "@docusaurus/module-type-aliases", "@docusaurus/theme-classic"],
+    "paths": {"@site/*": ["./*"]}
   },
-  "exclude": [".docusaurus", "build"]
+  "include": ["docusaurus.config.ts", "sidebars.ts", "plugins", "src", "scripts"],
+  "exclude": [".docusaurus", "build", "node_modules"]
 }

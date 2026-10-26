@@ -7,10 +7,12 @@ import 'dotenv/config';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import sitePages, {withLastmod} from './plugins/site-pages';
 
 const SITE_URL = 'https://ztools-docs.zaions.com';
 const APP_URL = 'https://ztools.zaions.com';
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
+const BLOG_PATH = '/blog';
 
 // Third-party tracking / monitoring — all optional via env vars.
 // Set as GitHub Actions repo secrets to enable; absent vars cause the
@@ -38,6 +40,9 @@ const config: Config = {
 
   url: SITE_URL,
   baseUrl: '/',
+  // Pages are written as `<path>.html`, so GitHub Pages answers every canonical URL (`/docs/intro`, `/sitemap`) with
+  // 200 instead of a 301 to `/docs/intro/`, and `/sitemap` is the page rather than `sitemap.xml`.
+  trailingSlash: false,
 
   organizationName: 'aoneahsan',
   projectName: 'ztools-docs',
@@ -49,7 +54,14 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+    // The app's own formatting locale, so the feed page prints US dates.
+    localeConfigs: {en: {htmlLang: 'en-US'}},
   },
+
+  plugins: [
+    // `/sitemap` and `/feed` for people, and `/feed.xml` beside `/sitemap.xml` for machines.
+    sitePages({blogPath: BLOG_PATH}),
+  ],
 
   headTags: [
     {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood'}},
@@ -170,6 +182,11 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
+          // A post's last update comes from git: its sitemap lastmod.
+          showLastUpdateTime: true,
+          // Every tag is declared in blog/tags.yml, so each feed item carries a <category>.
+          tags: 'tags.yml',
+          onInlineTags: 'throw',
           editUrl: `${GH_REPO}/edit/main/`,
           feedOptions: {type: ['rss', 'atom'], xslt: true},
           blogTitle: 'ZTools Blog',
@@ -177,10 +194,15 @@ const config: Config = {
           postsPerPage: 10,
         },
         sitemap: {
-          changefreq: 'weekly',
-          priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          // Every URL carries a truthful lastmod and nothing else: search engines ignore changefreq and priority.
+          lastmod: 'date',
+          changefreq: null,
+          priority: null,
+          ignorePatterns: ['/tags/**', '/docs/tags/**', '/blog/tags/**', '/blog/archive', '/blog/authors/**', '/search'],
           filename: 'sitemap.xml',
+          // A page git cannot date (the blog list, /sitemap, /feed, the home page) takes the newest date it lists.
+          createSitemapItems: async ({defaultCreateSitemapItems, ...params}) =>
+            withLastmod(await defaultCreateSitemapItems(params), BLOG_PATH),
         },
         // GA4 via the official preset's gtag option. Only ships the script
         // when GA_MEASUREMENT_ID is set at build time.
@@ -250,11 +272,11 @@ const config: Config = {
           items: [
             {label: 'GitHub', href: GH_REPO},
             {label: 'Issues', href: `${GH_REPO}/issues`},
-            // Use absolute URLs for files generated post-link-check.
-            // Docusaurus's link checker can't see /blog/rss.xml or /sitemap.xml
-            // because they're emitted after MDX compilation.
-            {label: 'RSS feed', href: `${SITE_URL}/blog/rss.xml`},
-            {label: 'Sitemap', href: `${SITE_URL}/sitemap.xml`},
+            {label: 'Sitemap', to: '/sitemap'},
+            {label: 'Feed', to: '/feed'},
+            // Written after the build, so the link checker cannot see them: absolute addresses.
+            {label: 'sitemap.xml', href: `${SITE_URL}/sitemap.xml`},
+            {label: 'feed.xml', href: `${SITE_URL}/feed.xml`},
           ],
         },
         {

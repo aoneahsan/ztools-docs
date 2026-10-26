@@ -1,0 +1,9 @@
+release:
+  label: Release
+  permalink: /release
+  description: ZTools releases and what changed in them.
+
+ztools:
+  label: ZTools
+  permalink: /ztools
+  description: Posts about ZTools, its tools and how they work.
