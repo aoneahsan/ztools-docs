@@ -20,6 +20,11 @@ import {readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync}
 import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
+/** A category id as a heading word: acronyms stay upper case ("PDF tools", "SEO tools"). */
+const ACRONYMS = new Set(['pdf', 'seo']);
+const categoryLabel = (cat: string): string =>
+  ACRONYMS.has(cat) ? cat.toUpperCase() : `${cat[0].toUpperCase()}${cat.slice(1)}`;
+
 // ---------------------------------------------------------------------------
 // Paths
 // ---------------------------------------------------------------------------
@@ -255,7 +260,7 @@ function renderHub(byCategory: Map<string, Array<{id: string; meta: ToolMeta}>>)
             `- [**${t.meta.name}**](/docs/tools/${cat}/${t.id}) — ${(t.meta.description ?? '').replace(/\n/g, ' ').trim()}`,
         )
         .join('\n');
-      return `## ${cat[0].toUpperCase()}${cat.slice(1)}\n\n${items}`;
+      return `## ${categoryLabel(cat)}\n\n${items}`;
     })
     .join('\n\n');
 
@@ -341,14 +346,14 @@ async function main() {
       indexFile,
       `---
 id: index
-title: ${yamlString(`${cat[0].toUpperCase()}${cat.slice(1)} tools — ZTools`)}
+title: ${yamlString(`${categoryLabel(cat)} tools — ZTools`)}
 description: ${yamlString(cat === 'growth' ? 'Browse ZTools Growth Suite tools for SEO, analytics, and AI. Sign-in and plan limits apply.' : `Browse ZTools ${cat} tools, with use cases and examples for each one.`)}
-sidebar_label: ${yamlString(`${cat[0].toUpperCase()}${cat.slice(1)} tools`)}
+sidebar_label: ${yamlString(`${categoryLabel(cat)} tools`)}
 sidebar_position: 0
 slug: /tools/${cat}
 ---
 
-# ${cat[0].toUpperCase()}${cat.slice(1)} tools
+# ${categoryLabel(cat)} tools
 
 ${cat === 'growth' ? ":::info Growth Suite\nGrowth Suite tools require a ZTools account and have plan limits. Some AI actions offer a shared daily allowance or a choice to use your own provider key. Other tools use external data services, so input handling varies by action.\n:::\n\n" : ''}${tools.length} tool${tools.length === 1 ? '' : 's'} in this category.
 
