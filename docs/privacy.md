@@ -29,7 +29,7 @@ When enabled, these services can receive details about a visit, such as viewed U
 
 The code asks Google Analytics to anonymize IP addresses and tells Amplitude's SDK not to include an IP address in its tracking options. Neither setting proves that every provider excludes city data or never receives a full network address. Sentry replay is disabled, and one navigation-breadcrumb field is reduced to a pathname; other error context may still be sent. Avoid putting private information in a docs URL.
 
-This page describes visits to the docs site. It does not describe processing of files, prompts, voice recordings, dictation, or other inputs in the [ZTools app](https://ztools.zaions.com/privacy-policy). The app policy names the providers that handle them, including Anthropic for shared AI and Groq for transcription.
+This page describes visits to the docs site. It does not describe processing of files, prompts, voice recordings, dictation, or other inputs in the [ZTools app](https://ztools.zaions.com/privacy-policy). The app policy names the providers that handle them, including Anthropic for shared AI (OpenAI when Anthropic's shared credit is unavailable), Groq for transcription, and Polar for plan payments.
 
 ## ⚙️ How can I limit analytics? {#how-can-i-limit-analytics}
 
