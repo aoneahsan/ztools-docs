@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "NODE_OPTIONS=--no-experimental-webstorage docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -17,7 +17,7 @@
     "build:full": "yarn generate:tools && yarn build"
   },
   "dependencies": {
-    "@amplitude/analytics-browser": "^2.48.1",
+    "@amplitude/analytics-browser": "^2.49.1",
     "@docusaurus/core": "3.10.2",
     "@docusaurus/faster": "3.10.2",
     "@docusaurus/plugin-content-docs": "3.10.2",
@@ -27,7 +27,7 @@
     "@docusaurus/theme-mermaid": "^3.10.2",
     "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "^3.1.1",
-    "@sentry/react": "^11.8.0",
+    "@sentry/react": "^11.10.0",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.3.1",
@@ -37,13 +37,12 @@
     "@docusaurus/module-type-aliases": "3.10.2",
     "@docusaurus/plugin-content-blog": "3.10.2",
     "@docusaurus/theme-classic": "3.10.2",
-    "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "3.10.2",
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
-    "dotenv": "^18.0.8",
+    "dotenv": "^18.0.9",
     "tsx": "^4.23.15",
-    "typescript": "~6.0.3"
+    "typescript": "~7.0.2"
   },
   "browserslist": {
     "production": [
