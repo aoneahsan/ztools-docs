@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkztools_docs=globalThis.webpackChunkztools_docs||[]).push([[81903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"ZTools Blog","authorsListPath":"/blog/authors"}')}}]);

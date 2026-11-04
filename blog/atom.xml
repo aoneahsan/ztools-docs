@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ztools-docs.zaions.com/blog</id>
+    <title>ZTools Documentation Blog</title>
+    <updated>2026-10-27T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ztools-docs.zaions.com/blog"/>
+    <subtitle>ZTools Documentation Blog</subtitle>
+    <icon>https://ztools-docs.zaions.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[What's new in ZTools: tours, a phone app view and plans]]></title>
+        <id>https://ztools-docs.zaions.com/blog/whats-new-2026-10</id>
+        <link href="https://ztools-docs.zaions.com/blog/whats-new-2026-10"/>
+        <updated>2026-10-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Page tours and a six-step walkthrough, an app view on phones, the Workbench design, and ZTools Pro and Growth Suite plans.]]></summary>
+        <content type="html"><![CDATA[<p>Useful tools. One workbench. This release brings the Workbench design to the web app, an app view on phones,
+guided tours, and plans you can buy.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="guided-tours-and-a-walkthrough">Guided tours and a walkthrough<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#guided-tours-and-a-walkthrough" class="hash-link" aria-label="Direct link to Guided tours and a walkthrough" title="Direct link to Guided tours and a walkthrough" translate="no">​</a></h2>
+<ul>
+<li class="">On the home page, Speak, Meeting notes, Plans, the dashboard and account settings, the tour button shows a short tour
+of that page. The first time you visit one of these pages, a hint says: "Take a quick tour of this page".</li>
+<li class=""><a href="https://ztools.zaions.com/walkthrough" target="_blank" rel="noopener noreferrer" class="">How ZTools works</a>: six short screens show what ZTools does. Start anywhere.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="an-app-view-on-phones">An app view on phones<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#an-app-view-on-phones" class="hash-link" aria-label="Direct link to An app view on phones" title="Direct link to An app view on phones" translate="no">​</a></h2>
+<p>On a phone, home, the dashboard, account settings, sign-in and the first-run screens open as app screens, with a bottom
+bar for Home, Dashboard, Speak, Plans and Account. Web and Android · Many tools work without signing in.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plans">Plans<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#plans" class="hash-link" aria-label="Direct link to Plans" title="Direct link to Plans" translate="no">​</a></h2>
+<p>ZTools offers a free plan and paid plans. Each paid plan's price, billing period and allowances are shown on the
+<a href="https://ztools.zaions.com/growth/pricing" target="_blank" rel="noopener noreferrer" class="">Plans page</a> before you pay. Payments are processed by Polar. ZTools never
+receives your card number.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="shared-ai">Shared AI<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#shared-ai" class="hash-link" aria-label="Direct link to Shared AI" title="Direct link to Shared AI" translate="no">​</a></h2>
+<p>If Anthropic's shared credit is unavailable, ZTools sends the same request from its server to OpenAI instead, within the
+same allowance. If neither can answer, AI pauses.</p>
+<p>The ZTools team</p>]]></content>
+        <author>
+            <name>The ZTools team</name>
+            <uri>https://ztools.zaions.com</uri>
+        </author>
+        <category label="Release" term="Release"/>
+        <category label="ZTools" term="ZTools"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome to the ZTools Blog]]></title>
+        <id>https://ztools-docs.zaions.com/blog/welcome</id>
+        <link href="https://ztools-docs.zaions.com/blog/welcome"/>
+        <updated>2026-05-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the first post on the ZTools documentation blog. We'll use this space for:]]></summary>
+        <content type="html"><![CDATA[<p>This is the first post on the ZTools documentation blog. We'll use this space for:</p>
+<ul>
+<li class=""><strong>Release notes</strong> — what's new in each ZTools update</li>
+<li class=""><strong>Tool spotlights</strong> — deep-dives on individual tools and the problems they solve</li>
+<li class=""><strong>Dev journal</strong> — design decisions, technical tradeoffs, occasional mistakes</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-shipped-may-2026">What's shipped (May 2026)<a href="https://ztools-docs.zaions.com/blog/welcome#whats-shipped-may-2026" class="hash-link" aria-label="Direct link to What's shipped (May 2026)" title="Direct link to What's shipped (May 2026)" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Tools live</strong> at <a href="https://ztools.zaions.com/" target="_blank" rel="noopener noreferrer" class="">ztools.zaions.com</a> — all browser-only, no signup, no upload</li>
+<li class=""><strong>First wave of docs</strong> — top 20 highest-demand tools documented with use cases, examples, and FAQs (<a class="" href="https://ztools-docs.zaions.com/docs/tools">browse them →</a>)</li>
+<li class=""><strong>GitHub repo</strong> for this docs site is open-source: <a href="https://github.com/aoneahsan/ztools-docs" target="_blank" rel="noopener noreferrer" class="">github.com/aoneahsan/ztools-docs</a></li>
+<li class=""><strong>Android app</strong> shipped on Play Store; iOS pending Apple developer account approval</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's next<a href="https://ztools-docs.zaions.com/blog/welcome#whats-next" class="hash-link" aria-label="Direct link to What's next" title="Direct link to What's next" translate="no">​</a></h2>
+<ul>
+<li class="">15-20 tools per batch through batch 35+ until every documented tool from the app appears here</li>
+<li class="">Long-form how-to guides covering common workflows (compress images, format JSON, generate strong passwords)</li>
+<li class="">Algolia DocSearch integration for site-wide search</li>
+</ul>
+<p>If there's a tool you'd like documented sooner, <a href="https://github.com/aoneahsan/ztools-docs/issues" target="_blank" rel="noopener noreferrer" class="">open an issue on GitHub</a> and we'll bump it up the queue.</p>
+<p>— Ahsan</p>]]></content>
+        <author>
+            <name>Ahsan Mahmood</name>
+            <uri>https://aoneahsan.com</uri>
+        </author>
+        <category label="Release" term="Release"/>
+        <category label="ZTools" term="ZTools"/>
+    </entry>
+</feed>

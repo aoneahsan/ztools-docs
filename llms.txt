@@ -1,0 +1,47 @@
+# ZTools
+
+> ZTools brings useful digital tools into one place, including JSON formatting, password generation, image compression, QR codes, and PDF work. Many tasks run in your browser. AI and some other tools send input to a server or provider. Some actions require sign-in and have plan limits.
+
+## Key URLs
+
+- App: https://ztools.zaions.com
+- Documentation: https://ztools-docs.zaions.com
+- GitHub (docs): https://github.com/aoneahsan/ztools-docs
+- Author: https://aoneahsan.com
+
+## Highlights
+
+- Tools across Text, PDF, Image, Data, Generator, Encoding, Conversion, SEO, Math, Health, Education, Finance, Productivity, Media, Design, Developer, Extractor, Legal, Utility, and Growth categories
+- Processing depends on the tool: many tasks run in your browser; some send files or input to a server or provider. Read the app privacy policy before submitting sensitive input.
+- Machine-readable tool registry with each tool's real URL: https://ztools.zaions.com/tools-registry.json
+- Many tools can be used without signing in. Growth Suite requires an account and has plan limits.
+- Documentation source on GitHub
+- Android app on Google Play; no iOS app
+
+## Documentation structure
+
+- `/docs/intro` — overview
+- `/docs/getting-started` — usage walkthrough
+- `/docs/tools` — full tool catalog (organized by category)
+- `/docs/guides` — long-form how-to tutorials
+- `/blog` — release notes and dev journal
+
+## Author
+
+Ahsan Mahmood — solo developer, Pakistan-based.
+- Email: aoneahsan@gmail.com
+- Phone / WhatsApp: +923046619706
+- LinkedIn: https://linkedin.com/in/aoneahsan
+- GitHub: https://github.com/aoneahsan
+- NPM: https://npmjs.com/~aoneahsan
+- Portfolio: https://aoneahsan.com
+
+## Analytics & privacy
+
+The docs site may use configured analytics and error-reporting services. See the [documentation privacy page](https://ztools-docs.zaions.com/docs/privacy) for details about those services.
+
+Many ZTools tasks run in your browser. AI and some other tools send input to a server or provider; handling varies by action. See the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy).
+
+## License
+
+ZTools application: proprietary; access and allowances vary by tool and plan
