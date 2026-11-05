@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "build": "NODE_OPTIONS=--no-experimental-webstorage docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "yarn build && npx -y wrangler@4 pages deploy build --project-name ztools-docs --branch main --commit-dirty=true",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",

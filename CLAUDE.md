@@ -47,3 +47,8 @@ yarn serve            # only when browser verification is requested
 | Guide bytes | 02442 |
 | Covered subtree | public docs repository, generator, Docusaurus config and Pages workflow |
 | Gitignore last verified | 2026-10-20 — dependencies, build output, caches and environment values ignored |
+
+<!-- cloudflare-pages-v1 -->
+## Hosting: Cloudflare Pages
+
+This site deploys on Cloudflare Pages, project `ztools-docs`, domain `ztools-docs.zaions.com` (rule: docs sites deploy on Cloudflare Pages, owner, 2026-11-05). Build and check it locally, then run `yarn deploy`. This replaces every GitHub Pages instruction elsewhere in this repo; no GitHub Actions and no `docusaurus deploy`.
