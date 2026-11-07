@@ -1,0 +1,62 @@
+---
+id: cyberchef
+title: "Moving from CyberChef to ZTools"
+description: "From CyberChef to ZTools: where encoding, hashing and data jobs live here, what recipes do not carry over, and the dated facts."
+sidebar_label: "CyberChef"
+sidebar_position: 4
+tags: [guide, comparison]
+last_update:
+  date: 2026-11-07
+  author: Ahsan Mahmood
+---
+
+# Moving from CyberChef to ZTools
+
+CyberChef does its work in your browser and so do these tools, so privacy is not the reason to move. The reason is everything outside encoding: images, PDFs, text. Many people should keep both.
+
+**Facts last checked Nov 7, 2026.** Read them on <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer nofollow">CyberChef's own site</a>, since prices move.
+
+## Which page does which job
+
+| On CyberChef | In ZTools |
+|---|---|
+| Base64 | [Base64](/docs/tools/conversion/base64) |
+| Hashes | [Hash Generator](/docs/tools/encoding/hash-generator) |
+| Decode a JWT | [JWT Decoder](/docs/tools/encoding/jwt-decoder) |
+| URL encoding | [URL Encoder](/docs/tools/conversion/url-encoder) |
+| Timestamps | [Unix Timestamp](/docs/tools/conversion/unix-timestamp) |
+| Number bases | [Number Base](/docs/tools/conversion/number-base) |
+
+## Steps
+
+1. Write down the operations in any saved recipe you use. Recipes do not import here.
+2. Run each operation on its own page, feeding one result into the next.
+3. Check the output against CyberChef on one known input before you trust it for real data.
+4. For the image and PDF jobs CyberChef was never meant for, start from the [tool index](/docs/tools).
+
+## What stays with CyberChef
+
+- Chained recipes you can save and run offline are the best thing about CyberChef. For those, stay.
+- CyberChef can be downloaded and run locally from its own repository.
+
+## What we read, and when
+
+| Row | CyberChef | ZTools |
+|---|---|---|
+| Tool count, as each site states it | Not stated on the pages we checked | Yes. Counted on the [tool index](/docs/tools). |
+| Runs in your browser without uploading | Yes. Entirely client-side; input is never sent to their server. <a href="https://github.com/gchq/CyberChef" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 | Partly. Most run in your browser. [AI Background Remover](/docs/tools/image/background-remover), [Image to Text](/docs/tools/media/image-to-text-ocr) and [PDF OCR](/docs/tools/pdf/pdf-ocr-text-extraction) run only on our server, and a few others offer a server mode. Each tool page says which. |
+| Works without an account | Not stated on the pages we checked | Partly. Most tools need no sign-up. Growth Suite and Speak do. |
+| Free plan and its limits | Yes. Free; files up to around 2 GB depending on your browser. <a href="https://github.com/gchq/CyberChef" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 | Yes. Limits are on the [plans page](https://ztools.zaions.com/growth/pricing). |
+| No ads on the free plan | Not stated on the pages we checked | Partly. No third-party ad networks. The free plan shows promotions for our own products. |
+| Android app | Not stated on the pages we checked | Yes. [On Google Play](/docs/guides/android-app). |
+| Browser extension | Not stated on the pages we checked | Yes. [On the Chrome Web Store](/docs/guides/browser-extension). |
+
+"Not stated on the pages we checked" means we found no answer on their pages. It does not mean no.
+
+### CyberChef plans
+
+| Plan | Price | Terms | Where we read it |
+|---|---|---|---|
+| Free | Free | Open source, Apache 2.0 Licence; can be downloaded and run locally | <a href="https://github.com/gchq/CyberChef" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 |
+
+ZTools plans and current prices are on the [plans page](https://ztools.zaions.com/growth/pricing). The same comparison, laid out side by side, is at [CyberChef or ZTools](https://ztools.zaions.com/alternatives/cyberchef).
