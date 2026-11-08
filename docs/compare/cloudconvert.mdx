@@ -1,7 +1,7 @@
 ---
 id: cloudconvert
 title: "Moving from CloudConvert to ZTools"
-description: "Moving from CloudConvert to ZTools: which conversions work here, why API users should stay, and CloudConvert plans with sources."
+description: "CloudConvert users who convert by hand can do most jobs on ZTools pages; anyone calling its API should stay. Which conversions move, and CloudConvert plans with sources."
 sidebar_label: "CloudConvert"
 sidebar_position: 11
 tags: [guide, comparison]
@@ -12,11 +12,13 @@ last_update:
 
 # Moving from CloudConvert to ZTools
 
-If you call CloudConvert from code, ZTools does not replace it: there is no conversion API here. If you open it a few times a month to change a file format by hand, most of those jobs have a page here.
+CloudConvert is a server-side conversion service and API, sold by conversion credits with a small free daily allowance. If you call it from code, run bulk conversions with a service level agreement, or need custom fonts and team billing, keep it: there is no conversion API here.
 
-**Facts last checked Nov 7, 2026.** Read them on <a href="https://cloudconvert.com" target="_blank" rel="noopener noreferrer nofollow">CloudConvert's own site</a>, since prices move.
+If you open it a few times a month to change a file format by hand, most of those jobs have a page here, free, in the browser, and without an account for most tools.
 
-## Which page does which job
+**Facts last checked Nov 7, 2026.** All of them come from <a href="https://cloudconvert.com" target="_blank" rel="noopener noreferrer nofollow">CloudConvert's site</a>, mostly its pricing page.
+
+## Conversions you can do here
 
 | On CloudConvert | In ZTools |
 |---|---|
@@ -27,31 +29,27 @@ If you call CloudConvert from code, ZTools does not replace it: there is no conv
 | Excel to PDF | [Excel to PDF](/docs/tools/pdf/excel-to-pdf) |
 | Markdown to PDF | [Markdown to PDF](/docs/tools/conversion/markdown-to-pdf) |
 
-## Steps
+## From credits to pages
 
-1. Check your CloudConvert history for the conversions you really run.
-2. Run each on its page here. No account is needed for most.
-3. Word and Excel to PDF run in your browser by default and offer a server mode; choose before you send a private file.
-4. Leave your CloudConvert account in place if any script still calls it.
+1. Look through your CloudConvert history for the conversions you really run.
+2. Run each on its page here. Most need no account.
+3. Word and Excel to PDF run in your browser by default and offer a server mode. Choose before you send a private file.
+4. Keep the CloudConvert account while any script still calls it.
 
-## What stays with CloudConvert
+## Keep CloudConvert for
 
 - The API, bulk conversions, custom fonts and team billing.
-- Anything with a service level agreement behind it.
+- Anything that needs a service level agreement behind it.
 
-## What we read, and when
+## CloudConvert's pricing page, in brief
+
+The pricing page gave no count of tools and did not mention ads, an Android app or a browser extension, so those rows are hidden. For ZTools: the count is on the [tool index](/docs/tools); there are no third-party ad networks, though the free plan shows promotions for our own products; and there is an [Android app](/docs/guides/android-app) on Google Play and an [extension](/docs/guides/browser-extension) on the Chrome Web Store.
 
 | Row | CloudConvert | ZTools |
 |---|---|---|
-| Tool count, as each site states it | Not stated on the pages we checked | Yes. Counted on the [tool index](/docs/tools). |
 | Runs in your browser without uploading | No. Credits are charged per minute of conversion time on their side. <a href="https://cloudconvert.com/pricing" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 | Partly. Most run in your browser. [AI Background Remover](/docs/tools/image/background-remover), [Image to Text](/docs/tools/media/image-to-text-ocr) and [PDF OCR](/docs/tools/pdf/pdf-ocr-text-extraction) run only on our server, and a few others offer a server mode. Each tool page says which. |
 | Works without an account | No. The free tier starts with Sign Up. <a href="https://cloudconvert.com/pricing" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 | Partly. Most tools need no sign-up. Growth Suite and Speak do. |
 | Free plan and its limits | Yes. 10 credits a day, 1 GB max file, 5 minutes max processing, 5 concurrent tasks, low priority. <a href="https://cloudconvert.com/pricing" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 | Yes. Limits are on the [plans page](https://ztools.zaions.com/growth/pricing). |
-| No ads on the free plan | Not stated on the pages we checked | Partly. No third-party ad networks. The free plan shows promotions for our own products. |
-| Android app | Not stated on the pages we checked | Yes. [On Google Play](/docs/guides/android-app). |
-| Browser extension | Not stated on the pages we checked | Yes. [On the Chrome Web Store](/docs/guides/browser-extension). |
-
-"Not stated on the pages we checked" means we found no answer on their pages. It does not mean no.
 
 ### CloudConvert plans
 
@@ -62,4 +60,4 @@ If you call CloudConvert from code, ZTools does not replace it: there is no conv
 | Subscription (1,000 credits a month) | No figure on the page we read | The price is set by a slider in the browser; the page we read showed no figure | <a href="https://cloudconvert.com/pricing" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 |
 | Enterprise | No figure on the page we read | Quote only | <a href="https://cloudconvert.com/pricing" target="_blank" rel="noopener noreferrer nofollow">Source</a> · Nov 7, 2026 |
 
-ZTools plans and current prices are on the [plans page](https://ztools.zaions.com/growth/pricing). The same comparison, laid out side by side, is at [CloudConvert or ZTools](https://ztools.zaions.com/alternatives/cloudconvert).
+What ZTools costs: the [plans page](https://ztools.zaions.com/growth/pricing). Both side by side: [CloudConvert or ZTools](https://ztools.zaions.com/alternatives/cloudconvert).
