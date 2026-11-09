@@ -230,6 +230,7 @@ const config: Config = {
       isCloseable: true,
     },
     metadata: [
+      { name: 'yandex-verification', content: 'ffc2cf741c9b8c71' },
       {name: 'keywords', content: 'ZTools, online tools, browser tools, developer tools, creator tools, JSON formatter, password generator, QR code generator, image compressor'},
       {name: 'twitter:card', content: 'summary_large_image'},
     ],
