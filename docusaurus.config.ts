@@ -74,12 +74,12 @@ const config: Config = {
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '192x192', href: '/img/favicon-192x192.png'}},
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/png', sizes: '512x512', href: '/img/favicon-512x512.png'}},
     {tagName: 'link', attributes: {rel: 'apple-touch-icon', sizes: '180x180', href: '/img/apple-touch-icon.png'}},
-    {tagName: 'link', attributes: {rel: 'mask-icon', href: '/img/logo.svg', color: '#ffa840'}},
+    {tagName: 'link', attributes: {rel: 'mask-icon', href: '/img/logo.svg', color: '#18163B'}},
     {tagName: 'link', attributes: {rel: 'manifest', href: '/site.webmanifest'}},
 
     // ----- Theme + Microsoft tile color -----------------------------------
     {tagName: 'meta', attributes: {name: 'theme-color', content: '#ffa840'}},
-    {tagName: 'meta', attributes: {name: 'msapplication-TileColor', content: '#ffa840'}},
+    {tagName: 'meta', attributes: {name: 'msapplication-TileColor', content: '#18163B'}},
     {tagName: 'meta', attributes: {name: 'msapplication-config', content: '/browserconfig.xml'}},
     {tagName: 'meta', attributes: {name: 'apple-mobile-web-app-title', content: 'ZTools Docs'}},
     {tagName: 'meta', attributes: {name: 'application-name', content: 'ZTools Docs'}},
