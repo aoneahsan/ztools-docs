@@ -32,4 +32,4 @@ Choose a tool in the [catalog](/docs/tools), then [open ZTools](https://ztools.z
 
 ---
 
-*Author: Ahsan Mahmood · Last updated: 2026-11-10 · [Open ZTools ↗](https://ztools.zaions.com)*
+*Author: The ZTools team · Last updated: 2026-11-10 · [Open ZTools ↗](https://ztools.zaions.com)*

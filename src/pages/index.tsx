@@ -130,24 +130,13 @@ export default function Home(): React.ReactElement {
           </div>
         </section>
 
-        {/* AUTHOR */}
+        {/* AUTHOR — the product speaks as its team (F-DISC-103). */}
         <section className={styles.author}>
           <p className={styles.sectionEyebrow}>Built by</p>
-          <h2 className={styles.authorName}>Ahsan Mahmood</h2>
+          <h2 className={styles.authorName}>The ZTools team</h2>
           <p className={styles.authorBio}>
-            Ahsan Mahmood built ZTools. He's a developer based in Pakistan. For questions, email{' '}
-            <a href="mailto:aoneahsan@gmail.com">aoneahsan@gmail.com</a>{' '}
-            or use the contact links below.
-          </p>
-          <p className={styles.authorBio}>
-            <a href="https://wa.me/923046619706" target="_blank" rel="noopener">WhatsApp +92 304 6619706</a>.
-          </p>
-          <p className={styles.authorBio}>
-            Find me on{' '}
-            <a href="https://github.com/aoneahsan" target="_blank" rel="noopener">GitHub</a>,{' '}
-            <a href="https://linkedin.com/in/aoneahsan" target="_blank" rel="noopener">LinkedIn</a>,{' '}
-            <a href="https://npmjs.com/~aoneahsan" target="_blank" rel="noopener">NPM</a>, or{' '}
-            <a href="https://aoneahsan.com" target="_blank" rel="noopener">aoneahsan.com</a>.
+            The ZTools team builds and maintains ZTools and these docs. For questions, email{' '}
+            <a href="mailto:aoneahsan@gmail.com">aoneahsan@gmail.com</a>.
           </p>
         </section>
       </main>
