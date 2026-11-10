@@ -24,7 +24,7 @@ Each category has its own index page — for example [Encoding tools](/docs/tool
 
 ## Access and processing
 
-Many tools can be used without signing in. Growth Suite tools require an account and have plan limits; some actions also need a provider key or connection. Processing varies by tool. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input, then see [Use Growth Suite tools](/docs/guides/growth-suite-byok).
+Browser tools need no account and have no usage limit. Growth Suite tools require an account and have plan limits; some actions also need a provider key or connection. Processing varies by tool. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input, then see [Use Growth Suite tools](/docs/guides/growth-suite-byok).
 
 ## Next
 

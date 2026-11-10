@@ -20,6 +20,7 @@ Short, task-oriented walkthroughs for getting set up and working efficiently wit
 - **[Use Growth Suite tools](/docs/guides/growth-suite-byok)** — check each tool's account, plan, provider-key, and processing requirements.
 - **[Install ZTools as an app (PWA)](/docs/guides/install-as-app)** — a standalone app window on desktop and mobile, with an honest note on offline use.
 - **[Speak](/docs/guides/speak)** — record a thought, then review the notes and tasks Speak suggests.
+- **[How ZTools stays up to date](/docs/guides/updates)** — how a new release reaches the web and Android apps, and why your drafts are safe.
 
 ## Suggest a guide
 
@@ -27,4 +28,4 @@ Open an issue on [GitHub](https://github.com/aoneahsan/ztools-docs/issues/new) d
 
 ---
 
-*Last updated: 2026-10-28*
+*Last updated: 2026-11-10*

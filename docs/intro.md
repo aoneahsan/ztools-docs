@@ -24,7 +24,7 @@ Start with the catalog or follow a guide for a longer task. Tool pages include e
 
 ## 🔒 How does a tool process my work? {#how-does-a-tool-process-my-work}
 
-Many tasks run in your browser. AI and some file tasks send input to a server or provider. Some actions require an account or have plan limits. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) for data handling details before submitting sensitive input.
+Many tasks run in your browser. AI and some file tasks send input to a server or provider. Browser tools have no usage limit and need no account. Daily or monthly allowances apply only to the AI assistant, Speak, and tools that process files on our server; each is shown beside the feature and depends on your [plan](https://ztools.zaions.com/growth/pricing). Growth Suite tools need sign-in. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) for data handling details before submitting sensitive input.
 
 ## ▶️ How do I start a task? {#how-do-i-start-a-task}
 
@@ -32,4 +32,4 @@ Choose a tool in the [catalog](/docs/tools), then [open ZTools](https://ztools.z
 
 ---
 
-*Author: Ahsan Mahmood · Last updated: 2026-10-14 · [Open ZTools ↗](https://ztools.zaions.com)*
+*Author: Ahsan Mahmood · Last updated: 2026-11-10 · [Open ZTools ↗](https://ztools.zaions.com)*

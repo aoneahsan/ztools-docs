@@ -12,7 +12,7 @@ A different site for every small job makes it harder to keep moving. Open ZTools
 
 ## 1. Open the app
 
-Open [ZTools](https://ztools.zaions.com) in a modern browser. Many tools are available without signing in; account and plan requirements vary by feature.
+Open [ZTools](https://ztools.zaions.com) in a modern browser. Browser tools have no usage limit and need no account. Daily or monthly allowances apply only to the AI assistant, Speak, and tools that process files on our server; each is shown beside the feature and depends on your [plan](https://ztools.zaions.com/growth/pricing).
 
 ZTools is also available on [Android](https://play.google.com/store/apps/details?id=com.zaions.ztools). Features can vary by platform. There is no iOS app; on iPhone and iPad use the web app.
 
@@ -68,4 +68,4 @@ Some tools offer a Share action. When one is available, review what that tool in
 
 ---
 
-*Last updated: 2026-10-14*
+*Last updated: 2026-11-10*

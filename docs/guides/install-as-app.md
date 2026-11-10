@@ -20,7 +20,7 @@ Open the site in Chrome, then use the menu → **Add to Home screen / Install ap
 
 ## iPhone / iPad
 
-Open the site in Safari, tap **Share → Add to Home Screen**. This is the recommended path until the [native iOS app](/docs/guides/android-app) ships.
+Open the site in Safari, tap **Share → Add to Home Screen**. ZTools has no iOS app, so this is the way to keep it on an iPhone or iPad home screen.
 
 ## Honest note on offline use
 

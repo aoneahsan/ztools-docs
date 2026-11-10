@@ -28,5 +28,6 @@ There is no iOS app. iPhone and iPad users can use the web app at [ztools.zaions
 
 ## Next
 
+- [How ZTools stays up to date](/docs/guides/updates)
 - [Install ZTools as an app (PWA)](/docs/guides/install-as-app)
 - [Get the most out of ZTools](/docs/guides/get-the-most-from-ztools)

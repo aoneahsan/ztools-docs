@@ -18,7 +18,7 @@ The [Getting Started](/docs/getting-started) page covers the basics. This guide 
 
 ## When do I need to sign in?
 
-Many tools can be used without an account. Sign in for Growth Suite and account features such as favorites. Signed-in favorites and some account preferences can sync across devices; other work may stay on the device or be handled by a separate service.
+Browser tools need no account and have no usage limit. Sign in for Growth Suite and account features such as favorites. Signed-in favorites and some account preferences can sync across devices; other work may stay on the device or be handled by a separate service.
 
 Processing depends on the action. Many tasks run in your browser; AI and some other tools send input to a server or provider. Read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy) before submitting sensitive input.
 
