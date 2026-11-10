@@ -6,8 +6,10 @@ identical except this heading. Change both together. Fleet law auto-loads from `
 ## Repository and publication
 
 This public Docusaurus repository documents ZTools at https://ztools-docs.zaions.com. Repository
-`aoneahsan/ztools-docs`, branch `main`, remote `origin`. A push to `main` runs
-`.github/workflows/deploy-pages.yml`; build and controlled-browser verification must pass before the push.
+`aoneahsan/ztools-docs`, branch `main`, remote `o`. No GitHub Actions (house rule): deploy by hand after `yarn build`
+and a controlled-browser check — publish `build/` to the `gh-pages` branch (Pages serves it, CNAME
+`ztools-docs.zaions.com`) through a worktree in the workspace `temp/`; `docusaurus deploy` fails because it looks
+for a remote named `origin`.
 No secrets or private repository links belong here.
 
 The private app is the sibling `../ztools/`. Its fresh build emits `../ztools/dist/tools-registry.json`.
@@ -45,5 +47,5 @@ yarn serve            # only when browser verification is requested
 | Last optimized | 2026-10-21 |
 | Next routine optimization eligible | 2026-11-20 |
 | Guide bytes | 02442 |
-| Covered subtree | public docs repository, generator, Docusaurus config and Pages workflow |
+| Covered subtree | public docs repository, generator, Docusaurus config and the manual `gh-pages` deploy |
 | Gitignore last verified | 2026-10-20 — dependencies, build output, caches and environment values ignored |
