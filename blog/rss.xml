@@ -4,10 +4,29 @@
         <title>ZTools Documentation Blog</title>
         <link>https://ztools-docs.zaions.com/blog</link>
         <description>ZTools Documentation Blog</description>
-        <lastBuildDate>Tue, 27 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[ZTools updates itself, and browser tools have no limit]]></title>
+            <link>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11</link>
+            <guid>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11</guid>
+            <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Open tabs now load a new ZTools release by themselves, browser tools need no account and have no usage limit, and one small promotion for another product from the same team.]]></description>
+            <content:encoded><![CDATA[<p>You had ZTools open in a tab for a week. Until now, that tab could still be running last week's release. That changes today.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates-reach-open-tabs">Updates reach open tabs<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11#updates-reach-open-tabs" class="hash-link" aria-label="Direct link to Updates reach open tabs" title="Direct link to Updates reach open tabs" translate="no">​</a></h2>
+<p>A small worker now watches for a new release. It caches nothing. When one is out, the page loads it at a safe moment, and anything you've typed stays where it was.</p>
+<p>Some releases are required. Then an update screen tells you why and offers one Update button. On Android, a new build comes through Google Play's in-app update, and smaller fixes arrive as signed over-the-air updates. <a class="" href="https://ztools-docs.zaions.com/docs/guides/updates">How ZTools stays up to date</a> has the details.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="browser-tools-no-limit-no-account">Browser tools: no limit, no account<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11#browser-tools-no-limit-no-account" class="hash-link" aria-label="Direct link to Browser tools: no limit, no account" title="Direct link to Browser tools: no limit, no account" translate="no">​</a></h2>
+<p>Tools that run in your browser have no usage limit, and you don't need an account to use them.</p>
+<p>Allowances apply only where the work runs on our side: the AI assistant, Speak, and tools that process files on our server. Each feature shows its daily or monthly allowance beside it, and the amount depends on your plan. The <a href="https://ztools.zaions.com/growth/pricing" target="_blank" rel="noopener noreferrer" class="">Plans page</a> lists them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="one-small-promotion">One small promotion<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11#one-small-promotion" class="hash-link" aria-label="Direct link to One small promotion" title="Direct link to One small promotion" translate="no">​</a></h2>
+<p>The dashboard and tool pages now show one small ad, clearly marked. It's always for another product made by the ZTools team, never for ZTools itself. Plans that remove promotions don't show it.</p>
+<p>The ZTools team</p>]]></content:encoded>
+            <category>Release</category>
+            <category>ZTools</category>
+        </item>
         <item>
             <title><![CDATA[What's new in ZTools: tours, a phone app view and plans]]></title>
             <link>https://ztools-docs.zaions.com/blog/whats-new-2026-10</link>
