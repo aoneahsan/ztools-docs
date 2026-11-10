@@ -1,6 +1,6 @@
 # ZTools docs — project guide (AGENTS.md)
 
-**Last updated:** 2026-10-21. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
+**Last updated:** 2026-11-10. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
 identical except this heading. Change both together. Fleet law auto-loads from `~/.claude/rules/`.
 
 ## Repository and publication
@@ -44,8 +44,8 @@ yarn serve            # only when browser verification is requested
 
 | Field | Value |
 |---|---|
-| Last optimized | 2026-10-21 |
-| Next routine optimization eligible | 2026-11-20 |
-| Guide bytes | 02442 |
+| Last optimized | 2026-11-10 |
+| Next routine optimization eligible | 2026-12-10 |
+| Guide bytes | 02632 |
 | Covered subtree | public docs repository, generator, Docusaurus config and the manual `gh-pages` deploy |
 | Gitignore last verified | 2026-10-20 — dependencies, build output, caches and environment values ignored |
