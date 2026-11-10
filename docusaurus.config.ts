@@ -81,15 +81,14 @@ const config: Config = {
     {tagName: 'meta', attributes: {name: 'theme-color', content: '#ffa840'}},
     {tagName: 'meta', attributes: {name: 'msapplication-TileColor', content: '#18163B'}},
     {tagName: 'meta', attributes: {name: 'msapplication-config', content: '/browserconfig.xml'}},
-    {tagName: 'meta', attributes: {name: 'apple-mobile-web-app-title', content: 'ZTools Docs'}},
-    {tagName: 'meta', attributes: {name: 'application-name', content: 'ZTools Docs'}},
+    {tagName: 'meta', attributes: {name: 'apple-mobile-web-app-title', content: 'ZTools Documentation'}},
+    {tagName: 'meta', attributes: {name: 'application-name', content: 'ZTools Documentation'}},
 
     // ----- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage) -----
+    // og:url, og:image and twitter:image come per page from Docusaurus (themeConfig.image); never repeat them here.
     {tagName: 'meta', attributes: {property: 'og:type', content: 'website'}},
     {tagName: 'meta', attributes: {property: 'og:site_name', content: 'ZTools Documentation'}},
-    {tagName: 'meta', attributes: {property: 'og:url', content: SITE_URL}},
     {tagName: 'meta', attributes: {property: 'og:locale', content: 'en_US'}},
-    {tagName: 'meta', attributes: {property: 'og:image', content: `${SITE_URL}/img/social-card.png`}},
     {tagName: 'meta', attributes: {property: 'og:image:type', content: 'image/png'}},
     {tagName: 'meta', attributes: {property: 'og:image:width', content: '1800'}},
     {tagName: 'meta', attributes: {property: 'og:image:height', content: '945'}},
@@ -99,7 +98,6 @@ const config: Config = {
     {tagName: 'meta', attributes: {name: 'twitter:card', content: 'summary_large_image'}},
     {tagName: 'meta', attributes: {name: 'twitter:site', content: '@aoneahsan'}},
     {tagName: 'meta', attributes: {name: 'twitter:creator', content: '@aoneahsan'}},
-    {tagName: 'meta', attributes: {name: 'twitter:image', content: `${SITE_URL}/img/social-card.png`}},
     {tagName: 'meta', attributes: {name: 'twitter:image:alt', content: 'ZTools Docs: useful digital tools in one place.'}},
 
     // Clarity — emitted only when CLARITY_PROJECT_ID env var is set
