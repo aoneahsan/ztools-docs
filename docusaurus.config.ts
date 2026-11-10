@@ -64,7 +64,7 @@ const config: Config = {
   ],
 
   headTags: [
-    {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood'}},
+    {tagName: 'meta', attributes: {name: 'author', content: 'The ZTools team'}},
 
     // ----- Favicons + iOS / Android home-screen icons ---------------------
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico'}},
@@ -279,18 +279,15 @@ const config: Config = {
           ],
         },
         {
-          title: 'Author',
+          title: 'Contact',
           items: [
-            {label: 'Ahsan Mahmood', href: 'https://aoneahsan.com'},
+            {label: 'About the ZTools team', href: 'https://ztools.zaions.com/about'},
+            {label: 'Contact form', href: 'https://ztools.zaions.com/contact'},
             {label: 'aoneahsan@gmail.com', href: 'mailto:aoneahsan@gmail.com'},
-            {label: 'WhatsApp +923046619706', href: 'https://wa.me/923046619706'},
-            {label: 'LinkedIn', href: 'https://linkedin.com/in/aoneahsan'},
-            {label: 'GitHub', href: 'https://github.com/aoneahsan'},
-            {label: 'NPM', href: 'https://npmjs.com/~aoneahsan'},
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} ZTools by Ahsan Mahmood.`,
+      copyright: `© ${new Date().getFullYear()} ZTools.`,
     },
     prism: {
       theme: prismThemes.oneLight,
