@@ -7,7 +7,7 @@ sidebar_position: 0
 slug: /white-label
 tags: [white-label, licensing, business]
 last_update:
-  date: 2026-11-13
+  date: 2026-11-14
   author: The ZTools team
 ---
 
@@ -15,7 +15,7 @@ last_update:
 
 A business can run ZTools under its own name. We host the whole workbench on their domain, with their name, logo and colours, and keep it running. That's a white-label licence.
 
-A business can also buy ZTools outright. They take the source code of every repository that builds it and run it themselves, and we stop selling it to anyone else. That's a buyout.
+A business can also buy ZTools outright. They take the source code of every repository that builds it and run it themselves, and we stop selling it to anyone else. In return they pay us a 7% royalty on the gross revenue ZTools earns, every quarter, for as long as it earns. That's a buyout.
 
 Prices, the bundle discount and the renewal plans live on one page, [Platforms and prices](https://ztools.zaions.com/white-label/packages), which reads them from our licensing service. This section explains everything around them.
 
