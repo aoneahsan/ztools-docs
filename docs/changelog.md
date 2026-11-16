@@ -11,6 +11,12 @@ sidebar_position: 99
 
 Newest first. Android versions are listed when they are built; the Play Store line says which one you can install today.
 
+## 2026-11-16 — The server tools, and what ZTools Pro adds to them
+
+- **The tools that run on our server are on.** Background removal, text from images and scanned PDFs, AI upscaling, audio and video conversion, transcription, subtitles, Office to PDF and PDF compression. Sign in with Google to use them; your file is deleted right after processing.
+- **ZTools Pro raises their daily allowance,** as it already does for the AI assistant and Speak. Free keeps its own allowance. Plans are on the [Plans page](https://ztools.zaions.com/growth/pricing).
+- **Cancel means cancel.** Stopping a server job while it is starting no longer shows an error afterwards.
+
 ## 2026-11-10 — Updates, allowances and promotions
 
 - **Updates reach open tabs by themselves.** A small worker that caches nothing notices a new release, and the page loads it at a safe moment. When a release is required, an update screen says why and offers one Update button. See [How ZTools stays up to date](/docs/guides/updates).
