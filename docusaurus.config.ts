@@ -8,9 +8,10 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import sitePages, {withLastmod} from './plugins/site-pages';
+import {OTHER_PLATFORMS, platformHref} from './src/data/platforms';
 
 const SITE_URL = 'https://ztools-docs.zaions.com';
-const APP_URL = 'https://ztools.zaions.com';
+const APP_URL = platformHref('web');
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 const BLOG_PATH = '/blog';
 
@@ -241,13 +242,28 @@ const config: Config = {
         {to: '/docs/intro', label: 'Get started', position: 'left'},
         {to: '/docs/guides', label: 'Guides', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
-        {href: APP_URL, label: 'Open ZTools ↗', position: 'right'},
+        {
+          type: 'dropdown',
+          label: 'Get ZTools',
+          position: 'right',
+          items: [
+            ...OTHER_PLATFORMS.map((platform) => ({label: platform.name, href: platform.href})),
+            {label: 'All apps', to: '/apps'},
+          ],
+        },
         {href: GH_REPO, label: 'GitHub', position: 'right'},
       ],
     },
     footer: {
       style: 'dark',
       links: [
+        {
+          title: 'Get ZTools',
+          items: [
+            ...OTHER_PLATFORMS.map((platform) => ({label: platform.name, href: platform.href})),
+            {label: 'All apps', to: '/apps'},
+          ],
+        },
         {
           title: 'Docs',
           items: [
@@ -260,7 +276,6 @@ const config: Config = {
         {
           title: 'Product',
           items: [
-            {label: 'Open ZTools', href: APP_URL},
             {label: 'Privacy', href: `${APP_URL}/privacy-policy`},
             {label: 'Terms', href: `${APP_URL}/terms`},
             {label: 'Support the project', href: 'https://aoneahsan.com/payment?project-id=ztools&project-identifier=com.zaions.ztools'},

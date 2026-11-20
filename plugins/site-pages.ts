@@ -14,6 +14,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import type { BlogContent } from '@docusaurus/plugin-content-blog';
 import type { LoadedContent as DocsContent } from '@docusaurus/plugin-content-docs';
 import type { AllContent, LoadContext, Plugin, PluginModule } from '@docusaurus/types';
+import { APPS_LASTMOD } from '../src/data/platforms';
 
 /** One page as its `/sitemap` card shows it: its own title, description and tag labels. */
 export interface SitePage {
@@ -339,6 +340,8 @@ export function withLastmod<Item extends { readonly url: string; readonly lastmo
     let lastmod: string | undefined;
     // The home page (`src/pages/index.tsx`) points at the whole site, as `/sitemap` does.
     if (pathname === '/sitemap' || pathname === '/') lastmod = newest(() => true);
+    // `/apps` lists the released surfaces; it changes when their proof date does.
+    else if (pathname === '/apps') lastmod = APPS_LASTMOD;
     else if (pathname === '/feed' || pathname === blogPath || isPost(pathname)) lastmod = newest(isPost);
     else {
       // A category index lists the pages the sidebar put under it; any other page, the pages under its path.

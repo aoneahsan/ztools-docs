@@ -2,6 +2,14 @@
 
 > ZTools brings useful digital tools into one place, including JSON formatting, password generation, image compression, QR codes, and PDF work. Many tasks run in your browser. AI and some other tools send input to a server or provider. Some actions require sign-in and have plan limits.
 
+
+## Get ZTools
+
+- [All apps](https://ztools-docs.zaions.com/apps): every released surface of ZTools.
+- [ZTools web app](https://ztools.zaions.com)
+- [Google Play](https://play.google.com/store/apps/details?id=com.zaions.ztools)
+- [Chrome Web Store](https://chromewebstore.google.com/detail/ztools-text-utility-tools/olkionpeobbpgmlfigafppbkniomelle)
+
 ## Key URLs
 
 - App: https://ztools.zaions.com

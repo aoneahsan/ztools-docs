@@ -2,9 +2,10 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {OTHER_PLATFORMS, PRIMARY_PLATFORM} from '@site/src/data/platforms';
 import styles from './index.module.css';
 
-const APP_URL = 'https://ztools.zaions.com';
+const APP_URL = PRIMARY_PLATFORM.href;
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 
 const FEATURED_TOOLS = [
@@ -65,6 +66,13 @@ export default function Home(): React.ReactElement {
                 Open ZTools
               </a>
             </div>
+            <p className={styles.also}>
+              <span>Also on</span>
+              {OTHER_PLATFORMS.filter((platform) => !platform.primary).map((platform) => (
+                <Link key={platform.id} href={platform.href}>{platform.name}</Link>
+              ))}
+              <Link to="/apps">All apps →</Link>
+            </p>
           </div>
 
           {/* decorative grid */}
