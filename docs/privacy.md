@@ -45,4 +45,6 @@ The public repository shows the [build settings](https://github.com/aoneahsan/zt
 
 For app data handling, read the [ZTools privacy policy](https://ztools.zaions.com/privacy-policy); for a question about this docs site, email [aoneahsan@gmail.com](mailto:aoneahsan@gmail.com).
 
-*Last updated: 2026-10-20*
+What an access key, a connected assistant or a webhook can reach in your ZTools account, and what never leaves ZTools, is in [ZTools for developers](/docs/developers#what-an-outside-app-can-reach).
+
+*Last updated: 2026-11-21*

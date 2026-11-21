@@ -20,6 +20,7 @@ Start with the catalog or follow a guide for a longer task. Tool pages include e
 | [All tools](/docs/tools) | Tool pages grouped by category |
 | [Guides](/docs/guides) | Instructions for common tasks |
 | [Blog](/blog) | Release notes and tool updates |
+| [Developers](/docs/developers) | Reach your own ZTools data from a script, an assistant such as Claude, or your server |
 | [Changelog](/docs/changelog) | Version history |
 
 ## 🔒 How does a tool process my work? {#how-does-a-tool-process-my-work}

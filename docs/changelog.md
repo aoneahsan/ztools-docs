@@ -11,6 +11,11 @@ sidebar_position: 99
 
 Newest first. Android versions are listed when they are built; the Play Store line says which one you can install today.
 
+## 2026-11-21 — Your ZTools data from other apps
+
+- **Access keys, assistants and webhooks.** A script with an access key, Claude, ChatGPT, Claude Code or Cursor, or your own server can now reach your favorites, presets, history, collections, workflows, QR codes and more, with only what you tick. Set them up in Account, then Other apps. Everything is in [ZTools for developers](/docs/developers).
+- **Two-step sign-in.** Add a code from an authenticator app after Google, in Account, then Security. See [Two-step sign-in](/docs/developers/two-step-sign-in).
+
 ## 2026-11-16 — The server tools, and what ZTools Pro adds to them
 
 - **The tools that run on our server are on.** Background removal, text from images and scanned PDFs, AI upscaling, audio and video conversion, transcription, subtitles, Office to PDF and PDF compression. Sign in with Google to use them; your file is deleted right after processing.

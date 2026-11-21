@@ -1,7 +1,5 @@
-// Load .env BEFORE any process.env reads below.
-// Locally: drop a .env file (gitignored) with the keys you want active.
-// CI: GitHub Actions injects the same vars via the workflow's `env:` block.
-// Either way, process.env.* below picks up the values.
+// Load .env BEFORE any process.env reads below: a local, gitignored .env with the keys you want active.
+// The site is built and published by hand (no GitHub Actions); an absent key skips its service.
 import 'dotenv/config';
 
 import {themes as prismThemes} from 'prism-react-renderer';
@@ -15,10 +13,9 @@ const APP_URL = platformHref('web');
 const GH_REPO = 'https://github.com/aoneahsan/ztools-docs';
 const BLOG_PATH = '/blog';
 
-// Third-party tracking / monitoring — all optional via env vars.
-// Set as GitHub Actions repo secrets to enable; absent vars cause the
-// related script / SDK to be skipped entirely (no broken state, no
-// console errors). Privacy disclosure at /docs/privacy.
+// Third-party tracking / monitoring — all optional via env vars in the local build's .env; absent vars cause
+// the related script / SDK to be skipped entirely (no broken state, no console errors). Privacy disclosure at
+// /docs/privacy.
 const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID || '';
 const CLARITY_PROJECT_ID = process.env.CLARITY_PROJECT_ID || '';
 const AMPLITUDE_API_KEY = process.env.AMPLITUDE_API_KEY || '';
@@ -48,7 +45,7 @@ const config: Config = {
   organizationName: 'aoneahsan',
   projectName: 'ztools-docs',
 
-  // Fail the build on broken links/markdown — keeps CI honest. Bumped from
+  // Fail the build on broken links/markdown, so the build is the link checker. Bumped from
   // 'warn' to 'throw' after audit confirmed clean state on 2026-05-06.
   onBrokenLinks: 'throw',
 
@@ -62,6 +59,8 @@ const config: Config = {
   plugins: [
     // `/sitemap` and `/feed` for people, and `/feed.xml` beside `/sitemap.xml` for machines.
     sitePages({blogPath: BLOG_PATH}),
+    // The API, the OpenAPI document and the MCP server name `/developers` as the docs address.
+    ['@docusaurus/plugin-client-redirects', {redirects: [{from: '/developers', to: '/docs/developers'}]}],
   ],
 
   headTags: [
@@ -270,6 +269,7 @@ const config: Config = {
             {label: 'Get started', to: '/docs/intro'},
             {label: 'All tools', to: '/docs/tools'},
             {label: 'Guides', to: '/docs/guides'},
+            {label: 'Developers', to: '/docs/developers'},
             {label: 'Privacy', to: '/docs/privacy'},
           ],
         },

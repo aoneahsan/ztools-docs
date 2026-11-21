@@ -1,6 +1,6 @@
 # ZTools docs — project guide (AGENTS.md)
 
-**Last updated:** 2026-11-10. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
+**Last updated:** 2026-11-21. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
 identical except this heading. Change both together. Fleet law auto-loads from `~/.claude/rules/`.
 
 ## Repository and publication
@@ -38,7 +38,9 @@ yarn serve            # only when browser verification is requested
   have plan limits. State the boundary for the named tool rather than making a catalog-wide privacy claim.
 - Public content follows the approved ZTools Story Bible and final packets in `../ztools/docs/story/`.
 - `docs/MANUAL-TASKS.md` is private operational material excluded from the published build.
-- Optional analytics/error services are controlled by CI secrets. Keep only `.env.example` in Git.
+- Optional analytics/error services are switched on by keys in the local build's `.env`. Keep only `.env.example` in Git.
+- `docs/developers/` documents the open platform from `../ztools/supabase/functions/_shared/open-platform.config.ts`
+  and the live OpenAPI; `/developers` (the address the API and MCP server print) redirects to `/docs/developers`.
 
 ## Context record
 
@@ -46,6 +48,6 @@ yarn serve            # only when browser verification is requested
 |---|---|
 | Last optimized | 2026-11-10 |
 | Next routine optimization eligible | 2026-12-10 |
-| Guide bytes | 02632 |
+| Guide bytes | 02886 |
 | Covered subtree | public docs repository, generator, Docusaurus config and the manual `gh-pages` deploy |
 | Gitignore last verified | 2026-10-20 — dependencies, build output, caches and environment values ignored |
