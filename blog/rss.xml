@@ -4,10 +4,32 @@
         <title>ZTools Documentation Blog</title>
         <link>https://ztools-docs.zaions.com/blog</link>
         <description>ZTools Documentation Blog</description>
-        <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Your ZTools data, from a script, an assistant or your server]]></title>
+            <link>https://ztools-docs.zaions.com/blog/other-apps-2026-11</link>
+            <guid>https://ztools-docs.zaions.com/blog/other-apps-2026-11</guid>
+            <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Access keys, Claude and ChatGPT connections, signed webhooks and two-step sign-in arrive in ZTools, each reaching only what you tick.]]></description>
+            <content:encoded><![CDATA[<p>You keep a QR code on a printed menu, and the menu changes every season. Until now, pointing it somewhere new meant opening ZTools. Today a script, an assistant or your own server can do it for you.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="three-ways-in">Three ways in<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11#three-ways-in" class="hash-link" aria-label="Direct link to Three ways in" title="Direct link to Three ways in" translate="no">​</a></h2>
+<p><strong>Account</strong>, then <strong>Other apps</strong>, has three new parts, on every plan.</p>
+<ul>
+<li class=""><strong>Access keys</strong> let a script or a spreadsheet use the <a class="" href="https://ztools-docs.zaions.com/docs/developers/api">ZTools API</a> as you: list your presets, save a run to history, point a QR code at a new page.</li>
+<li class=""><strong>Assistants</strong> connect Claude, ChatGPT, Claude Code or Cursor. Ask one to find a preset or tidy a collection. When it asks to remove something, ZTools asks you first, on a page of its own.</li>
+<li class=""><strong>Webhooks</strong> send a signed message to your server the moment something changes, such as a scan on one of your codes.</li>
+</ul>
+<p>Each one gets only what you tick for it. Your teams, shared links and public content are read only from outside. Speak recordings and AI assistant conversations never leave ZTools.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="two-step-sign-in">Two-step sign-in<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11#two-step-sign-in" class="hash-link" aria-label="Direct link to Two-step sign-in" title="Direct link to Two-step sign-in" translate="no">​</a></h2>
+<p><strong>Account</strong>, then <strong>Security</strong>, can now add a six-digit code from an authenticator app after Google. You get ten recovery codes, and you can let a browser you don't share skip the code for 7 days.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-to-read-more">Where to read more<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11#where-to-read-more" class="hash-link" aria-label="Direct link to Where to read more" title="Direct link to Where to read more" translate="no">​</a></h2>
+<p><a class="" href="https://ztools-docs.zaions.com/docs/developers">ZTools for developers</a> has the details: what each tick reaches, every API address with an example, the webhook events and how to check their signatures, and what to do if you lose your phone.</p>]]></content:encoded>
+            <category>Release</category>
+            <category>ZTools</category>
+        </item>
         <item>
             <title><![CDATA[ZTools updates itself, and browser tools have no limit]]></title>
             <link>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11</link>
