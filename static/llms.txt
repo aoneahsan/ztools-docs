@@ -10,6 +10,11 @@
 - [Google Play](https://play.google.com/store/apps/details?id=com.zaions.ztools)
 - [Chrome Web Store](https://chromewebstore.google.com/detail/ztools-text-utility-tools/olkionpeobbpgmlfigafppbkniomelle)
 
+## Compared with other tools
+
+- [Moving to ZTools from another tool site](https://ztools-docs.zaions.com/docs/compare): one guide per tool site (iLovePDF, Smallpdf, CyberChef, Convertio and others) and per SEO or AI-search suite (Semrush, Ahrefs, SE Ranking, Moz Pro, Surfer, Otterly.AI and others) set beside ZTools Growth Suite, every price with its source and check date.
+- [Side by side on the website](https://ztools.zaions.com/alternatives): the same facts in one table per product line.
+
 ## Developers
 
 - [ZTools for developers](https://ztools-docs.zaions.com/docs/developers): what a key, an assistant or a webhook can reach, and the limits on each plan.
