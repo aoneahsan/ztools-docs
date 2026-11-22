@@ -10,6 +10,22 @@
 - [Google Play](https://play.google.com/store/apps/details?id=com.zaions.ztools)
 - [Chrome Web Store](https://chromewebstore.google.com/detail/ztools-text-utility-tools/olkionpeobbpgmlfigafppbkniomelle)
 
+## Compared with other tools
+
+- [Moving to ZTools from another tool site](https://ztools-docs.zaions.com/docs/compare): one guide per tool site (iLovePDF, Smallpdf, CyberChef, Convertio and others) and per SEO or AI-search suite (Semrush, Ahrefs, SE Ranking, Moz Pro, Surfer, Otterly.AI and others) set beside ZTools Growth Suite, every price with its source and check date.
+- [Side by side on the website](https://ztools.zaions.com/alternatives): the same facts in one table per product line.
+
+## Developers
+
+- [ZTools for developers](https://ztools-docs.zaions.com/docs/developers): what a key, an assistant or a webhook can reach, and the limits on each plan.
+- [Access keys](https://ztools-docs.zaions.com/docs/developers/access-keys): keys look like zt_pat_…; Never expiry is only for read-only keys.
+- [The API](https://ztools-docs.zaions.com/docs/developers/api): base URL https://luzmtjynzrxwqwzlswjq.supabase.co/functions/v1/api/v1, Authorization: Bearer header, cursor pages, errors.
+- [OpenAPI document](https://luzmtjynzrxwqwzlswjq.supabase.co/functions/v1/api/v1/openapi.json): public, no key needed.
+- [Assistants](https://ztools-docs.zaions.com/docs/developers/assistants): MCP server https://luzmtjynzrxwqwzlswjq.supabase.co/functions/v1/mcp for Claude, ChatGPT, Claude Code and Cursor; a removal waits for the person's yes.
+- [Webhooks](https://ztools-docs.zaions.com/docs/developers/webhooks): Standard Webhooks signing (webhook-id, webhook-timestamp, webhook-signature v1 HMAC-SHA256), every event and its payload.
+- [Two-step sign-in](https://ztools-docs.zaions.com/docs/developers/two-step-sign-in): authenticator app, ten recovery codes, opt-in 7-day remembered browser.
+- Never reachable from outside: Speak recordings, AI assistant conversations, payments, sign-in, and other people's private rows. There is no calendar feed.
+
 ## Key URLs
 
 - App: https://ztools.zaions.com
@@ -32,6 +48,7 @@
 - `/docs/getting-started` — usage walkthrough
 - `/docs/tools` — full tool catalog (organized by category)
 - `/docs/guides` — long-form how-to tutorials
+- `/docs/developers` — the API, MCP server for assistants, webhooks and two-step sign-in
 - `/blog` — release notes and dev journal
 
 ## Author
