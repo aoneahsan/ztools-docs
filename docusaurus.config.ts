@@ -121,9 +121,9 @@ const config: Config = {
 
   // Client modules run in every page's bundle; we use one to init
   // Amplitude + Sentry when their respective env vars are set.
-  clientModules: [
-    require.resolve('./src/clientModules/third-party-analytics.ts'),
-  ],
+  // Relative to the site folder, never require.resolve(): Docusaurus ships the site config to the browser, and a
+  // resolved path would publish this machine's folders in main.js (the site-pages gate fails the build if it does).
+  clientModules: ['./src/clientModules/third-party-analytics.ts'],
 
   // Mermaid diagrams — write graphs/flowcharts inline in MDX with
   // ```mermaid ... ``` fenced blocks. See docusaurus.io/docs/markdown-features/diagrams
@@ -138,7 +138,7 @@ const config: Config = {
   themes: [
     '@docusaurus/theme-mermaid',
     [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
+      '@easyops-cn/docusaurus-search-local',
       /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */
       ({
         // Indexes both docs and blog
