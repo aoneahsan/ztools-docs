@@ -42,12 +42,20 @@ yarn serve            # only when browser verification is requested
 - `docs/developers/` documents the open platform from `../ztools/supabase/functions/_shared/open-platform.config.ts`
   and the live OpenAPI; `/developers` (the address the API and MCP server print) redirects to `/docs/developers`.
 
+## Sub-agents: main context only (owner, critical)
+
+Owner, 2026-11-07, reaffirmed 2026-11-26. Work in the main context window. Never start a custom `aoneahsan-ccca-*`
+sub-agent automatically. Start one only after the owner approves it in that Claude Code or Codex session; the approval
+ends with that session, and a new session needs a new approval. Agents already running when he says stop finish their
+work, and nothing new starts. Never run a default or built-in sub-agent (`general-purpose`, `Explore`, `Plan`, Codex
+defaults), approved or not: they cannot reach the custom skills. Law: `~/.claude/rules/subagent-orchestration.md`.
+
 ## Context record
 
 | Field | Value |
 |---|---|
 | Last optimized | 2026-11-10 |
 | Next routine optimization eligible | 2026-12-10 |
-| Guide bytes | 02886 |
+| Guide bytes | 03523 |
 | Covered subtree | public docs repository, generator, Docusaurus config and the manual `gh-pages` deploy |
 | Gitignore last verified | 2026-10-20 — dependencies, build output, caches and environment values ignored |
