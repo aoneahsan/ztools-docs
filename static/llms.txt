@@ -3,6 +3,16 @@
 > ZTools brings useful digital tools into one place, including JSON formatting, password generation, image compression, QR codes, and PDF work. Many tasks run in your browser. AI and some other tools send input to a server or provider. Some actions require sign-in and have plan limits.
 
 
+## Who builds this
+
+ZTools is built by Ahsan Mahmood (aoneahsan) at Zaions.
+- Ahsan Mahmood: https://aoneahsan.com (projects: https://aoneahsan.com/projects)
+- Zaions: https://zaions.com
+- About the developer: https://ztools.zaions.com/about-developer
+- Other Zaions products: https://ztools.zaions.com/ecosystem
+- GitHub: https://github.com/aoneahsan · LinkedIn: https://www.linkedin.com/in/aoneahsan · npm: https://www.npmjs.com/~aoneahsan
+- Questions about ZTools: https://ztools.zaions.com/contact · help with a tool: https://ztools.zaions.com/support
+
 ## Get ZTools
 
 - [All apps](https://ztools-docs.zaions.com/apps): every released surface of ZTools.
@@ -51,15 +61,6 @@
 - `/docs/developers` — the API, MCP server for assistants, webhooks and two-step sign-in
 - `/blog` — release notes and dev journal
 
-## Author
-
-Ahsan Mahmood — solo developer, Pakistan-based.
-- Email: aoneahsan@gmail.com
-- Phone / WhatsApp: +923046619706
-- LinkedIn: https://linkedin.com/in/aoneahsan
-- GitHub: https://github.com/aoneahsan
-- NPM: https://npmjs.com/~aoneahsan
-- Portfolio: https://aoneahsan.com
 
 ## Analytics & privacy
 

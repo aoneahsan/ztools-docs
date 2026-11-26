@@ -7,6 +7,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import sitePages, {withLastmod} from './plugins/site-pages';
 import ecosystemPages from './plugins/ecosystem-pages';
+import {OWNER_PERSON} from './src/components/Ecosystem/data';
 import {OTHER_PLATFORMS, platformHref} from './src/data/platforms';
 
 const SITE_URL = 'https://ztools-docs.zaions.com';
@@ -67,7 +68,27 @@ const config: Config = {
   ],
 
   headTags: [
-    {tagName: 'meta', attributes: {name: 'author', content: 'The ZTools team'}},
+    // The owner and Zaions on every page, the same entity as every Zaions site (owner-entity standard, 2026-11-25).
+    {tagName: 'meta', attributes: {name: 'author', content: 'Ahsan Mahmood (aoneahsan)'}},
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'keywords',
+        content:
+          'ztools docs, online tools guide, ztools api, ahsan, ahsan mahmood, a1, aone, aoneahsan, a1ahsan, zaions, aoneahsan.com, zaions.com, ahsan projects, zaions projects, zaions products, ahsan products',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {type: 'application/ld+json'},
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {...OWNER_PERSON, worksFor: {'@id': 'https://zaions.com/#organization'}},
+          {'@type': 'Organization', '@id': 'https://zaions.com/#organization', name: 'Zaions', alternateName: ['Zaions products', 'Zaions projects'], url: 'https://zaions.com', founder: {'@id': 'https://aoneahsan.com/#person'}, sameAs: ['https://zaions.com', 'https://github.com/aoneahsan']},
+        ],
+      }),
+    },
 
     // ----- Favicons + iOS / Android home-screen icons ---------------------
     {tagName: 'link', attributes: {rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico'}},

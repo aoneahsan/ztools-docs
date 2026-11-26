@@ -4,7 +4,7 @@
  * filters it again, so either layer alone keeps it out. The docs pages repeat the website's words, so each one names the
  * website's page as its canonical.
  */
-import raw from '@site/src/data/ecosystem.json';
+import raw from '../../data/ecosystem.json';
 
 export const SELF_PRODUCT_ID = 'ztools';
 export const WEB_ORIGIN: string = raw.webOrigin;
