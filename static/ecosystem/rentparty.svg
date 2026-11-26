@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 48 48" role="img" aria-label="Rent Party">
+  <title>Rent Party mark</title>
+  <!-- The app icon: the approved brand mark (src/design/brand-mark.tsx) as it is, on a clear ground -->
+  <path d="M24 7.5 L44 23.2 Q45.5 24.4 45.5 26.4 V43 Q45.5 46.5 42 46.5 H6 Q2.5 46.5 2.5 43 V26.4 Q2.5 24.4 4 23.2 Z" fill="#861d77"/><path d="M24 4.5 L44 20.2 Q45.5 21.4 45.5 23.4 V40 Q45.5 43.5 42 43.5 H6 Q2.5 43.5 2.5 40 V23.4 Q2.5 21.4 4 20.2 Z" fill="#c231ac"/><circle cx="14.5" cy="25.5" r="3.6" fill="#ffffff"/><circle cx="24" cy="32" r="3.6" fill="#ffffff"/><circle cx="33.5" cy="38.5" r="3.6" fill="#ffffff"/>
+</svg>

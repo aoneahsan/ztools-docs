@@ -1,0 +1,667 @@
+{
+ "source": "ztools/src/data/ecosystem.json + its English catalogues (GATE 4 OD-035)",
+ "sourceCommit": "73488fd",
+ "vendored": "2026-11-26",
+ "webOrigin": "https://ztools.zaions.com",
+ "products": [
+  {
+   "id": "achat",
+   "name": "AchatAI",
+   "url": "https://achat.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/achat.svg",
+   "card": "Send a file you just made to someone, without swapping phone numbers first.",
+   "title": "AchatAI: share with people you choose, no phone number needed",
+   "intro": "AchatAI is a messaging app on the web and Android for the people you choose. You find someone by username, invite link or QR code, so a phone number never has to change hands.",
+   "sections": [
+    [
+     "Why would a ZTools user need it?",
+     "You finish something in ZTools: a converted PDF, a QR code, notes from a meeting. Then it has to reach someone. AchatAI lets you find them by username or invite link, not by a number you would rather keep."
+    ],
+    [
+     "Can I talk to someone without an account?",
+     "Yes, in an anonymous room. You can open one without signing up, which suits a quick exchange with someone you will not talk to again."
+    ],
+    [
+     "Where does it run?",
+     "On the web and on Android."
+    ]
+   ]
+  },
+  {
+   "id": "callvault",
+   "name": "CallVault",
+   "url": "https://callvault.aoneahsan.com",
+   "platforms": [
+    "Android"
+   ],
+   "logo": "/ecosystem/callvault.svg",
+   "card": "Meeting notes cover the meeting. CallVault keeps the phone call that came before it.",
+   "title": "CallVault: a record of the calls you would otherwise take notes on",
+   "intro": "CallVault records calls on Android through the audio source your phone makes available. Its library on the phone lets you play a call back, search it, add notes and export it.",
+   "sections": [
+    [
+     "How does it fit next to ZTools’ meeting notes?",
+     "The ZTools meeting notes generator turns a meeting into notes you can use. Plenty of decisions happen on a phone call instead. CallVault keeps that call, so you can find the detail later and write it up."
+    ],
+    [
+     "Where are the recordings kept?",
+     "On your phone. They leave it only if you turn on private cloud backup."
+    ],
+    [
+     "What can I do with a recording?",
+     "Play it back, search the library, attach notes and export it."
+    ]
+   ]
+  },
+  {
+   "id": "capacitor-auth-manager",
+   "name": "Capacitor Auth Manager",
+   "url": "https://www.npmjs.com/package/capacitor-auth-manager",
+   "platforms": [
+    "npm package"
+   ],
+   "logo": "/ecosystem/capacitor-auth-manager.svg",
+   "card": "For app developers: Google sign-in on web, Android and iOS from one call, with no Firebase dependency.",
+   "title": "Capacitor Auth Manager: one Google sign-in call for three platforms",
+   "intro": "Capacitor Auth Manager is an npm package that gives a Capacitor app one Google sign-in call for web, Android and iOS. It does not need Firebase as a dependency.",
+   "sections": [
+    [
+     "Who is it for?",
+     "Developers building with Capacitor. If you use ZTools to format a JSON response while you build, this sits further along the same job: signing people in to the app you are making."
+    ],
+    [
+     "Which providers does it support?",
+     "Google. It is the only provider switched on in version 3.x."
+    ],
+    [
+     "Why does Firebase matter here?",
+     "Some apps do not use Firebase at all. With this package, Google sign-in does not pull it in."
+    ]
+   ]
+  },
+  {
+   "id": "clearhire",
+   "name": "ClearHire",
+   "url": "https://clearhire.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/clearhire.svg",
+   "card": "The resume builder gets it on the page. ClearHire adds ATS checks and proof of where you worked.",
+   "title": "ClearHire: after the resume template, the checks that get it read",
+   "intro": "ClearHire is an ATS-friendly resume builder with structured profiles. It comes with more than 50 career tools, from writing bullet points to running ATS checks.",
+   "sections": [
+    [
+     "How is it different from the ZTools resume builder?",
+     "The ZTools resume builder gets a resume on the page quickly. ClearHire covers the job hunt around it: a structured profile, ATS checks on what you wrote, and help with stronger bullet points."
+    ],
+    [
+     "What does verified employment mean?",
+     "ClearHire has workflows for verifying past jobs, so a profile can show proof of work history, not only claims."
+    ],
+    [
+     "Where can I use it?",
+     "On the web, and on Android from Google Play."
+    ]
+   ]
+  },
+  {
+   "id": "eatthis",
+   "name": "Eat This",
+   "url": "https://eatthis.aoneahsan.com",
+   "platforms": [
+    "Web"
+   ],
+   "logo": "/ecosystem/eatthis.svg",
+   "card": "Your calorie number, turned into food you can actually buy.",
+   "title": "Eat This: from a nutrition number to something on your plate",
+   "intro": "Eat This lets you look for food by nutrient, by how you feel or by the time of day. It shows how much of a nutrient one serving gives.",
+   "sections": [
+    [
+     "Why after a ZTools calculator?",
+     "The ZTools calorie and macronutrient calculators give you a target. Eat This answers the next question: which food gets you there, and how much of it."
+    ],
+    [
+     "Does it help on a budget?",
+     "Yes. It points out a cheap pick among the foods that fit."
+    ],
+    [
+     "Is it medical advice?",
+     "No. Eat This also tells you when a question belongs with a doctor."
+    ]
+   ]
+  },
+  {
+   "id": "empora",
+   "name": "Empora",
+   "url": "https://empora.aoneahsan.com",
+   "platforms": [
+    "WordPress plugin"
+   ],
+   "logo": "/ecosystem/empora.svg",
+   "card": "One WordPress plugin for store features, the way ZTools is one site for tools.",
+   "title": "Empora: one plugin in place of a stack of WooCommerce plugins",
+   "intro": "Empora puts WooCommerce store modules into one WordPress plugin. You switch on only the modules your store needs.",
+   "sections": [
+    [
+     "Why would ZTools mention a store plugin?",
+     "ZTools exists because a separate website for every small tool is hard to keep track of. Empora applies the same idea to a WooCommerce store: one plugin to manage, not a separate one for each feature."
+    ],
+    [
+     "Do I have to use every module?",
+     "No. You choose which modules to switch on."
+    ],
+    [
+     "Where do I manage licenses?",
+     "In the Empora web dashboard, which also handles optional store connections."
+    ]
+   ]
+  },
+  {
+   "id": "habitforge",
+   "name": "HabitForge",
+   "url": "https://habitforge.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/habitforge.svg",
+   "card": "Plan the day in ZTools. HabitForge keeps the habit going, check-in by check-in.",
+   "title": "HabitForge: when a planner is not enough to keep a habit",
+   "intro": "HabitForge shows your consistency as a rope. It thickens with every check-in and frays where you stopped.",
+   "sections": [
+    [
+     "How does it relate to the ZTools planner and habit tracker?",
+     "The ZTools daily planner and habit tracker are quick, single-page tools. HabitForge is a full app built around one habit loop, with an account that works on the web and on Android."
+    ],
+    [
+     "Can I do it with friends?",
+     "Yes. There are friends, challenges and a leaderboard, and you can leave the leaderboard whenever you like."
+    ],
+    [
+     "Where does it run?",
+     "On the web and on Android, from one account."
+    ]
+   ]
+  },
+  {
+   "id": "labflow",
+   "name": "LabFlow",
+   "url": "https://labflow.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/labflow.svg",
+   "card": "For diagnostic labs that have outgrown spreadsheets and one-off calculators.",
+   "title": "LabFlow: a diagnostic lab’s whole day in one system",
+   "intro": "LabFlow runs a diagnostic lab end to end. Patients, orders, samples and results live in one system.",
+   "sections": [
+    [
+     "Who is it for?",
+     "Labs, not individuals. If your lab still moves results between spreadsheets and quick online calculators, LabFlow keeps that work in one place."
+    ],
+    [
+     "How do results get released?",
+     "Through a validation workflow that takes each result from draft to released."
+    ],
+    [
+     "What else is included?",
+     "Billing, inventory and quality control are built in. It runs on the web and on Android."
+    ]
+   ]
+  },
+  {
+   "id": "lifewell",
+   "name": "LifeWell",
+   "url": "https://lifewell.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/lifewell.svg",
+   "card": "A ZTools health calculator gives you one number. LifeWell keeps the record over time.",
+   "title": "LifeWell: from a one-off health calculation to a daily record",
+   "intro": "LifeWell lets you track your health your way: vitals, water, medicines, sleep and nutrition in one app. It syncs across your devices on the web and Android.",
+   "sections": [
+    [
+     "Why move on from a ZTools calculator?",
+     "The ZTools BMI and waist-to-hip ratio calculators answer a question once. If you want to see how the numbers change, LifeWell keeps them with the rest of your day."
+    ],
+    [
+     "What does it track besides vitals?",
+     "Periods, fertility and baby milestones are included."
+    ],
+    [
+     "Where can I use it?",
+     "On the web and on Android, synced across your devices."
+    ]
+   ]
+  },
+  {
+   "id": "linux-cleanup",
+   "name": "linux-cleanup",
+   "url": "https://linux-cleanup.aoneahsan.com",
+   "platforms": [
+    "Linux desktop",
+    "npm command line"
+   ],
+   "logo": "/ecosystem/linux-cleanup.svg",
+   "card": "For developers on Linux: clear caches with a dry run first and a receipt after.",
+   "title": "linux-cleanup: freeing disk space on a Linux developer machine",
+   "intro": "linux-cleanup shows the cache paths it can remove before anything goes. You can inspect the limits and run a dry run before a real removal.",
+   "sections": [
+    [
+     "How do I run it?",
+     "As a desktop app for x86_64 Linux, in AppImage and .deb, or as the MIT-licensed command line through npx."
+    ],
+    [
+     "Can a scan delete something?",
+     "No. Scan and dry run never delete. The desktop app runs a dry run before every real run and gives you a receipt after it."
+    ],
+    [
+     "Why is it on a tools site?",
+     "The ZTools developer tools help with the small jobs in a day of building software. A full disk is one of those jobs, and this one runs on your own machine."
+    ]
+   ]
+  },
+  {
+   "id": "macleanup",
+   "name": "macleanup",
+   "url": "https://github.com/aoneahsan/macleanup",
+   "platforms": [
+    "macOS"
+   ],
+   "logo": "/ecosystem/macleanup.svg",
+   "card": "Cleaning a Mac without anything touching your personal folders.",
+   "title": "macleanup: Mac maintenance that leaves personal folders alone",
+   "intro": "macleanup is safe-by-default cleanup and maintenance for macOS. It refuses to touch personal folders, whatever it is asked to do.",
+   "sections": [
+    [
+     "Will it show me what it plans to remove?",
+     "Yes. It runs a real dry run before anything is removed."
+    ],
+    [
+     "What does it clean?",
+     "It works through the same catalogue of cleanup sections as its Linux sibling, built for macOS."
+    ],
+    [
+     "Where do I get it?",
+     "From its GitHub repository."
+    ]
+   ]
+  },
+  {
+   "id": "native-update",
+   "name": "Native Update",
+   "url": "https://nativeupdate.aoneahsan.com",
+   "platforms": [
+    "npm package"
+   ],
+   "logo": "/ecosystem/native-update.svg",
+   "card": "The update system the ZTools Android app uses to ship fixes without a store wait.",
+   "title": "Native Update: how ZTools ships Android fixes the same day",
+   "intro": "Native Update lets a Capacitor app take updates without waiting on the store. The ZTools Android app uses it: a fix that reaches the website can reach your phone as a live bundle update.",
+   "sections": [
+    [
+     "What does it update?",
+     "The app’s web bundle, over the air. It also handles the in-app prompts for store updates and reviews."
+    ],
+    [
+     "Who runs the server?",
+     "You can host the backend yourself. It is open source."
+    ],
+    [
+     "Who is it for?",
+     "Developers shipping a Capacitor app. It is an npm package."
+    ]
+   ]
+  },
+  {
+   "id": "netcage",
+   "name": "NetCage",
+   "url": "https://netcage.aoneahsan.com",
+   "platforms": [
+    "Android"
+   ],
+   "logo": "/ecosystem/netcage.svg",
+   "card": "Keep one Android app off the internet, on the schedule you choose.",
+   "title": "NetCage: one app offline while the rest of your phone stays online",
+   "intro": "NetCage can refuse Wi-Fi and mobile data to a chosen Android app while everything else stays connected. A rule can target Wi-Fi, mobile data or both.",
+   "sections": [
+    [
+     "Can it follow a schedule?",
+     "Yes. Profiles group apps and apply rules on the days and times you choose."
+    ],
+    [
+     "When is that useful?",
+     "When one app uses up your data, or pulls you away during set hours, and you do not want to cut the connection for everything else."
+    ],
+    [
+     "Where does it run?",
+     "On Android."
+    ]
+   ]
+  },
+  {
+   "id": "pregnancypal",
+   "name": "PregnancyPal",
+   "url": "https://pregnancypal.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/pregnancypal.svg",
+   "card": "After the due-date calculator: a week-by-week record you can share with a doctor.",
+   "title": "PregnancyPal: what comes after the due-date calculator",
+   "intro": "PregnancyPal tracks a pregnancy week by week, with nutrition and exercise alongside each week.",
+   "sections": [
+    [
+     "Why after the ZTools calculators?",
+     "The ZTools pregnancy due-date and weight-gain calculators answer a question once. PregnancyPal keeps a record through every week."
+    ],
+    [
+     "What can I log?",
+     "Vitals, symptoms, mood and appointments."
+    ],
+    [
+     "Can I share it with my doctor?",
+     "Yes. It exports a doctor-friendly PDF. PregnancyPal runs on the web and on Android."
+    ]
+   ]
+  },
+  {
+   "id": "rentparty",
+   "name": "RentParty",
+   "url": "https://rentparty.aoneahsan.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/rentparty.svg",
+   "card": "Game night without counting play money: the bank runs itself.",
+   "title": "RentParty: a property-trading game you can pause",
+   "intro": "RentParty is a property-trading game you can pause and pick up later. The game handles the bank and keeps every deed in place when play resumes.",
+   "sections": [
+    [
+     "How do people play together?",
+     "Pass one phone around, play against CPU characters, or open an online room."
+    ],
+    [
+     "Why does ZTools list a game?",
+     "ZTools has a dice roller for board game nights. RentParty is for the night you want the whole game on a phone, bank included."
+    ],
+    [
+     "Where does it run?",
+     "On the web and on Android."
+    ]
+   ]
+  },
+  {
+   "id": "smsapp",
+   "name": "SMS App",
+   "url": "https://smsapp.aoneahsan.com",
+   "platforms": [
+    "Android"
+   ],
+   "logo": "/ecosystem/smsapp.svg",
+   "card": "One reminder to a whole list, texted from the Android phone in your pocket.",
+   "title": "SMS App: batch and scheduled texts from your own phone",
+   "intro": "SMS App sends SMS at scale from your own Android device. You can send one message, a batch, or schedule them.",
+   "sections": [
+    [
+     "Who is it for?",
+     "Anyone who texts the same reminder to many people, such as a volunteer group. It manages device registration and a volunteer pool."
+    ],
+    [
+     "Where do the messages go out from?",
+     "From your own Android phone. The app is Android-native and privacy-first."
+    ],
+    [
+     "How does it fit next to ZTools?",
+     "ZTools text tools help you write and tidy a message. SMS App sends it to everyone on the list."
+    ]
+   ]
+  },
+  {
+   "id": "strata-storage",
+   "name": "Strata Storage",
+   "url": "https://www.npmjs.com/package/strata-storage",
+   "platforms": [
+    "npm package"
+   ],
+   "logo": "/ecosystem/strata-storage.svg",
+   "card": "The storage layer under ZTools’ saved settings, for your own app.",
+   "title": "Strata Storage: the storage API ZTools is built on",
+   "intro": "Strata Storage is one storage API over localStorage, IndexedDB, cookies and native storage. ZTools uses it for the settings it keeps on your device.",
+   "sections": [
+    [
+     "Which platforms does it cover?",
+     "The web, iOS and Android, with zero dependencies."
+    ],
+    [
+     "How does it keep secrets on a phone?",
+     "On native platforms it can use the Keychain and the Keystore."
+    ],
+    [
+     "Who is it for?",
+     "Developers. It is an npm package."
+    ]
+   ]
+  },
+  {
+   "id": "tilawah",
+   "name": "Tilawah",
+   "url": "https://tilawah.aoneahsan.com",
+   "platforms": [
+    "Web"
+   ],
+   "logo": "/ecosystem/tilawah.svg",
+   "card": "Live recitation lessons booked in your own timezone.",
+   "title": "Tilawah: Quran lessons that fit your timezone",
+   "intro": "Tilawah offers recorded Tajweed and Tafseer lessons you take at your own pace. It also books live one-on-one recitation sessions in your timezone.",
+   "sections": [
+    [
+     "Why mention timezones?",
+     "Plenty of people open the ZTools timezone converter to set up a call across countries. Tilawah books live sessions in the learner’s own timezone, so that step is not needed."
+    ],
+    [
+     "Can I track my progress?",
+     "Yes, through the self-paced lessons."
+    ],
+    [
+     "Where is it?",
+     "On the web."
+    ]
+   ]
+  },
+  {
+   "id": "trizlink",
+   "name": "Trizlink",
+   "url": "https://trizlink.com",
+   "platforms": [
+    "Web",
+    "Android"
+   ],
+   "logo": "/ecosystem/trizlink.svg",
+   "card": "Made a QR code in ZTools? Point it at a short link you can count clicks on.",
+   "title": "Trizlink: short links and click counts for what you share",
+   "intro": "Trizlink makes branded short links with custom slugs and counts the clicks on them. It also builds link-in-bio pages.",
+   "sections": [
+    [
+     "How does it work with a ZTools QR code?",
+     "The ZTools QR code generator turns a link into a code. If that link is a Trizlink short link, you can see how many people opened it."
+    ],
+    [
+     "Can I use my own domain?",
+     "Yes. Trizlink supports custom domains."
+    ],
+    [
+     "Does it have tools of its own?",
+     "More than 50 built-in utilities. It runs on the web and on Android."
+    ]
+   ]
+  },
+  {
+   "id": "video-controls-plus",
+   "name": "Video Controls Plus",
+   "url": "https://vcpeai.aoneahsan.com",
+   "platforms": [
+    "Chrome extension"
+   ],
+   "logo": "/ecosystem/video-controls-plus.svg",
+   "card": "Studying from a lecture video: slow it down, loop a part, take timestamped notes.",
+   "title": "Video Controls Plus: reviewing a lecture or tutorial video",
+   "intro": "Video Controls Plus gives you full control of any HTML5 video in Chrome. Set the speed from 0.1× to 16×, loop from A to B and step frame by frame.",
+   "sections": [
+    [
+     "Why is it good for studying?",
+     "A tutorial goes too fast in one place and too slow in another. Loop the hard part, slow it down, and keep timestamped notes beside it."
+    ],
+    [
+     "What else can it do?",
+     "Boost audio to 400%, adjust filters and color, take screenshots, and use more than 40 shortcuts."
+    ],
+    [
+     "How is it different from the ZTools video tools?",
+     "The ZTools video tools work on a file: compress it or turn it into a GIF. Video Controls Plus works on the video playing in your browser tab."
+    ]
+   ]
+  },
+  {
+   "id": "waylock",
+   "name": "Waylock",
+   "url": "https://waylock.aoneahsan.com",
+   "platforms": [
+    "Android"
+   ],
+   "logo": "/ecosystem/waylock.svg",
+   "card": "Took a wrong turn on a delivery run? The route you chose stays on screen.",
+   "title": "Waylock: getting back on route after a wrong turn",
+   "intro": "Waylock is an Android planning layer over Google Maps for drivers and couriers. After a wrong turn, the route you chose stays visible beside the choice to return to it or take a new one.",
+   "sections": [
+    [
+     "Can I fix some stops in place?",
+     "Yes. Hold the stops you choose and Waylock orders the rest around them."
+    ],
+    [
+     "Who is it for?",
+     "Drivers and couriers with several stops in a day."
+    ],
+    [
+     "Does it replace Google Maps?",
+     "No. It works as a planning layer over Google Maps."
+    ]
+   ]
+  },
+  {
+   "id": "windowsweep",
+   "name": "windowsweep",
+   "url": "https://windowsweep.aoneahsan.com",
+   "platforms": [
+    "Windows desktop",
+    "npm command line"
+   ],
+   "logo": "/ecosystem/windowsweep.svg",
+   "card": "Clean up a Windows PC from one npx command, with nothing to install.",
+   "title": "windowsweep: Windows cleanup without installing anything",
+   "intro": "windowsweep is a Windows cleanup command line you run with npx, so there is nothing to install. It names every path before it touches one.",
+   "sections": [
+    [
+     "Does it delete straight away?",
+     "No. It runs a real dry run first, and you choose personal files row by row."
+    ],
+    [
+     "Does it send anything online?",
+     "No. It makes no network calls."
+    ],
+    [
+     "What does it cover?",
+     "30 sections. It also runs as a Windows desktop app."
+    ]
+   ]
+  }
+ ],
+ "copy": {
+  "ecosystem.band.eyebrow": "Made by the same team",
+  "ecosystem.title": "More from Zaions",
+  "ecosystem.band.intro": "Other products from the people who build ZTools, each one shown from a task you might start here.",
+  "ecosystem.band.all": "See all products from Zaions",
+  "ecosystem.band.position": "{n} of {total}",
+  "ecosystem.band.slideLabel": "{n} of {total}: {name}",
+  "ecosystem.band.previous": "Previous product",
+  "ecosystem.band.next": "Next product",
+  "ecosystem.band.pause": "Pause the slides",
+  "ecosystem.band.play": "Play the slides",
+  "ecosystem.visit": "Visit {name}",
+  "ecosystem.details": "Details",
+  "ecosystem.detailsLabel": "Details: {name}",
+  "ecosystem.newTab": "(opens in a new tab)",
+  "ecosystem.page.title": "Products from Zaions",
+  "ecosystem.page.lead": "ZTools is one of the products Ahsan Mahmood builds at Zaions. Here are the other {count}, each described from where ZTools sits: the task you might come from, and where the other product takes it.",
+  "ecosystem.page.view": "View",
+  "ecosystem.page.grid": "Grid",
+  "ecosystem.page.list": "List",
+  "ecosystem.page.table": "Table",
+  "ecosystem.page.who": "Who builds them",
+  "ecosystem.page.colProduct": "Product",
+  "ecosystem.page.colFor": "What it is for",
+  "ecosystem.page.colWhere": "Where it runs",
+  "ecosystem.page.colLinks": "Links",
+  "ecosystem.page.seoTitle": "Products from Zaions: more from the team behind ZTools",
+  "ecosystem.page.seoDescription": "ZTools is one of the products Ahsan Mahmood builds at Zaions. See the others, each described from a task you might start in ZTools.",
+  "ecosystem.detail.eyebrow": "From the Zaions team",
+  "ecosystem.detail.all": "All products from Zaions",
+  "ecosystem.detail.breadcrumb": "Breadcrumb",
+  "ecosystem.detail.notFoundTitle": "That product is not on the list",
+  "ecosystem.detail.notFoundBody": "It may have been renamed. The full list of products from Zaions is one click away.",
+  "aboutDev.eyebrow": "About the developer",
+  "aboutDev.title": "Built by Ahsan Mahmood",
+  "aboutDev.lead": "Ahsan Mahmood, who goes by aoneahsan, built ZTools because a separate website for every small job is easy to lose track of. ZTools is his answer: {toolCount} tools in one place.",
+  "aboutDev.portfolio": "Visit Ahsan’s portfolio",
+  "aboutDev.zaions": "Zaions",
+  "aboutDev.ideaEyebrow": "The idea",
+  "aboutDev.ideaTitle": "One place instead of 500 bookmarks.",
+  "aboutDev.ideaBody": "Someone needs an image resizer, and there is a site just for that. Then a PDF viewer, HTML to Markdown, or SVG to PNG, and each one has its own site again. ZTools puts those tools, and hundreds more, on one platform: on the web, on Android and as a browser extension.",
+  "aboutDev.quote": "“You don’t need 500 different websites bookmarked just to get your work done.”",
+  "aboutDev.quoteBy": "Ahsan Mahmood, {date}",
+  "aboutDev.journeyEyebrow": "The journey",
+  "aboutDev.journeyTitle": "How ZTools got here.",
+  "aboutDev.j.2026-01-15": "The ZTools blog publishes its first guide.",
+  "aboutDev.j.2026-05-06": "The ZTools docs site opens.",
+  "aboutDev.j.2026-09-25": "Version 1.4 of the Chrome extension is live in the Chrome Web Store.",
+  "aboutDev.j.2026-10-03": "Accounts and saved data move to Supabase.",
+  "aboutDev.j.2026-10-20": "AI help and Speak, the voice tools, arrive.",
+  "aboutDev.j.2026-10-27": "The website gets a phone app view.",
+  "aboutDev.j.2026-11-05": "Version 2.31 of the Android app on Google Play.",
+  "aboutDev.j.2026-11-21": "An API, an MCP server for AI assistants, and two-step sign-in.",
+  "aboutDev.j.2026-11-22": "ZTools compared with 23 other sites, every price sourced and dated.",
+  "aboutDev.builtEyebrow": "Under the hood",
+  "aboutDev.builtTitle": "How it is built.",
+  "aboutDev.built1": "Many tools run in your browser. AI and some processing tools use a server, and each tool says which.",
+  "aboutDev.built2": "Accounts and saved data live in Supabase. Files you choose to keep are stored privately.",
+  "aboutDev.built3": "The Android app is built from the same code as the website, so a tool works the same way in both.",
+  "aboutDev.built4": "No ad networks. The only promotions in ZTools are for other Zaions products, and ZTools Pro turns them off.",
+  "aboutDev.moreTitle": "More from Ahsan and Zaions.",
+  "aboutDev.moreProducts": "Products from Zaions",
+  "aboutDev.moreProjects": "Ahsan’s projects",
+  "aboutDev.moreZaions": "Zaions",
+  "aboutDev.moreGithub": "GitHub",
+  "aboutDev.moreLinkedin": "LinkedIn",
+  "aboutDev.contactTitle": "Questions about ZTools?",
+  "aboutDev.contactBody": "Write to the ZTools team from the contact page. For help with a tool, the support page is the quickest start.",
+  "aboutDev.contact": "Contact the team",
+  "aboutDev.support": "Support",
+  "aboutDev.seoTitle": "About the developer: Ahsan Mahmood built ZTools",
+  "aboutDev.seoDescription": "Ahsan Mahmood (aoneahsan) built ZTools at Zaions: {toolCount} tools in one place, on the web, Android and as a browser extension.",
+  "footer.credit": "ZTools — developed with love by the Zaions team",
+  "footer.products": "Products from Zaions",
+  "footer.aboutDeveloper": "About the developer"
+ },
+ "toolCount": 579
+}

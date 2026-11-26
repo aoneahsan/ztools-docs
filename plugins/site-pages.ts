@@ -16,12 +16,16 @@ import type { BlogContent } from '@docusaurus/plugin-content-blog';
 import type { LoadedContent as DocsContent } from '@docusaurus/plugin-content-docs';
 import type { AllContent, LoadContext, Plugin, PluginModule } from '@docusaurus/types';
 import { APPS_LASTMOD } from '../src/data/platforms';
+import ecosystem from '../src/data/ecosystem.json';
+
+/** "More from Zaions" and `/about-developer` change when their vendored roster and words do. */
+const ECOSYSTEM_LASTMOD: string = ecosystem.vendored;
 
 /**
  * Docusaurus writes every route module's path into the client bundle, so the absolute path createData returns
  * would publish this machine's folders and give each machine different chunk names. addRoute gets the alias.
  */
-function generatedModule(generatedFilesDir: string, file: string): string {
+export function generatedModule(generatedFilesDir: string, file: string): string {
   return `@generated/${path.relative(generatedFilesDir, file).split(path.sep).join('/')}`;
 }
 
@@ -362,6 +366,7 @@ export function withLastmod<Item extends { readonly url: string; readonly lastmo
     if (pathname === '/sitemap' || pathname === '/') lastmod = newest(() => true);
     // `/apps` lists the released surfaces; it changes when their proof date does.
     else if (pathname === '/apps') lastmod = APPS_LASTMOD;
+    else if (pathname === '/ecosystem' || pathname.startsWith('/ecosystem/') || pathname === '/about-developer') lastmod = ECOSYSTEM_LASTMOD;
     else if (pathname === '/feed' || pathname === blogPath || isPost(pathname)) lastmod = newest(isPost);
     else {
       // A category index lists the pages the sidebar put under it; any other page, the pages under its path.

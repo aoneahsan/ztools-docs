@@ -6,6 +6,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import sitePages, {withLastmod} from './plugins/site-pages';
+import ecosystemPages from './plugins/ecosystem-pages';
 import {OTHER_PLATFORMS, platformHref} from './src/data/platforms';
 
 const SITE_URL = 'https://ztools-docs.zaions.com';
@@ -59,6 +60,8 @@ const config: Config = {
   plugins: [
     // `/sitemap` and `/feed` for people, and `/feed.xml` beside `/sitemap.xml` for machines.
     sitePages({blogPath: BLOG_PATH}),
+    // "More from Zaions": one route per product at /ecosystem/<id> (the website's words, its canonical).
+    ecosystemPages,
     // The API, the OpenAPI document and the MCP server name `/developers` as the docs address.
     ['@docusaurus/plugin-client-redirects', {redirects: [{from: '/developers', to: '/docs/developers'}]}],
   ],
@@ -196,7 +199,9 @@ const config: Config = {
           lastmod: 'date',
           changefreq: null,
           priority: null,
-          ignorePatterns: ['/tags/**', '/docs/tags/**', '/blog/tags/**', '/blog/archive', '/blog/authors/**', '/search'],
+          // The Zaions pages repeat the website's words and name its pages as canonical, so they are listed in the
+          // website's sitemap, not here (every URL in a sitemap carries one self-canonical).
+          ignorePatterns: ['/tags/**', '/docs/tags/**', '/blog/tags/**', '/blog/archive', '/blog/authors/**', '/search', '/ecosystem', '/ecosystem/**', '/about-developer'],
           filename: 'sitemap.xml',
           // A page git cannot date (the blog list, /sitemap, /feed, the home page) takes the newest date it lists.
           createSitemapItems: async ({defaultCreateSitemapItems, ...params}) =>
@@ -294,6 +299,13 @@ const config: Config = {
           ],
         },
         {
+          title: 'Zaions',
+          items: [
+            {label: 'Products from Zaions', to: '/ecosystem'},
+            {label: 'About the developer', to: '/about-developer'},
+          ],
+        },
+        {
           title: 'Contact',
           items: [
             {label: 'About the ZTools team', href: 'https://ztools.zaions.com/about'},
@@ -302,7 +314,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} ZTools.`,
+      copyright: `© ${new Date().getFullYear()} ZTools · ZTools — developed with love by the Zaions team`,
     },
     prism: {
       theme: prismThemes.oneLight,

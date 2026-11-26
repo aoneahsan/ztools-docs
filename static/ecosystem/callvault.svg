@@ -1,0 +1,33 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc"><clipPath id="cvr"><rect width="1024" height="1024" rx="230"/></clipPath><g clip-path="url(#cvr)">
+  <title id="title">CallVault app icon</title>
+  <desc id="desc">The CallVault monogram: a heavy white C, the vault, holding a V, with a coral recording dot in the C's opening, on a deep teal field.</desc>
+  <!-- THE master (redrawn 2026-09-26; the old vault-and-waveform glyph was rejected by Google brand
+       verification as not uniquely identifying the brand). Every derivative is generated from this
+       geometry: C ring centre (544,512) r300 open 44 degrees either side of the right, V 430,392 -> 524,632
+       -> 618,392, record dot (774,512) r58. -->
+  <defs>
+    <linearGradient id="tile" x1="128" y1="64" x2="896" y2="960" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1F899C"/>
+      <stop offset="0.52" stop-color="#166C7D"/>
+      <stop offset="1" stop-color="#0D3E4A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(270 190) rotate(48) scale(760)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79DEE7" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#79DEE7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#tile)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+
+  <g transform="translate(0 20)" fill="none" stroke="#072C35" stroke-opacity="0.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M759.8 303.6A300 300 0 1 0 759.8 720.4" stroke-width="104"/>
+    <path d="M430 392L524 632L618 392" stroke-width="80"/>
+    <circle cx="774" cy="512" r="58" fill="#072C35" fill-opacity="0.3" stroke="none"/>
+  </g>
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M759.8 303.6A300 300 0 1 0 759.8 720.4" stroke-width="104"/>
+    <path d="M430 392L524 632L618 392" stroke-width="80"/>
+  </g>
+  <circle cx="774" cy="512" r="58" fill="#FF8A70"/>
+</g></svg>
