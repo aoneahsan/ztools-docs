@@ -66,6 +66,14 @@ Many tools work in the browser. Some send input to a server or provider, and Gro
 and have plan limits. Each generated page names the tool's current setup. The app's
 [privacy policy](https://ztools.zaions.com/privacy-policy) explains application data processing.
 
+## 🌐 More from Zaions
+
+ZTools is one of the products Ahsan Mahmood builds at Zaions. See the others, each described from a task you might
+start in ZTools, at [Products from Zaions](https://ztools.zaions.com/ecosystem), and who builds them at
+[About the developer](https://ztools.zaions.com/about-developer).
+
+ZTools — developed with love by the Zaions team.
+
 ## License and contact
 
 The docs site source is MIT licensed. Documentation content follows the ZTools app's
