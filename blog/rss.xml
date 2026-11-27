@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>ZTools Documentation Blog</title>
-        <link>https://ztools-docs.zaions.com/blog</link>
+        <link>https://ztools-docs.zaions.com/blog/</link>
         <description>ZTools Documentation Blog</description>
         <lastBuildDate>Sat, 21 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,77 +10,71 @@
         <language>en</language>
         <item>
             <title><![CDATA[Your ZTools data, from a script, an assistant or your server]]></title>
-            <link>https://ztools-docs.zaions.com/blog/other-apps-2026-11</link>
-            <guid>https://ztools-docs.zaions.com/blog/other-apps-2026-11</guid>
+            <link>https://ztools-docs.zaions.com/blog/other-apps-2026-11/</link>
+            <guid>https://ztools-docs.zaions.com/blog/other-apps-2026-11/</guid>
             <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Access keys, Claude and ChatGPT connections, signed webhooks and two-step sign-in arrive in ZTools, each reaching only what you tick.]]></description>
             <content:encoded><![CDATA[<p>You keep a QR code on a printed menu, and the menu changes every season. Until now, pointing it somewhere new meant opening ZTools. Today a script, an assistant or your own server can do it for you.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="three-ways-in">Three ways in<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11#three-ways-in" class="hash-link" aria-label="Direct link to Three ways in" title="Direct link to Three ways in" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="three-ways-in">Three ways in<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11/#three-ways-in" class="hash-link" aria-label="Direct link to Three ways in" title="Direct link to Three ways in" translate="no">​</a></h2>
 <p><strong>Account</strong>, then <strong>Other apps</strong>, has three new parts, on every plan.</p>
 <ul>
-<li class=""><strong>Access keys</strong> let a script or a spreadsheet use the <a class="" href="https://ztools-docs.zaions.com/docs/developers/api">ZTools API</a> as you: list your presets, save a run to history, point a QR code at a new page.</li>
+<li class=""><strong>Access keys</strong> let a script or a spreadsheet use the <a class="" href="https://ztools-docs.zaions.com/docs/developers/api/">ZTools API</a> as you: list your presets, save a run to history, point a QR code at a new page.</li>
 <li class=""><strong>Assistants</strong> connect Claude, ChatGPT, Claude Code or Cursor. Ask one to find a preset or tidy a collection. When it asks to remove something, ZTools asks you first, on a page of its own.</li>
 <li class=""><strong>Webhooks</strong> send a signed message to your server the moment something changes, such as a scan on one of your codes.</li>
 </ul>
 <p>Each one gets only what you tick for it. Your teams, shared links and public content are read only from outside. Speak recordings and AI assistant conversations never leave ZTools.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="two-step-sign-in">Two-step sign-in<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11#two-step-sign-in" class="hash-link" aria-label="Direct link to Two-step sign-in" title="Direct link to Two-step sign-in" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="two-step-sign-in">Two-step sign-in<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11/#two-step-sign-in" class="hash-link" aria-label="Direct link to Two-step sign-in" title="Direct link to Two-step sign-in" translate="no">​</a></h2>
 <p><strong>Account</strong>, then <strong>Security</strong>, can now add a six-digit code from an authenticator app after Google. You get ten recovery codes, and you can let a browser you don't share skip the code for 7 days.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-to-read-more">Where to read more<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11#where-to-read-more" class="hash-link" aria-label="Direct link to Where to read more" title="Direct link to Where to read more" translate="no">​</a></h2>
-<p><a class="" href="https://ztools-docs.zaions.com/docs/developers">ZTools for developers</a> has the details: what each tick reaches, every API address with an example, the webhook events and how to check their signatures, and what to do if you lose your phone.</p>]]></content:encoded>
-            <category>Release</category>
-            <category>ZTools</category>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-to-read-more">Where to read more<a href="https://ztools-docs.zaions.com/blog/other-apps-2026-11/#where-to-read-more" class="hash-link" aria-label="Direct link to Where to read more" title="Direct link to Where to read more" translate="no">​</a></h2>
+<p><a class="" href="https://ztools-docs.zaions.com/docs/developers/">ZTools for developers</a> has the details: what each tick reaches, every API address with an example, the webhook events and how to check their signatures, and what to do if you lose your phone.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[ZTools updates itself, and browser tools have no limit]]></title>
-            <link>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11</link>
-            <guid>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11</guid>
+            <link>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11/</link>
+            <guid>https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11/</guid>
             <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Open tabs now load a new ZTools release by themselves, browser tools need no account and have no usage limit, and one small promotion for another product from the same team.]]></description>
             <content:encoded><![CDATA[<p>You had ZTools open in a tab for a week. Until now, that tab could still be running last week's release. That changes today.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates-reach-open-tabs">Updates reach open tabs<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11#updates-reach-open-tabs" class="hash-link" aria-label="Direct link to Updates reach open tabs" title="Direct link to Updates reach open tabs" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates-reach-open-tabs">Updates reach open tabs<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11/#updates-reach-open-tabs" class="hash-link" aria-label="Direct link to Updates reach open tabs" title="Direct link to Updates reach open tabs" translate="no">​</a></h2>
 <p>A small worker now watches for a new release. It caches nothing. When one is out, the page loads it at a safe moment, and anything you've typed stays where it was.</p>
-<p>Some releases are required. Then an update screen tells you why and offers one Update button. On Android, a new build comes through Google Play's in-app update, and smaller fixes arrive as signed over-the-air updates. <a class="" href="https://ztools-docs.zaions.com/docs/guides/updates">How ZTools stays up to date</a> has the details.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="browser-tools-no-limit-no-account">Browser tools: no limit, no account<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11#browser-tools-no-limit-no-account" class="hash-link" aria-label="Direct link to Browser tools: no limit, no account" title="Direct link to Browser tools: no limit, no account" translate="no">​</a></h2>
+<p>Some releases are required. Then an update screen tells you why and offers one Update button. On Android, a new build comes through Google Play's in-app update, and smaller fixes arrive as signed over-the-air updates. <a class="" href="https://ztools-docs.zaions.com/docs/guides/updates/">How ZTools stays up to date</a> has the details.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="browser-tools-no-limit-no-account">Browser tools: no limit, no account<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11/#browser-tools-no-limit-no-account" class="hash-link" aria-label="Direct link to Browser tools: no limit, no account" title="Direct link to Browser tools: no limit, no account" translate="no">​</a></h2>
 <p>Tools that run in your browser have no usage limit, and you don't need an account to use them.</p>
 <p>Allowances apply only where the work runs on our side: the AI assistant, Speak, and tools that process files on our server. Each feature shows its daily or monthly allowance beside it, and the amount depends on your plan. The <a href="https://ztools.zaions.com/growth/pricing" target="_blank" rel="noopener noreferrer" class="">Plans page</a> lists them.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="one-small-promotion">One small promotion<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11#one-small-promotion" class="hash-link" aria-label="Direct link to One small promotion" title="Direct link to One small promotion" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="one-small-promotion">One small promotion<a href="https://ztools-docs.zaions.com/blog/updates-and-allowances-2026-11/#one-small-promotion" class="hash-link" aria-label="Direct link to One small promotion" title="Direct link to One small promotion" translate="no">​</a></h2>
 <p>The dashboard and tool pages now show one small ad, clearly marked. It's always for another product made by the ZTools team, never for ZTools itself. Plans that remove promotions don't show it.</p>
 <p>The ZTools team</p>]]></content:encoded>
-            <category>Release</category>
-            <category>ZTools</category>
         </item>
         <item>
             <title><![CDATA[What's new in ZTools: tours, a phone app view and plans]]></title>
-            <link>https://ztools-docs.zaions.com/blog/whats-new-2026-10</link>
-            <guid>https://ztools-docs.zaions.com/blog/whats-new-2026-10</guid>
+            <link>https://ztools-docs.zaions.com/blog/whats-new-2026-10/</link>
+            <guid>https://ztools-docs.zaions.com/blog/whats-new-2026-10/</guid>
             <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Page tours and a six-step walkthrough, an app view on phones, the Workbench design, and ZTools Pro and Growth Suite plans.]]></description>
             <content:encoded><![CDATA[<p>Useful tools. One workbench. This release brings the Workbench design to the web app, an app view on phones,
 guided tours, and plans you can buy.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="guided-tours-and-a-walkthrough">Guided tours and a walkthrough<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#guided-tours-and-a-walkthrough" class="hash-link" aria-label="Direct link to Guided tours and a walkthrough" title="Direct link to Guided tours and a walkthrough" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="guided-tours-and-a-walkthrough">Guided tours and a walkthrough<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10/#guided-tours-and-a-walkthrough" class="hash-link" aria-label="Direct link to Guided tours and a walkthrough" title="Direct link to Guided tours and a walkthrough" translate="no">​</a></h2>
 <ul>
 <li class="">On the home page, Speak, Meeting notes, Plans, the dashboard and account settings, the tour button shows a short tour
 of that page. The first time you visit one of these pages, a hint says: "Take a quick tour of this page".</li>
 <li class=""><a href="https://ztools.zaions.com/walkthrough" target="_blank" rel="noopener noreferrer" class="">How ZTools works</a>: six short screens show what ZTools does. Start anywhere.</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="an-app-view-on-phones">An app view on phones<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#an-app-view-on-phones" class="hash-link" aria-label="Direct link to An app view on phones" title="Direct link to An app view on phones" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="an-app-view-on-phones">An app view on phones<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10/#an-app-view-on-phones" class="hash-link" aria-label="Direct link to An app view on phones" title="Direct link to An app view on phones" translate="no">​</a></h2>
 <p>On a phone, home, the dashboard, account settings, sign-in and the first-run screens open as app screens, with a bottom
 bar for Home, Dashboard, Speak, Plans and Account. Web and Android · Many tools work without signing in.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plans">Plans<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#plans" class="hash-link" aria-label="Direct link to Plans" title="Direct link to Plans" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plans">Plans<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10/#plans" class="hash-link" aria-label="Direct link to Plans" title="Direct link to Plans" translate="no">​</a></h2>
 <p>ZTools offers a free plan and paid plans. Each paid plan's price, billing period and allowances are shown on the
 <a href="https://ztools.zaions.com/growth/pricing" target="_blank" rel="noopener noreferrer" class="">Plans page</a> before you pay. Payments are processed by Polar. ZTools never
 receives your card number.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="shared-ai">Shared AI<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10#shared-ai" class="hash-link" aria-label="Direct link to Shared AI" title="Direct link to Shared AI" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="shared-ai">Shared AI<a href="https://ztools-docs.zaions.com/blog/whats-new-2026-10/#shared-ai" class="hash-link" aria-label="Direct link to Shared AI" title="Direct link to Shared AI" translate="no">​</a></h2>
 <p>If Anthropic's shared credit is unavailable, ZTools sends the same request from its server to OpenAI instead, within the
 same allowance. If neither can answer, AI pauses.</p>
 <p>The ZTools team</p>]]></content:encoded>
-            <category>Release</category>
-            <category>ZTools</category>
         </item>
         <item>
             <title><![CDATA[Welcome to the ZTools Blog]]></title>
-            <link>https://ztools-docs.zaions.com/blog/welcome</link>
-            <guid>https://ztools-docs.zaions.com/blog/welcome</guid>
+            <link>https://ztools-docs.zaions.com/blog/welcome/</link>
+            <guid>https://ztools-docs.zaions.com/blog/welcome/</guid>
             <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[This is the first post on the ZTools documentation blog. We'll use this space for:]]></description>
             <content:encoded><![CDATA[<p>This is the first post on the ZTools documentation blog. We'll use this space for:</p>
@@ -89,14 +83,14 @@ same allowance. If neither can answer, AI pauses.</p>
 <li class=""><strong>Tool spotlights</strong> — deep-dives on individual tools and the problems they solve</li>
 <li class=""><strong>Dev journal</strong> — design decisions, technical tradeoffs, occasional mistakes</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-shipped-may-2026">What's shipped (May 2026)<a href="https://ztools-docs.zaions.com/blog/welcome#whats-shipped-may-2026" class="hash-link" aria-label="Direct link to What's shipped (May 2026)" title="Direct link to What's shipped (May 2026)" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-shipped-may-2026">What's shipped (May 2026)<a href="https://ztools-docs.zaions.com/blog/welcome/#whats-shipped-may-2026" class="hash-link" aria-label="Direct link to What's shipped (May 2026)" title="Direct link to What's shipped (May 2026)" translate="no">​</a></h2>
 <ul>
 <li class=""><strong>Tools live</strong> at <a href="https://ztools.zaions.com/" target="_blank" rel="noopener noreferrer" class="">ztools.zaions.com</a> — all browser-only, no signup, no upload</li>
-<li class=""><strong>First wave of docs</strong> — top 20 highest-demand tools documented with use cases, examples, and FAQs (<a class="" href="https://ztools-docs.zaions.com/docs/tools">browse them →</a>)</li>
+<li class=""><strong>First wave of docs</strong> — top 20 highest-demand tools documented with use cases, examples, and FAQs (<a class="" href="https://ztools-docs.zaions.com/docs/tools/">browse them →</a>)</li>
 <li class=""><strong>GitHub repo</strong> for this docs site is open-source: <a href="https://github.com/aoneahsan/ztools-docs" target="_blank" rel="noopener noreferrer" class="">github.com/aoneahsan/ztools-docs</a></li>
 <li class=""><strong>Android app</strong> shipped on Play Store; iOS pending Apple developer account approval</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's next<a href="https://ztools-docs.zaions.com/blog/welcome#whats-next" class="hash-link" aria-label="Direct link to What's next" title="Direct link to What's next" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's next<a href="https://ztools-docs.zaions.com/blog/welcome/#whats-next" class="hash-link" aria-label="Direct link to What's next" title="Direct link to What's next" translate="no">​</a></h2>
 <ul>
 <li class="">15-20 tools per batch through batch 35+ until every documented tool from the app appears here</li>
 <li class="">Long-form how-to guides covering common workflows (compress images, format JSON, generate strong passwords)</li>
@@ -104,8 +98,6 @@ same allowance. If neither can answer, AI pauses.</p>
 </ul>
 <p>If there's a tool you'd like documented sooner, <a href="https://github.com/aoneahsan/ztools-docs/issues" target="_blank" rel="noopener noreferrer" class="">open an issue on GitHub</a> and we'll bump it up the queue.</p>
 <p>— Ahsan</p>]]></content:encoded>
-            <category>Release</category>
-            <category>ZTools</category>
         </item>
     </channel>
 </rss>
