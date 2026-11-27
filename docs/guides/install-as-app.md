@@ -1,7 +1,7 @@
 ---
 title: Install ZTools as an app (PWA)
 description: How to install ZTools as a standalone app on desktop and mobile — and an honest note on offline use.
-tags: [guide, pwa, install, offline]
+topics: [guide, pwa, install, offline]
 sidebar_label: Install as an app (PWA)
 sidebar_position: 6
 ---

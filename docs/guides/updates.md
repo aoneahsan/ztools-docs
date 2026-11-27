@@ -1,7 +1,7 @@
 ---
 title: How ZTools stays up to date
 description: How the ZTools web and Android apps load a new release, what the update screen means, and why your drafts and offline work are safe.
-tags: [guide, updates, android, pwa]
+topics: [guide, updates, android, pwa]
 sidebar_label: How ZTools stays up to date
 sidebar_position: 8
 last_update:

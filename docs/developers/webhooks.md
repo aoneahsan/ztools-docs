@@ -4,7 +4,7 @@ title: ZTools webhooks
 description: Every ZTools webhook event and its payload, how to check a delivery's Standard Webhooks signature in Node and Python, and how retries, pausing and turning off work.
 sidebar_label: Webhooks
 sidebar_position: 4
-tags: [developers, webhooks, standard-webhooks]
+topics: [developers, webhooks, standard-webhooks]
 last_update:
   date: 2026-11-21
   author: The ZTools team

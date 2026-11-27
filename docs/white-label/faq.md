@@ -3,7 +3,7 @@ title: White-label questions
 description: Answers about source code, exclusivity, custom work, payment, iOS and the royalty after a ZTools buyout.
 sidebar_label: Questions
 sidebar_position: 5
-tags: [white-label, faq]
+topics: [white-label, faq]
 last_update:
   date: 2026-11-14
   author: The ZTools team

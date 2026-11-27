@@ -1,0 +1,41 @@
+# Search-console fix log — ztools-docs
+
+Fixed path in every repo (`aoneahsan-cccs-search-issue-remediation`). Newest first. Not published: excluded in
+`docusaurus.config.ts`. The audit session retests with the commands under **Retest**.
+
+## ztools-docs#2 — indexing issues (audit 2026-11-26) · 2026-11-27 · commit: see `git log -- docs/search-consoles/fix-log.md`
+
+Status: box 1 and the ztools-docs part of box 2 are fixed and contract-checked. Live proof is added below after
+publishing. The other hosts in box 2 are Pending (below). Built with zero new warnings; the one webpack warning
+(`vscode-languageserver-types`, pulled in by Mermaid) was there before this change. `yarn seo:contract` passes, and it
+failed on a planted noindex on `/docs/tools/pdf/rotate-pdf/`. Rendered at 1440 before publishing.
+
+| Box | SA | What was wrong (evidence) | Root fix (file) | Contract | Live proof |
+|---|---|---|---|---|---|
+| 1 · 114 tool URLs 404 with a trailing slash | P26 | `trailingSlash: false` wrote `page.html`; on 2026-11-27 `/docs/tools/pdf/rotate-pdf/` → 404, slashless → 200 | `docusaurus.config.ts` `trailingSlash: true`: every page is `<route>/index.html`, and GitHub Pages 301s `/x` to `/x/`. Links from the ZTools app to either form now land | fails on any `x.html` page, unslashed same-origin canonical or unslashed sitemap URL | see Retest |
+| 2 · `/docs/guides/*` (5), `/docs/privacy`, `/blog/archive` | P26 | all trailing-slash forms (probed: `/docs/guides/speak/`, `/docs/privacy/`, `/blog/archive/` → 404) | same switch | same | see Retest |
+| 2 · `/docs/tags/*` (3) | P26/P32 | slashed tag pages 404, and the tag pages were boilerplate | `tags:` front matter → `topics:` (46 docs; the `/sitemap` chips read it in `plugins/site-pages.ts`); every old tag URL redirects to its matching page or `/sitemap` (`plugins/seo-redirects.ts`) | each redirect and its target are checked | `/docs/tags/guide/` → refresh `/sitemap/` |
+| found · `/blog/tags`, `/blog/authors` had no meta description | P29/P32 | thin lists of the same 4 posts; one author entry also printed a personal phone number on a public page | blog tags and `authors.yml` removed; the team written inline as the author of every post; old URLs → `/blog` | contract: one description per page | see Retest |
+| found · ecosystem and about-developer pages | — | they canonicalise to `ztools.zaions.com` on purpose (they carry the website's words) | contract checks the slash form only on same-origin canonicals | — | — |
+
+Overruled by owner law: none in this issue (it asked for redirects, not noindex).
+
+### Pending
+
+| Box | Why not done here | Who | Next action |
+|---|---|---|---|
+| 2 · `ztools.zaions.com/privacy/` | ZTools app repo | fleet SEO session, ztools-website-ionic-react-laravel#1 | slashed 301 in the app's `_redirects` |
+| 2 · `docs.zaions.com/PACKAGES/` | zaions-docs repo | fleet SEO session, zaions-docs#1 | redirect to the live equivalent |
+| 2 · `zaions.com/blogspot/`, `zaions.com/tag/react-final-form` | zaions portfolio repo | fleet SEO session, zaions-portfolio-company-app#1 | 301 to the live equivalents |
+| Google re-crawl and Validate fix | console | daily audit | Validate fix |
+
+### Retest
+
+```bash
+H=https://ztools-docs.zaions.com
+for p in /docs/tools/pdf/rotate-pdf /docs/tools/pdf/rotate-pdf/ /docs/guides/speak/ /docs/privacy/ /blog/archive/; do
+  printf '%s %s\n' "$p" "$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$H$p")"
+done   # slashless → 301 to slashed; slashed → 200
+curl -s "$H/docs/tags/guide/" | grep -o 'http-equiv="refresh"[^>]*'   # → /sitemap/
+curl -s "$H/sitemap.xml" | grep -oE '<loc>[^<]*</loc>' | grep -vc '/</loc>'   # 0
+```

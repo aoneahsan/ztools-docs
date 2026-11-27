@@ -5,7 +5,7 @@ description: Reach your own ZTools favorites, presets, history, collections, wor
 sidebar_label: Overview
 sidebar_position: 0
 slug: /developers
-tags: [developers, api, mcp, webhooks]
+topics: [developers, api, mcp, webhooks]
 last_update:
   date: 2026-11-21
   author: The ZTools team

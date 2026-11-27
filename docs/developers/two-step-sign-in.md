@@ -4,7 +4,7 @@ title: Two-step sign-in for ZTools
 description: Turn on two-step sign-in for ZTools with an authenticator app, keep your ten recovery codes, remember a browser for 7 days, and what to do when you lose your phone.
 sidebar_label: Two-step sign-in
 sidebar_position: 5
-tags: [developers, security, two-step-sign-in, 2fa]
+topics: [developers, security, two-step-sign-in, 2fa]
 last_update:
   date: 2026-11-21
   author: The ZTools team

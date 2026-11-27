@@ -3,7 +3,7 @@ title: Check a licence
 description: How to check a ZTools white-label licence by its key or by the domain it runs on, and what the public licence file contains.
 sidebar_label: Check a licence
 sidebar_position: 4
-tags: [white-label, verification]
+topics: [white-label, verification]
 last_update:
   date: 2026-11-13
   author: The ZTools team

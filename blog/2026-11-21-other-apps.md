@@ -2,8 +2,9 @@
 slug: other-apps-2026-11
 title: "Your ZTools data, from a script, an assistant or your server"
 description: "Access keys, Claude and ChatGPT connections, signed webhooks and two-step sign-in arrive in ZTools, each reaching only what you tick."
-authors: [ztools-team]
-tags: [release, ztools]
+authors:
+  - name: "The ZTools team"
+    url: https://ztools.zaions.com
 last_update:
   date: 2026-11-21
   author: The ZTools team

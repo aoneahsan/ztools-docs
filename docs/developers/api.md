@@ -4,7 +4,7 @@ title: The ZTools API
 description: The ZTools REST API — base URL, the Authorization header, the response envelope, errors, cursor pages, rate limits, and every resource with a curl example.
 sidebar_label: The API
 sidebar_position: 2
-tags: [developers, api, rest, openapi]
+topics: [developers, api, rest, openapi]
 last_update:
   date: 2026-11-21
   author: The ZTools team

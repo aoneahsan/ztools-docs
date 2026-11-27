@@ -1,7 +1,7 @@
 ---
 title: Use Growth Suite tools
 description: See which ZTools Growth Suite tools need an account, provider key, or shared AI allowance, and what happens when you run them.
-tags: [guide, growth-suite, ai, seo]
+topics: [guide, growth-suite, ai, seo]
 sidebar_label: Growth Suite setup
 sidebar_position: 5
 ---

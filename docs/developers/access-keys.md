@@ -4,7 +4,7 @@ title: ZTools access keys
 description: Make an access key for the ZTools API, pick what it can read, change or remove, and show, replace or remove it later.
 sidebar_label: Access keys
 sidebar_position: 1
-tags: [developers, api, access-keys]
+topics: [developers, api, access-keys]
 last_update:
   date: 2026-11-21
   author: The ZTools team

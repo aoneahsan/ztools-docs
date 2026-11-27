@@ -1,6 +1,7 @@
 // Load .env BEFORE any process.env reads below: a local, gitignored .env with the keys you want active.
 // The site is built and published by hand (no GitHub Actions); an absent key skips its service.
 import 'dotenv/config';
+import {seoRedirects} from './plugins/seo-redirects';
 
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
@@ -40,9 +41,9 @@ const config: Config = {
 
   url: SITE_URL,
   baseUrl: '/',
-  // Pages are written as `<path>.html`, so GitHub Pages answers every canonical URL (`/docs/intro`, `/sitemap`) with
-  // 200 instead of a 301 to `/docs/intro/`, and `/sitemap` is the page rather than `sitemap.xml`.
-  trailingSlash: false,
+  // Every page is `<route>/index.html`: GitHub Pages then 301s `/x` to `/x/`. With `false` it served `x.html` and
+  // 404ed every slashed link (114 tool URLs in Search Console, ztools-docs#2, SA-P26).
+  trailingSlash: true,
 
   organizationName: 'aoneahsan',
   projectName: 'ztools-docs',
@@ -64,7 +65,8 @@ const config: Config = {
     // "More from Zaions": one route per product at /ecosystem/<id> (the website's words, its canonical).
     ecosystemPages,
     // The API, the OpenAPI document and the MCP server name `/developers` as the docs address.
-    ['@docusaurus/plugin-client-redirects', {redirects: [{from: '/developers', to: '/docs/developers'}]}],
+    // Old addresses, re-checked after every build by plugins/seo-contract.ts.
+    ['@docusaurus/plugin-client-redirects', {redirects: seoRedirects(__dirname)}],
   ],
 
   headTags: [
@@ -197,6 +199,8 @@ const config: Config = {
             '**/*.test.{js,jsx,ts,tsx}',
             '**/__tests__/**',
             'MANUAL-TASKS.md',
+            // docs/search-consoles/ is the fleet's fixed-path record of search-console work, never a page.
+            'search-consoles/**',
           ],
           editUrl: `${GH_REPO}/edit/main/`,
           showLastUpdateTime: true,
@@ -206,8 +210,9 @@ const config: Config = {
           showReadingTime: true,
           // A post's last update comes from git: its sitemap lastmod.
           showLastUpdateTime: true,
-          // Every tag is declared in blog/tags.yml, so each feed item carries a <category>.
-          tags: 'tags.yml',
+          // No tags and no authors file: the blog has one author, the team, written inline in each post, and its tag
+          // and author pages were thin lists of the same posts (ztools-docs#2, SA-P32). Old addresses redirect to /blog.
+          onInlineAuthors: 'ignore',
           onInlineTags: 'throw',
           editUrl: `${GH_REPO}/edit/main/`,
           feedOptions: {type: ['rss', 'atom'], xslt: true},

@@ -88,6 +88,17 @@ type SidebarItem = DocsVersion['sidebars'][string][number];
 type SidebarCategory = Extract<SidebarItem, { type: 'category' }>;
 
 const DOCS_PLUGIN = 'docusaurus-plugin-content-docs';
+/**
+ * A doc's topic labels from its `topics:` front matter.
+ *
+ * @param frontMatter - the doc's front matter
+ * @returns the labels, empty when it has none
+ */
+function topicsOf(frontMatter: object): string[] {
+  const topics = (frontMatter as {topics?: unknown}).topics;
+  return Array.isArray(topics) ? topics.map(String) : [];
+}
+
 const BLOG_PLUGIN = 'docusaurus-plugin-content-blog';
 const ATOM_NAMESPACE = 'http://www.w3.org/2005/Atom';
 
@@ -112,7 +123,8 @@ function docPage(doc: DocMetadata): SitePage {
     permalink: doc.permalink,
     title: doc.title,
     description: doc.description,
-    tags: doc.tags.map((tag) => tag.label),
+    // Topics are front matter, not tag routes (the /docs/tags/* pages were retired, ztools-docs#2).
+    tags: topicsOf(doc.frontMatter),
   };
 }
 
@@ -169,8 +181,8 @@ function docsGroups(version: DocsVersion): SiteGroup[] {
     }
     if (link?.type === 'generated-index') {
       listedByCategory.set(
-        link.permalink,
-        into.slice(start + 1).map((page) => page.permalink)
+        routeKey(link.permalink),
+        into.slice(start + 1).map((page) => routeKey(page.permalink))
       );
     }
   };
@@ -345,12 +357,23 @@ export function rootFeed({
  * @returns the same entries, each with a lastmod
  * @throws naming the URL, when an entry is still undated
  */
+/**
+ * A pathname without its trailing slash (`/` stays `/`): permalinks end in `/` under `trailingSlash: true`, and
+ * the date lookups compare routes in this one form.
+ *
+ * @param pathname - a pathname or permalink
+ * @returns the same route, slashless
+ */
+export function routeKey(pathname: string): string {
+  return pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+}
+
 export function withLastmod<Item extends { readonly url: string; readonly lastmod?: string | null }>(
   items: readonly Item[],
   blogPath: string
 ): Item[] {
   const dated = items.flatMap((item) =>
-    item.lastmod ? [{ path: new URL(item.url).pathname, lastmod: item.lastmod }] : []
+    item.lastmod ? [{ path: routeKey(new URL(item.url).pathname), lastmod: item.lastmod }] : []
   );
   const newest = (inside: (pathname: string) => boolean): string | undefined =>
     dated
@@ -360,7 +383,7 @@ export function withLastmod<Item extends { readonly url: string; readonly lastmo
 
   return items.map((item) => {
     if (item.lastmod) return item;
-    const pathname = new URL(item.url).pathname;
+    const pathname = routeKey(new URL(item.url).pathname);
     let lastmod: string | undefined;
     // The home page (`src/pages/index.tsx`) points at the whole site, as `/sitemap` does.
     if (pathname === '/sitemap' || pathname === '/') lastmod = newest(() => true);

@@ -4,7 +4,7 @@ title: Connect Claude, ChatGPT, Claude Code or Cursor to ZTools
 description: Connect an assistant to ZTools over MCP, choose what it can read and change, confirm the removals it asks for, and disconnect it.
 sidebar_label: Assistants
 sidebar_position: 3
-tags: [developers, mcp, assistants, claude, chatgpt]
+topics: [developers, mcp, assistants, claude, chatgpt]
 last_update:
   date: 2026-11-21
   author: The ZTools team

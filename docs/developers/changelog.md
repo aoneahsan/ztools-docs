@@ -4,7 +4,7 @@ title: ZTools developers changelog
 description: Changes to the ZTools API, MCP server, webhooks and two-step sign-in, newest first, each entry dated.
 sidebar_label: Developers changelog
 sidebar_position: 6
-tags: [developers, changelog]
+topics: [developers, changelog]
 last_update:
   date: 2026-11-21
   author: The ZTools team

@@ -1,7 +1,7 @@
 ---
 title: Speak — capture a thought, keep what matters
 description: Record a thought in ZTools, then review the notes and tasks Speak suggests.
-tags: [guide, speak, voice]
+topics: [guide, speak, voice]
 sidebar_label: Speak
 sidebar_position: 7
 ---

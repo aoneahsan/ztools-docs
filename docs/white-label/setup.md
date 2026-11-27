@@ -3,7 +3,7 @@ title: From payment to launch
 description: The steps between paying for a ZTools white-label licence and your branded deployment going live.
 sidebar_label: From payment to launch
 sidebar_position: 2
-tags: [white-label, setup]
+topics: [white-label, setup]
 last_update:
   date: 2026-11-14
   author: The ZTools team

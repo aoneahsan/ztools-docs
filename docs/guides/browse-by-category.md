@@ -1,7 +1,7 @@
 ---
 title: Browse tools by category
 description: Find ZTools tools by category and check each tool's route, processing, and plan requirements.
-tags: [guide, navigation, categories]
+topics: [guide, navigation, categories]
 sidebar_label: Browse by category
 sidebar_position: 2
 ---

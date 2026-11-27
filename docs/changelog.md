@@ -2,7 +2,7 @@
 id: changelog
 title: ZTools Changelog
 description: What changed in ZTools and in these docs, newest first, each entry dated.
-tags: [changelog, release]
+topics: [changelog, release]
 sidebar_label: Changelog
 sidebar_position: 99
 ---

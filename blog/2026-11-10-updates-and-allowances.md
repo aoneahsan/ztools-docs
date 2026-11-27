@@ -2,8 +2,10 @@
 slug: updates-and-allowances-2026-11
 title: "ZTools updates itself, and browser tools have no limit"
 description: "Open tabs now load a new ZTools release by themselves, browser tools need no account and have no usage limit, and one small promotion for another product from the same team."
-authors: [ztools-team]
-tags: [release, ztools]
+authors:
+  - name: "The ZTools team"
+    url: https://ztools.zaions.com
+
 ---
 
 # ZTools updates itself, and browser tools have no limit

@@ -1,7 +1,7 @@
 ---
 title: Install the ZTools browser extension
 description: How to install the ZTools browser extension for quick access to tools from any tab.
-tags: [guide, extension, chrome, firefox]
+topics: [guide, extension, chrome, firefox]
 sidebar_label: Install the browser extension
 sidebar_position: 3
 ---

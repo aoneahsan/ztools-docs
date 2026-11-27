@@ -3,7 +3,7 @@ title: What each platform delivers
 description: What a ZTools white-label licence puts under your name on the web, on Android and iOS, and in the browser extension stores.
 sidebar_label: What each platform delivers
 sidebar_position: 1
-tags: [white-label, platforms]
+topics: [white-label, platforms]
 last_update:
   date: 2026-11-13
   author: The ZTools team

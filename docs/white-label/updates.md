@@ -3,7 +3,7 @@ title: Updates and renewals
 description: What counts as an update to a white-label ZTools deployment, how long updates are included, and how a renewal extends them.
 sidebar_label: Updates and renewals
 sidebar_position: 3
-tags: [white-label, updates, renewals]
+topics: [white-label, updates, renewals]
 last_update:
   date: 2026-11-13
   author: The ZTools team

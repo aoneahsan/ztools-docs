@@ -1,7 +1,7 @@
 ---
 title: Get the most out of ZTools
 description: Find a ZTools tool and review sign-in, saved work, appearance, and sharing options.
-tags: [guide, getting-started, workflow]
+topics: [guide, getting-started, workflow]
 sidebar_label: Get the most out of ZTools
 sidebar_position: 1
 ---

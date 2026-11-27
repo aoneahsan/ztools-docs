@@ -1,7 +1,7 @@
 ---
 title: Install the ZTools Android app
 description: How to install the ZTools Android app from Google Play, and what to expect on iOS.
-tags: [guide, android, mobile, ios]
+topics: [guide, android, mobile, ios]
 sidebar_label: Install the Android app
 sidebar_position: 4
 ---

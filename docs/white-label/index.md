@@ -5,7 +5,7 @@ description: What a ZTools white-label licence is, what a buyout is, and where t
 sidebar_label: Overview
 sidebar_position: 0
 slug: /white-label
-tags: [white-label, licensing, business]
+topics: [white-label, licensing, business]
 last_update:
   date: 2026-11-14
   author: The ZTools team
