@@ -22,13 +22,16 @@ failed on a planted noindex on `/docs/tools/pdf/rotate-pdf/`. Rendered at 1440 b
 
 Overruled by owner law: none in this issue (it asked for redirects, not noindex).
 
+### Box 2's other hosts — fixed in their own repos, 2026-11-27
+
+- `ztools.zaions.com/privacy/` → 301 `/privacy-policy` (ztools app commit `6014ba9`)
+- `docs.zaions.com/PACKAGES/` → `/packages/` (zaions-docs commit `7e72502`)
+- `zaions.com/blogspot/`, `zaions.com/tag/react-final-form` → 301 `/blog` (zaions-portfolio commit `115ba06`)
+
 ### Pending
 
 | Box | Why not done here | Who | Next action |
 |---|---|---|---|
-| 2 · `ztools.zaions.com/privacy/` | ZTools app repo | fleet SEO session, ztools-website-ionic-react-laravel#1 | slashed 301 in the app's `_redirects` |
-| 2 · `docs.zaions.com/PACKAGES/` | zaions-docs repo | fleet SEO session, zaions-docs#1 | redirect to the live equivalent |
-| 2 · `zaions.com/blogspot/`, `zaions.com/tag/react-final-form` | zaions portfolio repo | fleet SEO session, zaions-portfolio-company-app#1 | 301 to the live equivalents |
 | Google re-crawl and Validate fix | console | daily audit | Validate fix |
 
 ### Retest
